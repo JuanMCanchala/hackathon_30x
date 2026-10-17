@@ -260,12 +260,18 @@ importers:
 
   apps/web:
     dependencies:
+      '@electric-sql/pglite':
+        specifier: ^0.5.10
+        version: 0.5.10
       '@fontsource-variable/archivo':
         specifier: ^5.2.8
         version: 5.3.0
       '@fontsource-variable/jetbrains-mono':
         specifier: ^5.2.8
         version: 5.3.0
+      '@recibido/api':
+        specifier: workspace:*
+        version: link:../api
       '@recibido/domain':
         specifier: workspace:*
         version: link:../../packages/domain

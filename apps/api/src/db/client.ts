@@ -1,5 +1,6 @@
 import { existsSync } from 'node:fs';
 import { mkdir } from 'node:fs/promises';
+import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { PGlite } from '@electric-sql/pglite';
 import { drizzle as drizzleNodePg } from 'drizzle-orm/node-postgres';
@@ -24,14 +25,17 @@ export interface Database {
 }
 
 function migrationsFolder(): string {
+  // paths joined from this file's directory (not `new URL(…, import.meta.url)`, which bundlers
+  // such as Next's take for an asset to resolve at build time)
+  const here = dirname(fileURLToPath(import.meta.url));
   const candidates = [
     process.env.MIGRATIONS_DIR,
     // bundled build: dist/index.js → dist/drizzle
-    fileURLToPath(new URL('./drizzle', import.meta.url)),
+    join(here, 'drizzle'),
     // bundled script: dist/scripts/x.js → dist/drizzle
-    fileURLToPath(new URL('../drizzle', import.meta.url)),
+    join(here, '../drizzle'),
     // source: src/db/client.ts → drizzle
-    fileURLToPath(new URL('../../drizzle', import.meta.url)),
+    join(here, '../../drizzle'),
   ];
   const found = candidates.find((dir) => dir && existsSync(`${dir}/meta/_journal.json`));
   if (!found) throw new Error('Database migrations not found');

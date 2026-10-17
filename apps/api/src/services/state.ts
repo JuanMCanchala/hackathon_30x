@@ -69,8 +69,30 @@ export interface Deps {
   portalSecret: string | null;
 }
 
-export const newId = (prefix: string) => `${prefix}_${randomUUID()}`;
 export const sha256Hex = (s: string) => createHash('sha256').update(s).digest('hex');
+
+/** null: random ids. A number: the next id of a sequence that every demo reset restarts. */
+let sequence: number | null = null;
+
+/**
+ * Ids from a sequence restarted by every demo reset, so two processes that run the same demo
+ * steps assign the same ids (the embedded demo, whose requests can land on any instance).
+ */
+export function useSequentialIds(): void {
+  sequence = 0;
+}
+
+export function restartIds(): void {
+  if (sequence !== null) sequence = 0;
+}
+
+function sequentialUuid(n: number): string {
+  const h = sha256Hex(`recibido-demo-id-${n}`);
+  return `${h.slice(0, 8)}-${h.slice(8, 12)}-${h.slice(12, 16)}-${h.slice(16, 20)}-${h.slice(20, 32)}`;
+}
+
+export const newId = (prefix: string) =>
+  `${prefix}_${sequence === null ? randomUUID() : sequentialUuid(sequence++)}`;
 
 export async function allVendors(ex: Executor): Promise<Vendor[]> {
   return (await ex.select().from(vendors).where(eq(vendors.orgId, ORG_ID))).map((r) => r.data);

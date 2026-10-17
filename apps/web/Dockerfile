@@ -11,7 +11,10 @@ COPY apps/web/package.json apps/web/
 COPY packages/domain/package.json packages/domain/
 COPY packages/dataset/package.json packages/dataset/
 RUN pnpm install --frozen-lockfile --filter @recibido/web...
+# the embedded API's route handlers compile even when API_URL proxies to the API service
 COPY packages/domain packages/domain
+COPY packages/dataset packages/dataset
+COPY apps/api apps/api
 COPY apps/web apps/web
 # Next.js resolves rewrites at build time, so the API's address is a build argument.
 ARG API_URL=http://api:4000

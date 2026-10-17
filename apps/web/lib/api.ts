@@ -1,6 +1,6 @@
 'use client';
 
-/** Browser client for the Recibido API. Same origin: Next rewrites /api/* to API_URL. */
+/** Browser client for the Recibido API. Same origin: Next proxies /api/* to API_URL, or serves it in-process. */
 import useSWR, { type SWRConfiguration } from 'swr';
 import type {
   BillListItem,

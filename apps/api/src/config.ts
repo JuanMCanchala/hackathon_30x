@@ -2,10 +2,12 @@
  * Configuration from the environment only (keys come from `wallenv run`; no .env file is read).
  * Key values are never logged: use `describeLlm` for anything printed.
  */
+import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { z } from 'zod';
 
-const REPO_ROOT = fileURLToPath(new URL('../../../', import.meta.url));
+// joined, not `new URL(…, import.meta.url)`, which Next's bundler would resolve as an asset
+const REPO_ROOT = join(fileURLToPath(import.meta.url), '../../../../');
 
 const bool = z.enum(['true', 'false', '1', '0']).transform((v) => v === 'true' || v === '1');
 

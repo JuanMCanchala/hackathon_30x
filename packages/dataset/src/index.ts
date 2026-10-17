@@ -41,10 +41,12 @@ export const RETURNING_BILL_ID = 'oct-12-r1';
 /**
  * Absolute path of a dataset directory ('files', 'recordings'): packages/dataset/<name> when
  * running from source, or the copy the API build places next to its bundle
- * (apps/api/dist/dataset/<name>). When none exists yet, the source location, never a path next
- * to a bundle.
+ * (apps/api/dist/dataset/<name>), or DATASET_DIR/<name> when set (a bundle that cannot see either,
+ * such as the embedded API on Vercel). When none exists yet, the source location, never a path
+ * next to a bundle.
  */
 function datasetDir(name: string): string {
+  if (process.env.DATASET_DIR) return join(process.env.DATASET_DIR, name);
   const here = dirname(fileURLToPath(import.meta.url));
   const candidates = [`../${name}`, `./dataset/${name}`, `../dataset/${name}`].map((p) =>
     join(here, p),

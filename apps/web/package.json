@@ -4,6 +4,9 @@
   "private": true,
   "description": "Recibido web app (Spanish UI): landing, bills and their receipts, vendors, conversations, reconciliation and the guided tour.",
   "type": "module",
+  "engines": {
+    "node": "24.x"
+  },
   "scripts": {
     "dev": "next dev --port 3000",
     "build": "next build",
@@ -11,8 +14,10 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
+    "@electric-sql/pglite": "^0.5.10",
     "@fontsource-variable/archivo": "^5.2.8",
     "@fontsource-variable/jetbrains-mono": "^5.2.8",
+    "@recibido/api": "workspace:*",
     "@recibido/domain": "workspace:*",
     "clsx": "^2.1.1",
     "lucide-react": "^1.58.0",

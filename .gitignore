@@ -33,3 +33,4 @@ test-results/
 .screenshots/
 contexto-hackathon.md
 .e2e-data/
+.vercel/

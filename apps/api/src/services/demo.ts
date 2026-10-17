@@ -36,7 +36,15 @@ import { withOrgLock } from './lock';
 import { addStatementCardLine, executeDue } from './rail';
 import { prEvidenceId } from './seed';
 import { shownNow } from './views';
-import { addTimeline, allEvidence, ORG_ID, REOPENED, ServiceError, type BillRow } from './state';
+import {
+  addTimeline,
+  allEvidence,
+  ORG_ID,
+  REOPENED,
+  restartIds,
+  ServiceError,
+  type BillRow,
+} from './state';
 
 /** The October close: the last clock step, when the Blinka statement arrives. */
 const OCTOBER_CLOSE = SCRIPT.octubre.findLast((s) => s.type === 'clock')!;
@@ -133,7 +141,8 @@ export class DemoService {
 
   constructor(
     private readonly c: Container,
-    private readonly paceMs = c.config.demoPaceMs,
+    /** delay between October bills; a host replaying the tour sets it to 0 */
+    public paceMs = c.config.demoPaceMs,
   ) {}
 
   /** the PR merged live: the configured repository, or the dataset's simulated one */
@@ -216,6 +225,7 @@ export class DemoService {
       );
       this.log.length = 0;
       this.problems.length = 0;
+      restartIds();
       await this.c.seed();
       await this.c.clock.set(DEMO_START);
       for (const step of SCRIPT.septiembre) await this.run(step);

@@ -4,6 +4,9 @@
   "private": true,
   "description": "Recibido HTTP API: intake, document reading, line matching, decisions, payments and the vendor portal.",
   "type": "module",
+  "exports": {
+    "./embedded": "./src/embedded.ts"
+  },
   "scripts": {
     "dev": "tsx watch --clear-screen=false src/index.ts",
     "build": "node build.mjs",
