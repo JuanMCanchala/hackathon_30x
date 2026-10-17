@@ -114,7 +114,7 @@ function LinkDialog({
 }
 
 export function ApprovalPanel({ invoice }: { invoice: InvoiceDetail }) {
-  const { session } = useSession();
+  const { session, switchUser } = useSession();
   const { mutate } = useSWRConfig();
   const [note, setNote] = useState('');
   const [busy, setBusy] = useState<'approve' | 'reject' | null>(null);
@@ -125,6 +125,12 @@ export function ApprovalPanel({ invoice }: { invoice: InvoiceDetail }) {
   const me = session?.user;
   const alreadySigned = approval.approvals.some((a) => a.userId === me?.id);
   const approvedCount = approval.approvals.filter((a) => a.action === 'approve').length;
+  // In the demo, the people who can still sign are one click away.
+  const canStillSign = session?.demoMode
+    ? approval.approvers.filter(
+        (a) => a.id !== me?.id && !approval.approvals.some((x) => x.userId === a.id),
+      )
+    : [];
 
   const act = async (action: 'approve' | 'reject') => {
     setBusy(action);
@@ -238,11 +244,30 @@ export function ApprovalPanel({ invoice }: { invoice: InvoiceDetail }) {
               </p>
             </>
           ) : (
-            <p className="text-sm text-ink-2">
-              {alreadySigned
-                ? 'Ya registraste tu aprobación: falta otra persona.'
-                : `${me?.name ?? 'Este usuario'} no puede aprobar pagos. Cambia a Martín o Sofía en el menú de usuario, o manda el enlace al celular.`}
-            </p>
+            <div className="grid gap-3">
+              <p className="text-[0.95rem] text-ink-2">
+                {alreadySigned
+                  ? 'Ya registraste tu aprobación: falta otra persona.'
+                  : `${me?.name ?? 'Este usuario'} sube y revisa facturas, pero no aprueba pagos.`}
+                {canStillSign.length > 0 && ' En la demo puedes seguir como:'}
+              </p>
+              {canStillSign.length > 0 && (
+                <div className="flex flex-wrap gap-2">
+                  {canStillSign.map((a) => (
+                    <Button
+                      key={a.id}
+                      variant="secondary"
+                      onClick={() => {
+                        switchUser(a.id);
+                        toast(`Ahora actúas como ${a.name}`, { description: a.title });
+                      }}
+                    >
+                      {a.name.split(' ')[0]}, {a.title}
+                    </Button>
+                  ))}
+                </div>
+              )}
+            </div>
           )}
           <Button
             variant="ghost"

@@ -117,6 +117,8 @@ export default function ReceiptPage() {
   }
 
   const d = invoice.decision;
+  // What a person has to do comes right after the decision, before the evidence.
+  const awaiting = invoice.approval?.status === 'pending';
   const name = invoice.payee?.name ?? invoice.issuerName ?? 'Quien cobra';
   const counterfactualTitle =
     invoice.outcome === 'HOLD'
@@ -169,6 +171,12 @@ export default function ReceiptPage() {
 
           <SignalsPanel signals={invoice.signals} />
 
+          {awaiting && (
+            <div className="sheet p-6 ring-2 ring-pending/45">
+              <ApprovalPanel invoice={invoice} />
+            </div>
+          )}
+
           {invoice.payment ? (
             <div className="sheet p-6">
               <PaymentPanel payment={invoice.payment} />
@@ -183,19 +191,19 @@ export default function ReceiptPage() {
             )
           )}
 
-          {invoice.status !== 'RECEIVED' && (
-            <div className="sheet p-6">
-              <ReplyPanel invoice={invoice} />
-            </div>
-          )}
+          {invoice.proposal && <ProposalCard proposal={{ ...invoice.proposal }} />}
 
-          {invoice.approval && (
+          {invoice.approval && !awaiting && (
             <div className="sheet p-6">
               <ApprovalPanel invoice={invoice} />
             </div>
           )}
 
-          {invoice.proposal && <ProposalCard proposal={{ ...invoice.proposal }} />}
+          {invoice.status !== 'RECEIVED' && (
+            <div className="sheet p-6">
+              <ReplyPanel invoice={invoice} />
+            </div>
+          )}
 
           {d && (
             <div className="sheet p-6">
@@ -217,7 +225,7 @@ export default function ReceiptPage() {
           </section>
         </article>
 
-        <aside className="grid gap-6 xl:sticky xl:top-20">
+        <aside className="grid gap-6">
           <section className="sheet p-5">
             <h2 className="t-h3 mb-3 text-ink">Documento original</h2>
             <DocumentViewer invoice={invoice} />

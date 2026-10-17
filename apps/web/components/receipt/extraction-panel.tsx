@@ -2,7 +2,13 @@
 
 import clsx from 'clsx';
 import { TriangleAlert } from 'lucide-react';
-import { formatPercent, payoutMethodLabel } from '@mandato/domain';
+import {
+  formatDate,
+  formatMoney,
+  formatPercent,
+  parseDecimalToMinor,
+  payoutMethodLabel,
+} from '@mandato/domain';
 import type { InvoiceDetail } from '@/lib/types';
 
 function Confidence({ value }: { value: number }) {
@@ -14,8 +20,8 @@ function Confidence({ value }: { value: number }) {
           style={{ width: `${Math.round(value * 100)}%` }}
         />
       </span>
-      <span className="w-9 text-right text-xs text-ink-3 tabular-nums">
-        {Math.round(value * 100)}
+      <span className="w-11 text-right text-xs text-ink-3 tabular-nums">
+        {formatPercent(value)}
       </span>
     </span>
   );
@@ -35,6 +41,12 @@ export function ExtractionPanel({ invoice }: { invoice: InvoiceDetail }) {
     );
   }
   const c = x.confidence;
+  // Shown the way a person reads them; a value that does not parse is shown exactly as read.
+  const date = (value: string | null) => (value ? formatDate(value) : null);
+  const money = (value: string | null) => {
+    const minor = x.currency ? parseDecimalToMinor(value, x.currency) : null;
+    return minor !== null && x.currency ? formatMoney(minor, x.currency) : value;
+  };
   const rows: { label: string; value: string | null; confidence?: number }[] = [
     {
       label: 'Quién cobra',
@@ -46,11 +58,15 @@ export function ExtractionPanel({ invoice }: { invoice: InvoiceDetail }) {
       value: [x.billTo.name, x.billTo.taxId].filter(Boolean).join(', ') || null,
     },
     { label: 'Número', value: x.invoiceNumber, confidence: c.invoiceNumber },
-    { label: 'Emisión', value: x.issueDate, confidence: c.issueDate },
-    { label: 'Vencimiento', value: x.dueDate, confidence: x.dueDate ? c.dueDate : undefined },
+    { label: 'Emisión', value: date(x.issueDate), confidence: c.issueDate },
+    {
+      label: 'Vencimiento',
+      value: date(x.dueDate),
+      confidence: x.dueDate ? c.dueDate : undefined,
+    },
     { label: 'Periodo', value: x.servicePeriod },
     { label: 'Moneda', value: x.currency, confidence: c.currency },
-    { label: 'Total', value: x.total, confidence: c.total },
+    { label: 'Total', value: money(x.total), confidence: c.total },
     { label: 'En letras', value: x.amountInWords },
     {
       label: 'Datos de pago',
