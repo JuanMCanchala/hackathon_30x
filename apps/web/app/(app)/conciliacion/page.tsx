@@ -1,14 +1,17 @@
 import type { Metadata } from 'next';
+import { ReconciliationView } from '@/components/recon/recon';
 import { PageHeader } from '@/components/ui';
 
 export const metadata: Metadata = { title: 'Conciliación' };
 
-// Placeholder: Task 13 builds this page.
 export default function Page() {
   return (
-    <PageHeader
-      title="Conciliación"
-      lead="Cada línea del extracto de Blinka enlazada con su pago, su cuenta, su contrato y su evidencia."
-    />
+    <>
+      <PageHeader
+        title="Conciliación"
+        lead="El extracto simulado de Blinka, línea por línea: cada débito unido a su pago, su cuenta, su contrato y la evidencia que lo justificó, con la diferencia de cambio y las comisiones."
+      />
+      <ReconciliationView />
+    </>
   );
 }
