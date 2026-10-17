@@ -2,6 +2,7 @@ import { loadConfig } from '../src/config';
 import { createContainer, type Container } from '../src/container';
 import { GroundTruthExtractor } from '../src/extraction/truth';
 import type { Extractor } from '../src/extraction/types';
+import type { StructuredLlm } from '../src/llm/structured';
 import type { Clock } from '../src/lib/common';
 import { resetDemo } from '../src/services/demo';
 
@@ -22,7 +23,7 @@ export function groundTruth(): GroundTruthExtractor {
 }
 
 export async function demoContainer(
-  options: { extractor?: Extractor; now?: string } = {},
+  options: { extractor?: Extractor; now?: string; llm?: StructuredLlm | null } = {},
 ): Promise<Container & { clock: FixedClock }> {
   const config = loadConfig({
     ...process.env,
@@ -35,7 +36,12 @@ export async function demoContainer(
   const clock = new FixedClock(new Date(options.now ?? '2026-10-16T15:00:00Z'));
   const container = await createContainer(
     { ...config, ANTHROPIC_API_KEY: undefined },
-    { ephemeral: true, extractor: options.extractor ?? groundTruth(), clock },
+    {
+      ephemeral: true,
+      extractor: options.extractor ?? groundTruth(),
+      clock,
+      llm: options.llm ?? null,
+    },
   );
   await resetDemo(container.deps);
   return { ...container, clock };

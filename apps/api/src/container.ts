@@ -7,6 +7,7 @@ import { EventBus } from './events/bus';
 import { CachedExtractor, ExtractionCache } from './extraction/cache';
 import { ClaudeExtractor } from './extraction/claude';
 import { FireworksExtractor } from './extraction/fireworks';
+import { structuredLlm, type StructuredLlm } from './llm/structured';
 import { GroundTruthExtractor } from './extraction/truth';
 import type { Extractor, LiveReader } from './extraction/types';
 import { systemClock, type Clock } from './lib/common';
@@ -21,6 +22,8 @@ export interface Container {
 
 export interface ContainerOverrides {
   extractor?: Extractor;
+  /** A scripted language model for tests; null disables it. */
+  llm?: StructuredLlm | null;
   clock?: Clock;
   documents?: DocumentStore;
   /** In-memory database and document store (tests, evaluation harness). */
@@ -85,6 +88,7 @@ export async function createContainer(
     extractor,
     config,
     policyCompiler: policyCompiler(config),
+    llm: overrides.llm !== undefined ? overrides.llm : structuredLlm(config),
   };
   return { deps, database };
 }

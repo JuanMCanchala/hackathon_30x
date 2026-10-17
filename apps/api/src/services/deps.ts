@@ -5,6 +5,7 @@ import type { EventBus } from '../events/bus';
 import type { Extractor } from '../extraction/types';
 import type { Clock } from '../lib/common';
 import type { DocumentStore } from '../storage/documents';
+import type { StructuredLlm } from '../llm/structured';
 import type { PolicyCompiler } from './policy-compiler';
 
 /** Everything application services depend on: ports, wired by the composition root. */
@@ -16,6 +17,8 @@ export interface Deps {
   extractor: Extractor;
   config: Config;
   policyCompiler: PolicyCompiler | null;
+  /** The language model for answers and drafts; null without a key. */
+  llm: StructuredLlm | null;
 }
 
 /**
