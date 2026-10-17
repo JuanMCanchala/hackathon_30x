@@ -1,0 +1,39 @@
+# dependencies
+node_modules/
+
+# builds
+dist/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+
+# local data (PGlite database, uploaded documents)
+.data/
+
+# env
+.env
+.env.*
+!.env.example
+
+# test & tooling output
+coverage/
+playwright-report/
+test-results/
+.eval/
+
+# os / editors
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# challenge briefs copied from the private HackRadar portal; kept local only
+retos/
+
+# raw captures of public sources (large, local only)
+data/raw/
+data/capture.log
+# recorded model reads of every piece: large, regenerated from the snapshot when needed
+data/llm-cache/enrich/
+data/llm-cache/enrich-light/

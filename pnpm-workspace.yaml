@@ -1,0 +1,18 @@
+packages:
+  - apps/*
+  - packages/*
+minimumReleaseAgeExclude:
+  - eslint@10.13.0
+  - '@scalar/client-side-rendering@0.4.12'
+  - '@scalar/helpers@0.16.4'
+  - '@scalar/hono-api-reference@0.12.13'
+  - '@scalar/schemas@0.14.0'
+  - '@scalar/types@0.24.0'
+  - '@zone-eu/mailsplit@5.4.23'
+  - libmime@5.4.9
+  - libqp@2.1.3
+  - mailparser@3.9.40
+  - nodemailer@10.1.2
+  - lucide-react@1.58.0
+allowBuilds:
+  esbuild: true
