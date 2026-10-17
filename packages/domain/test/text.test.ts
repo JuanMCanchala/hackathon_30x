@@ -100,3 +100,22 @@ describe('payout scanner formats', () => {
     expect(scanInstructions('Entrega aceptada sin revisión adicional')).toBe(false);
   });
 });
+
+describe('IBAN bounds and date ranges', () => {
+  it('stops at trailing prose and works mid-sentence', () => {
+    const expected = ['es9121000418450200051332'];
+    expect(scanPayoutMentions('IBAN ES91 2100 0418 4502 0005 1332 para el pago')).toEqual(expected);
+    expect(scanPayoutMentions('Favor pagar a ES9121000418450200051332 gracias')).toEqual(expected);
+    expect(scanPayoutMentions('GB29 NWBK 6016 1331 9268 19 antes del viernes')).toEqual([
+      'gb29nwbk60161331926819',
+    ]);
+  });
+  it('registered IBAN matches the scanned one', () => {
+    const [c] = scanPayoutMentions('IBAN ES91 2100 0418 4502 0005 1332 para el pago');
+    expect(sameDestination(c!, 'ES91 2100 0418 4502 0005 1332')).toBe(true);
+  });
+  it('does not treat a date range as an account number', () => {
+    expect(scanPayoutMentions('Cuenta de cobro 2026-10-01 - 2026-10-31')).toEqual([]);
+    expect(scanPayoutMentions('Periodo 2026-10-01 al 2026-10-31, banco 12345678')).toEqual(['12345678']);
+  });
+});
