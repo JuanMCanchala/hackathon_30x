@@ -307,7 +307,11 @@ const escapeRe = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
  * author's own name («Business Insider» is not about business).
  */
 function hookOf(r: RawItem): string {
-  let text = [r.title, r.text.slice(0, 280)].filter(Boolean).join('\n');
+  // Links do not count: «swissre.com/our-business» is not a post about business.
+  let text = [r.title, r.text.slice(0, 280)]
+    .filter(Boolean)
+    .join('\n')
+    .replace(/(https?:\/\/|www\.)\S+/gi, ' ');
   for (const name of [r.author.name, r.author.handle]) {
     if (name && name.length > 2) text = text.replace(new RegExp(escapeRe(name), 'gi'), ' ');
   }
