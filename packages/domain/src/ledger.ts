@@ -19,6 +19,9 @@ export type LedgerEntryType =
   | 'PROPOSAL_CREATED'
   | 'PROPOSAL_ACCEPTED'
   | 'PROPOSAL_REJECTED'
+  | 'PAYMENT_SCHEDULED'
+  | 'PAYMENT_SENT'
+  | 'PAYMENT_SETTLED'
   | 'AUDIT_RUN';
 
 export interface LedgerActor {

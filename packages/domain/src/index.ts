@@ -28,3 +28,4 @@ export * from './proposals';
 export * from './ledger';
 export * from './audit';
 export * from './metrics';
+export * from './payments';

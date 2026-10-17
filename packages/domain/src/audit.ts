@@ -13,7 +13,7 @@ import {
   type LedgerEntry,
   type LedgerEntryType,
 } from './ledger';
-import type { Mandate, Payee, PolicyTerms } from './schemas';
+import type { Mandate, Payee, PayoutMethod, PolicyTerms } from './schemas';
 
 // ---------- payloads shared with the API that writes them ----------
 
@@ -24,6 +24,17 @@ export interface UserSnapshot {
   role: 'operator' | 'approver' | 'controller' | 'admin';
   canApprove: boolean;
   canSign: boolean;
+}
+
+export interface PaymentFacts {
+  paymentId: string;
+  invoiceId: string;
+  ref: string;
+  payeeId: string;
+  rail: PayoutMethod;
+  destination: string;
+  currency: string;
+  amountMinor: number;
 }
 
 export interface LedgerPayloads {
@@ -82,6 +93,9 @@ export interface LedgerPayloads {
   PROPOSAL_CREATED: { proposalId: string; invoiceId: string; title: string };
   PROPOSAL_ACCEPTED: { proposalId: string; userId: string; mandateId: string; payeeId: string };
   PROPOSAL_REJECTED: { proposalId: string; userId: string; note: string | null };
+  PAYMENT_SCHEDULED: PaymentFacts & { usdCents: number | null; scheduledFor: string };
+  PAYMENT_SENT: PaymentFacts & { reference: string; expectedSettlement: string };
+  PAYMENT_SETTLED: { paymentId: string; invoiceId: string; ref: string; reference: string };
   AUDIT_RUN: { ok: boolean; violations: number; decisionsChecked: number };
 }
 
@@ -89,7 +103,7 @@ export type PayloadOf<T extends LedgerEntryType> = LedgerPayloads[T];
 
 // ---------- report ----------
 
-export type InvariantId = 'I1' | 'I2' | 'I3' | 'I4' | 'I5' | 'I6' | 'I7' | 'I8' | 'I9';
+export type InvariantId = 'I1' | 'I2' | 'I3' | 'I4' | 'I5' | 'I6' | 'I7' | 'I8' | 'I9' | 'I10';
 
 export const INVARIANTS: Record<InvariantId, string> = {
   I1: 'Pagos solo a beneficiarios habilitados y a su destino registrado',
@@ -101,6 +115,7 @@ export const INVARIANTS: Record<InvariantId, string> = {
   I7: 'Aprobaciones humanas completas y de personas distintas',
   I8: 'Cadena del registro íntegra',
   I9: 'Cada decisión tiene su explicación',
+  I10: 'Cada transferencia sale una vez, al destino registrado y por el monto decidido',
 };
 
 export interface AuditFinding {
@@ -187,6 +202,7 @@ export function auditLedger(entries: readonly LedgerEntry[], hash: HashFn): Audi
     I7: 0,
     I8: 0,
     I9: 0,
+    I10: 0,
   };
   const flag = (invariant: InvariantId, ref: string | null, message: string) =>
     findings.push({ invariant, ref, message });
@@ -219,6 +235,7 @@ export function auditLedger(entries: readonly LedgerEntry[], hash: HashFn): Audi
     string,
     { invoiceId: string; required: number; approvers: Set<string> }
   >();
+  const transferred = new Set<string>();
   let decisionsChecked = 0;
   let paymentsChecked = 0;
   let approvalsChecked = 0;
@@ -340,6 +357,31 @@ export function auditLedger(entries: readonly LedgerEntry[], hash: HashFn): Audi
           );
         }
         if (state) state.status = 'APPROVED';
+        break;
+      }
+      case 'PAYMENT_SENT': {
+        // I10 — money leaves only for a decided bill, once, to the registered destination.
+        const p = entry.payload as PayloadOf<'PAYMENT_SENT'>;
+        checks.I10++;
+        const state = invoices.get(p.invoiceId);
+        const payee = payees.get(p.payeeId);
+        if (!state || !COMMITTED.has(state.status)) {
+          flag('I10', p.ref, 'Transferencia de una factura que no estaba pagada ni aprobada.');
+        } else {
+          if (state.payeeId !== p.payeeId)
+            flag('I10', p.ref, 'La transferencia va a otro beneficiario que el de la decisión.');
+          if (state.amountMinor !== p.amountMinor || state.currency !== p.currency)
+            flag('I10', p.ref, 'La transferencia no es por el monto decidido.');
+        }
+        if (!payee || payee.status !== 'active') {
+          flag('I10', p.ref, 'Transferencia a un beneficiario no habilitado.');
+        } else if (auditDestination(payee.destination.value) !== auditDestination(p.destination)) {
+          flag('I10', p.ref, 'La transferencia salió a un destino distinto del registrado.');
+        }
+        if (transferred.has(p.invoiceId)) {
+          flag('I10', p.ref, 'La factura se transfirió dos veces.');
+        }
+        transferred.add(p.invoiceId);
         break;
       }
       case 'INVOICE_REJECTED': {

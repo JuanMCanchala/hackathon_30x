@@ -137,6 +137,60 @@ describe('auditLedger', () => {
     expect(report.findings.map((f) => f.invariant)).toEqual(expect.arrayContaining(['I2', 'I5']));
   });
 
+  it('certifies a transfer to the registered destination, and catches one that is not', () => {
+    const transfer = (destination: string, invoiceId = 'inv_1') =>
+      ({
+        paymentId: `pmt_${invoiceId}`,
+        invoiceId,
+        ref: 'MND-0001',
+        payeeId: VALENTINA.id,
+        rail: VALENTINA.destination.method,
+        destination,
+        currency: 'COP',
+        amountMinor: decision.facts.amountMinor!,
+        reference: 'BREB-20260901-MND0001',
+        expectedSettlement: '2026-09-01',
+      }) as const;
+    const ledger = seeded();
+    receive(ledger, 'inv_1', 'MND-0001');
+    const decision = decide(context({ payees: [VALENTINA], mandates: [MANDATE_VALENTINA] }));
+    ledger.append('DECISION_RECORDED', decisionPayload(decision, 'inv_1', 'MND-0001'));
+    ledger.append('PAYMENT_SENT', transfer(VALENTINA.destination.value));
+    const clean = auditLedger(ledger.entries, sha256);
+    expect(clean.ok).toBe(true);
+    expect(clean.invariants.find((i) => i.id === 'I10')).toMatchObject({
+      checks: 1,
+      violations: 0,
+    });
+
+    // A transfer to another account, and a second one for the same bill: both caught.
+    ledger.append('PAYMENT_SENT', transfer('@cuenta-del-atacante'));
+    const report = auditLedger(ledger.entries, sha256);
+    expect(report.findings.filter((f) => f.invariant === 'I10').map((f) => f.message)).toEqual([
+      'La transferencia salió a un destino distinto del registrado.',
+      'La factura se transfirió dos veces.',
+    ]);
+  });
+
+  it('catches a transfer for a bill nobody decided to pay', () => {
+    const ledger = seeded();
+    receive(ledger, 'inv_1', 'MND-0001');
+    ledger.append('PAYMENT_SENT', {
+      paymentId: 'pmt_1',
+      invoiceId: 'inv_1',
+      ref: 'MND-0001',
+      payeeId: VALENTINA.id,
+      rail: VALENTINA.destination.method,
+      destination: VALENTINA.destination.value,
+      currency: 'COP',
+      amountMinor: 1_400_000_000,
+      reference: 'BREB-20260901-MND0001',
+      expectedSettlement: '2026-09-01',
+    });
+    const report = auditLedger(ledger.entries, sha256);
+    expect(report.findings.map((f) => f.invariant)).toContain('I10');
+  });
+
   it('requires the configured number of distinct approvers', () => {
     const ledger = seeded();
     receive(ledger, 'inv_1', 'MND-0001');
