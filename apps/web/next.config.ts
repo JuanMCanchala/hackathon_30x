@@ -13,6 +13,8 @@ const config: NextConfig = {
   async rewrites() {
     return [
       { source: '/api/:path*', destination: `${API_URL}/api/:path*` },
+      // The agent gateway, so the Agentes screen can speak to it exactly as an external agent.
+      { source: '/agent/:path*', destination: `${API_URL}/agent/:path*` },
       { source: '/openapi.json', destination: `${API_URL}/openapi.json` },
       { source: '/docs', destination: `${API_URL}/docs` },
     ];

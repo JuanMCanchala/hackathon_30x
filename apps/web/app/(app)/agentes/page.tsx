@@ -4,6 +4,7 @@ import { Bot } from 'lucide-react';
 import { toast } from 'sonner';
 import { CATEGORY_LABELS, formatUsd } from '@mandato/domain';
 import { InvoiceRows } from '@/components/invoice-list';
+import { AgentPlayground } from '@/components/agent-playground';
 import { Button, PageHeader, Skeleton } from '@/components/ui';
 import { useApi } from '@/lib/hooks';
 import type { AgentView, InvoiceListItem } from '@/lib/types';
@@ -78,6 +79,8 @@ export default function AgentesPage() {
         title="Agentes conectados"
         lead="Las empresas ya tienen sus propios agentes y quieren que paguen. Aquí se conectan por MCP: pueden pedir pagos, pero pasan por las mismas reglas, reciben el mismo comprobante y nunca aprueban ni firman nada."
       />
+
+      <AgentPlayground />
 
       <section className="grid gap-5 lg:grid-cols-2">
         {agents === undefined ? (
