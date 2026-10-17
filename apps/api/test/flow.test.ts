@@ -1,8 +1,12 @@
+import { mkdtempSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { findBill, SCRIPT, SCRIPTED_EVIDENCE, VENDORS } from '@recibido/dataset';
 import type { ExtractedBill, LineMatch, Payment } from '@recibido/domain';
 import { afterEach, describe, expect, it } from 'vitest';
 import type { Matcher } from '../src/reading/matcher';
-import type { Reader } from '../src/reading/reader';
+import { BillReader, type Reader } from '../src/reading/reader';
+import { CachedLlm, LlmCache } from '../src/llm/cache';
 import { allEvidence, allPayments } from '../src/services/state';
 import { documentText as datasetDocumentText } from '../../../packages/dataset/test/documents';
 import { replayScript } from '../../../packages/dataset/test/replay';
@@ -59,7 +63,10 @@ describe('evaluating bills', () => {
   });
 
   it('an unreadable document escalates', async () => {
-    c = await setup({ READER: 'auto', LLM_PROVIDER: 'none' });
+    // no recording and no model: the committed recordings stay out of this one
+    const empty = new LlmCache(mkdtempSync(join(tmpdir(), 'recibido-rec-')));
+    const none = { provider: 'none', baseUrl: '', apiKey: null, model: '' } as const;
+    c = await setup({}, { reader: new BillReader(new CachedLlm(empty, none)) });
     const { decision } = await ingest(c, 'oct-02');
     expect(decision?.outcome).toBe('ESCALATE');
     expect(decision?.checks.find((k) => k.id === 'reading.available')?.status).toBe('fail');
