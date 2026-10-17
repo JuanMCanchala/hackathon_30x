@@ -229,12 +229,72 @@ describe('checkInvariants', () => {
     expect(invariants(input([], [payment(b, small)]))).toContain('I2');
   });
 
-  it('is written independently of the engine', () => {
+  it('I2: flags an agent payment in a currency other than the contract’s', () => {
+    const b = paidBill('b1', hourlyBill('10'), small);
+    expect(invariants(input([b], [payment(b, small, { currency: 'USD' })]))).toContain('I2');
+  });
+
+  it('I3: counts what a person paid on the corrected bill', () => {
+    const orig = paidBill('b1', hourlyBill('10'), 0, { status: 'SUPERSEDED', decisions: [] });
+    const rev = paidBill('b2', hourlyBill('10', { revisionOf: 'DO-2026-10' }), small, {
+      chain: ['b2', 'b1'],
+    });
+    const byPerson = payment(orig, small, { decidedBy: 'person', decisionId: null });
+    const v = checkInvariants(input([orig, rev], [byPerson, payment(rev, small)]));
+    expect(v.map((x) => x.invariant)).toEqual(['I3']);
+    expect(v[0]?.paymentId).toBe('p-b2');
+  });
+
+  it('I3 and I4 ignore returned payments', () => {
+    const b = paidBill('b1', hourlyBill('10'), small);
+    const returned = payment(b, small, { id: 'p-ret', status: 'returned' });
+    expect(invariants(input([b], [returned, payment(b, small)]))).toEqual([]);
+    const a = paidBill('b1', retainerBill(), 120_000);
+    const c = paidBill('b2', retainerBill({ invoiceNumber: 'NIM-B' }), 120_000);
+    const back = payment(a, 120_000, { status: 'returned' });
+    expect(invariants(input([a, c], [back, payment(c, 120_000)]))).toEqual([]);
+  });
+
+  it('I4: the monthly cap counts what a person paid', () => {
+    const a = paidBill('b1', retainerBill(), 0, { status: 'APPROVED', decisions: [] });
+    const b = paidBill('b2', retainerBill({ invoiceNumber: 'NIM-B' }), 120_000);
+    const byPerson = payment(a, 120_000, { decidedBy: 'person', decisionId: null });
+    const v = checkInvariants(input([a, b], [byPerson, payment(b, 120_000)]));
+    expect(v.map((x) => x.invariant)).toEqual(['I4']);
+    expect(v[0]?.paymentId).toBe('p-b2');
+  });
+
+  it('I4: a paid bill with no placeable month counts against every month', () => {
+    const undated = retainerBill({ invoiceNumber: 'NIM-X', periodFrom: null, issueDate: null });
+    const a = paidBill('b1', undated, 0, { status: 'APPROVED', decisions: [] });
+    const b = paidBill('b2', retainerBill({ invoiceNumber: 'NIM-B' }), 120_000);
+    const byPerson = payment(a, 120_000, { decidedBy: 'person', decisionId: null });
+    expect(invariants(input([a, b], [byPerson, payment(b, 120_000)]))).toEqual(['I4']);
+  });
+
+  it('I1: flags a person payment for a bill it does not know', () => {
+    const b = paidBill('b1', hourlyBill('10'), small);
+    const p = payment(b, small, { decidedBy: 'person', decisionId: null });
+    expect(invariants(input([], [p]))).toEqual(['I1']);
+  });
+
+  it('treats fractional or negative minutes as no evidence, without crashing', () => {
+    const b = paidBill('b1', hourlyBill('10'), small);
+    const odd = timeEntries(10).map((e, i) => ({ ...e, minutes: i === 0 ? 600.5 : -1 }));
+    expect(invariants(input([b], [payment(b, small)], odd))).toEqual(['I3']);
+  });
+
+  it('is written independently of the engine: imports only an allowlist', () => {
     const src = readFileSync(new URL('../src/checker.ts', import.meta.url), 'utf8');
-    const imports = [...src.matchAll(/from\s+'([^']+)'/g)].map((m) => m[1]);
-    expect(imports.length).toBeGreaterThan(0);
-    for (const banned of ['./engine', './checks', './evidence', './explain'])
-      expect(imports).not.toContain(banned);
+    expect(src).not.toMatch(/\brequire\s*\(|\bimport\s*\(/);
+    const imports = [...src.matchAll(/^\s*(?:import|export)\s+(type\s+)?[^;]*?from\s+'([^']+)'/gm)];
+    const statements = [...src.matchAll(/^\s*import\b/gm)].length;
+    expect(imports.length).toBe(statements);
+    const allowed = ['./money', './text', './scan', './dates', './types', './payments'];
+    for (const [, typeOnly, path] of imports) {
+      expect(allowed).toContain(path);
+      if (path === './payments') expect(typeOnly).toBeDefined();
+    }
   });
 });
 

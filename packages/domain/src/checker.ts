@@ -134,7 +134,8 @@ export function evidencedAmount(bill: CheckerBill, input: CheckerInput): number 
     if (term.kind === 'hours') {
       if (need.kind !== 'time_entry' || unit === null || unit < 0) return;
       const billedMinutes = parseHoursToMinutes(line.quantity ?? '') ?? 0;
-      const logged = items.reduce((s, e) => s + (e.minutes ?? 0), 0);
+      // only whole, positive minutes count; anything else from a source is not evidence
+      const logged = items.reduce((s, e) => s + (wholeMinutes(e.minutes) ?? 0), 0);
       proven = Number((BigInt(Math.min(billedMinutes, logged)) * BigInt(unit)) / 60n);
     } else if (term.kind === 'usage') {
       if (unit === null || unit < 0) return;
@@ -149,6 +150,9 @@ export function evidencedAmount(bill: CheckerBill, input: CheckerInput): number 
   });
   return Math.min(billed, sum);
 }
+
+const wholeMinutes = (m: number | undefined) =>
+  m !== undefined && Number.isSafeInteger(m) && m > 0 ? m : null;
 
 function monthOf(bill: CheckerBill): string | null {
   const r = bill.reading;
@@ -173,7 +177,9 @@ export function checkInvariants(input: CheckerInput): Violation[] {
 
     // I1: the vendor's registered destination, and the vendor of the bill
     const vendor = input.vendors.find((v) => v.id === p.vendorId);
-    if (!vendor)
+    if (!bill && !agent)
+      flag('I1', p.billId, p.id, `El pago ${p.id} no corresponde a ninguna cuenta conocida.`);
+    else if (!vendor)
       flag('I1', p.billId, p.id, `El pago ${p.id} va a un proveedor que no está registrado.`);
     else if (
       normalizeDestination(p.destination) !== normalizeDestination(vendor.payout.destination)
@@ -200,6 +206,15 @@ export function checkInvariants(input: CheckerInput): Violation[] {
         p.billId,
         p.id,
         `El agente pagó ${money(p.amountMinor, p.currency)} y la decisión era ${money(decision.payNowMinor, p.currency)}.`,
+      );
+    const expected =
+      bill && (contractOf(bill)?.currency ?? bill.reading?.currency?.trim().toUpperCase());
+    if (bill && p.currency !== expected)
+      flag(
+        'I2',
+        p.billId,
+        p.id,
+        `El agente pagó en ${p.currency} y la cuenta se cobra en ${expected ?? '(moneda desconocida)'}.`,
       );
 
     // I7: within the automatic payment limit
@@ -244,15 +259,18 @@ export function checkInvariants(input: CheckerInput): Violation[] {
     }
   }
 
-  // I3: when the agent pays a bill, everything the agent paid on its chain so far (the bills it
-  // corrects, and earlier payments of this bill) ≤ what this bill proves and ≤ what it bills.
-  // A later revision never re-judges an earlier payment: each payment is bounded by its own bill.
-  const agentPaid = input.payments.filter((p) => p.decidedBy === 'agent');
-  agentPaid.forEach((p, index) => {
+  // Sums below run over the payments in input order and skip returned ones (that money came
+  // back). Every payment counts towards a sum; only the agent's payments are judged.
+  const live = input.payments.filter((p) => p.status !== 'returned');
+
+  // I3: when the agent pays a bill, everything paid on its chain so far (the bills it corrects,
+  // and earlier payments of this bill) ≤ what this bill proves and ≤ what it bills. A later
+  // revision never re-judges an earlier payment: each payment is bounded by its own bill.
+  live.forEach((p, index) => {
     const bill = billOf(p);
-    if (!bill) return;
+    if (p.decidedBy !== 'agent' || !bill) return;
     const chain = new Set([bill.id, ...bill.chain]);
-    const sum = agentPaid
+    const sum = live
       .filter((q, i) => chain.has(q.billId) && (q.billId !== bill.id || i <= index))
       .reduce((s, q) => s + q.amountMinor, 0);
     const cur = contractOf(bill)?.currency ?? p.currency;
@@ -263,34 +281,33 @@ export function checkInvariants(input: CheckerInput): Violation[] {
         'I3',
         bill.id,
         p.id,
-        `El agente lleva ${money(sum, cur)} pagados en la cuenta ${bill.id} y lo que la precede; la evidencia prueba ${formatMoney(bound, cur)} de ${formatMoney(billed, cur)} facturados.`,
+        `Van ${money(sum, cur)} pagados en la cuenta ${bill.id} y lo que la precede; la evidencia prueba ${formatMoney(bound, cur)} de ${formatMoney(billed, cur)} facturados.`,
       );
   });
 
-  // I4 (cap): agent payments per contract and month ≤ the contract's monthly cap
-  const byMonth = new Map<string, Payment[]>();
-  for (const p of input.payments) {
+  // I4 (cap): when the agent pays, everything paid so far on the contract in that month ≤ the
+  // monthly cap. A bill that cannot be placed in a month counts against every month.
+  live.forEach((p, index) => {
     const bill = billOf(p);
-    const month = bill && monthOf(bill);
-    if (p.decidedBy !== 'agent' || !bill?.contractId || !month) continue;
-    const key = `${bill.contractId}|${month}`;
-    byMonth.set(key, [...(byMonth.get(key) ?? []), p]);
-  }
-  for (const [key, paid] of byMonth) {
-    const contract = input.contracts.find((c) => c.id === key.split('|')[0]);
-    if (!contract) continue;
-    let sum = 0;
-    for (const p of paid) {
-      sum += p.amountMinor;
-      if (sum > contract.periodCapMinor)
-        flag(
-          'I4',
-          p.billId,
-          p.id,
-          `El agente lleva ${money(sum, contract.currency)} pagados en ${key.split('|')[1]} a ${contract.title}, sobre el tope de ${formatMoney(contract.periodCapMinor, contract.currency)}.`,
-        );
-    }
-  }
+    const contract = bill && contractOf(bill);
+    if (p.decidedBy !== 'agent' || !bill || !contract) return;
+    const month = monthOf(bill);
+    const sum = live
+      .filter((q, i) => {
+        const other = billOf(q);
+        if (i > index || !other || other.contractId !== contract.id) return false;
+        const m = monthOf(other);
+        return m === null || month === null || m === month;
+      })
+      .reduce((s, q) => s + q.amountMinor, 0);
+    if (sum > contract.periodCapMinor)
+      flag(
+        'I4',
+        p.billId,
+        p.id,
+        `Van ${money(sum, contract.currency)} pagados a ${contract.title} en ${month ?? 'un mes sin fecha'}, sobre el tope de ${formatMoney(contract.periodCapMinor, contract.currency)}.`,
+      );
+  });
 
   // I5: one invoice number of a vendor is paid on one chain only
   const firstChain = new Map<string, CheckerBill>();

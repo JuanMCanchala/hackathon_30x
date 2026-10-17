@@ -119,7 +119,15 @@ export function evaluateLine(
 
   if (term.kind === 'hours') {
     const billedMinutes = (line.quantity && parseHoursToMinutes(line.quantity)) || 0;
-    const logged = counted.reduce((sum, e) => sum + (e.minutes ?? 0), 0);
+    // only whole, positive minutes count; a fractional or negative entry is not evidence
+    const logged = counted.reduce(
+      (sum, e) =>
+        sum +
+        (e.minutes !== undefined && Number.isSafeInteger(e.minutes) && e.minutes > 0
+          ? e.minutes
+          : 0),
+      0,
+    );
     const minutes = unitMinor === null ? 0 : Math.min(billedMinutes, logged);
     const evidencedMinor = Math.min(
       billedMinor,

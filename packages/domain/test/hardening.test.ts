@@ -112,3 +112,12 @@ describe('public surface', () => {
     expect('runChecks' in domain).toBe(false);
   });
 });
+
+describe('odd time entries from a source', () => {
+  it('counts fractional or negative minutes as no evidence, without crashing', () => {
+    const odd = timeEntries(10).map((e, i) => ({ ...e, minutes: i === 0 ? 479.5 : -60 }));
+    const d = decide(context(hourlyBill('10'), { evidence: odd }));
+    expect(d.evidencedMinor).toBe(0);
+    expect(d.payNowMinor).toBe(0);
+  });
+});
