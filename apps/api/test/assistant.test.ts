@@ -2,7 +2,7 @@ import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { eq } from 'drizzle-orm';
 import type { Container } from '../src/container';
 import { invoices } from '../src/db/schema';
-import type { StructuredLlm } from '../src/llm/structured';
+import { withFriendlyErrors, type StructuredLlm } from '../src/llm/structured';
 import { ask } from '../src/services/ask';
 import { DEMO_ORG_ID, runMonth } from '../src/services/demo';
 import { draftReply } from '../src/services/reply';
@@ -46,6 +46,20 @@ describe('Pregúntale a Mandato', () => {
     expect(call.system).toContain('No puedes pagar, aprobar');
     expect(call.user).toContain('MND-0014');
     expect(call.user).toContain('Transferencias:');
+  });
+
+  it('says what failed and that trying again is fine, instead of "Error interno"', async () => {
+    const offline = withFriendlyErrors({
+      async complete() {
+        throw new TypeError('fetch failed');
+      },
+    });
+    const deps = { ...container.deps, llm: offline };
+    await expect(ask(deps, DEMO_ORG_ID, '¿Qué se paga hoy?')).rejects.toMatchObject({
+      status: 503,
+      code: 'llm_unavailable',
+      message: expect.stringContaining('Intenta de nuevo'),
+    });
   });
 
   it('explains that a model is needed when none is configured', async () => {

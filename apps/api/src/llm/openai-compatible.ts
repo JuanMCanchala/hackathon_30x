@@ -54,9 +54,25 @@ export function jsonSchemaOf(schema: z.ZodType): Record<string, unknown> {
   return rest;
 }
 
+/** A connection that failed before any answer (DNS, connect timeout, reset): worth retrying. */
+const isNetworkError = (error: unknown) =>
+  error instanceof TypeError && error.message === 'fetch failed';
+
+/** fetch with two more tries on network failures; any HTTP answer, even an error, is final. */
+async function fetchWithRetry(url: string, init: RequestInit, attempts = 3): Promise<Response> {
+  for (let attempt = 1; ; attempt++) {
+    try {
+      return await fetch(url, init);
+    } catch (error) {
+      if (attempt >= attempts || !isNetworkError(error)) throw error;
+      await new Promise((resolve) => setTimeout(resolve, 500 * attempt));
+    }
+  }
+}
+
 export async function chatJson(request: ChatJsonRequest): Promise<ChatJsonResult> {
   const started = Date.now();
-  const response = await fetch(`${request.baseUrl.replace(/\/$/, '')}/chat/completions`, {
+  const response = await fetchWithRetry(`${request.baseUrl.replace(/\/$/, '')}/chat/completions`, {
     method: 'POST',
     headers: { authorization: `Bearer ${request.apiKey}`, 'content-type': 'application/json' },
     signal: AbortSignal.timeout(request.timeoutMs ?? 300_000),
@@ -114,6 +130,7 @@ export function describeChatError(error: unknown, label: string): string {
   }
   if (error instanceof Error && error.name === 'TimeoutError')
     return `${label} no respondió a tiempo`;
+  if (isNetworkError(error)) return `no hubo conexión con ${label}`;
   if (error instanceof Error) return error.message;
   return 'error desconocido al leer el documento';
 }

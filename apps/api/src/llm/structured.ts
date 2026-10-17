@@ -6,10 +6,11 @@
  */
 import Anthropic from '@anthropic-ai/sdk';
 import { betaZodOutputFormat } from '@anthropic-ai/sdk/helpers/beta/zod';
-import type { z } from 'zod';
+import { ZodError, type z } from 'zod';
 import type { Config } from '../config';
 import { llmSettings } from '../config';
-import { chatJson, jsonSchemaOf } from './openai-compatible';
+import { AppError } from '../lib/common';
+import { chatJson, describeChatError, jsonSchemaOf } from './openai-compatible';
 
 export interface StructuredLlm {
   complete<T extends z.ZodType>(request: {
@@ -21,9 +22,42 @@ export interface StructuredLlm {
   }): Promise<z.infer<T>>;
 }
 
+/**
+ * Whatever goes wrong talking to the model (network, timeout, a malformed answer) reaches the
+ * person as a 503 that says what happened and that trying again is fine, not as "Error interno".
+ */
+export function withFriendlyErrors(llm: StructuredLlm): StructuredLlm {
+  return {
+    async complete(request) {
+      try {
+        return await llm.complete(request);
+      } catch (error) {
+        if (error instanceof AppError) throw error;
+        console.error(error);
+        const reason =
+          error instanceof ZodError
+            ? 'la respuesta no tuvo el formato esperado'
+            : describeChatError(error, 'el servicio de redacción');
+        throw new AppError(
+          503,
+          'llm_unavailable',
+          `El asistente no pudo responder ahora: ${reason}. Intenta de nuevo en unos segundos.`,
+        );
+      }
+    },
+  };
+}
+
 export function structuredLlm(config: Config): StructuredLlm | null {
   const llm = llmSettings(config);
   if (!llm) return null;
+  return withFriendlyErrors(providerLlm(config, llm));
+}
+
+function providerLlm(
+  config: Config,
+  llm: NonNullable<ReturnType<typeof llmSettings>>,
+): StructuredLlm {
   if (llm.provider === 'fireworks') {
     return {
       async complete({ system, user, schema, name, maxTokens }) {

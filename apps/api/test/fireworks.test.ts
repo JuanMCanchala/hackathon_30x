@@ -102,6 +102,23 @@ describe('Fireworks reader', () => {
     expect(parts[0]?.image_url?.url).toMatch(/^data:image\/png;base64,/);
   });
 
+  it('tries again when the connection fails before any answer', async () => {
+    const { bill, input } = documentOf('ago-04');
+    const ok = new Response(
+      JSON.stringify({
+        choices: [{ finish_reason: 'stop', message: { content: JSON.stringify(bill.truth) } }],
+      }),
+    );
+    const fetchMock = vi
+      .fn()
+      .mockRejectedValueOnce(new TypeError('fetch failed'))
+      .mockResolvedValueOnce(ok);
+    vi.stubGlobal('fetch', fetchMock);
+    const result = await new FireworksExtractor(options).read(input);
+    expect(result.extraction).toEqual(bill.truth);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
   it('reports failures in Spanish instead of throwing', async () => {
     const { input } = documentOf('ago-04');
     answer(401, { error: { message: 'unauthorized' } });
