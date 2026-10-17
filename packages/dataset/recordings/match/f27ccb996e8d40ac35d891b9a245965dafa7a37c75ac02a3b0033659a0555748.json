@@ -1,0 +1,56 @@
+{
+  "key": "f27ccb996e8d40ac35d891b9a245965dafa7a37c75ac02a3b0033659a0555748",
+  "kind": "match",
+  "version": "matcher-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:30:39.176Z",
+  "latencyMs": 679,
+  "usage": {
+    "inputTokens": 578,
+    "outputTokens": 98,
+    "cacheReadTokens": 0
+  },
+  "input": {
+    "lines": [
+      {
+        "description": "Sistema de íconos de la app",
+        "unit": "milestone",
+        "quantity": "1"
+      }
+    ],
+    "terms": [
+      {
+        "id": "ceiba-iconos",
+        "kind": "milestone",
+        "title": "Sistema de íconos de la app"
+      },
+      {
+        "id": "ceiba-piezas-sep",
+        "kind": "milestone",
+        "title": "Piezas para redes, campaña de septiembre"
+      },
+      {
+        "id": "ceiba-brand-kit-v2",
+        "kind": "milestone",
+        "title": "Brand kit v2"
+      },
+      {
+        "id": "ceiba-landing",
+        "kind": "milestone",
+        "title": "Diseño de la landing"
+      }
+    ],
+    "contractId": "ct-estudio-ceiba"
+  },
+  "output": {
+    "matches": [
+      {
+        "lineIndex": 0,
+        "termId": "ceiba-iconos",
+        "confidence": 0.97,
+        "reason": "La línea describe el sistema de íconos de la app, que coincide exactamente con el título del hito ceiba-iconos."
+      }
+    ]
+  }
+}

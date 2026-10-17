@@ -1,0 +1,41 @@
+{
+  "key": "e33ad7f4f822f35d3ab4eb52dcd2332e0fbc66a7a7329775927105ba897a8024",
+  "kind": "match",
+  "version": "matcher-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:30:55.018Z",
+  "latencyMs": 831,
+  "usage": {
+    "inputTokens": 466,
+    "outputTokens": 95,
+    "cacheReadTokens": 384
+  },
+  "input": {
+    "lines": [
+      {
+        "description": "Desarrollo frontend app web — septiembre 2026",
+        "unit": "hour",
+        "quantity": "120"
+      }
+    ],
+    "terms": [
+      {
+        "id": "restrepo-horas",
+        "kind": "hours",
+        "title": "Desarrollo frontend (hora)"
+      }
+    ],
+    "contractId": "ct-julian-restrepo"
+  },
+  "output": {
+    "matches": [
+      {
+        "lineIndex": 0,
+        "termId": "restrepo-horas",
+        "confidence": 0.97,
+        "reason": "La línea factura 120 horas de desarrollo frontend y el término es por horas de desarrollo frontend."
+      }
+    ]
+  }
+}

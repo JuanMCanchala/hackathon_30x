@@ -1,0 +1,41 @@
+{
+  "key": "766976f59fbc4f1ec0437cf54dbe75f0a7a5f7474809e19f03b87526cfbf644b",
+  "kind": "match",
+  "version": "matcher-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:30:54.179Z",
+  "latencyMs": 612,
+  "usage": {
+    "inputTokens": 470,
+    "outputTokens": 125,
+    "cacheReadTokens": 384
+  },
+  "input": {
+    "lines": [
+      {
+        "description": "Team plan, 25 seats — October 2026",
+        "unit": "month",
+        "quantity": "1"
+      }
+    ],
+    "terms": [
+      {
+        "id": "trazo-plan-equipo",
+        "kind": "retainer",
+        "title": "Plan Equipo, 25 usuarios (mes)"
+      }
+    ],
+    "contractId": "ct-trazo-cloud-equipo"
+  },
+  "output": {
+    "matches": [
+      {
+        "lineIndex": 0,
+        "termId": "trazo-plan-equipo",
+        "confidence": 0.95,
+        "reason": "La línea factura el Plan Equipo de 25 usuarios por un mes, que coincide con el término de tipo retainer (cuota mensual)."
+      }
+    ]
+  }
+}

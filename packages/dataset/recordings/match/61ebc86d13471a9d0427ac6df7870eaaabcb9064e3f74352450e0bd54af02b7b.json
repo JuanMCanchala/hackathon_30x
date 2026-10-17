@@ -1,0 +1,51 @@
+{
+  "key": "61ebc86d13471a9d0427ac6df7870eaaabcb9064e3f74352450e0bd54af02b7b",
+  "kind": "match",
+  "version": "matcher-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:30:41.059Z",
+  "latencyMs": 732,
+  "usage": {
+    "inputTokens": 534,
+    "outputTokens": 110,
+    "cacheReadTokens": 0
+  },
+  "input": {
+    "lines": [
+      {
+        "description": "Motor de conciliación bancaria (ALT-214)",
+        "unit": "unit",
+        "quantity": "1"
+      }
+    ],
+    "terms": [
+      {
+        "id": "robles-conciliacion",
+        "kind": "milestone",
+        "title": "Motor de conciliación bancaria"
+      },
+      {
+        "id": "robles-webhooks",
+        "kind": "milestone",
+        "title": "Webhooks de bancos"
+      },
+      {
+        "id": "robles-reportes",
+        "kind": "milestone",
+        "title": "Reportes fiscales"
+      }
+    ],
+    "contractId": "ct-ximena-robles"
+  },
+  "output": {
+    "matches": [
+      {
+        "lineIndex": 0,
+        "termId": "robles-conciliacion",
+        "confidence": 0.97,
+        "reason": "La línea describe el 'Motor de conciliación bancaria', que coincide con el título del hito del mismo nombre."
+      }
+    ]
+  }
+}

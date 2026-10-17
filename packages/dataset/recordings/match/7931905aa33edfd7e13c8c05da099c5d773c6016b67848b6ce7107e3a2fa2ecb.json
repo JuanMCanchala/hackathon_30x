@@ -1,0 +1,51 @@
+{
+  "key": "7931905aa33edfd7e13c8c05da099c5d773c6016b67848b6ce7107e3a2fa2ecb",
+  "kind": "match",
+  "version": "matcher-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:30:40.321Z",
+  "latencyMs": 1133,
+  "usage": {
+    "inputTokens": 556,
+    "outputTokens": 100,
+    "cacheReadTokens": 0
+  },
+  "input": {
+    "lines": [
+      {
+        "description": "Hito M2: pagos dentro de la app (PR #2)",
+        "unit": "milestone",
+        "quantity": "1"
+      }
+    ],
+    "terms": [
+      {
+        "id": "villasenor-m1",
+        "kind": "milestone",
+        "title": "Hito M1: autenticación"
+      },
+      {
+        "id": "villasenor-m2",
+        "kind": "milestone",
+        "title": "Hito M2: pagos dentro de la app"
+      },
+      {
+        "id": "villasenor-m3",
+        "kind": "milestone",
+        "title": "Hito M3: notificaciones push"
+      }
+    ],
+    "contractId": "ct-andres-villasenor"
+  },
+  "output": {
+    "matches": [
+      {
+        "lineIndex": 0,
+        "termId": "villasenor-m2",
+        "confidence": 0.98,
+        "reason": "La línea factura el Hito M2 (pagos dentro de la app), que coincide con el título del término de tipo hito."
+      }
+    ]
+  }
+}

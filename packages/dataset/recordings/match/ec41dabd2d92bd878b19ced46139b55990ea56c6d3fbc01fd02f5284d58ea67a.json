@@ -1,0 +1,41 @@
+{
+  "key": "ec41dabd2d92bd878b19ced46139b55990ea56c6d3fbc01fd02f5284d58ea67a",
+  "kind": "match",
+  "version": "matcher-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:31:07.492Z",
+  "latencyMs": 1243,
+  "usage": {
+    "inputTokens": 475,
+    "outputTokens": 121,
+    "cacheReadTokens": 384
+  },
+  "input": {
+    "lines": [
+      {
+        "description": "Pesquisa com usuários: testes de usabilidade — setembro de 2026",
+        "unit": "hour",
+        "quantity": "96"
+      }
+    ],
+    "terms": [
+      {
+        "id": "lima-horas",
+        "kind": "hours",
+        "title": "Pesquisa com usuários (hora)"
+      }
+    ],
+    "contractId": "ct-beatriz-lima"
+  },
+  "output": {
+    "matches": [
+      {
+        "lineIndex": 0,
+        "termId": "lima-horas",
+        "confidence": 0.95,
+        "reason": "La línea factura pesquisa con usuários (testes de usabilidade) por 96 horas y el término es de investigación con usuarios por hora."
+      }
+    ]
+  }
+}

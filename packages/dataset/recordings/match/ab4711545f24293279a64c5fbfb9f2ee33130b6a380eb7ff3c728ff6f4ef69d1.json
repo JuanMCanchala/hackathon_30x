@@ -1,0 +1,66 @@
+{
+  "key": "ab4711545f24293279a64c5fbfb9f2ee33130b6a380eb7ff3c728ff6f4ef69d1",
+  "kind": "match",
+  "version": "matcher-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:31:08.255Z",
+  "latencyMs": 747,
+  "usage": {
+    "inputTokens": 684,
+    "outputTokens": 110,
+    "cacheReadTokens": 384
+  },
+  "input": {
+    "lines": [
+      {
+        "description": "Escritorios eléctricos (OC-1001)",
+        "unit": "unit",
+        "quantity": "60"
+      }
+    ],
+    "terms": [
+      {
+        "id": "guadua-oc-0912",
+        "kind": "goods",
+        "title": "Sillas ergonómicas (OC-0912)"
+      },
+      {
+        "id": "guadua-oc-0918",
+        "kind": "goods",
+        "title": "Purificadores de aire (OC-0918)"
+      },
+      {
+        "id": "guadua-oc-0927",
+        "kind": "goods",
+        "title": "Cafetera industrial (OC-0927)"
+      },
+      {
+        "id": "guadua-oc-1001",
+        "kind": "goods",
+        "title": "Escritorios eléctricos (OC-1001)"
+      },
+      {
+        "id": "guadua-oc-1010",
+        "kind": "goods",
+        "title": "Lámparas de escritorio (OC-1010)"
+      },
+      {
+        "id": "guadua-oc-1014",
+        "kind": "goods",
+        "title": "Kit de repuestos para sillas (OC-1014)"
+      }
+    ],
+    "contractId": "ct-mantenimientos-guadua"
+  },
+  "output": {
+    "matches": [
+      {
+        "lineIndex": 0,
+        "termId": "guadua-oc-1001",
+        "confidence": 0.98,
+        "reason": "La línea describe escritorios eléctricos con la misma orden de compra OC-1001 que el término de bienes."
+      }
+    ]
+  }
+}

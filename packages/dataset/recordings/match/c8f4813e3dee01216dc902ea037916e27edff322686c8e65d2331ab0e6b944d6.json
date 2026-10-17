@@ -1,0 +1,66 @@
+{
+  "key": "c8f4813e3dee01216dc902ea037916e27edff322686c8e65d2331ab0e6b944d6",
+  "kind": "match",
+  "version": "matcher-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:30:50.050Z",
+  "latencyMs": 4723,
+  "usage": {
+    "inputTokens": 705,
+    "outputTokens": 126,
+    "cacheReadTokens": 384
+  },
+  "input": {
+    "lines": [
+      {
+        "description": "Purificadores de aire (OC-0918)",
+        "unit": "unit",
+        "quantity": "6"
+      }
+    ],
+    "terms": [
+      {
+        "id": "guadua-oc-0912",
+        "kind": "goods",
+        "title": "Sillas ergonómicas (OC-0912)"
+      },
+      {
+        "id": "guadua-oc-0918",
+        "kind": "goods",
+        "title": "Purificadores de aire (OC-0918)"
+      },
+      {
+        "id": "guadua-oc-0927",
+        "kind": "goods",
+        "title": "Cafetera industrial (OC-0927)"
+      },
+      {
+        "id": "guadua-oc-1001",
+        "kind": "goods",
+        "title": "Escritorios eléctricos (OC-1001)"
+      },
+      {
+        "id": "guadua-oc-1010",
+        "kind": "goods",
+        "title": "Lámparas de escritorio (OC-1010)"
+      },
+      {
+        "id": "guadua-oc-1014",
+        "kind": "goods",
+        "title": "Kit de repuestos para sillas (OC-1014)"
+      }
+    ],
+    "contractId": "ct-mantenimientos-guadua"
+  },
+  "output": {
+    "matches": [
+      {
+        "lineIndex": 0,
+        "termId": "guadua-oc-0918",
+        "confidence": 0.99,
+        "reason": "La línea factura purificadores de aire y coincide exactamente con el término de bienes 'Purificadores de aire (OC-0918)', incluida la orden de compra OC-0918."
+      }
+    ]
+  }
+}

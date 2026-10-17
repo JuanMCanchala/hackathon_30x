@@ -1,0 +1,57 @@
+{
+  "key": "d5544fce318c7ed475e27b7cbbc73759bcf4639de1a234bebe12d0dfca75e23e",
+  "kind": "match",
+  "version": "matcher-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:30:32.854Z",
+  "latencyMs": 1775,
+  "usage": {
+    "inputTokens": 535,
+    "outputTokens": 179,
+    "cacheReadTokens": 0
+  },
+  "input": {
+    "lines": [
+      {
+        "description": "Compute (vCPU-hours), August 2026",
+        "unit": "unit",
+        "quantity": "15800"
+      },
+      {
+        "description": "Data transfer (GB), August 2026",
+        "unit": "unit",
+        "quantity": "2950"
+      }
+    ],
+    "terms": [
+      {
+        "id": "faro-vcpu",
+        "kind": "usage",
+        "title": "Cómputo (vCPU-hora)"
+      },
+      {
+        "id": "faro-transferencia",
+        "kind": "usage",
+        "title": "Transferencia de datos (GB)"
+      }
+    ],
+    "contractId": "ct-faro-hosting"
+  },
+  "output": {
+    "matches": [
+      {
+        "lineIndex": 0,
+        "termId": "faro-vcpu",
+        "confidence": 0.97,
+        "reason": "La línea factura cómputo medido en vCPU-horas, que coincide con el término de uso 'Cómputo (vCPU-hora)'."
+      },
+      {
+        "lineIndex": 1,
+        "termId": "faro-transferencia",
+        "confidence": 0.97,
+        "reason": "La línea factura transferencia de datos medida en GB, que coincide con el término de uso 'Transferencia de datos (GB)'."
+      }
+    ]
+  }
+}

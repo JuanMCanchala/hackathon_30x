@@ -1,0 +1,56 @@
+{
+  "key": "878a60a9d96ba2695a39ffd1e3fa9b8bf6e3aebc7a9115cab7cb8433758ff84f",
+  "kind": "match",
+  "version": "matcher-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:30:41.954Z",
+  "latencyMs": 889,
+  "usage": {
+    "inputTokens": 584,
+    "outputTokens": 116,
+    "cacheReadTokens": 0
+  },
+  "input": {
+    "lines": [
+      {
+        "description": "Ilustrações do onboarding (12 peças)",
+        "unit": "unit",
+        "quantity": "1"
+      }
+    ],
+    "terms": [
+      {
+        "id": "jabuti-onboarding",
+        "kind": "milestone",
+        "title": "Ilustrações do onboarding (12 peças)"
+      },
+      {
+        "id": "jabuti-blog",
+        "kind": "milestone",
+        "title": "Ilustrações para o blog (6 peças)"
+      },
+      {
+        "id": "jabuti-mascote",
+        "kind": "milestone",
+        "title": "Mascote e variações"
+      },
+      {
+        "id": "jabuti-icones",
+        "kind": "milestone",
+        "title": "Ícones ilustrados (20 peças)"
+      }
+    ],
+    "contractId": "ct-estudio-jabuti"
+  },
+  "output": {
+    "matches": [
+      {
+        "lineIndex": 0,
+        "termId": "jabuti-onboarding",
+        "confidence": 0.97,
+        "reason": "La línea describe las ilustraciones del onboarding (12 piezas), que coincide textualmente con el hito del contrato."
+      }
+    ]
+  }
+}

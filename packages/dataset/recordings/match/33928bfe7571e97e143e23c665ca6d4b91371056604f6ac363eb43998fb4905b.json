@@ -1,0 +1,51 @@
+{
+  "key": "33928bfe7571e97e143e23c665ca6d4b91371056604f6ac363eb43998fb4905b",
+  "kind": "match",
+  "version": "matcher-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:30:58.888Z",
+  "latencyMs": 882,
+  "usage": {
+    "inputTokens": 554,
+    "outputTokens": 109,
+    "cacheReadTokens": 384
+  },
+  "input": {
+    "lines": [
+      {
+        "description": "Hito M3: notificaciones push (PR #3)",
+        "unit": "milestone",
+        "quantity": "1"
+      }
+    ],
+    "terms": [
+      {
+        "id": "villasenor-m1",
+        "kind": "milestone",
+        "title": "Hito M1: autenticación"
+      },
+      {
+        "id": "villasenor-m2",
+        "kind": "milestone",
+        "title": "Hito M2: pagos dentro de la app"
+      },
+      {
+        "id": "villasenor-m3",
+        "kind": "milestone",
+        "title": "Hito M3: notificaciones push"
+      }
+    ],
+    "contractId": "ct-andres-villasenor"
+  },
+  "output": {
+    "matches": [
+      {
+        "lineIndex": 0,
+        "termId": "villasenor-m3",
+        "confidence": 0.98,
+        "reason": "La línea factura el hito M3 de notificaciones push, que coincide exactamente con el término de tipo hito M3 del contrato."
+      }
+    ]
+  }
+}

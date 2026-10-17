@@ -1,0 +1,41 @@
+{
+  "key": "d82b51d76a66c40ed331485639c185923dad09ad28e638da237e16af60a87232",
+  "kind": "match",
+  "version": "matcher-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:30:38.474Z",
+  "latencyMs": 1599,
+  "usage": {
+    "inputTokens": 481,
+    "outputTokens": 155,
+    "cacheReadTokens": 0
+  },
+  "input": {
+    "lines": [
+      {
+        "description": "Traducción ES -> PT/EN, agosto 2026 (palabras)",
+        "unit": "unit",
+        "quantity": "38400"
+      }
+    ],
+    "terms": [
+      {
+        "id": "palabra-viva-palabras",
+        "kind": "usage",
+        "title": "Traducción ES → PT/EN (palabra)"
+      }
+    ],
+    "contractId": "ct-palabra-viva"
+  },
+  "output": {
+    "matches": [
+      {
+        "lineIndex": 0,
+        "termId": "palabra-viva-palabras",
+        "confidence": 0.97,
+        "reason": "La línea factura traducción ES → PT/EN por palabras (38.400), que coincide con el término de uso por palabra."
+      }
+    ]
+  }
+}

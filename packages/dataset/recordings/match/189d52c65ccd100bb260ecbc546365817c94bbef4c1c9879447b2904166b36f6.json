@@ -1,0 +1,51 @@
+{
+  "key": "189d52c65ccd100bb260ecbc546365817c94bbef4c1c9879447b2904166b36f6",
+  "kind": "match",
+  "version": "matcher-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:30:45.321Z",
+  "latencyMs": 1093,
+  "usage": {
+    "inputTokens": 554,
+    "outputTokens": 106,
+    "cacheReadTokens": 0
+  },
+  "input": {
+    "lines": [
+      {
+        "description": "Webhooks de bancos (ALT-221)",
+        "unit": "unit",
+        "quantity": "1"
+      }
+    ],
+    "terms": [
+      {
+        "id": "robles-conciliacion",
+        "kind": "milestone",
+        "title": "Motor de conciliación bancaria"
+      },
+      {
+        "id": "robles-webhooks",
+        "kind": "milestone",
+        "title": "Webhooks de bancos"
+      },
+      {
+        "id": "robles-reportes",
+        "kind": "milestone",
+        "title": "Reportes fiscales"
+      }
+    ],
+    "contractId": "ct-ximena-robles"
+  },
+  "output": {
+    "matches": [
+      {
+        "lineIndex": 0,
+        "termId": "robles-webhooks",
+        "confidence": 0.97,
+        "reason": "La línea describe 'Webhooks de bancos', que coincide literalmente con el título del término de tipo hito."
+      }
+    ]
+  }
+}

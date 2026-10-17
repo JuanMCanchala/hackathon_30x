@@ -1,0 +1,56 @@
+{
+  "key": "1ef0d15d372ee8df80e04ea9ddba081a64f3a5b1ea4ba481f95fb69a2edc24c1",
+  "kind": "match",
+  "version": "matcher-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:30:51.138Z",
+  "latencyMs": 1082,
+  "usage": {
+    "inputTokens": 585,
+    "outputTokens": 142,
+    "cacheReadTokens": 384
+  },
+  "input": {
+    "lines": [
+      {
+        "description": "Ilustrações para o blog (6 peças)",
+        "unit": "unit",
+        "quantity": "1"
+      }
+    ],
+    "terms": [
+      {
+        "id": "jabuti-onboarding",
+        "kind": "milestone",
+        "title": "Ilustrações do onboarding (12 peças)"
+      },
+      {
+        "id": "jabuti-blog",
+        "kind": "milestone",
+        "title": "Ilustrações para o blog (6 peças)"
+      },
+      {
+        "id": "jabuti-mascote",
+        "kind": "milestone",
+        "title": "Mascote e variações"
+      },
+      {
+        "id": "jabuti-icones",
+        "kind": "milestone",
+        "title": "Ícones ilustrados (20 peças)"
+      }
+    ],
+    "contractId": "ct-estudio-jabuti"
+  },
+  "output": {
+    "matches": [
+      {
+        "lineIndex": 0,
+        "termId": "jabuti-blog",
+        "confidence": 0.98,
+        "reason": "La línea describe exactamente las ilustraciones para el blog (6 piezas), que coincide con el hito del mismo título; no encaja con onboarding, mascote ni ícones."
+      }
+    ]
+  }
+}

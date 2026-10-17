@@ -1,0 +1,41 @@
+{
+  "key": "87d4117ed97519bfd2837f897704d580f84f4f7e214b66049f64313ef64ae73c",
+  "kind": "match",
+  "version": "matcher-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:30:36.859Z",
+  "latencyMs": 1554,
+  "usage": {
+    "inputTokens": 466,
+    "outputTokens": 54,
+    "cacheReadTokens": 0
+  },
+  "input": {
+    "lines": [
+      {
+        "description": "Pesquisa com usuários: entrevistas e síntese",
+        "unit": "unit",
+        "quantity": "80"
+      }
+    ],
+    "terms": [
+      {
+        "id": "lima-horas",
+        "kind": "hours",
+        "title": "Pesquisa com usuários (hora)"
+      }
+    ],
+    "contractId": "ct-beatriz-lima"
+  },
+  "output": {
+    "matches": [
+      {
+        "lineIndex": 0,
+        "termId": "lima-horas",
+        "confidence": 0.9,
+        "reason": "La línea describe pesquisa con usuarios (entrevistas y síntesis), que coincide con el término por horas de pesquisa con usuarios."
+      }
+    ]
+  }
+}

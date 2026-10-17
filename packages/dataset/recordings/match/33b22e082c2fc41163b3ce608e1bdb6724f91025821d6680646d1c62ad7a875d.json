@@ -1,0 +1,41 @@
+{
+  "key": "33b22e082c2fc41163b3ce608e1bdb6724f91025821d6680646d1c62ad7a875d",
+  "kind": "match",
+  "version": "matcher-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:30:34.705Z",
+  "latencyMs": 1833,
+  "usage": {
+    "inputTokens": 489,
+    "outputTokens": 120,
+    "cacheReadTokens": 0
+  },
+  "input": {
+    "lines": [
+      {
+        "description": "Engenharia de dados — agosto de 2026",
+        "unit": "hour",
+        "quantity": "140"
+      }
+    ],
+    "terms": [
+      {
+        "id": "moreira-horas",
+        "kind": "hours",
+        "title": "Engenharia de dados (hora)"
+      }
+    ],
+    "contractId": "ct-thiago-moreira"
+  },
+  "output": {
+    "matches": [
+      {
+        "lineIndex": 0,
+        "termId": "moreira-horas",
+        "confidence": 0.95,
+        "reason": "La línea factura 140 horas de ingeniería de datos y el término es por horas de ingeniería de datos."
+      }
+    ]
+  }
+}

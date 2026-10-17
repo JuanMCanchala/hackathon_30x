@@ -1,0 +1,56 @@
+{
+  "key": "f7b9364f93b55207393f6a9443d012825058360f3444cb3cf7d5f5177a4655c4",
+  "kind": "match",
+  "version": "matcher-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:30:57.996Z",
+  "latencyMs": 961,
+  "usage": {
+    "inputTokens": 595,
+    "outputTokens": 85,
+    "cacheReadTokens": 256
+  },
+  "input": {
+    "lines": [
+      {
+        "description": "Brand kit v2",
+        "unit": "milestone",
+        "quantity": "1"
+      }
+    ],
+    "terms": [
+      {
+        "id": "ceiba-iconos",
+        "kind": "milestone",
+        "title": "Sistema de íconos de la app"
+      },
+      {
+        "id": "ceiba-piezas-sep",
+        "kind": "milestone",
+        "title": "Piezas para redes, campaña de septiembre"
+      },
+      {
+        "id": "ceiba-brand-kit-v2",
+        "kind": "milestone",
+        "title": "Brand kit v2"
+      },
+      {
+        "id": "ceiba-landing",
+        "kind": "milestone",
+        "title": "Diseño de la landing"
+      }
+    ],
+    "contractId": "ct-estudio-ceiba"
+  },
+  "output": {
+    "matches": [
+      {
+        "lineIndex": 0,
+        "termId": "ceiba-brand-kit-v2",
+        "confidence": 0.98,
+        "reason": "La línea describe el 'Brand kit v2', que coincide exactamente con el título del término de tipo milestone."
+      }
+    ]
+  }
+}

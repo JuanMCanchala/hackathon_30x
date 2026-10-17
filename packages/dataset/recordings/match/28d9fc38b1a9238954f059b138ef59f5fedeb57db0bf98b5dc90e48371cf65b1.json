@@ -1,0 +1,51 @@
+{
+  "key": "28d9fc38b1a9238954f059b138ef59f5fedeb57db0bf98b5dc90e48371cf65b1",
+  "kind": "match",
+  "version": "matcher-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:31:11.623Z",
+  "latencyMs": 1749,
+  "usage": {
+    "inputTokens": 532,
+    "outputTokens": 109,
+    "cacheReadTokens": 256
+  },
+  "input": {
+    "lines": [
+      {
+        "description": "Reportes fiscales (ALT-238)",
+        "unit": "milestone",
+        "quantity": "1"
+      }
+    ],
+    "terms": [
+      {
+        "id": "robles-conciliacion",
+        "kind": "milestone",
+        "title": "Motor de conciliación bancaria"
+      },
+      {
+        "id": "robles-webhooks",
+        "kind": "milestone",
+        "title": "Webhooks de bancos"
+      },
+      {
+        "id": "robles-reportes",
+        "kind": "milestone",
+        "title": "Reportes fiscales"
+      }
+    ],
+    "contractId": "ct-ximena-robles"
+  },
+  "output": {
+    "matches": [
+      {
+        "lineIndex": 0,
+        "termId": "robles-reportes",
+        "confidence": 0.97,
+        "reason": "La línea factura el hito \"Reportes fiscales\", que coincide con el título del término por hito."
+      }
+    ]
+  }
+}

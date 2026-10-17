@@ -1,0 +1,67 @@
+{
+  "key": "6ef3d3d51924bb6db7b1c8ba37708699b76927eac9ac8a60c6caf99712aab350",
+  "kind": "match",
+  "version": "matcher-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:31:09.178Z",
+  "latencyMs": 918,
+  "usage": {
+    "inputTokens": 636,
+    "outputTokens": 188,
+    "cacheReadTokens": 384
+  },
+  "input": {
+    "lines": [
+      {
+        "description": "Mascote e variações",
+        "unit": "milestone",
+        "quantity": "1"
+      },
+      {
+        "description": "Ícones ilustrados (20 peças)",
+        "unit": "milestone",
+        "quantity": "1"
+      }
+    ],
+    "terms": [
+      {
+        "id": "jabuti-onboarding",
+        "kind": "milestone",
+        "title": "Ilustrações do onboarding (12 peças)"
+      },
+      {
+        "id": "jabuti-blog",
+        "kind": "milestone",
+        "title": "Ilustrações para o blog (6 peças)"
+      },
+      {
+        "id": "jabuti-mascote",
+        "kind": "milestone",
+        "title": "Mascote e variações"
+      },
+      {
+        "id": "jabuti-icones",
+        "kind": "milestone",
+        "title": "Ícones ilustrados (20 peças)"
+      }
+    ],
+    "contractId": "ct-estudio-jabuti"
+  },
+  "output": {
+    "matches": [
+      {
+        "lineIndex": 0,
+        "termId": "jabuti-mascote",
+        "confidence": 0.97,
+        "reason": "La línea describe el mascote y sus variaciones, que coincide literalmente con el hito del contrato."
+      },
+      {
+        "lineIndex": 1,
+        "termId": "jabuti-icones",
+        "confidence": 0.97,
+        "reason": "La línea factura íconos ilustrados (20 piezas), coincidiendo con el hito de íconos del contrato."
+      }
+    ]
+  }
+}

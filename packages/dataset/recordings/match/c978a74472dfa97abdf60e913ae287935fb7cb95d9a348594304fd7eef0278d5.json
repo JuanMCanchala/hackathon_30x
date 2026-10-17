@@ -1,0 +1,41 @@
+{
+  "key": "c978a74472dfa97abdf60e913ae287935fb7cb95d9a348594304fd7eef0278d5",
+  "kind": "match",
+  "version": "matcher-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:31:03.399Z",
+  "latencyMs": 1140,
+  "usage": {
+    "inputTokens": 503,
+    "outputTokens": 126,
+    "cacheReadTokens": 384
+  },
+  "input": {
+    "lines": [
+      {
+        "description": "Traducción ES -> PT/EN, septiembre 2026 (palabras)",
+        "unit": "unit",
+        "quantity": "52000"
+      }
+    ],
+    "terms": [
+      {
+        "id": "palabra-viva-palabras",
+        "kind": "usage",
+        "title": "Traducción ES → PT/EN (palabra)"
+      }
+    ],
+    "contractId": "ct-palabra-viva"
+  },
+  "output": {
+    "matches": [
+      {
+        "lineIndex": 0,
+        "termId": "palabra-viva-palabras",
+        "confidence": 0.95,
+        "reason": "La línea factura traducción ES→PT/EN por palabras (52.000) y el término es de uso por palabra."
+      }
+    ]
+  }
+}

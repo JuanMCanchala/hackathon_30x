@@ -8,7 +8,7 @@ import type { CachedLlm, LlmMeta } from '../llm/cache';
 import { MATCHER_EXAMPLE, MATCHER_SYSTEM, matcherUser, type MatchInput } from './prompt';
 
 /** Bump when the prompt or the input changes: old recordings stop replaying. */
-export const MATCHER_VERSION = 'matcher-1';
+export const MATCHER_VERSION = 'matcher-2';
 
 export interface MatchRequest {
   lines: ExtractedLine[];

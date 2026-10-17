@@ -1,0 +1,41 @@
+{
+  "key": "c3b948ed9057b5c48f2b6dc860377b8427fd769778e53cdfdcf1b42e7f055ff7",
+  "kind": "match",
+  "version": "matcher-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:30:29.153Z",
+  "latencyMs": 1790,
+  "usage": {
+    "inputTokens": 495,
+    "outputTokens": 131,
+    "cacheReadTokens": 0
+  },
+  "input": {
+    "lines": [
+      {
+        "description": "Gestión de pauta y contenidos — septiembre 2026",
+        "unit": "month",
+        "quantity": "1"
+      }
+    ],
+    "terms": [
+      {
+        "id": "cardumen-mensual",
+        "kind": "retainer",
+        "title": "Gestión de pauta y contenidos (mes)"
+      }
+    ],
+    "contractId": "ct-cardumen-digital"
+  },
+  "output": {
+    "matches": [
+      {
+        "lineIndex": 0,
+        "termId": "cardumen-mensual",
+        "confidence": 0.96,
+        "reason": "La línea factura la gestión mensual de pauta y contenidos por 1 mes, que coincide con el término de retainer mensual del contrato."
+      }
+    ]
+  }
+}
