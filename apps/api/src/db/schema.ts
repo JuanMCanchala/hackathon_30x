@@ -22,6 +22,7 @@ import {
   pgTable,
   serial,
   text,
+  uniqueIndex,
 } from 'drizzle-orm/pg-core';
 
 const bytea = customType<{ data: Buffer; driverData: Buffer }>({
@@ -86,7 +87,12 @@ export const bills = pgTable(
     casePaidMinor: bigint('case_paid_minor', { mode: 'number' }).notNull().default(0),
     datasetId: text('dataset_id'),
   },
-  (t) => [index('bills_org_idx').on(t.orgId), index('bills_vendor_idx').on(t.vendorId)],
+  (t) => [
+    index('bills_org_idx').on(t.orgId),
+    index('bills_vendor_idx').on(t.vendorId),
+    // one bill per document: the same bytes never become a second bill
+    uniqueIndex('bills_document_idx').on(t.documentSha),
+  ],
 );
 
 export const decisions = pgTable(
@@ -119,6 +125,8 @@ export const messages = pgTable(
   'messages',
   {
     id: text('id').primaryKey(),
+    /** insertion order */
+    seq: serial('seq').notNull(),
     orgId: org(),
     billId: text('bill_id').notNull(),
     at: text('at').notNull(),
@@ -147,13 +155,19 @@ export const humanActions = pgTable('human_actions', {
   note: text('note'),
 });
 
-export const payments = pgTable('payments', {
-  id: text('id').primaryKey(),
-  orgId: org(),
-  billId: text('bill_id').notNull(),
-  data: jsonb('data').$type<Payment>().notNull(),
-  status: text('status').notNull(),
-});
+export const payments = pgTable(
+  'payments',
+  {
+    id: text('id').primaryKey(),
+    orgId: org(),
+    /** creation order (the reference RCB-0001 is built from it); payments are read in this order */
+    seq: integer('seq').notNull(),
+    billId: text('bill_id').notNull(),
+    data: jsonb('data').$type<Payment>().notNull(),
+    status: text('status').notNull(),
+  },
+  (t) => [uniqueIndex('payments_seq_idx').on(t.orgId, t.seq)],
+);
 
 export const bankLines = pgTable('bank_lines', {
   id: text('id').primaryKey(),

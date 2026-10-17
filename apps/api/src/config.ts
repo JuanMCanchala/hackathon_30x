@@ -32,7 +32,6 @@ const EnvSchema = z.object({
   GITHUB_WEBHOOK_SECRET: z.string().optional(),
   GITHUB_DEMO_PR: z.coerce.number().int().positive().optional(),
   GITHUB_POLL_MS: z.coerce.number().int().positive().default(5000),
-  PORTAL_TOKEN_SECRET: z.string().min(1).default('change-me'),
   PUBLIC_WEB_URL: z.string().url().default('http://localhost:3000'),
   API_URL: z.string().url().default('http://localhost:4000'),
 });
@@ -63,7 +62,6 @@ export interface Config {
     demoPr: number | null;
     pollMs: number;
   };
-  portalTokenSecret: string;
   publicWebUrl: string;
   apiUrl: string;
   repoRoot: string;
@@ -126,7 +124,6 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env): Config {
       demoPr: e.GITHUB_DEMO_PR ?? null,
       pollMs: e.GITHUB_POLL_MS,
     },
-    portalTokenSecret: e.PORTAL_TOKEN_SECRET,
     publicWebUrl: e.PUBLIC_WEB_URL,
     apiUrl: e.API_URL,
     repoRoot: REPO_ROOT,
