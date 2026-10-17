@@ -6,9 +6,8 @@ import { normalizeDestination } from './text';
  */
 const KEYWORDS =
   /cuenta(?!\s+de\s+cobro)|\bconta\b|banco|clabe|pix|llave|bre-b|\bach\b|routing|account|iban|chave|nequi|daviplata|consign|transfer|datos\s+para\s+el\s+pago|dados\s+para\s+pagamento|dados\s+banc[aá]rios|payment\s+details|remit\s+to/gi;
-/** A payout word right before a tax-id label turns that id into a key ("Chave Pix: CNPJ ..."). */
-const PAYOUT_WORD =
-  /pix|chave|llave|bre-b|clabe|cuenta(?!\s+de\s+cobro)|\bconta\b|account|nequi|daviplata/i;
+/** Any banking word right before a tax-id label turns that id into a key ("Chave Pix: CNPJ ..."). */
+const PAYOUT_WORD = new RegExp(KEYWORDS.source, 'i');
 const TAX_LABEL = String.raw`(?:nit|c\.?\s?c|cnpj|cpf|rfc|ein|tax\s*id)\.?:?\s*(?:n[oº°]\.?\s*)?`;
 const CNPJ = /\b\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}\b/g;
 const EMAIL = /[\w.+-]+@[\w-]+(?:\.[\w-]+)+/g;
@@ -45,16 +44,22 @@ function blankTaxIds(text: string, ids: readonly string[]): string {
   return out;
 }
 
-/** "20800000.00" → "2080000000" and "20800000": how a stated amount reads as a digit run. */
-function amountDigits(amounts: readonly (string | null)[]): Set<string> {
-  const out = new Set<string>();
+/**
+ * How the bill's stated amounts read as digit runs: "20800000.00" → whole "20800000" and, for a
+ * run printed with its decimals ("20800000.00"), "2080000000".
+ */
+function amountDigits(amounts: readonly (string | null)[]) {
+  const whole = new Set<string>();
+  const withCents = new Set<string>();
   for (const a of amounts) {
     const m = /^(\d+)(?:\.(\d+))?$/.exec(a?.trim() ?? '');
     if (!m) continue;
-    out.add(m[1]!);
-    if (m[2]) out.add(m[1]! + m[2]);
+    whole.add(m[1]!);
+    if (m[2]) withCents.add(m[1]! + m[2]);
   }
-  return out;
+  /** a printed run that is one of the amounts */
+  return (run: string, digits: string) =>
+    whole.has(digits) || (withCents.has(digits) && /[.,]\d{2}$/.test(run));
 }
 
 /**
@@ -126,7 +131,7 @@ export function scanPayoutMentions(
   for (const m of rest.matchAll(DIGITS)) {
     const digits = m[0].replace(/\D/g, '');
     if (digits.length < 8) continue;
-    if (digits.length !== 18 && stated.has(digits)) continue; // a CLABE stays a CLABE
+    if (digits.length !== 18 && stated(m[0], digits)) continue; // a CLABE stays a CLABE
     if (digits.length === 18 || near(m.index, m.index + m[0].length)) found.add(digits);
   }
   return [...found];

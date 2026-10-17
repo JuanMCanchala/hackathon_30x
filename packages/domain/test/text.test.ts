@@ -167,6 +167,8 @@ describe('payout scanner precision on real bills', () => {
     expect(scanPayoutMentions('Datos para el pago. TOTAL $ 20.800.000', { amounts })).toEqual([]);
     expect(scanPayoutMentions('banco R$ 20.800.000,00', { amounts })).toEqual([]);
     expect(scanPayoutMentions('CLABE, total MXN 12345678.50', { amounts })).toEqual([]);
+    // the cents-appended form only counts when the run prints the decimals
+    expect(scanPayoutMentions('Cuenta de ahorros 1234567850', { amounts })).toEqual(['1234567850']);
     expect(scanPayoutMentions('Cuenta de ahorros $ 4.512.339.871', { amounts })).toEqual([
       '4512339871',
     ]);
@@ -197,5 +199,8 @@ describe('payout scanner precision on real bills', () => {
     expect(scan('Cuenta de ahorros C.C. 1036645218-7')).toEqual(['10366452187']);
     expect(scan('Cuenta: C.C. 1036645218 77')).toEqual(['103664521877']);
     expect(scan('Cuenta de ahorros 9876543210')).toEqual(['9876543210']);
+    // every banking word before the label keeps the id a candidate
+    expect(scan('Consignar a la C.C. 1036645218')).toEqual(['1036645218']);
+    expect(scan('Banco de Bogota NIT 1036645218')).toEqual(['1036645218']);
   });
 });

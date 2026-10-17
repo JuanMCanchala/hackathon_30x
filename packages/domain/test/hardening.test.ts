@@ -93,6 +93,14 @@ describe('vendor.payout: a currency next to an account does not hide it', () => 
       expect(check(d, 'vendor.payout').status).toBe('fail');
     });
 
+  it('escalates an account that reads like the total with its cents appended', () => {
+    const bill = hourlyBill('120', { payoutDetails: 'Cuenta de ahorros Bancolombia 1380000000' });
+    expect(bill.total).toBe('13800000.00');
+    const d = decide(context(bill, { evidence: timeEntries(120), vendors }));
+    expect(d.outcome).toBe('ESCALATE');
+    expect(check(d, 'vendor.payout').status).toBe('fail');
+  });
+
   it('names the new destination when the text also asks to change it', () => {
     const d = decide(
       context(hourlyBill('120'), {
