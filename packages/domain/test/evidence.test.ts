@@ -144,12 +144,25 @@ describe('evaluateLine hardening', () => {
     expect(run2({ periodTo: null }).status).toBe('missing');
     expect(run2({ periodFrom: null }).evidencedMinor).toBe(0);
     expect(run2({ periodFrom: 'sept' }).status).toBe('missing');
-    const u = evaluateLine(usageLine, 0, usageTerm, bill({ periodTo: null }), 'COP', [usage('100', 'x')], 'v1');
+    const u = evaluateLine(
+      usageLine,
+      0,
+      usageTerm,
+      bill({ periodTo: null }),
+      'COP',
+      [usage('100', 'x')],
+      'v1',
+    );
     expect(u.status).toBe('missing');
   });
 
   it('usage sums exactly and ignores malformed quantities', () => {
-    const r = run(usageLine, usageTerm, [usage('0.1', 'a'), usage('0.2', 'b'), usage('NaN', 'c'), usage('1e3', 'd')]);
+    const r = run(usageLine, usageTerm, [
+      usage('0.1', 'a'),
+      usage('0.2', 'b'),
+      usage('NaN', 'c'),
+      usage('1e3', 'd'),
+    ]);
     expect(r.evidencedQuantity).toBe('0.3');
     expect(r.evidencedQuantity).not.toContain('NaN');
     const bad = run({ ...usageLine, quantity: 'lots' }, usageTerm, [usage('5', 'a')]);
@@ -181,13 +194,25 @@ describe('evaluateLine hardening', () => {
       unitPriceMinor: 100,
       evidence,
     });
-    const line: ExtractedLine = { description: 'x', quantity: '1', unit: 'unit', unitPrice: '1.00', amount: '1.00' };
+    const line: ExtractedLine = {
+      description: 'x',
+      quantity: '1',
+      unit: 'unit',
+      unitPrice: '1.00',
+      amount: '1.00',
+    };
     const ticket = mk('milestone', { type: 'ticket', key: 'ALT-1' });
-    expect(run(line, ticket, [item({ kind: 'ticket_closed', ref: 'ALT-1' })]).status).toBe('evidenced');
+    expect(run(line, ticket, [item({ kind: 'ticket_closed', ref: 'ALT-1' })]).status).toBe(
+      'evidenced',
+    );
     expect(run(line, ticket, [item({ kind: 'ticket_open', ref: 'ALT-1' })]).status).toBe('missing');
     const goods = mk('goods', { type: 'delivery', orderId: 'O-9' });
-    expect(run(line, goods, [item({ kind: 'delivery_confirmed', ref: 'O-9' })]).evidencedMinor).toBe(100);
-    expect(run(line, goods, [item({ kind: 'delivery_confirmed', ref: 'O-8' })]).status).toBe('missing');
+    expect(
+      run(line, goods, [item({ kind: 'delivery_confirmed', ref: 'O-9' })]).evidencedMinor,
+    ).toBe(100);
+    expect(run(line, goods, [item({ kind: 'delivery_confirmed', ref: 'O-8' })]).status).toBe(
+      'missing',
+    );
   });
 
   it('evidence of another vendor is ignored', () => {

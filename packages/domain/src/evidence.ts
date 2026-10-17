@@ -131,7 +131,9 @@ export function evaluateLine(
       evidencedQuantity: hoursString(minutes),
       status: statusOf(minutes, billedMinutes),
       evidence: counted,
-      supporting: mine.filter((e) => e.kind === 'pr_merged' && inPeriod(e, bill.periodFrom, bill.periodTo)),
+      supporting: mine.filter(
+        (e) => e.kind === 'pr_merged' && inPeriod(e, bill.periodFrom, bill.periodTo),
+      ),
     };
   }
 

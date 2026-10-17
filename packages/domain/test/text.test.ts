@@ -1,6 +1,11 @@
 import { describe, expect, it } from 'vitest';
 import { addDays, daysBetween, overlaps, periodKey } from '../src/dates';
-import { mentionsPayoutChange, sameDestination, scanInstructions, scanPayoutMentions } from '../src/scan';
+import {
+  mentionsPayoutChange,
+  sameDestination,
+  scanInstructions,
+  scanPayoutMentions,
+} from '../src/scan';
 import {
   normalizeDestination,
   normalizeInvoiceNumber,
@@ -116,6 +121,8 @@ describe('IBAN bounds and date ranges', () => {
   });
   it('does not treat a date range as an account number', () => {
     expect(scanPayoutMentions('Cuenta de cobro 2026-10-01 - 2026-10-31')).toEqual([]);
-    expect(scanPayoutMentions('Periodo 2026-10-01 al 2026-10-31, banco 12345678')).toEqual(['12345678']);
+    expect(scanPayoutMentions('Periodo 2026-10-01 al 2026-10-31, banco 12345678')).toEqual([
+      '12345678',
+    ]);
   });
 });

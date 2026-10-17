@@ -49,7 +49,9 @@ function findIbans(text: string): { start: number; end: number }[] {
  * e-mail-like keys and other digit runs (>= 8 digits) only near a banking word.
  */
 export function scanPayoutMentions(text: string): string[] {
-  const keywords = [...text.matchAll(KEYWORDS)].map((m) => [m.index, m.index + m[0].length] as const);
+  const keywords = [...text.matchAll(KEYWORDS)].map(
+    (m) => [m.index, m.index + m[0].length] as const,
+  );
   const near = (start: number, end: number) =>
     keywords.some(([ks, ke]) => ks - end <= NEAR && start - ke <= NEAR);
   const found = new Set<string>();
