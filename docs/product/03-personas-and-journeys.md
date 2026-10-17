@@ -20,7 +20,7 @@ bills a month.
 
 ## Journey 1 — A normal month (no human involved)
 
-1. Valentina emails her _cuenta de cobro_ for September.
+1. Valentina emails her _cuenta de cobro_ for August.
 2. Mandato reads it, resolves her by tax ID and Bre-B key, finds her signed mandate and checks
    amount, currency, frequency, limits and budget.
 3. Outcome **PAY**. The receipt says: _"Pagada sola: coincide con el acuerdo firmado con Valentina
@@ -35,7 +35,7 @@ bills a month.
 3. Martín approves from his phone. The dashboard updates live.
 4. The agent proposes: _"Código Norte factura MXN 185.000 cada mes. ¿Firmar una excepción para
    pagarle hasta ese monto sin aprobación? Exposición máxima: USD 10.000/mes."_
-5. Martín signs. In October, Código Norte's bill is paid without escalation.
+5. Martín signs. In September, Código Norte's bill is paid without escalation.
 
 ## Journey 3 — Something is off (HOLD)
 

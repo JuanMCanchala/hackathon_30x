@@ -24,7 +24,7 @@
 | F9  | Independent audit of every payment and of the ledger's integrity; CSV/JSON export for reconciliation.                                             | ADR-0006         |
 | F10 | Attack lab: launch adversarial bills on demand.                                                                                                   | Differentiator   |
 | F11 | MCP gateway for external agents with scoped keys.                                                                                                 | ADR-0013         |
-| F12 | Demo mode: seed the fictitious company and replay September and October.                                                                          | Jury walkthrough |
+| F12 | Demo mode: seed the fictitious company and replay August and September, the live files and the attack lab.                                        | Jury walkthrough |
 
 ### Non-functional
 

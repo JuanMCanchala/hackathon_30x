@@ -34,6 +34,6 @@ Both runs must report **0 unsafe payments**. CI fails otherwise.
 
 ## The trust ladder metric
 
-The headline number of the demo is the **autonomy delta** between month 1 (September, initial
-mandates) and month 2 (October, after humans resolved escalations and accepted the agent's
+The headline number of the demo is the **autonomy delta** between month 1 (August 2026, initial
+mandates) and month 2 (September 2026, after humans resolved escalations and accepted the agent's
 proposals), with unsafe payments at 0 in both.
