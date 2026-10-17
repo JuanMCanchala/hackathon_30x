@@ -24,6 +24,7 @@ const InvoiceQuery = z.object({
     .regex(/^\d{4}-\d{2}$/)
     .optional(),
   q: z.string().max(100).optional(),
+  source: z.enum(['upload', 'email', 'chat', 'agent', 'dataset', 'attack']).optional(),
   limit: z.coerce.number().int().min(1).max(500).optional(),
 });
 

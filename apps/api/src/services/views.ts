@@ -58,12 +58,13 @@ async function payeeNames(db: Executor, orgId: string): Promise<Map<string, stri
 export async function listInvoices(
   db: Executor,
   orgId: string,
-  filters: { status?: string; period?: string; q?: string; limit?: number } = {},
+  filters: { status?: string; period?: string; q?: string; source?: string; limit?: number } = {},
 ): Promise<InvoiceListItem[]> {
   const conditions: SQL[] = [eq(invoices.orgId, orgId)];
   const statuses = filters.status ? STATUS_FILTERS[filters.status] : undefined;
   if (statuses) conditions.push(inArray(invoices.status, statuses));
   if (filters.period) conditions.push(eq(invoices.periodKey, filters.period));
+  if (filters.source) conditions.push(eq(invoices.source, filters.source as InvoiceRow['source']));
   if (filters.q) {
     const like = `%${filters.q}%`;
     const search = or(
@@ -234,7 +235,14 @@ export async function getInvoiceDetail(db: Executor, orgId: string, invoiceId: s
           title: proposal.draft.title,
           draft: proposal.draft,
           impact: proposal.impact,
-          resolvedBy: proposal.resolvedBy,
+          resolvedBy: proposal.resolvedBy
+            ? ((
+                await db
+                  .select({ name: users.name })
+                  .from(users)
+                  .where(eq(users.id, proposal.resolvedBy))
+              )[0]?.name ?? proposal.resolvedBy)
+            : null,
           resolutionNote: proposal.resolutionNote,
         }
       : null,
