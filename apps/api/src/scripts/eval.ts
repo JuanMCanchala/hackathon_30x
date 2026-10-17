@@ -42,7 +42,7 @@ import { READER_VERSION } from '../reading/reader';
 import { runStep } from '../services/demo';
 import { ServiceError } from '../services/state';
 import { checkerInput } from '../services/views';
-import { CRITICAL_FIELDS, readingErrors } from './reading-fields';
+import { CRITICAL_FIELDS, NO_READING, readingErrors } from './reading-fields';
 
 const ACCURACY_GATE = 0.95;
 const MONTHS: Month[] = ['septiembre', 'octubre'];
@@ -182,7 +182,13 @@ async function runMode(mode: Mode): Promise<{ report: Report; missing: string[] 
       const byPerson =
         actions.some((a) => chain.includes(a.billId)) ||
         ['ESCALATED', 'APPROVED', 'REJECTED'].includes(head?.status ?? '');
-      const byVendor = msgs.some((m) => m.sender === 'vendor' && chain.includes(m.billId));
+      // the vendor resolved it: it answered, or the agent asked it for something (an ASK VENDOR,
+      // or the rest of a PAY PART) and the gap then closed
+      const byVendor =
+        msgs.some((m) => m.sender === 'vendor' && chain.includes(m.billId)) ||
+        decisionRows.some(
+          (d) => chain.includes(d.billId) && (d.outcome === 'ASK_VENDOR' || d.data.askMinor > 0),
+        );
       const resolvedBy: ResolvedBy | null = !head
         ? null
         : byPerson
@@ -255,7 +261,7 @@ async function runMode(mode: Mode): Promise<{ report: Report; missing: string[] 
                   list.reduce(
                     (n, s) =>
                       n +
-                      (s.fieldErrors[0] === 'sin lectura'
+                      (s.fieldErrors[0] === NO_READING
                         ? CRITICAL_FIELDS.length
                         : s.fieldErrors.length),
                     0,
@@ -268,17 +274,17 @@ async function runMode(mode: Mode): Promise<{ report: Report; missing: string[] 
     const totals = metrics('total', null);
     const gates = [
       {
-        name: 'Cero pagos indebidos',
+        name: 'Zero improper payments',
         passed: totals.improperPayments === 0,
-        detail: `${totals.improperPayments} pagos indebidos`,
+        detail: `${totals.improperPayments} improper payments`,
       },
       {
-        name: 'Verificador independiente sin violaciones',
+        name: 'Independent checker: no violations',
         passed: violations.length === 0,
-        detail: `${violations.length} violaciones`,
+        detail: `${violations.length} violations`,
       },
       {
-        name: `Estado final correcto ≥ ${ACCURACY_GATE * 100} %`,
+        name: `Final status correct ≥ ${ACCURACY_GATE * 100} %`,
         passed: totals.finalCorrect / totals.bills >= ACCURACY_GATE,
         detail: `${totals.finalCorrect}/${totals.bills} (${fmtPct(totals.finalCorrect, totals.bills)})`,
       },
@@ -287,9 +293,9 @@ async function runMode(mode: Mode): Promise<{ report: Report; missing: string[] 
       ...(mode === 'reference'
         ? [
             {
-              name: 'Todos los pasos del guion aceptados',
+              name: 'Every script step accepted',
               passed: problems.length === 0,
-              detail: `${problems.length} pasos rechazados`,
+              detail: `${problems.length} steps refused`,
             },
           ]
         : []),
@@ -376,7 +382,10 @@ function markdown(reports: Report[], usage: TokenUsage, skipped: string | null, 
       out.push(`| ${gate.name} | ${gate.passed ? 'pass' : '**FAIL**'} · ${gate.detail} |`);
     const differs = r.bills.filter(
       (b) =>
-        b.first !== b.expected.first || b.final !== b.expected.final || b.fieldErrors.length > 0,
+        b.first !== b.expected.first ||
+        b.final !== b.expected.final ||
+        b.resolvedBy !== b.expected.resolvedBy ||
+        b.fieldErrors.length > 0,
     );
     const shown = full ? r.bills : differs;
     out.push('');

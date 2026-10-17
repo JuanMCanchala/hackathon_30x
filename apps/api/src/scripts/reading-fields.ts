@@ -49,9 +49,11 @@ function critical(x: ExtractedBill, currency: Currency) {
   };
 }
 
-/** One entry per critical field that differs from the truth; ['sin lectura'] without a reading. */
+export const NO_READING = 'no reading';
+
+/** One entry per critical field that differs from the truth; [NO_READING] without a reading. */
 export function readingErrors(truth: ExtractedBill, got: ExtractedBill | null): string[] {
-  if (!got) return ['sin lectura'];
+  if (!got) return [NO_READING];
   // amounts are compared in the truth's currency, so a misread currency is one error, not many
   const currency = (CURRENCIES.has(truth.currency ?? '') ? truth.currency : 'USD') as Currency;
   const t = critical(truth, currency);
@@ -62,6 +64,6 @@ export function readingErrors(truth: ExtractedBill, got: ExtractedBill | null): 
       ? g.payoutDetails.includes(t.payoutDetails) || t.payoutDetails.includes(g.payoutDetails)
       : t[k] === g[k];
   return CRITICAL_FIELDS.filter((k) => !same(k)).map(
-    (k) => `${k}: esperado ${String(t[k])}, leído ${String(g[k])}`,
+    (k) => `${k}: expected ${String(t[k])}, read ${String(g[k])}`,
   );
 }
