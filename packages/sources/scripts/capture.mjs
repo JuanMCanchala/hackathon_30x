@@ -42,17 +42,21 @@ const slug = (s) =>
     .slice(0, 80);
 const isoDay = (d) => d.toISOString().slice(0, 10);
 
+/** Per-language settings: the browser's language and Google News' edition. */
+const LANGS = {
+  es: { accept: 'es-419,es;q=0.9', news: 'hl=es-419&gl=CO&ceid=CO:es-419' },
+  en: { accept: 'en-US,en;q=0.9', news: 'hl=en-US&gl=US&ceid=US:en' },
+  pt: { accept: 'pt-BR,pt;q=0.9', news: 'hl=pt-BR&gl=BR&ceid=BR:pt-419' },
+};
+
 /** Every request of one run, grouped by source; each group runs in order with its own pause. */
 function plan(seeds, now) {
   const weekAgo = new Date(now.getTime() - 7 * 86_400_000);
   const t7 = Math.floor(weekAgo.getTime() / 1000);
-  const es = seeds.queries.es.map((q) => ({ q, lang: 'es' }));
-  const en = seeds.queries.en.map((q) => ({ q, lang: 'en' }));
-  const all = [...es, ...en];
-  const browser = (lang) => ({
-    'user-agent': BROWSER,
-    'accept-language': lang === 'es' ? 'es-419,es;q=0.9' : 'en-US,en;q=0.9',
-  });
+  // Viral AI content usually starts in English or Portuguese and reaches Spanish later: the
+  // radar listens to all three to see a wave before it arrives.
+  const all = Object.entries(seeds.queries).flatMap(([lang, qs]) => qs.map((q) => ({ q, lang })));
+  const browser = (lang) => ({ 'user-agent': BROWSER, 'accept-language': LANGS[lang].accept });
 
   return {
     youtube: {
@@ -81,10 +85,7 @@ function plan(seeds, now) {
       requests: all.map(({ q, lang }) => ({
         key: `${lang}-${slug(q)}`,
         ext: 'xml',
-        url:
-          lang === 'es'
-            ? `https://news.google.com/rss/search?q=${encodeURIComponent(`${q} when:7d`)}&hl=es-419&gl=CO&ceid=CO:es-419`
-            : `https://news.google.com/rss/search?q=${encodeURIComponent(`${q} when:7d`)}&hl=en-US&gl=US&ceid=US:en`,
+        url: `https://news.google.com/rss/search?q=${encodeURIComponent(`${q} when:7d`)}&${LANGS[lang].news}`,
         headers: browser(lang),
         meta: { query: q, lang },
       })),

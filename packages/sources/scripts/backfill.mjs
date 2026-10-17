@@ -5,7 +5,7 @@
  * asked about a date window take part (Bluesky, Google News, Hacker News, GitHub), which keeps
  * every window sampled the same way: top 100 per query and window.
  *
- *   node packages/sources/scripts/backfill.mjs [--windows 8] [--only bluesky,news]
+ *   node packages/sources/scripts/backfill.mjs [--windows 8] [--only bluesky,news] [--langs pt]
  *
  * Output: data/raw/<start>-backfill/<source>/<key>.<ext>.gz plus index.jsonl, as capture.mjs.
  */
@@ -68,11 +68,19 @@ function windows(now, count) {
   });
 }
 
+/** Per-language settings: the browser's language and Google News' edition. */
+const LANGS = {
+  es: { accept: 'es-419,es;q=0.9', news: 'hl=es-419&gl=CO&ceid=CO:es-419' },
+  en: { accept: 'en-US,en;q=0.9', news: 'hl=en-US&gl=US&ceid=US:en' },
+  pt: { accept: 'pt-BR,pt;q=0.9', news: 'hl=pt-BR&gl=BR&ceid=BR:pt-419' },
+};
+
+const langs = flag('langs')?.split(',');
+
 function plan(seeds, now) {
-  const queries = [
-    ...seeds.queries.es.map((q) => ({ q, lang: 'es' })),
-    ...seeds.queries.en.map((q) => ({ q, lang: 'en' })),
-  ];
+  const queries = Object.entries(seeds.queries)
+    .filter(([lang]) => !langs || langs.includes(lang))
+    .flatMap(([lang, qs]) => qs.map((q) => ({ q, lang })));
   const ws = windows(now, windowsBack);
   const meta = (w, extra) => ({
     ...extra,
@@ -100,14 +108,8 @@ function plan(seeds, now) {
           return {
             key: `w${w.k}-${lang}-${slug(q)}`,
             ext: 'xml',
-            url:
-              lang === 'es'
-                ? `https://news.google.com/rss/search?q=${encodeURIComponent(text)}&hl=es-419&gl=CO&ceid=CO:es-419`
-                : `https://news.google.com/rss/search?q=${encodeURIComponent(text)}&hl=en-US&gl=US&ceid=US:en`,
-            headers: {
-              'user-agent': BROWSER,
-              'accept-language': lang === 'es' ? 'es-419' : 'en-US',
-            },
+            url: `https://news.google.com/rss/search?q=${encodeURIComponent(text)}&${LANGS[lang].news}`,
+            headers: { 'user-agent': BROWSER, 'accept-language': LANGS[lang].accept },
             meta: meta(w, { query: q, lang }),
           };
         }),
