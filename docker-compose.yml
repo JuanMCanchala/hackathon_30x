@@ -1,0 +1,51 @@
+# Mandato with PostgreSQL:  docker compose up --build  →  http://localhost:3000
+#
+# Without an API key the API serves the dataset's reference reader (labelled as such in the
+# interface). To have Claude read every document:
+#   ANTHROPIC_API_KEY=… READER=auto docker compose up --build
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: mandato
+      POSTGRES_PASSWORD: mandato
+      POSTGRES_DB: mandato
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U mandato -d mandato']
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    environment:
+      DATABASE_URL: postgres://mandato:mandato@db:5432/mandato
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      READER: ${READER:-reference}
+      DEMO_MODE: 'true'
+      APPROVAL_LINK_SECRET: ${APPROVAL_LINK_SECRET:-local-compose-secret-change-me-outside-demos}
+      PUBLIC_WEB_URL: ${PUBLIC_WEB_URL:-http://localhost:3000}
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - '${API_PORT:-4000}:4000'
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+      args:
+        API_URL: http://api:4000
+    depends_on:
+      api:
+        condition: service_healthy
+    ports:
+      - '${WEB_PORT:-3000}:3000'
+
+volumes:
+  db-data:
