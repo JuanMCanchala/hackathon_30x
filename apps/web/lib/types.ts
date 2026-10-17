@@ -106,13 +106,16 @@ export interface PaymentView {
 export interface PaymentsResponse {
   today: string;
   items: PaymentView[];
-  treasury: {
-    openingUsdCents: number;
-    sentUsdCents: number;
-    balanceUsdCents: number;
-    scheduledUsdCents: number;
-    afterScheduledUsdCents: number;
-  };
+  treasury: Treasury;
+}
+
+/** One cash picture for every screen: in the account today, and free for new payments. */
+export interface Treasury {
+  openingUsdCents: number;
+  sentUsdCents: number;
+  balanceUsdCents: number;
+  scheduledUsdCents: number;
+  availableUsdCents: number;
 }
 
 export interface InvoiceDetail {
@@ -216,7 +219,7 @@ export interface Overview {
     budgetUsdCents: number;
     remainingUsdCents: number;
   }[];
-  treasury: { balanceUsdCents: number; committedUsdCents: number; availableUsdCents: number };
+  treasury: Treasury;
   pendingApprovals: number;
   pendingProposals: number;
   signedProposals: number;

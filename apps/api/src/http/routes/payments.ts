@@ -2,7 +2,7 @@ import { createRoute, type OpenAPIHono } from '@hono/zod-openapi';
 import { localDate } from '@mandato/domain';
 import { loadOrganization } from '../../services/context';
 import type { Deps } from '../../services/deps';
-import { listPayments, runPayments } from '../../services/payments';
+import { listPayments, runPayments, treasuryOf } from '../../services/payments';
 import { currentUser } from '../context';
 import { ok } from '../openapi';
 
@@ -20,23 +20,11 @@ export function registerPaymentRoutes(app: OpenAPIHono, deps: Deps) {
       const user = await currentUser(deps, c);
       const org = await loadOrganization(deps.db, user.orgId);
       const today = localDate(deps.clock.now().toISOString(), org.timeZone);
-      const items = await listPayments(deps.db, user.orgId);
-      const usd = (status: string) =>
-        items.filter((p) => p.status === status).reduce((s, p) => s + (p.usdCents ?? 0), 0);
-      const scheduledUsd = usd('scheduled');
-      const outUsd = usd('sent') + usd('settled');
-      const balance = org.treasuryBalanceUsdCents - outUsd;
       return c.json(
         {
           today,
-          items,
-          treasury: {
-            openingUsdCents: org.treasuryBalanceUsdCents,
-            sentUsdCents: outUsd,
-            balanceUsdCents: balance,
-            scheduledUsdCents: scheduledUsd,
-            afterScheduledUsdCents: balance - scheduledUsd,
-          },
+          items: await listPayments(deps.db, user.orgId),
+          treasury: await treasuryOf(deps.db, user.orgId),
         },
         200,
       );

@@ -150,9 +150,19 @@ export default function ResumenPage() {
                     budget={budgetPeriod.budgetUsdCents}
                   />
                 </div>
-                <p className="mt-4 text-sm text-ink-3">
-                  Saldo disponible en la cuenta: {formatUsd(data.treasury.availableUsdCents)}
-                </p>
+                <Link
+                  href="/pagos"
+                  className="mt-4 grid grid-cols-[1fr_auto] gap-x-3 gap-y-1 border-t border-rule pt-3 text-sm hover:text-brand"
+                >
+                  <span className="text-ink-2">En la cuenta hoy</span>
+                  <span className="text-right text-ink tabular-nums">
+                    {formatUsd(data.treasury.balanceUsdCents)}
+                  </span>
+                  <span className="text-ink-2">Libre para nuevos pagos</span>
+                  <span className="text-right font-[600] text-ink tabular-nums">
+                    {formatUsd(data.treasury.availableUsdCents)}
+                  </span>
+                </Link>
               </div>
             )}
 

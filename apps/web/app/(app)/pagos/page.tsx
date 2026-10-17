@@ -128,11 +128,11 @@ export default function PagosPage() {
           </p>
         </div>
         <div className="rounded-[22px] bg-marker p-6 text-on-marker">
-          <p className="text-sm font-[560]">Después de lo programado</p>
+          <p className="text-sm font-[560]">Libre para nuevos pagos</p>
           <p className="t-figure mt-1 text-[2.2rem] leading-none">
-            {formatUsd(t.afterScheduledUsdCents)}
+            {formatUsd(t.availableUsdCents)}
           </p>
-          <p className="mt-2 text-sm opacity-80">Lo que queda si todo sale a tiempo</p>
+          <p className="mt-2 text-sm opacity-80">Lo que queda cuando sale todo lo aprobado</p>
         </div>
       </section>
 

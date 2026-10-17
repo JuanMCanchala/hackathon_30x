@@ -8,7 +8,7 @@ import { describeMandate, formatMoney, formatUsd, localDate } from '@mandato/dom
 import { AppError } from '../lib/common';
 import { currentPolicy, loadOrganization } from './context';
 import type { Deps } from './deps';
-import { listPayments } from './payments';
+import { listPayments, treasuryOf } from './payments';
 import { listInvoices, listPayees } from './views';
 
 const STATUS = {
@@ -51,13 +51,15 @@ async function snapshot(
   const policy = await currentPolicy(deps.db, orgId);
   const terms = policy.terms;
   const today = localDate(deps.clock.now().toISOString(), org.timeZone);
-  const [payees, bills, transfers] = await Promise.all([
+  const [payees, bills, transfers, cash] = await Promise.all([
     listPayees(deps.db, orgId),
     listInvoices(deps.db, orgId, { limit: 500 }),
     listPayments(deps.db, orgId),
+    treasuryOf(deps.db, orgId),
   ]);
   const lines: string[] = [
-    `Empresa: ${org.legalName}. Hoy es ${today}. Saldo inicial de la cuenta: ${formatUsd(org.treasuryBalanceUsdCents)}.`,
+    `Empresa: ${org.legalName}. Hoy es ${today}.`,
+    `Caja: en la cuenta hoy ${formatUsd(cash.balanceUsdCents)}; programado por salir ${formatUsd(cash.scheduledUsdCents)}; libre para nuevos pagos ${formatUsd(cash.availableUsdCents)}.`,
     `Política vigente (versión ${policy.version}): límite por pago sin aprobación ${formatUsd(terms.autonomousLimitUsdCents)}; doble aprobación por encima de ${formatUsd(terms.dualApprovalAboveUsdCents)}; presupuesto mensual ${formatUsd(terms.monthlyBudgetUsdCents)}; monedas ${terms.allowedCurrencies.join(', ')}.`,
     '',
     'Beneficiarios registrados:',

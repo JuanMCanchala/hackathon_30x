@@ -18,12 +18,12 @@ import { invoices, organizations, payees, payments } from '../db/schema';
 import { newId } from '../lib/common';
 import type { Deps } from './deps';
 import { withOrgLock } from './deps';
+import { committedUsdCents } from './context';
 import { appendLedger, SYSTEM_ACTOR, type LedgerAppend } from './ledger';
 
 type InvoiceRow = typeof invoices.$inferSelect;
 export type PaymentRow = typeof payments.$inferSelect;
 
-/**
 /**
  * A bill approved while its payee was unknown is paid once a person signs that payee's
  * registration: the registration is what gives the money a verified destination. Only a bill
@@ -46,6 +46,7 @@ export async function scheduleForNewPayee(
   return schedulePayment(tx, { ...invoice, payeeId }, at);
 }
 
+/**
  * Schedules the transfer for a bill that was just paid or approved. Returns the ledger entries
  * to append with the decision, or none when there is nothing safe to pay (no registered,
  * active payee or no amount): approving a bill never invents a destination.
@@ -269,5 +270,39 @@ function toView(p: PaymentRow, ref: string, title: string | null, payeeName: str
     expectedSettlement: p.expectedSettlement,
     sentAt: p.sentAt?.toISOString() ?? null,
     settledAt: p.settledAt?.toISOString() ?? null,
+  };
+}
+
+export interface Treasury {
+  openingUsdCents: number;
+  sentUsdCents: number;
+  /** In the account today: the opening balance minus what already went out. */
+  balanceUsdCents: number;
+  scheduledUsdCents: number;
+  /**
+   * Free for new payments: the opening balance minus everything paid or approved, sent or not.
+   * It is the figure the engine checks a new payment against, so every screen shows this one.
+   */
+  availableUsdCents: number;
+}
+
+export async function treasuryOf(db: Executor, orgId: string): Promise<Treasury> {
+  const [org] = await db.select().from(organizations).where(eq(organizations.id, orgId));
+  const opening = org?.treasuryBalanceUsdCents ?? 0;
+  const rows = await db
+    .select({ status: payments.status, usdCents: payments.usdCents })
+    .from(payments)
+    .where(eq(payments.orgId, orgId));
+  const sum = (scheduled: boolean) =>
+    rows
+      .filter((r) => (r.status === 'scheduled') === scheduled)
+      .reduce((total, r) => total + (r.usdCents ?? 0), 0);
+  const sent = sum(false);
+  return {
+    openingUsdCents: opening,
+    sentUsdCents: sent,
+    balanceUsdCents: opening - sent,
+    scheduledUsdCents: sum(true),
+    availableUsdCents: opening - (await committedUsdCents(db, orgId)),
   };
 }

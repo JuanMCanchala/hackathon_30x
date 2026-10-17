@@ -2,8 +2,9 @@ import { and, eq } from 'drizzle-orm';
 import { periodKeyOf, periodMetrics, type PolicyTerms } from '@mandato/domain';
 import { approvalRequests, invoices, proposals } from '../db/schema';
 import { latestAudit } from './audit';
-import { committedUsdCents, currentPolicy, loadOrganization } from './context';
+import { currentPolicy, loadOrganization } from './context';
 import type { Deps } from './deps';
+import { treasuryOf } from './payments';
 import { listInvoices } from './views';
 
 export async function overview(deps: Deps, orgId: string) {
@@ -42,7 +43,6 @@ export async function overview(deps: Deps, orgId: string) {
     .select({ id: approvalRequests.id })
     .from(approvalRequests)
     .where(and(eq(approvalRequests.orgId, orgId), eq(approvalRequests.status, 'pending')));
-  const committedAll = await committedUsdCents(db, orgId);
   const audit = await latestAudit(deps, orgId);
 
   const ladder = periods.map((p) => ({
@@ -72,11 +72,7 @@ export async function overview(deps: Deps, orgId: string) {
       budgetUsdCents: terms.monthlyBudgetUsdCents,
       remainingUsdCents: terms.monthlyBudgetUsdCents - p.committedUsdCents,
     })),
-    treasury: {
-      balanceUsdCents: org.treasuryBalanceUsdCents,
-      committedUsdCents: committedAll,
-      availableUsdCents: org.treasuryBalanceUsdCents - committedAll,
-    },
+    treasury: await treasuryOf(db, orgId),
     pendingApprovals: pendingApprovals.length,
     pendingProposals: pendingProposals.length,
     signedProposals: accepted.length,
