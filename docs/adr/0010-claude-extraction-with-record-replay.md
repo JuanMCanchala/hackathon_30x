@@ -1,6 +1,6 @@
 # ADR-0010: Extraction with Claude, with a record/replay cache for reproducible runs
 
-- **Status:** Accepted
+- **Status:** Accepted; amended by [ADR-0017](0017-openai-compatible-reader-deepseek-on-fireworks.md) (a second, OpenAI-compatible reader)
 - **Date:** 2026-10-16
 
 ## Context
