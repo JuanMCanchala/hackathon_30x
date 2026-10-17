@@ -6,6 +6,7 @@ import { openDatabase, type Database } from './db/client';
 import { EventBus } from './events/bus';
 import { CachedExtractor, ExtractionCache } from './extraction/cache';
 import { ClaudeExtractor } from './extraction/claude';
+import { GroundTruthExtractor } from './extraction/truth';
 import type { Extractor } from './extraction/types';
 import { systemClock, type Clock } from './lib/common';
 import type { Deps } from './services/deps';
@@ -52,7 +53,9 @@ export async function createContainer(
       : new FileDocumentStore(join(config.DATA_DIR, 'documents')));
   const extractor =
     overrides.extractor ??
-    new CachedExtractor(new ExtractionCache(EXTRACTIONS_DIR), liveReader(config));
+    (config.READER === 'reference'
+      ? new GroundTruthExtractor()
+      : new CachedExtractor(new ExtractionCache(EXTRACTIONS_DIR), liveReader(config)));
   const deps: Deps = {
     db: database.db,
     bus: new EventBus(),

@@ -12,6 +12,11 @@ const EnvSchema = z.object({
   DATA_DIR: z.string().default(`${REPO_ROOT}.data`),
   /** Without a key the API replays recorded extractions only (ADR-0010). */
   ANTHROPIC_API_KEY: z.string().min(1).optional(),
+  /**
+   * Which reader serves documents: `auto` (recorded Claude extractions, plus live Claude when a
+   * key is set) or `reference` (the dataset's ground truth — development and evaluation only).
+   */
+  READER: z.enum(['auto', 'reference']).default('auto'),
   EXTRACTION_MODEL: z.string().default('claude-opus-5-5'),
   EXTRACTION_EFFORT: z.enum(['low', 'medium', 'high']).default('medium'),
   /** Enables the demo user switcher, seeding and the guided months. Never in production. */
