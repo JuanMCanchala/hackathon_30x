@@ -539,6 +539,18 @@ describe('labels and helpers', () => {
     expect(activeContract(herrera, CONTRACTS, 'mañana')).toBeNull();
   });
 
+  it('resolves the vendor when the reader keeps the tax-id label', () => {
+    const d = decide(
+      context(hourlyBill('92', { vendorTaxId: 'C.C. 1.020.304.050' }), {
+        evidence: timeEntries(92),
+      }),
+    );
+    expect(check(d, 'vendor.registered').status).toBe('pass');
+    expect(resolveVendor(hourlyBill('92', { vendorTaxId: 'C.C. 1.020.304.050' }), VENDORS)).toEqual(
+      ospina,
+    );
+  });
+
   it('counterfactual lists the remedies of failing checks', () => {
     const d = decide(context(hourlyBill('160'), { evidence: timeEntries(92) }));
     expect(counterfactual(d.checks)).toEqual([check(d, 'evidence.coverage').remedy]);

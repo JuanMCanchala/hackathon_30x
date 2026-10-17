@@ -1,6 +1,13 @@
-/** Uppercase letters and digits only. */
+/** A leading document label ("NIT", "C.C.", "RFC", "Tax ID:", "No."...); never followed by a letter, so RFC "CEVJ..." keeps its own letters. */
+const TAX_ID_LABEL =
+  /^\s*(?:NIT|C\.?\s?C|C\.?\s?E|CNPJ|CPF|RFC|EIN|TAX\s?ID|TIN)\.?(?![A-Z])[\s:.]*(?:N[Oº°]\.?(?![A-Z])[\s:.]*)?/;
+
+/** Uppercase letters and digits only, after dropping a leading label ("C.C. 1.036.645.218" → "1036645218"). */
 export function normalizeTaxId(s: string): string {
-  return s.toUpperCase().replace(/[^A-Z0-9]/g, '');
+  return s
+    .toUpperCase()
+    .replace(TAX_ID_LABEL, '')
+    .replace(/[^A-Z0-9]/g, '');
 }
 
 /** Uppercase alphanumerics; leading zeros of each numeric run are dropped ("DO-2026-010" → "DO202610"). */

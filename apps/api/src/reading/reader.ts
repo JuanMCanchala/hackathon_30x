@@ -4,7 +4,7 @@ import type { DocumentChannel } from './documents';
 import { READER_EXAMPLE, READER_SYSTEM, readerUser } from './prompt';
 
 /** Bump when the prompt or the schema changes: old recordings stop replaying. */
-export const READER_VERSION = 'reader-1';
+export const READER_VERSION = 'reader-2';
 
 export interface ReadDocument {
   sha256: string;

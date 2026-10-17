@@ -43,6 +43,28 @@ describe('normalizers', () => {
     expect(normalizeInvoiceNumber('DO-2026-010')).toBe(normalizeInvoiceNumber('do 2026 10'));
     expect(normalizeInvoiceNumber('A-000')).toBe('A0');
   });
+  it('tax id drops a leading label but keeps letters of the id', () => {
+    const cases: [string, string][] = [
+      ['C.C. 1.036.645.218', '1.036.645.218'],
+      ['cc: 1.036.645.218', '1.036.645.218'],
+      ['C.E. 123.456', '123.456'],
+      ['NIT 901.234.567-1', '901.234.567-1'],
+      ['NIT No. 901.234.567-1', '901.234.567-1'],
+      ['Nit Nº: 901.234.567-1', '901.234.567-1'],
+      ['CNPJ 34.567.891/0001-84', '34.567.891/0001-84'],
+      ['CPF 123.456.789-09', '123.456.789-09'],
+      ['EIN 85-2913374', '85-2913374'],
+      ['Tax ID: 85-2913374', '85-2913374'],
+      ['TIN 85-2913374', '85-2913374'],
+      ['RFC AUMR930722HD4', 'AUMR930722HD4'],
+      ['AUMR930722HD4', 'AUMR930722HD4'],
+    ];
+    for (const [raw, bare] of cases) expect(normalizeTaxId(raw)).toBe(normalizeTaxId(bare));
+    expect(normalizeTaxId('RFC AUMR930722HD4')).toBe('AUMR930722HD4');
+    expect(normalizeTaxId('CEVJ900101AB1')).toBe('CEVJ900101AB1');
+    expect(normalizeTaxId('TINA900101AB1')).toBe('TINA900101AB1');
+    expect(normalizeTaxId('C.C. 1.036.645.218')).toBe('1036645218');
+  });
   it('tax id and destination', () => {
     expect(normalizeTaxId('900.123.456-7')).toBe('9001234567');
     expect(normalizeDestination('Thiago.M@Banco.com')).toBe('thiagombancocom');
