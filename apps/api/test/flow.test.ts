@@ -118,6 +118,25 @@ describe('live files and attacks', () => {
   });
 });
 
+describe('metrics', () => {
+  it('keeps the attack lab out of the autonomy metrics', async () => {
+    const rows = await container.deps.db
+      .select()
+      .from(invoices)
+      .where(eq(invoices.orgId, DEMO_ORG_ID));
+    const attacks = rows.filter((r) => r.source === 'attack');
+    const view = await overview(container.deps, DEMO_ORG_ID);
+    expect(attacks.length).toBeGreaterThan(0);
+    expect(view.attacks).toEqual({
+      launched: attacks.length,
+      paid: attacks.filter((r) => r.outcome === 'PAY').length,
+      stopped: attacks.filter((r) => r.outcome !== 'PAY').length,
+    });
+    const counted = view.ladder.reduce((sum, period) => sum + period.total, 0);
+    expect(counted).toBe(rows.filter((r) => r.source !== 'attack' && r.outcome).length);
+  });
+});
+
 describe('independent audit', () => {
   it('certifies zero payments outside the rules and an intact chain', async () => {
     const { report } = await runAudit(container.deps, DEMO_ORG_ID);

@@ -15,14 +15,18 @@ export async function overview(deps: Deps, orgId: string) {
   const currentPeriod = periodKeyOf(now, org.timeZone);
 
   const rows = await db.select().from(invoices).where(eq(invoices.orgId, orgId));
+  // The attack lab is adversarial test traffic, not accounts payable: keep it out of autonomy.
   const periods = periodMetrics(
-    rows.map((r) => ({
-      periodKey: r.periodKey,
-      outcome: r.outcome,
-      status: r.status,
-      usdCents: r.usdCents,
-    })),
+    rows
+      .filter((r) => r.source !== 'attack')
+      .map((r) => ({
+        periodKey: r.periodKey,
+        outcome: r.outcome,
+        status: r.status,
+        usdCents: r.usdCents,
+      })),
   );
+  const attackRows = rows.filter((r) => r.source === 'attack');
   const accepted = await db
     .select()
     .from(proposals)
@@ -83,6 +87,11 @@ export async function overview(deps: Deps, orgId: string) {
         }
       : null,
     ladder,
+    attacks: {
+      launched: attackRows.length,
+      paid: attackRows.filter((r) => r.outcome === 'PAY').length,
+      stopped: attackRows.filter((r) => r.outcome !== 'PAY').length,
+    },
     recent: await listInvoices(db, orgId, { limit: 12 }),
   };
 }
