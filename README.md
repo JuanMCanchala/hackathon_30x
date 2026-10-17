@@ -74,7 +74,7 @@ person if anything is off ([RULES.md](docs/RULES.md), [ADR-0002](docs/adr/0002-d
    have been decided differently — before anything is saved.
 4. **An attack lab and an auditor that does not trust the engine.** Eleven adversarial bills on
    demand, each with the rule that must catch it, and an auditor written apart from the engine
-   that re-checks every payment against nine invariants and the ledger's hash chain.
+   that re-checks every payment against ten invariants and the ledger's hash chain.
 5. **Other agents can pay through it.** An MCP server lets external AI agents request payments
    under the same rules and a narrower scope; there is no tool to approve, sign or change rules.
 6. **The money actually leaves — on the due date.** Every paid or approved bill gets a transfer

@@ -38,7 +38,7 @@ export default function AuditoriaPage() {
     <div className="grid grid-cols-1 gap-10">
       <PageHeader
         title="Auditoría"
-        lead="Un auditor escrito aparte del motor relee el registro completo, rehace las cuentas y verifica cada pago contra nueve invariantes. No confía en lo que dijo el motor."
+        lead="Un auditor escrito aparte del motor relee el registro completo, rehace las cuentas y verifica cada pago contra diez invariantes. No confía en lo que dijo el motor."
         actions={
           <>
             <a
