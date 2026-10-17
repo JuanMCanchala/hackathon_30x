@@ -10,7 +10,9 @@
     "start": "node dist/index.js",
     "typecheck": "tsc -p tsconfig.json",
     "test": "vitest run",
-    "db:generate": "drizzle-kit generate"
+    "db:generate": "drizzle-kit generate",
+    "eval": "tsx src/scripts/eval.ts",
+    "record": "tsx src/scripts/record.ts"
   },
   "dependencies": {
     "@electric-sql/pglite": "^0.5.10",

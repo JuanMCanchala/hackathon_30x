@@ -1,0 +1,50 @@
+{
+  "key": "483beabb61e61522f97366ac622a1b20294c49fb3f3135d7c8d5341501ae3693",
+  "kind": "read",
+  "version": "reader-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:13:48.607Z",
+  "latencyMs": 1443,
+  "usage": {
+    "inputTokens": 1430,
+    "outputTokens": 410,
+    "cacheReadTokens": 1024
+  },
+  "input": {
+    "sha256": "9cac7bcfc0ea15f978a5f589bf05ec0cf5200e307336a37e034e1d5cb88dbc4f",
+    "filename": "sep-18-ximena-robles-factura.pdf",
+    "channel": "pdf"
+  },
+  "output": {
+    "vendorName": "Ximena Robles Castañeda",
+    "vendorTaxId": "ROCX880412TN7",
+    "invoiceNumber": "XR-0008",
+    "issueDate": "2026-09-18",
+    "dueDate": "2026-10-03",
+    "periodFrom": null,
+    "periodTo": null,
+    "currency": "MXN",
+    "total": "34000.00",
+    "lines": [
+      {
+        "description": "Webhooks de bancos (ALT-221)",
+        "quantity": "1",
+        "unit": "unit",
+        "unitPrice": "34000.00",
+        "amount": "34000.00"
+      }
+    ],
+    "payoutDetails": "CLABE 072180044556677888",
+    "revisionOf": null,
+    "instructionsToAgent": false,
+    "confidence": {
+      "vendor": 1,
+      "invoiceNumber": 1,
+      "total": 1,
+      "lines": 1,
+      "currency": 1,
+      "dates": 1
+    }
+  }
+}

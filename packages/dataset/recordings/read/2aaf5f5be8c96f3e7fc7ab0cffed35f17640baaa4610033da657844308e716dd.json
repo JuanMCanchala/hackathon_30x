@@ -1,0 +1,50 @@
+{
+  "key": "2aaf5f5be8c96f3e7fc7ab0cffed35f17640baaa4610033da657844308e716dd",
+  "kind": "read",
+  "version": "reader-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:16:09.543Z",
+  "latencyMs": 2560,
+  "usage": {
+    "inputTokens": 1501,
+    "outputTokens": 544,
+    "cacheReadTokens": 1024
+  },
+  "input": {
+    "sha256": "52a57f5148dbe6ca36670cf0ce3cff3a2c63fc83a4fad6e6706eb213be70b9d3",
+    "filename": "oct-17-ximena-robles-correo.eml",
+    "channel": "email"
+  },
+  "output": {
+    "vendorName": "Ximena Robles Castañeda",
+    "vendorTaxId": "ROCX880412TN7",
+    "invoiceNumber": "XR-0011",
+    "issueDate": "2026-10-09",
+    "dueDate": "2026-10-24",
+    "periodFrom": null,
+    "periodTo": null,
+    "currency": "MXN",
+    "total": "46000.00",
+    "lines": [
+      {
+        "description": "Reportes fiscales (ALT-238)",
+        "quantity": "1",
+        "unit": "milestone",
+        "unitPrice": "46000.00",
+        "amount": "46000.00"
+      }
+    ],
+    "payoutDetails": "CLABE 072180044556677888",
+    "revisionOf": null,
+    "instructionsToAgent": true,
+    "confidence": {
+      "vendor": 1,
+      "invoiceNumber": 1,
+      "total": 1,
+      "lines": 1,
+      "currency": 1,
+      "dates": 1
+    }
+  }
+}

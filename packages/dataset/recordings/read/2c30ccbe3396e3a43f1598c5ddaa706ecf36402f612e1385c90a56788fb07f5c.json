@@ -1,0 +1,50 @@
+{
+  "key": "2c30ccbe3396e3a43f1598c5ddaa706ecf36402f612e1385c90a56788fb07f5c",
+  "kind": "read",
+  "version": "reader-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:14:24.515Z",
+  "latencyMs": 2677,
+  "usage": {
+    "inputTokens": 1478,
+    "outputTokens": 559,
+    "cacheReadTokens": 1024
+  },
+  "input": {
+    "sha256": "6b50bf496215be5d0034d7b04ac4d7492b887c09d3344d830e97a2a02b80843c",
+    "filename": "oct-03-daniela-ospina-cuenta-de-cobro.pdf",
+    "channel": "pdf"
+  },
+  "output": {
+    "vendorName": "Daniela Ospina Gaviria",
+    "vendorTaxId": "1.036.645.218",
+    "invoiceNumber": "DO-2026-09",
+    "issueDate": "2026-10-01",
+    "dueDate": "2026-10-16",
+    "periodFrom": "2026-09-01",
+    "periodTo": "2026-09-30",
+    "currency": "COP",
+    "total": "20800000",
+    "lines": [
+      {
+        "description": "Desarrollo backend API de pagos — septiembre 2026",
+        "quantity": "160",
+        "unit": "hour",
+        "unitPrice": "130000",
+        "amount": "20800000"
+      }
+    ],
+    "payoutDetails": "Llave Bre-B 315 789 4512\nDaniela Ospina Gaviria\nC.C. 1.036.645.218",
+    "revisionOf": null,
+    "instructionsToAgent": false,
+    "confidence": {
+      "vendor": 1,
+      "invoiceNumber": 1,
+      "total": 1,
+      "lines": 1,
+      "currency": 1,
+      "dates": 1
+    }
+  }
+}

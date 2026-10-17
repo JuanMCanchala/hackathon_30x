@@ -1,0 +1,50 @@
+{
+  "key": "a2357787ceeef5b3792ef094a80c5cde5732c7b2fa9ec44a36fc14a0ac15172c",
+  "kind": "read",
+  "version": "reader-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:15:01.673Z",
+  "latencyMs": 3606,
+  "usage": {
+    "inputTokens": 1379,
+    "outputTokens": 552,
+    "cacheReadTokens": 1024
+  },
+  "input": {
+    "sha256": "1c3ffb8e468c7515ff8c7e67a3729a8f2459501a64d2ab5147efe1e2850ec94e",
+    "filename": "oct-08-cardumen-digital-factura.pdf",
+    "channel": "pdf"
+  },
+  "output": {
+    "vendorName": "Cardumen Agencia Digital S.A.S.",
+    "vendorTaxId": "901.345.678-2",
+    "invoiceNumber": "CD-0471",
+    "issueDate": "2026-10-01",
+    "dueDate": "2026-10-31",
+    "periodFrom": "2026-10-01",
+    "periodTo": "2026-10-31",
+    "currency": "COP",
+    "total": "6800000",
+    "lines": [
+      {
+        "description": "Gestión de pauta y contenidos — octubre 2026",
+        "quantity": "1",
+        "unit": "month",
+        "unitPrice": "6800000",
+        "amount": "6800000"
+      }
+    ],
+    "payoutDetails": "Llave Bre-B: @cardumendigital",
+    "revisionOf": null,
+    "instructionsToAgent": false,
+    "confidence": {
+      "vendor": 1,
+      "invoiceNumber": 1,
+      "total": 1,
+      "lines": 1,
+      "currency": 1,
+      "dates": 1
+    }
+  }
+}

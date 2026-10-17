@@ -1,0 +1,50 @@
+{
+  "key": "42f692d86e07fdbd1d8ee4a8719bda2a5039a7a62b0a5130441ebadfaab2c6d8",
+  "kind": "read",
+  "version": "reader-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:13:35.305Z",
+  "latencyMs": 4403,
+  "usage": {
+    "inputTokens": 1397,
+    "outputTokens": 470,
+    "cacheReadTokens": 1024
+  },
+  "input": {
+    "sha256": "cd618a99a7bb8fd45633980f700376954bd21e6a3e5121a51a499a4af1f3338d",
+    "filename": "sep-15-estudio-jabuti-fatura.pdf",
+    "channel": "pdf"
+  },
+  "output": {
+    "vendorName": "EJ Estúdio Jabuti Ilustrações Ltda.",
+    "vendorTaxId": "12.345.678/0001-90",
+    "invoiceNumber": "JAB-2026-031",
+    "issueDate": "2026-09-11",
+    "dueDate": "2026-10-11",
+    "periodFrom": null,
+    "periodTo": null,
+    "currency": "BRL",
+    "total": "9600.00",
+    "lines": [
+      {
+        "description": "Ilustrações do onboarding (12 peças)",
+        "quantity": "1",
+        "unit": "unit",
+        "unitPrice": "9600.00",
+        "amount": "9600.00"
+      }
+    ],
+    "payoutDetails": "Chave Pix: CNPJ 12345678000190",
+    "revisionOf": null,
+    "instructionsToAgent": false,
+    "confidence": {
+      "vendor": 1,
+      "invoiceNumber": 1,
+      "total": 1,
+      "lines": 1,
+      "currency": 1,
+      "dates": 1
+    }
+  }
+}

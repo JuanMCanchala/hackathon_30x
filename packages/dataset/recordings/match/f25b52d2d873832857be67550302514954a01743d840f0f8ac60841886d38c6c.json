@@ -1,0 +1,56 @@
+{
+  "key": "f25b52d2d873832857be67550302514954a01743d840f0f8ac60841886d38c6c",
+  "kind": "match",
+  "version": "matcher-1",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:16:06.977Z",
+  "latencyMs": 1669,
+  "usage": {
+    "inputTokens": 506,
+    "outputTokens": 108,
+    "cacheReadTokens": 0
+  },
+  "input": {
+    "lines": [
+      {
+        "description": "Diseño de la landing",
+        "unit": "milestone",
+        "quantity": "1"
+      }
+    ],
+    "terms": [
+      {
+        "id": "ceiba-iconos",
+        "kind": "milestone",
+        "title": "Sistema de íconos de la app"
+      },
+      {
+        "id": "ceiba-piezas-sep",
+        "kind": "milestone",
+        "title": "Piezas para redes, campaña de septiembre"
+      },
+      {
+        "id": "ceiba-brand-kit-v2",
+        "kind": "milestone",
+        "title": "Brand kit v2"
+      },
+      {
+        "id": "ceiba-landing",
+        "kind": "milestone",
+        "title": "Diseño de la landing"
+      }
+    ],
+    "contractId": "ct-estudio-ceiba"
+  },
+  "output": {
+    "matches": [
+      {
+        "lineIndex": 0,
+        "termId": "ceiba-landing",
+        "confidence": 0.97,
+        "reason": "La línea factura el diseño de la landing y el término 'ceiba-landing' tiene exactamente ese título, ambos de tipo milestone."
+      }
+    ]
+  }
+}

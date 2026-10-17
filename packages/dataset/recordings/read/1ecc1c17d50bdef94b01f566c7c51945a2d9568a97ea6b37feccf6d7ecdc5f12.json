@@ -1,0 +1,50 @@
+{
+  "key": "1ecc1c17d50bdef94b01f566c7c51945a2d9568a97ea6b37feccf6d7ecdc5f12",
+  "kind": "read",
+  "version": "reader-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:15:10.347Z",
+  "latencyMs": 4950,
+  "usage": {
+    "inputTokens": 1453,
+    "outputTokens": 527,
+    "cacheReadTokens": 0
+  },
+  "input": {
+    "sha256": "8bab14bb77263814c76e685957005482ff9263d2e625a46cec11021bcbddacfa",
+    "filename": "oct-10-palabra-viva-factura.pdf",
+    "channel": "pdf"
+  },
+  "output": {
+    "vendorName": "PV Palabra Viva Traducciones S.C.",
+    "vendorTaxId": "PVT150623RJ8",
+    "invoiceNumber": "PV-0934",
+    "issueDate": "2026-10-02",
+    "dueDate": "2026-11-01",
+    "periodFrom": "2026-09-01",
+    "periodTo": "2026-09-30",
+    "currency": "MXN",
+    "total": "57200.00",
+    "lines": [
+      {
+        "description": "Traducción ES -> PT/EN, septiembre 2026 (palabras)",
+        "quantity": "52000",
+        "unit": "unit",
+        "unitPrice": "1.10",
+        "amount": "57200.00"
+      }
+    ],
+    "payoutDetails": "CLABE 014180065432198761",
+    "revisionOf": null,
+    "instructionsToAgent": false,
+    "confidence": {
+      "vendor": 1,
+      "invoiceNumber": 1,
+      "total": 1,
+      "lines": 1,
+      "currency": 1,
+      "dates": 1
+    }
+  }
+}

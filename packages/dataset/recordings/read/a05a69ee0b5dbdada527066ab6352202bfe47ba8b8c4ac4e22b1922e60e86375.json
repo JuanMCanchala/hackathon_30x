@@ -1,0 +1,50 @@
+{
+  "key": "a05a69ee0b5dbdada527066ab6352202bfe47ba8b8c4ac4e22b1922e60e86375",
+  "kind": "read",
+  "version": "reader-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:14:18.021Z",
+  "latencyMs": 5550,
+  "usage": {
+    "inputTokens": 1330,
+    "outputTokens": 788,
+    "cacheReadTokens": 0
+  },
+  "input": {
+    "sha256": "bb461dde7b02545f323fdddc5bb12063f8302abca3d6fc94a327d68ca6db3a5d",
+    "filename": "oct-01-trazo-cloud-invoice.pdf",
+    "channel": "pdf"
+  },
+  "output": {
+    "vendorName": "Trazo Cloud Inc.",
+    "vendorTaxId": "85-2913374",
+    "invoiceNumber": "TC-2026-1001",
+    "issueDate": "2026-10-01",
+    "dueDate": "2026-10-11",
+    "periodFrom": "2026-10-01",
+    "periodTo": "2026-10-31",
+    "currency": "USD",
+    "total": "1200.00",
+    "lines": [
+      {
+        "description": "Team plan, 25 seats — October 2026",
+        "quantity": "1",
+        "unit": "month",
+        "unitPrice": "1200.00",
+        "amount": "1200.00"
+      }
+    ],
+    "payoutDetails": "ACH, account ending 0021",
+    "revisionOf": null,
+    "instructionsToAgent": false,
+    "confidence": {
+      "vendor": 1,
+      "invoiceNumber": 1,
+      "total": 1,
+      "lines": 1,
+      "currency": 1,
+      "dates": 1
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "key": "54ae863d9e8abda2fe29bd38b3eb0066f1b96119bfe71aac8bfa20daf2948d1a",
+  "kind": "match",
+  "version": "matcher-1",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:14:02.746Z",
+  "latencyMs": 1148,
+  "usage": {
+    "inputTokens": 516,
+    "outputTokens": 100,
+    "cacheReadTokens": 256
+  },
+  "input": {
+    "lines": [
+      {
+        "description": "Ilustrações para o blog (6 peças)",
+        "unit": "unit",
+        "quantity": "1"
+      }
+    ],
+    "terms": [
+      {
+        "id": "jabuti-onboarding",
+        "kind": "milestone",
+        "title": "Ilustrações do onboarding (12 peças)"
+      },
+      {
+        "id": "jabuti-blog",
+        "kind": "milestone",
+        "title": "Ilustrações para o blog (6 peças)"
+      },
+      {
+        "id": "jabuti-mascote",
+        "kind": "milestone",
+        "title": "Mascote e variações"
+      },
+      {
+        "id": "jabuti-icones",
+        "kind": "milestone",
+        "title": "Ícones ilustrados (20 peças)"
+      }
+    ],
+    "contractId": "ct-estudio-jabuti"
+  },
+  "output": {
+    "matches": [
+      {
+        "lineIndex": 0,
+        "termId": "jabuti-blog",
+        "confidence": 0.97,
+        "reason": "La línea factura 6 ilustraciones para el blog, coincidiendo exactamente con el hito 'Ilustrações para o blog (6 peças)'."
+      }
+    ]
+  }
+}

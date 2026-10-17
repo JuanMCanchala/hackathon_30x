@@ -1,0 +1,41 @@
+{
+  "key": "8942be2a6f342f557c4a963c7b9bdb6829f2d85cd5e23c7ba0060ab36af25a99",
+  "kind": "match",
+  "version": "matcher-1",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:14:54.474Z",
+  "latencyMs": 1634,
+  "usage": {
+    "inputTokens": 421,
+    "outputTokens": 129,
+    "cacheReadTokens": 256
+  },
+  "input": {
+    "lines": [
+      {
+        "description": "Engenharia de dados — setembro de 2026",
+        "unit": "hour",
+        "quantity": "152"
+      }
+    ],
+    "terms": [
+      {
+        "id": "moreira-horas",
+        "kind": "hours",
+        "title": "Engenharia de dados (hora)"
+      }
+    ],
+    "contractId": "ct-thiago-moreira"
+  },
+  "output": {
+    "matches": [
+      {
+        "lineIndex": 0,
+        "termId": "moreira-horas",
+        "confidence": 0.95,
+        "reason": "La línea factura 152 horas de ingeniería de datos y el término es por horas de ingeniería de datos."
+      }
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "key": "988e4e500b9ef6c74d875528f1dd8e7007128ac11e6ec0e3cf4d46624ebcf95b",
+  "kind": "match",
+  "version": "matcher-1",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:14:08.855Z",
+  "latencyMs": 1119,
+  "usage": {
+    "inputTokens": 509,
+    "outputTokens": 105,
+    "cacheReadTokens": 256
+  },
+  "input": {
+    "lines": [
+      {
+        "description": "Piezas para redes, campaña de septiembre",
+        "unit": "unit",
+        "quantity": "1"
+      }
+    ],
+    "terms": [
+      {
+        "id": "ceiba-iconos",
+        "kind": "milestone",
+        "title": "Sistema de íconos de la app"
+      },
+      {
+        "id": "ceiba-piezas-sep",
+        "kind": "milestone",
+        "title": "Piezas para redes, campaña de septiembre"
+      },
+      {
+        "id": "ceiba-brand-kit-v2",
+        "kind": "milestone",
+        "title": "Brand kit v2"
+      },
+      {
+        "id": "ceiba-landing",
+        "kind": "milestone",
+        "title": "Diseño de la landing"
+      }
+    ],
+    "contractId": "ct-estudio-ceiba"
+  },
+  "output": {
+    "matches": [
+      {
+        "lineIndex": 0,
+        "termId": "ceiba-piezas-sep",
+        "confidence": 0.97,
+        "reason": "La descripción de la línea coincide literalmente con el hito 'Piezas para redes, campaña de septiembre'."
+      }
+    ]
+  }
+}

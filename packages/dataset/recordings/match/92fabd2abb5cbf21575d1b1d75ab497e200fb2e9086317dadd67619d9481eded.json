@@ -1,0 +1,41 @@
+{
+  "key": "92fabd2abb5cbf21575d1b1d75ab497e200fb2e9086317dadd67619d9481eded",
+  "kind": "match",
+  "version": "matcher-1",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:15:22.026Z",
+  "latencyMs": 1147,
+  "usage": {
+    "inputTokens": 402,
+    "outputTokens": 200,
+    "cacheReadTokens": 256
+  },
+  "input": {
+    "lines": [
+      {
+        "description": "Pruebas de QA de la app móvil — septiembre 2026",
+        "unit": "unit",
+        "quantity": "172"
+      }
+    ],
+    "terms": [
+      {
+        "id": "aguilar-horas",
+        "kind": "hours",
+        "title": "Pruebas de QA (hora)"
+      }
+    ],
+    "contractId": "ct-renata-aguilar"
+  },
+  "output": {
+    "matches": [
+      {
+        "lineIndex": 0,
+        "termId": "aguilar-horas",
+        "confidence": 0.87,
+        "reason": "La línea factura pruebas de QA de la app móvil, que coincide con el término por horas ('Pruebas de QA (hora)'); la cantidad (172) es compatible con horas, aunque la unidad aparece como genérica."
+      }
+    ]
+  }
+}

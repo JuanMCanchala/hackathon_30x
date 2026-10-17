@@ -1,0 +1,50 @@
+{
+  "key": "fcaf9000b82e6615b4b95c6db871714391527bb461e8ca4d4f0b39554c4d4aef",
+  "kind": "read",
+  "version": "reader-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:14:07.735Z",
+  "latencyMs": 4982,
+  "usage": {
+    "inputTokens": 1402,
+    "outputTokens": 1712,
+    "cacheReadTokens": 1024
+  },
+  "input": {
+    "sha256": "72126055d3c602bb7ffa3dda8e2bd99cb4af0af7432c9b3346702a52506cd70e",
+    "filename": "sep-21-estudio-ceiba-cuenta-de-cobro.pdf",
+    "channel": "pdf"
+  },
+  "output": {
+    "vendorName": "Estudio Ceiba Diseño S.A.S.",
+    "vendorTaxId": "901.234.567-1",
+    "invoiceNumber": "EC-0236",
+    "issueDate": "2026-09-25",
+    "dueDate": "2026-10-25",
+    "periodFrom": "2026-09-01",
+    "periodTo": "2026-09-30",
+    "currency": "COP",
+    "total": "6200000",
+    "lines": [
+      {
+        "description": "Piezas para redes, campaña de septiembre",
+        "quantity": "1",
+        "unit": "unit",
+        "unitPrice": "6200000",
+        "amount": "6200000"
+      }
+    ],
+    "payoutDetails": "Llave Bre-B: @estudioceiba",
+    "revisionOf": null,
+    "instructionsToAgent": false,
+    "confidence": {
+      "vendor": 1,
+      "invoiceNumber": 1,
+      "total": 1,
+      "lines": 1,
+      "currency": 1,
+      "dates": 0.9
+    }
+  }
+}

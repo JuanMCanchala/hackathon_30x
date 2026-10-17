@@ -1,0 +1,50 @@
+{
+  "key": "dcd72ae482d0464a3976875393c64728a6b0345a87e1b7e7e9c2471f345a4f54",
+  "kind": "read",
+  "version": "reader-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:13:21.488Z",
+  "latencyMs": 6405,
+  "usage": {
+    "inputTokens": 1401,
+    "outputTokens": 1295,
+    "cacheReadTokens": 0
+  },
+  "input": {
+    "sha256": "80531f8fc9d68baf9ac97214e6ef6729bf6bb819e1e390d7c89ea071b10f9d95",
+    "filename": "sep-12-estudio-ceiba-cuenta-de-cobro.pdf",
+    "channel": "pdf"
+  },
+  "output": {
+    "vendorName": "Estudio Ceiba Diseño S.A.S.",
+    "vendorTaxId": "901.234.567-1",
+    "invoiceNumber": "EC-0231",
+    "issueDate": "2026-09-07",
+    "dueDate": "2026-10-07",
+    "periodFrom": null,
+    "periodTo": null,
+    "currency": "COP",
+    "total": "8500000",
+    "lines": [
+      {
+        "description": "Sistema de íconos de la app",
+        "quantity": "1",
+        "unit": "milestone",
+        "unitPrice": "8500000",
+        "amount": "8500000"
+      }
+    ],
+    "payoutDetails": "Llave Bre-B: @estudioceiba\nEstudio Ceiba Diseño S.A.S.\nNIT 901.234.567-1",
+    "revisionOf": null,
+    "instructionsToAgent": false,
+    "confidence": {
+      "vendor": 1,
+      "invoiceNumber": 1,
+      "total": 1,
+      "lines": 1,
+      "currency": 1,
+      "dates": 1
+    }
+  }
+}

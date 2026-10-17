@@ -1,0 +1,50 @@
+{
+  "key": "2239d7cc5ec15dad150bde5ff92ce306e5ce2bb358ca0e3272bad9b95d18eddd",
+  "kind": "read",
+  "version": "reader-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:15:20.878Z",
+  "latencyMs": 9710,
+  "usage": {
+    "inputTokens": 1465,
+    "outputTokens": 4050,
+    "cacheReadTokens": 1024
+  },
+  "input": {
+    "sha256": "878f6f9f3a861d6f076288ce7e3840ebe1fb723d4636fd378b2143dced1f43f4",
+    "filename": "oct-11-renata-aguilar-factura.pdf",
+    "channel": "pdf"
+  },
+  "output": {
+    "vendorName": "Renata Aguilar Mendoza",
+    "vendorTaxId": "AUMR930722HD4",
+    "invoiceNumber": "RA-0019",
+    "issueDate": "2026-10-02",
+    "dueDate": "2026-10-17",
+    "periodFrom": "2026-09-01",
+    "periodTo": "2026-09-30",
+    "currency": "MXN",
+    "total": "89440.00",
+    "lines": [
+      {
+        "description": "Pruebas de QA de la app móvil — septiembre 2026",
+        "quantity": "172",
+        "unit": "unit",
+        "unitPrice": "520.00",
+        "amount": "89440.00"
+      }
+    ],
+    "payoutDetails": "CLABE: 0021 8007 0123 4567 80",
+    "revisionOf": null,
+    "instructionsToAgent": false,
+    "confidence": {
+      "vendor": 0.9,
+      "invoiceNumber": 1,
+      "total": 1,
+      "lines": 1,
+      "currency": 1,
+      "dates": 1
+    }
+  }
+}

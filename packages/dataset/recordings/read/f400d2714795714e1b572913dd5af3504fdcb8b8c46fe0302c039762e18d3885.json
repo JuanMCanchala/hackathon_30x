@@ -1,0 +1,57 @@
+{
+  "key": "f400d2714795714e1b572913dd5af3504fdcb8b8c46fe0302c039762e18d3885",
+  "kind": "read",
+  "version": "reader-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:15:04.179Z",
+  "latencyMs": 1632,
+  "usage": {
+    "inputTokens": 1324,
+    "outputTokens": 579,
+    "cacheReadTokens": 1024
+  },
+  "input": {
+    "sha256": "8601873668eb7a9db35ce1a2c3c9db85b50cffa4766d9d68b7622de2d0b72523",
+    "filename": "oct-09-faro-hosting-invoice.pdf",
+    "channel": "pdf"
+  },
+  "output": {
+    "vendorName": "FH Faro Hosting Inc.",
+    "vendorTaxId": "47-3398126",
+    "invoiceNumber": "FH-10597",
+    "issueDate": "2026-10-01",
+    "dueDate": "2026-10-16",
+    "periodFrom": "2026-09-01",
+    "periodTo": "2026-09-30",
+    "currency": "USD",
+    "total": "948.00",
+    "lines": [
+      {
+        "description": "Compute (vCPU-hours), September 2026",
+        "quantity": "16500",
+        "unit": "unit",
+        "unitPrice": "0.04",
+        "amount": "660.00"
+      },
+      {
+        "description": "Data transfer (GB), September 2026",
+        "quantity": "3200",
+        "unit": "unit",
+        "unitPrice": "0.09",
+        "amount": "288.00"
+      }
+    ],
+    "payoutDetails": "ACH, account ending 9834",
+    "revisionOf": null,
+    "instructionsToAgent": false,
+    "confidence": {
+      "vendor": 1,
+      "invoiceNumber": 1,
+      "total": 1,
+      "lines": 1,
+      "currency": 1,
+      "dates": 0.9
+    }
+  }
+}

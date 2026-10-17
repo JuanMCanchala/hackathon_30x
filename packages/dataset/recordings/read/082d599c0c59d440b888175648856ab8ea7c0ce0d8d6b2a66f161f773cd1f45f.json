@@ -1,0 +1,50 @@
+{
+  "key": "082d599c0c59d440b888175648856ab8ea7c0ce0d8d6b2a66f161f773cd1f45f",
+  "kind": "read",
+  "version": "reader-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:14:39.093Z",
+  "latencyMs": 1969,
+  "usage": {
+    "inputTokens": 1437,
+    "outputTokens": 436,
+    "cacheReadTokens": 0
+  },
+  "input": {
+    "sha256": "0e43174c546cd2b67259dc4374ada0c6ba17ee41a80910f64cae24eb0622bd84",
+    "filename": "oct-05-andres-villasenor-factura.pdf",
+    "channel": "pdf"
+  },
+  "output": {
+    "vendorName": "AV Andrés Villaseñor Ríos",
+    "vendorTaxId": "VIRA910315KM2",
+    "invoiceNumber": "AV-2026-06",
+    "issueDate": "2026-10-02",
+    "dueDate": "2026-10-17",
+    "periodFrom": null,
+    "periodTo": null,
+    "currency": "MXN",
+    "total": "85000.00",
+    "lines": [
+      {
+        "description": "Hito M3: notificaciones push (PR #3)",
+        "quantity": "1",
+        "unit": "milestone",
+        "unitPrice": "85000.00",
+        "amount": "85000.00"
+      }
+    ],
+    "payoutDetails": "CLABE 012180015678901230",
+    "revisionOf": null,
+    "instructionsToAgent": false,
+    "confidence": {
+      "vendor": 1,
+      "invoiceNumber": 1,
+      "total": 1,
+      "lines": 1,
+      "currency": 1,
+      "dates": 1
+    }
+  }
+}

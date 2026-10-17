@@ -1,0 +1,50 @@
+{
+  "key": "da9de4815535514e779550562ce39acfca8d3d3442a6c40f850208ae779a6275",
+  "kind": "read",
+  "version": "reader-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:13:29.723Z",
+  "latencyMs": 4710,
+  "usage": {
+    "inputTokens": 1454,
+    "outputTokens": 395,
+    "cacheReadTokens": 0
+  },
+  "input": {
+    "sha256": "83a9aedb02f7117e5e606298d1a8fb0494d3002adb8371bc9f7f6b0274ae6c67",
+    "filename": "sep-14-ximena-robles-factura.pdf",
+    "channel": "pdf"
+  },
+  "output": {
+    "vendorName": "Ximena Robles Castañeda",
+    "vendorTaxId": "ROCX880412TN7",
+    "invoiceNumber": "XR-0007",
+    "issueDate": "2026-09-10",
+    "dueDate": "2026-09-25",
+    "periodFrom": null,
+    "periodTo": null,
+    "currency": "MXN",
+    "total": "58000.00",
+    "lines": [
+      {
+        "description": "Motor de conciliación bancaria (ALT-214)",
+        "quantity": "1",
+        "unit": "unit",
+        "unitPrice": "58000.00",
+        "amount": "58000.00"
+      }
+    ],
+    "payoutDetails": "CLABE 072180044556677888",
+    "revisionOf": null,
+    "instructionsToAgent": false,
+    "confidence": {
+      "vendor": 1,
+      "invoiceNumber": 1,
+      "total": 1,
+      "lines": 1,
+      "currency": 1,
+      "dates": 1
+    }
+  }
+}

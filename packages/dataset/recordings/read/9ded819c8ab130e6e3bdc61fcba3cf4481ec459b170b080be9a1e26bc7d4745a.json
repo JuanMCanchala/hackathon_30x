@@ -1,0 +1,50 @@
+{
+  "key": "9ded819c8ab130e6e3bdc61fcba3cf4481ec459b170b080be9a1e26bc7d4745a",
+  "kind": "read",
+  "version": "reader-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:14:01.596Z",
+  "latencyMs": 9453,
+  "usage": {
+    "inputTokens": 1376,
+    "outputTokens": 2809,
+    "cacheReadTokens": 0
+  },
+  "input": {
+    "sha256": "6cce0b86c5b4605127fd87477a8b4203b91d13cce1dc49405e6ce547ccf1dacf",
+    "filename": "sep-20-estudio-jabuti-fatura.pdf",
+    "channel": "pdf"
+  },
+  "output": {
+    "vendorName": "EJ Estúdio Jabuti Ilustrações Ltda.",
+    "vendorTaxId": "12.345.678/0001-90",
+    "invoiceNumber": "JAB-2026-034",
+    "issueDate": "2026-09-22",
+    "dueDate": "2026-10-22",
+    "periodFrom": null,
+    "periodTo": null,
+    "currency": "BRL",
+    "total": "2700.00",
+    "lines": [
+      {
+        "description": "Ilustrações para o blog (6 peças)",
+        "quantity": "1",
+        "unit": "unit",
+        "unitPrice": "2700.00",
+        "amount": "2700.00"
+      }
+    ],
+    "payoutDetails": "Chave Pix: CNPJ 12345678000190",
+    "revisionOf": null,
+    "instructionsToAgent": false,
+    "confidence": {
+      "vendor": 1,
+      "invoiceNumber": 1,
+      "total": 1,
+      "lines": 1,
+      "currency": 1,
+      "dates": 1
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "key": "89e64d61f837dc756f868c1c73c7780b1209686620383511561dc6f539ab164d",
+  "kind": "read",
+  "version": "reader-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:12:43.405Z",
+  "latencyMs": 11541,
+  "usage": {
+    "inputTokens": 1398,
+    "outputTokens": 2392,
+    "cacheReadTokens": 0
+  },
+  "input": {
+    "sha256": "5295a45ee2c92043afe0eae5a27480f9bcbf910123d8b9002d556e58adccfb12",
+    "filename": "sep-05-faro-hosting-correo.eml",
+    "channel": "email"
+  },
+  "output": {
+    "vendorName": "FH Faro Hosting Inc.",
+    "vendorTaxId": "47-3398126",
+    "invoiceNumber": "FH-10482",
+    "issueDate": "2026-09-01",
+    "dueDate": "2026-09-16",
+    "periodFrom": "2026-08-01",
+    "periodTo": "2026-08-31",
+    "currency": "USD",
+    "total": "897.50",
+    "lines": [
+      {
+        "description": "Compute (vCPU-hours), August 2026",
+        "quantity": "15800",
+        "unit": "unit",
+        "unitPrice": "0.04",
+        "amount": "632.00"
+      },
+      {
+        "description": "Data transfer (GB), August 2026",
+        "quantity": "2950",
+        "unit": "unit",
+        "unitPrice": "0.09",
+        "amount": "265.50"
+      }
+    ],
+    "payoutDetails": "Important: we moved banks. Our new bank account for this and future payments is routing 071000013, account 558322109934. Please update your records before paying.\nNew bank account: routing 071000013, account 558322109934",
+    "revisionOf": null,
+    "instructionsToAgent": false,
+    "confidence": {
+      "vendor": 1,
+      "invoiceNumber": 1,
+      "total": 1,
+      "lines": 1,
+      "currency": 1,
+      "dates": 1
+    }
+  }
+}

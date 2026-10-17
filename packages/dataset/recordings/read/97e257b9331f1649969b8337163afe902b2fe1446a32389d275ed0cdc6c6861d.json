@@ -1,0 +1,57 @@
+{
+  "key": "97e257b9331f1649969b8337163afe902b2fe1446a32389d275ed0cdc6c6861d",
+  "kind": "read",
+  "version": "reader-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:12:52.002Z",
+  "latencyMs": 7815,
+  "usage": {
+    "inputTokens": 1324,
+    "outputTokens": 638,
+    "cacheReadTokens": 256
+  },
+  "input": {
+    "sha256": "899e6220a5c7c058f4ab8aa4d72247c1f6e9ac59f1aa099888042c7552f10b71",
+    "filename": "sep-06-faro-hosting-invoice.pdf",
+    "channel": "pdf"
+  },
+  "output": {
+    "vendorName": "Faro Hosting Inc.",
+    "vendorTaxId": "47-3398126",
+    "invoiceNumber": "FH-10482",
+    "issueDate": "2026-09-01",
+    "dueDate": "2026-09-16",
+    "periodFrom": "2026-08-01",
+    "periodTo": "2026-08-31",
+    "currency": "USD",
+    "total": "897.50",
+    "lines": [
+      {
+        "description": "Compute (vCPU-hours), August 2026",
+        "quantity": "15800",
+        "unit": "unit",
+        "unitPrice": "0.04",
+        "amount": "632.00"
+      },
+      {
+        "description": "Data transfer (GB), August 2026",
+        "quantity": "2950",
+        "unit": "unit",
+        "unitPrice": "0.09",
+        "amount": "265.50"
+      }
+    ],
+    "payoutDetails": "ACH, account ending 9834",
+    "revisionOf": null,
+    "instructionsToAgent": false,
+    "confidence": {
+      "vendor": 1,
+      "invoiceNumber": 1,
+      "total": 1,
+      "lines": 1,
+      "currency": 1,
+      "dates": 1
+    }
+  }
+}

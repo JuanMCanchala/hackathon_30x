@@ -1,0 +1,50 @@
+{
+  "key": "f95268d8e07f738b5409759524ad8b3a95e546893bd35a74e80fcb8eb4f3af54",
+  "kind": "read",
+  "version": "reader-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:16:05.306Z",
+  "latencyMs": 6335,
+  "usage": {
+    "inputTokens": 1398,
+    "outputTokens": 872,
+    "cacheReadTokens": 0
+  },
+  "input": {
+    "sha256": "3a88e2bcb05fb46d3a2a48941a858260d5c36fed89e00dc21ab8de92e37f5e36",
+    "filename": "oct-16-estudio-ceiba-cuenta-de-cobro.pdf",
+    "channel": "pdf"
+  },
+  "output": {
+    "vendorName": "Estudio Ceiba Diseño S.A.S.",
+    "vendorTaxId": "901.234.567-1",
+    "invoiceNumber": "EC-0249",
+    "issueDate": "2026-10-07",
+    "dueDate": "2026-11-06",
+    "periodFrom": null,
+    "periodTo": null,
+    "currency": "COP",
+    "total": "6500000",
+    "lines": [
+      {
+        "description": "Diseño de la landing",
+        "quantity": "1",
+        "unit": "milestone",
+        "unitPrice": "6500000",
+        "amount": "6500000"
+      }
+    ],
+    "payoutDetails": "Llave Bre-B: @estudioceiba",
+    "revisionOf": null,
+    "instructionsToAgent": false,
+    "confidence": {
+      "vendor": 1,
+      "invoiceNumber": 1,
+      "total": 1,
+      "lines": 1,
+      "currency": 1,
+      "dates": 1
+    }
+  }
+}

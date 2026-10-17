@@ -1,0 +1,41 @@
+{
+  "key": "e917f6e5eee0fbcfb10e8d9cf45fb3b0270114f12eaa7fdc5060caec902dce06",
+  "kind": "match",
+  "version": "matcher-1",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:14:34.434Z",
+  "latencyMs": 2147,
+  "usage": {
+    "inputTokens": 423,
+    "outputTokens": 142,
+    "cacheReadTokens": 0
+  },
+  "input": {
+    "lines": [
+      {
+        "description": "Desarrollo backend API de pagos — septiembre 2026 (corregida)",
+        "unit": "hour",
+        "quantity": "92"
+      }
+    ],
+    "terms": [
+      {
+        "id": "ospina-horas",
+        "kind": "hours",
+        "title": "Desarrollo backend (hora)"
+      }
+    ],
+    "contractId": "ct-daniela-ospina"
+  },
+  "output": {
+    "matches": [
+      {
+        "lineIndex": 0,
+        "termId": "ospina-horas",
+        "confidence": 0.95,
+        "reason": "La línea factura 92 horas de desarrollo backend de API de pagos y el término es por horas para desarrollo backend."
+      }
+    ]
+  }
+}

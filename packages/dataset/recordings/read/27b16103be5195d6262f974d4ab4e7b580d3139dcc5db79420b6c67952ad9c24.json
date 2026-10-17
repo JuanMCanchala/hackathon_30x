@@ -1,0 +1,57 @@
+{
+  "key": "27b16103be5195d6262f974d4ab4e7b580d3139dcc5db79420b6c67952ad9c24",
+  "kind": "read",
+  "version": "reader-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:15:46.636Z",
+  "latencyMs": 2554,
+  "usage": {
+    "inputTokens": 1398,
+    "outputTokens": 659,
+    "cacheReadTokens": 1024
+  },
+  "input": {
+    "sha256": "b43e61a804c28d671cff373bd880c9b14710f3a0b7908749b1e5cc7e7b6773a0",
+    "filename": "oct-15-estudio-jabuti-fatura.pdf",
+    "channel": "pdf"
+  },
+  "output": {
+    "vendorName": "EJ Estúdio Jabuti Ilustrações Ltda.",
+    "vendorTaxId": "12.345.678/0001-90",
+    "invoiceNumber": "JAB-2026-041",
+    "issueDate": "2026-10-07",
+    "dueDate": "2026-11-06",
+    "periodFrom": null,
+    "periodTo": null,
+    "currency": "BRL",
+    "total": "10800.00",
+    "lines": [
+      {
+        "description": "Mascote e variações",
+        "quantity": "1",
+        "unit": "milestone",
+        "unitPrice": "7200.00",
+        "amount": "7200.00"
+      },
+      {
+        "description": "Ícones ilustrados (20 peças)",
+        "quantity": "1",
+        "unit": "milestone",
+        "unitPrice": "3400.00",
+        "amount": "3400.00"
+      }
+    ],
+    "payoutDetails": "Chave Pix: CNPJ 12345678000190",
+    "revisionOf": null,
+    "instructionsToAgent": false,
+    "confidence": {
+      "vendor": 1,
+      "invoiceNumber": 1,
+      "total": 1,
+      "lines": 1,
+      "currency": 1,
+      "dates": 1
+    }
+  }
+}

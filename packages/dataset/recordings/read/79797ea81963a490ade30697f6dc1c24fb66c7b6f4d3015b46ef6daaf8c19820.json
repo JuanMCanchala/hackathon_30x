@@ -1,0 +1,50 @@
+{
+  "key": "79797ea81963a490ade30697f6dc1c24fb66c7b6f4d3015b46ef6daaf8c19820",
+  "kind": "read",
+  "version": "reader-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:15:24.793Z",
+  "latencyMs": 2756,
+  "usage": {
+    "inputTokens": 1425,
+    "outputTokens": 693,
+    "cacheReadTokens": 1024
+  },
+  "input": {
+    "sha256": "dfab5eb5a6bce659de741afe86f99266219db3621585c29ddeae7a7446e70a12",
+    "filename": "oct-12-beatriz-lima-fatura.pdf",
+    "channel": "pdf"
+  },
+  "output": {
+    "vendorName": "BL Beatriz Lima Pesquisa de Usuários ME",
+    "vendorTaxId": "23.456.789/0001-95",
+    "invoiceNumber": "BL-015",
+    "issueDate": "2026-10-02",
+    "dueDate": "2026-10-17",
+    "periodFrom": "2026-09-01",
+    "periodTo": "2026-09-30",
+    "currency": "BRL",
+    "total": "15840.00",
+    "lines": [
+      {
+        "description": "Pesquisa com usuários: testes de usabilidade — setembro de 2026",
+        "quantity": "96",
+        "unit": "unit",
+        "unitPrice": "165.00",
+        "amount": "15840.00"
+      }
+    ],
+    "payoutDetails": "Chave Pix: beatriz@limapesquisa.com.br",
+    "revisionOf": null,
+    "instructionsToAgent": false,
+    "confidence": {
+      "vendor": 1,
+      "invoiceNumber": 1,
+      "total": 1,
+      "lines": 0.9,
+      "currency": 1,
+      "dates": 1
+    }
+  }
+}

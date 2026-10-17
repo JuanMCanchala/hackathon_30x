@@ -1,0 +1,50 @@
+{
+  "key": "f4f35bff3fddc2f5736ef792beb992f5d30d1fe63387d6dcc0221ca288970e9a",
+  "kind": "read",
+  "version": "reader-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:13:47.158Z",
+  "latencyMs": 4610,
+  "usage": {
+    "inputTokens": 1475,
+    "outputTokens": 1381,
+    "cacheReadTokens": 1024
+  },
+  "input": {
+    "sha256": "9c2f7b365a32811b45366c87901e1fd5c26a4d9e54b524d477a47b427307d4ab",
+    "filename": "sep-17-andres-villasenor-correo.eml",
+    "channel": "email"
+  },
+  "output": {
+    "vendorName": "AV Andrés Villaseñor Ríos",
+    "vendorTaxId": "VIRA910315KM2",
+    "invoiceNumber": "AV-2026-05",
+    "issueDate": "2026-09-16",
+    "dueDate": "2026-10-01",
+    "periodFrom": null,
+    "periodTo": null,
+    "currency": "MXN",
+    "total": "74000.00",
+    "lines": [
+      {
+        "description": "Hito M2: pagos dentro de la app (PR #2)",
+        "quantity": "1",
+        "unit": "milestone",
+        "unitPrice": "74000.00",
+        "amount": "74000.00"
+      }
+    ],
+    "payoutDetails": "CLABE 012180015678901230",
+    "revisionOf": null,
+    "instructionsToAgent": false,
+    "confidence": {
+      "vendor": 1,
+      "invoiceNumber": 1,
+      "total": 1,
+      "lines": 1,
+      "currency": 1,
+      "dates": 1
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "key": "752eb6f809f572bd67c4c6cc0d3d55575280605d96213e484e5c632b5885352c",
+  "kind": "read",
+  "version": "reader-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:14:20.138Z",
+  "latencyMs": 1219,
+  "usage": {
+    "inputTokens": 1463,
+    "outputTokens": 493,
+    "cacheReadTokens": 1024
+  },
+  "input": {
+    "sha256": "d234748719f2c77def265097002ec198da4b4f42678e8d0c287480e0b6f61dee",
+    "filename": "oct-02-julian-restrepo-cuenta-de-cobro.pdf",
+    "channel": "pdf"
+  },
+  "output": {
+    "vendorName": "Julián Restrepo Arango",
+    "vendorTaxId": "1.017.238.904",
+    "invoiceNumber": "JR-2026-09",
+    "issueDate": "2026-10-01",
+    "dueDate": "2026-10-16",
+    "periodFrom": "2026-09-01",
+    "periodTo": "2026-09-30",
+    "currency": "COP",
+    "total": "13200000",
+    "lines": [
+      {
+        "description": "Desarrollo frontend app web — septiembre 2026",
+        "quantity": "120",
+        "unit": "hour",
+        "unitPrice": "110000",
+        "amount": "13200000"
+      }
+    ],
+    "payoutDetails": "Llave Bre-B: julian@restrepoarango.dev",
+    "revisionOf": null,
+    "instructionsToAgent": false,
+    "confidence": {
+      "vendor": 1,
+      "invoiceNumber": 1,
+      "total": 1,
+      "lines": 1,
+      "currency": 1,
+      "dates": 1
+    }
+  }
+}

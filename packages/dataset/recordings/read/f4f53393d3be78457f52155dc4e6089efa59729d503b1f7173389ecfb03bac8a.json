@@ -1,0 +1,50 @@
+{
+  "key": "f4f53393d3be78457f52155dc4e6089efa59729d503b1f7173389ecfb03bac8a",
+  "kind": "read",
+  "version": "reader-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:15:41.990Z",
+  "latencyMs": 8361,
+  "usage": {
+    "inputTokens": 1383,
+    "outputTokens": 1097,
+    "cacheReadTokens": 1024
+  },
+  "input": {
+    "sha256": "cdac3d01179cb7550e3632423cb3bfca7a209b9fabff1a90668d5369c219ed5f",
+    "filename": "oct-14-mantenimientos-guadua-factura.pdf",
+    "channel": "pdf"
+  },
+  "output": {
+    "vendorName": "MD Mantenimientos y Dotaciones Guadua S.A.S.",
+    "vendorTaxId": "900.456.789-4",
+    "invoiceNumber": "MG-1215",
+    "issueDate": "2026-10-06",
+    "dueDate": "2026-11-05",
+    "periodFrom": null,
+    "periodTo": null,
+    "currency": "COP",
+    "total": "95400000",
+    "lines": [
+      {
+        "description": "Escritorios eléctricos (OC-1001)",
+        "quantity": "60",
+        "unit": "unit",
+        "unitPrice": "1590000",
+        "amount": "95400000"
+      }
+    ],
+    "payoutDetails": "Llave Bre-B: NIT 900.456.789-4",
+    "revisionOf": null,
+    "instructionsToAgent": false,
+    "confidence": {
+      "vendor": 1,
+      "invoiceNumber": 1,
+      "total": 1,
+      "lines": 1,
+      "currency": 1,
+      "dates": 1
+    }
+  }
+}

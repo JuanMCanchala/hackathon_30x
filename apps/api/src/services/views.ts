@@ -63,7 +63,7 @@ async function allBills(ex: Executor): Promise<BillRow[]> {
 }
 
 /** The current state in the independent checker's shape. */
-async function checkerInput(ex: Executor): Promise<CheckerInput> {
+export async function checkerInput(ex: Executor): Promise<CheckerInput> {
   const rows = await allBills(ex);
   const decisionRows = await ex
     .select()

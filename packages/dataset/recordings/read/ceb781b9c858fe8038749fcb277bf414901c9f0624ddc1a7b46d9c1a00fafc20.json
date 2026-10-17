@@ -1,0 +1,50 @@
+{
+  "key": "ceb781b9c858fe8038749fcb277bf414901c9f0624ddc1a7b46d9c1a00fafc20",
+  "kind": "read",
+  "version": "reader-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:13:51.354Z",
+  "latencyMs": 2068,
+  "usage": {
+    "inputTokens": 1380,
+    "outputTokens": 431,
+    "cacheReadTokens": 0
+  },
+  "input": {
+    "sha256": "356fa9eba3dea286defd17eeb02e4a97acc02b6eea7e98f0916b207709a47d70",
+    "filename": "sep-19-mantenimientos-guadua-factura.pdf",
+    "channel": "pdf"
+  },
+  "output": {
+    "vendorName": "MD Mantenimientos y Dotaciones Guadua S.A.S.",
+    "vendorTaxId": "900.456.789-4",
+    "invoiceNumber": "MG-1193",
+    "issueDate": "2026-09-21",
+    "dueDate": "2026-10-21",
+    "periodFrom": null,
+    "periodTo": null,
+    "currency": "COP",
+    "total": "4140000",
+    "lines": [
+      {
+        "description": "Purificadores de aire (OC-0918)",
+        "quantity": "6",
+        "unit": "unit",
+        "unitPrice": "690000",
+        "amount": "4140000"
+      }
+    ],
+    "payoutDetails": "Llave Bre-B: NIT 900.456.789-4",
+    "revisionOf": null,
+    "instructionsToAgent": false,
+    "confidence": {
+      "vendor": 1,
+      "invoiceNumber": 1,
+      "total": 1,
+      "lines": 1,
+      "currency": 1,
+      "dates": 1
+    }
+  }
+}

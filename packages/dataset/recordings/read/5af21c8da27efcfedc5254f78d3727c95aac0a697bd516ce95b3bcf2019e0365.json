@@ -1,0 +1,50 @@
+{
+  "key": "5af21c8da27efcfedc5254f78d3727c95aac0a697bd516ce95b3bcf2019e0365",
+  "kind": "read",
+  "version": "reader-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:13:41.671Z",
+  "latencyMs": 2882,
+  "usage": {
+    "inputTokens": 1381,
+    "outputTokens": 397,
+    "cacheReadTokens": 256
+  },
+  "input": {
+    "sha256": "7fbfd94de755fd3b44e58e107050d9659b0b8b861572130166b188f37cba49bb",
+    "filename": "sep-16-mantenimientos-guadua-factura.pdf",
+    "channel": "pdf"
+  },
+  "output": {
+    "vendorName": "MD Mantenimientos y Dotaciones Guadua S.A.S.",
+    "vendorTaxId": "900.456.789-4",
+    "invoiceNumber": "MG-1187",
+    "issueDate": "2026-09-14",
+    "dueDate": "2026-10-14",
+    "periodFrom": null,
+    "periodTo": null,
+    "currency": "COP",
+    "total": "9360000",
+    "lines": [
+      {
+        "description": "Sillas ergonómicas (OC-0912)",
+        "quantity": "12",
+        "unit": "unit",
+        "unitPrice": "780000",
+        "amount": "9360000"
+      }
+    ],
+    "payoutDetails": "Llave Bre-B: NIT 900.456.789-4",
+    "revisionOf": null,
+    "instructionsToAgent": false,
+    "confidence": {
+      "vendor": 1,
+      "invoiceNumber": 1,
+      "total": 1,
+      "lines": 1,
+      "currency": 1,
+      "dates": 1
+    }
+  }
+}

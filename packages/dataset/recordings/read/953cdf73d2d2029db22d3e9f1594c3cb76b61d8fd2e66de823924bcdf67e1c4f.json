@@ -1,0 +1,50 @@
+{
+  "key": "953cdf73d2d2029db22d3e9f1594c3cb76b61d8fd2e66de823924bcdf67e1c4f",
+  "kind": "read",
+  "version": "reader-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:15:33.622Z",
+  "latencyMs": 2443,
+  "usage": {
+    "inputTokens": 1403,
+    "outputTokens": 910,
+    "cacheReadTokens": 1024
+  },
+  "input": {
+    "sha256": "c22bb6800052cafc38779b2a84968abb43cdb159f4a57aeb846448e7a76a10ed",
+    "filename": "oct-13-nimbo-consultores-correo.eml",
+    "channel": "email"
+  },
+  "output": {
+    "vendorName": "Nimbo Consultores S.A.S.",
+    "vendorTaxId": "901.888.432-8",
+    "invoiceNumber": "NC-0098",
+    "issueDate": "2026-10-05",
+    "dueDate": "2026-10-20",
+    "periodFrom": "2026-09-01",
+    "periodTo": "2026-09-30",
+    "currency": "COP",
+    "total": "9800000",
+    "lines": [
+      {
+        "description": "Auditoría de seguridad informática — septiembre 2026",
+        "quantity": "1",
+        "unit": "other",
+        "unitPrice": "9800000",
+        "amount": "9800000"
+      }
+    ],
+    "payoutDetails": "Cuenta de ahorros Bancolombia 412-873345-09\nNimbo Consultores S.A.S.\nNIT 901.888.432-8",
+    "revisionOf": null,
+    "instructionsToAgent": false,
+    "confidence": {
+      "vendor": 1,
+      "invoiceNumber": 1,
+      "total": 1,
+      "lines": 1,
+      "currency": 1,
+      "dates": 1
+    }
+  }
+}

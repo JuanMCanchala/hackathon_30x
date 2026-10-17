@@ -1,0 +1,50 @@
+{
+  "key": "ec1edee2474688c68c26ae38dfbbc1be7693e65237f4de840f0225ef11403d70",
+  "kind": "read",
+  "version": "reader-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:14:11.881Z",
+  "latencyMs": 3020,
+  "usage": {
+    "inputTokens": 1382,
+    "outputTokens": 483,
+    "cacheReadTokens": 1024
+  },
+  "input": {
+    "sha256": "4722ae4c5c520b90688412199d265d9b66a95b6185050c7abadc350dbdd3aaaf",
+    "filename": "sep-22-mantenimientos-guadua-factura.pdf",
+    "channel": "pdf"
+  },
+  "output": {
+    "vendorName": "MD Mantenimientos y Dotaciones Guadua S.A.S.",
+    "vendorTaxId": "900.456.789-4",
+    "invoiceNumber": "MG-1201",
+    "issueDate": "2026-09-29",
+    "dueDate": "2026-10-29",
+    "periodFrom": null,
+    "periodTo": null,
+    "currency": "COP",
+    "total": "4200000",
+    "lines": [
+      {
+        "description": "Cafetera industrial (OC-0927)",
+        "quantity": "1",
+        "unit": "unit",
+        "unitPrice": "4200000",
+        "amount": "4200000"
+      }
+    ],
+    "payoutDetails": "Llave Bre-B: NIT 900.456.789-4",
+    "revisionOf": null,
+    "instructionsToAgent": false,
+    "confidence": {
+      "vendor": 1,
+      "invoiceNumber": 1,
+      "total": 1,
+      "lines": 1,
+      "currency": 1,
+      "dates": 1
+    }
+  }
+}

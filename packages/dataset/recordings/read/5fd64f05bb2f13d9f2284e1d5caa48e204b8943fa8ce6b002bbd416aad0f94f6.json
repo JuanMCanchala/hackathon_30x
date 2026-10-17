@@ -1,0 +1,50 @@
+{
+  "key": "5fd64f05bb2f13d9f2284e1d5caa48e204b8943fa8ce6b002bbd416aad0f94f6",
+  "kind": "read",
+  "version": "reader-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:12:54.417Z",
+  "latencyMs": 2408,
+  "usage": {
+    "inputTokens": 1447,
+    "outputTokens": 494,
+    "cacheReadTokens": 0
+  },
+  "input": {
+    "sha256": "e60dc5a4355fb0c51d9b8c72bc887669bfef81fecd05f961fc837b30618e2fb0",
+    "filename": "sep-07-thiago-moreira-fatura.pdf",
+    "channel": "pdf"
+  },
+  "output": {
+    "vendorName": "TM Thiago Moreira Engenharia de Dados ME",
+    "vendorTaxId": "34.567.891/0001-84",
+    "invoiceNumber": "TM-2026-08",
+    "issueDate": "2026-09-03",
+    "dueDate": "2026-09-18",
+    "periodFrom": "2026-08-01",
+    "periodTo": "2026-08-31",
+    "currency": "BRL",
+    "total": "25200.00",
+    "lines": [
+      {
+        "description": "Engenharia de dados — agosto de 2026",
+        "quantity": "140",
+        "unit": "hour",
+        "unitPrice": "180.00",
+        "amount": "25200.00"
+      }
+    ],
+    "payoutDetails": "Chave Pix: 7f3c2a91-4b6e-4d8a-9c1f-2e5b8d0a6c34",
+    "revisionOf": null,
+    "instructionsToAgent": false,
+    "confidence": {
+      "vendor": 1,
+      "invoiceNumber": 1,
+      "total": 1,
+      "lines": 1,
+      "currency": 1,
+      "dates": 1
+    }
+  }
+}

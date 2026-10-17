@@ -1,0 +1,50 @@
+{
+  "key": "ba8ca045a39c76ecc0add77d9bb3ddf570c6a9e3736bdebc34ae1a958e00f5a2",
+  "kind": "read",
+  "version": "reader-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:16:12.841Z",
+  "latencyMs": 2426,
+  "usage": {
+    "inputTokens": 1382,
+    "outputTokens": 449,
+    "cacheReadTokens": 1024
+  },
+  "input": {
+    "sha256": "b734f2a5138261df449d3022e1e4fcc39f8480fa257874afb32f5eccf20a1461",
+    "filename": "oct-18-mantenimientos-guadua-factura.pdf",
+    "channel": "pdf"
+  },
+  "output": {
+    "vendorName": "MD Mantenimientos y Dotaciones Guadua S.A.S.",
+    "vendorTaxId": "900.456.789-4",
+    "invoiceNumber": "MG-1226",
+    "issueDate": "2026-10-12",
+    "dueDate": "2026-11-11",
+    "periodFrom": null,
+    "periodTo": null,
+    "currency": "COP",
+    "total": "5800000",
+    "lines": [
+      {
+        "description": "Lámparas de escritorio (OC-1010)",
+        "quantity": "40",
+        "unit": "unit",
+        "unitPrice": "145000",
+        "amount": "5800000"
+      }
+    ],
+    "payoutDetails": "Llave Bre-B: NIT 900.456.789-4",
+    "revisionOf": null,
+    "instructionsToAgent": false,
+    "confidence": {
+      "vendor": 1,
+      "invoiceNumber": 1,
+      "total": 1,
+      "lines": 1,
+      "currency": 1,
+      "dates": 1
+    }
+  }
+}

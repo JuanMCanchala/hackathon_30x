@@ -1,0 +1,50 @@
+{
+  "key": "1a5ed7c392b595ef181bdb638e170e6d39c9cf3b7059ddf197621223b0bd82db",
+  "kind": "read",
+  "version": "reader-2",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "provider": "openrouter",
+  "recordedAt": "2026-10-17T11:13:08.675Z",
+  "latencyMs": 6232,
+  "usage": {
+    "inputTokens": 1421,
+    "outputTokens": 2144,
+    "cacheReadTokens": 0
+  },
+  "input": {
+    "sha256": "b3a9e9052ba07c1f06e2f4e79a28fdf4cac6587666b7fb8315dee5008da6e37a",
+    "filename": "sep-09-r1-beatriz-lima-fatura-corrigida.pdf",
+    "channel": "pdf"
+  },
+  "output": {
+    "vendorName": "BL Beatriz Lima Pesquisa de Usuários ME",
+    "vendorTaxId": "23.456.789/0001-95",
+    "invoiceNumber": "BL-012",
+    "issueDate": "2026-09-07",
+    "dueDate": "2026-09-22",
+    "periodFrom": "2026-08-01",
+    "periodTo": "2026-08-31",
+    "currency": "BRL",
+    "total": "12000.00",
+    "lines": [
+      {
+        "description": "Pesquisa com usuários: entrevistas e síntese",
+        "quantity": "80",
+        "unit": "unit",
+        "unitPrice": "150.00",
+        "amount": "12000.00"
+      }
+    ],
+    "payoutDetails": "Chave Pix: beatriz@limapesquisa.com.br",
+    "revisionOf": "BL-012",
+    "instructionsToAgent": false,
+    "confidence": {
+      "vendor": 1,
+      "invoiceNumber": 1,
+      "total": 1,
+      "lines": 0.85,
+      "currency": 1,
+      "dates": 1
+    }
+  }
+}
