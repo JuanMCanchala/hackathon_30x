@@ -58,10 +58,11 @@ export function readingErrors(truth: ExtractedBill, got: ExtractedBill | null): 
   const currency = (CURRENCIES.has(truth.currency ?? '') ? truth.currency : 'USD') as Currency;
   const t = critical(truth, currency);
   const g = critical(got, currency);
-  // the payout field is verbatim text: it is right when it carries the same account or key
+  // the payout field is verbatim text: it is right when it carries the whole truth (normalized),
+  // possibly with surrounding words; part of an account is wrong
   const same = (k: (typeof CRITICAL_FIELDS)[number]) =>
     k === 'payoutDetails' && t.payoutDetails && g.payoutDetails
-      ? g.payoutDetails.includes(t.payoutDetails) || t.payoutDetails.includes(g.payoutDetails)
+      ? g.payoutDetails.includes(t.payoutDetails)
       : t[k] === g[k];
   return CRITICAL_FIELDS.filter((k) => !same(k)).map(
     (k) => `${k}: expected ${String(t[k])}, read ${String(g[k])}`,

@@ -3,10 +3,12 @@
  * `runStep` the demo uses) on an in-memory database, twice:
  * - reference: the dataset's ground-truth reading and line matching (are the rules right?)
  * - replay: the recorded answers of the real model (does the whole agent decide right?)
- * It never calls a model: a missing recording skips the replay run with a notice.
+ * It never calls a model. A missing or stale recording fails the eval in CI (CI set) or with
+ * --require-replay, naming the missing keys; otherwise the replay run is skipped with a warning.
  *
- *   pnpm eval                 # both runs; writes .eval/report.json and .eval/report.md
- *   pnpm eval --write-docs    # also refreshes the results in docs/EVALUATION.md
+ *   pnpm eval                    # both runs; writes .eval/report.json and .eval/report.md
+ *   pnpm eval --require-replay   # a missing recording fails instead of skipping the replay run
+ *   pnpm eval --write-docs       # also refreshes the results in docs/EVALUATION.md
  *
  * Exit code 1 on any improper payment, any checker violation, a step the services refused in
  * the reference run, or final-status accuracy below 95 % in any run.
@@ -35,14 +37,15 @@ import { loadConfig } from '../config';
 import { createContainer } from '../container';
 import { openDatabase } from '../db/client';
 import { bills, decisions, humanActions, messages } from '../db/schema';
-import type { LlmRecord } from '../llm/cache';
+import { LlmCache, type LlmRecord } from '../llm/cache';
 import { documentText, sha256Hex } from '../reading/documents';
-import { MATCHER_VERSION } from '../reading/matcher';
+import { matchInput, MATCHER_VERSION } from '../reading/matcher';
 import { READER_VERSION } from '../reading/reader';
 import { runStep } from '../services/demo';
 import { ServiceError } from '../services/state';
 import { checkerInput } from '../services/views';
 import { CRITICAL_FIELDS, NO_READING, readingErrors } from './reading-fields';
+import { resolverOf, type Resolver } from './resolution';
 
 const ACCURACY_GATE = 0.95;
 const MONTHS: Month[] = ['septiembre', 'octubre'];
@@ -61,6 +64,7 @@ interface BillScore {
   first: Outcome | null;
   final: BillStatus | null;
   resolvedBy: ResolvedBy | null;
+  resolver: Resolver | null;
   /** a case: an original bill (corrections belong to the case of the bill they replace) */
   isCase: boolean;
   decidedCorrectlyWithoutPerson: boolean;
@@ -76,7 +80,10 @@ interface Metrics {
   /** cases whose labels say a person is not needed */
   ceiling: number;
   decidedCorrectlyWithoutPerson: number;
-  vendorResolved: number;
+  /** decided correctly without a person after the vendor answered (message or corrected bill) */
+  vendorReply: number;
+  /** decided correctly without a person when new evidence closed what the agent asked for */
+  vendorEvidence: number;
   escalated: number;
   held: number;
   improperPayments: number;
@@ -118,6 +125,7 @@ function currentRecordings(): LlmRecord[] {
 }
 
 async function runMode(mode: Mode): Promise<{ report: Report; missing: string[] }> {
+  const cache = new LlmCache(recordingsDir());
   // Built from scratch, not from process.env: the eval never sees a key, so it never calls a model.
   const config = loadConfig({
     READER: mode === 'reference' ? 'reference' : 'auto',
@@ -149,13 +157,20 @@ async function runMode(mode: Mode): Promise<{ report: Report; missing: string[] 
     const input = await checkerInput(c.db);
     const violations = checkInvariants(input);
 
-    const missing = rows
-      .filter(
-        (b) =>
-          MISSING_RECORDING.test(b.readingMeta?.error ?? '') ||
-          MISSING_RECORDING.test(b.matchMeta?.error ?? ''),
-      )
-      .map((b) => b.datasetId ?? b.id);
+    // the recordings the run asked for and did not find, by key (the file name)
+    const missing = new Set<string>();
+    for (const b of rows) {
+      const label = b.datasetId ?? b.id;
+      if (MISSING_RECORDING.test(b.readingMeta?.error ?? ''))
+        missing.add(
+          `${label} read/${cache.key('read', READER_VERSION, { sha256: b.documentSha })}`,
+        );
+      const contract = input.contracts.find((k) => k.id === b.contractId);
+      if (MISSING_RECORDING.test(b.matchMeta?.error ?? '') && b.reading && contract)
+        missing.add(
+          `${label} match/${cache.key('match', MATCHER_VERSION, matchInput(b.reading.lines, contract))}`,
+        );
+    }
 
     const datasetOf = new Map(rows.map((b) => [b.id, b.datasetId]));
     const monthOfBill = (billId: string) => {
@@ -171,32 +186,31 @@ async function runMode(mode: Mode): Promise<{ report: Report; missing: string[] 
         const bytes = readFileSync(join(filesDir(), spec.file));
         const filename = basename(spec.file);
         const doc = await documentText(bytes, filename);
-        const read = await c.deps.reader.read({ sha256: sha256Hex(bytes), filename, ...doc });
+        const sha256 = sha256Hex(bytes);
+        const read = await c.deps.reader.read({ sha256, filename, ...doc });
         readings.set(spec.id, read.reading);
+        if (MISSING_RECORDING.test(read.error ?? ''))
+          missing.add(`${spec.id} read/${cache.key('read', READER_VERSION, { sha256 })}`);
       }
 
     const scores: BillScore[] = BILLS.map((spec) => {
       const row = rows.find((b) => b.datasetId === spec.id);
       const head = row && rows.find((b) => b.status !== 'SUPERSEDED' && b.chain.includes(row.id));
       const chain = head?.chain ?? [];
-      const byPerson =
-        actions.some((a) => chain.includes(a.billId)) ||
-        ['ESCALATED', 'APPROVED', 'REJECTED'].includes(head?.status ?? '');
-      // the vendor resolved it: it answered, or the agent asked it for something (an ASK VENDOR,
-      // or the rest of a PAY PART) and the gap then closed
-      const byVendor =
-        msgs.some((m) => m.sender === 'vendor' && chain.includes(m.billId)) ||
-        decisionRows.some(
-          (d) => chain.includes(d.billId) && (d.outcome === 'ASK_VENDOR' || d.data.askMinor > 0),
-        );
-      const resolvedBy: ResolvedBy | null = !head
-        ? null
-        : byPerson
-          ? 'person'
-          : byVendor
-            ? 'vendor'
-            : 'agent';
       const final = head?.status ?? null;
+      const resolver = final
+        ? resolverOf({
+            final,
+            humanAction: actions.some((a) => chain.includes(a.billId)),
+            vendorMessage: msgs.some((m) => m.sender === 'vendor' && chain.includes(m.billId)),
+            asked: decisionRows.some(
+              (d) =>
+                chain.includes(d.billId) && (d.outcome === 'ASK_VENDOR' || d.data.askMinor > 0),
+            ),
+          })
+        : null;
+      const resolvedBy: ResolvedBy | null =
+        resolver === 'vendor_reply' || resolver === 'vendor_evidence' ? 'vendor' : resolver;
       return {
         id: spec.id,
         month: spec.month,
@@ -205,6 +219,7 @@ async function runMode(mode: Mode): Promise<{ report: Report; missing: string[] 
         first: (decisionRows.find((d) => d.billId === row?.id)?.outcome as Outcome) ?? null,
         final,
         resolvedBy,
+        resolver,
         isCase: !spec.revisionOfBillId,
         decidedCorrectlyWithoutPerson:
           final === spec.expected.final &&
@@ -241,8 +256,11 @@ async function runMode(mode: Mode): Promise<{ report: Report; missing: string[] 
         cases: cases.length,
         ceiling: cases.filter((s) => s.expected.resolvedBy !== 'person').length,
         decidedCorrectlyWithoutPerson: cases.filter((s) => s.decidedCorrectlyWithoutPerson).length,
-        vendorResolved: cases.filter(
-          (s) => s.decidedCorrectlyWithoutPerson && s.resolvedBy === 'vendor',
+        vendorReply: cases.filter(
+          (s) => s.decidedCorrectlyWithoutPerson && s.resolver === 'vendor_reply',
+        ).length,
+        vendorEvidence: cases.filter(
+          (s) => s.decidedCorrectlyWithoutPerson && s.resolver === 'vendor_evidence',
         ).length,
         escalated: cases.filter((s) => s.resolvedBy === 'person').length,
         held: cases.filter((s) => s.final === 'HELD').length,
@@ -302,7 +320,10 @@ async function runMode(mode: Mode): Promise<{ report: Report; missing: string[] 
     ];
     for (const v of violations)
       problems.push(`violación ${v.invariant} en ${v.billId}: ${v.detail}`);
-    return { report: { mode, bills: scores, groups, totals, problems, gates }, missing };
+    return {
+      report: { mode, bills: scores, groups, totals, problems, gates },
+      missing: [...missing],
+    };
   } finally {
     await c.close();
     await database.close();
@@ -361,17 +382,17 @@ function markdown(reports: Report[], usage: TokenUsage, skipped: string | null, 
   for (const r of reports) {
     out.push(`### ${TITLE[r.mode]}`, '');
     out.push(
-      '| Month | Bills | First decision correct | Final status correct | Cases | Decided correctly without a person | of which the vendor resolved | Went to a person | Held | Improper payments | Evidence coverage | Yield kept | Fees saved | Median hours bill → payment |' +
+      '| Month | Bills | First decision correct | Final status correct | Cases | Decided correctly without a person | of which after a vendor reply | of which by new evidence after an ask | Went to a person | Held | Improper payments | Evidence coverage | Yield kept | Fees saved | Median hours bill → payment |' +
         (r.mode === 'replay' ? ' Critical fields read correctly |' : ''),
     );
     out.push(
-      '| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |' +
+      '| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |' +
         (r.mode === 'replay' ? ' ---: |' : ''),
     );
     for (const g of [...r.groups, r.totals]) {
       const name = g.group === 'total' ? '**Total**' : g.group;
       out.push(
-        `| ${name} | ${g.bills} | ${g.firstCorrect} (${fmtPct(g.firstCorrect, g.bills)}) | ${g.finalCorrect} (${fmtPct(g.finalCorrect, g.bills)}) | ${g.cases} | ${g.decidedCorrectlyWithoutPerson} (${fmtPct(g.decidedCorrectlyWithoutPerson, g.cases)}; ceiling ${fmtPct(g.ceiling, g.cases)}) | ${g.vendorResolved} | ${g.escalated} | ${g.held} | ${g.improperPayments} | ${g.evidenceCoveragePct.toFixed(1)} % | ${usd(g.yieldKeptUsdMinor)} | ${usd(g.feesSavedUsdMinor)} | ${g.medianHoursToPayment ?? '—'} |` +
+        `| ${name} | ${g.bills} | ${g.firstCorrect} (${fmtPct(g.firstCorrect, g.bills)}) | ${g.finalCorrect} (${fmtPct(g.finalCorrect, g.bills)}) | ${g.cases} | ${g.decidedCorrectlyWithoutPerson} (${fmtPct(g.decidedCorrectlyWithoutPerson, g.cases)}; ceiling ${fmtPct(g.ceiling, g.cases)}) | ${g.vendorReply} | ${g.vendorEvidence} | ${g.escalated} | ${g.held} | ${g.improperPayments} | ${g.evidenceCoveragePct.toFixed(1)} % | ${usd(g.yieldKeptUsdMinor)} | ${usd(g.feesSavedUsdMinor)} | ${g.medianHoursToPayment ?? '—'} |` +
           (g.fields
             ? ` ${g.fields.correct}/${g.fields.total} (${fmtPct(g.fields.correct, g.fields.total)}) |`
             : ''),
@@ -399,7 +420,7 @@ function markdown(reports: Report[], usage: TokenUsage, skipped: string | null, 
       for (const b of shown) {
         const mark = b.first === b.expected.first && b.final === b.expected.final ? '' : ' ✗';
         out.push(
-          `| \`${b.id}\`${mark} | ${b.expected.first} → ${b.expected.final} | ${b.first ?? '—'} → ${b.final ?? '—'} | ${b.resolvedBy ?? '—'} (label: ${b.expected.resolvedBy}) | ${b.fieldErrors.join('; ') || '—'} |`,
+          `| \`${b.id}\`${mark} | ${b.expected.first} → ${b.expected.final} | ${b.first ?? '—'} → ${b.final ?? '—'} | ${b.resolver ?? '—'} (label: ${b.expected.resolvedBy}) | ${b.fieldErrors.join('; ') || '—'} |`,
         );
       }
     }
@@ -427,20 +448,24 @@ function markdown(reports: Report[], usage: TokenUsage, skipped: string | null, 
 
 async function main() {
   const writeDocs = process.argv.includes('--write-docs');
+  const requireReplay = process.argv.includes('--require-replay') || Boolean(process.env.CI);
   const reports: Report[] = [];
   let skipped: string | null = null;
   for (const mode of ['reference', 'replay'] as const) {
     const { report, missing } = await runMode(mode);
     if (mode === 'replay' && missing.length > 0) {
-      skipped = `${missing.length} bills have no recorded model answer (${missing.join(', ')}); run \`pnpm record\`.`;
-      console.warn(`\n⚠ Replay omitido: ${skipped}`);
+      skipped = `${missing.length} model answers are not recorded for ${READER_VERSION} / ${MATCHER_VERSION} (run \`pnpm record\`): ${missing.join(', ')}`;
+      if (requireReplay) {
+        console.error(`\n✗ Faltan grabaciones (CI / --require-replay). ${skipped}`);
+        process.exitCode = 1;
+      } else console.warn(`\n⚠ Replay omitido. ${skipped}`);
       continue;
     }
     reports.push(report);
     console.info(`\n${TITLE[mode]}`);
     for (const g of [...report.groups, report.totals]) {
       console.info(
-        `  ${g.group.padEnd(10)} ${g.bills} cuentas · primera decisión ${fmtPct(g.firstCorrect, g.bills)} · estado final ${g.finalCorrect}/${g.bills} (${fmtPct(g.finalCorrect, g.bills)}) · sin persona ${g.decidedCorrectlyWithoutPerson}/${g.cases} (${fmtPct(g.decidedCorrectlyWithoutPerson, g.cases)}) · proveedor ${g.vendorResolved} · a persona ${g.escalated} · retenidas ${g.held} · pagos indebidos ${g.improperPayments} · cobertura ${g.evidenceCoveragePct.toFixed(1)} % · rendimiento ${usd(g.yieldKeptUsdMinor)} · comisiones ${usd(g.feesSavedUsdMinor)} · mediana ${g.medianHoursToPayment ?? '—'} h` +
+        `  ${g.group.padEnd(10)} ${g.bills} cuentas · primera decisión ${fmtPct(g.firstCorrect, g.bills)} · estado final ${g.finalCorrect}/${g.bills} (${fmtPct(g.finalCorrect, g.bills)}) · sin persona ${g.decidedCorrectlyWithoutPerson}/${g.cases} (${fmtPct(g.decidedCorrectlyWithoutPerson, g.cases)}) · proveedor responde ${g.vendorReply} · evidencia tras pedido ${g.vendorEvidence} · a persona ${g.escalated} · retenidas ${g.held} · pagos indebidos ${g.improperPayments} · cobertura ${g.evidenceCoveragePct.toFixed(1)} % · rendimiento ${usd(g.yieldKeptUsdMinor)} · comisiones ${usd(g.feesSavedUsdMinor)} · mediana ${g.medianHoursToPayment ?? '—'} h` +
           (g.fields ? ` · lectura ${fmtPct(g.fields.correct, g.fields.total)}` : ''),
       );
     }

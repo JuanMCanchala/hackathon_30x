@@ -7,8 +7,9 @@ each labeled with its expected first decision, the status its case ends in, and 
 It runs the real application services, not a mock, and CI fails when it slips.
 
 ```bash
-pnpm eval                # both runs; writes .eval/report.json and .eval/report.md (every bill)
-pnpm eval --write-docs   # also refreshes the results section below
+pnpm eval                    # both runs; writes .eval/report.json and .eval/report.md (every bill)
+pnpm eval --require-replay   # a missing recording fails instead of skipping (CI runs this)
+pnpm eval --write-docs       # also refreshes the results section below
 ```
 
 ## What a run does
@@ -30,8 +31,10 @@ It runs twice:
 | Replay    | The real model's recorded answers (DeepSeek V4.1 Flash on OpenRouter, `packages/dataset/recordings`) | Does the whole agent decide right, misreadings included? |
 
 The eval never calls a model and needs no key: it builds its configuration with
-`LLM_PROVIDER=none` and replays the recordings. If a recording is missing (a prompt changed
-without re-recording), the replay run is skipped with a notice naming the bills.
+`LLM_PROVIDER=none` and replays the recordings. If a recording is missing or stale (a prompt
+changed without re-recording), the eval fails in CI (`CI` set, or `--require-replay`) naming each
+missing recording by its key, which is its file name; locally without the flag it skips the
+replay run with a warning.
 
 ## Gates (CI fails otherwise, in either run)
 
@@ -45,10 +48,11 @@ without re-recording), the replay run is skipped with a notice naming the bills.
 ## How to read the numbers
 
 - **Decided correctly without a person** counts cases that end in their labeled status as PAID,
-  PART_PAID or HELD with no human action. A case the agent sent back to the vendor counts once the
-  vendor closes the gap (a corrected bill after an ASK VENDOR, or the missing evidence for the rest
-  of a PAY PART), and is also shown as **resolved by the vendor**; the report checks it against
-  each bill's `resolvedBy` label. The **ceiling** is
+  PART_PAID or HELD with no human action. A case the agent sent back to the vendor counts once the gap
+  closes, split in two: **after a vendor reply** (a message or a corrected bill through the
+  portal) and **by new evidence after an ask** (an ASK VENDOR or the rest of a PAY PART, closed by
+  a merged PR, an accepted deliverable or synced hours). A PAY PART counts only when the rest was
+  actually paid. Both together are checked against each bill's `resolvedBy: vendor` label. The **ceiling** is
   the share of cases whose labels do not need a person: some bills must reach one (a changed bank
   account, an unknown company, extra hours outside the contract, a vendor who missed the deadline),
   so the ceiling is below 100 % by design.
@@ -66,8 +70,8 @@ without re-recording), the replay run is skipped with a notice naming the bills.
   keep the yield, unless an early-payment discount is worth more.
 - **Critical fields read correctly** (replay only) compares the model's reading of every document
   with the truth on 11 fields: vendor tax id, invoice number, issue date, due date, period,
-  currency, total, lines (count, unit, quantity and amount of each), payout details (the same
-  account or key), the invoice it corrects, and whether it addresses an automated system.
+  currency, total, lines (count, unit, quantity and amount of each), payout details (the reading
+  equals the truth or contains all of it, after normalizing; part of an account is wrong), the invoice it corrects, and whether it addresses an automated system.
 
 ## Results
 
@@ -77,11 +81,11 @@ Baseline: today **100 %** of Altamar Labs’ services bills go to a person (nobo
 
 ### Reference run (ground-truth reading and matching)
 
-| Month | Bills | First decision correct | Final status correct | Cases | Decided correctly without a person | of which the vendor resolved | Went to a person | Held | Improper payments | Evidence coverage | Yield kept | Fees saved | Median hours bill → payment |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| septiembre | 23 | 23 (100.0 %) | 23 (100.0 %) | 22 | 21 (95.5 %; ceiling 95.5 %) | 3 | 1 | 2 | 0 | 100.0 % | USD 73.92 | USD 1,688.34 | 360 |
-| octubre | 22 | 22 (100.0 %) | 22 (100.0 %) | 19 | 12 (63.2 %; ceiling 63.2 %) | 6 | 7 | 1 | 0 | 97.7 % | USD 45.62 | USD 1,704.54 | 354.3 |
-| **Total** | 45 | 45 (100.0 %) | 45 (100.0 %) | 41 | 33 (80.5 %; ceiling 80.5 %) | 9 | 8 | 3 | 0 | 98.7 % | USD 119.54 | USD 3,392.88 | 358 |
+| Month | Bills | First decision correct | Final status correct | Cases | Decided correctly without a person | of which after a vendor reply | of which by new evidence after an ask | Went to a person | Held | Improper payments | Evidence coverage | Yield kept | Fees saved | Median hours bill → payment |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| septiembre | 23 | 23 (100.0 %) | 23 (100.0 %) | 22 | 21 (95.5 %; ceiling 95.5 %) | 1 | 2 | 1 | 2 | 0 | 100.0 % | USD 73.92 | USD 1,688.34 | 360 |
+| octubre | 22 | 22 (100.0 %) | 22 (100.0 %) | 19 | 12 (63.2 %; ceiling 63.2 %) | 4 | 2 | 7 | 1 | 0 | 97.7 % | USD 45.62 | USD 1,704.54 | 354.3 |
+| **Total** | 45 | 45 (100.0 %) | 45 (100.0 %) | 41 | 33 (80.5 %; ceiling 80.5 %) | 5 | 4 | 8 | 3 | 0 | 98.7 % | USD 119.54 | USD 3,392.88 | 358 |
 
 | Gate | Result |
 | --- | --- |
@@ -94,11 +98,11 @@ Every bill matches its labels.
 
 ### Replay run (recorded readings and matches of the real model)
 
-| Month | Bills | First decision correct | Final status correct | Cases | Decided correctly without a person | of which the vendor resolved | Went to a person | Held | Improper payments | Evidence coverage | Yield kept | Fees saved | Median hours bill → payment | Critical fields read correctly |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| septiembre | 23 | 23 (100.0 %) | 23 (100.0 %) | 22 | 21 (95.5 %; ceiling 95.5 %) | 3 | 1 | 2 | 0 | 100.0 % | USD 73.92 | USD 1,688.34 | 360 | 245/253 (96.8 %) |
-| octubre | 22 | 22 (100.0 %) | 22 (100.0 %) | 19 | 12 (63.2 %; ceiling 63.2 %) | 6 | 7 | 1 | 0 | 97.6 % | USD 45.62 | USD 1,704.54 | 354.3 | 235/242 (97.1 %) |
-| **Total** | 45 | 45 (100.0 %) | 45 (100.0 %) | 41 | 33 (80.5 %; ceiling 80.5 %) | 9 | 8 | 3 | 0 | 98.7 % | USD 119.54 | USD 3,392.88 | 358 | 480/495 (97.0 %) |
+| Month | Bills | First decision correct | Final status correct | Cases | Decided correctly without a person | of which after a vendor reply | of which by new evidence after an ask | Went to a person | Held | Improper payments | Evidence coverage | Yield kept | Fees saved | Median hours bill → payment | Critical fields read correctly |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| septiembre | 23 | 23 (100.0 %) | 23 (100.0 %) | 22 | 21 (95.5 %; ceiling 95.5 %) | 1 | 2 | 1 | 2 | 0 | 100.0 % | USD 73.92 | USD 1,688.34 | 360 | 245/253 (96.8 %) |
+| octubre | 22 | 22 (100.0 %) | 22 (100.0 %) | 19 | 12 (63.2 %; ceiling 63.2 %) | 4 | 2 | 7 | 1 | 0 | 97.6 % | USD 45.62 | USD 1,704.54 | 354.3 | 235/242 (97.1 %) |
+| **Total** | 45 | 45 (100.0 %) | 45 (100.0 %) | 41 | 33 (80.5 %; ceiling 80.5 %) | 5 | 4 | 8 | 3 | 0 | 98.7 % | USD 119.54 | USD 3,392.88 | 358 | 480/495 (97.0 %) |
 
 | Gate | Result |
 | --- | --- |
@@ -110,15 +114,15 @@ Bills that differ from their labels:
 
 | Bill | Expected first → final | Got first → final | Resolved by | Reading differences |
 | --- | --- | --- | --- | --- |
-| `sep-09` | ASK_VENDOR → PAID | ASK_VENDOR → PAID | vendor (label: vendor) | lines: expected 80 hour × 1200000, read 80 unit × 1200000 |
-| `sep-09-r1` | PAY → PAID | PAY → PAID | vendor (label: vendor) | lines: expected 80 hour × 1200000, read 80 unit × 1200000 |
-| `sep-14` | ASK_VENDOR → PAID | ASK_VENDOR → PAID | vendor (label: vendor) | lines: expected 1 milestone × 5800000, read 1 unit × 5800000 |
+| `sep-09` | ASK_VENDOR → PAID | ASK_VENDOR → PAID | vendor_reply (label: vendor) | lines: expected 80 hour × 1200000, read 80 unit × 1200000 |
+| `sep-09-r1` | PAY → PAID | PAY → PAID | vendor_reply (label: vendor) | lines: expected 80 hour × 1200000, read 80 unit × 1200000 |
+| `sep-14` | ASK_VENDOR → PAID | ASK_VENDOR → PAID | vendor_evidence (label: vendor) | lines: expected 1 milestone × 5800000, read 1 unit × 5800000 |
 | `sep-15` | PAY → PAID | PAY → PAID | agent (label: agent) | lines: expected 1 milestone × 960000, read 1 unit × 960000 |
 | `sep-18` | PAY → PAID | PAY → PAID | agent (label: agent) | lines: expected 1 milestone × 3400000, read 1 unit × 3400000 |
 | `sep-20` | PAY → PAID | PAY → PAID | agent (label: agent) | lines: expected 1 milestone × 270000, read 1 unit × 270000 |
 | `sep-21` | PAY → PAID | PAY → PAID | agent (label: agent) | period: expected null..null, read 2026-09-01..2026-09-30; lines: expected 1 milestone × 620000000, read 1 unit × 620000000 |
 | `oct-11` | ESCALATE → APPROVED | ESCALATE → APPROVED | person (label: person) | lines: expected 172 hour × 8944000, read 172 unit × 8944000 |
-| `oct-12` | ASK_VENDOR → PAID | ASK_VENDOR → PAID | vendor (label: vendor) | lines: expected 96 hour × 1584000, read 96 unit × 1584000 |
+| `oct-12` | ASK_VENDOR → PAID | ASK_VENDOR → PAID | vendor_reply (label: vendor) | lines: expected 96 hour × 1584000, read 96 unit × 1584000 |
 | `oct-13` | ESCALATE → REJECTED | ESCALATE → REJECTED | person (label: person) | period: expected null..null, read 2026-09-01..2026-09-30 |
 | `oct-19` | ESCALATE → ESCALATED | ESCALATE → ESCALATED | person (label: person) | currency: expected COP, read null; total: expected 120000000, read 120000; lines: expected - unit × 120000000, read - other × 120000; payoutDetails: expected null, read lacuentaformalselamandodespus |
 
