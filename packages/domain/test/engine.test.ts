@@ -410,6 +410,78 @@ describe('decide — holds', () => {
   });
 });
 
+describe('decide — issuer identity', () => {
+  it('does not treat two payees billed to the company card as the same issuer', () => {
+    const senal = {
+      ...TABLERO,
+      id: 'pay_senal',
+      name: 'Señal Analytics',
+      legalName: 'Señal Analytics Inc.',
+      taxId: '86-1112223',
+    };
+    const mandates = [
+      ...MANDATES,
+      {
+        ...MANDATES.find((m) => m.payeeId === TABLERO.id)!,
+        id: 'man_senal',
+        key: 'man_senal',
+        payeeId: senal.id,
+      },
+    ];
+    const pendingTablero = history({
+      ref: 'MND-2',
+      payeeId: TABLERO.id,
+      issuerTaxIdNorm: '877654321',
+      issuerNameFolded: 'tablero software',
+      destinationNorm: null,
+      invoiceNumber: 'TB-1009',
+      invoiceNumberNorm: 'TB1009',
+      amountMinor: 62_000,
+      currency: 'USD',
+      status: 'PENDING_APPROVAL',
+    });
+    const d = decide(
+      context({
+        payees: [...PAYEES, senal],
+        mandates,
+        history: [pendingTablero],
+        extraction: extraction({
+          documentType: 'invoice',
+          issuer: { name: 'Señal Analytics Inc.', taxId: 'EIN 86-1112223', country: 'US' },
+          invoiceNumber: 'SA-0901',
+          currency: 'USD',
+          total: '480.00',
+          amountInWords: null,
+          amountInWordsValue: null,
+          lineItems: [],
+          payout: { method: 'card', destination: '4421' },
+        }),
+      }),
+    );
+    expect(d.facts.payeeId).toBe('pay_senal');
+    expect(d.outcome).toBe('PAY');
+  });
+
+  it('never confuses a look-alike with the registered payee it imitates', () => {
+    const paid = history({
+      ref: 'MND-9',
+      invoiceNumber: 'CC-2026-09',
+      invoiceNumberNorm: 'CC20269',
+    });
+    const d = decide(
+      context({
+        history: [paid],
+        extraction: extraction({
+          issuer: { name: 'Valentina Rios Mejia', taxId: 'C.C. 1.020.304.999' },
+          payout: { destination: '@valrios.pagos' },
+        }),
+      }),
+    );
+    expect(d.outcome).toBe('ESCALATE');
+    expect(failing(d)).toEqual(['payee.known']);
+  });
+});
+
 describe('decide — prompt injection', () => {
   it('escalates a bill with instructions for the agent even if everything else matches', () => {
     const d = decide(

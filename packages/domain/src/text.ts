@@ -38,12 +38,17 @@ export function normalizeInvoiceNumber(value: string | null | undefined): string
   return key.length > 0 ? key : null;
 }
 
-/** NIT "901.234.567-8", RFC "HEGM-900101-AB1", EIN "12-3456789" → upper-case alphanumerics. */
+/** Document-type labels written before tax IDs: "NIT 901…", "C.C. 1.020…", "RFC: HEGM…". */
+const TAX_ID_LABEL =
+  /^(?:NIT|RFC|CUIT|CUIL|CPF|CNPJ|EIN|RUC|DNI|CC|C\.C\.|CE|TIN|TAX ID|VAT|ID)(?=[\s.:#-]|\d)[\s.:#-]*/;
+
+/** NIT "901.234.567-8", "RFC HEGM-900101-AB1", "C.C. 1.020.304.050" → upper-case alphanumerics. */
 export function normalizeTaxId(value: string | null | undefined): string | null {
   if (!value) return null;
-  const key = foldDiacritics(value)
-    .toUpperCase()
-    .replace(/[^A-Z0-9]/g, '');
+  let folded = foldDiacritics(value).toUpperCase().trim();
+  const label = TAX_ID_LABEL.exec(folded);
+  if (label && folded.length - label[0].length >= 6) folded = folded.slice(label[0].length);
+  const key = folded.replace(/[^A-Z0-9]/g, '');
   return key.length > 0 ? key : null;
 }
 
@@ -55,6 +60,30 @@ export function normalizeDestination(value: string | null | undefined): string |
     .toLowerCase()
     .replace(/[\s\-./()]/g, '');
   return key.length > 0 ? key : null;
+}
+
+/**
+ * Whether the payout details written on a bill point to a registered destination.
+ *
+ * Alphanumeric keys (Bre-B aliases, Pix e-mails) must match exactly after normalization. Purely
+ * numeric registered values (CLABE, account numbers, card endings) also match when the bill
+ * contains that exact digit run among labels ("CLABE: 012 180…", "Visa •••• 4421"). This is a
+ * consistency check only: Mandato always pays the registered destination, never one read
+ * from a bill (SECURITY.md, T3).
+ */
+export function destinationsMatch(
+  invoiceValue: string | null | undefined,
+  registeredValue: string | null | undefined,
+): boolean {
+  const invoice = normalizeDestination(invoiceValue);
+  const registered = normalizeDestination(registeredValue);
+  if (!invoice || !registered) return false;
+  if (invoice === registered) return true;
+  if (/^\d{4,}$/.test(registered)) {
+    const runs: string[] = (invoiceValue ?? '').replace(/[\s.\-/]/g, '').match(/\d+/g) ?? [];
+    return runs.includes(registered);
+  }
+  return false;
 }
 
 export function foldDiacritics(value: string): string {

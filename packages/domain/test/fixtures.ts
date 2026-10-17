@@ -78,7 +78,7 @@ export const TABLERO: Payee = {
   taxId: '87-7654321',
   category: 'software',
   currency: 'USD',
-  destination: { method: 'card', value: 'tarjeta corporativa 4421', bankName: null },
+  destination: { method: 'card', value: '4421', bankName: 'Tarjeta corporativa' },
   status: 'active',
 };
 
@@ -231,7 +231,7 @@ export function history(
   return {
     invoiceId: `inv_${patch.ref}`,
     payeeId: VALENTINA.id,
-    issuerTaxIdNorm: 'CC1020304050',
+    issuerTaxIdNorm: '1020304050',
     issuerNameFolded: 'valentina rios mejia',
     destinationNorm: '@valrios',
     invoiceNumber: 'CC-2026-08',

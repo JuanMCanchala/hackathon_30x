@@ -2,6 +2,7 @@ import { addDays, isValidIsoDate, localDate, periodKeyOf } from './dates';
 import { currencyExponent, parseDecimalToMinor, toUsdCentsCeil } from './money';
 import type { ExtractedInvoice, FxSnapshot, Mandate, Payee, PolicyTerms } from './schemas';
 import {
+  destinationsMatch,
   foldName,
   hasConfusableCharacters,
   nameSimilarity,
@@ -47,6 +48,8 @@ export interface Derived {
   mandateOutOfWindow: Mandate | null;
   identity: IssuerIdentity;
   invoiceDestinationNorm: string | null;
+  /** Destination that identifies the issuer (null when paid with the company's card). */
+  identityDestination: string | null;
   /** Prior bills of the same issuer that are paid, approved or pending. */
   issuerActive: HistoryInvoice[];
   /** Same, restricted to the current budget period. */
@@ -86,21 +89,34 @@ export function convertMinorCeil(
   return Number((value + denominator - 1n) / denominator);
 }
 
+/**
+ * Whether a previous bill comes from the same issuer as the current one.
+ * - Two different registered payees are never the same issuer.
+ * - Tax ID or a (non-card) payout destination identify an issuer.
+ * - A name alone only groups bills from issuers nobody registered (a look-alike name must not
+ *   be confused with a real payee).
+ */
 export function matchesIdentity(h: HistoryInvoice, id: IssuerIdentity): boolean {
-  if (id.payeeId && h.payeeId === id.payeeId) return true;
+  if (id.payeeId && h.payeeId) return h.payeeId === id.payeeId;
   if (id.taxIdNorm && h.issuerTaxIdNorm === id.taxIdNorm) return true;
   if (h.destinationNorm && id.destinations.includes(h.destinationNorm)) return true;
-  if (id.nameFolded && h.issuerNameFolded === id.nameFolded) return true;
+  if (!id.payeeId && !h.payeeId && id.nameFolded && h.issuerNameFolded === id.nameFolded) {
+    return true;
+  }
   return false;
 }
 
 export function resolvePayee(x: ExtractedInvoice | null, payees: Payee[]): PayeeMatch {
   if (!x) return { status: 'unknown', similar: null };
   const taxId = normalizeTaxId(x.issuer.taxId);
-  const destination = normalizeDestination(x.payout.destination);
   const byTaxId = taxId ? payees.find((p) => normalizeTaxId(p.taxId) === taxId) : undefined;
-  const byDestination = destination
-    ? payees.find((p) => normalizeDestination(p.destination.value) === destination)
+  // A card on file is the company's own card, not an identity of the payee.
+  const byDestination = x.payout.destination
+    ? payees.find(
+        (p) =>
+          p.destination.method !== 'card' &&
+          destinationsMatch(x.payout.destination, p.destination.value),
+      )
     : undefined;
   if (byTaxId && byDestination && byTaxId.id !== byDestination.id) {
     return { status: 'conflict', byTaxId, byDestination };
@@ -182,10 +198,16 @@ export function derive(ctx: DecisionContext): Derived {
   const { mandate, outOfWindow } = selectMandate(payee, ctx.mandates, decisionDate);
 
   const invoiceDestinationNorm = normalizeDestination(x?.payout.destination);
-  const destinations = [
-    invoiceDestinationNorm,
-    payee ? normalizeDestination(payee.destination.value) : null,
-  ].filter((d): d is string => d !== null);
+  // A card on file is the company's own card: it never identifies who is billing.
+  const paidByCard = x?.payout.method === 'card' || payee?.destination.method === 'card';
+  const identityDestination = paidByCard
+    ? null
+    : (invoiceDestinationNorm ?? (payee ? normalizeDestination(payee.destination.value) : null));
+  const destinations = paidByCard
+    ? []
+    : [invoiceDestinationNorm, payee ? normalizeDestination(payee.destination.value) : null].filter(
+        (d): d is string => d !== null,
+      );
   const issuerName = x?.issuer.name ?? null;
   const identity: IssuerIdentity = {
     payeeId: payee?.id ?? null,
@@ -232,6 +254,7 @@ export function derive(ctx: DecisionContext): Derived {
     mandateOutOfWindow: outOfWindow,
     identity,
     invoiceDestinationNorm,
+    identityDestination,
     issuerActive,
     issuerMonth,
     issuerMonthAmountMinor,
@@ -258,9 +281,7 @@ export function factsOf(d: Derived): DecisionFacts {
     issuerName: d.x?.issuer.name ?? null,
     issuerTaxIdNorm: d.identity.taxIdNorm,
     issuerNameFolded: d.identity.nameFolded,
-    destinationNorm:
-      d.invoiceDestinationNorm ??
-      (d.payee ? normalizeDestination(d.payee.destination.value) : null),
+    destinationNorm: d.identityDestination,
     payeeMatch: d.match.status,
     payeeMatchedBy: d.match.status === 'matched' ? d.match.by : null,
     payeeId: d.payee?.id ?? null,

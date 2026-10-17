@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
+  destinationsMatch,
   foldName,
   hasConfusableCharacters,
   maskDestination,
@@ -37,8 +38,26 @@ describe('identifiers', () => {
   it('normalizes tax IDs and destinations', () => {
     expect(normalizeTaxId('901.234.567-8')).toBe('9012345678');
     expect(normalizeTaxId('HEGM-900101-AB1')).toBe('HEGM900101AB1');
+    expect(normalizeTaxId('RFC HEGM900101AB1')).toBe('HEGM900101AB1');
+    expect(normalizeTaxId('C.C. 1.020.304.050')).toBe('1020304050');
+    expect(normalizeTaxId('CC 1020304050')).toBe('1020304050');
+    expect(normalizeTaxId('EIN 87-7654321')).toBe('877654321');
+    expect(normalizeTaxId('NIT: 901.234.567-8')).toBe('9012345678');
+    expect(normalizeTaxId('CEMA900101AB1')).toBe('CEMA900101AB1');
     expect(normalizeDestination('012 180 0012 3456 7891')).toBe('012180001234567891');
     expect(normalizeDestination(' @ValRios ')).toBe('@valrios');
+  });
+
+  it('matches payout details against registered destinations', () => {
+    expect(destinationsMatch('CLABE: 012 180 0012 3456 7891', '012180001234567891')).toBe(true);
+    expect(destinationsMatch('Visa •••• 4421', '4421')).toBe(true);
+    expect(destinationsMatch('Account 000456789012 (routing 021000000)', '000456789012')).toBe(
+      true,
+    );
+    expect(destinationsMatch('@ValRios', '@valrios')).toBe(true);
+    expect(destinationsMatch('@valrios.nueva', '@valrios')).toBe(false);
+    expect(destinationsMatch('0121800012345678910', '012180001234567891')).toBe(false);
+    expect(destinationsMatch(null, '@valrios')).toBe(false);
   });
 
   it('masks destinations for receipts', () => {

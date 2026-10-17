@@ -1,5 +1,5 @@
 import { payoutMethodLabel } from '../format';
-import { maskDestination, normalizeDestination } from '../text';
+import { destinationsMatch, maskDestination } from '../text';
 import { defineRule, fail, pass, skip } from './helpers';
 
 const MATCHED_BY: Record<string, string> = {
@@ -91,7 +91,7 @@ export const destinationMatches = defineRule(
       );
     }
     const invoiceLabel = maskDestination(d.x?.payout.destination ?? '');
-    if (d.invoiceDestinationNorm === normalizeDestination(registered.value)) {
+    if (destinationsMatch(d.x?.payout.destination, registered.value)) {
       return pass(meta, `Los datos de pago coinciden con los registrados (${registeredLabel}).`, {
         observed: invoiceLabel,
         expected: registeredLabel,
