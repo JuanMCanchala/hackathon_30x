@@ -32,5 +32,9 @@ export default tseslint.config(
     files: ['**/scripts/**', '**/*.test.ts', '**/*.spec.ts'],
     rules: { 'no-console': 'off' },
   },
+  {
+    files: ['**/*.mjs'],
+    languageOptions: { globals: { console: 'readonly', process: 'readonly' } },
+  },
   prettier,
 );

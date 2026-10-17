@@ -1,0 +1,38 @@
+{
+  "name": "@mandato/api",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Mandato HTTP API: ingestion, extraction, decisions, approvals, mandates, audit and the MCP agent gateway.",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch --clear-screen=false src/index.ts",
+    "build": "node build.mjs",
+    "start": "node dist/index.js",
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "db:generate": "drizzle-kit generate",
+    "eval": "tsx src/scripts/eval.ts",
+    "extractions:record": "tsx src/scripts/record-extractions.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.135.0",
+    "@electric-sql/pglite": "^0.5.10",
+    "@hono/node-server": "^2.1.5",
+    "@hono/zod-openapi": "^1.6.3",
+    "@mandato/dataset": "workspace:*",
+    "@mandato/domain": "workspace:*",
+    "@scalar/hono-api-reference": "^0.12.13",
+    "drizzle-orm": "^0.45.4",
+    "hono": "^4.13.13",
+    "mailparser": "^3.9.40",
+    "pg": "^8.23.1",
+    "unpdf": "^1.9.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/mailparser": "^3.9.0",
+    "@types/pg": "^8.15.6",
+    "drizzle-kit": "^0.31.11",
+    "esbuild": "^0.28.2"
+  }
+}
