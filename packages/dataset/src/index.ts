@@ -39,19 +39,32 @@ export const LIVE_PR = {
 export const RETURNING_BILL_ID = 'oct-12-r1';
 
 /**
- * Absolute path of the rendered documents: packages/dataset/files when running from source, or
- * the copy the API build places next to its bundle (apps/api/dist/dataset/files). When none
- * exists yet, the source location packages/dataset/files, never a path next to a bundle.
+ * Absolute path of a dataset directory ('files', 'recordings'): packages/dataset/<name> when
+ * running from source, or the copy the API build places next to its bundle
+ * (apps/api/dist/dataset/<name>). When none exists yet, the source location, never a path next
+ * to a bundle.
  */
-export function filesDir(): string {
+function datasetDir(name: string): string {
   const here = dirname(fileURLToPath(import.meta.url));
-  const candidates = ['../files', './dataset/files', '../dataset/files'].map((p) => join(here, p));
+  const candidates = [`../${name}`, `./dataset/${name}`, `../dataset/${name}`].map((p) =>
+    join(here, p),
+  );
   const found = candidates.find((p) => existsSync(p));
   if (found) return found;
   // walk up to the workspace root that holds this package
   for (let dir = here; dirname(dir) !== dir; dir = dirname(dir)) {
     if (existsSync(join(dir, 'packages', 'dataset', 'package.json')))
-      return join(dir, 'packages', 'dataset', 'files');
+      return join(dir, 'packages', 'dataset', name);
   }
   return candidates[0]!;
+}
+
+/** The rendered documents. */
+export function filesDir(): string {
+  return datasetDir('files');
+}
+
+/** Recorded language-model answers: recordings/read/<key>.json and recordings/match/<key>.json. */
+export function recordingsDir(): string {
+  return datasetDir('recordings');
 }
