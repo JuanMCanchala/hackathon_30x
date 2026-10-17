@@ -28,6 +28,7 @@ import { useApi } from '@/lib/hooks';
 import { useLive } from '@/lib/live';
 import { useSession } from '@/lib/session';
 import type { Overview } from '@/lib/types';
+import { AskPanel } from './ask-panel';
 import { Logo } from './brand';
 import { Button } from './ui';
 import { UploadDialog } from './upload-dialog';
@@ -317,6 +318,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       </div>
 
       <UploadDialog open={uploadOpen} onOpenChange={setUploadOpen} />
+      <AskPanel />
     </div>
   );
 }

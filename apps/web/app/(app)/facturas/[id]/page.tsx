@@ -12,6 +12,7 @@ import { ApprovalPanel } from '@/components/receipt/approval-panel';
 import { DocumentViewer } from '@/components/receipt/document-viewer';
 import { ExtractionPanel } from '@/components/receipt/extraction-panel';
 import { LedgerTrail } from '@/components/receipt/ledger-trail';
+import { ReplyPanel } from '@/components/receipt/reply-panel';
 import { RuleChecklist } from '@/components/receipt/rule-checklist';
 import { Empty, Skeleton, fmtDateTime } from '@/components/ui';
 import { useApi } from '@/lib/hooks';
@@ -177,6 +178,12 @@ export default function ReceiptPage() {
                 datos de pago verificados. Cuando se registre al beneficiario, el pago se programa.
               </div>
             )
+          )}
+
+          {invoice.status !== 'RECEIVED' && (
+            <div className="sheet p-6">
+              <ReplyPanel invoice={invoice} />
+            </div>
           )}
 
           {invoice.approval && (
