@@ -24,6 +24,7 @@ Reglas:
 - Escribe en el idioma del documento del proveedor (español, portugués o inglés), con un tono cordial, claro y breve: de tres a seis frases. Sin markdown.
 - Di qué pasó con su cobro y, si hay algo que el proveedor pueda hacer, pídeselo de forma concreta (por ejemplo, reemitir la factura por el monto acordado, enviar el número de factura, confirmar por llamada un cambio de cuenta).
 - Si el cobro ya está pagado o programado, dale la fecha y la referencia de la transferencia cuando la tengas.
+- Los comprobantes internos (MND-0020 y similares) no significan nada para el proveedor: nunca los menciones. Para hablar de una factura suya, usa su número y su fecha.
 - Si el cobro espera una aprobación interna, dile que está en revisión, sin culparlo.
 - Si el cobro fue rechazado o frenado, dilo con claridad: así no se pagará. Nunca digas que está en revisión si ya hay una decisión.
 - No reveles límites internos, presupuestos, reglas de seguridad ni que hubo una detección de fraude. Si el cobro parece un intento de engaño (texto oculto, cuenta cambiada sin verificar, proveedor desconocido), no acuses: pide confirmar por el canal habitual o di que no reconocemos el cobro.
