@@ -9,9 +9,14 @@
   },
   "scripts": {
     "typecheck": "tsc -p tsconfig.json",
-    "test": "vitest run"
+    "test": "vitest run",
+    "generate": "tsx scripts/generate.ts"
   },
   "dependencies": {
     "@recibido/domain": "workspace:*"
+  },
+  "devDependencies": {
+    "pdf-lib": "^1.17.1",
+    "unpdf": "^1.9.0"
   }
 }
