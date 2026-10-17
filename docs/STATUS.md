@@ -37,9 +37,10 @@ Run it: `pnpm install && pnpm dev` (web on :3000, API on :4000), then open **Rec
      `lib/format.ts`; HOLD summary prints raw bill ids (engine copy); "(sin moneda)" wording;
      the demo clock moves backwards between tour steps.
 2. **Task 14:** Playwright E2E of the demo path (`pnpm e2e`) + CI job (`playwright install chromium`).
-3. **Task 15:** README (results, mermaid architecture, run, security, monthly cost with
-   arithmetic from the recordings' usage), SYSTEM_DESIGN, ADRs, RULES, SECURITY, DATASET, API,
-   DEPLOY, DEMO (Spanish 3-minute script), docs/product, docker-compose.
+3. ~~**Task 15:** docs~~ done: README (results, mermaid architecture, run, security, monthly
+   cost with arithmetic), SYSTEM_DESIGN, 15 ADRs, RULES, SECURITY, DATASET, API, DEPLOY, DEMO
+   (Spanish 3-minute script), docs/product, docker-compose. Left for the deploy: the real demo URL
+   in README/DEMO (`<!-- DEMO_URL -->`) and DEPLOY's "As deployed" section.
 4. Final whole-branch review.
 
 The SDD ledger with every review round and ruling is local in

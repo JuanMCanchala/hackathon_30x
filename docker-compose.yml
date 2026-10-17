@@ -1,0 +1,60 @@
+# Recibido with PostgreSQL:  docker compose up --build  →  http://localhost:3000/recorrido
+#
+# The demo documents replay their recorded readings, so no key is needed. To have the model read
+# new uploads, pass one key (names only here; values come from your environment):
+#   DEEPSEEK_API_KEY_PRINCIPAL=… docker compose up --build   # DeepSeek V4.1 Flash, direct
+#   OPENROUTER_API_KEY=… docker compose up --build           # the same model on OpenRouter
+# For the live GitHub merge, also set GITHUB_REPO, GITHUB_DEMO_PR and GITHUB_WEBHOOK_SECRET.
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: recibido
+      POSTGRES_PASSWORD: recibido
+      POSTGRES_DB: recibido
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U recibido -d recibido']
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    environment:
+      DATABASE_URL: postgres://recibido:recibido@db:5432/recibido
+      LLM_PROVIDER: ${LLM_PROVIDER:-auto}
+      DEEPSEEK_API_KEY_PRINCIPAL: ${DEEPSEEK_API_KEY_PRINCIPAL:-}
+      OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:-}
+      READER: ${READER:-auto}
+      DEMO_MODE: ${DEMO_MODE:-true}
+      ADMIN_TOKEN: ${ADMIN_TOKEN:-}
+      PORTAL_TOKEN_SECRET: ${PORTAL_TOKEN_SECRET:-}
+      GITHUB_REPO: ${GITHUB_REPO:-}
+      GITHUB_TOKEN: ${GITHUB_TOKEN:-}
+      GITHUB_WEBHOOK_SECRET: ${GITHUB_WEBHOOK_SECRET:-}
+      GITHUB_DEMO_PR: ${GITHUB_DEMO_PR:-}
+      PUBLIC_WEB_URL: ${PUBLIC_WEB_URL:-http://localhost:3000}
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - '${API_PORT:-4000}:4000'
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+      args:
+        API_URL: http://api:4000
+    depends_on:
+      api:
+        condition: service_healthy
+    ports:
+      - '${WEB_PORT:-3000}:3000'
+
+volumes:
+  db-data:
