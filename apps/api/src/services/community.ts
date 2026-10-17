@@ -12,6 +12,14 @@ import { enrichItems } from '../pipeline/enrich';
 import { saveItems } from '../pipeline/ingest';
 import type { Deps } from './deps';
 
+/** Page titles carry the network's own suffixes: «… | Google DeepMind han publicado acerca del tema | LinkedIn». */
+export function cleanTitle(title: string): string {
+  return title
+    .replace(/\s*\|\s*LinkedIn\s*$/i, '')
+    .replace(/\s*\|\s*[^|]*(han publicado acerca del tema|ha publicado acerca del tema|posted on the topic)[^|]*$/i, '')
+    .trim();
+}
+
 const ALLOWED =
   /^(www\.|m\.)?(linkedin\.com|instagram\.com|tiktok\.com|youtube\.com|youtu\.be|x\.com|twitter\.com|bsky\.app)$/;
 
@@ -69,7 +77,7 @@ export async function submitPost(
     .from(itemTopics)
     .innerJoin(topics, eq(topics.id, itemTopics.topicId))
     .where(eq(itemTopics.itemId, itemId));
-  const title = item.title || item.text.slice(0, 90);
+  const title = cleanTitle(item.title || item.text.slice(0, 90));
   deps.bus.publish({ type: 'sensor.received', at: now, data: { id, itemId, title } });
   return { id, itemId, platform: item.platform, title, topics: linked };
 }
@@ -98,7 +106,7 @@ export async function submissions(deps: Deps) {
           id: item.id,
           platform: item.platform,
           authorName: item.authorName,
-          title: item.title || item.text.slice(0, 140),
+          title: cleanTitle(item.title || item.text.slice(0, 140)),
           likes: item.likes,
           comments: item.comments,
           views: item.views,

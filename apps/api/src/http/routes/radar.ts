@@ -18,7 +18,11 @@ const RadarQuery = z.object({
   audience: z.enum(['all', '30x']).default('30x'),
 });
 
-const AdaptBody = z.object({ variant: z.number().int().min(0).max(5).default(0) });
+const AdaptBody = z.object({
+  variant: z.number().int().min(0).max(5).default(0),
+  /** Writes this version again (after the topic's reading changed). */
+  refresh: z.boolean().default(false),
+});
 const ApproveBody = z.object({
   adaptationId: z.string().min(1),
   format: z.enum(['linkedin', 'carousel', 'reel', 'youtube']),
@@ -54,7 +58,8 @@ export function registerRadarRoutes(app: OpenAPIHono, deps: Deps) {
 
   app.get('/api/v1/topics/:id', async (c) => {
     const region = c.req.query('region') === 'latam' ? 'latam' : 'global';
-    return c.json(await topicDetail(deps, c.req.param('id'), { region }));
+    const refresh = c.req.query('refresh') === '1';
+    return c.json(await topicDetail(deps, c.req.param('id'), { region }, { refresh }));
   });
 
   app.get('/api/v1/topics/:id/adaptations', async (c) =>
@@ -63,7 +68,7 @@ export function registerRadarRoutes(app: OpenAPIHono, deps: Deps) {
 
   app.post('/api/v1/topics/:id/adaptations', async (c) => {
     const body = AdaptBody.parse(await c.req.json().catch(() => ({})));
-    return c.json(await adaptTopic(deps, c.req.param('id'), body.variant));
+    return c.json(await adaptTopic(deps, c.req.param('id'), body.variant, body.refresh));
   });
 
   app.get('/api/v1/calendar', async (c) => c.json(await calendar(deps)));

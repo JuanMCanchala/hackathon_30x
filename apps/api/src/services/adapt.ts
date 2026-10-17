@@ -73,10 +73,16 @@ export async function adaptTopic(
   deps: Deps,
   topicId: string,
   variant = 0,
+  refresh = false,
 ): Promise<AdaptationView> {
   const [topic] = await deps.db.select().from(topics).where(eq(topics.id, topicId));
   if (!topic) throw notFound('El tema');
   const detail = await topicDetail(deps, topicId);
+  if (refresh) {
+    await deps.db
+      .delete(adaptations)
+      .where(and(eq(adaptations.topicId, topicId), eq(adaptations.variant, variant)));
+  }
   const existing = await deps.db
     .select()
     .from(adaptations)

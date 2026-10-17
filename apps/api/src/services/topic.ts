@@ -237,6 +237,7 @@ export async function topicDetail(
   deps: Deps,
   id: string,
   filters: Pick<RadarFilters, 'region'> = { region: 'global' },
+  options: { refresh?: boolean } = {},
 ) {
   const [topic] = await deps.db.select().from(topics).where(eq(topics.id, id));
   if (!topic) throw notFound('El tema');
@@ -377,27 +378,38 @@ export async function topicDetail(
   const evidence = evidenceRows.map(({ item, e }) => pieceView(item, e, ratioOf(item.id)));
 
   const view = topicView(s, index >= 0 ? index + 1 : 0);
-  const why = await whyOf(deps, {
-    topicId: id,
-    week,
-    name: topic.name,
-    definition: topic.definition,
-    stage: view.stage,
-    growthPct: view.growthPct,
-    creators: view.creators,
-    patterns: patterns.map((p) => p.label),
-    evidence: evidence.map((p) => ({
-      id: p.id,
-      line: `${p.platform}, ${p.authorName}${p.authorFollowers ? ` (${p.authorFollowers} seguidores)` : ''}, ${p.format}, ${p.publishedAt.slice(0, 10)}: «${(p.hook || p.title || p.text).slice(0, 140)}»; engagement ${Math.round(p.engagement)}${p.outlier ? `, ${p.outlier}× la mediana de su autor` : ''}`,
-    })),
-  });
-  const fit = await fitOf(deps, {
-    topicId: id,
-    week,
-    name: topic.name,
-    definition: topic.definition,
-    samples: evidence.slice(0, 6).map((p) => (p.hook || p.title || p.text).slice(0, 160)),
-  });
+  const why = await whyOf(
+    deps,
+    {
+      topicId: id,
+      week,
+      name: topic.name,
+      definition: topic.definition,
+      stage: view.stage,
+      growthPct: view.growthPct,
+      creators: view.creators,
+      patterns: patterns.map((p) => p.label),
+      evidence: evidence.map((p) => ({
+        id: p.id,
+        line: `${p.platform}, ${p.authorName}${p.authorFollowers ? ` (${p.authorFollowers} seguidores)` : ''}, ${p.format}, ${p.publishedAt.slice(0, 10)}: «${(p.hook || p.title || p.text).slice(0, 140)}»; ${
+          // Press notes and feeds carry no public counts: that is not the same as zero engagement.
+          p.engagement > 0 ? `engagement ${Math.round(p.engagement)}` : 'sin métricas públicas'
+        }${p.outlier ? `, ${p.outlier}× la mediana de su autor` : ''}`,
+      })),
+    },
+    options.refresh,
+  );
+  const fit = await fitOf(
+    deps,
+    {
+      topicId: id,
+      week,
+      name: topic.name,
+      definition: topic.definition,
+      samples: evidence.slice(0, 6).map((p) => (p.hook || p.title || p.text).slice(0, 160)),
+    },
+    options.refresh,
+  );
 
   const coverageRows = await deps.db
     .select({ item: items, e: enrichments })
