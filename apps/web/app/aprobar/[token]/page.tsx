@@ -1,0 +1,214 @@
+'use client';
+
+import { CircleCheck, CircleSlash, Clock } from 'lucide-react';
+import { useParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { formatMoney, formatUsd } from '@mandato/domain';
+import { Guilloche, Logo } from '@/components/guilloche';
+import { Button, Textarea } from '@/components/ui';
+
+interface LinkView {
+  approver: { id: string; name: string };
+  expiresAt: string;
+  usedAt: string | null;
+  expired: boolean;
+  invoice: {
+    id: string;
+    ref: string;
+    title: string | null;
+    status: string;
+    payee: { name: string; country: string } | null;
+    issuerName: string | null;
+    invoiceNumber: string | null;
+    amountMinor: number | null;
+    currency: string | null;
+    usdCents: number | null;
+    dueDate: string | null;
+    summary: string | null;
+    counterfactual: string[];
+    failing: { title: string; detail: string }[];
+    approval: {
+      required: number;
+      approvals: { name: string; action: string; at: string }[];
+    } | null;
+  };
+}
+
+type Phase = 'loading' | 'ready' | 'invalid' | 'done';
+
+/** One-tap approval from the phone (ADR-0012): a cheque-like card, summary on top, two buttons. */
+export default function AprobarPage() {
+  const { token } = useParams<{ token: string }>();
+  const [view, setView] = useState<LinkView | null>(null);
+  const [phase, setPhase] = useState<Phase>('loading');
+  const [message, setMessage] = useState('');
+  const [note, setNote] = useState('');
+  const [busy, setBusy] = useState<'approve' | 'reject' | null>(null);
+  const [result, setResult] = useState<'approve' | 'reject' | null>(null);
+
+  useEffect(() => {
+    fetch(`/api/v1/approval-links/${token}`)
+      .then(async (r) => {
+        const body = await r.json();
+        if (!r.ok) throw new Error(body?.error?.message ?? 'El enlace no es válido.');
+        setView(body as LinkView);
+        setPhase('ready');
+      })
+      .catch((e: Error) => {
+        setMessage(e.message);
+        setPhase('invalid');
+      });
+  }, [token]);
+
+  const act = async (action: 'approve' | 'reject') => {
+    setBusy(action);
+    try {
+      const response = await fetch(`/api/v1/approval-links/${token}`, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ action, note: note || null }),
+      });
+      const body = await response.json();
+      if (!response.ok) throw new Error(body?.error?.message ?? 'No se pudo registrar.');
+      setResult(action);
+      setPhase('done');
+    } catch (e) {
+      setMessage((e as Error).message);
+      setPhase('invalid');
+    } finally {
+      setBusy(null);
+    }
+  };
+
+  const inv = view?.invoice;
+  const blocked = view && (view.usedAt || view.expired || inv?.status !== 'PENDING_APPROVAL');
+
+  return (
+    <main className="mx-auto grid min-h-dvh w-full max-w-md content-start gap-6 px-4 py-6">
+      <Logo />
+      {phase === 'loading' && <p className="text-ink-2">Abriendo el cobro…</p>}
+
+      {phase === 'invalid' && (
+        <div className="sheet grid gap-2 p-6">
+          <p className="t-h3 text-ink">Este enlace no se puede usar</p>
+          <p className="text-ink-2">{message}</p>
+          <p className="text-sm text-ink-3">
+            Pide uno nuevo desde Mandato: cada enlace sirve una sola vez.
+          </p>
+        </div>
+      )}
+
+      {view && inv && phase !== 'invalid' && (
+        <>
+          <article className="sheet relative overflow-hidden">
+            <Guilloche
+              size={360}
+              bands={3}
+
+              className="pointer-events-none absolute -top-32 -right-32 text-[var(--guilloche)] opacity-[0.16]"
+            />
+            <div className="relative grid gap-4 p-6">
+              <p className="text-sm text-ink-2">
+                {view.approver.name}, este cobro necesita tu aprobación. {inv.ref}
+              </p>
+              <div>
+                <p className="t-display text-ink">
+                  {inv.amountMinor !== null && inv.currency
+                    ? formatMoney(inv.amountMinor, inv.currency)
+                    : 'sin monto'}
+                </p>
+                {inv.currency !== 'USD' && inv.usdCents !== null && (
+                  <p className="text-sm text-ink-3">≈ {formatUsd(inv.usdCents)}</p>
+                )}
+              </div>
+              <p className="text-lg text-ink">
+                Para{' '}
+                <span className="font-[650]">
+                  {inv.payee?.name ?? inv.issuerName ?? 'quien cobra'}
+                </span>
+                {inv.invoiceNumber ? `, factura ${inv.invoiceNumber}` : ''}
+              </p>
+              {inv.summary && <p className="voice text-ink">{inv.summary}</p>}
+              {inv.failing.length > 0 && (
+                <ul className="grid gap-2">
+                  {inv.failing.map((f) => (
+                    <li key={f.title} className="rounded-lg bg-pending-tint/70 px-3 py-2 text-sm">
+                      <p className="font-[620] text-ink">{f.title}</p>
+                      <p className="text-ink-2">{f.detail}</p>
+                    </li>
+                  ))}
+                </ul>
+              )}
+              {inv.approval && inv.approval.required > 1 && (
+                <p className="text-sm text-ink-2">
+                  Necesita {inv.approval.required} aprobaciones de personas distintas.{' '}
+                  {inv.approval.approvals
+                    .filter((a) => a.action === 'approve')
+                    .map((a) => `${a.name} ya aprobó.`)
+                    .join(' ')}
+                </p>
+              )}
+            </div>
+            <div className="perforation" aria-hidden />
+          </article>
+
+          {phase === 'done' ? (
+            <div className="sheet grid justify-items-center gap-3 p-6 text-center">
+              {result === 'approve' ? (
+                <CircleCheck className="size-10 text-paid" aria-hidden />
+              ) : (
+                <CircleSlash className="size-10 text-held" aria-hidden />
+              )}
+              <p className="t-h3 text-ink">
+                {result === 'approve' ? 'Aprobación registrada' : 'Cobro rechazado'}
+              </p>
+              <p className="text-ink-2">
+                Quedó en el registro encadenado con tu nombre. Ya puedes cerrar esta pestaña.
+              </p>
+            </div>
+          ) : blocked ? (
+            <div className="sheet flex gap-3 p-5 text-ink-2">
+              <Clock className="size-5 shrink-0 text-ink-3" aria-hidden />
+              {view.usedAt
+                ? 'Este enlace ya se usó.'
+                : view.expired
+                  ? 'Este enlace venció.'
+                  : 'Este cobro ya fue resuelto.'}
+            </div>
+          ) : (
+            <div className="grid gap-3">
+              <Textarea
+                rows={2}
+                value={note}
+                onChange={(e) => setNote(e.target.value)}
+                placeholder="Nota (opcional)"
+                aria-label="Nota"
+              />
+              <Button
+                variant="approve"
+                size="lg"
+                onClick={() => act('approve')}
+                loading={busy === 'approve'}
+                disabled={busy !== null}
+              >
+                Aprobar el pago
+              </Button>
+              <Button
+                variant="danger"
+                size="lg"
+                onClick={() => act('reject')}
+                loading={busy === 'reject'}
+                disabled={busy !== null}
+              >
+                Rechazar
+              </Button>
+              <p className="text-center text-xs text-ink-3">
+                Enlace personal de un solo uso. Aprobar no cambia las reglas.
+              </p>
+            </div>
+          )}
+        </>
+      )}
+    </main>
+  );
+}
