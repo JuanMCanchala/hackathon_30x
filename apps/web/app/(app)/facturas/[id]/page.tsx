@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { describeMandate, formatDate, formatMoney, formatUsd } from '@mandato/domain';
 import { AppIcon } from '@/components/brand';
+import { PaymentPanel } from '@/components/payment-timeline';
 import { ProposalCard } from '@/components/proposal-card';
 import { ApprovalPanel } from '@/components/receipt/approval-panel';
 import { DocumentViewer } from '@/components/receipt/document-viewer';
@@ -163,6 +164,20 @@ export default function ReceiptPage() {
               </span>
             </div>
           </div>
+
+          {invoice.payment ? (
+            <div className="sheet p-6">
+              <PaymentPanel payment={invoice.payment} />
+            </div>
+          ) : (
+            (invoice.status === 'APPROVED' || invoice.status === 'PAID') && (
+              <div className="sheet p-6 text-[0.95rem] text-ink-2">
+                <p className="t-h3 mb-1 text-ink">La transferencia</p>
+                Aprobar no basta para pagarle a quien no está registrado: el dinero solo sale a
+                datos de pago verificados. Cuando se registre al beneficiario, el pago se programa.
+              </div>
+            )
+          )}
 
           {invoice.approval && (
             <div className="sheet p-6">

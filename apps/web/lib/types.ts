@@ -8,6 +8,7 @@ import type {
   MandateProposalDraft,
   Outcome,
   Payee,
+  PayoutMethod,
   PolicyTerms,
   Requester,
   RuleMeta,
@@ -70,6 +71,38 @@ export interface ApprovalEntry {
   note: string | null;
   via: 'web' | 'link';
   at: string;
+}
+
+export interface PaymentView {
+  id: string;
+  invoiceId: string;
+  ref: string;
+  title: string | null;
+  payeeName: string;
+  rail: PayoutMethod;
+  railName: string;
+  destination: string;
+  currency: string;
+  amountMinor: number;
+  usdCents: number | null;
+  scheduledFor: string;
+  status: 'scheduled' | 'sent' | 'settled';
+  reference: string | null;
+  expectedSettlement: string | null;
+  sentAt: string | null;
+  settledAt: string | null;
+}
+
+export interface PaymentsResponse {
+  today: string;
+  items: PaymentView[];
+  treasury: {
+    openingUsdCents: number;
+    sentUsdCents: number;
+    balanceUsdCents: number;
+    scheduledUsdCents: number;
+    afterScheduledUsdCents: number;
+  };
 }
 
 export interface InvoiceDetail {
@@ -140,6 +173,7 @@ export interface InvoiceDetail {
     resolvedBy: string | null;
     resolutionNote: string | null;
   } | null;
+  payment: PaymentView | null;
   ledger: {
     seq: number;
     type: string;

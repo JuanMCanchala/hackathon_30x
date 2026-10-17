@@ -101,6 +101,7 @@ export function LiveProvider({ children }: { children: ReactNode }) {
       'audit.completed',
       'demo.reset',
       'demo.progress',
+      'payment.updated',
     ];
     types.forEach((t) => source.addEventListener(t, handle as EventListener));
     source.addEventListener('ready', () => setConnected(true));
