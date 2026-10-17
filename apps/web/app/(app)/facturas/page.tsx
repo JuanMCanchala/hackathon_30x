@@ -17,6 +17,14 @@ const FILTERS = [
   { value: 'rechazadas', label: 'Rechazadas' },
 ];
 
+/** Bills by the month they belong to, newest month first; each month keeps arrival order. */
+function byPeriod(items: InvoiceListItem[]): [string, InvoiceListItem[]][] {
+  const groups = new Map<string, InvoiceListItem[]>();
+  for (const item of items)
+    groups.set(item.periodKey, [...(groups.get(item.periodKey) ?? []), item]);
+  return [...groups].sort(([a], [b]) => b.localeCompare(a));
+}
+
 export default function FacturasPage() {
   const [status, setStatus] = useState('');
   const [period, setPeriod] = useState('');
@@ -91,8 +99,22 @@ export default function FacturasPage() {
       {isLoading && !data ? (
         <Skeleton className="h-96" />
       ) : data && data.length > 0 ? (
-        <div className="sheet overflow-hidden">
-          <InvoiceRows items={data} />
+        <div className="grid gap-8">
+          {byPeriod(data).map(([periodKey, items]) => (
+            <section key={periodKey} className="grid gap-2.5" aria-label={formatPeriod(periodKey)}>
+              <h2 className="font-display flex items-baseline gap-2 px-1 text-[1.1rem] font-[680] text-ink">
+                <span className="inline-block first-letter:uppercase">
+                  {formatPeriod(periodKey)}
+                </span>
+                <span className="font-sans text-sm font-[500] text-ink-3">
+                  {items.length} {items.length === 1 ? 'cobro' : 'cobros'}
+                </span>
+              </h2>
+              <div className="sheet overflow-hidden">
+                <InvoiceRows items={items} />
+              </div>
+            </section>
+          ))}
         </div>
       ) : (
         <Empty title="No hay facturas con estos filtros">

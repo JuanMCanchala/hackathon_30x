@@ -62,6 +62,7 @@ export interface InvoiceListItem {
   approvalsRequired: number;
   approvalsCount: number;
   documentKind: string | null;
+  payment: { status: 'scheduled' | 'sent' | 'settled'; scheduledFor: string } | null;
 }
 
 export interface ApprovalEntry {

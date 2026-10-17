@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { toast } from 'sonner';
 import { useSWRConfig } from 'swr';
-import { formatMoney, formatUsd } from '@mandato/domain';
+import { formatDate, formatMoney, formatPeriod, formatUsd } from '@mandato/domain';
 import { PaymentTimeline } from '@/components/payment-timeline';
 import { Button, Empty, PageHeader, Skeleton } from '@/components/ui';
 import { ApiError, post } from '@/lib/api';
@@ -25,6 +25,16 @@ function daysFrom(today: string, date: string): string {
   if (days <= 0) return 'hoy';
   if (days === 1) return 'mañana';
   return `en ${days} días`;
+}
+
+/** Transfers by the month they went out, newest first. */
+function byMonth(items: PaymentView[]): [string, PaymentView[]][] {
+  const groups = new Map<string, PaymentView[]>();
+  for (const p of [...items].sort((a, b) => b.scheduledFor.localeCompare(a.scheduledFor))) {
+    const month = p.scheduledFor.slice(0, 7);
+    groups.set(month, [...(groups.get(month) ?? []), p]);
+  }
+  return [...groups];
 }
 
 function Row({ payment, today }: { payment: PaymentView; today: string }) {
@@ -48,7 +58,9 @@ function Row({ payment, today }: { payment: PaymentView; today: string }) {
         </p>
         <p className="text-sm text-ink-3">
           {payment.railName}
-          {payment.status === 'scheduled' ? `, ${daysFrom(today, payment.scheduledFor)}` : ''}
+          {payment.status === 'scheduled'
+            ? `, ${daysFrom(today, payment.scheduledFor)}`
+            : `, salió el ${formatDate(payment.scheduledFor).replace(/ \d{4}$/, '')}`}
         </p>
         {payment.reference && (
           <p className="font-mono text-[0.72rem] text-ink-3">{payment.reference}</p>
@@ -169,11 +181,21 @@ export default function PagosPage() {
             Procesa agosto en el recorrido guiado: los pagos salen en sus fechas de vencimiento.
           </Empty>
         ) : (
-          <ul className="sheet divide-y divide-rule overflow-hidden">
-            {out.map((p) => (
-              <Row key={p.id} payment={p} today={data.today} />
-            ))}
-          </ul>
+          byMonth(out).map(([month, items]) => (
+            <div key={month} className="grid gap-2">
+              <p className="font-display px-1 text-[1rem] font-[680] text-ink first-letter:uppercase">
+                {formatPeriod(month)}{' '}
+                <span className="font-sans text-sm font-[450] text-ink-3">
+                  {items.length} {items.length === 1 ? 'transferencia' : 'transferencias'}
+                </span>
+              </p>
+              <ul className="sheet divide-y divide-rule overflow-hidden">
+                {items.map((p) => (
+                  <Row key={p.id} payment={p} today={data.today} />
+                ))}
+              </ul>
+            </div>
+          ))
         )}
       </section>
     </div>

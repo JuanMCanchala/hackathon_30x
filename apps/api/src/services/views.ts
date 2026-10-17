@@ -11,6 +11,7 @@ import {
   ledgerEntries,
   mandates,
   payees,
+  payments,
   proposals,
   users,
 } from '../db/schema';
@@ -50,6 +51,8 @@ export interface InvoiceListItem {
   approvalsRequired: number;
   approvalsCount: number;
   documentKind: string | null;
+  /** The transfer, when there is one: lists say when the money leaves, not only the decision. */
+  payment: { status: 'scheduled' | 'sent' | 'settled'; scheduledFor: string } | null;
 }
 
 async function payeeNames(db: Executor, orgId: string): Promise<Map<string, string>> {
@@ -84,17 +87,29 @@ export async function listInvoices(
       approvalsRequired: decisions.approvalsRequired,
       mediaType: documents.mediaType,
       filename: documents.filename,
+      paymentStatus: payments.status,
+      paymentDate: payments.scheduledFor,
       approvalsCount: sql<number>`(select count(*)::int from ${approvals} a join ${approvalRequests} r on r.id = a.request_id where r.invoice_id = ${invoices.id} and a.action = 'approve')`,
     })
     .from(invoices)
     .leftJoin(decisions, eq(decisions.invoiceId, invoices.id))
     .leftJoin(documents, eq(documents.id, invoices.documentId))
+    .leftJoin(payments, eq(payments.invoiceId, invoices.id))
     .where(and(...conditions))
     .orderBy(desc(invoices.receivedAt), desc(invoices.seq))
     .limit(filters.limit ?? 200);
   const names = await payeeNames(db, orgId);
   return rows.map(
-    ({ invoice: i, summary, approvalsRequired, mediaType, filename, approvalsCount }) => ({
+    ({
+      invoice: i,
+      summary,
+      approvalsRequired,
+      mediaType,
+      filename,
+      approvalsCount,
+      paymentStatus,
+      paymentDate,
+    }) => ({
       id: i.id,
       ref: i.ref,
       title: i.title,
@@ -121,6 +136,8 @@ export async function listInvoices(
           : i.source === 'agent'
             ? 'agent'
             : null,
+      payment:
+        paymentStatus && paymentDate ? { status: paymentStatus, scheduledFor: paymentDate } : null,
     }),
   );
 }
