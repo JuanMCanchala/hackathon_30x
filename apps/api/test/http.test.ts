@@ -102,6 +102,14 @@ describe('HTTP API', () => {
       expect(Array.isArray(line.supporting)).toBe(true);
     }
     expect(receipt.payments[0]).not.toHaveProperty('destination');
+    const [listed] = (await (await http('/api/v1/bills')).json()) as {
+      amounts: { currency: string; billedMinor: number; evidencedMinor: number } | null;
+    }[];
+    expect(listed?.amounts).toEqual({
+      currency: 'COP',
+      billedMinor: 2_080_000_000,
+      evidencedMinor: 1_196_000_000,
+    });
     expect(receipt.payments[0]?.destinationDisplay).toBe(
       VENDORS.find((v) => v.id === 'daniela-ospina')!.payout.display,
     );

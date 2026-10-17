@@ -155,6 +155,10 @@ export async function billList(deps: Deps) {
         outcome: d?.outcome ?? null,
         outcomeLabel: d ? OUTCOME_LABEL[d.outcome] : null,
         summary: d?.summary ?? null,
+        // the inline proof bar: what was billed and how much of it the evidence proves
+        amounts: d
+          ? { currency: d.currency, billedMinor: d.billedMinor, evidencedMinor: d.evidencedMinor }
+          : null,
         supersedesBillId: b.supersedesBillId,
         casePaidMinor: b.casePaidMinor,
       };
