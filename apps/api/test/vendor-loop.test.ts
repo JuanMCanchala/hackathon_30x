@@ -90,4 +90,15 @@ describe('the vendor loop', () => {
     expect(json).not.toContain(payout.display);
     await expect(c.portalView('not-a-token')).rejects.toMatchObject({ status: 404 });
   });
+
+  it("a reply that attaches another vendor's bill is refused", async () => {
+    c = await setup();
+    const { portalToken, billId } = await ingest(c, 'oct-03');
+    await expect(
+      c.vendorReply(portalToken!, { message: 'Adjunto.', file: fileOf('oct-02') }),
+    ).rejects.toMatchObject({ status: 409 });
+    expect((await billOf(c, 'oct-03')).id).toBe(billId);
+    expect((await billOf(c, 'oct-03')).status).toBe('PART_PAID');
+    expect(await allPayments(c.db)).toHaveLength(1);
+  });
 });

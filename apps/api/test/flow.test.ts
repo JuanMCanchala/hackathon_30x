@@ -101,6 +101,8 @@ describe('people', () => {
       note: 'No.',
     });
     expect([status, payment]).toEqual(['REJECTED', null]);
+    await expect(c.evaluateBill(billId)).rejects.toMatchObject({ status: 409 });
+    expect(await allPayments(c.db)).toHaveLength(0);
   });
 });
 

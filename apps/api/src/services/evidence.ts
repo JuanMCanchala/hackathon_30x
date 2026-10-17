@@ -114,7 +114,7 @@ export async function importTimeEntriesCsv(
   csv: string,
 ): Promise<{ imported: number; vendorIds: string[] }> {
   const lines = csv
-    .replace(/^﻿/, '')
+    .replace(/^\uFEFF/, '')
     .split(/\r?\n/)
     .filter((l) => l.trim() !== '');
   const header = (lines.shift() ?? '').split(',').map((h) => unquote(h).toLowerCase());

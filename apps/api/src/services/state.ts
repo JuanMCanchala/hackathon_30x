@@ -6,7 +6,7 @@
  * person approved (humans.ts), always to the vendor's registered destination.
  */
 import { createHash, randomBytes, randomUUID } from 'node:crypto';
-import { and, asc, desc, eq, inArray, isNull, max, or } from 'drizzle-orm';
+import { and, asc, desc, eq, isNull, max, or } from 'drizzle-orm';
 import {
   BUYER_IDS,
   COMPANY,
@@ -391,16 +391,14 @@ export async function createPayment(
     plan,
     reference: `RCB-${String(seq).padStart(4, '0')}`,
   };
-  await ex
-    .insert(payments)
-    .values({
-      id: payment.id,
-      orgId: ORG_ID,
-      seq,
-      billId: bill.id,
-      data: payment,
-      status: 'scheduled',
-    });
+  await ex.insert(payments).values({
+    id: payment.id,
+    orgId: ORG_ID,
+    seq,
+    billId: bill.id,
+    data: payment,
+    status: 'scheduled',
+  });
   await addTimeline(
     ex,
     now,
@@ -493,10 +491,4 @@ export async function persistDecision(
     }
   }
   return { decisionId, payment, portalToken };
-}
-
-/** Bills by id, in one query. */
-export async function billsByIds(ex: Executor, ids: string[]): Promise<BillRow[]> {
-  if (ids.length === 0) return [];
-  return ex.select().from(bills).where(inArray(bills.id, ids));
 }

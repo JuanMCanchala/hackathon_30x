@@ -30,6 +30,8 @@ import {
   type Persisted,
 } from './state';
 
+const FINAL: BillStatus[] = ['APPROVED', 'REJECTED', 'SUPERSEDED'];
+
 const MIME: Record<DocumentChannel, string> = {
   pdf: 'application/pdf',
   email: 'message/rfc822',
@@ -78,7 +80,12 @@ export async function evaluateIn(
 export async function evaluateBill(deps: Deps, billId: string): Promise<Decision> {
   return withOrgLock(async () => {
     const now = await deps.clock.now();
-    return deps.db.transaction(async (tx) => (await evaluateIn(tx, billId, now)).decision);
+    return deps.db.transaction(async (tx) => {
+      // a person's resolution is final, and a superseded bill lives on in its correction
+      if (FINAL.includes((await getBill(tx, billId)).status as BillStatus))
+        throw new ServiceError(409, 'Esta cuenta ya está cerrada.');
+      return (await evaluateIn(tx, billId, now)).decision;
+    });
   });
 }
 
@@ -119,6 +126,12 @@ export async function ingestDocument(deps: Deps, input: IngestInput): Promise<In
   const vendor = bill ? resolveVendor(bill, await allVendors(deps.db)) : null;
   const contract =
     bill && vendor ? activeContract(vendor, await allContracts(deps.db), bill.issueDate) : null;
+  // a correction comes from the vendor of the bill it corrects, or it is not a correction
+  if (input.supersedesBillId) {
+    const old = await getBill(deps.db, input.supersedesBillId);
+    if (old.vendorId && vendor && vendor.id !== old.vendorId)
+      throw new ServiceError(409, 'La cuenta adjunta es de otro proveedor.');
+  }
   // without a vendor and a contract there is nothing to match; the engine says why
   const match: MatchResult | null =
     bill && contract ? await deps.matcher.match({ lines: bill.lines, contract }) : null;
