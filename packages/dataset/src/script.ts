@@ -1,0 +1,182 @@
+import { SCRIPTED_EVIDENCE as E } from './evidence';
+import type { Month, ScriptStep } from './bills/types';
+
+const at = (local: string) => `${local}:00-05:00`;
+const DIEGO = 'Diego Navarro';
+
+const bill = (when: string, billId: string): ScriptStep => ({ at: at(when), type: 'bill', billId });
+
+/** What happens, in simulated time (Bogotá, UTC−5), month by month. */
+export const SCRIPT: Record<Month, ScriptStep[]> = {
+  septiembre: [
+    bill('2026-09-01T09:00', 'sep-01'),
+    bill('2026-09-01T10:30', 'sep-02'),
+    bill('2026-09-01T15:00', 'sep-03'),
+    bill('2026-09-02T09:10', 'sep-04'),
+    bill('2026-09-02T11:00', 'sep-05'),
+    {
+      at: at('2026-09-02T16:00'),
+      type: 'human',
+      billId: 'sep-05',
+      action: 'reject',
+      actor: DIEGO,
+      note: 'Llamé a Faro al número del contrato: no cambiaron de banco. El correo es una suplantación; no se paga.',
+    },
+    bill('2026-09-03T08:30', 'sep-06'),
+    bill('2026-09-03T10:00', 'sep-07'),
+    bill('2026-09-03T14:00', 'sep-08'),
+    bill('2026-09-03T16:30', 'sep-09'),
+    bill('2026-09-04T09:00', 'sep-10'),
+    bill('2026-09-04T12:00', 'sep-11'),
+    {
+      at: at('2026-09-05T10:00'),
+      type: 'vendor_reply',
+      billId: 'sep-09',
+      message:
+        'Oi! Desculpem, esqueci o período. Segue a fatura corrigida com o período de agosto.',
+      replyBillId: 'sep-09-r1',
+    },
+    bill('2026-09-07T09:00', 'sep-12'),
+    {
+      at: at('2026-09-08T09:30'),
+      type: 'evidence',
+      item: E.thiagoLateHours,
+      label: 'Thiago sincroniza en Toggl las 16 h del 27 y 28 de agosto.',
+    },
+    bill('2026-09-09T11:00', 'sep-13'),
+    bill('2026-09-10T10:00', 'sep-14'),
+    bill('2026-09-11T09:00', 'sep-15'),
+    bill('2026-09-14T09:00', 'sep-16'),
+    {
+      at: at('2026-09-15T17:05'),
+      type: 'evidence',
+      item: E.ximenaTicketClosed,
+      label: 'Se cierra en Linear el ticket ALT-214 (motor de conciliación).',
+    },
+    bill('2026-09-16T10:00', 'sep-17'),
+    bill('2026-09-18T09:00', 'sep-18'),
+    bill('2026-09-21T10:00', 'sep-19'),
+    bill('2026-09-22T11:00', 'sep-20'),
+    bill('2026-09-25T09:00', 'sep-21'),
+    bill('2026-09-29T10:00', 'sep-22'),
+    {
+      at: at('2026-10-01T08:00'),
+      type: 'clock',
+      to: at('2026-10-01T08:00'),
+      label: 'Cierre de septiembre: se ejecutan los pagos que vencen y se revisan los plazos.',
+    },
+  ],
+  octubre: [
+    bill('2026-10-01T09:00', 'oct-01'),
+    bill('2026-10-01T11:00', 'oct-02'),
+    bill('2026-10-01T15:30', 'oct-03'),
+    bill('2026-10-02T10:00', 'oct-04'),
+    bill('2026-10-02T12:00', 'oct-05'),
+    bill('2026-10-02T16:00', 'oct-06'),
+    bill('2026-10-03T09:00', 'oct-07'),
+    bill('2026-10-03T10:00', 'oct-08'),
+    {
+      at: at('2026-10-03T11:00'),
+      type: 'vendor_reply',
+      billId: 'oct-04',
+      message:
+        'Hola, Lina ya tiene los archivos finales del brand kit desde el viernes. Quedamos atentos.',
+    },
+    {
+      at: at('2026-10-03T12:00'),
+      type: 'human',
+      billId: 'oct-06',
+      action: 'approve',
+      actor: DIEGO,
+      note: 'Thiago confirmó por llamada. Se paga a la llave Pix registrada; el cambio de llave se tramita aparte en el registro de proveedores.',
+    },
+    bill('2026-10-03T14:00', 'oct-09'),
+    bill('2026-10-05T09:00', 'oct-10'),
+    bill('2026-10-05T11:00', 'oct-11'),
+    {
+      at: at('2026-10-05T14:00'),
+      type: 'evidence',
+      item: E.linaAcceptsBrandKit,
+      label: 'Lina Cárdenas acepta el Brand kit v2 de Estudio Ceiba.',
+    },
+    bill('2026-10-05T15:00', 'oct-12'),
+    bill('2026-10-06T09:00', 'oct-13'),
+    {
+      at: at('2026-10-06T10:00'),
+      type: 'vendor_reply',
+      billId: 'oct-03',
+      message:
+        'Tienen razón: las otras 68 h las facturo el próximo mes. Adjunto la cuenta corregida por 92 h.',
+      replyBillId: 'oct-03-r1',
+    },
+    bill('2026-10-06T14:00', 'oct-14'),
+    {
+      at: at('2026-10-07T09:00'),
+      type: 'vendor_reply',
+      billId: 'oct-12',
+      message:
+        'Desculpem, apliquei a tarifa do próximo contrato antes da hora. Segue a fatura corrigida com R$ 150/h.',
+      replyBillId: 'oct-12-r1',
+    },
+    bill('2026-10-07T10:00', 'oct-15'),
+    bill('2026-10-07T15:00', 'oct-16'),
+    {
+      at: at('2026-10-08T10:00'),
+      type: 'vendor_reply',
+      billId: 'oct-15',
+      message: 'Olá! Erramos a soma do total. Segue a fatura corrigida.',
+      replyBillId: 'oct-15-r1',
+    },
+    bill('2026-10-09T11:00', 'oct-17'),
+    {
+      at: at('2026-10-09T16:00'),
+      type: 'evidence',
+      item: E.palabraVivaSecondBatch,
+      label: 'Palabra Viva sube el reporte del segundo lote de septiembre (10.700 palabras).',
+    },
+    bill('2026-10-12T09:00', 'oct-18'),
+    {
+      at: at('2026-10-13T10:00'),
+      type: 'human',
+      billId: 'oct-11',
+      action: 'approve',
+      actor: DIEGO,
+      note: 'Las 12 h extra cubrieron la regresión del lanzamiento. Aprobado por esta vez.',
+    },
+    {
+      at: at('2026-10-13T10:30'),
+      type: 'human',
+      billId: 'oct-13',
+      action: 'reject',
+      actor: DIEGO,
+      note: 'Nadie en Altamar contrató a Nimbo Consultores. Rechazada.',
+    },
+    {
+      at: at('2026-10-14T11:00'),
+      type: 'human',
+      billId: 'oct-14',
+      action: 'approve',
+      actor: DIEGO,
+      note: 'Compra presupuestada para la oficina nueva de Medellín. Aprobada.',
+    },
+    bill('2026-10-14T17:10', 'oct-19'),
+    {
+      at: at('2026-10-20T09:00'),
+      type: 'clock',
+      to: at('2026-10-20T09:00'),
+      label: 'Vence el plazo de Estudio Ceiba para entregar la landing.',
+    },
+    {
+      at: at('2026-10-21T11:00'),
+      type: 'evidence',
+      item: E.andresPrMerged,
+      label: 'Se fusiona en GitHub el PR #3 de altamar-labs/app-movil (en vivo en la demo).',
+    },
+    {
+      at: at('2026-11-10T09:00'),
+      type: 'clock',
+      to: at('2026-11-10T09:00'),
+      label: 'Cierre de octubre: se ejecutan los pagos programados y llega el extracto de Blinka.',
+    },
+  ],
+};

@@ -1,0 +1,17 @@
+{
+  "name": "@recibido/dataset",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Fictitious company Altamar Labs Inc.: vendors, contracts, evidence, two months of labeled bills and the demo script.",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@recibido/domain": "workspace:*"
+  }
+}
