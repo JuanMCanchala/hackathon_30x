@@ -100,6 +100,15 @@ export interface RawItem {
   capturedAt: string;
   /** The search query that found it, if it came from a search. */
   query?: string;
+  /** Its pictures and videos: every slide of a carousel, or a video's cover. */
+  media?: Media[];
+}
+
+/** A picture or video inside a piece. */
+export interface Media {
+  kind: 'image' | 'video';
+  /** The platform's URL. Instagram signs it for a few days, so a caught piece keeps a copy. */
+  url: string;
 }
 
 /** A dated value: a day (YYYY-MM-DD) or the Monday that starts a week. */

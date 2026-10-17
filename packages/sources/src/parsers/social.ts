@@ -2,7 +2,7 @@
  * The social accounts we follow by name: X timelines (embed endpoint), Instagram profiles and
  * LinkedIn company pages. Each one gives real engagement, but only for accounts we already know.
  */
-import type { Format, Metrics, RawItem } from '@radar/core';
+import type { Format, Media, Metrics, RawItem } from '@radar/core';
 import type { Parser } from '../types';
 import {
   compact,
@@ -121,6 +121,24 @@ interface IgNode {
   edge_media_to_caption?: { edges?: { node?: { text?: string } }[] };
   owner?: { id?: string; username?: string };
   video_duration?: number;
+  display_url?: string;
+  video_url?: string;
+  edge_sidecar_to_children?: {
+    edges?: { node?: { display_url?: string; is_video?: boolean; video_url?: string } }[];
+  };
+}
+
+/** Every slide of a carousel, or the picture (and video) of a single post. */
+function igMedia(node: IgNode): Media[] {
+  const slides = node.edge_sidecar_to_children?.edges?.map((e) => e.node) ?? [];
+  const parts = slides.length ? slides : [node];
+  const media: Media[] = [];
+  for (const part of parts) {
+    if (!part) continue;
+    if (part.display_url) media.push({ kind: 'image', url: part.display_url });
+    if (part.is_video && part.video_url) media.push({ kind: 'video', url: part.video_url });
+  }
+  return media;
 }
 
 interface IgUser {
@@ -170,6 +188,7 @@ export function instagramItem(node: IgNode, user: IgUser, capturedAt: string): R
     durationSec: num(node.video_duration),
     metrics,
     capturedAt,
+    media: igMedia(node),
   });
 }
 

@@ -69,8 +69,11 @@ async function readLinkedin(url: URL, fetcher: Fetcher, now: string): Promise<Ra
   // The page also prints the counts as attributes; they fill what the JSON-LD left out.
   const reactions = res.body.match(/data-num-reactions="(\d+)"/)?.[1];
   const comments = res.body.match(/data-num-comments="(\d+)"/)?.[1];
+  // The author's block in the JSON-LD carries its followers as a FollowAction counter.
+  const followers = res.body.match(/FollowAction","userInteractionCount":(\d+)/)?.[1];
   return {
     ...item,
+    author: compact({ ...item.author, followers: item.author.followers ?? num(followers) }),
     metrics: compact({
       ...item.metrics,
       likes: item.metrics.likes ?? num(reactions),
@@ -129,6 +132,13 @@ async function readYoutube(url: URL, fetcher: Fetcher, now: string): Promise<Raw
   const micro = player?.microformat?.playerMicroformatRenderer;
   const length = num(details.lengthSeconds);
   const handle = micro?.ownerProfileUrl?.match(/youtube\.com\/(@[^/?#]+)/)?.[1];
+  // The page prints both as short text: "1.93M subscribers", and "3K" atop the comments panel.
+  const subscribers = res.body.match(
+    /"subscriberCountText":\{[^}]*\}\},"simpleText":"([\d.,]+\s*[KkMm]?) subscribers?"/,
+  )?.[1];
+  const comments = res.body.match(
+    /"contextualInfo":\{"runs":\[\{"text":"([\d.,]+\s*[KkMm]?)"\}\]\}/,
+  )?.[1];
   const channelId = details.channelId ?? micro?.externalChannelId ?? '';
   return compact<RawItem>({
     platform: 'youtube',
@@ -140,6 +150,7 @@ async function readYoutube(url: URL, fetcher: Fetcher, now: string): Promise<Raw
       name: details.author ?? '',
       handle,
       url: handle ? `https://www.youtube.com/${handle}` : undefined,
+      followers: parseCount(subscribers),
     }),
     publishedAt: toIso(micro?.publishDate) ?? toIso(micro?.uploadDate) ?? now,
     title: details.title,
@@ -151,7 +162,11 @@ async function readYoutube(url: URL, fetcher: Fetcher, now: string): Promise<Raw
         ? 'short'
         : 'video',
     durationSec: length,
-    metrics: compact({ views: num(details.viewCount), likes: youtubeLikes(res.body) }),
+    metrics: compact({
+      views: num(details.viewCount),
+      likes: youtubeLikes(res.body),
+      comments: parseCount(comments),
+    }),
     capturedAt: now,
   });
 }
