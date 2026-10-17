@@ -73,12 +73,22 @@ export class CachedEmbedder implements Embedder {
   private async request(input: string[]): Promise<number[][]> {
     const live = this.live!;
     for (let attempt = 1; ; attempt++) {
-      const response = await fetch(`${live.baseUrl.replace(/\/$/, '')}/embeddings`, {
-        method: 'POST',
-        headers: { authorization: `Bearer ${live.apiKey}`, 'content-type': 'application/json' },
-        body: JSON.stringify({ model: live.model, input, dimensions: live.dimensions }),
-        signal: AbortSignal.timeout(120_000),
-      });
+      let response: Response;
+      try {
+        response = await fetch(`${live.baseUrl.replace(/\/$/, '')}/embeddings`, {
+          method: 'POST',
+          headers: { authorization: `Bearer ${live.apiKey}`, 'content-type': 'application/json' },
+          body: JSON.stringify({ model: live.model, input, dimensions: live.dimensions }),
+          signal: AbortSignal.timeout(120_000),
+        });
+      } catch (error) {
+        // A timeout or a dropped connection is as passing as a 503: wait and ask again.
+        if (attempt < 5) {
+          await new Promise((r) => setTimeout(r, 1500 * 2 ** (attempt - 1)));
+          continue;
+        }
+        throw error;
+      }
       if ((response.status === 429 || response.status >= 500) && attempt < 5) {
         await new Promise((r) => setTimeout(r, 1500 * 2 ** (attempt - 1)));
         continue;
