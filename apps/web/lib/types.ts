@@ -387,3 +387,55 @@ export interface ChatView {
   kind: 'chat';
   messages: { at: string | null; sender: string | null; text: string }[];
 }
+
+/** The challenge's scoring, run by the API on a separate database (ADR-0015). */
+export interface EvaluationBill {
+  id: string;
+  group: 'Agosto' | 'Septiembre' | 'En vivo' | 'Ataques';
+  title: string;
+  expected: Outcome;
+  actual: Outcome | null;
+  correct: boolean;
+  autonomous: boolean;
+  unsafe: boolean;
+  explained: boolean;
+  fieldErrors: string[];
+  summary: string | null;
+  trap: string | null;
+}
+
+export interface EvaluationGroup {
+  group: string;
+  total: number;
+  correct: number;
+  accuracy: number;
+  correctAutonomy: number;
+  autonomyCeiling: number;
+  unsafe: number;
+  unnecessaryEscalations: number;
+}
+
+export interface EvaluationReport {
+  mode: 'truth' | 'replay';
+  bills: EvaluationBill[];
+  groups: EvaluationGroup[];
+  totals: EvaluationGroup;
+  audit: {
+    ok: boolean;
+    violations: number;
+    paymentsChecked: number;
+    decisionsChecked: number;
+    chainIntact: boolean;
+  };
+  extraction: { fields: number; correct: number; accuracy: number } | null;
+  attacks: { total: number; caught: number };
+  gates: { name: string; passed: boolean; detail: string }[];
+}
+
+export interface EvaluationRun {
+  ranAt: string;
+  durationMs: number;
+  engine: EvaluationReport;
+  endToEnd: EvaluationReport | null;
+  missingRecordings: string[];
+}

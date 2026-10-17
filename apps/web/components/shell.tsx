@@ -11,6 +11,7 @@ import {
   Gauge,
   Handshake,
   Menu,
+  ListChecks,
   Monitor,
   Moon,
   ScrollText,
@@ -44,6 +45,7 @@ const NAV = [
   { href: '/auditoria', label: 'Auditoría', icon: BookOpenCheck },
   { href: '/ataques', label: 'Ataca al agente', icon: ShieldAlert },
   { href: '/agentes', label: 'Agentes conectados', icon: Bot },
+  { href: '/evaluacion', label: 'Evaluación', icon: ListChecks },
   { href: '/recorrido', label: 'Recorrido guiado', icon: ScrollText },
 ];
 

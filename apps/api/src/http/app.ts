@@ -7,6 +7,7 @@ import type { Deps } from '../services/deps';
 import { registerAgentRoutes } from './routes/agent';
 import { registerAssistantRoutes } from './routes/assistant';
 import { registerDemoRoutes } from './routes/demo';
+import { registerEvaluationRoutes } from './routes/evaluation';
 import { registerGovernanceRoutes } from './routes/governance';
 import { registerInvoiceRoutes } from './routes/invoices';
 import { registerOversightRoutes } from './routes/oversight';
@@ -70,6 +71,7 @@ export function createApp(deps: Deps) {
   registerAgentRoutes(app, deps);
   registerPaymentRoutes(app, deps);
   registerAssistantRoutes(app, deps);
+  registerEvaluationRoutes(app, deps);
   if (deps.config.DEMO_MODE) registerDemoRoutes(app, deps);
 
   app.doc31('/openapi.json', {
