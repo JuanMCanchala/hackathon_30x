@@ -2,9 +2,9 @@
 
 import * as Tabs from '@radix-ui/react-tabs';
 import clsx from 'clsx';
-import { FileUp, MessageSquareText } from 'lucide-react';
+import { CircleCheck, FileUp, Loader2, MessageSquareText } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { useRef, useState, type DragEvent } from 'react';
+import { useEffect, useRef, useState, type DragEvent } from 'react';
 import { toast } from 'sonner';
 import { api, ApiError } from '@/lib/api';
 import { OUTCOME_COPY } from '@/lib/outcomes';
@@ -17,6 +17,50 @@ interface IngestResponse {
   created: boolean;
   outcome: Outcome;
   summary: string;
+}
+
+const MAX_BYTES = 10 * 1024 * 1024;
+const STEPS = ['Recibido', 'Leyendo el documento', 'Revisando las 23 reglas', 'Decisión tomada'];
+const pause = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+/**
+ * What the agent is doing while the request is open. Reading is the slow step; the rules are
+ * code and finish at once, so they check off when the answer arrives.
+ */
+function Progress({ step }: { step: number }) {
+  const [elapsed, setElapsed] = useState(0);
+  useEffect(() => {
+    const started = Date.now();
+    const timer = setInterval(() => setElapsed(Math.floor((Date.now() - started) / 1000)), 500);
+    return () => clearInterval(timer);
+  }, []);
+  return (
+    <div role="status" aria-live="polite" className="grid gap-4 rounded-xl bg-sheet-2 px-5 py-6">
+      <ol className="grid gap-2.5">
+        {STEPS.map((label, i) => (
+          <li key={label} className="flex items-center gap-3 text-[0.98rem]">
+            {i < step ? (
+              <CircleCheck className="size-5 text-paid" aria-hidden />
+            ) : i === step ? (
+              <Loader2 className="size-5 animate-spin text-brand" aria-hidden />
+            ) : (
+              <span
+                className="size-5 rounded-full border-2 border-dashed border-rule-strong"
+                aria-hidden
+              />
+            )}
+            <span className={i <= step ? 'text-ink' : 'text-ink-3'}>{label}</span>
+          </li>
+        ))}
+      </ol>
+      {step === 1 && elapsed >= 3 && (
+        <p className="text-sm text-ink-3">
+          {elapsed} s. Un documento nuevo tarda entre 5 y 30 segundos en leerse; uno que el agente
+          ya leyó sale al instante.
+        </p>
+      )}
+    </div>
+  );
 }
 
 const ACCEPT =
@@ -33,9 +77,14 @@ export function UploadDialog({
   const input = useRef<HTMLInputElement>(null);
   const [dragging, setDragging] = useState(false);
   const [busy, setBusy] = useState(false);
+  const [step, setStep] = useState(1);
   const [text, setText] = useState('');
 
-  const done = (result: IngestResponse) => {
+  const done = async (result: IngestResponse) => {
+    setStep(2);
+    await pause(250);
+    setStep(3);
+    await pause(350);
     onOpenChange(false);
     setText('');
     toast(`${result.ref} · ${OUTCOME_COPY[result.outcome].short}`, {
@@ -52,11 +101,18 @@ export function UploadDialog({
     );
 
   const upload = async (file: File) => {
+    if (file.size > MAX_BYTES) {
+      toast.error(
+        `${file.name} pesa ${(file.size / 1024 / 1024).toFixed(1)} MB y el máximo es 10 MB.`,
+      );
+      return;
+    }
+    setStep(1);
     setBusy(true);
     try {
       const form = new FormData();
       form.append('file', file);
-      done(await api<IngestResponse>('/api/v1/invoices', { method: 'POST', body: form }));
+      await done(await api<IngestResponse>('/api/v1/invoices', { method: 'POST', body: form }));
     } catch (error) {
       fail(error);
     } finally {
@@ -65,9 +121,10 @@ export function UploadDialog({
   };
 
   const sendText = async () => {
+    setStep(1);
     setBusy(true);
     try {
-      done(
+      await done(
         await api<IngestResponse>('/api/v1/invoices', {
           method: 'POST',
           body: JSON.stringify({ text, channel: 'chat' }),
@@ -114,31 +171,35 @@ export function UploadDialog({
         </Tabs.List>
 
         <Tabs.Content value="file">
-          <button
-            type="button"
-            onClick={() => input.current?.click()}
-            onDragOver={(e) => {
-              e.preventDefault();
-              setDragging(true);
-            }}
-            onDragLeave={() => setDragging(false)}
-            onDrop={onDrop}
-            disabled={busy}
-            className={clsx(
-              'grid w-full place-items-center gap-2 rounded-xl border-2 border-dashed px-6 py-12 text-center transition-colors',
-              dragging
-                ? 'border-brand bg-brand-tint'
-                : 'border-rule-strong hover:border-ink-3 hover:bg-sheet-2',
-            )}
-          >
-            <FileUp className="size-8 text-brand" aria-hidden />
-            <span className="text-[1.02rem] font-[600] text-ink">
-              {busy ? 'Leyendo y decidiendo…' : 'Arrastra aquí la factura o haz clic para elegirla'}
-            </span>
-            <span className="text-sm text-ink-3">
-              PDF, foto, correo (.eml) o texto. Máximo 10 MB.
-            </span>
-          </button>
+          {busy ? (
+            <Progress step={step} />
+          ) : (
+            <button
+              type="button"
+              onClick={() => input.current?.click()}
+              onDragOver={(e) => {
+                e.preventDefault();
+                setDragging(true);
+              }}
+              onDragLeave={() => setDragging(false)}
+              onDrop={onDrop}
+              disabled={busy}
+              className={clsx(
+                'grid w-full place-items-center gap-2 rounded-xl border-2 border-dashed px-6 py-12 text-center transition-colors',
+                dragging
+                  ? 'border-brand bg-brand-tint'
+                  : 'border-rule-strong hover:border-ink-3 hover:bg-sheet-2',
+              )}
+            >
+              <FileUp className="size-8 text-brand" aria-hidden />
+              <span className="text-[1.02rem] font-[600] text-ink">
+                Arrastra aquí la factura o haz clic para elegirla
+              </span>
+              <span className="text-sm text-ink-3">
+                PDF, foto, correo (.eml) o texto. Máximo 10 MB.
+              </span>
+            </button>
+          )}
           <input
             ref={input}
             type="file"
@@ -153,6 +214,7 @@ export function UploadDialog({
         </Tabs.Content>
 
         <Tabs.Content value="text" className="grid gap-3">
+          {busy && <Progress step={step} />}
           <Textarea
             rows={7}
             value={text}
