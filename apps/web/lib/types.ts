@@ -29,7 +29,12 @@ export interface Session {
   user: SessionUser;
   users: { id: string; name: string; title: string; canApprove: boolean; canSign: boolean }[];
   demoMode: boolean;
-  reader: { name: string; live: boolean; model: string | null };
+  reader: {
+    name: string;
+    live: boolean;
+    provider: 'anthropic' | 'fireworks' | null;
+    model: string | null;
+  };
   policyCompiler: boolean;
 }
 

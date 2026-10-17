@@ -3,15 +3,25 @@
 import clsx from 'clsx';
 import { TriangleAlert } from 'lucide-react';
 import { formatPercent, payoutMethodLabel } from '@mandato/domain';
+import { modelName } from '@/lib/reader';
 import type { InvoiceDetail } from '@/lib/types';
 
-const PROVIDER_COPY: Record<string, string> = {
-  claude: 'Leído por Claude en vivo',
-  replay: 'Lectura grabada de Claude',
-  'ground-truth': 'Lector de referencia (evaluación)',
-  agent: 'Datos estructurados del agente',
-  none: 'Sin lectura',
-};
+function readerLine(meta: InvoiceDetail['extractionMeta']): string {
+  const model = modelName(meta.model);
+  switch (meta.provider) {
+    case 'claude':
+    case 'fireworks':
+      return `Leído en vivo por ${model ?? 'el modelo de lenguaje'}`;
+    case 'replay':
+      return model ? `Lectura grabada de ${model}` : 'Lectura grabada';
+    case 'ground-truth':
+      return 'Lector de referencia (evaluación)';
+    case 'agent':
+      return 'Datos estructurados del agente';
+    default:
+      return 'Sin lectura';
+  }
+}
 
 function Confidence({ value }: { value: number }) {
   return (
@@ -71,9 +81,7 @@ export function ExtractionPanel({ invoice }: { invoice: InvoiceDetail }) {
   return (
     <div className="grid gap-3">
       <p className="text-sm text-ink-2">
-        {PROVIDER_COPY[meta.provider] ?? meta.provider}
-        {meta.model ? ` (${meta.model})` : ''}. El lector no decide: solo extrae, y dice qué tan
-        seguro está.
+        {readerLine(meta)}. El lector no decide: solo extrae, y dice qué tan seguro está.
       </p>
       <dl className="divide-y divide-rule rounded-lg border border-rule bg-sheet">
         {rows.map((row) => (

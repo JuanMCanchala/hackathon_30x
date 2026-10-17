@@ -227,8 +227,8 @@ export default function ReglasPage() {
             <div className="flex flex-wrap items-center justify-between gap-2">
               <p className="text-xs text-ink-3">
                 {session?.policyCompiler
-                  ? 'Claude lo convierte en cambios concretos; tú los revisas y decides si guardar.'
-                  : 'Disponible cuando el servidor tiene una API key de Claude.'}
+                  ? 'El modelo de lenguaje lo convierte en cambios concretos; tú los revisas y decides si guardar.'
+                  : 'Disponible cuando el servidor tiene un modelo de lenguaje configurado.'}
               </p>
               <Button
                 size="sm"

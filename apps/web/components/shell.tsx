@@ -25,6 +25,7 @@ import { usePathname } from 'next/navigation';
 import { useState, useSyncExternalStore, type ReactNode } from 'react';
 import { useApi } from '@/lib/hooks';
 import { useLive } from '@/lib/live';
+import { modelName } from '@/lib/reader';
 import { useSession } from '@/lib/session';
 import type { Overview } from '@/lib/types';
 import { Logo } from './guilloche';
@@ -248,8 +249,8 @@ export function AppShell({ children }: { children: ReactNode }) {
             {session?.reader.name === 'ground-truth'
               ? 'de referencia, sin IA (desarrollo)'
               : session?.reader.live
-                ? `Claude en vivo (${session.reader.model})`
-                : 'lecturas grabadas de Claude'}
+                ? `${modelName(session.reader.model)} en vivo y lecturas grabadas`
+                : 'lecturas grabadas'}
           </p>
           <ThemeSwitch />
         </div>
