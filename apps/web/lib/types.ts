@@ -439,3 +439,47 @@ export interface EvaluationRun {
   endToEnd: EvaluationReport | null;
   missingRecordings: string[];
 }
+
+/** The month's close (brief §02, step 5): every bill, its result, who decided and its transfer. */
+export interface CloseRow {
+  invoiceId: string;
+  ref: string;
+  title: string | null;
+  receivedAt: string;
+  payeeName: string;
+  invoiceNumber: string | null;
+  currency: string | null;
+  amountMinor: number | null;
+  usdCents: number | null;
+  status: InvoiceStatus;
+  result: string;
+  decidedBy: string | null;
+  reason: string | null;
+  payment: {
+    rail: string;
+    railName: string;
+    reference: string | null;
+    scheduledFor: string;
+    status: 'scheduled' | 'sent' | 'settled';
+    sentAt: string | null;
+    settledAt: string | null;
+  } | null;
+}
+
+export interface MonthClose {
+  period: string;
+  periods: string[];
+  totals: {
+    bills: number;
+    paidByAgent: number;
+    approved: number;
+    held: number;
+    rejected: number;
+    pending: number;
+    paidUsdCents: number;
+    sentUsdCents: number;
+    scheduledUsdCents: number;
+    byCurrency: { currency: string; amountMinor: number; count: number }[];
+  };
+  rows: CloseRow[];
+}

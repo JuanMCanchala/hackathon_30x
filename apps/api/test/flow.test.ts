@@ -8,6 +8,7 @@ import { ATTACKS, AUGUST, LIVE, SEPTEMBER } from '@mandato/dataset';
 import type { Container } from '../src/container';
 import { decisions, invoices, ledgerEntries, payments, proposals } from '../src/db/schema';
 import { runAudit } from '../src/services/audit';
+import { closeCsv, monthClose } from '../src/services/close';
 import { DEMO_ORG_ID, launchAttack, runLiveFile, runMonth } from '../src/services/demo';
 import { overview } from '../src/services/metrics';
 import { demoContainer } from './helpers';
@@ -158,6 +159,27 @@ describe('a bill approved before its payee existed', () => {
     expect(payment?.payeeId).toBe(rafael!.payeeId);
     expect(payment?.destination).toBe('@rafamendoza');
     expect(payment?.amountMinor).toBe(rafael!.amountMinor);
+  });
+});
+
+describe('the month close', () => {
+  it('lists every real bill of the month with who decided it and the transfer that paid it', async () => {
+    const close = await monthClose(container.deps.db, DEMO_ORG_ID, '2026-09');
+    expect(close.period).toBe('2026-09');
+    expect(close.rows).toHaveLength(SEPTEMBER.length);
+    expect(close.rows.every((r) => !r.ref.startsWith('atk'))).toBe(true);
+    for (const row of close.rows) {
+      if (row.status === 'PAID') expect(row.decidedBy).toBe('El agente');
+      if (row.status === 'APPROVED') expect(row.decidedBy).toMatch(/Martín|Sofía/);
+      if (row.status === 'PAID' || row.status === 'APPROVED')
+        expect(row.payment?.reference ?? row.payment?.scheduledFor).toBeTruthy();
+    }
+    const t = close.totals;
+    expect(t.paidByAgent + t.approved + t.held + t.rejected + t.pending).toBe(t.bills);
+
+    const csv = closeCsv(close);
+    expect(csv.startsWith('\uFEFFcomprobante;recibida;beneficiario')).toBe(true);
+    expect(csv).toContain(';Pagada sola;El agente;');
   });
 });
 
