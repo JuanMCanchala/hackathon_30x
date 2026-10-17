@@ -1,4 +1,10 @@
-import { formatHours, formatMoney, parseDecimalToMinor, type Currency } from '@recibido/domain';
+import {
+  formatHours,
+  formatMoney,
+  parseDecimalToMinor,
+  type Currency,
+  type Outcome,
+} from '@recibido/domain';
 
 export { formatHours, formatMoney };
 
@@ -6,9 +12,13 @@ const CURRENCIES: Currency[] = ['USD', 'COP', 'MXN', 'BRL'];
 export const isCurrency = (c: string | null | undefined): c is Currency =>
   CURRENCIES.includes(c as Currency);
 
-/** "COP 20.800.000" from the reading's canonical decimal ("20800000.00"). */
+/**
+ * "COP 20.800.000" from the reading's canonical decimal ("20800000.00"); "1200 (sin moneda)" when
+ * the amount was read but its currency was not.
+ */
 export function formatDecimal(value: string | null, currency: string | null): string {
-  if (!isCurrency(currency)) return 'Sin leer';
+  if (!isCurrency(currency))
+    return value?.trim() ? `${value.trim().replace(/\.0+$/, '')} (sin moneda)` : 'Sin leer';
   const minor = parseDecimalToMinor(value, currency);
   return minor === null ? 'Sin leer' : formatMoney(minor, currency);
 }
@@ -47,3 +57,28 @@ export const RAIL_LABEL: Record<string, string> = {
   pix: 'Pix',
   ach: 'ACH',
 };
+
+/** The five outcomes in the order the product presents them. */
+export const OUTCOMES: Outcome[] = ['PAY', 'PAY_PART', 'ASK_VENDOR', 'ESCALATE', 'HOLD'];
+
+/** Who wrote a message. */
+export const SENDER = {
+  agent: 'Recibido',
+  vendor: 'Proveedor',
+  person: 'Persona',
+  system: 'Sistema',
+} as const;
+
+export const CONTRACT_TYPE: Record<string, string> = {
+  hourly: 'Por horas',
+  milestone: 'Por hitos',
+  retainer: 'Cuota fija',
+  usage: 'Por uso',
+  goods: 'Bienes',
+};
+
+export const PAYMENT_STATUS = {
+  scheduled: { text: 'Programado', ink: 'text-ink-2' },
+  sent: { text: 'Enviado', ink: 'text-pay' },
+  returned: { text: 'Devuelto', ink: 'text-escalate' },
+} as const;

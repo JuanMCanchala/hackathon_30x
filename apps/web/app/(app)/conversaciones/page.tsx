@@ -6,14 +6,7 @@ import Link from 'next/link';
 import { StatusChip } from '@/components/outcome';
 import { buttonClass, Mono, PageHeader } from '@/components/ui';
 import { useConversations } from '@/lib/api';
-import { formatDateTime } from '@/lib/format';
-
-const SENDER = {
-  agent: 'Recibido',
-  vendor: 'Proveedor',
-  person: 'Persona',
-  system: 'Sistema',
-} as const;
+import { formatDateTime, SENDER } from '@/lib/format';
 
 export default function ConversationsPage() {
   const { data, error } = useConversations();

@@ -2,7 +2,7 @@
 
 import { Mono, PageHeader } from '@/components/ui';
 import { useVendors } from '@/lib/api';
-import { formatMoney, RAIL_LABEL } from '@/lib/format';
+import { CONTRACT_TYPE, formatMoney, RAIL_LABEL } from '@/lib/format';
 import type { Currency } from '@/lib/types';
 
 const COUNTRY: Record<string, string> = {
@@ -10,14 +10,6 @@ const COUNTRY: Record<string, string> = {
   MX: 'México',
   BR: 'Brasil',
   US: 'Estados Unidos',
-};
-
-const CONTRACT_TYPE: Record<string, string> = {
-  hourly: 'Por horas',
-  milestone: 'Por hitos',
-  retainer: 'Cuota fija',
-  usage: 'Por uso',
-  goods: 'Bienes',
 };
 
 export default function VendorsPage() {

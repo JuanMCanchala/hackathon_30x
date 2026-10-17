@@ -5,10 +5,7 @@ import Link from 'next/link';
 import { OUTCOME_INK, OutcomeStamp } from '@/components/outcome';
 import { ButtonLink, Mono, PageHeader } from '@/components/ui';
 import { useBills, useOverview } from '@/lib/api';
-import { formatDateTime, formatMoney, formatPct } from '@/lib/format';
-import type { Outcome } from '@/lib/types';
-
-const OUTCOMES: Outcome[] = ['PAY', 'PAY_PART', 'ASK_VENDOR', 'ESCALATE', 'HOLD'];
+import { formatDateTime, formatMoney, formatPct, OUTCOMES } from '@/lib/format';
 
 function hoursPhrase(h: number | null): string {
   if (h === null) return '—';

@@ -20,12 +20,15 @@ export function ResolvePanel({
   owedMinor,
   currency,
   destination,
+  amountUncertain,
   onDone,
 }: {
   billId: string;
   owedMinor: number;
   currency: Currency | null;
   destination: string | null;
+  /** the reader did not read the total or its currency with certainty: the API refuses approval */
+  amountUncertain: boolean;
   onDone: () => void;
 }) {
   const [pending, setPending] = useState<Action | null>(null);
@@ -51,7 +54,8 @@ export function ResolvePanel({
     }
   }
 
-  const amount = currency && owedMinor > 0 ? formatMoney(owedMinor, currency) : null;
+  const amount =
+    !amountUncertain && currency && owedMinor > 0 ? formatMoney(owedMinor, currency) : null;
 
   return (
     <section
@@ -80,11 +84,21 @@ export function ResolvePanel({
         </p>
       </div>
       {pending === null ? (
-        <div className="flex flex-wrap gap-2">
-          <Button onClick={() => setPending('approve')}>Aprobar el pago</Button>
-          <Button variant="secondary" onClick={() => setPending('reject')}>
-            Rechazar
-          </Button>
+        <div className="grid gap-3">
+          {amountUncertain && (
+            <p className="rounded-[6px] bg-escalate-tint px-3 py-2 text-[0.9375rem] text-ink">
+              No se puede aprobar: no se leyó con certeza el monto o la moneda. Pide la cuenta
+              formal o recházala.
+            </p>
+          )}
+          <div className="flex flex-wrap gap-2">
+            {!amountUncertain && (
+              <Button onClick={() => setPending('approve')}>Aprobar el pago</Button>
+            )}
+            <Button variant="secondary" onClick={() => setPending('reject')}>
+              Rechazar
+            </Button>
+          </div>
         </div>
       ) : (
         <div className="grid gap-3">
@@ -105,7 +119,11 @@ export function ResolvePanel({
           </label>
           <div className="flex flex-wrap items-center gap-2">
             <Button disabled={busy} onClick={() => void submit(pending)}>
-              {pending === 'approve' ? 'Sí, aprobar y pagar' : 'Sí, rechazar'}
+              {pending === 'reject'
+                ? 'Sí, rechazar'
+                : amount
+                  ? 'Sí, aprobar y pagar'
+                  : 'Sí, aprobar'}
             </Button>
             <Button variant="ghost" disabled={busy} onClick={() => setPending(null)}>
               Cancelar

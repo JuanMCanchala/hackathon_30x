@@ -13,7 +13,9 @@ import {
   formatDecimal,
   formatMoney,
   formatPct,
+  PAYMENT_STATUS,
   RAIL_LABEL,
+  SENDER,
 } from '@/lib/format';
 import type { BillReceipt, Currency } from '@/lib/types';
 
@@ -341,12 +343,6 @@ export function ReadingSection({ r }: { r: BillReceipt }) {
   );
 }
 
-const PAYMENT_STATUS = {
-  scheduled: { text: 'Programado', ink: 'text-ink-2' },
-  sent: { text: 'Enviado', ink: 'text-pay' },
-  returned: { text: 'Devuelto', ink: 'text-escalate' },
-} as const;
-
 export function PaymentSection({ r }: { r: BillReceipt }) {
   return (
     <Section title="Plan de pago">
@@ -403,13 +399,6 @@ export function PaymentSection({ r }: { r: BillReceipt }) {
     </Section>
   );
 }
-
-const SENDER = {
-  agent: 'Recibido',
-  vendor: 'Proveedor',
-  person: 'Persona',
-  system: 'Sistema',
-} as const;
 
 export function ConversationSection({ r }: { r: BillReceipt }) {
   return (

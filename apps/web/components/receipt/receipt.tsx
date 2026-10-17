@@ -1,6 +1,6 @@
 'use client';
 
-import { hoursOf } from '@recibido/domain';
+import { DEFAULT_POLICY, hoursOf } from '@recibido/domain';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -124,6 +124,11 @@ function ReceiptBody({ r, refresh }: { r: BillReceipt; refresh: () => void }) {
           owedMinor={(a?.billedMinor ?? 0) - r.bill.casePaidMinor}
           currency={currency}
           destination={r.vendor?.payout.display ?? null}
+          amountUncertain={
+            !r.reading?.total?.trim() ||
+            !r.reading.currency?.trim() ||
+            r.reading.confidence.total < DEFAULT_POLICY.minReadingConfidence
+          }
           onDone={refresh}
         />
       )}

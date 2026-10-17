@@ -7,7 +7,14 @@ import { EvidenceRow } from '@/components/evidence';
 import { StatusChip } from '@/components/outcome';
 import { Mono } from '@/components/ui';
 import { useReconciliation } from '@/lib/api';
-import { formatDay, formatDecimal, formatMoney, RAIL_LABEL } from '@/lib/format';
+import {
+  CONTRACT_TYPE,
+  formatDay,
+  formatDecimal,
+  formatMoney,
+  PAYMENT_STATUS,
+  RAIL_LABEL,
+} from '@/lib/format';
 import type { Reconciliation, ReconciliationRow } from '@/lib/types';
 
 const MATCH: Record<ReconciliationRow['status'], { text: string; ink: string }> = {
@@ -17,16 +24,6 @@ const MATCH: Record<ReconciliationRow['status'], { text: string; ink: string }> 
   returned: { text: 'Devuelta', ink: 'text-ask' },
   unmatched: { text: 'Sin conciliar', ink: 'text-escalate' },
 };
-
-const CONTRACT_TYPE: Record<string, string> = {
-  hourly: 'Por horas',
-  milestone: 'Por hitos',
-  retainer: 'Cuota fija',
-  usage: 'Por uso',
-  goods: 'Bienes',
-};
-
-const PAYMENT_STATUS = { scheduled: 'Programado', sent: 'Enviado', returned: 'Devuelto' };
 
 function MatchChip({ status }: { status: ReconciliationRow['status'] }) {
   const m = MATCH[status];
@@ -119,7 +116,7 @@ function Chain({ row, all }: { row: ReconciliationRow; all: Reconciliation['rows
             <div>
               <dt className="text-ink-3">Estado</dt>
               <dd>
-                {PAYMENT_STATUS[p.status]}
+                {PAYMENT_STATUS[p.status].text}
                 {p.executedAt && <Mono> · {formatDay(p.executedAt)}</Mono>}
               </dd>
             </div>

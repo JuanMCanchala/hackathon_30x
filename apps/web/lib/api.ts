@@ -25,7 +25,15 @@ export class ApiError extends Error {
 }
 
 async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
-  const response = await fetch(`${BASE}${path}`, { ...init, cache: 'no-store' });
+  let response: Response;
+  try {
+    response = await fetch(`${BASE}${path}`, { ...init, cache: 'no-store' });
+  } catch {
+    throw new ApiError(
+      0,
+      'No hay conexión con el servidor de Recibido. Intenta de nuevo en unos segundos.',
+    );
+  }
   if (!response.ok) {
     const body = (await response.json().catch(() => null)) as { error?: unknown } | null;
     const message =

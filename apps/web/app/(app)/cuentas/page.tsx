@@ -9,10 +9,8 @@ import { ProofBar } from '@/components/proof-bar';
 import { Mono, PageHeader } from '@/components/ui';
 import { UploadDialog } from '@/components/upload-dialog';
 import { useBills } from '@/lib/api';
-import { formatDate, formatDecimal } from '@/lib/format';
+import { formatDate, formatDecimal, OUTCOMES } from '@/lib/format';
 import type { BillListItem, Outcome } from '@/lib/types';
-
-const OUTCOMES: Outcome[] = ['PAY', 'PAY_PART', 'ASK_VENDOR', 'ESCALATE', 'HOLD'];
 
 function Row({ b }: { b: BillListItem }) {
   const a = b.amounts;
