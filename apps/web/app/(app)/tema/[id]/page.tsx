@@ -112,7 +112,7 @@ export default function TopicPage() {
         <div className="flex flex-wrap items-center gap-2">
           {t.rank > 0 && (
             <span className="rounded-full bg-ink px-2.5 py-0.5 text-[0.8rem] font-[760] text-sheet">
-              #{t.rank} esta semana
+              #{t.rank} {t.rankScope === '30x' ? 'para 30X esta semana' : 'entre todos los temas'}
             </span>
           )}
           <StageTag stage={t.stage} />

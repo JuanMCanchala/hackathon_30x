@@ -32,11 +32,7 @@ const REGIONS = [
 ] as const;
 
 const usd = (n: number) =>
-  new Intl.NumberFormat('es-CO', {
-    style: 'currency',
-    currency: 'USD',
-    maximumFractionDigits: 2,
-  }).format(n);
+  `USD ${n.toLocaleString('es-CO', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
 function weekLabel(start: string, end: string) {
   const f = new Intl.DateTimeFormat('es-CO', { day: 'numeric', month: 'long', timeZone: 'UTC' });
@@ -58,7 +54,7 @@ function Segmented<T extends string>({
     <div
       role="radiogroup"
       aria-label={label}
-      className="flex max-w-full gap-1 overflow-x-auto rounded-full bg-fill p-1"
+      className="flex max-w-full min-w-0 gap-1 overflow-x-auto rounded-full bg-fill p-1"
     >
       {options.map((o) => (
         <button
@@ -79,7 +75,7 @@ function Segmented<T extends string>({
   );
 }
 
-function TopicRow({ topic }: { topic: RadarTopic }) {
+function TopicRow({ topic, markUntouched }: { topic: RadarTopic; markUntouched: boolean }) {
   return (
     <li>
       <Link
@@ -93,7 +89,7 @@ function TopicRow({ topic }: { topic: RadarTopic }) {
           <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[1.04rem] leading-snug font-[700] text-ink">
             {topic.name}
             {!topic.confirmed && <UnconfirmedChip growingIn={topic.growingIn} />}
-            {topic.untouched && (topic.fit ?? 0) >= 7 && (
+            {markUntouched && topic.untouched && (topic.fit ?? 0) >= 7 && (
               <span className="rounded-full bg-brand-tint px-2 py-0.5 text-[0.72rem] font-[680] text-brand">
                 Oportunidad: 30X no lo ha tocado
               </span>
@@ -170,6 +166,9 @@ export default function RadarPage() {
               </p>
               <div className="mt-6">
                 <WaveChart topics={data.topics} />
+                <p className="mt-1 text-[0.82rem] text-white/60">
+                  Cada número es su puesto en la tabla de abajo; pasa el cursor para ver el tema.
+                </p>
               </div>
             </>
           ) : (
@@ -193,7 +192,7 @@ export default function RadarPage() {
               </p>
             </div>
           </div>
-          <div className="flex flex-wrap items-center gap-2">
+          <div className="flex min-w-0 flex-wrap items-center gap-2">
             <Segmented label="Red" options={PLATFORMS} value={platform} onChange={setPlatform} />
             <Segmented label="Idioma" options={REGIONS} value={region} onChange={setRegion} />
             <button
@@ -226,6 +225,12 @@ export default function RadarPage() {
             </Empty>
           )}
           {isLoading && !data && <Skeleton className="h-[560px]" />}
+          {data && data.topics.length > 0 && data.topics.every((t) => t.untouched) && (
+            <p className="text-[0.9rem] text-ink-2">
+              30X y Andrés Bilbao todavía no han publicado sobre ninguno de estos temas: todos son
+              una oportunidad de llegar primero.
+            </p>
+          )}
           {data && forAudience && data.hiddenByAudience > 0 && (
             <p className="text-[0.9rem] text-ink-2">
               {data.hiddenByAudience === 1
@@ -259,7 +264,11 @@ export default function RadarPage() {
               </div>
               <ol className="divide-y divide-rule">
                 {data.topics.map((t) => (
-                  <TopicRow key={t.id} topic={t} />
+                  <TopicRow
+                    key={t.id}
+                    topic={t}
+                    markUntouched={data.topics.some((x) => !x.untouched)}
+                  />
                 ))}
               </ol>
             </div>

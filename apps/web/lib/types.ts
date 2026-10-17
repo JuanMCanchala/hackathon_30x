@@ -142,7 +142,12 @@ export interface TopicFit {
 }
 
 export interface TopicDetail {
-  topic: RadarTopic & { queries: string[]; wikipedia: string | null };
+  topic: RadarTopic & {
+    queries: string[];
+    wikipedia: string | null;
+    /** Whether the rank is among topics for 30X's audience (the radar's default) or all. */
+    rankScope: '30x' | 'all';
+  };
   weekly: { week: string; creators: number; pieces: number; byLane: Record<Lane, number> }[];
   history: {
     source: 'wikipedia' | 'hn' | 'bluesky';

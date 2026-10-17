@@ -35,7 +35,11 @@ interface Placed {
 const LABEL_FONT = 13;
 const charWidth = LABEL_FONT * 0.56;
 
-/** Places each topic on the wave and its label in the first free row above or below. */
+/**
+ * Places each topic on the wave. Dots too close to fit side by side stack into rows just under
+ * the curve, still inside their stage. Only the top three carry a name, in the first free spot
+ * above; every dot shows its rank in the table and its name on hover.
+ */
 function layout(
   topics: RadarTopic[],
   width: number,
@@ -44,28 +48,42 @@ function layout(
   top: number,
   base: number,
   withLabels: boolean,
+  radius: number,
 ): Placed[] {
   const xOf = (p: number) => padX + p * (width - 2 * padX);
-  const rows: { x0: number; x1: number }[][] = [[], [], [], []];
-  const offsets = [-34, -62, 34, 62];
-  return [...topics]
-    .sort((a, b) => a.wavePos - b.wavePos)
-    .map((topic) => {
-      const x = xOf(topic.wavePos);
-      const y = waveY(topic.wavePos, base, top);
-      if (!withLabels) return { topic, x, y, label: null };
-      const text = topic.name.length > 26 ? `${topic.name.slice(0, 25)}…` : topic.name;
-      const w = text.length * charWidth + 16;
-      const x0 = Math.min(Math.max(x - w / 2, 4), width - w - 4);
-      const row = offsets.findIndex((dy, i) => {
-        const ly = y + dy;
-        if (ly < 14 || ly > height - 14) return false;
-        return rows[i]!.every((r) => x0 > r.x1 + 6 || x0 + w < r.x0 - 6);
-      });
-      if (row === -1) return { topic, x, y, label: null };
-      rows[row]!.push({ x0, x1: x0 + w });
-      return { topic, x, y, label: { x: x0, y: y + offsets[row]!, w, above: offsets[row]! < 0 } };
-    });
+  const minGap = radius * 2 + 6;
+  const dotRows: number[] = [];
+  const sorted = [...topics].sort((a, b) => a.wavePos - b.wavePos);
+  const dots = sorted.map((topic) => {
+    const x = xOf(topic.wavePos);
+    let row = dotRows.findIndex((last) => x - last >= minGap);
+    if (row === -1) row = dotRows.length;
+    dotRows[row] = x;
+    return { topic, x, y: waveY(topic.wavePos, base, top) + row * (radius * 2 + 4) };
+  });
+  // The top three carry their name in one row above the wave, nudged apart so none overlaps,
+  // each tied to its dot by a thin line.
+  const named = withLabels
+    ? dots
+        .filter((d) => d.topic.rank <= 3)
+        .map((d) => {
+          const text = d.topic.name.length > 26 ? `${d.topic.name.slice(0, 25)}…` : d.topic.name;
+          const w = text.length * charWidth + 16;
+          return { id: d.topic.id, x: d.x, w, x0: d.x - w / 2 };
+        })
+        .sort((a, b) => a.x - b.x)
+    : [];
+  for (let i = 0; i < named.length; i++) {
+    const prev = named[i - 1];
+    named[i]!.x0 = Math.max(named[i]!.x0, 4, prev ? prev.x0 + prev.w + 8 : 4);
+  }
+  const overflow = named.length ? named.at(-1)!.x0 + named.at(-1)!.w + 4 - width : 0;
+  if (overflow > 0) named.forEach((n) => (n.x0 -= overflow));
+  const labelOf = new Map(named.map((n) => [n.id, n]));
+  return dots.map(({ topic, x, y }) => {
+    const n = labelOf.get(topic.id);
+    return { topic, x, y, label: n ? { x: n.x0, y: 20, w: n.w, above: true } : null };
+  });
 }
 
 /**
@@ -100,7 +118,8 @@ export function WaveChart({ topics }: { topics: RadarTopic[] }) {
   }
   const line = `M${points.join(' L')}`;
   const area = `${line} L${xOf(1)},${base + 30} L${xOf(0)},${base + 30} Z`;
-  const placed = width ? layout(topics, width, height, padX, top, base, !narrow) : [];
+  const radius = narrow ? 11 : 13;
+  const placed = width ? layout(topics, width, height, padX, top, base, !narrow, radius) : [];
   const active = placed.find((p) => p.topic.id === hover);
 
   return (
@@ -174,11 +193,11 @@ export function WaveChart({ topics }: { topics: RadarTopic[] }) {
               <g key={`l-${topic.id}`} className="pointer-events-none">
                 <line
                   x1={x}
-                  y1={y}
-                  x2={x}
-                  y2={label.above ? label.y + 10 : label.y - 10}
+                  y1={y - 12}
+                  x2={Math.min(Math.max(x, label.x + 10), label.x + label.w - 10)}
+                  y2={label.y + 11}
                   stroke="#ffffff"
-                  strokeOpacity={0.35}
+                  strokeOpacity={0.4}
                 />
                 <rect
                   x={label.x}
