@@ -36,6 +36,8 @@ export interface ScreenCandidate {
   /** Title, caption or body: what the topic terms are matched against. */
   text: string;
   publishedAt: string;
+  /** False when the platform did not say when it was published: it cannot count as recent. */
+  dateKnown?: boolean;
   /** `engagementOf` the latest metrics. */
   engagement: number;
   /** The median engagement of the author's other pieces, when there are at least three. */
@@ -218,7 +220,8 @@ export function screen(candidates: readonly ScreenCandidate[], opts: ScreenOptio
       .join(' ni ')}.`;
   });
 
-  stop('reciente', ({ d }) => {
+  stop('reciente', ({ c, d }) => {
+    if (c.dateKnown === false) return 'No se sabe cuándo se publicó.';
     if (d.ageHours <= opts.windowHours) {
       d.reasons.push(`Publicada hace ${fmtAge(d.ageHours)}.`);
       return null;

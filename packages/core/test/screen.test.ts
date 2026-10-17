@@ -98,6 +98,12 @@ describe('screen', () => {
     expect(by.get('p0')).toMatchObject({ failed: 'presupuesto' });
   });
 
+  it('does not call recent a piece whose date nobody knows', () => {
+    const result = screen([piece('nodate', { dateKnown: false })], opts());
+    expect(result.decisions[0]).toMatchObject({ pass: false, failed: 'reciente' });
+    expect(result.decisions[0]!.reasons[0]).toBe('No se sabe cuándo se publicó.');
+  });
+
   it('never calls viral a piece without public engagement', () => {
     const result = screen([piece('news', { platform: 'news', engagement: 0 })], opts());
     expect(result.decisions[0]).toMatchObject({ pass: false, failed: 'viral' });
