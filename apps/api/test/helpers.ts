@@ -29,6 +29,7 @@ export async function demoContainer(
     DEMO_MODE: 'true',
     DEMO_PACE_MS: '0',
     ANTHROPIC_API_KEY: '',
+    FIREWORKS_API_KEY: '',
     PUBLIC_WEB_URL: 'http://localhost:3000',
   } as NodeJS.ProcessEnv);
   const clock = new FixedClock(new Date(options.now ?? '2026-10-16T15:00:00Z'));
