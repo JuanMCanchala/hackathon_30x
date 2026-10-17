@@ -5,7 +5,7 @@ import { FileImage, FileText, Mail, MessageCircle, Bot } from 'lucide-react';
 import Link from 'next/link';
 import { formatDate } from '@mandato/domain';
 import { useLive } from '@/lib/live';
-import { SOURCE_COPY } from '@/lib/outcomes';
+import { settledSummary, SOURCE_COPY } from '@/lib/outcomes';
 import type { InvoiceListItem } from '@/lib/types';
 import { fmtDateTime, Money, StatusTag } from './ui';
 
@@ -71,7 +71,7 @@ export function InvoiceRows({ items, compact }: { items: InvoiceListItem[]; comp
               </span>
               {!compact && item.summary && (
                 <span className="mt-0.5 line-clamp-2 text-sm text-ink-2 sm:block sm:truncate">
-                  {item.summary}
+                  {settledSummary(item.status, item.resolvedBy, item.summary)}
                 </span>
               )}
               <span className="mt-0.5 block text-xs text-ink-3">

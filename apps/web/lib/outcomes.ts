@@ -48,3 +48,27 @@ export const SOURCE_COPY: Record<string, string> = {
   dataset: 'Set de datos',
   attack: 'Ataque',
 };
+
+/** The agent's reason without its verdict: "Necesita aprobación. No hay…" → "no hay…". */
+export function agentReason(summary: string): string {
+  const reason = summary.replace(/^(Necesita aprobación|Frenada|Pagada sola)\.\s*/, '');
+  return /^[A-ZÁÉÍÓÚÑ][a-záéíóúñ]/.test(reason)
+    ? reason.charAt(0).toLowerCase() + reason.slice(1)
+    : reason;
+}
+
+/**
+ * What a list or a receipt says about a bill a person settled: the person's decision first,
+ * then the agent's reason for asking, so "Pagada con aprobación" never sits next to a bare
+ * "Necesita aprobación".
+ */
+export function settledSummary(
+  status: InvoiceStatus,
+  by: string | null,
+  summary: string | null,
+): string | null {
+  if (!summary) return null;
+  if (status !== 'APPROVED' && status !== 'REJECTED') return summary;
+  const verdict = status === 'APPROVED' ? 'Aprobada' : 'Rechazada';
+  return `${verdict}${by ? ` por ${by}` : ' por una persona'}. El agente había pedido aprobación: ${agentReason(summary)}`;
+}

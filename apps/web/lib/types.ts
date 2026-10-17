@@ -63,6 +63,8 @@ export interface InvoiceListItem {
   approvalsCount: number;
   documentKind: string | null;
   payment: { status: 'scheduled' | 'sent' | 'settled'; scheduledFor: string } | null;
+  /** Who approved or rejected an escalated bill. */
+  resolvedBy: string | null;
 }
 
 export interface ApprovalEntry {

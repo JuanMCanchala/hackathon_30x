@@ -114,7 +114,7 @@ export function ProposalCard({ proposal, compact }: { proposal: ProposalLike; co
 
         <p className="text-sm text-ink-3">
           {proposal.impact.avoidedEscalations > 0
-            ? `Con este acuerdo, ${proposal.impact.avoidedEscalations} ${proposal.impact.avoidedEscalations === 1 ? 'cobro que pidió aprobación se habría' : 'cobros que pidieron aprobación se habrían'} pagado solos.`
+            ? `Con este acuerdo, ${proposal.impact.avoidedEscalations} ${proposal.impact.avoidedEscalations === 1 ? 'cobro que pidió aprobación se habría pagado solo' : 'cobros que pidieron aprobación se habrían pagado solos'}.`
             : 'Aplica a los próximos cobros de este beneficiario.'}
           {proposal.invoiceRef && proposal.invoiceId && (
             <>

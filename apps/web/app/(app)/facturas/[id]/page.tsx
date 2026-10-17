@@ -17,7 +17,7 @@ import { ReplyPanel } from '@/components/receipt/reply-panel';
 import { RuleChecklist } from '@/components/receipt/rule-checklist';
 import { Empty, Skeleton, fmtDateTime } from '@/components/ui';
 import { useApi } from '@/lib/hooks';
-import { OUTCOME_COPY, SOURCE_COPY, toneOf } from '@/lib/outcomes';
+import { agentReason, OUTCOME_COPY, SOURCE_COPY, toneOf } from '@/lib/outcomes';
 import type { InvoiceDetail } from '@/lib/types';
 
 const PASS_ICON = { paid: CircleCheck, held: Hand, pending: CircleDashed, rejected: CircleSlash };
@@ -29,8 +29,27 @@ function passLabel(invoice: InvoiceDetail): string {
 }
 
 /** The decision as a Wallet pass: its color is the outcome; the stub carries the reason. */
+/** "Martín Ocampo la aprobó el 17 oct 2026.": the person's decision on an escalated bill. */
+function settledBy(invoice: InvoiceDetail): string | null {
+  if (invoice.status !== 'APPROVED' && invoice.status !== 'REJECTED') return null;
+  const action = invoice.status === 'APPROVED' ? 'approve' : 'reject';
+  const people = invoice.approval?.approvals.filter((a) => a.action === action) ?? [];
+  if (people.length === 0) return null;
+  const names = people.map((a) => a.name).join(' y ');
+  const verb =
+    action === 'approve'
+      ? people.length > 1
+        ? 'la aprobaron'
+        : 'la aprobó'
+      : people.length > 1
+        ? 'la rechazaron'
+        : 'la rechazó';
+  return `${names} ${verb} el ${formatDate(people.at(-1)!.at.slice(0, 10))}.`;
+}
+
 function DecisionPass({ invoice, name }: { invoice: InvoiceDetail; name: string }) {
   const tone = toneOf(invoice.status);
+  const settled = settledBy(invoice);
   const Icon = PASS_ICON[tone];
   const fields: [string, string][] = [
     ['Para', name],
@@ -76,9 +95,18 @@ function DecisionPass({ invoice, name }: { invoice: InvoiceDetail; name: string 
       {invoice.decision && (
         <>
           <div className="pass-notch" aria-hidden />
-          <p className="relative z-10 px-6 pt-5 pb-7 text-[1.1rem] leading-relaxed font-[480] sm:px-8">
-            {invoice.decision.summary}
-          </p>
+          <div className="relative z-10 px-6 pt-5 pb-7 text-[1.1rem] leading-relaxed font-[480] sm:px-8">
+            {settled ? (
+              <>
+                <p className="font-display text-[1.25rem] font-[700]">{settled}</p>
+                <p className="mt-1.5 text-white/85">
+                  El agente había pedido aprobación: {agentReason(invoice.decision.summary)}
+                </p>
+              </>
+            ) : (
+              <p>{invoice.decision.summary}</p>
+            )}
+          </div>
         </>
       )}
     </section>

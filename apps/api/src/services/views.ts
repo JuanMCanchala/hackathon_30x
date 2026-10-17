@@ -53,6 +53,8 @@ export interface InvoiceListItem {
   documentKind: string | null;
   /** The transfer, when there is one: lists say when the money leaves, not only the decision. */
   payment: { status: 'scheduled' | 'sent' | 'settled'; scheduledFor: string } | null;
+  /** Who settled an escalated bill, so a list never shows only the agent's "needs approval". */
+  resolvedBy: string | null;
 }
 
 async function payeeNames(db: Executor, orgId: string): Promise<Map<string, string>> {
@@ -90,6 +92,9 @@ export async function listInvoices(
       paymentStatus: payments.status,
       paymentDate: payments.scheduledFor,
       approvalsCount: sql<number>`(select count(*)::int from ${approvals} a join ${approvalRequests} r on r.id = a.request_id where r.invoice_id = ${invoices.id} and a.action = 'approve')`,
+      resolvedBy: sql<
+        string | null
+      >`(select string_agg(u.name, ' y ' order by a.created_at) from ${approvals} a join ${approvalRequests} r on r.id = a.request_id join ${users} u on u.id = a.user_id where r.invoice_id = ${invoices.id} and a.action = case when ${invoices.status} = 'REJECTED' then 'reject' else 'approve' end)`,
     })
     .from(invoices)
     .leftJoin(decisions, eq(decisions.invoiceId, invoices.id))
@@ -109,6 +114,7 @@ export async function listInvoices(
       approvalsCount,
       paymentStatus,
       paymentDate,
+      resolvedBy,
     }) => ({
       id: i.id,
       ref: i.ref,
@@ -138,6 +144,7 @@ export async function listInvoices(
             : null,
       payment:
         paymentStatus && paymentDate ? { status: paymentStatus, scheduledFor: paymentDate } : null,
+      resolvedBy: i.status === 'APPROVED' || i.status === 'REJECTED' ? (resolvedBy ?? null) : null,
     }),
   );
 }
