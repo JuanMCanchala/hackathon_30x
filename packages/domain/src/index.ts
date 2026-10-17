@@ -5,3 +5,6 @@ export * from './text';
 export * from './scan';
 export * from './dates';
 export * from './evidence';
+export * from './checks';
+export * from './explain';
+export { decide, ENGINE_VERSION, statusForOutcome } from './engine';
