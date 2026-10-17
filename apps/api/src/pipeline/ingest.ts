@@ -37,7 +37,8 @@ export function itemRow(raw: RawItem, seenAt: string) {
     text: raw.text ?? '',
     format: raw.format,
     lang: raw.lang ?? null,
-    durationSec: raw.durationSec ?? null,
+    // Instagram reports fractional seconds (384.833); the column is whole seconds.
+    durationSec: raw.durationSec == null ? null : Math.round(raw.durationSec),
     query: raw.query ?? null,
     views: raw.metrics.views ?? null,
     likes: raw.metrics.likes ?? null,
