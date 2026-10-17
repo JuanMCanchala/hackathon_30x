@@ -3,6 +3,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { findBill, SCRIPT, SCRIPTED_EVIDENCE, VENDORS } from '@recibido/dataset';
 import type { ExtractedBill, LineMatch, Payment } from '@recibido/domain';
+import { eq } from 'drizzle-orm';
 import { afterEach, describe, expect, it } from 'vitest';
 import type { Matcher } from '../src/reading/matcher';
 import { BillReader, type Reader } from '../src/reading/reader';
@@ -122,6 +123,30 @@ describe('people', () => {
       message:
         'No se puede aprobar: no se leyó con certeza el monto o la moneda. Pide la cuenta formal o recházala.',
     });
+    expect(await allPayments(c.db)).toHaveLength(0);
+    const { status } = await c.resolveEscalation(billId, {
+      action: 'reject',
+      actor: 'Diego Navarro',
+      note: '',
+    });
+    expect(status).toBe('REJECTED');
+  });
+
+  it('a person cannot approve a bill read confidently in a currency other than the contract', async () => {
+    c = await setup();
+    const { decision, billId } = await ingest(c, 'oct-19');
+    expect(decision?.currency).toBe('COP');
+    const bill = await billOf(c, 'oct-19');
+    const usd: ExtractedBill = {
+      ...bill.reading!,
+      currency: 'USD',
+      total: '1200.00',
+      confidence: { ...bill.reading!.confidence, total: 0.99, currency: 0.99 },
+    };
+    await c.db.update(bills).set({ reading: usd }).where(eq(bills.id, billId));
+    await expect(
+      c.resolveEscalation(billId, { action: 'approve', actor: 'Diego Navarro', note: '' }),
+    ).rejects.toMatchObject({ status: 409 });
     expect(await allPayments(c.db)).toHaveLength(0);
     const { status } = await c.resolveEscalation(billId, {
       action: 'reject',

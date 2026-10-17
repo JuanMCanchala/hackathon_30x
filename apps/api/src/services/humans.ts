@@ -24,11 +24,18 @@ export interface Resolution {
   note: string;
 }
 
-/** A person can only approve an amount the reader read: a total, its currency, confidently. */
-function amountReadWithCertainty(reading: ExtractedBill | null | undefined): boolean {
+/**
+ * A person can only approve an amount the reader read: a total, confidently, in the currency the
+ * decision (the contract) pays in.
+ */
+function amountReadWithCertainty(
+  reading: ExtractedBill | null | undefined,
+  currency: string | null,
+): boolean {
   return (
     !!reading?.total?.trim() &&
-    !!reading.currency?.trim() &&
+    !!currency &&
+    reading.currency?.trim().toUpperCase() === currency &&
     reading.confidence.total >= DEFAULT_POLICY.minReadingConfidence
   );
 }
@@ -48,13 +55,13 @@ export async function resolveEscalation(
       let payment: Payment | null = null;
       const status = action === 'approve' ? 'APPROVED' : 'REJECTED';
       if (action === 'approve') {
-        if (!amountReadWithCertainty(bill.reading))
+        const decision = await lastDecision(tx, billId);
+        if (!decision) throw new ServiceError(409, 'La cuenta todavía no tiene una decisión.');
+        if (!amountReadWithCertainty(bill.reading, decision.currency))
           throw new ServiceError(
             409,
             'No se puede aprobar: no se leyó con certeza el monto o la moneda. Pide la cuenta formal o recházala.',
           );
-        const decision = await lastDecision(tx, billId);
-        if (!decision) throw new ServiceError(409, 'La cuenta todavía no tiene una decisión.');
         const owed = decision.billedMinor - (await casePaid(tx, bill.chain));
         if (owed > 0)
           payment = await createPayment(tx, {
