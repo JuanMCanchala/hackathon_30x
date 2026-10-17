@@ -1,0 +1,460 @@
+/**
+ * The weekly radar: which AI topics grow the most, at what stage of their wave, where they are
+ * moving and whether 30X already covered them.
+ *
+ * Growth is measured only on sources sampled the same way in every window (Bluesky, Google
+ * News, Hacker News and GitHub's new repositories: the top results per query and window), so
+ * the current week is never inflated by feeds that only show recent posts. Instagram, LinkedIn,
+ * YouTube, X and TikTok say where a topic already arrived and give the evidence.
+ */
+import { and, desc, eq, gte, sql } from 'drizzle-orm';
+import { z } from 'zod';
+import {
+  percentile,
+  rankTopics,
+  rollingWindows,
+  RADAR_WINDOWS,
+  type Platform,
+  type RadarPiece,
+  type RadarTopic as CoreTopic,
+} from '@radar/core';
+import { analyses, enrichments, items, itemTopics, llmUsage, runs, topics } from '../db/schema';
+import type { Deps } from './deps';
+
+export type StageKey = 'emergente' | 'crecimiento' | 'saturado' | 'declive' | 'estable';
+
+const STAGE_KEY: Record<CoreTopic['stage'], StageKey> = {
+  emerging: 'emergente',
+  growing: 'crecimiento',
+  saturated: 'saturado',
+  declining: 'declive',
+  stable: 'estable',
+};
+
+/** Where each stage's stretch of the wave starts and ends (the web draws the same wave). */
+const WAVE: Record<StageKey, [number, number]> = {
+  emergente: [0.07, 0.31],
+  crecimiento: [0.33, 0.55],
+  saturado: [0.57, 0.71],
+  declive: [0.74, 0.95],
+  estable: [0.26, 0.32],
+};
+
+export interface RadarFilters {
+  platform: 'all' | Platform;
+  /** `latam`: pieces in Spanish only. */
+  region: 'global' | 'latam';
+  /** Only topics 30X and Andrés Bilbao have not touched in 60 days. */
+  untouched: boolean;
+}
+
+export interface RadarTopicView {
+  id: string;
+  rank: number;
+  name: string;
+  definition: string | null;
+  stage: StageKey;
+  timing: string;
+  growthPct: number;
+  lift: number;
+  momentum: number;
+  creators: number;
+  pieces: number;
+  platforms: Platform[];
+  sparkline: number[];
+  fit: number | null;
+  why: string | null;
+  wavePos: number;
+  untouched: boolean;
+  forming: boolean;
+  /** Nobody talked about it in the four weeks before: new this week, its growth is not a ratio. */
+  fresh: boolean;
+}
+
+/** One piece as the radar counts it. */
+export interface PieceRow {
+  id: string;
+  topicId: string;
+  platform: Platform;
+  authorId: string;
+  publishedAt: string;
+  approx: boolean;
+  engagement: number;
+  query: string | null;
+  lang: string | null;
+  reference: boolean;
+}
+
+/** Sampled the same way in every 7-day window, so their counts can be compared over time. */
+export function isUniform(p: Pick<PieceRow, 'platform' | 'approx' | 'query'>): boolean {
+  if (p.approx) return false;
+  if (p.platform === 'bluesky' || p.platform === 'news' || p.platform === 'hn') return true;
+  return p.platform === 'github' && (p.query ?? '').startsWith('created:');
+}
+
+/** The end of the newest capture: windows end here, so a frozen demo stays a full week. */
+export async function asOfOf(deps: Deps): Promise<string> {
+  const [row] = await deps.db
+    .select({ at: sql<string | null>`max(${items.lastSeenAt})` })
+    .from(items);
+  return row?.at ? new Date(row.at).toISOString() : deps.clock.now().toISOString();
+}
+
+/** Every piece linked to a topic inside the radar's windows. */
+export async function topicPieces(deps: Deps, since: string): Promise<PieceRow[]> {
+  const rows = await deps.db
+    .select({
+      id: items.id,
+      topicId: itemTopics.topicId,
+      platform: items.platform,
+      authorId: items.authorId,
+      publishedAt: items.publishedAt,
+      approx: items.publishedApprox,
+      engagement: items.engagement,
+      query: items.query,
+      lang: sql<string | null>`coalesce(${enrichments.lang}, ${items.lang})`,
+      reference: items.reference,
+    })
+    .from(itemTopics)
+    .innerJoin(items, eq(items.id, itemTopics.itemId))
+    .leftJoin(enrichments, eq(enrichments.itemId, items.id))
+    .where(gte(items.publishedAt, since));
+  return rows.map((r) => ({
+    ...r,
+    platform: r.platform as Platform,
+    publishedAt: new Date(r.publishedAt).toISOString(),
+  }));
+}
+
+const radarPiece = (p: PieceRow): RadarPiece => ({
+  platform: p.platform,
+  authorId: p.authorId,
+  publishedAt: p.publishedAt,
+  engagement: p.engagement,
+});
+
+/** Position on the wave: the stage's stretch, further along the more established the topic. */
+function wavePosition(stage: StageKey, t: CoreTopic, p50: number, p90: number): number {
+  const [from, to] = WAVE[stage];
+  let f = 0.5;
+  if (stage === 'emergente') f = p50 > 0 ? Math.min(1, t.creators / p50) : 0.5;
+  else if (stage === 'crecimiento')
+    f = p90 > p50 ? Math.min(1, Math.max(0, (t.creators - p50) / (p90 - p50))) : 0.5;
+  else if (stage === 'saturado') f = Math.min(1, Math.max(0, 1.2 - t.lift));
+  else if (stage === 'declive') f = Math.min(1, Math.max(0, 1 - t.lift));
+  return Math.round((from + f * (to - from)) * 1000) / 1000;
+}
+
+export interface TopicMeta {
+  id: string;
+  name: string;
+  definition: string | null;
+  generic: boolean;
+  fit: number | null;
+  why: string | null;
+}
+
+async function topicMeta(deps: Deps): Promise<Map<string, TopicMeta>> {
+  const rows = await deps.db.select().from(topics);
+  const notes = await deps.db
+    .select({
+      topicId: analyses.topicId,
+      kind: analyses.kind,
+      payload: analyses.payload,
+      week: analyses.week,
+    })
+    .from(analyses)
+    .orderBy(desc(analyses.week));
+  const fit = new Map<string, number>();
+  const why = new Map<string, string>();
+  for (const n of notes) {
+    const payload = n.payload as { score?: number; oneLiner?: string };
+    if (n.kind === 'fit' && typeof payload.score === 'number' && !fit.has(n.topicId))
+      fit.set(n.topicId, payload.score);
+    if (n.kind === 'why' && typeof payload.oneLiner === 'string' && !why.has(n.topicId))
+      why.set(n.topicId, payload.oneLiner);
+  }
+  return new Map(
+    rows.map((t) => [
+      t.id,
+      {
+        id: t.id,
+        name: t.name,
+        definition: t.definition,
+        generic: t.generic,
+        fit: fit.get(t.id) ?? null,
+        why: why.get(t.id) ?? null,
+      },
+    ]),
+  );
+}
+
+export interface ScoredTopic {
+  core: CoreTopic;
+  meta: TopicMeta;
+  stage: StageKey;
+  platforms: Platform[];
+  presence: Partial<Record<Platform, number>>;
+  forming: boolean;
+  untouched: boolean;
+  wavePos: number;
+}
+
+/**
+ * Scores every topic. Three passes of the same pure ranking: on the uniform sources for growth
+ * and stage, on uniform plus LinkedIn and Instagram for «Se está formando», and on everything
+ * for where the topic is this week.
+ */
+type Scored = { asOf: string; scored: ScoredTopic[]; pieces: PieceRow[] };
+
+/** Scores are recomputed only when the data changes: new pieces, links or analyses. */
+const scoreCache = new Map<string, { at: number; value: Promise<Scored> }>();
+
+async function dataVersion(deps: Deps): Promise<string> {
+  const [row] = await deps.db
+    .select({
+      links: sql<number>`(select count(*) from item_topics)::int`,
+      notes: sql<number>`(select count(*) from analyses)::int`,
+      topics: sql<number>`(select count(*) from topics)::int`,
+    })
+    .from(sql`(select 1) as one`);
+  return `${row?.links}-${row?.notes}-${row?.topics}`;
+}
+
+export async function scoreTopics(
+  deps: Deps,
+  filters: Pick<RadarFilters, 'region'> = { region: 'global' },
+): Promise<Scored> {
+  const asOf = await asOfOf(deps);
+  const key = `${filters.region}|${asOf}|${await dataVersion(deps)}`;
+  const hit = scoreCache.get(key);
+  if (hit && Date.now() - hit.at < 10 * 60_000) return hit.value;
+  const value = computeScores(deps, filters, asOf);
+  scoreCache.clear();
+  scoreCache.set(key, { at: Date.now(), value });
+  value.catch(() => scoreCache.delete(key));
+  return value;
+}
+
+async function computeScores(
+  deps: Deps,
+  filters: Pick<RadarFilters, 'region'>,
+  asOf: string,
+): Promise<Scored> {
+  const windows = rollingWindows(asOf, RADAR_WINDOWS);
+  const since = windows[0]!.start;
+  const metaById = await topicMeta(deps);
+  let pieces = await topicPieces(deps, since);
+  if (filters.region === 'latam') pieces = pieces.filter((p) => (p.lang ?? '').startsWith('es'));
+
+  const byTopic = new Map<string, PieceRow[]>();
+  for (const p of pieces) {
+    const meta = metaById.get(p.topicId);
+    if (!meta || meta.generic) continue;
+    (byTopic.get(p.topicId) ?? byTopic.set(p.topicId, []).get(p.topicId)!).push(p);
+  }
+  const input = (filter: (p: PieceRow) => boolean) =>
+    [...byTopic].map(([id, list]) => ({
+      id,
+      label: metaById.get(id)!.name,
+      pieces: list.filter(filter).map(radarPiece),
+      fit: metaById.get(id)!.fit,
+    }));
+
+  const growth = rankTopics(input(isUniform), { asOf, top: 10_000 });
+  const arrival = rankTopics(
+    input((p) => isUniform(p) || p.platform === 'linkedin' || p.platform === 'instagram'),
+    { asOf, top: 10_000 },
+  );
+  const formingById = new Map(arrival.all.map((t) => [t.id, t.forming]));
+  const currentStart = windows.at(-1)!.start;
+  const referenceSince = new Date(Date.parse(asOf) - 60 * 86_400_000).toISOString();
+
+  const p50 = percentile(
+    growth.all.map((t) => t.creators).filter((c) => c > 0),
+    50,
+  );
+  const p90 = percentile(
+    growth.all.map((t) => t.creators).filter((c) => c > 0),
+    90,
+  );
+
+  const scored = growth.all.map((core): ScoredTopic => {
+    const list = byTopic.get(core.id) ?? [];
+    const presence: Partial<Record<Platform, number>> = {};
+    const creators = new Map<Platform, Set<string>>();
+    for (const p of list) {
+      if (p.publishedAt <= currentStart) continue;
+      (creators.get(p.platform) ?? creators.set(p.platform, new Set()).get(p.platform)!).add(
+        p.authorId,
+      );
+    }
+    for (const [platform, set] of creators) presence[platform] = set.size;
+    const platforms = [...creators.keys()].sort((a, b) => (presence[b] ?? 0) - (presence[a] ?? 0));
+    const stage = STAGE_KEY[core.stage];
+    return {
+      core,
+      meta: metaById.get(core.id)!,
+      stage,
+      platforms,
+      presence,
+      forming: formingById.get(core.id) ?? false,
+      untouched: !list.some((p) => p.reference && p.publishedAt >= referenceSince),
+      wavePos: wavePosition(stage, core, p50, p90),
+    };
+  });
+  return { asOf, scored, pieces };
+}
+
+export function topicView(s: ScoredTopic, rank: number): RadarTopicView {
+  return {
+    id: s.core.id,
+    rank,
+    name: s.meta.name,
+    definition: s.meta.definition,
+    stage: s.stage,
+    timing: s.core.timingLabel,
+    growthPct: s.core.growthPct,
+    lift: s.core.lift,
+    momentum: s.core.momentum,
+    creators: s.core.creators,
+    pieces: s.core.pieces,
+    platforms: s.platforms,
+    sparkline: s.core.sparkline,
+    fit: s.meta.fit,
+    why: s.meta.why,
+    wavePos: s.wavePos,
+    untouched: s.untouched,
+    forming: s.forming,
+    fresh: baselineOf(s.core) < 0.5,
+  };
+}
+
+/** Mean distinct creators in the four windows before the current one. */
+function baselineOf(core: CoreTopic): number {
+  const previous = core.series.slice(-5, -1).map((w) => w.creators);
+  return previous.length ? previous.reduce((a, b) => a + b, 0) / previous.length : 0;
+}
+
+/**
+ * Spreads the shown topics along their stage's stretch of the wave, in the order of how far
+ * along each one is, so ten topics in the same stage never sit on the same dot.
+ */
+export function spreadOnWave(views: RadarTopicView[]): RadarTopicView[] {
+  const byStage = new Map<StageKey, RadarTopicView[]>();
+  for (const v of views) (byStage.get(v.stage) ?? byStage.set(v.stage, []).get(v.stage)!).push(v);
+  const placed = new Map<string, number>();
+  for (const [stage, list] of byStage) {
+    const [from, to] = WAVE[stage];
+    const sorted = [...list].sort((a, b) => a.wavePos - b.wavePos || b.momentum - a.momentum);
+    sorted.forEach((v, i) =>
+      placed.set(
+        v.id,
+        Math.round((from + ((i + 1) / (sorted.length + 1)) * (to - from)) * 1000) / 1000,
+      ),
+    );
+  }
+  return views.map((v) => ({ ...v, wavePos: placed.get(v.id) ?? v.wavePos }));
+}
+
+/** USD spent in the last 7 days: model calls (as recorded) and paid data. */
+export async function weekCost(deps: Deps, asOf: string) {
+  const since = new Date(Date.parse(asOf) - 7 * 86_400_000).toISOString();
+  const [llm] = await deps.db
+    .select({
+      usd: sql<number>`coalesce(sum(${llmUsage.costUsd}) filter (where not ${llmUsage.replayed}), 0)`,
+    })
+    .from(llmUsage)
+    .where(gte(llmUsage.at, since));
+  const [data] = await deps.db
+    .select({ usd: sql<number>`coalesce(sum(${runs.costUsd}), 0)` })
+    .from(runs)
+    .where(and(gte(runs.startedAt, since)));
+  const llmUsd = Number(llm?.usd ?? 0);
+  const dataUsd = Number(data?.usd ?? 0);
+  return { weekUsd: llmUsd + dataUsd, llmUsd, dataUsd };
+}
+
+const HeadlineSchema = z.object({ headline: z.string() });
+
+const HEADLINE_SYSTEM = `Escribes el titular del radar semanal de contenido de 30X, una escuela de negocios de Latinoamérica que enseña IA a ejecutivos. Te damos los temas de IA que más crecen esta semana con su etapa y crecimiento.
+
+Escribe UNA frase en español, de 8 a 16 palabras, que diga de qué habla la IA esta semana, nombrando los 2 o 3 temas más fuertes con sus nombres propios. Tono editorial, concreto, sin signos de exclamación, sin la palabra "revolución", sin emojis. Ejemplo de forma (no de contenido): "Esta semana la conversación de IA gira hacia los agentes que venden y Sora 2".`;
+
+async function headlineOf(deps: Deps, top: RadarTopicView[], scope: string): Promise<string> {
+  const fallback = top.length
+    ? `Esta semana crecen ${top
+        .slice(0, 3)
+        .map((t) => t.name)
+        .join(', ')
+        .replace(/, ([^,]*)$/, ' y $1')}.`
+    : 'Esta semana no hay temas creciendo con este filtro.';
+  if (!top.length) return fallback;
+  const user = `Alcance: ${scope}\n${top
+    .slice(0, 6)
+    .map(
+      (t) =>
+        `${t.rank}. ${t.name} (${t.stage}, ${t.growthPct >= 0 ? '+' : ''}${t.growthPct} %, ${t.creators} creadores)`,
+    )
+    .join('\n')}`;
+  try {
+    const result = await deps.llm.complete({
+      name: 'headline',
+      system: HEADLINE_SYSTEM,
+      user,
+      schema: HeadlineSchema,
+      maxTokens: 2000,
+      reasoningEffort: 'none',
+    });
+    return result.headline.trim().replace(/\.$/, '') + '.';
+  } catch {
+    return fallback;
+  }
+}
+
+const SCOPE: Record<string, string> = {
+  all: 'todas las redes',
+  linkedin: 'LinkedIn',
+  instagram: 'Instagram',
+  youtube: 'YouTube',
+  tiktok: 'TikTok',
+  x: 'X',
+};
+
+export async function radar(deps: Deps, filters: RadarFilters) {
+  const { asOf, scored, pieces } = await scoreTopics(deps, filters);
+  const windows = rollingWindows(asOf, RADAR_WINDOWS);
+  const current = windows.at(-1)!;
+
+  let candidates = scored.filter((s) => s.core.momentum > 0);
+  if (filters.platform !== 'all') {
+    const platform = filters.platform;
+    candidates = candidates.filter((s) => (s.presence[platform] ?? 0) >= 1);
+  }
+  if (filters.untouched) candidates = candidates.filter((s) => s.untouched);
+  const top = spreadOnWave(candidates.slice(0, 10).map((s, i) => topicView(s, i + 1)));
+  const forming = scored
+    .filter((s) => s.forming && !top.some((t) => t.id === s.core.id))
+    .sort((a, b) => b.core.technicalLift - a.core.technicalLift)
+    .slice(0, 6)
+    .map((s, i) => topicView(s, i + 1));
+
+  const currentPieces = pieces.filter((p) => p.publishedAt > current.start);
+  const creators = new Set(currentPieces.map((p) => `${p.platform}:${p.authorId}`));
+  const sources = new Set(currentPieces.map((p) => p.platform));
+  const scope = `${SCOPE[filters.platform] ?? filters.platform}${filters.region === 'latam' ? ', solo piezas en español' : ''}`;
+
+  return {
+    week: { start: current.start, end: current.end },
+    headline: await headlineOf(deps, top, scope),
+    basis: {
+      pieces: new Set(currentPieces.map((p) => p.id)).size,
+      creators: creators.size,
+      sources: sources.size,
+      updatedAt: asOf,
+    },
+    topics: top,
+    forming,
+    cost: await weekCost(deps, asOf),
+  };
+}
