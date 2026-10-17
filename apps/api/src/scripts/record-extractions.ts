@@ -5,6 +5,7 @@
  *   pnpm extractions:record            # only missing ones
  *   pnpm extractions:record --force    # all of them
  *   pnpm extractions:record ago-04     # some of them
+ *   RECORD_CONCURRENCY=1 pnpm extractions:record   # gentler on a busy provider
  */
 import { createHash } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
@@ -47,12 +48,14 @@ async function main() {
       return;
     }
     try {
-      const result = await reader.read({
+      const input = {
         bytes,
         mediaType: bill.mediaType,
         filename: basename(bill.file),
         sha256: sha,
-      });
+      };
+      // Providers slow down under load: one retry before counting a document as failed.
+      const result = await reader.read(input).catch(() => reader.read(input));
       await cache.put({
         sha256: sha,
         extractorVersion: EXTRACTOR_VERSION,
@@ -74,7 +77,8 @@ async function main() {
     }
   }
 
-  await Promise.all([worker(), worker(), worker()]);
+  const concurrency = Math.max(1, Number(process.env.RECORD_CONCURRENCY ?? 3));
+  await Promise.all(Array.from({ length: concurrency }, () => worker()));
   console.info(`\nGrabadas ${recorded}, ya existían ${skipped}, fallaron ${failures.length}.`);
   if (failures.length) process.exit(1);
 }

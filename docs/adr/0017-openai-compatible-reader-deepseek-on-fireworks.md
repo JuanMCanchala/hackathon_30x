@@ -11,12 +11,15 @@ For the hackathon the team runs the reader on Fireworks instead of Anthropic. Th
 it can change without touching a rule. Fireworks serves DeepSeek V4.1 Flash, which accepts images,
 through an OpenAI-compatible API with JSON-schema constrained outputs.
 
-Two findings shaped the adapter:
+Three findings shaped the adapter:
 
 - pdf.js (via `unpdf`) drops some glyphs from the generated PDFs — figures in certain fonts, so a
   CFDI's amounts came out as `$ $`. Poppler's `pdftotext` keeps every character and the columns.
 - Letter-spaced headings come out spaced (`C C - 2 0 2 6 - 0 8`) in any text layer; a person
   reading the page does not see them that way.
+- In a chat pasted without its WhatsApp header, DeepSeek took the greeting ("Hola Laura") for the
+  customer, and the addressed-to-us rule escalated a bill that fit its mandate. The prompt now
+  says a greeting is never the bill-to (extractor version 2, every recording re-made).
 
 ## Decision
 

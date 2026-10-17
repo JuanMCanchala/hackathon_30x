@@ -59,7 +59,7 @@ export async function chatJson(request: ChatJsonRequest): Promise<ChatJsonResult
   const response = await fetch(`${request.baseUrl.replace(/\/$/, '')}/chat/completions`, {
     method: 'POST',
     headers: { authorization: `Bearer ${request.apiKey}`, 'content-type': 'application/json' },
-    signal: AbortSignal.timeout(request.timeoutMs ?? 180_000),
+    signal: AbortSignal.timeout(request.timeoutMs ?? 300_000),
     body: JSON.stringify({
       model: request.model,
       temperature: 0,

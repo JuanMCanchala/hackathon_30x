@@ -2,7 +2,7 @@ import type { ExtractedInvoice } from '@mandato/domain';
 import type { ExtractionMeta } from '../db/schema';
 
 /** Bumping this invalidates every recorded extraction (record/replay cache key, ADR-0010). */
-export const EXTRACTOR_VERSION = 'mandato-extractor/1';
+export const EXTRACTOR_VERSION = 'mandato-extractor/2';
 
 export interface DocumentInput {
   bytes: Buffer;
