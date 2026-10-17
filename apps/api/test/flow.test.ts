@@ -172,7 +172,7 @@ describe('the radar, from pieces to the calendar', () => {
 
   it('serves the week over HTTP', async () => {
     const deps = await seeded();
-    const res = await createApp(deps).request('/api/v1/radar?platform=all');
+    const res = await createApp(deps).request('/api/v1/radar?platform=all&audience=all');
     expect(res.status).toBe(200);
     const body = (await res.json()) as { topics: { name: string }[] };
     expect(body.topics[0]?.name).toBe('Sora 2');
