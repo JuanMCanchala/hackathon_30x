@@ -59,6 +59,7 @@ describe('the guided demo', () => {
     expect(await demo.act('merge-pr')).toMatchObject({ mode: 'simulated' });
     await demo.act('close-october');
     expect((await demo.tourState()).phase).toBe('closed');
+    expect(demo.problems).toEqual([]);
 
     const view = await overview(c.deps);
     expect(view.violations).toEqual([]);

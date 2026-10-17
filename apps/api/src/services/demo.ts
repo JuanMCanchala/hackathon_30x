@@ -118,6 +118,12 @@ const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 export class DemoService {
   /** the script steps run since the last reset, in order (the eval's oracle replays them) */
   readonly log: ScriptStep[] = [];
+  /**
+   * steps the services refused since the last reset (e.g. no recorded reading and no model key:
+   * the bill escalates unreadable, and a later reply to it has no vendor to come from). The demo
+   * carries on and shows them; the eval runs `runStep` directly and fails on them.
+   */
+  readonly problems: string[] = [];
   private running: Promise<unknown> | null = null;
   private generation = 0;
 
@@ -148,8 +154,15 @@ export class DemoService {
   }
 
   private async run(step: ScriptStep): Promise<void> {
-    await runStep(this.c, step);
-    this.log.push(step);
+    try {
+      await runStep(this.c, step);
+      this.log.push(step);
+    } catch (error) {
+      if (!(error instanceof ServiceError)) throw error;
+      const what = step.type === 'clock' || step.type === 'evidence' ? step.label : step.billId;
+      this.problems.push(`${what}: ${error.message}`);
+      console.warn(`Demo step skipped (${step.type} ${what}): ${error.message}`);
+    }
   }
 
   /** Waits for a background action (the October arrival) to finish. */
@@ -198,6 +211,7 @@ export class DemoService {
         }),
       );
       this.log.length = 0;
+      this.problems.length = 0;
       await this.c.seed();
       await this.c.clock.set(DEMO_START);
       for (const step of SCRIPT.septiembre) await this.run(step);
@@ -255,6 +269,7 @@ export class DemoService {
       now: await this.c.clock.now(),
       actions,
       livePr: { url: pr.url, live: pr.live },
+      problems: [...this.problems],
     };
   }
 
