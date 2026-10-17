@@ -1,7 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import { ChevronLeft, CircleCheck, CircleDashed, CircleSlash, Hand } from 'lucide-react';
+import { ChevronLeft, CircleCheck, CircleDashed, CircleSlash, Hand, Printer } from 'lucide-react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { describeMandate, formatDate, formatMoney, formatUsd } from '@mandato/domain';
@@ -155,12 +155,20 @@ export default function ReceiptPage() {
 
   return (
     <div className="grid gap-6">
-      <Link
-        href="/facturas"
-        className="inline-flex w-fit items-center gap-0.5 text-[0.95rem] text-brand hover:underline"
-      >
-        <ChevronLeft className="size-4" aria-hidden /> Facturas
-      </Link>
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <Link
+          href="/facturas"
+          className="inline-flex w-fit items-center gap-0.5 text-[0.95rem] text-brand hover:underline"
+        >
+          <ChevronLeft className="size-4" aria-hidden /> Facturas
+        </Link>
+        <Link
+          href={`/recibo/${invoice.id}`}
+          className="inline-flex items-center gap-2 rounded-full bg-fill px-4 py-2 text-[0.92rem] font-[600] text-ink hover:bg-sheet-2"
+        >
+          <Printer className="size-4" aria-hidden /> Recibo para imprimir
+        </Link>
+      </div>
 
       <div className="grid items-start gap-8 xl:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)]">
         <article className="grid gap-8">
