@@ -14,7 +14,7 @@ strings on the simulated clock.
 | `DEMO_MODE=false`  | open          | `Authorization: Bearer <ADMIN_TOKEN>` (≥ 24 chars); the actor is `ADMIN_ACTOR`; demo routes not mounted |
 | Self-authenticated | —             | `POST /api/v1/portal/{token}/reply` (the link token) and `POST /api/v1/webhooks/github` (the signature) |
 
-CORS allows only `PUBLIC_WEB_URL`. Body limits: 1 MB for JSON and CSV, 10 MB per uploaded file.
+CORS allows only `PUBLIC_WEB_URL`. Body limits: 1 MB for JSON and CSV, 10 MB per uploaded file (4 MB on the hosted demo, [DEPLOY.md](DEPLOY.md#the-hosted-demo-one-vercel-project)).
 
 ## Status codes
 

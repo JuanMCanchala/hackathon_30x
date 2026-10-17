@@ -11,25 +11,25 @@ All configuration comes from the environment ([`config.ts`](../apps/api/src/conf
 [`env.example`](../env.example)). No `.env` file is read by the code; locally, run commands that
 need keys with `wallenv run -- <cmd>`.
 
-| Variable                                       | Default                           | Meaning                                                                                         |
-| ---------------------------------------------- | --------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `PORT`                                         | `4000`                            | API port                                                                                        |
-| `DATABASE_URL`                                 | —                                 | PostgreSQL connection string; without it, PGlite under `DATA_DIR`                               |
-| `DATA_DIR`                                     | `./.data`                         | PGlite storage                                                                                  |
-| `LLM_PROVIDER`                                 | `auto`                            | `auto` (DeepSeek, then OpenRouter), `deepseek`, `openrouter`, `none`                            |
-| `DEEPSEEK_API_KEY_PRINCIPAL`, `DEEPSEEK_MODEL` | —, `deepseek-flash`               | DeepSeek V4.1 Flash, direct                                                                     |
-| `OPENROUTER_API_KEY`, `OPENROUTER_MODEL`       | —, `deepseek/deepseek-v4.1-flash` | The same model on OpenRouter                                                                    |
-| `READER`                                       | `auto`                            | `auto`: recordings, then the live model; `reference`: ground truth (eval only)                  |
-| `RECORD`                                       | `false`                           | Write live answers to `packages/dataset/recordings`                                             |
-| `DEMO_MODE`                                    | `true`                            | Demo routes, no credentials. `false` requires `ADMIN_TOKEN`                                     |
-| `ADMIN_TOKEN`, `ADMIN_ACTOR`                   | —, `Administrador`                | Bearer token (≥ 24 chars) for every write outside demo mode; the name recorded on human actions |
-| `PORTAL_TOKEN_SECRET`                          | built-in in demo mode             | Signs the inbox's portal links (≥ 24 chars); set it in any public deployment                    |
-| `DEMO_PACE_MS`                                 | `400`                             | Delay between October bills in the tour                                                         |
-| `GITHUB_REPO`, `GITHUB_TOKEN`                  | —                                 | Repository polled for the live merge (`owner/name`); token optional (rate limits)               |
-| `GITHUB_DEMO_PR`, `GITHUB_WEBHOOK_SECRET`      | —                                 | The PR the M3 milestone waits on; the webhook's HMAC secret                                     |
-| `GITHUB_POLL_MS`                               | `5000`                            | Polling interval                                                                                |
-| `PUBLIC_WEB_URL`                               | `http://localhost:3000`           | The only CORS origin allowed                                                                    |
-| `API_URL`                                      | `http://localhost:4000`           | Where the web proxies the API (web build time); unset in `next build`: the API runs in-process  |
+| Variable                                       | Default                           | Meaning                                                                                                                           |
+| ---------------------------------------------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `PORT`                                         | `4000`                            | API port                                                                                                                          |
+| `DATABASE_URL`                                 | —                                 | PostgreSQL connection string; without it, PGlite under `DATA_DIR`                                                                 |
+| `DATA_DIR`                                     | `./.data`                         | PGlite storage                                                                                                                    |
+| `LLM_PROVIDER`                                 | `auto`                            | `auto` (DeepSeek, then OpenRouter), `deepseek`, `openrouter`, `none`                                                              |
+| `DEEPSEEK_API_KEY_PRINCIPAL`, `DEEPSEEK_MODEL` | —, `deepseek-flash`               | DeepSeek V4.1 Flash, direct                                                                                                       |
+| `OPENROUTER_API_KEY`, `OPENROUTER_MODEL`       | —, `deepseek/deepseek-v4.1-flash` | The same model on OpenRouter                                                                                                      |
+| `READER`                                       | `auto`                            | `auto`: recordings, then the live model; `reference`: ground truth (eval only)                                                    |
+| `RECORD`                                       | `false`                           | Write live answers to `packages/dataset/recordings`                                                                               |
+| `DEMO_MODE`                                    | `true`                            | Demo routes, no credentials. `false` requires `ADMIN_TOKEN`                                                                       |
+| `ADMIN_TOKEN`, `ADMIN_ACTOR`                   | —, `Administrador`                | Bearer token (≥ 24 chars) for every write outside demo mode; the name recorded on human actions                                   |
+| `PORTAL_TOKEN_SECRET`                          | built-in in demo mode             | Signs the inbox's portal links (≥ 24 chars). Not needed in demo mode; required outside it (without it no portal links are issued) |
+| `DEMO_PACE_MS`                                 | `400`                             | Delay between October bills in the tour                                                                                           |
+| `GITHUB_REPO`, `GITHUB_TOKEN`                  | —                                 | Repository polled for the live merge (`owner/name`); token optional (rate limits)                                                 |
+| `GITHUB_DEMO_PR`, `GITHUB_WEBHOOK_SECRET`      | —                                 | The PR the M3 milestone waits on; the webhook's HMAC secret                                                                       |
+| `GITHUB_POLL_MS`                               | `5000`                            | Polling interval                                                                                                                  |
+| `PUBLIC_WEB_URL`                               | `http://localhost:3000`           | The only CORS origin allowed                                                                                                      |
+| `API_URL`                                      | `http://localhost:4000`           | Where the web proxies the API (web build time); unset in `next build`: the API runs in-process                                    |
 
 ## Local
 
@@ -101,10 +101,16 @@ How it is built:
   and `DATASET_DIR` point the API at them. With `API_URL` (Docker, `pnpm dev`) the rewrites run
   before these route handlers, so nothing changes there.
 - Vercel may answer one visitor's requests from different instances. The visitor carries the
-  tour in a cookie (`recibido-tour`: the tour actions since their last reset), and an instance
-  at another step replays it first: a reset and each action, the arrival without pauses (a few
-  seconds, once per instance). Ids are sequential from each reset, so the replay assigns the
-  same ids and open links keep working.
+  tour in a cookie (`recibido-tour`: the tour actions since their last reset). An instance behind
+  the visitor replays forward only the actions it lacks, the arrival without pauses (a few
+  seconds, once per instance). Ids and sequences restart on each reset, so the replay assigns the
+  same ids and open links keep working. An instance never rewinds for a cookie: only
+  **Reiniciar la demo** (`POST /demo/reset`) does. When the cookie diverges from the instance
+  (another visitor moved it on, an edited cookie) or a replay stops, the instance keeps its state
+  and rewrites the cookie to it, so the visitor converges. Every request of an instance runs one
+  at a time, so nobody reads a half-replayed state.
+- Uploads are capped at 4 MB (the browser checks first; the embedded API refuses a larger form
+  in Spanish), under Vercel's 4.5 MB request limit, which would otherwise answer in English.
 - Project settings ([`apps/web/vercel.json`](../apps/web/vercel.json)): root directory
   `apps/web`, Node 24.x, install `pnpm install --frozen-lockfile` and build
   `pnpm --filter @recibido/web build` with the repository's pnpm (12.9.1, through `npx`).
@@ -123,9 +129,9 @@ How it is built:
 - **Limits:** state is per instance and in memory. A cold start takes about 2 s plus Vercel's own
   start (up to about 10 s the first time); an instance that idles is recycled and comes back at
   October 1 (or at the visitor's tour step, from the cookie). Uploads, a person's decisions and
-  portal replies outside the tour live only in the instance that received them. Visitors on
-  different tour steps who share an instance make it replay on each switch. No GitHub live
-  merge (simulated); no background polling.
+  portal replies outside the tour live only in the instance that received them. Visitors who
+  share an instance share its demo (the furthest step anyone took there; a reset resets it for
+  all of them). Uploads up to 4 MB. No GitHub live merge (simulated); no background polling.
 
 <!-- deploy:end -->
 

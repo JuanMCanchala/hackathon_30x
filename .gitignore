@@ -29,7 +29,6 @@ test-results/
 !.vscode/extensions.json
 
 # recibido
-.eval/
 .screenshots/
 contexto-hackathon.md
 .e2e-data/
