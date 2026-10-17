@@ -6,6 +6,7 @@ import { AppError } from '../lib/common';
 import type { Deps } from '../services/deps';
 import { registerEventRoutes } from './routes/events';
 import { registerRadarRoutes } from './routes/radar';
+import { registerWatchRoutes } from './routes/watch';
 
 export function createApp(deps: Deps) {
   const app = new OpenAPIHono();
@@ -42,6 +43,7 @@ export function createApp(deps: Deps) {
   app.get('/api/v1/health', (c) => c.json({ ok: true }));
   registerEventRoutes(app, deps);
   registerRadarRoutes(app, deps);
+  registerWatchRoutes(app, deps);
 
   app.doc31('/openapi.json', {
     openapi: '3.1.0',

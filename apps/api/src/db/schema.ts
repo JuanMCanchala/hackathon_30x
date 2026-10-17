@@ -231,3 +231,63 @@ export const llmUsage = pgTable('llm_usage', {
   replayed: boolean('replayed').notNull(),
   at: ts('at').notNull(),
 });
+
+/**
+ * A topic someone follows («Vigía»): searched again and again in English and Portuguese for the
+ * newest pieces that go viral, so the team can adapt them to Spanish before anyone else.
+ */
+export const watches = pgTable('watches', {
+  id: text('id').primaryKey(),
+  /** As the person typed it: «negocios». */
+  term: text('term').notNull(),
+  /** Searches and topic words per language, written once when the topic is followed. */
+  plan: jsonb('plan').notNull(),
+  /** The languages it catches: ['en', 'pt']. */
+  langs: jsonb('langs').notNull(),
+  windowHours: integer('window_hours').notNull().default(72),
+  everyMinutes: integer('every_minutes').notNull().default(60),
+  /** Pieces per search that may spend tokens. */
+  budget: integer('budget').notNull().default(12),
+  active: boolean('active').notNull().default(true),
+  createdAt: ts('created_at').notNull(),
+  lastRunAt: ts('last_run_at'),
+});
+
+/** One search of a followed topic: how many pieces each rule let through, and what it cost. */
+export const watchRuns = pgTable(
+  'watch_runs',
+  {
+    id: text('id').primaryKey(),
+    watchId: text('watch_id')
+      .notNull()
+      .references(() => watches.id, { onDelete: 'cascade' }),
+    startedAt: ts('started_at').notNull(),
+    finishedAt: ts('finished_at'),
+    report: jsonb('report'),
+    error: text('error'),
+  },
+  (t) => [index('watch_runs_watch_idx').on(t.watchId, t.startedAt)],
+);
+
+/** A piece a followed topic caught: why it passed the rules and what was read from it. */
+export const watchHits = pgTable(
+  'watch_hits',
+  {
+    watchId: text('watch_id')
+      .notNull()
+      .references(() => watches.id, { onDelete: 'cascade' }),
+    itemId: text('item_id')
+      .notNull()
+      .references(() => items.id, { onDelete: 'cascade' }),
+    runId: text('run_id').notNull(),
+    foundAt: ts('found_at').notNull(),
+    lang: text('lang').notNull(),
+    score: doublePrecision('score').notNull(),
+    reasons: jsonb('reasons').notNull(),
+    /** Its idea in Spanish, the text of each slide, or the video's transcript and key points. */
+    capture: jsonb('capture'),
+    /** The Spanish version, once someone asks for it. */
+    adaptation: jsonb('adaptation'),
+  },
+  (t) => [primaryKey({ columns: [t.watchId, t.itemId] })],
+);

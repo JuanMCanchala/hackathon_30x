@@ -54,6 +54,8 @@ export interface RecordedRequest<T extends z.ZodType> {
   variant?: number;
   /** `none` for labeling and naming: fast, cheap, and the model needs no reasoning there. */
   reasoningEffort?: 'none' | 'low' | 'medium' | 'high';
+  /** Pictures to read along with the text, as data URLs: the slides of a carousel. */
+  images?: string[];
 }
 
 /** What services need from the language model: one typed answer per request. */
@@ -72,9 +74,13 @@ export class RecordedLlm implements StructuredLlm, Llm {
     },
   ) {}
 
-  keyOf(request: Pick<RecordedRequest<z.ZodType>, 'name' | 'system' | 'user' | 'variant'>): string {
+  keyOf(
+    request: Pick<RecordedRequest<z.ZodType>, 'name' | 'system' | 'user' | 'variant' | 'images'>,
+  ): string {
+    // Pictures enter the key by their hash; requests without them keep their old keys.
+    const images = request.images?.length ? [sha256(request.images.join('|'))] : [];
     return sha256(
-      JSON.stringify([request.name, request.system, request.user, request.variant ?? 0]),
+      JSON.stringify([request.name, request.system, request.user, request.variant ?? 0, ...images]),
     );
   }
 
@@ -115,7 +121,13 @@ export class RecordedLlm implements StructuredLlm, Llm {
         apiKey: live.apiKey,
         model: live.model,
         system: request.system,
-        content: [{ type: 'text', text: request.user }],
+        content: [
+          { type: 'text', text: request.user },
+          ...(request.images ?? []).map((url) => ({
+            type: 'image_url' as const,
+            image_url: { url },
+          })),
+        ],
         schema: jsonSchemaOf(request.schema),
         schemaName: request.name.replace(/[^a-zA-Z0-9_-]/g, '_'),
         maxTokens: request.maxTokens ?? 8000,

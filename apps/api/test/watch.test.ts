@@ -1,0 +1,128 @@
+import { mkdtempSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { describe, expect, it } from 'vitest';
+import type { z } from 'zod';
+import type { Fetcher } from '@radar/sources';
+import type { Llm, RecordedRequest } from '../src/llm/cached';
+import { adaptHit, createWatch, runWatch, watchDetail } from '../src/services/watch';
+import { testContainer } from './helpers';
+
+const NOW = '2026-10-17T18:00:00Z';
+const hoursAgo = (h: number) => new Date(Date.parse(NOW) - h * 3_600_000).toISOString();
+
+const bsky = (id: string, lang: string, text: string, createdAt: string, likes: number) => ({
+  uri: `at://did:plc:${id}/app.bsky.feed.post/${id}`,
+  author: { did: `did:plc:${id}`, handle: `${id}.bsky.social`, displayName: id },
+  record: { text, createdAt, langs: [lang] },
+  likeCount: likes,
+  replyCount: Math.round(likes / 10),
+  repostCount: 0,
+});
+
+/** Bluesky answers with a fixed page per language; every other source finds nothing. */
+const fetcher: Fetcher = async (url) => {
+  if (!url.includes('bsky.app')) return { status: 404, url, body: '' };
+  const posts = url.includes('lang=pt')
+    ? [bsky('pt1', 'pt', 'Como a IA está mudando os negócios no Brasil', hoursAgo(5), 900)]
+    : [
+        bsky(
+          'viral',
+          'en',
+          'How AI agents are changing small business this year',
+          hoursAgo(6),
+          5000,
+        ),
+        bsky('slow1', 'en', 'Notes on business software and the AI hype', hoursAgo(8), 10),
+        bsky('slow2', 'en', 'A business lesson from my first startup', hoursAgo(9), 12),
+        bsky('slow3', 'en', 'Why every business needs an AI policy', hoursAgo(10), 15),
+        bsky('old', 'en', 'The business of AI, explained', hoursAgo(24 * 9), 8000),
+        bsky('off', 'en', 'A new model for protein folding', hoursAgo(3), 7000),
+        bsky('es1', 'es', 'Cómo la IA cambia los negocios', hoursAgo(4), 3000),
+      ];
+  return { status: 200, url, body: JSON.stringify({ posts }) };
+};
+
+const calls: string[] = [];
+
+/** A scripted model: the plan, the translations and the adaptation, with fixed text. */
+const llm: Llm = {
+  async complete<T extends z.ZodType>(request: RecordedRequest<T>): Promise<z.infer<T>> {
+    calls.push(request.name);
+    const answer = (() => {
+      if (request.name === 'watch-plan')
+        return {
+          en: { queries: ['AI business'], match: ['business'] },
+          pt: { queries: ['negócios IA'], match: ['negócios'] },
+        };
+      if (request.name === 'watch-translate')
+        return {
+          items: [...request.user.matchAll(/^\[([^\]]+)\]/gm)].map((m) => ({
+            id: m[1]!,
+            es: `En español: ${m[1]}`,
+          })),
+        };
+      if (request.name === 'watch-adapt')
+        return {
+          angle: 'Los agentes llegan a la pyme latinoamericana.',
+          hooks: ['Uno', 'Dos', 'Tres'],
+          linkedin: 'Post',
+          carousel: [{ title: 'Lámina', body: 'Texto' }],
+          reel: { hook: 'Gancho', beats: ['a'], onScreen: ['b'], cta: 'c' },
+          youtube: { title: 'Título', thumbnail: 'Miniatura' },
+          avoid: ['Nada'],
+          inspiredBy: ['bluesky:viral'],
+        };
+      throw new Error(`unexpected ${request.name}`);
+    })();
+    return request.schema.parse(answer);
+  },
+};
+
+describe('Vigía', () => {
+  it('lets rules pick what spends tokens, and records why the rest stopped', async () => {
+    const { deps } = await testContainer({ now: NOW });
+    deps.llm = llm;
+    const empty = mkdtempSync(join(tmpdir(), 'radar-watch-'));
+    deps.config = { ...deps.config, RAW_DIR: empty, DATA_DIR: empty };
+
+    const watch = await createWatch(deps, 'negocios');
+    const report = await runWatch(deps, watch.id, { fetcher, pauseMs: 0 });
+
+    // Two Bluesky pages, one per language, with eight posts; the other sources find nothing.
+    const steps = Object.fromEntries(report.steps.map((s) => [s.step, s.left]));
+    expect(steps.encontradas).toBe(8);
+    expect(steps.idioma).toBe(7);
+    expect(steps.tema).toBe(6);
+    expect(steps.reciente).toBe(5);
+    expect(report.caught).toBeGreaterThanOrEqual(2);
+    const stoppedBy = Object.fromEntries(report.rejected.map((r) => [r.rule, r.count]));
+    expect(stoppedBy.idioma).toBe(1);
+    expect(stoppedBy.tema).toBe(1);
+    expect(stoppedBy.reciente).toBe(1);
+
+    const detail = await watchDetail(deps, watch.id);
+    const caught = detail.hits.map((h) => h.piece.id);
+    expect(caught).toContain('bluesky:viral');
+    expect(caught).toContain('bluesky:pt1');
+    expect(caught).not.toContain('bluesky:off');
+    expect(caught).not.toContain('bluesky:old');
+    const viral = detail.hits.find((h) => h.piece.id === 'bluesky:viral')!;
+    expect(viral.capture?.es).toBe('En español: bluesky:viral');
+    expect(viral.reasons.join(' ')).toContain('Menciona «business»');
+    // Only the caught pieces reached the model, in one translation call.
+    expect(calls.filter((c) => c === 'watch-translate')).toHaveLength(1);
+
+    // A second search catches nothing new: everything that passed is already caught.
+    const again = await runWatch(deps, watch.id, { fetcher, pauseMs: 0 });
+    expect(again.caught).toBe(0);
+    expect(again.rejected.find((r) => r.rule === 'nuevo')!.count).toBeGreaterThanOrEqual(2);
+
+    const adaptation = await adaptHit(deps, watch.id, 'bluesky:viral');
+    expect(adaptation.inspiredBy).toEqual(['bluesky:viral']);
+    expect(
+      (await watchDetail(deps, watch.id)).hits.find((h) => h.piece.id === 'bluesky:viral')!
+        .adaptation?.angle,
+    ).toContain('pyme');
+  });
+});
