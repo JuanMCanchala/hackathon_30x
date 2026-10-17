@@ -36,10 +36,11 @@ export class RadarClient {
     return body;
   }
 
-  radar(params: { platform?: string; region?: string; untouched?: boolean }) {
+  radar(params: { platform?: string; region?: string; untouched?: boolean; everything?: boolean }) {
     const q = new URLSearchParams({
       platform: params.platform ?? 'all',
       region: params.region ?? 'global',
+      audience: params.everything ? 'all' : '30x',
       ...(params.untouched ? { untouched: '1' } : {}),
     });
     return this.call<RadarWeek>(`/api/v1/radar?${q}`);

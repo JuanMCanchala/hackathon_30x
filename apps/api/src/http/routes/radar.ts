@@ -15,7 +15,7 @@ const RadarQuery = z.object({
   platform: z.enum(PLATFORMS).default('all'),
   region: z.enum(['global', 'latam']).default('global'),
   untouched: z.enum(['1', '0']).optional(),
-  audience: z.enum(['all', '30x']).default('all'),
+  audience: z.enum(['all', '30x']).default('30x'),
 });
 
 const AdaptBody = z.object({ variant: z.number().int().min(0).max(5).default(0) });

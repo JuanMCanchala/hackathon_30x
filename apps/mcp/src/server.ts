@@ -42,7 +42,7 @@ export function createRadarServer(client: RadarClient): McpServer {
     {
       title: 'Los temas de IA que más crecen esta semana',
       description:
-        'Los 10 temas de IA que más crecen esta semana en redes, con su etapa (emergente, en crecimiento, saturado, en declive), el momento recomendado para publicar y el encaje con la audiencia de 30X.',
+        'Los 10 temas de IA que más crecen esta semana en redes, por defecto solo los que le sirven a la audiencia de 30X, con su etapa (emergente, en crecimiento, saturado, en declive), el momento recomendado para publicar y el encaje con 30X.',
       inputSchema: {
         red: z
           .enum(['all', 'linkedin', 'instagram', 'youtube', 'tiktok', 'x'])
@@ -50,14 +50,19 @@ export function createRadarServer(client: RadarClient): McpServer {
           .describe('Red donde debe moverse el tema'),
         solo_espanol: z.boolean().optional().describe('Solo piezas en español'),
         sin_explotar_por_30x: z.boolean().optional().describe('Solo temas que 30X no ha tocado'),
+        incluir_todos: z
+          .boolean()
+          .optional()
+          .describe('Incluir también los temas que no le sirven a la audiencia de 30X'),
       },
     },
-    async ({ red, solo_espanol, sin_explotar_por_30x }) => {
+    async ({ red, solo_espanol, sin_explotar_por_30x, incluir_todos }) => {
       try {
         const week = await client.radar({
           platform: red,
           region: solo_espanol ? 'latam' : 'global',
           untouched: sin_explotar_por_30x,
+          everything: incluir_todos,
         });
         return text(
           [

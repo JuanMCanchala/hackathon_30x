@@ -43,7 +43,7 @@ const WAVE: Record<StageKey, [number, number]> = {
 };
 
 /** A topic counts as useful for 30X's audience from this fit on (1 to 10). */
-export const AUDIENCE_FIT = 6;
+export const AUDIENCE_FIT = 7;
 
 export interface RadarFilters {
   platform: 'all' | Platform;

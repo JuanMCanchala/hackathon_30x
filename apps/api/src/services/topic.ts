@@ -23,7 +23,7 @@ import { enrichments, items, itemTopics, topicSeries, topics } from '../db/schem
 import { notFound } from '../lib/common';
 import type { Deps } from './deps';
 import { fitOf, whyOf } from './explain';
-import { isUniform, scoreTopics, topicView, type RadarFilters } from './radar';
+import { AUDIENCE_FIT, isUniform, scoreTopics, topicView, type RadarFilters } from './radar';
 
 const HOOK_LABEL: Record<string, string> = {
   cifra: 'una cifra',
@@ -241,8 +241,12 @@ export async function topicDetail(
   const [topic] = await deps.db.select().from(topics).where(eq(topics.id, id));
   if (!topic) throw notFound('El tema');
   const { asOf, scored } = await scoreTopics(deps, filters);
-  const ranked = scored.filter((s) => s.core.momentum > 0);
-  const index = ranked.findIndex((s) => s.core.id === id);
+  // The rank the radar shows by default (for 30X's audience); otherwise among all topics.
+  const ranked = scored.filter((s) => s.core.momentum > 0 && s.meta.named);
+  const forAudience = ranked.filter((s) => (s.meta.fit ?? 0) >= AUDIENCE_FIT);
+  const audienceIndex = forAudience.findIndex((s) => s.core.id === id);
+  const index = audienceIndex >= 0 ? audienceIndex : ranked.findIndex((s) => s.core.id === id);
+  const rankScope: '30x' | 'all' = audienceIndex >= 0 ? '30x' : 'all';
   const s = scored.find((t) => t.core.id === id);
   if (!s) throw notFound('El tema no tiene piezas recientes y');
   const windows = rollingWindows(asOf, RADAR_WINDOWS);
@@ -298,15 +302,17 @@ export async function topicDetail(
     };
   });
 
-  // What set it off: the most engaging news of the first window the topic stood out.
+  // What set it off: the earliest news of the current growth streak (the run of standout
+  // weeks that ends this week), not an older blip.
   const series = s.core.series;
-  const firstSignal = series.findIndex(
-    (w, i) =>
-      i >= 4 &&
-      w.creators >= 3 &&
-      w.creators >= 1.8 * (series.slice(i - 4, i).reduce((a, b) => a + b.creators, 0) / 4 + 1),
-  );
-  const triggerWindow = windows[firstSignal >= 0 ? firstSignal : windows.length - 1]!;
+  const standsOut = (i: number) =>
+    i >= 4 &&
+    series[i]!.creators >= 3 &&
+    series[i]!.creators >=
+      1.8 * (series.slice(i - 4, i).reduce((a, b) => a + b.creators, 0) / 4 + 1);
+  let start = series.length - 1;
+  while (standsOut(start) && standsOut(start - 1)) start -= 1;
+  const triggerWindow = windows[start]!;
   const triggerPiece = rows
     .filter(({ item }) => {
       const t = new Date(item.publishedAt).toISOString();
@@ -405,6 +411,7 @@ export async function topicDetail(
   return {
     topic: {
       ...view,
+      rankScope,
       fit: fit?.score ?? view.fit,
       why: why?.oneLiner ?? view.why,
       queries: topic.queries,
