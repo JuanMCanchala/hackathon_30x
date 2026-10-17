@@ -13,5 +13,6 @@ minimumReleaseAgeExclude:
   - libqp@2.1.3
   - mailparser@3.9.40
   - nodemailer@10.1.2
+  - lucide-react@1.58.0
 allowBuilds:
   esbuild: true

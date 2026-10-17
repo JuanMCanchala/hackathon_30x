@@ -1,0 +1,241 @@
+@import 'tailwindcss';
+
+/* Theme switch: data-theme on <html>, set before paint by the inline script in layout.tsx. */
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+/*
+ * Mandato — security-printing palette.
+ * Cool cheque paper, navy intaglio ink, banknote green. Outcome colors validated for CVD,
+ * normal-vision separation and contrast in both themes (dataviz validator).
+ */
+:root {
+  color-scheme: light;
+  --paper: #eef2ee;
+  --sheet: #ffffff;
+  --sheet-2: #f6f8f5;
+  --ink: #142338;
+  --ink-2: #435160;
+  --ink-3: #6b7884;
+  --rule: #d2d9d3;
+  --rule-strong: #b3bfb6;
+  --brand: #1e5a4e;
+  --brand-strong: #123f36;
+  --brand-tint: #dfece6;
+  --on-brand: #f4faf7;
+  --paid: #0e8160;
+  --held: #b4234a;
+  --pending: #c98a0b;
+  --rejected: #6b7280;
+  --paid-tint: #e1f1ea;
+  --held-tint: #f7e3e9;
+  --pending-tint: #faefd8;
+  --rejected-tint: #eceef0;
+  --on-paid: #ffffff;
+  --on-held: #ffffff;
+  --on-pending: #1f1604;
+  --focus: #1d4ed8;
+  --guilloche: #1e5a4e;
+  --shadow: 0 1px 0 rgb(20 35 56 / 0.04), 0 8px 24px -12px rgb(20 35 56 / 0.18);
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --paper: #0c1815;
+  --sheet: #12211d;
+  --sheet-2: #172925;
+  --ink: #e2ebe6;
+  --ink-2: #a8b9b1;
+  --ink-3: #7d9089;
+  --rule: #233630;
+  --rule-strong: #34504a;
+  --brand: #7cc9ae;
+  --brand-strong: #a6e0cb;
+  --brand-tint: #17332b;
+  --on-brand: #0c1815;
+  --paid: #2fa176;
+  --held: #e0607f;
+  --pending: #bf8424;
+  --rejected: #8b939c;
+  --paid-tint: #143127;
+  --held-tint: #3a1a24;
+  --pending-tint: #33270f;
+  --rejected-tint: #22282d;
+  --on-paid: #0c1815;
+  --on-held: #0c1815;
+  --on-pending: #0c1815;
+  --focus: #93c5fd;
+  --guilloche: #7cc9ae;
+  --shadow: 0 1px 0 rgb(0 0 0 / 0.3), 0 12px 32px -16px rgb(0 0 0 / 0.6);
+}
+
+/* Without JavaScript, follow the system preference. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+    --paper: #0c1815;
+    --sheet: #12211d;
+    --sheet-2: #172925;
+    --ink: #e2ebe6;
+    --ink-2: #a8b9b1;
+    --ink-3: #7d9089;
+    --rule: #233630;
+    --rule-strong: #34504a;
+    --brand: #7cc9ae;
+    --brand-strong: #a6e0cb;
+    --brand-tint: #17332b;
+    --on-brand: #0c1815;
+    --paid: #2fa176;
+    --held: #e0607f;
+    --pending: #bf8424;
+    --rejected: #8b939c;
+    --paid-tint: #143127;
+    --held-tint: #3a1a24;
+    --pending-tint: #33270f;
+    --rejected-tint: #22282d;
+    --focus: #93c5fd;
+    --guilloche: #7cc9ae;
+  }
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-sheet: var(--sheet);
+  --color-sheet-2: var(--sheet-2);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
+  --color-brand: var(--brand);
+  --color-brand-strong: var(--brand-strong);
+  --color-brand-tint: var(--brand-tint);
+  --color-on-brand: var(--on-brand);
+  --color-paid: var(--paid);
+  --color-held: var(--held);
+  --color-pending: var(--pending);
+  --color-rejected: var(--rejected);
+  --color-paid-tint: var(--paid-tint);
+  --color-held-tint: var(--held-tint);
+  --color-pending-tint: var(--pending-tint);
+  --color-rejected-tint: var(--rejected-tint);
+  --color-focus: var(--focus);
+  --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-voice: var(--font-newsreader), Georgia, 'Times New Roman', serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', 'DejaVu Sans Mono', Menlo, monospace;
+  --shadow-sheet: var(--shadow);
+}
+
+@layer base {
+  html {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-feature-settings:
+      'tnum' 1,
+      'lnum' 1;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    min-height: 100dvh;
+    background: var(--paper);
+  }
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  ::selection {
+    background: var(--brand-tint);
+    color: var(--ink);
+  }
+}
+
+/* Type scale (major third, 16 px base). Headlines use Archivo's expanded width. */
+@layer components {
+  .t-display {
+    font-size: clamp(1.8rem, 1.15rem + 2.6vw, 2.441rem);
+    line-height: 1.05;
+    font-weight: 720;
+    font-stretch: 125%;
+    letter-spacing: -0.02em;
+  }
+  .t-h1 {
+    font-size: clamp(1.6rem, 1.2rem + 1.6vw, 1.953rem);
+    line-height: 1.1;
+    font-weight: 700;
+    font-stretch: 120%;
+    letter-spacing: -0.015em;
+  }
+  .t-h2 {
+    font-size: 1.563rem;
+    line-height: 1.15;
+    font-weight: 660;
+    font-stretch: 115%;
+    letter-spacing: -0.01em;
+  }
+  .t-h3 {
+    font-size: 1.25rem;
+    line-height: 1.25;
+    font-weight: 640;
+    font-stretch: 108%;
+  }
+  .t-figure {
+    font-weight: 680;
+    font-stretch: 112%;
+    font-variant-numeric: tabular-nums lining-nums;
+    letter-spacing: -0.01em;
+  }
+  /* The agent's voice: explanations read like a note, not like data. */
+  .voice {
+    font-family: var(--font-voice);
+    font-size: 1.15rem;
+    line-height: 1.55;
+    font-weight: 420;
+  }
+  .sheet {
+    background: var(--sheet);
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+  }
+  .perforation {
+    background-image: radial-gradient(
+      circle at 6px 0,
+      transparent 5px,
+      var(--rule) 5.5px,
+      transparent 6.5px
+    );
+    background-size: 12px 8px;
+    background-repeat: repeat-x;
+    height: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .stamp-in {
+    animation: stamp-in 420ms cubic-bezier(0.2, 0.9, 0.25, 1.15) both;
+  }
+  .row-in {
+    animation: row-in 520ms ease-out both;
+  }
+}
+
+@keyframes stamp-in {
+  from {
+    opacity: 0;
+    transform: rotate(-9deg) scale(1.35);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(-4deg) scale(1);
+  }
+}
+
+@keyframes row-in {
+  from {
+    background-color: var(--brand-tint);
+  }
+  to {
+    background-color: transparent;
+  }
+}
