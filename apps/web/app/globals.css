@@ -1,0 +1,311 @@
+@import 'tailwindcss';
+
+/* Theme switch: data-theme on <html>, set before paint by the inline script in layout.tsx. */
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+/*
+ * Recibido: "la prueba". Paper, ink and one stamp red. The five outcome inks are reserved for
+ * decisions; each passes 4.5:1 on the sheet and on its own tint in both themes (docs/DESIGN.md).
+ */
+:root {
+  color-scheme: light;
+  --paper: #f3f4f1;
+  --sheet: #ffffff;
+  --ink: #0f1f1a;
+  --ink-2: #45524c;
+  --ink-3: #5f6b65;
+  --rule: #dfe3de;
+  --rule-strong: #c4cac4;
+  --fill: #e9ece8;
+  --stamp: #c0361f;
+  --stamp-strong: #a42b17;
+  --on-stamp: #ffffff;
+  --pay: #125e33;
+  --part: #0d7480;
+  --ask: #8a5800;
+  --escalate: #cc1f52;
+  --hold: #4c5560;
+  --hatch: rgb(15 31 26 / 0.26);
+  --shadow: 0 1px 0 rgb(15 31 26 / 0.04), 0 12px 32px -20px rgb(15 31 26 / 0.28);
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --paper: #0f1412;
+  --sheet: #161c19;
+  --ink: #e9eeea;
+  --ink-2: #a9b5ae;
+  --ink-3: #8c9891;
+  --rule: #26302b;
+  --rule-strong: #36423c;
+  --fill: #1e2522;
+  --stamp: #ff6a4d;
+  --stamp-strong: #ff8a72;
+  --on-stamp: #0f1412;
+  --pay: #5fd391;
+  --part: #3cc0cc;
+  --ask: #e6a63a;
+  --escalate: #f25a80;
+  --hold: #9aa4b0;
+  --hatch: rgb(233 238 234 / 0.24);
+  --shadow: 0 0 0 1px rgb(255 255 255 / 0.03), 0 16px 40px -24px rgb(0 0 0 / 0.8);
+}
+
+/* Without JavaScript, follow the system preference. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+    --paper: #0f1412;
+    --sheet: #161c19;
+    --ink: #e9eeea;
+    --ink-2: #a9b5ae;
+    --ink-3: #8c9891;
+    --rule: #26302b;
+    --rule-strong: #36423c;
+    --fill: #1e2522;
+    --stamp: #ff6a4d;
+    --stamp-strong: #ff8a72;
+    --on-stamp: #0f1412;
+    --pay: #5fd391;
+    --part: #3cc0cc;
+    --ask: #e6a63a;
+    --escalate: #f25a80;
+    --hold: #9aa4b0;
+    --hatch: rgb(233 238 234 / 0.24);
+  }
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-sheet: var(--sheet);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
+  --color-fill: var(--fill);
+  --color-stamp: var(--stamp);
+  --color-stamp-strong: var(--stamp-strong);
+  --color-on-stamp: var(--on-stamp);
+  --color-pay: var(--pay);
+  --color-part: var(--part);
+  --color-ask: var(--ask);
+  --color-escalate: var(--escalate);
+  --color-hold: var(--hold);
+  --font-sans: 'Archivo Variable', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, monospace;
+  --shadow-sheet: var(--shadow);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    font-weight: 450;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+  body {
+    min-height: 100dvh;
+    background: var(--paper);
+    line-height: 1.5;
+  }
+  :focus-visible {
+    outline: 2px solid var(--stamp);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+  ::selection {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  * {
+    scrollbar-color: var(--rule-strong) transparent;
+  }
+  a {
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 1px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer components {
+  /* Archivo carries every voice: heavy for headings, expanded capitals for the stamp. */
+  .t-hero {
+    font-size: clamp(2.75rem, 1.2rem + 5.4vw, 6rem);
+    line-height: 0.96;
+    font-weight: 900;
+    letter-spacing: -0.035em;
+    text-wrap: balance;
+  }
+  .t-h1 {
+    font-size: clamp(2rem, 1.5rem + 1.6vw, 2.5rem);
+    line-height: 1.04;
+    font-weight: 850;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+  .t-h2 {
+    font-size: clamp(1.75rem, 1.3rem + 1.4vw, 2.5rem);
+    line-height: 1.05;
+    font-weight: 850;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+  .t-h3 {
+    font-size: 1.25rem;
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: -0.015em;
+  }
+  .t-figure {
+    font-stretch: 125%;
+    font-weight: 900;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .t-mono {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: 'zero' 0;
+  }
+  .sheet {
+    background: var(--sheet);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+  }
+
+  /* The proof bar: hatched as long as the bill, solid ink where evidence backs it. */
+  .proof {
+    position: relative;
+    display: block;
+    width: 100%;
+    border-radius: 3px;
+    background-color: var(--sheet);
+    background-image: repeating-linear-gradient(
+      -45deg,
+      var(--hatch) 0 1.5px,
+      transparent 1.5px 6px
+    );
+    box-shadow: inset 0 0 0 1px var(--rule-strong);
+    overflow: hidden;
+  }
+  .proof-solid {
+    position: absolute;
+    inset: 0 auto 0 0;
+    display: flex;
+    gap: 2px;
+    background: var(--sheet);
+  }
+  .proof-tick {
+    flex: var(--w) 1 0;
+    min-width: 1px;
+    background: var(--ink);
+    transform-origin: left center;
+  }
+  .proof[data-play] .proof-tick {
+    animation: tick-in 260ms var(--ease-out) both;
+    animation-delay: calc(var(--i) * var(--stagger));
+  }
+  .proof[data-play='false'] .proof-tick {
+    animation-play-state: paused;
+  }
+
+  /* The receiving stamp: the only rotated element in the product. */
+  .stamp {
+    display: inline-flex;
+    align-items: center;
+    border: 1.5px solid currentColor;
+    border-radius: 6px;
+    font-stretch: 125%;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1;
+    white-space: nowrap;
+    transform: rotate(-2deg);
+    background: color-mix(in srgb, currentColor 10%, var(--sheet));
+  }
+  .stamp-land {
+    animation: stamp-land 220ms var(--ease-out) both;
+    animation-delay: var(--delay, 0ms);
+  }
+  .fade-in {
+    animation: fade-in 150ms ease both;
+  }
+  .rise-in {
+    animation: rise-in 240ms var(--ease-out) both;
+    animation-delay: var(--delay, 0ms);
+  }
+  /* a sequence (the landing specimen) waits until it is on screen */
+  [data-play='false'] :is(.stamp-land, .rise-in) {
+    animation-play-state: paused;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+    border-radius: 6px;
+    font-weight: 700;
+    transition:
+      background-color 120ms ease,
+      color 120ms ease,
+      border-color 120ms ease,
+      transform 120ms ease;
+  }
+  .btn:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+  .btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+@keyframes tick-in {
+  from {
+    transform: scaleX(0);
+  }
+}
+@keyframes stamp-land {
+  from {
+    opacity: 0;
+    transform: rotate(-5deg) scale(1.12);
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .proof .proof-tick,
+  .stamp-land,
+  .fade-in,
+  .rise-in {
+    animation: none !important;
+  }
+  .btn {
+    transition: none;
+  }
+}

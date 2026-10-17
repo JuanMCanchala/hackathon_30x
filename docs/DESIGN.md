@@ -33,19 +33,25 @@ Define on `:root` and redefine under `[data-theme='dark']` (set before paint, li
 | `--sheet`    | `#ffffff` | `#161c19` | cards, tables                                     |
 | `--ink`      | `#0f1f1a` | `#e9eeea` | text, the solid part of the proof bar             |
 | `--ink-2`    | `#45524c` | `#a9b5ae` | secondary text                                    |
-| `--ink-3`    | `#7a8680` | `#77837c` | captions, axis                                    |
+| `--ink-3`    | `#5f6b65` | `#8c9891` | captions, axis                                    |
 | `--rule`     | `#dfe3de` | `#26302b` | borders                                           |
-| `--stamp`    | `#e0442a` | `#ff6a4d` | brand: the stamp ink, primary actions, focus ring |
-| `--pay`      | `#1d7f46` | `#4cc47e` | PAY                                               |
+| `--stamp`    | `#c0361f` | `#ff6a4d` | brand: the stamp ink, primary actions, focus ring |
+| `--pay`      | `#125e33` | `#5fd391` | PAY                                               |
 | `--part`     | `#0d7480` | `#3cc0cc` | PAY_PART                                          |
-| `--ask`      | `#a86b0c` | `#e6a63a` | ASK_VENDOR                                        |
-| `--escalate` | `#b3123f` | `#ff6b8f` | ESCALATE                                          |
+| `--ask`      | `#8a5800` | `#e6a63a` | ASK_VENDOR                                        |
+| `--escalate` | `#cc1f52` | `#f25a80` | ESCALATE                                          |
 | `--hold`     | `#4c5560` | `#9aa4b0` | HOLD                                              |
 
 Each outcome also has a `-tint` (10–14 % on the sheet). Validate text contrast ≥ 4.5:1 for every
 outcome ink on its tint and on the sheet, in both themes, and check the five against
 deuteranopia/protanopia (the `dataviz` skill has a validator); adjust lightness, not hue family, if
 a pair fails. Outcome is never carried by color alone: the stamp always has its word.
+
+Validated when the web was built (Task 12): the first values of `--stamp`, `--pay`, `--ask` and
+`--ink-3` fell under 4.5:1 in light, and PAY/ESCALATE were too close under deuteranopia, so their
+lightness moved to the values above. Every outcome ink now passes 4.5:1 on the sheet, the paper and
+its 10 % tint in both themes, and the closest pair under simulated deuteranopia or protanopia is
+ΔE ≥ 6 (white on `--stamp` is 5.5:1).
 
 ## Type
 

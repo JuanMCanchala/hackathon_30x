@@ -19,7 +19,7 @@
     "record": "pnpm --filter @recibido/api record",
     "dataset:generate": "pnpm --filter @recibido/dataset generate",
     "e2e": "pnpm --filter @recibido/web e2e",
-    "screenshots": "pnpm --filter @recibido/web screenshots",
+    "screenshots": "node scripts/screenshots.mjs",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },
@@ -30,6 +30,7 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-react-hooks": "^7.1.1",
     "fast-check": "^4.10.2",
+    "playwright": "^1.64.1",
     "prettier": "^3.9.10",
     "tsx": "^4.23.15",
     "typescript": "~6.0.3",
