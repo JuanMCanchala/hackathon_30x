@@ -6,7 +6,7 @@ import { useRef, useState, type FormEvent } from 'react';
 import { useSWRConfig } from 'swr';
 import { OutcomeStamp } from '@/components/outcome';
 import { Button, buttonClass, FileField } from '@/components/ui';
-import { api } from '@/lib/api';
+import { api, UPLOAD_MB } from '@/lib/api';
 import type { Outcome } from '@/lib/types';
 
 interface Uploaded {
@@ -67,7 +67,8 @@ export function UploadDialog() {
                 Subir una cuenta
               </h2>
               <p className="mt-1 text-[0.9375rem] text-ink-2">
-                PDF, correo (.eml) o texto, hasta 10 MB. Recibido la lee y la decide al momento.
+                PDF, correo (.eml) o texto, hasta {UPLOAD_MB} MB. Recibido la lee y la decide al
+                momento.
               </p>
             </div>
             <button

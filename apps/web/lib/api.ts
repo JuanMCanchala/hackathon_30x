@@ -24,7 +24,14 @@ export class ApiError extends Error {
   }
 }
 
+/** The largest file this deployment takes, in MB (10; 4 on the hosted demo). */
+export const UPLOAD_MB = Number(process.env.NEXT_PUBLIC_UPLOAD_MB ?? 10);
+
 async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
+  if (init.body instanceof FormData)
+    for (const value of init.body.values())
+      if (value instanceof File && value.size > UPLOAD_MB * 1024 * 1024)
+        throw new ApiError(413, `El archivo supera los ${UPLOAD_MB} MB.`);
   let response: Response;
   try {
     response = await fetch(`${BASE}${path}`, { ...init, cache: 'no-store' });

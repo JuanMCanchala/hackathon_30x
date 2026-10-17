@@ -103,4 +103,13 @@ describe('the embedded API across instances', () => {
     // the corrected bill arrived; the upload is still there
     expect((await billIds(api, ahead)).length).toBe(before + 1);
   }, 120_000);
+
+  it('refuses an upload over the hosted 4 MB cap in Spanish', async () => {
+    const api = await createEmbeddedApi(ENV);
+    const form = new FormData();
+    form.append('file', new Blob([new Uint8Array(4 * 1024 * 1024 + 1)]), 'grande.pdf');
+    const response = await call(api, '/api/v1/bills', { method: 'POST', body: form });
+    expect(response.status).toBe(413);
+    expect(response.body.error).toBe('El archivo supera los 4 MB de la demo publicada.');
+  }, 120_000);
 });

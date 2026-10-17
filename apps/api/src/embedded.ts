@@ -22,6 +22,8 @@ import { DemoService, type TourAction } from './services/demo';
 import { useSequentialIds } from './services/state';
 
 const COOKIE = 'recibido-tour';
+/** the hosted demo's upload cap (the form's whole body), under Vercel's 4.5 MB */
+const HOSTED_UPLOAD_BYTES = 4 * 1024 * 1024;
 const ACTION = /^\/api\/v1\/demo\/actions\/([a-z-]+)$/;
 
 export async function createEmbeddedApi(env: NodeJS.ProcessEnv = process.env) {
@@ -90,6 +92,17 @@ export async function createEmbeddedApi(env: NodeJS.ProcessEnv = process.env) {
   }
 
   async function handle(request: Request): Promise<Response> {
+    // Vercel refuses a body over 4.5 MB before it reaches us, in English: say it first, in Spanish
+    if (request.headers.get('content-type')?.startsWith('multipart/form-data')) {
+      const size =
+        Number(request.headers.get('content-length')) ||
+        (await request.clone().arrayBuffer()).byteLength;
+      if (size > HOSTED_UPLOAD_BYTES)
+        return Response.json(
+          { error: 'El archivo supera los 4 MB de la demo publicada.' },
+          { status: 413 },
+        );
+    }
     if (!demo) return app.fetch(request);
     const carried = readTour(request.headers.get('cookie'));
     return serial(() => respond(request, carried));

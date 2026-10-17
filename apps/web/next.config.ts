@@ -25,6 +25,8 @@ export default function config(phase: string): NextConfig {
     outputFileTracingIncludes: apiUrl
       ? {}
       : { '/api/[...path]': apiFiles, '/docs': apiFiles, '/openapi.json': apiFiles },
+    // the hosted demo (no API_URL) caps uploads under Vercel's 4.5 MB request limit
+    env: { NEXT_PUBLIC_UPLOAD_MB: apiUrl ? '10' : '4' },
     poweredByHeader: false,
     devIndicators: false,
     async rewrites() {
