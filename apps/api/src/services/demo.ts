@@ -6,7 +6,7 @@
  */
 import { readFileSync } from 'node:fs';
 import { basename, join } from 'node:path';
-import { eq } from 'drizzle-orm';
+import { eq, sql } from 'drizzle-orm';
 import {
   DEMO_START,
   filesDir,
@@ -221,6 +221,9 @@ export class DemoService {
             orgState,
           ])
             await tx.delete(table);
+          // the same seq after every reset: a replayed instance reads exactly like the original
+          await tx.execute(sql`ALTER SEQUENCE messages_seq_seq RESTART WITH 1`);
+          await tx.execute(sql`ALTER SEQUENCE timeline_seq_seq RESTART WITH 1`);
         }),
       );
       this.log.length = 0;
