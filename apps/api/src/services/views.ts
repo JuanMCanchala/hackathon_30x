@@ -17,6 +17,7 @@ import {
 import { documentKind } from '../extraction/prepare';
 import { notFound } from '../lib/common';
 import { paymentForInvoice } from './payments';
+import { signalsForInvoice } from './signals';
 
 type InvoiceRow = typeof invoices.$inferSelect;
 
@@ -248,6 +249,7 @@ export async function getInvoiceDetail(db: Executor, orgId: string, invoiceId: s
         }
       : null,
     payment: await paymentForInvoice(db, invoice.id),
+    signals: await signalsForInvoice(db, orgId, invoice.id),
     ledger: ledger.map((e) => ({
       seq: e.seq,
       type: e.type,

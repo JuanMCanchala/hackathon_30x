@@ -7,6 +7,7 @@ import type { Deps } from '../../services/deps';
 import { readLedger } from '../../services/ledger';
 import { overview } from '../../services/metrics';
 import { reconciliationCsv } from '../../services/reconciliation';
+import { radar } from '../../services/signals';
 import { listLedger } from '../../services/views';
 import { currentUser } from '../context';
 import { ok } from '../openapi';
@@ -59,6 +60,20 @@ export function registerOversightRoutes(app: OpenAPIHono, deps: Deps) {
     async (c) => {
       const user = await currentUser(deps, c);
       return c.json(await overview(deps, user.orgId), 200);
+    },
+  );
+
+  app.openapi(
+    createRoute({
+      method: 'get',
+      path: '/api/v1/radar',
+      tags: ['Panel'],
+      summary: 'Radar de anomalías: cobros recientes con algo que mirar, sin bloquear el pago',
+      responses: ok('Señales'),
+    }),
+    async (c) => {
+      const user = await currentUser(deps, c);
+      return c.json(await radar(deps.db, user.orgId), 200);
     },
   );
 
