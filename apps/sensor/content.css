@@ -1,0 +1,23 @@
+.radar-sensor-button {
+  position: absolute;
+  top: 10px;
+  right: 56px;
+  z-index: 5;
+  padding: 4px 12px;
+  border: 0;
+  border-radius: 999px;
+  background: #ff6b2c;
+  color: #0c2730;
+  font:
+    700 12px/1.4 system-ui,
+    sans-serif;
+  cursor: pointer;
+}
+.radar-sensor-button.is-done {
+  background: #0d4a55;
+  color: #fff;
+}
+.radar-sensor-button:disabled {
+  opacity: 0.75;
+  cursor: default;
+}
