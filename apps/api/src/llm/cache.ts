@@ -59,7 +59,11 @@ export class LlmCache {
   async get(kind: LlmKind, key: string): Promise<LlmRecord | null> {
     const file = this.path(kind, key);
     if (!existsSync(file)) return null;
-    return JSON.parse(await readFile(file, 'utf8')) as LlmRecord;
+    try {
+      return JSON.parse(await readFile(file, 'utf8')) as LlmRecord;
+    } catch {
+      return null; // a corrupt recording is a miss
+    }
   }
 
   async put(kind: LlmKind, record: LlmRecord): Promise<void> {

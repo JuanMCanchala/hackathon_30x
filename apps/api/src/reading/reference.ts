@@ -43,7 +43,7 @@ export class ReferenceReader implements Reader {
     const bill = billsBySha().get(doc.sha256);
     if (!bill)
       return { reading: null, error: 'documento fuera del conjunto de referencia', meta: META };
-    return { reading: bill.truth, error: null, meta: META };
+    return { reading: structuredClone(bill.truth), error: null, meta: { ...META } };
   }
 }
 
@@ -52,6 +52,6 @@ export class ReferenceMatcher implements Matcher {
     const bill = billsByMatch().get(stableJson(matchInput(lines, contract)));
     if (!bill)
       return { matches: null, error: 'líneas fuera del conjunto de referencia', meta: META };
-    return { matches: bill.truthMatches, error: null, meta: META };
+    return { matches: structuredClone(bill.truthMatches), error: null, meta: { ...META } };
   }
 }

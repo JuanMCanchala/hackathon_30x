@@ -27,6 +27,14 @@ export class BillReader implements Reader {
   constructor(private readonly llm: CachedLlm) {}
 
   async read(doc: ReadDocument): Promise<ReadResult> {
+    // Nothing to read: never ask the model to imagine a bill.
+    if (doc.text.trim() === '') {
+      return {
+        reading: null,
+        error: 'documento sin texto legible',
+        meta: { provider: 'none', model: null, cacheHit: false, latencyMs: null },
+      };
+    }
     const { output, error, meta } = await this.llm.run({
       kind: 'read',
       version: READER_VERSION,
