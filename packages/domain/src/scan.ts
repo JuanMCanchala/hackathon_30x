@@ -1,6 +1,8 @@
 import { normalizeDestination } from './text';
 
-const KEYWORDS = /cuenta|banco|clabe|pix|llave|bre-b|\bach\b|routing|account|iban|chave/gi;
+/** "cuenta de cobro" is the Colombian name of the bill itself, not a bank account. */
+const KEYWORDS =
+  /cuenta(?!\s+de\s+cobro)|banco|clabe|pix|llave|bre-b|\bach\b|routing|account|iban|chave/gi;
 const EMAIL = /[\w.+-]+@[\w-]+(?:\.[\w-]+)+/g;
 const UUID = /\b[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\b/gi;
 const IBAN_PREFIX = /\b[a-z]{2}\d{2}/gi;
@@ -10,6 +12,25 @@ const NEAR = 60;
 const IBAN_MAX = 34;
 
 const blank = (s: string, re: RegExp) => s.replace(re, (m) => ' '.repeat(m.length));
+
+/** A currency marker right before a digit run, or a currency code right after it. */
+const CURRENCY_BEFORE = /(?:\$|\b(?:COP|MXN|BRL|USD))\s*$/i;
+const CURRENCY_AFTER = /^\s*(?:COP|MXN|BRL|USD)\b/i;
+/** "20.800.000", "12345678" or "12345678.50": an amount, not "412-873345-09" */
+const AMOUNT_SHAPE = /^(?:\d{1,3}(?:\.\d{3})+|\d+(?:\.\d{1,2})?)$/;
+
+/**
+ * An id as printed ("1.036.645.218", "34.567.891/0001-84"): its characters with optional
+ * separators between them, not glued to more digits (so "1036645218-7" is not that id).
+ */
+function printedId(id: string): RegExp | null {
+  const chars = normalizeDestination(id);
+  if (chars.length < 6) return null;
+  return new RegExp(
+    `(?<![a-z0-9]|\\d[./-])${[...chars].join('[\\s./-]?')}(?![a-z0-9]|[./-]\\d)`,
+    'gi',
+  );
+}
 
 /**
  * IBAN-like strings: 2 letters + 2 digits, then space-separated groups of up to 4 alphanumerics
@@ -46,9 +67,11 @@ function findIbans(text: string): { start: number; end: number }[] {
 
 /**
  * Normalized payout candidates. UUIDs, IBAN-like strings and 18-digit runs (CLABE) always count;
- * e-mail-like keys and other digit runs (>= 8 digits) only near a banking word.
+ * e-mail-like keys and other digit runs (>= 8 digits) only near a banking word. Amounts written
+ * with a currency marker are not candidates, nor are the `ignore` ids (tax ids printed on the
+ * bill: the vendor's own and the buyer's) wherever they appear.
  */
-export function scanPayoutMentions(text: string): string[] {
+export function scanPayoutMentions(text: string, ignore: readonly string[] = []): string[] {
   const keywords = [...text.matchAll(KEYWORDS)].map(
     (m) => [m.index, m.index + m[0].length] as const,
   );
@@ -56,6 +79,7 @@ export function scanPayoutMentions(text: string): string[] {
     keywords.some(([ks, ke]) => ks - end <= NEAR && start - ke <= NEAR);
   const found = new Set<string>();
   let rest = text;
+  for (const re of ignore.map(printedId)) if (re) rest = blank(rest, re);
   for (const m of rest.matchAll(UUID)) found.add(normalizeDestination(m[0]));
   rest = blank(rest, UUID);
   for (const { start, end } of findIbans(rest)) {
@@ -69,6 +93,13 @@ export function scanPayoutMentions(text: string): string[] {
   for (const m of rest.matchAll(DIGITS)) {
     const digits = m[0].replace(/\D/g, '');
     if (digits.length < 8) continue;
+    const end = m.index + m[0].length;
+    const amount =
+      digits.length !== 18 && // a CLABE stays a CLABE whatever precedes it
+      AMOUNT_SHAPE.test(m[0]) &&
+      (CURRENCY_BEFORE.test(rest.slice(Math.max(0, m.index - 6), m.index)) ||
+        CURRENCY_AFTER.test(rest.slice(end, end + 6)));
+    if (amount) continue;
     if (digits.length === 18 || near(m.index, m.index + m[0].length)) found.add(digits);
   }
   return [...found];

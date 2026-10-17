@@ -13,7 +13,7 @@ import {
 } from '@recibido/domain';
 import { PDFDocument, rgb, StandardFonts, type PDFFont, type PDFPage, type RGB } from 'pdf-lib';
 import type { BillSpec } from '../bills/types';
-import { COMPANY } from '../company';
+import { COMPANY, FOREIGN_CUSTOMER_RFC } from '../company';
 import { CONTRACTS } from '../contracts';
 import { VENDORS } from '../vendors';
 import { formatMoney, formatQuantity, LANG, longDate, shortDate, type Lang } from './locale';
@@ -210,8 +210,6 @@ const L = {
 } satisfies Record<Lang, unknown>;
 
 const BUYER_ADDRESS = ['1007 N Orange St, 4th Floor', 'Wilmington, DE 19801'];
-/** The generic RFC a Mexican CFDI uses for a customer abroad. */
-export const FOREIGN_CUSTOMER_RFC = 'XEXX010101000';
 
 const INK = rgb(0.13, 0.13, 0.15);
 const MUTED = rgb(0.42, 0.42, 0.46);

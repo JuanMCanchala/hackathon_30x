@@ -22,7 +22,16 @@ import {
   type Policy,
   type Vendor,
 } from '@recibido/domain';
-import { BILLS, CONTRACTS, EVIDENCE, FX, VENDORS, type BillSpec, type ScriptStep } from '../src';
+import {
+  BILLS,
+  BUYER_IDS,
+  CONTRACTS,
+  EVIDENCE,
+  FX,
+  VENDORS,
+  type BillSpec,
+  type ScriptStep,
+} from '../src';
 
 export interface ReplayOptions {
   bills?: BillSpec[];
@@ -31,6 +40,8 @@ export interface ReplayOptions {
   evidence?: EvidenceItem[];
   fx?: FxSnapshot;
   policy?: Policy;
+  /** the text read from the bill's own document; defaults to the e-mail or chat body */
+  documentText?: (spec: BillSpec) => string | null;
 }
 
 export interface ReplayBill {
@@ -148,7 +159,8 @@ export function replayScript(steps: ScriptStep[], options: ReplayOptions = {}): 
 
   function evaluate(r: Rec, now: string) {
     const s = r.spec;
-    const documentText = [s.body, ...r.messages].filter(Boolean).join('\n\n') || null;
+    const own = options.documentText ? options.documentText(s) : s.body;
+    const documentText = [own, ...r.messages].filter(Boolean).join('\n\n') || null;
     const decision = decide({
       now,
       policy,
@@ -158,6 +170,7 @@ export function replayScript(steps: ScriptStep[], options: ReplayOptions = {}): 
         reading: s.truth,
         readingError: null,
         documentText,
+        knownNonPayoutIds: BUYER_IDS,
         receivedAt: r.receivedAt,
         channel: s.channel,
         chain: r.chain,

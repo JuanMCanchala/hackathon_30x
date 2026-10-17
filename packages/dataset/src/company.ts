@@ -15,3 +15,9 @@ export const COMPANY = {
 
 /** Simulated time when the demo starts (September, before the first bill). */
 export const DEMO_START = '2026-09-01T08:00:00-05:00';
+
+/** The generic RFC a Mexican CFDI uses for a customer abroad, printed on Mexican facturas. */
+export const FOREIGN_CUSTOMER_RFC = 'XEXX010101000';
+
+/** Altamar's ids as printed on its vendors' bills: never a payout destination. */
+export const BUYER_IDS = [COMPANY.taxId, FOREIGN_CUSTOMER_RFC];

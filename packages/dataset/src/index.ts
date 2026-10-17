@@ -6,7 +6,7 @@ import { SEPTEMBER_BILLS } from './bills/septiembre';
 import type { BillSpec } from './bills/types';
 
 export * from './bills/types';
-export { COMPANY, DEMO_START } from './company';
+export { BUYER_IDS, COMPANY, DEMO_START } from './company';
 export { CONTRACTS } from './contracts';
 export { EVIDENCE, SCRIPTED_EVIDENCE } from './evidence';
 export { FX } from './fx';

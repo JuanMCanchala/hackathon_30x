@@ -37,6 +37,39 @@ describe('vendor.payout scans every text of the bill', () => {
   });
 });
 
+describe('vendor.payout ignores the tax ids printed on every bill', () => {
+  const signed = 'CUENTA DE COBRO. Llave Bre-B 3001234567. Firma: C.C. 1.020.304.050';
+
+  it("passes the vendor's own id next to a banking word", () => {
+    const d = decide(
+      context(hourlyBill('120', { payoutDetails: null }), {
+        evidence: timeEntries(120),
+        documentText: signed,
+      }),
+    );
+    expect(check(d, 'vendor.payout').status).toBe('pass');
+  });
+
+  it("passes the buyer's ids when the context lists them", () => {
+    const text = 'Bill to EIN 88-4127730 · ACH routing on file';
+    const base = context(hourlyBill('120'), { evidence: timeEntries(120), documentText: text });
+    expect(check(decide(base), 'vendor.payout').status).toBe('fail');
+    const ctx = { ...base, bill: { ...base.bill, knownNonPayoutIds: ['88-4127730'] } };
+    expect(check(decide(ctx), 'vendor.payout').status).toBe('pass');
+  });
+
+  it('still escalates a different account next to Banco', () => {
+    const d = decide(
+      context(hourlyBill('120'), {
+        evidence: timeEntries(120),
+        documentText: `${signed}. Banco de Bogotá 4512339871`,
+      }),
+    );
+    expect(d.outcome).toBe('ESCALATE');
+    expect(check(d, 'vendor.payout').status).toBe('fail');
+  });
+});
+
 describe('a revision billed below what was already paid', () => {
   it('escalates through evidence.coverage', () => {
     const d = decide(

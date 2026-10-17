@@ -259,7 +259,9 @@ const vendorPayout: Check = ({ reading, vendor, ctx }) => {
     'Confirmar con el proveedor por un canal conocido. Los datos de pago solo cambian en el registro de proveedores, nunca desde una cuenta o un mensaje.';
   if (texts.some(mentionsPayoutChange))
     return fail('La cuenta o el mensaje pide cambiar los datos de pago.', remedy);
-  const candidates = [...new Set(texts.flatMap(scanPayoutMentions))];
+  // tax ids printed on every bill (the vendor's own, the buyer's) are not destinations
+  const ids = [vendor!.taxId, ...(ctx.bill.knownNonPayoutIds ?? [])];
+  const candidates = [...new Set(texts.flatMap((t) => scanPayoutMentions(t, ids)))];
   const other = candidates.filter((c) => !sameDestination(c, registered.destination));
   if (other.length)
     return fail(

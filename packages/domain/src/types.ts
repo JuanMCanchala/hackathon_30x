@@ -164,6 +164,11 @@ export interface DecisionContext {
     readingError: string | null;
     /** text we could read ourselves (PDF text layer, e-mail body, chat, vendor message) */
     documentText: string | null;
+    /**
+     * Ids printed on bills that are never payout destinations (the buyer's own tax ids), so
+     * vendor.payout does not mistake them for an account. The vendor's tax id is always ignored.
+     */
+    knownNonPayoutIds?: string[];
     receivedAt: string;
     channel: 'pdf' | 'email' | 'chat' | 'portal';
     chain: string[]; // this bill + bills it supersedes

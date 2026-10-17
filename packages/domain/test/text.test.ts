@@ -126,3 +126,42 @@ describe('IBAN bounds and date ranges', () => {
     ]);
   });
 });
+
+describe('payout scanner precision on real bills', () => {
+  it('"cuenta de cobro" is a document title, not a bank account', () => {
+    expect(scanPayoutMentions('CUENTA DE COBRO No. DO-2026-09 daniela@ospinagaviria.dev')).toEqual(
+      [],
+    );
+    expect(scanPayoutMentions('Cuenta de cobro 12345678')).toEqual([]);
+    expect(scanPayoutMentions('Cuenta de ahorros 12345678')).toEqual(['12345678']);
+    expect(scanPayoutMentions('Número de cuenta 12345678')).toEqual(['12345678']);
+    expect(scanPayoutMentions('Cuenta corriente 12345678')).toEqual(['12345678']);
+  });
+
+  it('ignores amounts written with a currency marker', () => {
+    expect(scanPayoutMentions('Cuenta de ahorros: TOTAL $ 20.800.000')).toEqual([]);
+    expect(scanPayoutMentions('banco R$ 12.345.678,00')).toEqual([]);
+    expect(scanPayoutMentions('account US$ 12345678')).toEqual([]);
+    expect(scanPayoutMentions('Llave Bre-B, total 20.800.000 COP')).toEqual([]);
+    expect(scanPayoutMentions('CLABE, total MXN 12345678.50')).toEqual([]);
+  });
+
+  it('still reads a bank-labelled number that looks like an amount', () => {
+    expect(scanPayoutMentions('Cuenta de ahorros 4.512.339.871')).toEqual(['4512339871']);
+    // only an amount-shaped run right after the marker is an amount
+    expect(scanPayoutMentions('Cuenta $ 412-873345-09')).toEqual(['41287334509']);
+    expect(scanPayoutMentions('pagar a $ 012180015678901230')).toEqual(['012180015678901230']);
+  });
+
+  it('ignores the ids it is told are not payout destinations', () => {
+    const ids = ['1.036.645.218', '34.567.891/0001-84', '88-4127730'];
+    expect(
+      scanPayoutMentions('Llave Bre-B 315 789 4512 · Daniela, C.C. 1.036.645.218', ids),
+    ).toEqual(['3157894512']);
+    expect(scanPayoutMentions('Chave Pix: CNPJ 34.567.891/0001-84', ids)).toEqual([]);
+    expect(scanPayoutMentions('Bill to EIN 88-4127730, ACH', ids)).toEqual([]);
+    // an account that merely starts with an ignored id is still an account
+    expect(scanPayoutMentions('Cuenta de ahorros 1036645218-7', ids)).toEqual(['10366452187']);
+    expect(scanPayoutMentions('Cuenta de ahorros 9876543210', ids)).toEqual(['9876543210']);
+  });
+});
