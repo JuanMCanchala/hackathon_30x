@@ -113,4 +113,22 @@ describe('reconcile', () => {
     const r = reconcile([pay(), pay({ id: 'p2', reference: 'RCB-0002' })], [line()]);
     expect(r.unmatchedPayments).toEqual(['p2']);
   });
+
+  it('matches a reference only as a whole token', () => {
+    const r = reconcile(
+      [pay()],
+      [line({ kind: 'fee', description: 'WIRE FEE RCB-00011', amountUsdMinor: -50 })],
+    );
+    expect(r.matches[0]).toMatchObject({ paymentId: null, status: 'unmatched' });
+  });
+
+  it('ignores an empty reference', () => {
+    const r = reconcile([pay({ reference: '' })], [line({ kind: 'fee', amountUsdMinor: -50 })]);
+    expect(r.matches[0]).toMatchObject({ paymentId: null, status: 'unmatched' });
+  });
+
+  it('writes the FX difference as money', () => {
+    const r = reconcile([pay()], [line({ amountUsdMinor: -100_420 })]);
+    expect(r.matches[0]?.note).toContain('USD 4,20');
+  });
 });

@@ -97,7 +97,9 @@ export function planPayment(input: {
   let discountMinor = 0;
   let reason: string;
   const early = contract.earlyPayment;
-  const deadline = early ? addDays(input.issueDate, early.withinDays) : null;
+  // the discount window may outlast the due date; we never pay after the due date for it
+  const window = early ? addDays(input.issueDate, early.withinDays) : null;
+  const deadline = window && window > due ? due : window;
   if (early && deadline && deadline >= today) {
     const discountUsd = Number((BigInt(usdFull) * BigInt(early.discountBps)) / 10_000n);
     const yieldLost = yieldOn(usdFull, a.annualYieldBps, daysBetween(deadline, due));

@@ -21,8 +21,14 @@ import type {
   Vendor,
 } from './types';
 
-const DAY = /^\d{4}-\d{2}-\d{2}$/;
-const isDay = (s: string | null | undefined): s is string => !!s && DAY.test(s.slice(0, 10));
+const DAY = /^(\d{4})-(\d{2})-(\d{2})$/;
+/** A real calendar day (rejects 2026-13-45 and 2026-02-30). */
+const isDay = (s: string | null | undefined): s is string => {
+  const m = s ? DAY.exec(s.slice(0, 10)) : null;
+  if (!m) return false;
+  const d = new Date(Date.UTC(Number(m[1]), Number(m[2]) - 1, Number(m[3])));
+  return d.toISOString().slice(0, 10) === m[0];
+};
 const day = (s: string) => s.slice(0, 10);
 
 /** The vendor whose normalized tax id equals the bill's; null when absent or ambiguous. */
@@ -141,7 +147,8 @@ const CLAIMING = ['PAID', 'PART_PAID', 'AWAITING_VENDOR', 'APPROVED', 'ESCALATED
 const pct = (x: number) => `${Math.round(x * 100)} %`;
 const QTY = /^(\d+)(?:\.(\d{1,2}))?$/;
 
-type Check = (f: Facts) => Verdict;
+/** `earlier` holds the results of the checks that ran before this one. */
+type Check = (f: Facts, earlier: CheckResult[]) => Verdict;
 
 const readingAvailable: Check = ({ reading, ctx }) =>
   reading
@@ -243,7 +250,11 @@ const vendorRegistered: Check = ({ reading, vendor }) =>
 
 const vendorPayout: Check = ({ reading, vendor, ctx }) => {
   const registered = vendor!.payout;
-  const texts = [reading!.payoutDetails, ctx.bill.documentText].filter((t): t is string => !!t);
+  const texts = [
+    reading!.payoutDetails,
+    ctx.bill.documentText,
+    ...reading!.lines.map((l) => l.description),
+  ].filter((t): t is string => !!t);
   const remedy =
     'Confirmar con el proveedor por un canal conocido. Los datos de pago solo cambian en el registro de proveedores, nunca desde una cuenta o un mensaje.';
   if (texts.some(mentionsPayoutChange))
@@ -460,8 +471,21 @@ const policyLimit: Check = (f) => {
   );
 };
 
-const evidenceCoverage: Check = ({ billedMinor, evidencedMinor, lines, contract, currency }) => {
+const evidenceCoverage: Check = ({
+  ctx,
+  billedMinor,
+  evidencedMinor,
+  lines,
+  contract,
+  currency,
+}) => {
   const money = (m: number) => formatMoney(m, currency);
+  if (ctx.case.paidMinor > billedMinor)
+    return fail(
+      `Ya se pagó más de lo que ahora se cobra: pagamos ${money(ctx.case.paidMinor)} y la cuenta cobra ${money(billedMinor)}.`,
+      'Que una persona revise el caso y gestione la devolución o una nota crédito.',
+      { onFail: 'ESCALATE' },
+    );
   if (evidencedMinor === billedMinor && billedMinor > 0)
     return pass(
       `Todo lo facturado (${money(billedMinor)}) tiene evidencia o no la exige el contrato.`,
@@ -491,11 +515,12 @@ const evidenceCoverage: Check = ({ billedMinor, evidencedMinor, lines, contract,
   });
 };
 
-const vendorDeadline: Check = ({ ctx, contract, billedMinor, evidencedMinor }) => {
+const vendorDeadline: Check = ({ ctx, contract, billedMinor, evidencedMinor }, earlier) => {
   const { askedAt } = ctx.case;
   if (askedAt === null) return pass('No hay un pedido pendiente al proveedor.');
-  if (evidencedMinor === billedMinor && billedMinor > 0)
-    return pass('El proveedor ya completó la evidencia.');
+  const stillAsking = earlier.some((c) => c.status === 'fail' && c.onFail === 'ASK_VENDOR');
+  if (evidencedMinor === billedMinor && billedMinor > 0 && !stillAsking)
+    return pass('El proveedor ya resolvió lo pendiente.');
   const limit = contract!.vendorResponseDays;
   let days: number;
   try {
@@ -540,11 +565,12 @@ const CHECKS: [CheckId, Check][] = [
  */
 export function runChecks(facts: Facts): CheckResult[] {
   let blocked: string | null = null;
-  return CHECKS.map(([id, check]) => {
-    const v = blocked ? notRun(blocked) : check(facts);
+  const results: CheckResult[] = [];
+  for (const [id, check] of CHECKS) {
+    const v: Verdict = blocked ? notRun(blocked) : check(facts, results);
     if (!blocked && v.status !== 'pass' && v.blocks) blocked = v.blocks;
     const meta = META[id];
-    return {
+    results.push({
       id,
       stage: meta.stage,
       status: v.status,
@@ -552,6 +578,7 @@ export function runChecks(facts: Facts): CheckResult[] {
       label: meta.label,
       detail: v.detail,
       remedy: v.remedy,
-    };
-  });
+    });
+  }
+  return results;
 }

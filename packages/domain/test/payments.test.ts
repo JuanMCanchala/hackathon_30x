@@ -94,4 +94,14 @@ describe('payment planner', () => {
     expect(plan.feesSavedUsdMinor).toBe(25_000);
     expect(plan.yieldKeptUsdMinor).toBeGreaterThan(0);
   });
+
+  it('never pays after the due date when the discount window ends later', () => {
+    const plan = planPayment({
+      ...base,
+      dueDate: '2026-10-08',
+      contract: { ...contract, earlyPayment: { discountBps: 200, withinDays: 20 } },
+    });
+    expect(plan.payOn).toBe('2026-10-08');
+    expect(plan.discountMinor).toBe(83_000_000);
+  });
 });

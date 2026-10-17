@@ -1,4 +1,5 @@
 import { daysBetween } from './dates';
+import { formatMoney } from './money';
 import type { Payment } from './payments';
 
 export interface BankLine {
@@ -31,8 +32,16 @@ function debitMatch(line: BankLine, p: Payment, note: string): ReconMatch {
     note:
       fxDiffUsdMinor === 0
         ? note
-        : `${note} Diferencia cambiaria de ${fxDiffUsdMinor} centavos de USD.`,
+        : `${note} Diferencia cambiaria de ${formatMoney(fxDiffUsdMinor, 'USD')}.`,
   };
+}
+
+/** The reference appears as a whole token ("RCB-0001" is not in "RCB-00011"); empty never matches. */
+function carriesReference(description: string, reference: string): boolean {
+  const ref = reference.trim();
+  if (!ref) return false;
+  const escaped = ref.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return new RegExp(`(?<![A-Za-z0-9])${escaped}(?![A-Za-z0-9])`, 'i').test(description);
 }
 
 export function reconcile(
@@ -44,7 +53,7 @@ export function reconcile(
 
   // Pass 1: lines that carry a payment reference.
   for (const line of lines) {
-    const p = payments.find((x) => line.description.includes(x.reference));
+    const p = payments.find((x) => carriesReference(line.description, x.reference));
     if (!p) continue;
     if (line.kind === 'fee') {
       results.set(line.id, {
