@@ -39,9 +39,8 @@ reales grabadas de DeepSeek V4.1 Flash):
 
 ## Pruébalo
 
-<!-- DEMO_URL -->Demo en vivo: (enlace en preparación)<!-- /DEMO_URL -->. En la demo, abre el menú
-
-**Recorrido**. No hace falta ninguna clave: las lecturas del modelo están grabadas.
+Demo en vivo: <!-- DEMO_URL -->[recibido.vercel.app](https://recibido.vercel.app)<!-- /DEMO_URL -->.
+En la demo, abre el menú **Recorrido**. No hace falta ninguna clave: las lecturas del modelo están grabadas.
 
 **En tu máquina** (Node ≥ 22.12 y pnpm):
 

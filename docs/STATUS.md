@@ -73,6 +73,8 @@ The SDD ledger with every review round and ruling is local in
   The demo works without keys (recorded readings); keys are only needed to read new uploads.
 - Create the public GitHub demo repo with an open PR and set `GITHUB_REPO`, `GITHUB_DEMO_PR`,
   `GITHUB_WEBHOOK_SECRET` for the live merge moment (otherwise the merge is simulated).
-- Deploy (Railway API + Postgres ≈ USD 20/month; web on Vercel Hobby) and record the video.
+- Record the video. The demo is live at <https://recibido.vercel.app> (one Vercel project, state in
+  memory, [DEPLOY.md](DEPLOY.md#as-deployed)); a durable deploy (Railway API + Postgres ≈ USD
+  20/month) is still yours to do.
 - Remove the design kit skills copied to `~/.claude/skills/{impeccable,design-taste-frontend,emil-design-eng}`
   (marked `.de-diseno-web-kit`) when the UI work is finished.

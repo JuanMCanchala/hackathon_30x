@@ -6,8 +6,7 @@ DeepSeek V4.1 Flash, para que funcione sin claves).
 
 ## Antes de grabar
 
-1. Abre la demo en vivo (<!-- DEMO_URL -->Demo en vivo: (enlace en preparación)<!-- /DEMO_URL -->) o
-   levántala en local con `pnpm dev` y abre `http://localhost:3000`.
+1. Abre la <!-- DEMO_URL -->[demo en vivo](https://recibido.vercel.app)<!-- /DEMO_URL --> o levántala en local con `pnpm dev` y abre `http://localhost:3000`.
 2. Ve a **Recorrido** y pulsa **Reiniciar la demo**: Altamar Labs vuelve al 1 de octubre de 2026,
    con septiembre ya vivido por los servicios reales.
 3. Ventana a 1440 px; ten abierta una segunda pestaña en **Cuentas**.

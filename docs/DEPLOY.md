@@ -2,7 +2,8 @@
 
 Recibido is two processes: the API (`apps/api`, Node + Hono) and the web (`apps/web`, Next.js),
 plus a database. The web proxies `/api/*`, `/openapi.json` and `/docs` to `API_URL`, so the browser
-only ever talks to the web's origin.
+only ever talks to the web's origin. A production build without `API_URL` serves the API
+in-process instead (the hosted demo, below).
 
 ## Configuration
 
@@ -28,7 +29,7 @@ need keys with `wallenv run -- <cmd>`.
 | `GITHUB_DEMO_PR`, `GITHUB_WEBHOOK_SECRET`      | —                                 | The PR the M3 milestone waits on; the webhook's HMAC secret                                     |
 | `GITHUB_POLL_MS`                               | `5000`                            | Polling interval                                                                                |
 | `PUBLIC_WEB_URL`                               | `http://localhost:3000`           | The only CORS origin allowed                                                                    |
-| `API_URL`                                      | `http://localhost:4000`           | Where the web proxies the API (resolved at web build time)                                      |
+| `API_URL`                                      | `http://localhost:4000`           | Where the web proxies the API (web build time); unset in `next build`: the API runs in-process  |
 
 ## Local
 
@@ -86,12 +87,45 @@ puts it back at October 1 at any time. It needs no keys (recorded readings). Thi
 setup, not a production one: Docker Compose or Railway with PostgreSQL (above) remain the
 production path.
 
+How it is built:
+
+- [`apps/web/app/api/[...path]/route.ts`](../apps/web/app/api/[...path]/route.ts) (plus
+  `app/docs` and `app/openapi.json`) hand each request to
+  [`createEmbeddedApi`](../apps/api/src/embedded.ts): the same Hono app, container and demo
+  service as the API server, on in-memory PGlite, created once per instance and reset to
+  October 1 before the first request is answered. Node runtime, `maxDuration` 60 s,
+  `force-dynamic`; `after()` keeps the instance alive while the October bills arrive.
+- Without `API_URL` at build time, `next.config.ts` drops the rewrites and traces the migrations,
+  `packages/dataset/{files,recordings}` and PGlite's WASM into these functions
+  (`outputFileTracingIncludes`; PGlite is a `serverExternalPackages` entry). `MIGRATIONS_DIR`
+  and `DATASET_DIR` point the API at them. With `API_URL` (Docker, `pnpm dev`) the rewrites run
+  before these route handlers, so nothing changes there.
+- Vercel may answer one visitor's requests from different instances. The visitor carries the
+  tour in a cookie (`recibido-tour`: the tour actions since their last reset), and an instance
+  at another step replays it first: a reset and each action, the arrival without pauses (a few
+  seconds, once per instance). Ids are sequential from each reset, so the replay assigns the
+  same ids and open links keep working.
+- Project settings ([`apps/web/vercel.json`](../apps/web/vercel.json)): root directory
+  `apps/web`, Node 24.x, install `pnpm install --frozen-lockfile` and build
+  `pnpm --filter @recibido/web build` with the repository's pnpm (12.9.1, through `npx`).
+
 ### As deployed
 
 <!-- deploy:start -->
 
-_To be completed when the demo is deployed: the web and API URLs, where each runs, the variables
-set (names only) and the date._
+- **URL:** <https://recibido.vercel.app> (web, API at `/api/v1`, reference at `/docs`), deployed
+  2026-10-17 from `feat/recibido` with `vercel deploy --prod` (no Git integration).
+- **Where:** one Vercel project `recibido` (Hobby, region `iad1`, Fluid compute), public: no
+  deployment protection.
+- **Variables (production):** `DEMO_MODE`, `DEMO_PACE_MS`, `READER`, `PUBLIC_WEB_URL`. No keys:
+  every reading comes from the recordings, so an upload the recordings do not cover escalates
+  as unreadable.
+- **Limits:** state is per instance and in memory. A cold start takes about 2 s plus Vercel's own
+  start (up to about 10 s the first time); an instance that idles is recycled and comes back at
+  October 1 (or at the visitor's tour step, from the cookie). Uploads, a person's decisions and
+  portal replies outside the tour live only in the instance that received them. Visitors on
+  different tour steps who share an instance make it replay on each switch. No GitHub live
+  merge (simulated); no background polling.
 
 <!-- deploy:end -->
 
