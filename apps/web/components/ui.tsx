@@ -59,3 +59,37 @@ export function PageHeader({
 export function Mono({ children, className }: { children: ReactNode; className?: string }) {
   return <span className={clsx('t-mono', className)}>{children}</span>;
 }
+
+/**
+ * A file picker in Spanish (the native input's button follows the browser's language). The input
+ * stays in the tab order, visually hidden; the label shows the focus ring.
+ */
+export function FileField({
+  label,
+  file,
+  onChange,
+}: {
+  label: string;
+  file: File | null;
+  onChange: (file: File | null) => void;
+}) {
+  return (
+    <div className="grid gap-1.5 text-[0.875rem] font-[650]">
+      <span>{label}</span>
+      <label className="flex cursor-pointer flex-wrap items-center gap-3 rounded-[6px] border border-dashed border-rule-strong bg-paper px-3 py-3 font-[450] focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-stamp hover:border-ink">
+        <input
+          type="file"
+          accept=".pdf,.eml,.txt,application/pdf,message/rfc822,text/plain"
+          onChange={(e) => onChange(e.target.files?.[0] ?? null)}
+          className="sr-only"
+        />
+        <span className="rounded-[6px] bg-ink px-3 py-1.5 font-[650] text-paper">
+          Elegir archivo
+        </span>
+        <span className={clsx('min-w-0 truncate', file ? 'text-ink' : 'text-ink-3')}>
+          {file ? file.name : 'Ningún archivo elegido'}
+        </span>
+      </label>
+    </div>
+  );
+}
