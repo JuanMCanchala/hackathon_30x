@@ -252,7 +252,6 @@ function Slides({ slides }: { slides: NonNullable<NonNullable<WatchHit['capture'
             src={s.image}
             alt={s.text ? `Lámina ${s.n}: ${s.text}` : `Lámina ${s.n}`}
             className="aspect-[4/5] w-40 rounded-[10px] bg-fill object-cover"
-            loading="lazy"
           />
           {s.es && <p className="line-clamp-5 text-[0.82rem] leading-snug text-ink">{s.es}</p>}
         </li>
@@ -396,7 +395,7 @@ function HitRow({
         </ul>
         <Button
           size="sm"
-          variant={hit.adaptation ? 'secondary' : 'primary'}
+          variant="secondary"
           loading={busy}
           onClick={adapt}
           icon={<PenLine className="size-4" aria-hidden />}
@@ -474,7 +473,7 @@ function WatchView({ id, onStopped }: { id: string; onStopped: () => void }) {
             ? 'Buscando ahora en YouTube, Bluesky, Hacker News e Instagram. Tarda uno o dos minutos.'
             : `Busca cada ${watch.everyMinutes === 60 ? 'hora' : `${watch.everyMinutes} minutos`} en inglés y portugués.${
                 watch.lastRunAt ? ` La última búsqueda fue ${ago(watch.lastRunAt)}` : ''
-              }${watch.nextRunAt ? `; la próxima, a las ${fmtTime.format(new Date(watch.nextRunAt))}.` : '.'}`}
+              }${watch.nextRunAt ? `; la próxima, a las ${fmtTime.format(new Date(watch.nextRunAt)).replace(/\.$/, '')}.` : '.'}`}
         </p>
         <dl className="grid gap-1 text-[0.86rem] text-ink-3 sm:grid-cols-2">
           {watch.langs.map((l) => (
@@ -506,7 +505,7 @@ function WatchView({ id, onStopped }: { id: string; onStopped: () => void }) {
           )}
         </section>
 
-        <aside className="sheet grid gap-4 p-5 lg:sticky lg:top-20">
+        <aside className="sheet order-first grid gap-4 p-5 lg:sticky lg:top-20 lg:order-none">
           <div>
             <h3 className="t-h3 text-ink">La última búsqueda</h3>
             <p className="mt-1 text-[0.88rem] text-ink-2">
