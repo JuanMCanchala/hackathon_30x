@@ -92,7 +92,7 @@ curl -H 'content-type: application/json' -H 'x-mandato-user: usr_laura' \
 | GET    | `/api/v1/rules`          | The catalogue of the 23 rules the engine evaluates ([RULES.md](RULES.md)) |
 | GET    | `/api/v1/policy`         | The policy in force and its versions                                      |
 | POST   | `/api/v1/policy/preview` | What-if: replays the whole history under proposed terms                   |
-| POST   | `/api/v1/policy/compile` | Turns a Spanish sentence into a validated policy change (needs Claude)    |
+| POST   | `/api/v1/policy/compile` | Turns a Spanish sentence into a validated policy change (needs a model)   |
 | PUT    | `/api/v1/policy`         | Saves a new policy version (signers only)                                 |
 
 ### Oversight

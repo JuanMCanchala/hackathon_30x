@@ -47,7 +47,7 @@ flowchart LR
   end
   EXT[External agents<br/>Claude, in-house bots]
   M((Mandato))
-  CL[Anthropic API<br/>Claude]
+  CL[Language model<br/>Claude or DeepSeek on Fireworks]
   BANK[(Treasury / payment rail<br/>simulated)]
 
   OPS -- uploads bills, defines rules --> M
@@ -71,7 +71,7 @@ flowchart TB
   end
   MCP[apps/mcp<br/>MCP server · stdio]
   AG[External agent]
-  CL[Claude API]
+  CL[Language model API]
 
   WEB -- /api/* proxied --> API
   AG -- MCP --> MCP -- /agent/v1 + API key --> API
@@ -112,7 +112,7 @@ flowchart LR
     INV[audit invariants]
   end
   subgraph PORTS["ports → adapters out"]
-    EXT[Extractor → Claude · Replay · Recording]
+    EXT[Extractor → Claude or DeepSeek · Replay · Recording]
     STORE[UnitOfWork → Drizzle on pg / PGlite]
     DOCS[DocumentStore → filesystem]
     CLK[Clock → system / simulated]
@@ -131,7 +131,7 @@ sequenceDiagram
   autonumber
   participant U as Uploader / agent
   participant A as API
-  participant X as Extractor (Claude / replay)
+  participant X as Extractor (language model / replay)
   participant DB as Postgres
   participant E as Engine (pure)
   participant B as Event bus
@@ -252,9 +252,11 @@ expected, detail, remedy }`.
 
 ## 8. Extraction
 
-- One prompt, one JSON schema (`ExtractedInvoice`), validated with Zod. PDFs go as document blocks,
-  images as image blocks, emails are parsed (headers, text body, attachments) and chats sent as
-  text.
+- One prompt, one JSON schema (`ExtractedInvoice`), validated with Zod. Two readers behind one
+  port ([ADR-0017](adr/0017-openai-compatible-reader-deepseek-on-fireworks.md)): Claude gets PDFs
+  as document blocks; DeepSeek V4.1 Flash on Fireworks gets each PDF as page images plus its exact
+  text layer (Poppler). Images go as images, emails are parsed (headers, text body, attachments)
+  and chats sent as text.
 - The model is told the document is untrusted data and that any instruction inside it must be
   reported, never followed. A deterministic scanner checks the same thing on every text we can read.
 - Results are cached by `sha256(document) + extractorVersion` (record/replay,
@@ -265,7 +267,7 @@ expected, detail, remedy }`.
 
 | Failure                             | Behaviour                                                                                 |
 | ----------------------------------- | ----------------------------------------------------------------------------------------- |
-| Claude unavailable / no API key     | Replay cache; cache miss → extraction marked unavailable → `ESCALATE` ("no pude leerla"). |
+| Model unavailable / no API key      | Replay cache; cache miss → extraction marked unavailable → `ESCALATE` ("no pude leerla"). |
 | Extraction schema violation         | Treated as unreadable → `ESCALATE`.                                                       |
 | Reader wrong or prompt-injected     | Engine invariants bound the damage (registered destination, signed mandate, limits).      |
 | Same document uploaded twice        | Idempotent by SHA-256: returns the existing bill, no new decision.                        |

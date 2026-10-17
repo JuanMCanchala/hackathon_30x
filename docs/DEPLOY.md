@@ -18,17 +18,23 @@ pnpm dev                     # API on :4000, web on :3000
 - In demo mode the API seeds Andes Labs on first start (31 July 2026). The guided tour runs
   August and September; the attack lab and the live files use today's date.
 - **Choose the reader** (`READER` in `.env`):
-  - `auto` (default): Claude's recorded extractions are replayed, and with `ANTHROPIC_API_KEY`
-    any other document is read by Claude live. Without a key and without recordings, a document
-    nobody can read is escalated as unreadable — deny-by-default.
+  - `auto` (default): the dataset's recorded readings (DeepSeek V4.1 Flash, committed) are
+    replayed, so the demo needs no key. With a key, any other document is read live by the
+    language model. Without a key, a document with no recording is escalated as unreadable —
+    deny-by-default.
   - `reference`: the dataset's ground truth reads the demo documents. For development and
-    evaluation without a key; the interface labels it as such.
+    evaluation; the interface labels it as such.
+- **Choose the language model** with one key in `.env` (ADR-0017): `FIREWORKS_API_KEY` reads
+  with DeepSeek V4.1 Flash on Fireworks (`FIREWORKS_MODEL` changes it), `ANTHROPIC_API_KEY` with
+  Claude. With both, `LLM_PROVIDER` decides (`auto` prefers Anthropic). The same model compiles
+  rules written in Spanish.
+- PDFs are rendered with Poppler for OpenAI-compatible readers: install `poppler-utils`
+  (`pdftotext`, `pdftoppm`); the container image already has it.
 
-To record Claude's readings of the 48 dataset documents once (about 48 requests to
-`claude-opus-5-5`) and commit them, so every later run replays them without a key:
+To record the model's readings of the 48 dataset documents (one request each) and commit them, so
+every later run replays them without a key:
 
 ```bash
-# ANTHROPIC_API_KEY set in .env
 pnpm extractions:record          # only the missing ones; --force re-records all
 pnpm eval --require-replay       # end-to-end run on the recorded readings
 ```
@@ -36,8 +42,9 @@ pnpm eval --require-replay       # end-to-end run on the recorded readings
 ## 2. Docker Compose (PostgreSQL)
 
 ```bash
-docker compose up --build                                   # http://localhost:3000
-ANTHROPIC_API_KEY=… READER=auto docker compose up --build   # Claude reads every document
+docker compose up --build                         # http://localhost:3000, recorded readings
+FIREWORKS_API_KEY=… docker compose up --build     # DeepSeek V4.1 Flash reads new uploads
+ANTHROPIC_API_KEY=… docker compose up --build     # or Claude
 ```
 
 Compose runs PostgreSQL 17, the API (migrations run on start) and the web app. `WEB_PORT`,
@@ -47,11 +54,11 @@ Compose runs PostgreSQL 17, the API (migrations run on start) and the web app. `
 
 Three services from this repository:
 
-| Service  | Source                                    | Variables                                                                                                                                                                              |
-| -------- | ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Postgres | Railway's PostgreSQL                      | —                                                                                                                                                                                      |
-| api      | `apps/api/Dockerfile`, root directory `/` | `DATABASE_URL` (reference to Postgres), `PORT=4000`, `DEMO_MODE=true`, `APPROVAL_LINK_SECRET` (long random), `PUBLIC_WEB_URL` (the web's public URL), `ANTHROPIC_API_KEY` and `READER` |
-| web      | `apps/web/Dockerfile`, root directory `/` | `API_URL` = the API's private address, e.g. `http://api.railway.internal:4000`                                                                                                         |
+| Service  | Source                                    | Variables                                                                                                                                                                                        |
+| -------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Postgres | Railway's PostgreSQL                      | —                                                                                                                                                                                                |
+| api      | `apps/api/Dockerfile`, root directory `/` | `DATABASE_URL` (reference to Postgres), `PORT=4000`, `DEMO_MODE=true`, `APPROVAL_LINK_SECRET` (long random), `PUBLIC_WEB_URL` (the web's public URL), `FIREWORKS_API_KEY` or `ANTHROPIC_API_KEY` |
+| web      | `apps/web/Dockerfile`, root directory `/` | `API_URL` = the API's private address, e.g. `http://api.railway.internal:4000`                                                                                                                   |
 
 Things that bite:
 

@@ -18,7 +18,7 @@ autonomía sube mes a mes mientras los pagos indebidos se quedan en cero.
 ## Results
 
 Measured by `pnpm eval`, which runs the real services over a labelled set of bills and gates CI
-([EVALUATION.md](docs/EVALUATION.md)):
+([EVALUATION.md](docs/EVALUATION.md)), here with the real readings of DeepSeek V4.1 Flash:
 
 | Fictitious company Andes Labs Inc. |    August 2026 |  September 2026 |
 | ---------------------------------- | -------------: | --------------: |
@@ -33,12 +33,15 @@ Measured by `pnpm eval`, which runs the real services over a labelled set of bil
   scope…), and the only attack bill paid is the valid half of a split charge.
 - **The independent auditor finds 0 violations** and an intact hash chain over 22 payments and 49
   decisions.
+- **Reading is not the weak link**: DeepSeek V4.1 Flash read 480 of 480 critical fields right
+  across PDFs, phone photos, e-mails and WhatsApp chats, so the end-to-end run matches the perfect
+  reader decision for decision.
 
 ## How it decides
 
 ```mermaid
 flowchart LR
-  bill["Bill<br/>PDF · photo · e-mail · WhatsApp · agent request"] --> reader["Reader<br/>Claude structured outputs<br/>+ deterministic injection scanner"]
+  bill["Bill<br/>PDF · photo · e-mail · WhatsApp · agent request"] --> reader["Reader<br/>language model, JSON-schema output<br/>+ deterministic injection scanner"]
   reader -- "facts with confidence" --> engine{"Policy engine<br/>23 rules, pure code"}
   registry[("Registry<br/>payees · signed mandates · policy")] --> engine
   engine -- PAY --> paid["Paid to the<br/>registered destination"]
@@ -64,9 +67,9 @@ person if anything is off ([RULES.md](docs/RULES.md), [ADR-0002](docs/adr/0002-d
 2. **A receipt for every decision.** The outcome stamp, the reason in plain Spanish, what would
    have to be true to pay it (the counterfactual), all 23 checks, what the reader extracted with
    its confidence, the original document and its ledger entries.
-3. **What-if before changing a rule.** Edit the policy, or write it in Spanish and let Claude
-   compile it, and Mandato replays the whole history to show which bills would have been decided
-   differently — before anything is saved.
+3. **What-if before changing a rule.** Edit the policy, or write it in Spanish and let the
+   language model compile it, and Mandato replays the whole history to show which bills would
+   have been decided differently — before anything is saved.
 4. **An attack lab and an auditor that does not trust the engine.** Eleven adversarial bills on
    demand, each with the rule that must catch it, and an auditor written apart from the engine
    that re-checks every payment against nine invariants and the ledger's hash chain.
@@ -109,7 +112,7 @@ person if anything is off ([RULES.md](docs/RULES.md), [ADR-0002](docs/adr/0002-d
 
 ```bash
 pnpm install
-cp env.example .env      # set READER=reference to run the demo without an Anthropic key
+cp env.example .env      # optional: a FIREWORKS_API_KEY or ANTHROPIC_API_KEY reads new uploads
 pnpm dev                 # web on http://localhost:3000, API on :4000 (docs at /docs)
 ```
 
@@ -117,20 +120,20 @@ Or with PostgreSQL in containers: `docker compose up --build`. Then open **Recor
 process August and September. Details, including Railway: [DEPLOY.md](docs/DEPLOY.md). The demo
 script for the jury, in Spanish: [DEMO.md](docs/DEMO.md).
 
-**Reading documents.** With `ANTHROPIC_API_KEY`, Claude (`claude-opus-5-5`, structured outputs)
-reads every document, and `pnpm extractions:record` stores its readings so later runs replay them
-without a key. Without a key, `READER=reference` serves the dataset's ground truth; the interface
-says so in the sidebar and on every receipt.
+**Reading documents.** The demo documents replay DeepSeek V4.1 Flash's recorded readings, so no
+key is needed to try it. With `FIREWORKS_API_KEY` (DeepSeek V4.1 Flash on Fireworks) or
+`ANTHROPIC_API_KEY` (Claude), the model also reads new uploads live and compiles rules written in
+Spanish; every receipt names the model that read it ([ADR-0017](docs/adr/0017-openai-compatible-reader-deepseek-on-fireworks.md)).
 
 ## Architecture
 
 ```
-apps/api          Hono + OpenAPI · Drizzle on PostgreSQL or PGlite · SSE · Claude reader · auditor
+apps/api          Hono + OpenAPI · Drizzle on PostgreSQL or PGlite · SSE · LLM readers · auditor
 apps/web          Next.js 16 · Tailwind 4 · Spanish UI · light and dark themes
 apps/mcp          MCP server (stdio) for external agents
 packages/domain   the pure engine: 23 rules, money, mandates, proposals, ledger, audit
 packages/dataset  Andes Labs: payees, mandates, 48 rendered documents, attacks, the team's actions
-docs/             product, system design, 16 ADRs, rules, security, evaluation, API, deployment
+docs/             product, system design, 17 ADRs, rules, security, evaluation, API, deployment
 ```
 
 Hexagonal: the domain package has no I/O and is shared by the API, the evaluation harness and the
@@ -142,7 +145,7 @@ Everything that happens is appended to a SHA-256 hash-chained ledger.
 | ------------------------------------------------------------------------------- | ------------------------------------------------ |
 | [Problem](docs/product/01-problem.md) · [Solution](docs/product/02-solution.md) | Why mandates, for whom                           |
 | [System design](docs/SYSTEM_DESIGN.md)                                          | Requirements, C4, data model, failure modes      |
-| [Architecture decisions](docs/adr/README.md)                                    | 16 ADRs                                          |
+| [Architecture decisions](docs/adr/README.md)                                    | 17 ADRs                                          |
 | [Rules](docs/RULES.md) · [Security](docs/SECURITY.md)                           | The 23 checks; threats and mitigations           |
 | [Dataset](docs/DATASET.md) · [Evaluation](docs/EVALUATION.md)                   | The company, the months, the attacks, the scores |
 | [API](docs/API.md)                                                              | REST, events, agent gateway and MCP              |

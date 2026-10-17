@@ -24,10 +24,10 @@ pnpm eval --require-replay   # fail when a document has no recorded extraction
 
 It runs twice:
 
-| Run                       | Reader                                   | Question it answers                                            |
-| ------------------------- | ---------------------------------------- | -------------------------------------------------------------- |
-| Engine (perfect reading)  | The dataset's ground truth               | Are the rules and their aggregation right?                     |
-| End to end (real reading) | Claude's recorded extractions (ADR-0010) | Does the whole agent decide right, including reading mistakes? |
+| Run                       | Reader                                                       | Question it answers                                            |
+| ------------------------- | ------------------------------------------------------------ | -------------------------------------------------------------- |
+| Engine (perfect reading)  | The dataset's ground truth                                   | Are the rules and their aggregation right?                     |
+| End to end (real reading) | DeepSeek V4.1 Flash's recorded readings (ADR-0010, ADR-0017) | Does the whole agent decide right, including reading mistakes? |
 
 The end-to-end run replays the extractions recorded with `pnpm extractions:record`, so it is
 deterministic and costs nothing in CI. Extraction accuracy is scored on the critical fields: document type, issuer tax ID, invoice number,
@@ -79,7 +79,26 @@ Auditor: **0 violations** · chain intact · 22 payments and 49 decisions re-che
 | Toda decisión explicada        | ✅ 49/49 con recibo  |
 | Precisión de decisiones ≥ 95 % | ✅ 100.0 %           |
 
-> End-to-end run skipped: 48 documents have no recorded extraction (`pnpm extractions:record`).
+### End-to-end run (recorded readings: deepseek-v4p1-flash (48))
+
+| Group      | Bills | Correct | Decision accuracy | Correct autonomy | Autonomy ceiling | Unsafe payments | Unnecessary escalations |
+| ---------- | ----: | ------: | ----------------: | ---------------: | ---------------: | --------------: | ----------------------: |
+| Agosto     |    17 |      17 |           100.0 % |           52.9 % |           52.9 % |               0 |                       0 |
+| Septiembre |    17 |      17 |           100.0 % |           70.6 % |           70.6 % |               0 |                       0 |
+| En vivo    |     3 |       3 |           100.0 % |           66.7 % |           66.7 % |               0 |                       0 |
+| Ataques    |    12 |      12 |           100.0 % |           25.0 % |           25.0 % |               0 |                       0 |
+| Total      |    49 |      49 |           100.0 % |           53.1 % |           53.1 % |               0 |                       0 |
+
+Auditor: **0 violations** · chain intact · 22 payments and 49 decisions re-checked.
+
+Extraction accuracy on critical fields: **100.0 %** (480/480).
+
+| Gate                           | Result               |
+| ------------------------------ | -------------------- |
+| Cero pagos indebidos           | ✅ 0 pagos indebidos |
+| Auditor sin violaciones        | ✅ 0 violaciones     |
+| Toda decisión explicada        | ✅ 49/49 con recibo  |
+| Precisión de decisiones ≥ 95 % | ✅ 100.0 %           |
 
 <!-- eval:end -->
 
