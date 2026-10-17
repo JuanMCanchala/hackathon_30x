@@ -1,73 +1,70 @@
 # Status — Recibido
 
-Updated 2026-10-17 (overnight session stopped early: the session's usage limit was reached).
-Plan: `docs/superpowers/plans/2026-10-17-recibido.md` (15 tasks). Design: `docs/PROPOSAL.md`,
-visual identity: `docs/DESIGN.md`.
+Updated 2026-10-17 (second session stopped when the usage limit was reached). Plan:
+`docs/superpowers/plans/2026-10-17-recibido.md` (15 tasks). Design: `docs/PROPOSAL.md`, visual
+identity: `docs/DESIGN.md`, evaluation: `docs/EVALUATION.md`.
 
 ## What works (reviewed and committed)
 
-| Task | What                                                                                                                                        | Verified                       |
-| ---- | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ |
-| 1    | pnpm monorepo, money helpers, CI workflow, `env.example`                                                                                    | tests, typecheck, lint, format |
-| 2    | Domain types, text scanners, per-line evidence math                                                                                         | 2 review rounds                |
-| 3    | Deny-by-default decision engine (18 checks, five outcomes), Spanish receipts, counterfactual, vendor messages                               | Opus review, approved          |
-| 4    | Payment planner (when and which rail: Bre-B, SPEI, Pix, ACH; yield vs discount) and bank reconciliation matcher                             | approved                       |
-| 5    | Independent invariant checker (I1–I7), scorecard, fast-check property tests (payout fraud, revisions, independent chains); engine hardening | 2 review rounds                |
-| 6    | Dataset Altamar Labs Inc.: 14 vendors, 15 contracts, 45 bills (Sep–Oct 2026), script, expected outcomes, replay oracle                      | approved + polish              |
-| 7    | Rendered documents (PDF via pdf-lib, `.eml`, WhatsApp `.txt`), deterministic; payout-scanner precision against real text                    | 3 review rounds                |
-| 8    | API foundation: config, Drizzle/PGlite schema + migration, document text, LLM reader and line matcher with record/replay                    | 2 review rounds                |
+| Task | What                                                                                                                                                                                                               |
+| ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1–5  | Monorepo, CI; deny-by-default engine (18 checks, five outcomes, Spanish receipts); payment planner (Bre-B/SPEI/Pix/ACH, yield vs discount); reconciliation matcher; independent invariant checker + property tests |
+| 6–7  | Dataset Altamar Labs Inc. (14 vendors, 45 bills Sep–Oct 2026) rendered as PDF/e-mail/WhatsApp; payout-scanner precision                                                                                            |
+| 8    | Config, Drizzle/PGlite, document text, LLM reader + line matcher with record/replay (DeepSeek V4.1 Flash via OpenRouter)                                                                                           |
+| 9    | Services: evaluate bills, vendor loop + contractor portal, human resolution, evidence re-evaluation, GitHub poll + signed webhook                                                                                  |
+| 10   | Simulated Blinka rail and bank statement, reconciliation view, demo with guided tour, HTTP API (`/docs`), admin token outside demo mode, API Dockerfile                                                            |
+| 11   | `pnpm eval` (CI gate, `--require-replay`), real recordings committed                                                                                                                                               |
+| 12   | Web identity, shell, landing (`/`)                                                                                                                                                                                 |
+| 13   | App screens: resumen, cuentas + receipt, proveedores, conversaciones, conciliación, recorrido, contractor portal; screenshots in `docs/images`                                                                     |
 
-`pnpm test` passes (221 tests at the last run), plus typecheck, lint, format check and the API build.
+Measured by `pnpm eval` (both the reference reader and the recorded DeepSeek readings): final
+status correct 45/45; decided correctly without a person 33/41 (80.5 %, the label ceiling; 5
+after a vendor reply, 4 by new evidence after an ask); **0 improper payments**, 0 checker
+violations; critical fields read correctly 480/495 (97.0 %); model cost USD 0.00088 per bill.
+`pnpm test` passed 274 tests at the last run; typecheck, lint, format and builds clean.
 
-## Pending (in plan order)
+Run it: `pnpm install && pnpm dev` (web on :3000, API on :4000), then open **Recorrido**.
 
-- **Task 9** API services (evaluate bills, vendor loop + portal, human resolution, evidence
-  re-evaluation, GitHub poll + signed webhook). Started and stopped before any commit.
-- **Task 10** simulated Blinka rail, bank statement, reconciliation view, demo service, HTTP routes, Dockerfile.
-- **Task 11** eval harness (`pnpm eval`) + recording all LLM readings + CI gate.
-- **Tasks 12–13** web (landing, app screens, contractor portal, guided tour) following `docs/DESIGN.md`.
-- **Task 14** Playwright E2E and screenshots. **Task 15** README, SYSTEM_DESIGN, ADRs, RULES,
-  SECURITY, DATASET, EVALUATION, API, DEPLOY, DEMO (Spanish), docs/product.
+## Pending
 
-The SDD ledger with every review round and ruling is in `.superpowers/sdd/2026-10-17-recibido/progress.md`
-(git-ignored, local only). Restart by dispatching Task 9 with the notes in that ledger.
+1. **Task 13 fixes (review found):**
+   - A person can approve `oct-19` (currency unread) and pay "COP 1.200". Block approval when the
+     reading has no currency or a low-confidence total, in the UI and in `resolveEscalation`
+     (409 + API test).
+   - Network errors show the browser's English "Failed to fetch"; wrap `fetch` in
+     `apps/web/lib/api.ts` with a Spanish message.
+   - Minor: "Sí, aprobar y pagar" when nothing is owed; duplicated constants into
+     `lib/format.ts`; HOLD summary prints raw bill ids (engine copy); "(sin moneda)" wording;
+     the demo clock moves backwards between tour steps.
+2. **Task 14:** Playwright E2E of the demo path (`pnpm e2e`) + CI job (`playwright install chromium`).
+3. **Task 15:** README (results, mermaid architecture, run, security, monthly cost with
+   arithmetic from the recordings' usage), SYSTEM_DESIGN, ADRs, RULES, SECURITY, DATASET, API,
+   DEPLOY, DEMO (Spanish 3-minute script), docs/product, docker-compose.
+4. Final whole-branch review.
 
-## Bugs found and not yet fixed
-
-1. **Vendor resolution fails with the real model's readings.** DeepSeek returns tax ids with their
-   label (`C.C. 1.036.645.218`, `NIT 901.234.567-1`, `CNPJ …`, `EIN …`); `normalizeTaxId` keeps the
-   letters, so `resolveVendor` finds no vendor and every such bill would escalate. Fix in
-   `packages/domain/src/text.ts`: strip leading labels (NIT, C.C./CC, CNPJ, CPF, RFC, EIN, Tax ID)
-   before normalizing, and/or ask for the bare number in `apps/api/src/reading/prompt.ts`. Add tests.
-2. `sep-21`: the model read a September period where the truth says none; check whether the
-   rendered document prints a period (then the truth label is wrong) or the model inferred it.
+The SDD ledger with every review round and ruling is local in
+`.superpowers/sdd/2026-10-17-recibido/progress.md` (git-ignored).
 
 ## Decisions I made
 
-- LLM: `deepseek-flash` (verified in the live model list; `deepseek-chat` is being retired), or
-  `deepseek/deepseek-v4.1-flash` on OpenRouter. JSON mode `json_object`, zod-validated, one retry.
-- The LLM maps bill lines to contract terms; evidence links (PR number, deliverable id, time
-  project) are structural, so a live GitHub merge never needs a new model call.
-- Vendor-supplied files never count as evidence; a vendor can only send a corrected bill or point
-  to evidence in the company's systems. Any payout-change wording escalates.
-- Revisions form a chain only through the portal token bound to the bill, never from the bill's
-  own "corrects invoice X" text. Already-paid amounts carry over; a revision billed below what was
-  paid escalates.
-- A returned payment (bill `oct-12-r1`) keeps the bill PAID; reconciliation flags the return.
-- Payout scanner: ignores the vendor's own tax id only behind a tax-id label, and amounts only
-  when they equal an amount the bill states; Colombian/Brazilian payout words (Nequi, Daviplata,
-  consignar, conta, chave Pix) are keywords.
-- Design: concept "la prueba" — the proof bar (billed vs evidenced) and the receiving stamp; Archivo + JetBrains Mono.
+- LLM: `deepseek-flash` (direct) or `deepseek/deepseek-v4.1-flash` (OpenRouter); JSON mode,
+  zod-validated; the reader returns the bare tax id. The LLM maps bill lines to contract terms;
+  evidence links are structural, so a live GitHub merge needs no model call.
+- Vendor-supplied files never count as evidence. Any payout-change wording escalates.
+- Revisions chain only through the portal token, never from the bill's own text; a correction
+  to a closed case is refused.
+- A returned payment (`oct-12-r1`) keeps the bill PAID; reconciliation flags the return.
+- Outside demo mode every write needs `Authorization: Bearer ADMIN_TOKEN`; CORS only
+  `PUBLIC_WEB_URL`; portal links are HMAC-signed.
+- The matcher prompt (matcher-2) no longer lets a unit guess alone lower confidence; code still
+  checks hours and rates. Truth labels were never edited to match the model.
 
 ## What only you can do
 
-- **LLM credit.** DeepSeek's direct API answers "no balance" for `DEEPSEEK_API_KEY_PRINCIPAL`, and
-  the OpenRouter account has about USD 0.29 of USD 5 credit left (it ran out mid-recording).
-  Top up either one, then record with `LLM_PROVIDER=openrouter` (or deepseek) — Task 11.
-- Create the public GitHub demo repo (e.g. `altamar-labs/app-movil`) with an open PR for the live
-  merge moment, and set `GITHUB_REPO`, `GITHUB_DEMO_PR`, optionally `GITHUB_TOKEN` and
-  `GITHUB_WEBHOOK_SECRET`.
-- Deploy (Railway for API + Postgres, about USD 20/month; web on Vercel Hobby) and record the
-  3-minute video once Tasks 9–15 are done.
-- The design kit skills impeccable, design-taste-frontend and emil-design-eng were copied to
-  `~/.claude/skills/` (marked `.de-diseno-web-kit`) for the UI tasks; remove them when the UI is done.
+- **LLM credit:** DeepSeek direct API says "no balance"; OpenRouter has about USD 0.25 left.
+  The demo works without keys (recorded readings); keys are only needed to read new uploads.
+- Create the public GitHub demo repo with an open PR and set `GITHUB_REPO`, `GITHUB_DEMO_PR`,
+  `GITHUB_WEBHOOK_SECRET` for the live merge moment (otherwise the merge is simulated).
+- Deploy (Railway API + Postgres ≈ USD 20/month; web on Vercel Hobby) and record the video.
+- Remove the design kit skills copied to `~/.claude/skills/{impeccable,design-taste-frontend,emil-design-eng}`
+  (marked `.de-diseno-web-kit`) when the UI work is finished.
