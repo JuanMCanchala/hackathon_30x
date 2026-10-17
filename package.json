@@ -11,7 +11,7 @@
   "scripts": {
     "dev": "pnpm --parallel --filter @recibido/api --filter @recibido/web dev",
     "build": "pnpm -r --filter=!@recibido/dataset build",
-    "typecheck": "pnpm -r typecheck",
+    "typecheck": "pnpm -r typecheck && tsc -p e2e",
     "lint": "eslint .",
     "test": "vitest run",
     "test:watch": "vitest",

@@ -23,23 +23,42 @@ const receiptStatus = (page: Page, id: string, status: string) =>
     });
   }).toPass({ timeout: 30_000 });
 
+/** No person approved or rejected it: the engine decided, and nothing waits for a person. */
+async function decidedByTheAgent(page: Page) {
+  await expect(page.getByText('Decidido por el motor')).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Te toca decidir' })).toHaveCount(0);
+  await expect(page.locator('article')).not.toContainText(/ (aprobó|rechazó)/);
+}
+
 test('the demo path: October arrives, the vendors answer, the month closes clean', async ({
   page,
   context,
 }) => {
   await page.goto('/recorrido');
+  const reset = page.waitForResponse(
+    (r) => r.url().endsWith('/demo/reset') && r.request().method() === 'POST',
+  );
   await page.getByRole('button', { name: 'Reiniciar la demo' }).click();
-  await expect(page.getByRole('button', { name: 'Reiniciar la demo' })).toBeEnabled();
+  expect((await reset).ok()).toBe(true);
+  await expect(phase(page)).toHaveText('Septiembre cerrado');
+  await expect(page.getByRole('button', { name: 'Llegan las cuentas de octubre' })).toBeEnabled();
 
   await page.getByRole('button', { name: 'Llegan las cuentas de octubre' }).click();
   await expect(phase(page)).toHaveText('Octubre en curso', { timeout: 60_000 });
   await receiptStatus(page, 'oct-03', 'Pagada en parte');
 
   // Daniela answers through the real portal, as the vendor
-  await page.goto('/conversaciones');
-  const thread = page.getByRole('listitem').filter({ hasText: 'Daniela' }).first();
+  // her thread: the one conversation with a portal link that is Daniela's
+  const openPortal = page
+    .getByRole('listitem')
+    .filter({ has: page.getByText('Daniela Ospina', { exact: true }) })
+    .getByRole('link', { name: /Abrir como proveedor/ });
+  await expect(async () => {
+    await page.goto('/conversaciones');
+    await expect(openPortal).toHaveCount(1, { timeout: 2_000 });
+  }).toPass({ timeout: 30_000 });
   const portalPromise = context.waitForEvent('page');
-  await thread.getByRole('link', { name: /Abrir como proveedor/ }).click();
+  await openPortal.click();
   const portal = await portalPromise;
   await expect(portal.getByRole('heading', { name: 'Hola, Daniela' })).toBeVisible();
   await portal
@@ -53,6 +72,11 @@ test('the demo path: October arrives, the vendors answer, the month closes clean
   await receiptStatus(page, 'oct-03', 'Reemplazada');
   await page.getByRole('link', { name: 'Ver la versión vigente' }).click();
   await expect(page.locator('article > header').getByText('Pagada', { exact: true })).toBeVisible();
+  // the 92 h with proof, paid once: nothing more is paid for the correction
+  await expect(page.locator('dt', { hasText: 'Ya pagado' }).locator('+ dd')).toHaveText(
+    'COP 11.960.000',
+  );
+  await decidedByTheAgent(page);
 
   await page.goto('/recorrido');
   await page.getByRole('button', { name: 'Lina acepta el Brand kit v2' }).click();
@@ -61,8 +85,17 @@ test('the demo path: October arrives, the vendors answer, the month closes clean
   await page.goto('/recorrido');
   await page.getByRole('button', { name: /Fusionar el PR #3/ }).click();
   await receiptStatus(page, 'oct-05', 'Pagada');
-  // the decision itself cites the merged pull request
-  await expect(page.locator('article > header')).toContainText('#3');
+  // the decision cites the pull request, and the line's evidence is that PR, merged
+  await expect(page.locator('article > header')).toContainText('app-movil#3');
+  await expect(
+    page
+      .getByRole('listitem')
+      .filter({ hasText: 'PR fusionado' })
+      .filter({ hasText: 'app-movil#3' })
+      // the evidence row itself, not the line that lists it
+      .filter({ hasNot: page.getByRole('listitem') }),
+  ).toHaveCount(1);
+  await decidedByTheAgent(page);
 
   await page.goto('/recorrido');
   await page.getByRole('button', { name: 'Cierre de octubre y extracto de Blinka' }).click();
@@ -71,8 +104,11 @@ test('the demo path: October arrives, the vendors answer, the month closes clean
   await page.goto('/conciliacion');
   // the bank statement's lines, not the totals above them
   const statement = page.locator('section[aria-labelledby="extracto"]');
-  await expect(statement.getByText('Devuelta', { exact: true }).first()).toBeVisible();
-  await expect(statement.getByText('Sin conciliar', { exact: true }).first()).toBeVisible();
+  const line = (description: string) =>
+    statement.getByRole('listitem').filter({ hasText: description });
+  await expect(line('DEVOLUCION PIX')).toContainText('BEATRIZ LIMA');
+  await expect(line('DEVOLUCION PIX')).toContainText('Devuelta');
+  await expect(line('VISA *CUMBRE CLOUD')).toContainText('Sin conciliar');
 
   await page.goto('/resumen');
   await expect(
