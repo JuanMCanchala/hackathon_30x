@@ -48,9 +48,9 @@ function explain(
   const reasons = fails.length > 0 ? fails : failing;
   const lead = primary[0] ?? reasons[0];
   const others = reasons.length - 1;
-  const more = others > 0 ? ` (y ${others} ${others === 1 ? 'motivo más' : 'motivos más'})` : '';
+  const more = others > 0 ? ` Hay ${others} ${others === 1 ? 'motivo más' : 'motivos más'}.` : '';
   const prefix = outcome === 'HOLD' ? 'Frenada.' : 'Necesita aprobación.';
-  const summary = lead ? `${prefix} ${lead.detail.replace(/\.$/, '')}${more}.` : prefix;
+  const summary = lead ? `${prefix} ${lead.detail.replace(/\.$/, '')}.${more}` : prefix;
 
   const ordered = [...primary, ...reasons.filter((r) => !primary.includes(r))];
   const counterfactual = [

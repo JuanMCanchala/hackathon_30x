@@ -524,7 +524,7 @@ describe('decide — properties of receipts', () => {
       expect(r.remedy, r.id).toBeTruthy();
     }
     expect(d.counterfactual.length).toBeGreaterThanOrEqual(failing(d).length - 1);
-    expect(d.summary).toMatch(/\(y \d motivos? más\)\.$/);
+    expect(d.summary).toMatch(/\. Hay \d motivos? más\.$/);
   });
 
   it('is deterministic', () => {

@@ -7,6 +7,9 @@ import { defineRule, fail, pass, skip } from './helpers';
 
 const UNREADABLE = 'No pude leer el documento';
 
+/** Adds a final period unless the text already ends with one ("Andes Labs Inc."). */
+const endSentence = (text: string) => (text.endsWith('.') ? text : `${text}.`);
+
 export const documentType = defineRule(
   {
     id: 'reading.document_type',
@@ -246,14 +249,14 @@ export const addressedToUs = defineRule(
       name !== null &&
       orgNames.some((n) => folded === n || folded.includes(n) || nameSimilarity(name, n) >= 0.92);
     if (taxMatches || nameMatches) {
-      return pass(meta, `Va dirigida a ${org.legalName}.`, {
+      return pass(meta, endSentence(`Va dirigida a ${org.legalName}`), {
         observed: name ?? taxId,
         expected: org.legalName,
       });
     }
     return fail(
       meta,
-      `Va dirigida a «${name ?? taxId}», no a ${org.legalName}.`,
+      endSentence(`Va dirigida a «${name ?? taxId}», no a ${org.legalName}`),
       `estuviera dirigida a ${org.legalName}`,
       { observed: name ?? taxId, expected: org.legalName },
     );
