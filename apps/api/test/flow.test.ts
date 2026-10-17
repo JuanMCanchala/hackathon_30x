@@ -3,10 +3,10 @@
  * months, the live files and the attack lab, with a perfect reader.
  */
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
-import { eq } from 'drizzle-orm';
+import { eq, inArray } from 'drizzle-orm';
 import { ATTACKS, AUGUST, LIVE, SEPTEMBER } from '@mandato/dataset';
 import type { Container } from '../src/container';
-import { decisions, invoices, ledgerEntries, proposals } from '../src/db/schema';
+import { decisions, invoices, ledgerEntries, payments, proposals } from '../src/db/schema';
 import { runAudit } from '../src/services/audit';
 import { DEMO_ORG_ID, launchAttack, runLiveFile, runMonth } from '../src/services/demo';
 import { overview } from '../src/services/metrics';
@@ -114,6 +114,31 @@ describe('live files and attacks', () => {
           attack.caughtBy,
         );
       }
+    }
+  });
+});
+
+describe('payments', () => {
+  it('pays every decided bill on its due date, to the registered destination', async () => {
+    const rows = await container.deps.db.select().from(payments);
+    const paidOrApproved = await container.deps.db
+      .select()
+      .from(invoices)
+      .where(inArray(invoices.status, ['PAID', 'APPROVED']));
+    expect(rows.length).toBeGreaterThan(20);
+    // Approving a bill from someone unregistered never invents a destination.
+    expect(rows.length).toBeLessThanOrEqual(paidOrApproved.length);
+    const august = rows.filter((r) => r.scheduledFor.startsWith('2026-08'));
+    expect(august.length).toBeGreaterThan(5);
+    expect(august.every((r) => r.status === 'settled' && r.reference)).toBe(true);
+    for (const r of rows) {
+      const invoice = paidOrApproved.find((i) => i.id === r.invoiceId)!;
+      expect(r.amountMinor).toBe(invoice.amountMinor);
+      if (invoice.dueDate)
+        expect(
+          r.scheduledFor >= invoice.dueDate ||
+            r.scheduledFor >= invoice.decidedAt!.toISOString().slice(0, 10),
+        ).toBe(true);
     }
   });
 });

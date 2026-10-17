@@ -16,6 +16,7 @@ import {
 } from '../db/schema';
 import { documentKind } from '../extraction/prepare';
 import { notFound } from '../lib/common';
+import { paymentForInvoice } from './payments';
 
 type InvoiceRow = typeof invoices.$inferSelect;
 
@@ -246,6 +247,7 @@ export async function getInvoiceDetail(db: Executor, orgId: string, invoiceId: s
           resolutionNote: proposal.resolutionNote,
         }
       : null,
+    payment: await paymentForInvoice(db, invoice.id),
     ledger: ledger.map((e) => ({
       seq: e.seq,
       type: e.type,

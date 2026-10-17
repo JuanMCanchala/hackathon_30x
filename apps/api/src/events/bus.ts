@@ -11,7 +11,8 @@ export type DomainEventType =
   | 'registry.changed'
   | 'audit.completed'
   | 'demo.reset'
-  | 'demo.progress';
+  | 'demo.progress'
+  | 'payment.updated';
 
 export interface DomainEvent {
   type: DomainEventType;

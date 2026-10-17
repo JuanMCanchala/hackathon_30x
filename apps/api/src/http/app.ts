@@ -9,6 +9,7 @@ import { registerDemoRoutes } from './routes/demo';
 import { registerGovernanceRoutes } from './routes/governance';
 import { registerInvoiceRoutes } from './routes/invoices';
 import { registerOversightRoutes } from './routes/oversight';
+import { registerPaymentRoutes } from './routes/payments';
 
 export function createApp(deps: Deps) {
   const app = new OpenAPIHono({
@@ -66,6 +67,7 @@ export function createApp(deps: Deps) {
   registerInvoiceRoutes(app, deps);
   registerGovernanceRoutes(app, deps);
   registerAgentRoutes(app, deps);
+  registerPaymentRoutes(app, deps);
   if (deps.config.DEMO_MODE) registerDemoRoutes(app, deps);
 
   app.doc31('/openapi.json', {

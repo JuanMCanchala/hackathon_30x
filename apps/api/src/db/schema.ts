@@ -174,6 +174,35 @@ export const invoices = pgTable(
   ],
 );
 
+/** Transfers that pay decided bills (ADR-0018): scheduled for the due date, then sent, then settled. */
+export const payments = pgTable(
+  'payments',
+  {
+    id: text('id').primaryKey(),
+    orgId: text('org_id').notNull(),
+    invoiceId: text('invoice_id').notNull(),
+    payeeId: text('payee_id').notNull(),
+    rail: text('rail')
+      .$type<'bre_b' | 'spei' | 'pix' | 'ach' | 'wire' | 'card' | 'other'>()
+      .notNull(),
+    destination: text('destination').notNull(),
+    currency: text('currency').notNull(),
+    amountMinor: bigint('amount_minor', { mode: 'number' }).notNull(),
+    usdCents: bigint('usd_cents', { mode: 'number' }),
+    scheduledFor: text('scheduled_for').notNull(),
+    status: text('status').$type<'scheduled' | 'sent' | 'settled'>().notNull(),
+    reference: text('reference'),
+    expectedSettlement: text('expected_settlement'),
+    sentAt: ts('sent_at'),
+    settledAt: ts('settled_at'),
+    createdAt: ts('created_at').notNull(),
+  },
+  (t) => [
+    uniqueIndex('payments_invoice_idx').on(t.invoiceId),
+    index('payments_org_status_idx').on(t.orgId, t.status, t.scheduledFor),
+  ],
+);
+
 export const decisions = pgTable('decisions', {
   id: text('id').primaryKey(),
   orgId: text('org_id').notNull(),

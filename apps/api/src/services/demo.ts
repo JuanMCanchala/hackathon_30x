@@ -31,12 +31,14 @@ import { approveInvoice, rejectInvoice } from './approvals';
 import type { Deps } from './deps';
 import { ingestInvoice } from './invoices';
 import { appendLedger, SYSTEM_ACTOR, type LedgerAppend } from './ledger';
+import { runPayments } from './payments';
 import { acceptProposal, rejectProposal, updatePayeeDestination } from './registry';
 
 export const DEMO_ORG_ID = ORGANIZATION.id;
 const SEEDED_AT = '2026-07-31T12:00:00-05:00';
 
 const ORG_TABLES = [
+  schema.payments,
   schema.auditRuns,
   schema.ledgerEntries,
   schema.proposals,
@@ -325,6 +327,8 @@ export async function runMonth(
   let processed = 0;
   let actions = 0;
   for (const event of events) {
+    // Transfers go out on their due dates as the month unfolds.
+    await runPayments(deps, DEMO_ORG_ID, new Date(event.at).toISOString());
     if (event.bill) {
       const result = await ingestDatasetBill(deps, event.bill, event.bill.receivedAt);
       if (result.created) processed++;
@@ -346,6 +350,9 @@ export async function runMonth(
     });
     if (pace > 0) await sleep(pace);
   }
+  const [year, monthNumber] = period.split('-').map(Number) as [number, number];
+  const lastDay = new Date(Date.UTC(year, monthNumber, 0)).getUTCDate();
+  await runPayments(deps, DEMO_ORG_ID, `${period}-${lastDay}T23:00:00.000Z`);
   return { processed, actions };
 }
 

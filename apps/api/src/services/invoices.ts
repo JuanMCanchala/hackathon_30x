@@ -18,6 +18,7 @@ import type { ExtractionOutcome } from '../extraction/types';
 import { AppError, newId, sha256 } from '../lib/common';
 import { buildDecisionContext } from './context';
 import { nowIso, withOrgLock, type Deps } from './deps';
+import { schedulePayment } from './payments';
 import { appendLedger, SYSTEM_ACTOR, type LedgerAppend } from './ledger';
 
 export interface IngestDocument {
@@ -304,6 +305,24 @@ export async function ingestInvoice(deps: Deps, request: IngestRequest): Promise
         at,
         payload: { requestId, invoiceId, required: decision.approvalsRequired },
       });
+    }
+    if (decision.outcome === 'PAY') {
+      entries.push(
+        ...(await schedulePayment(
+          tx,
+          {
+            id: invoiceId,
+            orgId: request.orgId,
+            ref,
+            payeeId: f.payeeId,
+            amountMinor: f.amountMinor,
+            currency: f.currency,
+            usdCents: f.usdCents,
+            dueDate: f.dueDate,
+          },
+          at,
+        )),
+      );
     }
     await appendLedger(tx, request.orgId, entries);
     return { invoiceId, ref, title, decision };

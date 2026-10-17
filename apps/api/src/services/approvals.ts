@@ -27,6 +27,7 @@ import { AppError, conflict, forbidden, newId, notFound, randomToken, sha256 } f
 import { currentPolicy, loadMandates, loadPayees } from './context';
 import { nowIso, withOrgLock, type Deps } from './deps';
 import { appendLedger, SYSTEM_ACTOR, type LedgerAppend } from './ledger';
+import { schedulePayment } from './payments';
 
 async function loadUser(tx: Tx, orgId: string, userId: string) {
   const [user] = await tx
@@ -204,6 +205,7 @@ export async function approveInvoice(deps: Deps, action: ApprovalAction): Promis
           approvers: approverIds,
         },
       });
+      entries.push(...(await schedulePayment(tx, invoice, at)));
       const approverRows = await tx.select().from(users).where(eq(users.orgId, action.orgId));
       const names = approverIds.map((id) => approverRows.find((u) => u.id === id)?.name ?? id);
       const proposalEntries = await proposeAfterApproval(tx, action.orgId, invoice, names, at);
