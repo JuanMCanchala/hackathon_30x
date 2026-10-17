@@ -1,5 +1,7 @@
 import { CONTRACTS, VENDORS } from '@recibido/dataset';
 import { afterEach, describe, expect, it } from 'vitest';
+import type { Reader } from '../src/reading/reader';
+import { ReferenceReader } from '../src/reading/reference';
 import { allPayments } from '../src/services/state';
 import { billOf, fileOf, ingest, paymentsOf, setup } from './helpers';
 
@@ -99,6 +101,33 @@ describe('the vendor loop', () => {
     ).rejects.toMatchObject({ status: 409 });
     expect((await billOf(c, 'oct-03')).id).toBe(billId);
     expect((await billOf(c, 'oct-03')).status).toBe('PART_PAID');
+    expect(await allPayments(c.db)).toHaveLength(1);
+  });
+
+  it('a correction that arrives after a person closed the case is refused', async () => {
+    // the correction's reading blocks until released, so the case closes while it is read
+    let release!: () => void;
+    const gate = new Promise<void>((resolve) => (release = resolve));
+    const reference = new ReferenceReader();
+    const reader: Reader = {
+      read: async (doc) => {
+        if (doc.filename.includes('corregida')) await gate;
+        return reference.read(doc);
+      },
+    };
+    c = await setup({}, { reader });
+    const { portalToken, billId } = await ingest(c, 'oct-03');
+    await c.clock.set('2026-10-06T10:00:00-05:00');
+    const reply = c.vendorReply(portalToken!, { message: 'Corregida.', file: fileOf('oct-03-r1') });
+    reply.catch(() => undefined);
+
+    const [late] = await c.expireAsks('2026-10-20T09:00:00-05:00');
+    expect(late?.decision.outcome).toBe('ESCALATE');
+    await c.resolveEscalation(billId, { action: 'reject', actor: 'Diego Navarro', note: 'No.' });
+    release();
+
+    await expect(reply).rejects.toMatchObject({ status: 409 });
+    expect((await billOf(c, 'oct-03')).status).toBe('REJECTED');
     expect(await allPayments(c.db)).toHaveLength(1);
   });
 });

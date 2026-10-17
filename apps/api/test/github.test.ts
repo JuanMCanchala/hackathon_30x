@@ -83,9 +83,9 @@ describe('GitHub evidence', () => {
     });
   });
 
-  it('a 403, 404 or 429 leaves the evidence unchanged', async () => {
+  it.each([403, 404, 429])('a %i leaves the evidence unchanged', async (status) => {
     const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
-    const fetch = vi.fn(async () => new Response('{}', { status: 429 }));
+    const fetch = vi.fn(async () => new Response('{}', { status }));
     await awaitingOct05({}, fetch);
     const before = await allEvidence(c.db);
     expect(await c.github.poll()).toBe(0);

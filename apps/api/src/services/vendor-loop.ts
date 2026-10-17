@@ -5,7 +5,7 @@
  * and its vendor.payout check escalates it.
  */
 import { asc, eq, inArray } from 'drizzle-orm';
-import { formatMoney, STATUS_LABEL, type Decision } from '@recibido/domain';
+import { formatMoney, STATUS_LABEL, type BillStatus, type Decision } from '@recibido/domain';
 import type { Executor } from '../db/client';
 import { bills, messages, portalTokens } from '../db/schema';
 import { evaluateIn, ingestDocument, reevaluateIfOpen } from './bills';
@@ -48,7 +48,7 @@ async function caseOf(ex: Executor, token: string): Promise<BillRow> {
 export interface PortalView {
   bill: {
     id: string;
-    status: string;
+    status: BillStatus;
     statusLabel: string;
     invoiceNumber: string | null;
     issueDate: string | null;
@@ -79,7 +79,7 @@ export async function portalView(deps: Deps, token: string): Promise<PortalView>
     bill: {
       id: bill.id,
       status: bill.status,
-      statusLabel: STATUS_LABEL[bill.status as keyof typeof STATUS_LABEL] ?? bill.status,
+      statusLabel: STATUS_LABEL[bill.status],
       invoiceNumber: bill.reading?.invoiceNumber ?? null,
       issueDate: bill.reading?.issueDate ?? null,
       currency: bill.reading?.currency ?? null,
@@ -101,7 +101,7 @@ export async function portalView(deps: Deps, token: string): Promise<PortalView>
         status: l.status,
       })),
     askAmount: decision && decision.askMinor > 0 ? money(decision.askMinor) : null,
-    canReply: REOPENED.includes(bill.status as never),
+    canReply: REOPENED.includes(bill.status),
   };
 }
 
@@ -125,7 +125,7 @@ export async function vendorReply(
   if (!message && !reply.file)
     throw new ServiceError(400, 'Escribe un mensaje o adjunta la cuenta.');
   const bill = await caseOf(deps.db, token);
-  if (!REOPENED.includes(bill.status as never))
+  if (!REOPENED.includes(bill.status))
     throw new ServiceError(409, 'Este caso ya no espera una respuesta.');
 
   if (reply.file) {
@@ -146,7 +146,7 @@ export async function vendorReply(
     const now = await deps.clock.now();
     return deps.db.transaction(async (tx) => {
       const current = await getBill(tx, bill.id);
-      if (!REOPENED.includes(current.status as never))
+      if (!REOPENED.includes(current.status))
         throw new ServiceError(409, 'Este caso ya no espera una respuesta.');
       await tx.insert(messages).values({
         id: newId('msg'),

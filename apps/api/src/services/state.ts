@@ -7,16 +7,7 @@
  */
 import { createHash, randomBytes, randomUUID } from 'node:crypto';
 import { and, asc, desc, eq, isNull, max, or } from 'drizzle-orm';
-import {
-  BUYER_IDS,
-  COMPANY,
-  CONTRACTS,
-  DEMO_START,
-  EVIDENCE,
-  FX,
-  LIVE_PR,
-  VENDORS,
-} from '@recibido/dataset';
+import { BUYER_IDS, COMPANY, FX } from '@recibido/dataset';
 import {
   DEFAULT_POLICY,
   formatMoney,
@@ -35,6 +26,7 @@ import {
   type Vendor,
 } from '@recibido/domain';
 import type { Db, Executor } from '../db/client';
+import type { Clock } from './clock';
 import {
   bills,
   contracts,
@@ -42,7 +34,6 @@ import {
   documents,
   evidenceItems,
   messages,
-  orgState,
   payments,
   portalTokens,
   timeline,
@@ -67,26 +58,7 @@ export class ServiceError extends Error {
   }
 }
 
-/** Simulated time, stored in org_state.now. Business logic never reads Date.now(). */
-export interface Clock {
-  now(): Promise<string>;
-  set(now: string): Promise<void>;
-}
-
-export function orgClock(db: Db): Clock {
-  return {
-    async now() {
-      const [row] = await db.select().from(orgState).where(eq(orgState.orgId, ORG_ID));
-      return row?.now ?? DEMO_START;
-    },
-    async set(now) {
-      await db
-        .insert(orgState)
-        .values({ orgId: ORG_ID, now, phase: 'idle' })
-        .onConflictDoUpdate({ target: orgState.orgId, set: { now } });
-    },
-  };
-}
+export type { Clock } from './clock';
 
 export interface Deps {
   db: Db;
@@ -97,71 +69,6 @@ export interface Deps {
 
 export const newId = (prefix: string) => `${prefix}_${randomUUID()}`;
 export const sha256Hex = (s: string) => createHash('sha256').update(s).digest('hex');
-
-/**
- * Loads Altamar Labs: vendors, contracts and evidence. With a live GitHub repository configured,
- * the milestone that is merged live during the demo (LIVE_PR) points to that repository and PR.
- */
-export async function seedOrganization(
-  db: Db,
-  github: { repo: string | null; demoPr: number | null } = { repo: null, demoPr: null },
-): Promise<void> {
-  const repo = github.repo ?? LIVE_PR.repo;
-  const number = github.demoPr ?? LIVE_PR.number;
-  const liveRef = `${LIVE_PR.repo}#${LIVE_PR.number}`;
-  const contractRows = CONTRACTS.map((c) =>
-    c.id !== LIVE_PR.contractId
-      ? c
-      : {
-          ...c,
-          terms: c.terms.map((t) =>
-            t.id === LIVE_PR.termId
-              ? { ...t, evidence: { type: 'github_pr' as const, repo, number } }
-              : t,
-          ),
-        },
-  );
-  const evidenceRows = EVIDENCE.map((e) =>
-    e.ref !== liveRef
-      ? e
-      : {
-          ...e,
-          id: prEvidenceId(repo, number),
-          ref: `${repo}#${number}`,
-          url: `https://github.com/${repo}/pull/${number}`,
-        },
-  );
-  await db.transaction(async (tx) => {
-    await tx
-      .insert(vendors)
-      .values(VENDORS.map((v) => ({ id: v.id, orgId: ORG_ID, data: v })))
-      .onConflictDoNothing();
-    await tx
-      .insert(contracts)
-      .values(contractRows.map((c) => ({ id: c.id, orgId: ORG_ID, vendorId: c.vendorId, data: c })))
-      .onConflictDoNothing();
-    await tx
-      .insert(evidenceItems)
-      .values(
-        evidenceRows.map((e) => ({
-          id: e.id,
-          orgId: ORG_ID,
-          vendorId: e.vendorId,
-          data: e,
-          updatedAt: DEMO_START,
-        })),
-      )
-      .onConflictDoNothing();
-    await tx
-      .insert(orgState)
-      .values({ orgId: ORG_ID, now: DEMO_START, phase: 'idle' })
-      .onConflictDoNothing();
-  });
-}
-
-/** The evidence id of a PR, the same the dataset fixtures use. */
-export const prEvidenceId = (repo: string, number: number) =>
-  `gh-${repo.split('/')[1] ?? repo}-${number}`;
 
 export async function allVendors(ex: Executor): Promise<Vendor[]> {
   return (await ex.select().from(vendors).where(eq(vendors.orgId, ORG_ID))).map((r) => r.data);
@@ -262,7 +169,7 @@ function historyOf(
     vendorId: bill.vendorId ?? '',
     contractId: bill.contractId,
     invoiceNumberNormalized: r?.invoiceNumber ? normalizeInvoiceNumber(r.invoiceNumber) : null,
-    status: bill.status as BillStatus,
+    status: bill.status,
     paidMinor: paid.get(bill.id) ?? 0,
     currency: contract?.currency ?? billCurrency,
     periodFrom: (periodFree ? r?.issueDate : r?.periodFrom) ?? null,

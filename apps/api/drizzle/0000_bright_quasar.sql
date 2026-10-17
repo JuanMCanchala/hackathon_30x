@@ -71,6 +71,7 @@ CREATE TABLE "human_actions" (
 --> statement-breakpoint
 CREATE TABLE "messages" (
 	"id" text PRIMARY KEY NOT NULL,
+	"seq" serial NOT NULL,
 	"org_id" text NOT NULL,
 	"bill_id" text NOT NULL,
 	"at" text NOT NULL,
@@ -88,6 +89,7 @@ CREATE TABLE "org_state" (
 CREATE TABLE "payments" (
 	"id" text PRIMARY KEY NOT NULL,
 	"org_id" text NOT NULL,
+	"seq" integer NOT NULL,
 	"bill_id" text NOT NULL,
 	"data" jsonb NOT NULL,
 	"status" text NOT NULL
@@ -118,7 +120,9 @@ CREATE TABLE "vendors" (
 --> statement-breakpoint
 CREATE INDEX "bills_org_idx" ON "bills" USING btree ("org_id");--> statement-breakpoint
 CREATE INDEX "bills_vendor_idx" ON "bills" USING btree ("vendor_id");--> statement-breakpoint
+CREATE UNIQUE INDEX "bills_document_idx" ON "bills" USING btree ("document_sha");--> statement-breakpoint
 CREATE INDEX "contracts_vendor_idx" ON "contracts" USING btree ("vendor_id");--> statement-breakpoint
 CREATE INDEX "decisions_bill_idx" ON "decisions" USING btree ("bill_id");--> statement-breakpoint
 CREATE INDEX "evidence_vendor_idx" ON "evidence_items" USING btree ("vendor_id");--> statement-breakpoint
-CREATE INDEX "messages_bill_idx" ON "messages" USING btree ("bill_id");
+CREATE INDEX "messages_bill_idx" ON "messages" USING btree ("bill_id");--> statement-breakpoint
+CREATE UNIQUE INDEX "payments_seq_idx" ON "payments" USING btree ("org_id","seq");

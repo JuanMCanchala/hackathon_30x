@@ -5,6 +5,7 @@
  */
 import type {
   BankLine,
+  BillStatus,
   Contract,
   Decision,
   EvidenceItem,
@@ -75,7 +76,7 @@ export const bills = pgTable(
     receivedAt: text('received_at').notNull(),
     vendorId: text('vendor_id'),
     contractId: text('contract_id'),
-    status: text('status').notNull(),
+    status: text('status').$type<BillStatus>().notNull(),
     reading: jsonb('reading').$type<ExtractedBill | null>(),
     readingMeta: jsonb('reading_meta').$type<LlmMetaRow & { error: string | null }>(),
     matches: jsonb('matches').$type<LineMatch[] | null>(),

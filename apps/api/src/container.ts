@@ -17,7 +17,9 @@ import {
 } from './services/evidence';
 import { GithubEvidence } from './services/github';
 import { resolveEscalation, type Resolution } from './services/humans';
-import { orgClock, seedOrganization, type Clock, type Deps } from './services/state';
+import { orgClock, type Clock } from './services/clock';
+import { seedOrganization } from './services/seed';
+import type { Deps } from './services/state';
 import {
   createPortalToken,
   expireAsks,

@@ -1,5 +1,5 @@
 {
-  "id": "81ce78e2-c7b3-4fdb-ae18-1579bfe75d6c",
+  "id": "60101223-dcae-497e-991c-ff2df4dc28ca",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -170,6 +170,21 @@
             }
           ],
           "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "bills_document_idx": {
+          "name": "bills_document_idx",
+          "columns": [
+            {
+              "expression": "document_sha",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
           "concurrently": false,
           "method": "btree",
           "with": {}
@@ -485,6 +500,12 @@
           "primaryKey": true,
           "notNull": true
         },
+        "seq": {
+          "name": "seq",
+          "type": "serial",
+          "primaryKey": false,
+          "notNull": true
+        },
         "org_id": {
           "name": "org_id",
           "type": "text",
@@ -593,6 +614,12 @@
           "primaryKey": false,
           "notNull": true
         },
+        "seq": {
+          "name": "seq",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
         "bill_id": {
           "name": "bill_id",
           "type": "text",
@@ -612,7 +639,29 @@
           "notNull": true
         }
       },
-      "indexes": {},
+      "indexes": {
+        "payments_seq_idx": {
+          "name": "payments_seq_idx",
+          "columns": [
+            {
+              "expression": "org_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "seq",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
       "foreignKeys": {},
       "compositePrimaryKeys": {},
       "uniqueConstraints": {},

@@ -30,8 +30,6 @@ import {
   type Persisted,
 } from './state';
 
-const FINAL: BillStatus[] = ['APPROVED', 'REJECTED', 'SUPERSEDED'];
-
 const MIME: Record<DocumentChannel, string> = {
   pdf: 'application/pdf',
   email: 'message/rfc822',
@@ -76,29 +74,29 @@ export async function evaluateIn(
   return { decision, ...(await persistDecision(ex, billId, decision, now)) };
 }
 
-/** Re-decides a bill with what is known now (clock time, evidence, payments). */
+/**
+ * Re-decides a bill with what is known now (clock time, evidence, payments), only while it is new
+ * or waits on the vendor or on evidence. A paid, held, escalated, resolved or superseded bill is
+ * not re-decided here: a person or a correction moves it. Refused with 409 otherwise.
+ */
 export async function evaluateBill(deps: Deps, billId: string): Promise<Decision> {
-  return withOrgLock(async () => {
-    const now = await deps.clock.now();
-    return deps.db.transaction(async (tx) => {
-      // a person's resolution is final, and a superseded bill lives on in its correction
-      if (FINAL.includes((await getBill(tx, billId)).status as BillStatus))
-        throw new ServiceError(409, 'Esta cuenta ya está cerrada.');
-      return (await evaluateIn(tx, billId, now)).decision;
-    });
-  });
+  const decision = await decideIfOpen(deps, billId);
+  if (!decision) throw new ServiceError(409, 'Esta cuenta no se vuelve a decidir.');
+  return decision;
 }
 
-/**
- * Re-decides a bill only while it still waits on the vendor or on evidence; a bill a person or
- * the engine already closed in the meantime is left alone. Returns null when it was not open.
- */
+/** Like {@link evaluateBill}, but a bill closed in the meantime is skipped (null). */
 export async function reevaluateIfOpen(deps: Deps, billId: string): Promise<Decision | null> {
+  return decideIfOpen(deps, billId);
+}
+
+const DECIDABLE: BillStatus[] = ['RECEIVED', ...REOPENED];
+
+function decideIfOpen(deps: Deps, billId: string): Promise<Decision | null> {
   return withOrgLock(async () => {
     const now = await deps.clock.now();
     return deps.db.transaction(async (tx) => {
-      const bill = await getBill(tx, billId);
-      if (!REOPENED.includes(bill.status as BillStatus)) return null;
+      if (!DECIDABLE.includes((await getBill(tx, billId)).status)) return null;
       return (await evaluateIn(tx, billId, now)).decision;
     });
   });
@@ -144,8 +142,9 @@ export async function ingestDocument(deps: Deps, input: IngestInput): Promise<In
         return { billId: raced.id, duplicateDocument: true, decision: null, portalToken: null };
 
       const old = input.supersedesBillId ? await getBill(tx, input.supersedesBillId) : null;
-      if (old?.status === 'SUPERSEDED')
-        throw new ServiceError(409, 'Esa cuenta ya fue reemplazada por una corrección.');
+      // re-checked here: a person may have closed the case while the correction was being read
+      if (old && !REOPENED.includes(old.status))
+        throw new ServiceError(409, 'La cuenta ya no admite correcciones.');
 
       await tx
         .insert(documents)

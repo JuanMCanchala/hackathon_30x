@@ -7,7 +7,8 @@ import { createHmac, timingSafeEqual } from 'node:crypto';
 import type { EvidenceItem } from '@recibido/domain';
 import type { Fetch } from '../llm/client';
 import { addEvidence } from './evidence';
-import { allContracts, allEvidence, prEvidenceId, type Deps } from './state';
+import { prEvidenceId } from './seed';
+import { allContracts, allEvidence, type Deps } from './state';
 
 export interface TrackedPr {
   vendorId: string;

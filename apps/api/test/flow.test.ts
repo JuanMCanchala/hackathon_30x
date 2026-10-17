@@ -68,6 +68,18 @@ describe('evaluating bills', () => {
 });
 
 describe('people', () => {
+  it('evaluateBill only re-decides a bill that is new or waits on the vendor', async () => {
+    c = await setup();
+    const escalated = await ingest(c, 'oct-06');
+    const paid = await ingest(c, 'oct-02');
+    const held = await ingest(c, 'oct-07');
+    for (const { billId } of [escalated, paid, held])
+      await expect(c.evaluateBill(billId)).rejects.toMatchObject({ status: 409 });
+    const waiting = await ingest(c, 'oct-04');
+    expect((await c.evaluateBill(waiting.billId)).outcome).toBe('ASK_VENDOR');
+    expect(await decisionsOf(c, escalated.billId)).toHaveLength(1);
+  });
+
   it('a person approving oct-06 pays the registered destination, not the one in the e-mail', async () => {
     c = await setup();
     const { decision, billId } = await ingest(c, 'oct-06');
