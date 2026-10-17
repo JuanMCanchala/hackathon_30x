@@ -19,6 +19,7 @@ import {
   engagementOf,
   guessLang,
   median,
+  mentions,
   screen,
   type RawItem,
   type ScreenCandidate,
@@ -32,6 +33,7 @@ import {
   listRuns,
   parsers,
   readIndex,
+  readPublicPost,
   runSearch,
   searchRequests,
   sleep,
@@ -237,7 +239,22 @@ async function collect(
     found: feeds.length,
   });
   raws.push(...feeds);
-  return { raws: dedupe(raws), sources };
+  const completed = await completeYoutube(
+    dedupe(raws),
+    plan,
+    w.langs as WatchLang[],
+    fetcher,
+    pauseMs,
+  );
+  if (completed.opened)
+    sources.push({
+      source: 'youtube-detalle',
+      lang: null,
+      query: 'videos abiertos para leer fecha, canal y métricas',
+      status: 200,
+      found: completed.opened,
+    });
+  return { raws: dropCopies(completed.raws), sources };
 }
 
 /** Each author's median engagement over their other pieces in the radar (three or more). */
@@ -268,6 +285,8 @@ async function authorMedians(deps: Deps, raws: RawItem[]) {
     byAuthor.set(k, list);
   }
   return (r: RawItem): number | null => {
+    // Without an author there is no baseline: pieces with no name are not one author.
+    if (!r.author.id) return null;
     const others = (byAuthor.get(`${r.platform}:${r.author.id}`) ?? []).filter(
       (x) => x.id !== itemKey(r),
     );
@@ -280,6 +299,79 @@ const langOf = (r: RawItem): ScreenLang | null => {
   if (given === 'en' || given === 'pt' || given === 'es') return given;
   return guessLang([r.title, r.text].filter(Boolean).join('\n'));
 };
+
+const escapeRe = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+/**
+ * Where the topic has to show up: the title and the opening of the text, the hook, without the
+ * author's own name («Business Insider» is not about business).
+ */
+function hookOf(r: RawItem): string {
+  let text = [r.title, r.text.slice(0, 280)].filter(Boolean).join('\n');
+  for (const name of [r.author.name, r.author.handle]) {
+    if (name && name.length > 2) text = text.replace(new RegExp(escapeRe(name), 'gi'), ' ');
+  }
+  return text;
+}
+
+/** One piece per title and platform: re-uploads and copies keep only the most engaged one. */
+function dropCopies(raws: RawItem[]): RawItem[] {
+  const best = new Map<string, RawItem>();
+  for (const r of raws) {
+    const title = (r.title || r.text.slice(0, 120))
+      .toLowerCase()
+      .replace(/[^\p{L}\p{N}]+/gu, ' ')
+      .trim();
+    const k = title.length >= 12 ? `${r.platform}:${title}` : itemKey(r);
+    const prev = best.get(k);
+    if (!prev || engagementOf(r.metrics, r.platform) > engagementOf(prev.metrics, prev.platform))
+      best.set(k, r);
+  }
+  return [...best.values()];
+}
+
+/** Videos a search page shows without date or channel: up to this many are opened, for free. */
+const YOUTUBE_DETAILS = 40;
+
+/**
+ * YouTube's search page leaves out the date and channel of shorts and rounds the rest («hace 2
+ * días»). The videos that could pass (in the language, about the topic) are opened one by one,
+ * most viewed first, to read their exact date, channel, likes, comments and subscribers. No tokens.
+ */
+async function completeYoutube(
+  raws: RawItem[],
+  plan: WatchPlan,
+  langs: WatchLang[],
+  fetcher: Fetcher,
+  pauseMs: number,
+): Promise<{ raws: RawItem[]; opened: number }> {
+  const worth = raws
+    .filter((r) => r.platform === 'youtube' && (r.publishedApprox || !r.author.id))
+    .filter((r) => {
+      const lang = langOf(r);
+      return (
+        lang !== null &&
+        (langs as ScreenLang[]).includes(lang) &&
+        mentions(hookOf(r), plan[lang as WatchLang].match) !== null
+      );
+    })
+    .sort((a, b) => (b.metrics.views ?? 0) - (a.metrics.views ?? 0))
+    .slice(0, YOUTUBE_DETAILS);
+  const detailed = new Map<string, RawItem>();
+  for (const r of worth) {
+    const read = await readPublicPost(r.url, { fetcher, now: r.capturedAt }).catch(() => null);
+    if (read)
+      detailed.set(itemKey(r), {
+        ...read,
+        source: r.source,
+        query: r.query,
+        format: r.format === 'short' ? 'short' : read.format,
+        lang: r.lang,
+      });
+    if (pauseMs) await sleep(Math.min(pauseMs, 250));
+  }
+  return { raws: raws.map((r) => detailed.get(itemKey(r)) ?? r), opened: worth.length };
+}
 
 const mediaDir = (deps: Deps, id: string) =>
   join(deps.config.DATA_DIR, 'media', id.replace(/[^\w-]/g, '_'));
@@ -429,8 +521,10 @@ export async function runWatch(
       key: itemKey(r),
       platform: r.platform,
       lang: langOf(r),
-      text: [r.title, r.text].filter(Boolean).join('\n'),
+      text: hookOf(r),
       publishedAt: r.publishedAt,
+      // A short whose page could not be opened has no date at all, only the moment we saw it.
+      dateKnown: !(r.platform === 'youtube' && r.publishedApprox && !r.author.id),
       engagement: engagementOf(r.metrics, r.platform),
       authorMedian: medianOf(r),
     }));
