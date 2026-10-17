@@ -5,6 +5,7 @@ import { ZodError } from 'zod';
 import { AppError } from '../lib/common';
 import type { Deps } from '../services/deps';
 import { registerAgentRoutes } from './routes/agent';
+import { registerAssistantRoutes } from './routes/assistant';
 import { registerDemoRoutes } from './routes/demo';
 import { registerGovernanceRoutes } from './routes/governance';
 import { registerInvoiceRoutes } from './routes/invoices';
@@ -68,6 +69,7 @@ export function createApp(deps: Deps) {
   registerGovernanceRoutes(app, deps);
   registerAgentRoutes(app, deps);
   registerPaymentRoutes(app, deps);
+  registerAssistantRoutes(app, deps);
   if (deps.config.DEMO_MODE) registerDemoRoutes(app, deps);
 
   app.doc31('/openapi.json', {
