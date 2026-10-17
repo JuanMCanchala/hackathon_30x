@@ -1,10 +1,11 @@
 import { serve } from '@hono/node-server';
-import { loadConfig } from './config';
+import { loadConfig, loadDotEnv } from './config';
 import { createContainer } from './container';
 import { createApp } from './http/app';
 import { isSeeded, resetDemo } from './services/demo';
 
 async function main() {
+  loadDotEnv();
   const config = loadConfig();
   const { deps, database } = await createContainer(config);
   if (config.DEMO_MODE && !(await isSeeded(deps))) {

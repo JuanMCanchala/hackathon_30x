@@ -1,3 +1,4 @@
+import { existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { z } from 'zod';
 
@@ -41,6 +42,11 @@ const EnvSchema = z.object({
 });
 
 export type Config = z.infer<typeof EnvSchema> & { repoRoot: string };
+
+/** Reads the repository's .env when there is one; variables already set in the shell win. */
+export function loadDotEnv(path = `${REPO_ROOT}.env`): void {
+  if (existsSync(path)) process.loadEnvFile(path);
+}
 
 export function loadConfig(env: NodeJS.ProcessEnv = process.env): Config {
   // Empty variables (common in .env files and container configs) count as unset.

@@ -9,7 +9,7 @@ import { createHash } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
 import { basename } from 'node:path';
 import { ALL_BILLS, EXTRACTIONS_DIR, filePath, type DatasetBill } from '@mandato/dataset';
-import { loadConfig } from '../config';
+import { loadConfig, loadDotEnv } from '../config';
 import { ExtractionCache } from '../extraction/cache';
 import { ClaudeExtractor } from '../extraction/claude';
 import { EXTRACTOR_VERSION } from '../extraction/types';
@@ -18,6 +18,7 @@ async function main() {
   const args = process.argv.slice(2);
   const force = args.includes('--force');
   const ids = args.filter((a) => !a.startsWith('--'));
+  loadDotEnv();
   const config = loadConfig();
   if (!config.ANTHROPIC_API_KEY) {
     console.error('Falta ANTHROPIC_API_KEY.');
