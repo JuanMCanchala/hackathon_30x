@@ -22,3 +22,4 @@ Nygard's template. Status values: _Proposed_, _Accepted_, _Superseded by ADR-XXX
 | [0015](0015-evaluation-harness-as-ci-gate.md)                  | The evaluation harness is a CI quality gate                                         |
 | [0016](0016-nextjs-frontend-spanish-ui.md)                     | Next.js App Router frontend with a Spanish UI behind an API proxy                   |
 | [0017](0017-openai-compatible-reader-deepseek-on-fireworks.md) | A second reader: DeepSeek V4.1 Flash on Fireworks through an OpenAI-compatible port |
+| [0018](0018-paying-decided-bills-on-their-due-date.md)         | Paying decided bills on their due date, through a rail port                         |
