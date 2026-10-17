@@ -49,3 +49,38 @@ export async function pdfPageImages(bytes: Buffer, maxPages = 3, dpi = 110): Pro
     return [];
   }
 }
+
+/** How many pages the PDF has, or null without poppler. */
+export async function pdfPageCount(bytes: Buffer): Promise<number | null> {
+  try {
+    return await withTempPdf(bytes, async (_dir, file) => {
+      const { stdout } = await run('pdfinfo', [file]);
+      const pages = Number(/^Pages:\s+(\d+)/m.exec(stdout)?.[1]);
+      return Number.isInteger(pages) && pages > 0 ? pages : null;
+    });
+  } catch {
+    return null;
+  }
+}
+
+/** One page as a PNG, for showing the document where a PDF viewer is not available. */
+export async function pdfPageImage(bytes: Buffer, page: number, dpi = 130): Promise<Buffer | null> {
+  try {
+    return await withTempPdf(bytes, async (dir, file) => {
+      const args = [
+        '-png',
+        '-singlefile',
+        '-r',
+        String(dpi),
+        '-f',
+        String(page),
+        '-l',
+        String(page),
+      ];
+      await run('pdftoppm', [...args, file, join(dir, 'page')], { maxBuffer: 64 * 1024 * 1024 });
+      return await readFile(join(dir, 'page.png'));
+    });
+  } catch {
+    return null;
+  }
+}

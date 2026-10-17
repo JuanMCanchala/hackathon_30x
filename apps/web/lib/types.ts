@@ -364,7 +364,20 @@ export interface EmailView {
   subject: string;
   date: string | null;
   text: string;
-  attachments: { index: number; filename: string; mediaType: string; size: number }[];
+  attachments: {
+    index: number;
+    filename: string;
+    mediaType: string;
+    size: number;
+    /** PDF attachments: how many pages can be shown as images (0 when they cannot). */
+    pages?: number;
+  }[];
+}
+
+export interface PdfView {
+  kind: 'pdf';
+  /** Pages that can be shown as images; 0 when the server cannot render them. */
+  pages: number;
 }
 
 export interface ChatView {

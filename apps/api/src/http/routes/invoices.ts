@@ -2,6 +2,7 @@ import { createRoute, z, type OpenAPIHono } from '@hono/zod-openapi';
 import { eq } from 'drizzle-orm';
 import { streamSSE } from 'hono/streaming';
 import { documents } from '../../db/schema';
+import { pdfPageCount, pdfPageImage } from '../../extraction/poppler';
 import { mediaTypeFor, parseChat, parseEmail } from '../../extraction/prepare';
 import { AppError, notFound } from '../../lib/common';
 import {
@@ -27,6 +28,9 @@ const InvoiceQuery = z.object({
   source: z.enum(['upload', 'email', 'chat', 'agent', 'dataset', 'attack']).optional(),
   limit: z.coerce.number().int().min(1).max(500).optional(),
 });
+
+/** Rendered PDF pages by document hash and page: documents never change once stored. */
+const pageCache = new Map<string, Buffer>();
 
 async function documentOf(deps: Deps, orgId: string, invoiceId: string) {
   const detail = await getInvoiceDetail(deps.db, orgId, invoiceId);
@@ -130,11 +134,65 @@ export function registerInvoiceRoutes(app: OpenAPIHono, deps: Deps) {
     const user = await currentUser(deps, c);
     const { doc, bytes } = await documentOf(deps, user.orgId, c.req.param('id'));
     if (doc.mediaType === 'message/rfc822') {
-      const { raw: _raw, ...email } = await parseEmail(bytes);
-      return c.json(email, 200);
+      const { raw, ...email } = await parseEmail(bytes);
+      const attachments = await Promise.all(
+        email.attachments.map(async (a, i) =>
+          a.mediaType === 'application/pdf' && raw[i]
+            ? { ...a, pages: (await pdfPageCount(raw[i])) ?? 0 }
+            : a,
+        ),
+      );
+      return c.json({ ...email, attachments }, 200);
     }
     if (doc.mediaType.startsWith('text/')) return c.json(parseChat(bytes.toString('utf8')), 200);
-    return c.json({ kind: doc.mediaType === 'application/pdf' ? 'pdf' : 'image' }, 200);
+    if (doc.mediaType === 'application/pdf')
+      return c.json({ kind: 'pdf', pages: (await pdfPageCount(bytes)) ?? 0 }, 200);
+    return c.json({ kind: 'image' }, 200);
+  });
+
+  // A PDF page as an image: phones and embedded browsers often cannot show the PDF itself.
+  const pageImage = async (key: string, pdf: Buffer, page: number) => {
+    const cached = pageCache.get(key);
+    if (cached) return cached;
+    const png = await pdfPageImage(pdf, page);
+    if (!png) throw notFound('La página');
+    if (pageCache.size >= 64) pageCache.delete(pageCache.keys().next().value!);
+    pageCache.set(key, png);
+    return png;
+  };
+  const pngResponse = (png: Buffer) =>
+    new Response(new Uint8Array(png), {
+      headers: {
+        'Content-Type': 'image/png',
+        'X-Content-Type-Options': 'nosniff',
+        'Cache-Control': 'private, max-age=3600',
+      },
+    });
+  const pageNumber = (value: string) => {
+    const page = Number(value);
+    if (!Number.isInteger(page) || page < 1 || page > 50) throw notFound('La página');
+    return page;
+  };
+
+  app.get('/api/v1/invoices/:id/document/pages/:page', async (c) => {
+    const user = await currentUser(deps, c);
+    const { doc, bytes } = await documentOf(deps, user.orgId, c.req.param('id'));
+    if (doc.mediaType !== 'application/pdf') throw notFound('La página');
+    const page = pageNumber(c.req.param('page'));
+    return pngResponse(await pageImage(`${doc.sha256}:${page}`, bytes, page));
+  });
+
+  app.get('/api/v1/invoices/:id/document/attachments/:index/pages/:page', async (c) => {
+    const user = await currentUser(deps, c);
+    const { doc, bytes } = await documentOf(deps, user.orgId, c.req.param('id'));
+    if (doc.mediaType !== 'message/rfc822') throw notFound('El adjunto');
+    const index = Number(c.req.param('index'));
+    const email = await parseEmail(bytes);
+    const content = email.raw[index];
+    if (email.attachments[index]?.mediaType !== 'application/pdf' || !content)
+      throw notFound('El adjunto');
+    const page = pageNumber(c.req.param('page'));
+    return pngResponse(await pageImage(`${doc.sha256}:a${index}:${page}`, content, page));
   });
 
   app.get('/api/v1/invoices/:id/document/attachments/:index', async (c) => {

@@ -2,14 +2,58 @@
 
 import { Download, Paperclip } from 'lucide-react';
 import { useApi } from '@/lib/hooks';
-import type { ChatView, EmailView, InvoiceDetail } from '@/lib/types';
+import type { ChatView, EmailView, InvoiceDetail, PdfView } from '@/lib/types';
 import { fmtDateTime } from '../ui';
+
+/**
+ * PDF pages as images: they look the same on a phone, in any browser, and load fast. A page
+ * opens the original PDF. Without rendered pages (no poppler on the server) the browser's own
+ * PDF viewer is the fallback.
+ */
+function PdfPages({
+  base,
+  pages,
+  href,
+  title,
+}: {
+  base: string;
+  pages: number;
+  href: string;
+  title: string;
+}) {
+  const shown = Math.min(pages, 4);
+  return (
+    <div className="grid gap-3 rounded-[14px] bg-fill p-3 sm:p-4">
+      {Array.from({ length: shown }, (_, i) => (
+        <a
+          key={i}
+          href={href}
+          target="_blank"
+          rel="noreferrer"
+          title="Abrir el PDF original"
+          className="block min-h-[240px] overflow-hidden rounded-[6px] bg-white shadow-sheet ring-1 ring-black/5 transition hover:-translate-y-0.5"
+        >
+          <img
+            src={`${base}/${i + 1}`}
+            alt={`${title}, página ${i + 1} de ${pages}`}
+            loading={i === 0 ? 'eager' : 'lazy'}
+            className="block h-auto w-full"
+          />
+        </a>
+      ))}
+      {pages > shown && (
+        <p className="text-center text-sm text-ink-3">
+          {pages - shown === 1 ? 'Una página más' : `${pages - shown} páginas más`} en el PDF.
+        </p>
+      )}
+    </div>
+  );
+}
 
 export function DocumentViewer({ invoice }: { invoice: InvoiceDetail }) {
   const doc = invoice.document;
-  const isMessage = doc?.kind === 'email' || doc?.kind === 'text';
-  const { data } = useApi<EmailView | ChatView>(
-    isMessage ? `/api/v1/invoices/${invoice.id}/document/view` : null,
+  const { data } = useApi<EmailView | ChatView | PdfView>(
+    doc && doc.kind !== 'image' ? `/api/v1/invoices/${invoice.id}/document/view` : null,
   );
   const src = `/api/v1/invoices/${invoice.id}/document`;
 
@@ -26,13 +70,16 @@ export function DocumentViewer({ invoice }: { invoice: InvoiceDetail }) {
 
   return (
     <div className="grid gap-3">
-      {doc.kind === 'pdf' && (
-        <iframe
-          src={`${src}#toolbar=0&navpanes=0&view=FitH`}
-          title={`Documento original: ${doc.filename}`}
-          className="h-[640px] w-full rounded-lg border border-rule bg-white"
-        />
-      )}
+      {data?.kind === 'pdf' &&
+        (data.pages > 0 ? (
+          <PdfPages base={`${src}/pages`} pages={data.pages} href={src} title={doc.filename} />
+        ) : (
+          <iframe
+            src={`${src}#toolbar=0&navpanes=0&view=FitH`}
+            title={`Documento original: ${doc.filename}`}
+            className="h-[640px] w-full rounded-lg border border-rule bg-white"
+          />
+        ))}
       {doc.kind === 'image' && (
         <img
           src={src}
@@ -75,13 +122,27 @@ export function DocumentViewer({ invoice }: { invoice: InvoiceDetail }) {
               ))}
             </ul>
           )}
-          {data.attachments.some((a) => a.mediaType === 'application/pdf') && (
-            <iframe
-              src={`${src}/attachments/${data.attachments.find((a) => a.mediaType === 'application/pdf')!.index}#toolbar=0&view=FitH`}
-              title="Adjunto en PDF"
-              className="h-[560px] w-full border-t border-rule bg-white"
-            />
-          )}
+          {(() => {
+            const pdf = data.attachments.find((a) => a.mediaType === 'application/pdf');
+            if (!pdf) return null;
+            const href = `${src}/attachments/${pdf.index}`;
+            return pdf.pages ? (
+              <div className="border-t border-rule">
+                <PdfPages
+                  base={`${href}/pages`}
+                  pages={pdf.pages}
+                  href={href}
+                  title={pdf.filename}
+                />
+              </div>
+            ) : (
+              <iframe
+                src={`${href}#toolbar=0&view=FitH`}
+                title="Adjunto en PDF"
+                className="h-[560px] w-full border-t border-rule bg-white"
+              />
+            );
+          })()}
         </div>
       )}
       {data?.kind === 'chat' && (
