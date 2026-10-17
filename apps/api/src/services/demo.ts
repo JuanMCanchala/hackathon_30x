@@ -35,6 +35,7 @@ import {
 import { withOrgLock } from './lock';
 import { addStatementCardLine, executeDue } from './rail';
 import { prEvidenceId } from './seed';
+import { shownNow } from './views';
 import { addTimeline, allEvidence, ORG_ID, REOPENED, ServiceError, type BillRow } from './state';
 
 /** The October close: the last clock step, when the Blinka statement arrives. */
@@ -269,7 +270,7 @@ export class DemoService {
     return {
       phase,
       busy,
-      now: await this.c.clock.now(),
+      now: (await shownNow(this.c.db, await this.c.clock.now()))!,
       actions,
       livePr: { url: pr.url, live: pr.live },
       problems: [...this.problems],

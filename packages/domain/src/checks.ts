@@ -16,6 +16,7 @@ import type {
   Currency,
   DecisionContext,
   ExtractedBill,
+  HistoryBill,
   LineEvaluation,
   Outcome,
   Vendor,
@@ -302,11 +303,16 @@ const contractCurrency: Check = ({ reading, contract }) => {
   const billed = reading!.currency?.trim().toUpperCase() ?? null;
   if (billed === contract!.currency) return pass(`${billed}, como el contrato.`);
   return fail(
-    `La cuenta está en ${billed ?? '(sin moneda)'} y el contrato en ${contract!.currency}.`,
+    billed
+      ? `La cuenta está en ${billed} y el contrato en ${contract!.currency}.`
+      : `No se leyó la moneda de la cuenta; el contrato está en ${contract!.currency}.`,
     `Una cuenta en ${contract!.currency}, la moneda del contrato.`,
     { blocks: 'la moneda de la cuenta no es la del contrato' },
   );
 };
+
+/** A previous bill as a person names it, never its internal id when there is something better. */
+const cite = (h: HistoryBill) => h.label ?? h.billId;
 
 /** Previous bills that are not this bill nor one it supersedes. */
 const others = ({ ctx }: Facts) =>
@@ -325,7 +331,7 @@ const duplicateInvoice: Check = (f) => {
   );
   if (!dup) return pass(`Es la primera vez que llega la cuenta ${number}.`);
   return fail(
-    `La cuenta ${number} ya había llegado (${dup.billId}, ${STATUS_LABEL[dup.status].toLowerCase()}).`,
+    `La cuenta ${number} ya había llegado (${STATUS_LABEL[dup.status].toLowerCase()}).`,
     'Si es una cuenta corregida, que diga qué cuenta reemplaza; si no, no se paga dos veces.',
   );
 };
@@ -352,7 +358,7 @@ const duplicateWork: Check = (f) => {
     );
     if (!dup) return pass(`Nadie más cobró el período del ${day(from)} al ${day(to)}.`);
     return fail(
-      `El período ya está en la cuenta ${dup.billId} (${STATUS_LABEL[dup.status].toLowerCase()}) del mismo contrato.`,
+      `El período ya está en la cuenta ${cite(dup)} (${STATUS_LABEL[dup.status].toLowerCase()}) del mismo contrato.`,
       remedy,
     );
   }
@@ -366,7 +372,7 @@ const duplicateWork: Check = (f) => {
   if (!dup) return pass('Ningún hito de esta cuenta se había cobrado antes.');
   const title = contract.terms.find((t) => dup.termIds.includes(t.id) && termIds.has(t.id))?.title;
   return fail(
-    `${title ?? 'El hito'} ya está en la cuenta ${dup.billId} (${STATUS_LABEL[dup.status].toLowerCase()}).`,
+    `${title ?? 'El hito'} ya está en la cuenta ${cite(dup)} (${STATUS_LABEL[dup.status].toLowerCase()}).`,
     remedy,
   );
 };

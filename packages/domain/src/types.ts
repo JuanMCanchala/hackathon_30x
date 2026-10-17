@@ -141,6 +141,8 @@ export const DEFAULT_POLICY: Policy = {
 
 export interface HistoryBill {
   billId: string;
+  /** How a person names the bill in a sentence (its invoice number, or when it arrived); else the id */
+  label?: string;
   vendorId: string;
   contractId: string | null;
   invoiceNumberNormalized: string | null;

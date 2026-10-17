@@ -94,9 +94,26 @@ export async function checkerInput(ex: Executor): Promise<CheckerInput> {
   };
 }
 
+/**
+ * The clock shown to the audience: the latest moment the demo has reached (the org clock or the
+ * newest timeline entry). Tour steps rewind the org clock to their own scripted time (Daniela
+ * answers on Oct 6 after the October bills arrived up to Oct 14), and business logic keeps using
+ * that step time; the display never goes backwards.
+ */
+export async function shownNow(ex: Executor, now: string | null): Promise<string | null> {
+  const rows = await ex
+    .select({ at: timeline.at })
+    .from(timeline)
+    .where(eq(timeline.orgId, ORG_ID));
+  return [now, ...rows.map((r) => r.at)].reduce<string | null>(
+    (latest, at) => (at && (!latest || Date.parse(at) > Date.parse(latest)) ? at : latest),
+    null,
+  );
+}
+
 export async function orgNow(ex: Executor) {
   const [row] = await ex.select().from(orgState).where(eq(orgState.orgId, ORG_ID));
-  return { now: row?.now ?? null, phase: row?.phase ?? 'idle' };
+  return { now: await shownNow(ex, row?.now ?? null), phase: row?.phase ?? 'idle' };
 }
 
 export async function overview(deps: Deps) {

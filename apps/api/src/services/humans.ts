@@ -3,7 +3,7 @@
  * to the vendor's registered destination; nothing in the bill or a message changes that.
  */
 import { eq } from 'drizzle-orm';
-import type { Payment } from '@recibido/domain';
+import { DEFAULT_POLICY, type ExtractedBill, type Payment } from '@recibido/domain';
 import { bills, humanActions } from '../db/schema';
 import { withOrgLock } from './lock';
 import {
@@ -24,6 +24,15 @@ export interface Resolution {
   note: string;
 }
 
+/** A person can only approve an amount the reader read: a total, its currency, confidently. */
+function amountReadWithCertainty(reading: ExtractedBill | null | undefined): boolean {
+  return (
+    !!reading?.total?.trim() &&
+    !!reading.currency?.trim() &&
+    reading.confidence.total >= DEFAULT_POLICY.minReadingConfidence
+  );
+}
+
 export async function resolveEscalation(
   deps: Deps,
   billId: string,
@@ -39,6 +48,11 @@ export async function resolveEscalation(
       let payment: Payment | null = null;
       const status = action === 'approve' ? 'APPROVED' : 'REJECTED';
       if (action === 'approve') {
+        if (!amountReadWithCertainty(bill.reading))
+          throw new ServiceError(
+            409,
+            'No se puede aprobar: no se leyó con certeza el monto o la moneda. Pide la cuenta formal o recházala.',
+          );
         const decision = await lastDecision(tx, billId);
         if (!decision) throw new ServiceError(409, 'La cuenta todavía no tiene una decisión.');
         const owed = decision.billedMinor - (await casePaid(tx, bill.chain));

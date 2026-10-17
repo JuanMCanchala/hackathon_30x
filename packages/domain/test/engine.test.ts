@@ -253,6 +253,17 @@ describe('decide: duplicates', () => {
     expect(check(d, 'duplicate.work').status).toBe('fail');
   });
 
+  it('names the earlier bill by how a person knows it, not by its id', () => {
+    const d = run(
+      context(hourlyBill('120', { invoiceNumber: 'DO-2026-11' }), {
+        ...ok,
+        history: [history({ billId: 'bill_0c67', label: 'DO-2026-10', status: 'PART_PAID' })],
+      }),
+    );
+    expect(check(d, 'duplicate.work').detail).toContain('la cuenta DO-2026-10');
+    expect(d.summary).not.toContain('bill_0c67');
+  });
+
   it('holds the same milestone billed twice', () => {
     const accepted = item({
       id: 'd2',

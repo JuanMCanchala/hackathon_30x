@@ -168,6 +168,7 @@ function historyOf(
   const billCurrency = CURRENCIES.find((c) => c === r?.currency?.trim().toUpperCase()) ?? null;
   return {
     billId: bill.id,
+    label: r?.invoiceNumber?.trim() || `recibida el ${bill.receivedAt.slice(0, 10)}`,
     vendorId: bill.vendorId ?? '',
     contractId: bill.contractId,
     invoiceNumberNormalized: r?.invoiceNumber ? normalizeInvoiceNumber(r.invoiceNumber) : null,

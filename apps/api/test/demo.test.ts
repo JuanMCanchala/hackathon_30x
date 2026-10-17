@@ -50,15 +50,28 @@ describe('the guided demo', () => {
   });
 
   it('walks every tour action and ends where the labels and the oracle say', async () => {
+    // the clock shown to the audience never goes backwards, even when a step's own time is earlier
+    const shown: string[] = [];
+    const see = async () => {
+      const tour = await demo.tourState();
+      expect((await overview(c.deps)).clock.now).toBe(tour.now);
+      shown.push(tour.now);
+      return tour;
+    };
     await demo.act('arrive-october');
     await demo.idle();
-    expect((await demo.tourState()).phase).toBe('october');
+    expect((await see()).phase).toBe('october');
     await demo.act('reply-daniela');
+    await see();
     await expect(demo.act('reply-daniela')).rejects.toMatchObject({ status: 409 });
     await demo.act('accept-brand-kit');
+    await see();
     expect(await demo.act('merge-pr')).toMatchObject({ mode: 'simulated' });
+    await see();
     await demo.act('close-october');
-    expect((await demo.tourState()).phase).toBe('closed');
+    expect((await see()).phase).toBe('closed');
+    const ms = shown.map((t) => Date.parse(t));
+    expect(ms).toEqual([...ms].sort((a, b) => a - b));
     expect(demo.problems).toEqual([]);
 
     const view = await overview(c.deps);

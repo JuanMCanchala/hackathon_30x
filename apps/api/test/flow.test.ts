@@ -111,6 +111,26 @@ describe('people', () => {
     expect(await allPayments(c.db)).toHaveLength(1);
   });
 
+  it('a person cannot approve a bill whose amount or currency was not read with certainty', async () => {
+    c = await setup();
+    const { decision, billId } = await ingest(c, 'oct-19');
+    expect(decision?.outcome).toBe('ESCALATE');
+    await expect(
+      c.resolveEscalation(billId, { action: 'approve', actor: 'Diego Navarro', note: '' }),
+    ).rejects.toMatchObject({
+      status: 409,
+      message:
+        'No se puede aprobar: no se leyó con certeza el monto o la moneda. Pide la cuenta formal o recházala.',
+    });
+    expect(await allPayments(c.db)).toHaveLength(0);
+    const { status } = await c.resolveEscalation(billId, {
+      action: 'reject',
+      actor: 'Diego Navarro',
+      note: '',
+    });
+    expect(status).toBe('REJECTED');
+  });
+
   it('a rejected bill pays nothing', async () => {
     c = await setup();
     const { billId } = await ingest(c, 'oct-06');
