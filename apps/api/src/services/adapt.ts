@@ -23,11 +23,13 @@ export const AdaptationSchema = z.object({
   }),
   youtube: z.object({ title: z.string(), thumbnail: z.string() }),
   avoid: z.array(z.string()),
+  /** Ids of the English or Portuguese pieces the adaptation builds on. */
+  inspiredBy: z.array(z.string()),
 });
 export type AdaptationContent = z.infer<typeof AdaptationSchema>;
 
 /** 30X's voice, read from 30x.com and its reference profiles. */
-const VOICE = `Voz de 30X: ambiciosa, directa y práctica. Habla a fundadores, ejecutivos y equipos comerciales de Latinoamérica que quieren "construir ventajas injustas". Frases cortas, verbos de acción ("construye", "implementa", "mide"), casos concretos de empresas de la región, cero tecnicismos sin traducir, nada de hype vacío ("revolucionario", "cambia todo"). Tutea. Cierra con una acción concreta, no con una pregunta genérica. Andrés Bilbao (cofundador de Rappi y de 30X) escribe en primera persona, con historias de operador y números.`;
+export const VOICE = `Voz de 30X: ambiciosa, directa y práctica. Habla a fundadores, ejecutivos y equipos comerciales de Latinoamérica que quieren "construir ventajas injustas". Frases cortas, verbos de acción ("construye", "implementa", "mide"), casos concretos de empresas de la región, cero tecnicismos sin traducir, nada de hype vacío ("revolucionario", "cambia todo"). Tutea. Cierra con una acción concreta, no con una pregunta genérica. Andrés Bilbao (cofundador de Rappi y de 30X) escribe en primera persona, con historias de operador y números.`;
 
 const ADAPT_SYSTEM = `Eres editor de contenido de 30X. Te damos un tema de IA que está creciendo, por qué funcionan las piezas que despegan (patrones contados y ejemplos) y si encaja con la audiencia. Escribe piezas listas para que una persona del equipo las revise y publique.
 
@@ -41,6 +43,10 @@ Devuelve:
 - reel: guion de Reel o TikTok de 30 a 45 segundos: hook (lo que se dice en los primeros 3 segundos), beats (4 a 6 momentos en orden), onScreen (texto en pantalla de cada momento) y cta.
 - youtube: título (máximo 70 caracteres) e idea de miniatura (qué se ve y el texto grande, máximo 4 palabras).
 - avoid: 2 o 3 ángulos que ya están gastados o que no le convienen a la marca.
+
+- inspiredBy: los ids de las piezas en inglés o portugués en las que te basaste (copiados exactos), o una lista vacía.
+
+Lo viral sobre IA casi siempre nace en inglés o en portugués y llega días después al español. Si te damos piezas que ya funcionaron en esos idiomas, adáptalas al español latinoamericano: toma la idea y el gancho, no traduzcas palabra por palabra, cambia los ejemplos por casos de la región y dilo con la voz de 30X.
 
 Usa solo hechos que estén en los datos o que sean de conocimiento general; si citas una cifra, que venga de los datos. Español latinoamericano neutro, sin markdown.`;
 
@@ -107,6 +113,14 @@ export async function adaptTopic(
     ...detail.evidence
       .slice(0, 6)
       .map((p) => `- ${p.platform}: «${(p.hook || p.title || p.text).slice(0, 160)}»`),
+    detail.inspiration.length
+      ? `Ya funcionó en inglés o portugués (adáptalo al español):\n${detail.inspiration
+          .map(
+            (p) =>
+              `- [${p.id}] ${p.lang === 'pt' ? 'portugués' : 'inglés'}, ${p.platform}: «${(p.hook || p.title || p.text).slice(0, 160)}»${p.es ? ` (en español: «${p.es}»)` : ''}`,
+          )
+          .join('\n')}`
+      : '',
   ]
     .filter(Boolean)
     .join('\n');

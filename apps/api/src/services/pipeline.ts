@@ -32,12 +32,17 @@ export async function warmTopics(deps: Deps): Promise<number> {
   const ranked = scored
     .filter((s) => s.core.momentum > 0 && s.meta.named && !s.meta.generic)
     .slice(0, 60);
-  await inParallel(ranked, 6, (s) => fitForTopic(deps, s.core.id, asOf));
+  // Topics already viral in English or Portuguese need their fit too: they fill the Spanish window.
+  const windows = scored
+    .filter((s) => s.spanishWindow.open && s.meta.named && !s.meta.generic)
+    .slice(0, 40);
+  const toFit = [...new Map([...ranked, ...windows].map((s) => [s.core.id, s])).values()];
+  await inParallel(toFit, 6, (s) => fitForTopic(deps, s.core.id, asOf));
   const seen = new Set<string>();
   for (const audience of ['30x', 'all'] as const) {
     for (const platform of ['all', 'linkedin', 'instagram', 'youtube', 'x'] as const) {
       const week = await radar(deps, { platform, region: 'global', untouched: false, audience });
-      for (const t of [...week.topics, ...week.forming]) seen.add(t.id);
+      for (const t of [...week.topics, ...week.forming, ...week.windowsOpen]) seen.add(t.id);
     }
   }
   await inParallel([...seen], 3, (id) => topicDetail(deps, id));
@@ -69,7 +74,7 @@ export const pipelineStatus = (): PipelineStatus => ({ ...status });
 
 export function startPipeline(
   deps: Deps,
-  options: { enrich?: boolean; limit?: number; rebuild?: boolean } = {},
+  options: { enrich?: boolean; limit?: number; rebuild?: boolean; force?: boolean } = {},
 ): PipelineStatus {
   if (status.running) return pipelineStatus();
   Object.assign(status, {
@@ -89,7 +94,7 @@ export function startPipeline(
   void (async () => {
     try {
       progress('ingesta');
-      const ingested = await ingestRuns(deps);
+      const ingested = await ingestRuns(deps, { force: options.force });
       let enriched = { read: 0, failed: 0 };
       if (options.enrich !== false) {
         progress('lectura');

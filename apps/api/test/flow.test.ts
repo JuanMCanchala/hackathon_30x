@@ -103,6 +103,7 @@ function scriptedLlm(): Llm {
             reel: { hook: 'Gancho', beats: ['Uno'], onScreen: ['Texto'], cta: 'Prueba hoy' },
             youtube: { title: 'Título', thumbnail: 'Miniatura' },
             avoid: ['El hype'],
+            inspiredBy: [],
           };
         throw new Error(`Petición inesperada: ${request.name}`);
       })();

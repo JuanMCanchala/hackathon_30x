@@ -23,6 +23,7 @@ import { enrichments, items, itemTopics, topicSeries, topics } from '../db/schem
 import { notFound } from '../lib/common';
 import type { Deps } from './deps';
 import { fitOf, whyOf } from './explain';
+import { toSpanish } from './translate';
 import { AUDIENCE_FIT, isUniform, scoreTopics, topicView, type RadarFilters } from './radar';
 
 const HOOK_LABEL: Record<string, string> = {
@@ -113,7 +114,11 @@ export interface PieceView {
 type ItemRow = typeof items.$inferSelect;
 type EnrichmentRow = typeof enrichments.$inferSelect;
 
-function pieceView(item: ItemRow, e: EnrichmentRow | null, outlier: number | null): PieceView {
+export function pieceView(
+  item: ItemRow,
+  e: EnrichmentRow | null,
+  outlier: number | null,
+): PieceView {
   return {
     id: item.id,
     platform: item.platform as Platform,
@@ -377,6 +382,29 @@ export async function topicDetail(
     .slice(0, 9);
   const evidence = evidenceRows.map(({ item, e }) => pieceView(item, e, ratioOf(item.id)));
 
+  // Inspiration: what already worked in English and Portuguese, with its idea in Spanish. Viral AI
+  // content usually starts there; the team adapts it before Spanish catches up.
+  const foreign = [...recent]
+    .filter(({ item, e }) => {
+      const lang = (e?.lang ?? item.lang ?? '').slice(0, 2);
+      return lang === 'en' || lang === 'pt';
+    })
+    .sort(
+      (a, b) =>
+        (ratioOf(b.item.id) ?? 0) - (ratioOf(a.item.id) ?? 0) ||
+        b.item.engagement - a.item.engagement,
+    )
+    .slice(0, 4);
+  const translated = await toSpanish(
+    deps,
+    foreign.map(({ item, e }) => ({ id: item.id, text: e?.hook || item.title || item.text })),
+  );
+  const inspiration = foreign.map(({ item, e }) => ({
+    ...pieceView(item, e, ratioOf(item.id)),
+    lang: (e?.lang ?? item.lang ?? '').slice(0, 2) as 'en' | 'pt',
+    es: translated.get(item.id) ?? null,
+  }));
+
   const view = topicView(s, index >= 0 ? index + 1 : 0);
   const why = await whyOf(
     deps,
@@ -442,6 +470,7 @@ export async function topicDetail(
     why: { patterns, narrative: why?.narrative ?? null, cited: why?.cited ?? [] },
     fit,
     evidence,
+    inspiration,
     coverage: coverageRows.length
       ? [
           {

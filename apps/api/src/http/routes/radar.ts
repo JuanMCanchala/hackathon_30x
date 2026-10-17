@@ -94,6 +94,8 @@ export function registerRadarRoutes(app: OpenAPIHono, deps: Deps) {
         enrich: z.boolean().default(true),
         limit: z.number().int().min(1).max(100_000).optional(),
         rebuild: z.boolean().default(false),
+        /** Ingest runs younger than 20 minutes too: only when they are known to be finished. */
+        force: z.boolean().default(false),
       })
       .parse(await c.req.json().catch(() => ({})));
     return c.json(startPipeline(deps, body), 202);

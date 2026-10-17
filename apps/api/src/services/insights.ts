@@ -126,8 +126,26 @@ export async function evaluationView(deps: Deps) {
     .select({ stats: runs.stats, startedAt: runs.startedAt })
     .from(runs)
     .where(eq(runs.kind, 'ingest'));
+  // How long a wave takes to reach Spanish: for topics that stood out in English or Portuguese,
+  // the weeks until Spanish stood out too (or until now, while it has not).
+  const { scored } = await scoreTopics(deps);
+  const lags = scored
+    .filter((s) => s.spanishWindow.leader && s.spanishWindow.lagDays !== null && s.meta.named)
+    .map((s) => ({
+      name: s.meta.name,
+      leader: s.spanishWindow.leader!,
+      lagDays: s.spanishWindow.lagDays!,
+      open: s.spanishWindow.open,
+    }));
+  const languageLag = {
+    topics: lags.length,
+    medianDays: lags.length ? median(lags.map((l) => l.lagDays)) : null,
+    stillOpen: lags.filter((l) => l.open).length,
+    examples: lags.sort((a, b) => b.lagDays - a.lagDays).slice(0, 6),
+  };
   return {
     asOf,
+    languageLag,
     backtest,
     corpus: {
       byPlatform: byPlatform.sort((a, b) => b.pieces - a.pieces),
@@ -155,6 +173,7 @@ Reglas:
 - Español, texto plano sin markdown, breve: un párrafo corto o una lista corta con guiones.
 - En el texto nombra los temas por su nombre, nunca por su id. Pon el id exacto de cada tema que menciones (empieza con t_) solo en "refs".
 - Si la pregunta es por un uso (ventas, marketing, atención al cliente…), busca también en «Se están formando»: ahí están los temas que todavía no llegan a LinkedIn.
+- Lo viral sobre IA suele nacer en inglés o portugués y llegar después al español. Cuando un tema tiene «ventana abierta», dilo: es la oportunidad de adaptarlo primero.
 - "followUps": dos o tres preguntas útiles que el equipo podría hacer después.`;
 
 export async function askRadar(
@@ -174,8 +193,10 @@ export async function askRadar(
         b.core.technicalLift - a.core.technicalLift,
     )
     .slice(0, 12);
+  const langLine = (s: (typeof scored)[number]) =>
+    `idiomas: inglés ${s.languages.en.creators}, portugués ${s.languages.pt.creators}, español ${s.languages.es.creators} creadores${s.spanishWindow.open ? ' | ventana abierta: ya es viral en ' + (s.spanishWindow.leader === 'pt' ? 'portugués' : 'inglés') + ' y casi no hay piezas en español' : ''}`;
   const line = (s: (typeof scored)[number]) =>
-    `- ${s.core.id} | ${s.meta.name} | etapa ${s.stage} | ${s.core.growthPct >= 0 ? '+' : ''}${s.core.growthPct} % | ${s.core.creators} creadores | redes esta semana: ${s.platforms.join(', ') || 'ninguna'} | encaje 30X ${s.meta.fit ?? 'sin medir'}${s.untouched ? ' | 30X no lo ha tocado' : ''}${s.meta.why ? ` | por qué: ${s.meta.why}` : ''}`;
+    `- ${s.core.id} | ${s.meta.name} | etapa ${s.stage} | ${s.core.growthPct >= 0 ? '+' : ''}${s.core.growthPct} % | ${s.core.creators} creadores | redes esta semana: ${s.platforms.join(', ') || 'ninguna'} | encaje 30X ${s.meta.fit ?? 'sin medir'}${s.untouched ? ' | 30X no lo ha tocado' : ''}${s.meta.why ? ` | por qué: ${s.meta.why}` : ''} | ${langLine(s)}`;
   const context = [
     'Temas que más crecen esta semana (de mayor a menor momentum):',
     ...ranked.map(line),

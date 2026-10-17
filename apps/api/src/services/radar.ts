@@ -45,6 +45,20 @@ const WAVE: Record<StageKey, [number, number]> = {
 /** A topic counts as useful for 30X's audience from this fit on (1 to 10). */
 export const AUDIENCE_FIT = 7;
 
+/** The languages the radar follows: viral AI content usually starts in English or Portuguese. */
+export type Lang = 'en' | 'pt' | 'es';
+export const LANGS: readonly Lang[] = ['en', 'pt', 'es'];
+
+/** A topic's wave in one language, measured on the evenly sampled sources in that language. */
+export interface LanguageWave {
+  lang: Lang;
+  creators: number;
+  growthPct: number;
+  stage: StageKey | 'ausente';
+  wavePos: number | null;
+  sparkline: number[];
+}
+
 export interface RadarFilters {
   platform: 'all' | Platform;
   /** `30x`: only topics whose fit with 30X's audience is at least AUDIENCE_FIT. */
@@ -79,6 +93,14 @@ export interface RadarTopicView {
   /** Sources sampled alike where it grows by itself; with fewer than two it is «por confirmar». */
   growingIn: Platform[];
   confirmed: boolean;
+  /** Its wave in English, Portuguese and Spanish. */
+  languages: Record<Lang, LanguageWave>;
+  /**
+   * Already viral in English or Portuguese while Spanish has barely started: the window to adapt
+   * it first. `leader` is the language it comes from; `lagDays`, how long Spanish took (or has
+   * taken so far) after the leader's first standout week.
+   */
+  spanishWindow: { open: boolean; leader: Lang | null; lagDays: number | null };
 }
 
 /** One piece as the radar counts it. */
@@ -98,6 +120,8 @@ export interface PieceRow {
 /** Sampled the same way in every 7-day window, so their counts can be compared over time. */
 export function isUniform(p: Pick<PieceRow, 'platform' | 'approx' | 'query'>): boolean {
   if (p.approx) return false;
+  // A followed topic searches on demand, not alike every week: its finds never count as growth.
+  if ((p.query ?? '').startsWith('vigia:')) return false;
   if (p.platform === 'bluesky' || p.platform === 'news' || p.platform === 'hn') return true;
   return p.platform === 'github' && (p.query ?? '').startsWith('created:');
 }
@@ -135,6 +159,11 @@ export async function topicPieces(deps: Deps, since: string): Promise<PieceRow[]
     publishedAt: new Date(r.publishedAt).toISOString(),
   }));
 }
+
+export const langOf = (p: Pick<PieceRow, 'lang'>): Lang | null => {
+  const l = (p.lang ?? '').slice(0, 2).toLowerCase();
+  return l === 'en' || l === 'pt' || l === 'es' ? l : null;
+};
 
 const radarPiece = (p: PieceRow): RadarPiece => ({
   platform: p.platform,
@@ -206,6 +235,8 @@ export interface ScoredTopic {
   core: CoreTopic;
   meta: TopicMeta;
   stage: StageKey;
+  languages: Record<Lang, LanguageWave>;
+  spanishWindow: { open: boolean; leader: Lang | null; lagDays: number | null };
   /** Uniform sources where the topic grows on its own (lift ≥ 1.5 with 2+ creators). */
   growingIn: Platform[];
   platforms: Platform[];
@@ -282,6 +313,24 @@ async function computeScores(
     { asOf, top: 10_000 },
   );
   const formingById = new Map(arrival.all.map((t) => [t.id, t.forming]));
+  // The same ranking once per language, on that language's evenly sampled pieces.
+  const byLang = new Map(
+    LANGS.map((lang) => {
+      const ranked = rankTopics(
+        input((p) => isUniform(p) && langOf(p) === lang),
+        { asOf, top: 10_000 },
+      );
+      const active = ranked.all.map((t) => t.creators).filter((c) => c > 0);
+      return [
+        lang,
+        {
+          byId: new Map(ranked.all.map((t) => [t.id, t])),
+          p50: percentile(active, 50),
+          p90: percentile(active, 90),
+        },
+      ] as const;
+    }),
+  );
   const currentStart = windows.at(-1)!.start;
   const referenceSince = new Date(Date.parse(asOf) - 60 * 86_400_000).toISOString();
 
@@ -307,10 +356,40 @@ async function computeScores(
     for (const [platform, set] of creators) presence[platform] = set.size;
     const platforms = [...creators.keys()].sort((a, b) => (presence[b] ?? 0) - (presence[a] ?? 0));
     const stage = STAGE_KEY[core.stage];
+    const languages = Object.fromEntries(
+      LANGS.map((lang) => {
+        const l = byLang.get(lang)!;
+        const t = l.byId.get(core.id);
+        const seen = t ? t.series.some((w) => w.creators > 0) : false;
+        const langStage: StageKey | 'ausente' = t && seen ? STAGE_KEY[t.stage] : 'ausente';
+        return [
+          lang,
+          {
+            lang,
+            creators: t?.creators ?? 0,
+            growthPct: t?.growthPct ?? 0,
+            stage: langStage,
+            wavePos: t && langStage !== 'ausente' ? wavePosition(langStage, t, l.p50, l.p90) : null,
+            sparkline: t?.sparkline ?? [],
+          } satisfies LanguageWave,
+        ];
+      }),
+    ) as Record<Lang, LanguageWave>;
     return {
       core,
       meta: metaById.get(core.id)!,
       stage,
+      languages,
+      spanishWindow: spanishWindowOf(
+        languages,
+        LANGS.map(
+          (lang) =>
+            byLang
+              .get(lang)!
+              .byId.get(core.id)
+              ?.series.map((w) => w.creators) ?? [],
+        ),
+      ),
       growingIn: growingIn(list, windows),
       platforms,
       presence,
@@ -320,6 +399,39 @@ async function computeScores(
     };
   });
   return { asOf, scored, pieces };
+}
+
+/** First week (index) a language's series stood out: 3+ creators and 1.8x its last four. */
+function firstStandout(series: number[]): number | null {
+  for (let i = 4; i < series.length; i++) {
+    const base = series.slice(i - 4, i).reduce((a, b) => a + b, 0) / 4;
+    if (series[i]! >= 3 && (series[i]! + 1) / (base + 1) >= 1.8) return i;
+  }
+  return null;
+}
+
+/**
+ * The Spanish window: the topic already has a crowd in English or Portuguese (6+ creators this
+ * week) while Spanish has a quarter of it or less. The lag is counted between the leader's first
+ * standout week and Spanish's (or this week, if Spanish has not stood out yet).
+ */
+function spanishWindowOf(languages: Record<Lang, LanguageWave>, series: number[][]) {
+  const [en, pt] = [languages.en, languages.pt];
+  const leader: Lang | null =
+    Math.max(en.creators, pt.creators) >= 6 ? (en.creators >= pt.creators ? 'en' : 'pt') : null;
+  if (!leader) return { open: false, leader: null, lagDays: null };
+  const lead = languages[leader];
+  const open = languages.es.creators <= Math.max(2, Math.floor(lead.creators / 4));
+  const leadStart = firstStandout(series[LANGS.indexOf(leader)] ?? []);
+  const esSeries = series[LANGS.indexOf('es')] ?? [];
+  const esStart = firstStandout(esSeries);
+  const lagWeeks =
+    leadStart === null
+      ? null
+      : esStart !== null
+        ? esStart - leadStart
+        : esSeries.length - 1 - leadStart;
+  return { open, leader, lagDays: lagWeeks !== null && lagWeeks >= 0 ? lagWeeks * 7 : null };
 }
 
 const UNIFORM: readonly Platform[] = ['bluesky', 'news', 'hn', 'github'];
@@ -368,6 +480,8 @@ export function topicView(s: ScoredTopic, rank: number): RadarTopicView {
     fresh: baselineOf(s.core) < 0.5,
     growingIn: s.growingIn,
     confirmed: s.growingIn.length >= 2,
+    languages: s.languages,
+    spanishWindow: s.spanishWindow,
   };
 }
 
@@ -491,6 +605,22 @@ export async function radar(deps: Deps, filters: RadarFilters) {
     .slice(0, 6)
     .map((s, i) => topicView(s, i + 1));
 
+  // Viral in English or Portuguese, not yet in Spanish: the topics to adapt first.
+  const windowsOpen = scored
+    .filter(
+      (s) =>
+        s.spanishWindow.open &&
+        s.meta.named &&
+        (filters.audience !== '30x' || (s.meta.fit ?? 0) >= AUDIENCE_FIT),
+    )
+    .sort(
+      (a, b) =>
+        (b.languages[b.spanishWindow.leader!]?.creators ?? 0) -
+        (a.languages[a.spanishWindow.leader!]?.creators ?? 0),
+    )
+    .slice(0, 6)
+    .map((s, i) => topicView(s, i + 1));
+
   const currentPieces = pieces.filter((p) => p.publishedAt > current.start);
   const creators = new Set(currentPieces.map((p) => `${p.platform}:${p.authorId}`));
   const sources = new Set(currentPieces.map((p) => p.platform));
@@ -507,6 +637,7 @@ export async function radar(deps: Deps, filters: RadarFilters) {
     },
     topics: top,
     forming,
+    windowsOpen,
     hiddenByAudience,
     cost: await weekCost(deps, asOf),
   };
