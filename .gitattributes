@@ -1,0 +1,8 @@
+* text=auto eol=lf
+# Generated documents are hashed (SHA-256) to key their recorded extractions:
+# their bytes must never be rewritten by line-ending conversion.
+packages/dataset/files/** -text
+packages/dataset/extractions/** -text
+*.pdf binary
+*.png binary
+*.eml -text

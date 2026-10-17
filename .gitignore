@@ -1,0 +1,34 @@
+# dependencies
+node_modules/
+
+# builds
+dist/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+
+# local data (PGlite database, uploaded documents)
+.data/
+
+# env
+.env
+.env.*
+!.env.example
+
+# test & tooling output
+coverage/
+playwright-report/
+test-results/
+.eval/
+
+# os / editors
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# recibido
+.eval/
+.screenshots/
+contexto-hackathon.md

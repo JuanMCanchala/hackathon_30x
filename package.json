@@ -1,0 +1,39 @@
+{
+  "name": "recibido",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Recibido: an accounts-payable agent that pays services bills only for the work it can prove was delivered.",
+  "type": "module",
+  "packageManager": "pnpm@12.9.1",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "dev": "pnpm --parallel --filter @recibido/api --filter @recibido/web dev",
+    "build": "pnpm -r --filter=!@recibido/dataset build",
+    "typecheck": "pnpm -r typecheck",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "eval": "pnpm --filter @recibido/api eval",
+    "record": "pnpm --filter @recibido/api record",
+    "dataset:generate": "pnpm --filter @recibido/dataset generate",
+    "e2e": "pnpm --filter @recibido/web e2e",
+    "screenshots": "pnpm --filter @recibido/web screenshots",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^26.6.5",
+    "eslint": "^10.13.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "fast-check": "^4.10.2",
+    "prettier": "^3.9.10",
+    "tsx": "^4.23.15",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.71.2",
+    "vitest": "^5.0.5"
+  }
+}
