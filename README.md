@@ -13,7 +13,9 @@ registrado y dentro de los límites; todo lo demás llega a un humano con el mot
 aprobación le enseña al agente un acuerdo nuevo que una persona firma o rechaza, así que la
 autonomía sube mes a mes mientras los pagos indebidos se quedan en cero.
 
-![Mandato's overview: the trust ladder climbs from 53 % in August to 71 % in September with zero payments outside the rules](docs/images/overview.webp)
+![Mandato's landing: "Firma acuerdos, no pagos", with a live demo where you tap a bill and watch the agent check it and decide](docs/images/landing.webp)
+
+![The overview: the trust ladder climbs from 53 % in August to 71 % in September, and the independent auditor finds zero payments outside the rules](docs/images/overview.webp)
 
 ## Results
 
@@ -129,7 +131,7 @@ Spanish; every receipt names the model that read it ([ADR-0017](docs/adr/0017-op
 
 ```
 apps/api          Hono + OpenAPI · Drizzle on PostgreSQL or PGlite · SSE · LLM readers · auditor
-apps/web          Next.js 16 · Tailwind 4 · Spanish UI · light and dark themes
+apps/web          Next.js 16 · Tailwind 4 · Spanish UI · landing + app · light and dark themes
 apps/mcp          MCP server (stdio) for external agents
 packages/domain   the pure engine: 23 rules, money, mandates, proposals, ledger, audit
 packages/dataset  Andes Labs: payees, mandates, 48 rendered documents, attacks, the team's actions
