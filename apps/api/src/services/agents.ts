@@ -113,7 +113,13 @@ export function extractionFromRequest(request: AgentPaymentRequest): ExtractedIn
   };
 }
 
-export async function requestPayment(deps: Deps, agent: AgentRow, payload: unknown, at?: string) {
+export async function requestPayment(
+  deps: Deps,
+  agent: AgentRow,
+  payload: unknown,
+  /** Demo only: a simulated instant, and the attack-lab id that tags test traffic. */
+  options: { at?: string; datasetId?: string } = {},
+) {
   const request = AgentPaymentRequestSchema.parse(payload);
   const result = await ingestInvoice(deps, {
     orgId: agent.orgId,
@@ -121,7 +127,8 @@ export async function requestPayment(deps: Deps, agent: AgentRow, payload: unkno
     requester: { kind: 'agent', agentId: agent.id, name: agent.name, scope: agent.scope },
     structured: extractionFromRequest(request),
     title: `${request.beneficiario.nombre} · ${request.numero_factura} (solicitado por ${agent.name})`,
-    at,
+    at: options.at,
+    datasetId: options.datasetId ?? null,
   });
   return paymentRequestView(deps, agent, result.invoiceId);
 }

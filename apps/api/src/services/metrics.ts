@@ -16,9 +16,12 @@ export async function overview(deps: Deps, orgId: string) {
 
   const rows = await db.select().from(invoices).where(eq(invoices.orgId, orgId));
   // The attack lab is adversarial test traffic, not accounts payable: keep it out of autonomy.
+  // Its agent request arrives through the agent gateway, so it is recognised by its lab id.
+  const isAttack = (r: (typeof rows)[number]) =>
+    r.source === 'attack' || (r.datasetId?.startsWith('atk-') ?? false);
   const periods = periodMetrics(
     rows
-      .filter((r) => r.source !== 'attack')
+      .filter((r) => !isAttack(r))
       .map((r) => ({
         periodKey: r.periodKey,
         outcome: r.outcome,
@@ -26,7 +29,7 @@ export async function overview(deps: Deps, orgId: string) {
         usdCents: r.usdCents,
       })),
   );
-  const attackRows = rows.filter((r) => r.source === 'attack');
+  const attackRows = rows.filter(isAttack);
   const accepted = await db
     .select()
     .from(proposals)

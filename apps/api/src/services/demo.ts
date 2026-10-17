@@ -369,7 +369,10 @@ export async function launchAttack(deps: Deps, id: string, at?: string) {
     if (!seed) throw notFound('El agente');
     const key = process.env.AGENT_DEMO_KEY ?? seed.demoKey;
     const agent = await authenticateAgent(deps, `Bearer ${key}`);
-    const view = await requestPayment(deps, agent, attack.agentRequest.payload, at);
+    const view = await requestPayment(deps, agent, attack.agentRequest.payload, {
+      at,
+      datasetId: attack.id,
+    });
     results.push({ invoiceId: view.id, ref: view.referencia, created: true });
   }
   return { attack: attack.id, results };
@@ -388,16 +391,6 @@ export async function demoCatalog(deps: Deps) {
     .from(schema.invoices)
     .where(eq(schema.invoices.orgId, DEMO_ORG_ID));
   const processed = new Map(rows.filter((r) => r.datasetId).map((r) => [r.datasetId!, r]));
-  const agentRows = await deps.db
-    .select({
-      id: schema.invoices.id,
-      outcome: schema.invoices.outcome,
-      status: schema.invoices.status,
-      ref: schema.invoices.ref,
-      invoiceNumber: schema.invoices.invoiceNumber,
-    })
-    .from(schema.invoices)
-    .where(and(eq(schema.invoices.orgId, DEMO_ORG_ID), eq(schema.invoices.source, 'agent')));
   const describe = (bill: DatasetBill) => ({
     id: bill.id,
     title: bill.title,
@@ -425,11 +418,7 @@ export async function demoCatalog(deps: Deps) {
       caughtBy: a.caughtBy,
       bills: a.bills.map(describe),
       agentRequest: a.agentRequest ? { agentId: a.agentRequest.agentId } : null,
-      agentInvoice: a.agentRequest
-        ? (agentRows.find(
-            (r) => r.invoiceNumber === String(a.agentRequest!.payload.numero_factura),
-          ) ?? null)
-        : null,
+      agentInvoice: a.agentRequest ? (processed.get(a.id) ?? null) : null,
     })),
   };
 }

@@ -124,7 +124,9 @@ describe('metrics', () => {
       .select()
       .from(invoices)
       .where(eq(invoices.orgId, DEMO_ORG_ID));
-    const attacks = rows.filter((r) => r.source === 'attack');
+    const attacks = rows.filter((r) => r.source === 'attack' || r.datasetId?.startsWith('atk-'));
+    // The agent's attack comes through the gateway, tagged with its lab id.
+    expect(attacks.some((r) => r.source === 'agent' && r.datasetId === 'atk-11')).toBe(true);
     const view = await overview(container.deps, DEMO_ORG_ID);
     expect(attacks.length).toBeGreaterThan(0);
     expect(view.attacks).toEqual({
@@ -133,7 +135,7 @@ describe('metrics', () => {
       stopped: attacks.filter((r) => r.outcome !== 'PAY').length,
     });
     const counted = view.ladder.reduce((sum, period) => sum + period.total, 0);
-    expect(counted).toBe(rows.filter((r) => r.source !== 'attack' && r.outcome).length);
+    expect(counted).toBe(rows.filter((r) => !attacks.includes(r) && r.outcome).length);
   });
 });
 
