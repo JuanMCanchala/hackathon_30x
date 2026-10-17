@@ -35,7 +35,7 @@ export default function AuditoriaPage() {
   const report = audit?.report;
 
   return (
-    <div className="grid gap-10">
+    <div className="grid grid-cols-1 gap-10">
       <PageHeader
         title="Auditoría"
         lead="Un auditor escrito aparte del motor relee el registro completo, rehace las cuentas y verifica cada pago contra nueve invariantes. No confía en lo que dijo el motor."
@@ -43,13 +43,13 @@ export default function AuditoriaPage() {
           <>
             <a
               href="/api/v1/reconciliation.csv"
-              className="inline-flex h-10 items-center gap-2 rounded-full bg-fill px-4 text-brand text-[0.94rem] font-[560] text-ink hover:bg-sheet-2"
+              className="inline-flex h-10 items-center gap-2 rounded-full bg-fill px-4 text-[0.94rem] font-[560] text-ink hover:bg-sheet-2"
             >
               <Download className="size-4" aria-hidden /> Conciliación (CSV)
             </a>
             <a
               href="/api/v1/ledger/export.json"
-              className="inline-flex h-10 items-center gap-2 rounded-full bg-fill px-4 text-brand text-[0.94rem] font-[560] text-ink hover:bg-sheet-2"
+              className="inline-flex h-10 items-center gap-2 rounded-full bg-fill px-4 text-[0.94rem] font-[560] text-ink hover:bg-sheet-2"
             >
               <Download className="size-4" aria-hidden /> Registro (JSON)
             </a>

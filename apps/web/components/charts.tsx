@@ -196,31 +196,34 @@ export function TrustLadder({ steps }: { steps: Step[] }) {
         </div>
       )}
 
-      <table className="sr-only">
-        <caption>Escalera de confianza por mes</caption>
-        <thead>
-          <tr>
-            <th>Mes</th>
-            <th>Decididas sin intervención</th>
-            <th>Pagadas solas</th>
-            <th>Frenadas</th>
-            <th>Con aprobación</th>
-            <th>Acuerdos firmados en el mes</th>
-          </tr>
-        </thead>
-        <tbody>
-          {steps.map((s) => (
-            <tr key={s.periodKey}>
-              <td>{monthName(s)}</td>
-              <td>{formatPercent(s.autonomy)}</td>
-              <td>{s.paidByAgent}</td>
-              <td>{s.heldByAgent}</td>
-              <td>{s.escalated}</td>
-              <td>{s.signedInPeriod}</td>
+      {/* A table can't be squeezed to 1px, so the wrapper is what hides it from sight. */}
+      <div className="sr-only">
+        <table>
+          <caption>Escalera de confianza por mes</caption>
+          <thead>
+            <tr>
+              <th>Mes</th>
+              <th>Decididas sin intervención</th>
+              <th>Pagadas solas</th>
+              <th>Frenadas</th>
+              <th>Con aprobación</th>
+              <th>Acuerdos firmados en el mes</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {steps.map((s) => (
+              <tr key={s.periodKey}>
+                <td>{monthName(s)}</td>
+                <td>{formatPercent(s.autonomy)}</td>
+                <td>{s.paidByAgent}</td>
+                <td>{s.heldByAgent}</td>
+                <td>{s.escalated}</td>
+                <td>{s.signedInPeriod}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </figure>
   );
 }

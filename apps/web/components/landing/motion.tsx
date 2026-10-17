@@ -20,7 +20,8 @@ function useOnScreen<T extends Element>(onVisible: () => void) {
           callback.current();
         }
       },
-      { threshold: 0.18 },
+      // Any pixel past the bottom tenth counts: a tall block on a phone still gets revealed.
+      { threshold: 0, rootMargin: '0px 0px -10% 0px' },
     );
     observer.observe(el);
     return () => observer.disconnect();
