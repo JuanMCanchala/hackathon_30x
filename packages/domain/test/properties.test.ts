@@ -314,7 +314,8 @@ function assertSafePayment(ctx: DecisionContext) {
   }
 }
 
-describe('engine properties', () => {
+// Thousands of generated cases per property: a shared CI runner needs more than the default 5 s.
+describe('engine properties', { timeout: 30_000 }, () => {
   it('never pays outside the rules, whatever the reader returns', () => {
     let payments = 0;
     fc.assert(
