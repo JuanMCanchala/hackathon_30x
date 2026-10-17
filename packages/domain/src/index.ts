@@ -10,3 +10,5 @@ export * from './explain';
 export { decide, ENGINE_VERSION, statusForOutcome } from './engine';
 export * from './payments';
 export * from './reconcile';
+export * from './checker';
+export * from './metrics';
