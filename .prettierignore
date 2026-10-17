@@ -14,3 +14,6 @@ docs/EVALUATION.md
 .superpowers
 docs/PROPOSAL.md
 docs/superpowers
+test-results
+playwright-report
+.e2e-data

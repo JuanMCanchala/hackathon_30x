@@ -18,13 +18,14 @@
     "eval": "pnpm --filter @recibido/api eval",
     "record": "pnpm --filter @recibido/api record",
     "dataset:generate": "pnpm --filter @recibido/dataset generate",
-    "e2e": "pnpm --filter @recibido/web e2e",
+    "e2e": "playwright test",
     "screenshots": "node scripts/screenshots.mjs",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@playwright/test": "1.64.1",
     "@types/node": "^26.6.5",
     "eslint": "^10.13.0",
     "eslint-config-prettier": "^10.1.8",

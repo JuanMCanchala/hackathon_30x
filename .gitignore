@@ -32,3 +32,4 @@ test-results/
 .eval/
 .screenshots/
 contexto-hackathon.md
+.e2e-data/
