@@ -153,7 +153,8 @@ const ASK_SYSTEM = `Eres el radar de contenido de 30X, una escuela de negocios d
 Reglas:
 - Responde solo con los datos del contexto: temas con su id, etapa, crecimiento, creadores, redes y encaje. Si algo no está, dilo y sugiere dónde mirarlo en el radar. Nunca inventes cifras.
 - Español, texto plano sin markdown, breve: un párrafo corto o una lista corta con guiones.
-- Cuando hables de un tema, pon su id exacto (empieza con t_) en "refs".
+- En el texto nombra los temas por su nombre, nunca por su id. Pon el id exacto de cada tema que menciones (empieza con t_) solo en "refs".
+- Si la pregunta es por un uso (ventas, marketing, atención al cliente…), busca también en «Se están formando»: ahí están los temas que todavía no llegan a LinkedIn.
 - "followUps": dos o tres preguntas útiles que el equipo podría hacer después.`;
 
 export async function askRadar(
@@ -163,8 +164,16 @@ export async function askRadar(
 ) {
   if (question.trim().length < 3) throw new AppError(400, 'bad_question', 'Escribe una pregunta.');
   const { scored } = await scoreTopics(deps);
-  const ranked = scored.filter((s) => s.core.momentum > 0).slice(0, 30);
-  const forming = scored.filter((s) => s.forming).slice(0, 8);
+  const ranked = scored.filter((s) => s.core.momentum > 0 && s.meta.named).slice(0, 40);
+  // The ones that serve 30X's audience first, as on the radar's own lane.
+  const forming = scored
+    .filter((s) => s.forming && s.meta.named)
+    .sort(
+      (a, b) =>
+        Number((b.meta.fit ?? 0) >= 7) - Number((a.meta.fit ?? 0) >= 7) ||
+        b.core.technicalLift - a.core.technicalLift,
+    )
+    .slice(0, 12);
   const line = (s: (typeof scored)[number]) =>
     `- ${s.core.id} | ${s.meta.name} | etapa ${s.stage} | ${s.core.growthPct >= 0 ? '+' : ''}${s.core.growthPct} % | ${s.core.creators} creadores | redes esta semana: ${s.platforms.join(', ') || 'ninguna'} | encaje 30X ${s.meta.fit ?? 'sin medir'}${s.untouched ? ' | 30X no lo ha tocado' : ''}${s.meta.why ? ` | por qué: ${s.meta.why}` : ''}`;
   const context = [

@@ -16,8 +16,17 @@ import type { Deps } from './deps';
 export function cleanTitle(title: string): string {
   return title
     .replace(/\s*\|\s*LinkedIn\s*$/i, '')
-    .replace(/\s*\|\s*[^|]*(han publicado acerca del tema|ha publicado acerca del tema|posted on the topic)[^|]*$/i, '')
+    .replace(
+      /\s*\|\s*[^|]*(han publicado acerca del tema|ha publicado acerca del tema|posted on the topic)[^|]*$/i,
+      '',
+    )
     .trim();
+}
+
+/** LinkedIn's page title names the author when the parsed post does not: «… | Google DeepMind han publicado…». */
+function authorFromTitle(title: string | undefined): string | null {
+  const match = title?.match(/\|\s*([^|]+?)\s+(?:han|ha) publicado acerca del tema/i);
+  return match?.[1]?.trim() ?? null;
 }
 
 const ALLOWED =
@@ -59,7 +68,10 @@ export async function submitPost(
       'No pudimos leer ese post: puede ser privado o la red no lo muestra sin sesión.',
     );
   }
-  await saveItems(deps, [{ ...item, capturedAt: now }], true);
+  const author = item.author.name
+    ? item.author
+    : { ...item.author, name: authorFromTitle(item.title) ?? item.author.handle ?? '' };
+  await saveItems(deps, [{ ...item, author, capturedAt: now }], true);
   const itemId = `${item.platform}:${item.externalId}`;
   await enrichItems(deps, [itemId]);
   await clusterLabels(deps);
@@ -94,7 +106,9 @@ export async function submissions(deps: Deps) {
     .select({ itemId: itemTopics.itemId, id: topics.id, name: topics.name })
     .from(itemTopics)
     .innerJoin(topics, eq(topics.id, itemTopics.topicId));
-  return rows.map(({ s, item, e }) => ({
+  const seen = new Set<string>();
+  const latest = rows.filter(({ s }) => (seen.has(s.url) ? false : (seen.add(s.url), true)));
+  return latest.map(({ s, item, e }) => ({
     id: s.id,
     url: s.url,
     submittedBy: s.submittedBy,

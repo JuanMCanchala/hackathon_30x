@@ -175,7 +175,9 @@ export default function SensorPage() {
                 </div>
                 {s.piece ? (
                   <p className="text-[0.88rem] text-ink-2">
-                    {PLATFORM_COPY[s.piece.platform]}, {s.piece.authorName}
+                    {[PLATFORM_COPY[s.piece.platform], s.piece.authorName]
+                      .filter(Boolean)
+                      .join(', ')}
                     {s.piece.likes ? `, ${fmtCompact(s.piece.likes)} reacciones` : ''}
                     {s.piece.comments ? `, ${fmtCompact(s.piece.comments)} comentarios` : ''}
                     {s.topics.length > 0 && (
