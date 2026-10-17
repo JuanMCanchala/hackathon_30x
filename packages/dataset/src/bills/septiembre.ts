@@ -189,7 +189,7 @@ export const SEPTEMBER_BILLS: BillSpec[] = [
     payoutDetails: 'ACH, account ending 9834',
     expected: PAID_BY_AGENT,
     story:
-      'Faro Hosting envía desde su portal la factura auténtica de agosto; el consumo coincide con su medidor y se paga sola.',
+      'Llega en PDF la factura auténtica de agosto de Faro Hosting, con el mismo número; el consumo coincide con su medidor y se paga sola.',
   }),
   sep({
     id: 'sep-07',
@@ -252,7 +252,7 @@ export const SEPTEMBER_BILLS: BillSpec[] = [
     id: 'sep-09-r1',
     slug: 'beatriz-lima-fatura-corrigida',
     channel: 'portal',
-    issueDate: '2026-09-05',
+    issueDate: '2026-09-07',
     period: AUGUST,
     revisionOf: 'BL-012',
     revisionOfBillId: 'sep-09',

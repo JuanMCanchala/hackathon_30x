@@ -245,7 +245,8 @@ export function replayScript(steps: ScriptStep[], options: ReplayOptions = {}): 
         for (const p of payments)
           if (p.status === 'scheduled' && p.scheduledFor <= day) {
             p.status = 'sent';
-            p.executedAt = `${p.scheduledFor}T10:00:00-05:00`;
+            const due = `${p.scheduledFor}T10:00:00-05:00`;
+            p.executedAt = Date.parse(due) <= Date.parse(step.to) ? due : step.to;
           }
         for (const r of reopened()) evaluate(r, step.to);
         break;

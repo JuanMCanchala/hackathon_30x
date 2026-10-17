@@ -1,4 +1,5 @@
 import { existsSync } from 'node:fs';
+import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { OCTOBER_BILLS } from './bills/octubre';
 import { SEPTEMBER_BILLS } from './bills/septiembre';
@@ -30,17 +31,27 @@ export const LIVE_PR = {
   number: 3,
 };
 
-/** Its first October payment comes back from the bank (reconciliation demo). */
-export const RETURNING_VENDOR_ID = 'cardumen-digital';
+/**
+ * The bill whose payment the simulated bank returns: Beatriz Lima's corrected September fatura,
+ * paid over Pix. The return does not change the bill's labeled final status, which stays PAID;
+ * reconciliation flags the returned bank line and links it to this bill.
+ */
+export const RETURNING_BILL_ID = 'oct-12-r1';
 
 /**
  * Absolute path of the rendered documents: packages/dataset/files when running from source, or
- * the copy the API build places next to its bundle (apps/api/dist/dataset/files).
+ * the copy the API build places next to its bundle (apps/api/dist/dataset/files). When none
+ * exists yet, the source location packages/dataset/files, never a path next to a bundle.
  */
 export function filesDir(): string {
-  const candidates = ['../files/', './dataset/files/', '../dataset/files/'].map(
-    (p) => new URL(p, import.meta.url),
-  );
-  const found = candidates.find((u) => existsSync(u)) ?? candidates[0]!;
-  return fileURLToPath(found).replace(/[\\/]$/, '');
+  const here = dirname(fileURLToPath(import.meta.url));
+  const candidates = ['../files', './dataset/files', '../dataset/files'].map((p) => join(here, p));
+  const found = candidates.find((p) => existsSync(p));
+  if (found) return found;
+  // walk up to the workspace root that holds this package
+  for (let dir = here; dirname(dir) !== dir; dir = dirname(dir)) {
+    if (existsSync(join(dir, 'packages', 'dataset', 'package.json')))
+      return join(dir, 'packages', 'dataset', 'files');
+  }
+  return candidates[0]!;
 }

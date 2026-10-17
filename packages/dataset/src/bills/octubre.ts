@@ -294,7 +294,7 @@ export const OCTOBER_BILLS: BillSpec[] = [
     channel: 'pdf',
     vendorId: 'palabra-viva',
     invoiceNumber: 'PV-0934',
-    issueDate: '2026-10-03',
+    issueDate: '2026-10-02',
     period: SEPTEMBER,
     currency: 'MXN',
     lines: [

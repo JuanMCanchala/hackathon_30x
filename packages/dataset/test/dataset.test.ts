@@ -3,6 +3,7 @@ import {
   checkInvariants,
   ExtractedBillSchema,
   parseDecimalToMinor,
+  type BillStatus,
   type Currency,
   type Outcome,
 } from '@recibido/domain';
@@ -15,7 +16,7 @@ import {
   EVIDENCE,
   filesDir,
   LIVE_PR,
-  RETURNING_VENDOR_ID,
+  RETURNING_BILL_ID,
   SCRIPT,
   VENDORS,
   type BillSpec,
@@ -51,7 +52,10 @@ describe('dataset shape', () => {
     for (const c of CONTRACTS) expect(vendorIds.has(c.vendorId)).toBe(true);
     for (const e of EVIDENCE) expect(vendorIds.has(e.vendorId)).toBe(true);
     for (const b of BILLS) if (b.vendorId) expect(vendorIds.has(b.vendorId), b.id).toBe(true);
-    expect(vendorIds.has(RETURNING_VENDOR_ID)).toBe(true);
+    const returning = bill(RETURNING_BILL_ID);
+    expect(returning.month).toBe('octubre');
+    expect(VENDORS.find((v) => v.id === returning.vendorId)?.payout.rail).toBe('pix');
+    expect(returning.expected.final).toBe('PAID');
     const live = CONTRACTS.find((c) => c.id === LIVE_PR.contractId);
     expect(live?.vendorId).toBe(LIVE_PR.vendorId);
     expect(live?.terms.find((t) => t.id === LIVE_PR.termId)?.evidence).toEqual({
@@ -277,6 +281,77 @@ describe('engine replay (acceptance gate of the dataset)', () => {
           ];
     });
     expect(wrong).toEqual([]);
+  });
+
+  it('labels who resolved each case as the replay shows it', () => {
+    const humans = new Set(steps.flatMap((st) => (st.type === 'human' ? [st.billId] : [])));
+    const byPerson: BillStatus[] = ['ESCALATED', 'REJECTED', 'APPROVED'];
+    const wrong = BILLS.flatMap((b) => {
+      const got = result.bills[b.id]!;
+      const head = result.checker.bills.find(
+        (c) => c.status !== 'SUPERSEDED' && c.chain.includes(b.id),
+      )!;
+      const chain = [head.id, ...head.chain];
+      const asked = chain.some((id) =>
+        result.bills[id]!.decisions.some(
+          (d) => d.outcome === 'ASK_VENDOR' || d.outcome === 'PAY_PART',
+        ),
+      );
+      const derived =
+        chain.some((id) => humans.has(id)) || byPerson.includes(got.final)
+          ? 'person'
+          : asked
+            ? 'vendor'
+            : 'agent';
+      return derived === b.expected.resolvedBy ? [] : [`${b.id}: ${derived}`];
+    });
+    expect(wrong).toEqual([]);
+  });
+
+  it('never executes a payment before it is due or after the clock that runs it', () => {
+    for (const p of result.checker.payments) {
+      expect(p.executedAt!.slice(0, 10) >= p.scheduledFor, p.id).toBe(true);
+      expect(Date.parse(p.executedAt!) <= Date.parse('2026-11-10T09:00:00-05:00')).toBe(true);
+    }
+  });
+
+  it('escalates the Ceiba landing on the day after its deadline and keeps M3 waiting until the merge', () => {
+    const landing = result.bills['oct-16']!.decisions;
+    expect(landing.at(-1)!.checks.find((c) => c.id === 'vendor.deadline')?.status).toBe('fail');
+    const clock = SCRIPT.octubre.find((st) => st.type === 'clock')!;
+    expect(clock.at.slice(0, 10)).toBe('2026-10-13');
+    const m3 = result.bills['oct-05']!.decisions.map((d) => d.outcome);
+    expect(m3.at(-1)).toBe('PAY');
+    expect(m3.slice(0, -1).every((o) => o === 'ASK_VENDOR')).toBe(true);
+    const merge = SCRIPT.octubre.findIndex(
+      (st) => st.type === 'evidence' && st.item.ref === 'altamar-labs/app-movil#3',
+    );
+    const lastArrival = SCRIPT.octubre.findLastIndex((st) => st.type === 'bill');
+    expect(merge).toBeGreaterThan(lastArrival);
+  });
+
+  it('moves no scripted step to a weekend', () => {
+    for (const st of steps) {
+      const day = new Date(`${st.at.slice(0, 10)}T12:00:00Z`).getUTCDay();
+      expect(day === 0 || day === 6, st.at).toBe(false);
+    }
+  });
+
+  it('logs hours across the whole month, 4–9 h a day, with PRs inside the logged span', () => {
+    const logs = EVIDENCE.filter((e) => e.kind === 'time_entry');
+    for (const e of logs) expect(e.minutes!, e.id).toBeLessThanOrEqual(540);
+    const julian = logs
+      .filter((e) => e.vendorId === 'julian-restrepo' && e.occurredAt.startsWith('2026-09'))
+      .map((e) => e.occurredAt.slice(0, 10))
+      .sort();
+    expect(julian[0]).toBe('2026-09-01');
+    expect(julian.at(-1)).toBe('2026-09-30');
+    for (const p of EVIDENCE.filter(
+      (e) => e.vendorId === 'julian-restrepo' && e.kind === 'pr_merged',
+    )) {
+      const d = p.occurredAt.slice(0, 10);
+      expect(d >= julian[0]! && d <= julian.at(-1)!, p.id).toBe(true);
+    }
   });
 
   it('never breaks an invariant', () => {

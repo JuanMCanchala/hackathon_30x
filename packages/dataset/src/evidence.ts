@@ -1,8 +1,25 @@
 import type { EvidenceItem } from '@recibido/domain';
 
+/** Uneven but realistic day lengths; the last logged day is a short one. */
+const DAY_WEIGHTS = [1, 1.12, 0.9, 1.06, 0.94];
+const LAST_DAY_WEIGHT = 0.6;
+const MIN_DAY = 240; // 4 h
+const MAX_DAY = 540; // 9 h
+
+function weekdays(month: string): string[] {
+  const out: string[] = [];
+  for (let d = 1; d <= 31; d++) {
+    const date = new Date(`${month}-${String(d).padStart(2, '0')}T12:00:00Z`);
+    if (date.toISOString().slice(0, 7) !== month) break;
+    if (date.getUTCDay() !== 0 && date.getUTCDay() !== 6) out.push(date.toISOString().slice(0, 10));
+  }
+  return out;
+}
+
 /**
- * Time entries of a vendor for one month: 8 h per weekday from the 1st until `hours` are
- * logged (the last day takes the remainder).
+ * Time entries of a vendor for one month: `hours` spread over weekdays from the first to the last
+ * weekday of the month (a part-time month skips some days evenly), 4–9 h a day, quarter hours,
+ * and a shorter last day that takes the remainder.
  */
 function timeLog(
   vendorId: string,
@@ -12,18 +29,22 @@ function timeLog(
   offset: string, // '-05:00'
   task: string,
 ): EvidenceItem[] {
-  const out: EvidenceItem[] = [];
-  let left = hours * 60;
-  for (let d = 1; left > 0; d++) {
-    const date = new Date(`${month}-${String(d).padStart(2, '0')}T12:00:00Z`);
-    if (date.toISOString().slice(0, 7) !== month)
-      throw new Error(`${vendorId}: ${hours} h do not fit in ${month}`);
-    const weekday = date.getUTCDay();
-    if (weekday === 0 || weekday === 6) continue;
-    const day = date.toISOString().slice(0, 10);
-    const minutes = Math.min(480, left);
+  const total = hours * 60;
+  const all = weekdays(month);
+  const n = Math.min(all.length, Math.floor(total / 270)); // at least 4,5 h a day on average
+  const days = Array.from({ length: n }, (_, k) =>
+    n === 1 ? all[0]! : all[Math.round((k * (all.length - 1)) / (n - 1))]!,
+  );
+  const weights = days.map((_, i) => (i === n - 1 ? LAST_DAY_WEIGHT : DAY_WEIGHTS[i % 5]!));
+  const sum = weights.reduce((s, w) => s + w, 0);
+  let left = total;
+  return days.map((day, i) => {
+    const minutes = i === n - 1 ? left : Math.round((total * weights[i]!) / sum / 15) * 15;
     left -= minutes;
-    out.push({
+    const min = i === n - 1 ? 60 : MIN_DAY;
+    if (minutes < min || minutes > MAX_DAY)
+      throw new Error(`${vendorId}: ${minutes} min on ${day} is not a realistic day`);
+    return {
       id: `toggl-${vendorId}-${day}`,
       vendorId,
       source: 'toggl',
@@ -34,9 +55,8 @@ function timeLog(
       url: null,
       occurredAt: `${day}T18:00:00${offset}`,
       minutes,
-    });
-  }
-  return out;
+    } satisfies EvidenceItem;
+  });
 }
 
 function pr(
@@ -272,8 +292,8 @@ export const EVIDENCE: EvidenceItem[] = [
   ticket('ALT-238', 'Reportes fiscales', 'ticket_closed', '2026-10-08T18:00:00-06:00'),
 
   // Mantenimientos Guadua deliveries signed at the Medellín office
-  delivery('OC-0912', '12 sillas ergonómicas recibidas', '2026-09-12T10:30:00-05:00'),
-  delivery('OC-0918', '6 purificadores de aire recibidos', '2026-09-19T09:15:00-05:00'),
+  delivery('OC-0912', '12 sillas ergonómicas recibidas', '2026-09-11T10:30:00-05:00'),
+  delivery('OC-0918', '6 purificadores de aire recibidos', '2026-09-18T09:15:00-05:00'),
   delivery('OC-0927', 'Cafetera industrial instalada', '2026-09-28T14:00:00-05:00'),
   delivery('OC-1001', '60 escritorios eléctricos recibidos', '2026-10-06T08:40:00-05:00'),
   delivery('OC-1010', '40 lámparas de escritorio recibidas', '2026-10-09T11:20:00-05:00'),
@@ -332,18 +352,30 @@ export const EVIDENCE: EvidenceItem[] = [
 
 /** Evidence that appears during the script (each one is an `evidence` step). */
 export const SCRIPTED_EVIDENCE = {
-  /** Thiago syncs two days he had logged offline (closes his August PAY_PART) */
-  thiagoLateHours: {
-    id: 'toggl-thiago-moreira-2026-08-carga-manual',
+  /** Thiago worked the last weekend of August offline; he syncs it a week later */
+  thiagoWeekendSaturday: {
+    id: 'toggl-thiago-moreira-2026-08-29-cierre',
     vendorId: 'thiago-moreira',
     source: 'toggl',
     origin: 'fixture',
     kind: 'time_entry',
     ref: 'data-warehouse',
-    title: 'Carga manual: migración de eventos (27 y 28 de agosto)',
+    title: 'Migración de eventos, cierre de agosto (registrado sin conexión)',
     url: null,
-    occurredAt: '2026-08-28T18:00:00-03:00',
-    minutes: 960,
+    occurredAt: '2026-08-29T18:00:00-03:00',
+    minutes: 480,
+  },
+  thiagoWeekendSunday: {
+    id: 'toggl-thiago-moreira-2026-08-30-cierre',
+    vendorId: 'thiago-moreira',
+    source: 'toggl',
+    origin: 'fixture',
+    kind: 'time_entry',
+    ref: 'data-warehouse',
+    title: 'Migración de eventos, cierre de agosto (registrado sin conexión)',
+    url: null,
+    occurredAt: '2026-08-30T18:00:00-03:00',
+    minutes: 480,
   },
   ximenaTicketClosed: ticket(
     'ALT-214',
@@ -374,7 +406,7 @@ export const SCRIPTED_EVIDENCE = {
       3,
       'M3: notificaciones push',
       'pr_merged',
-      '2026-10-21T11:00:00-05:00',
+      '2026-10-15T11:00:00-05:00',
       'avillasenor',
     ),
     origin: 'live',

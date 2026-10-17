@@ -29,7 +29,7 @@ export const SCRIPT: Record<Month, ScriptStep[]> = {
     bill('2026-09-04T09:00', 'sep-10'),
     bill('2026-09-04T12:00', 'sep-11'),
     {
-      at: at('2026-09-05T10:00'),
+      at: at('2026-09-07T08:45'),
       type: 'vendor_reply',
       billId: 'sep-09',
       message:
@@ -40,8 +40,14 @@ export const SCRIPT: Record<Month, ScriptStep[]> = {
     {
       at: at('2026-09-08T09:30'),
       type: 'evidence',
-      item: E.thiagoLateHours,
-      label: 'Thiago sincroniza en Toggl las 16 h del 27 y 28 de agosto.',
+      item: E.thiagoWeekendSaturday,
+      label: 'Thiago sincroniza en Toggl las 8 h del sábado 29 de agosto, trabajadas sin conexión.',
+    },
+    {
+      at: at('2026-09-08T09:31'),
+      type: 'evidence',
+      item: E.thiagoWeekendSunday,
+      label: 'Thiago sincroniza en Toggl las 8 h del domingo 30 de agosto: completa lo facturado.',
     },
     bill('2026-09-09T11:00', 'sep-13'),
     bill('2026-09-10T10:00', 'sep-14'),
@@ -73,26 +79,26 @@ export const SCRIPT: Record<Month, ScriptStep[]> = {
     bill('2026-10-02T10:00', 'oct-04'),
     bill('2026-10-02T12:00', 'oct-05'),
     bill('2026-10-02T16:00', 'oct-06'),
-    bill('2026-10-03T09:00', 'oct-07'),
-    bill('2026-10-03T10:00', 'oct-08'),
+    bill('2026-10-02T17:00', 'oct-07'),
+    bill('2026-10-05T08:00', 'oct-08'),
     {
-      at: at('2026-10-03T11:00'),
+      at: at('2026-10-05T08:30'),
       type: 'vendor_reply',
       billId: 'oct-04',
       message:
         'Hola, Lina ya tiene los archivos finales del brand kit desde el viernes. Quedamos atentos.',
     },
+    bill('2026-10-05T08:45', 'oct-09'),
+    bill('2026-10-05T09:00', 'oct-10'),
+    bill('2026-10-05T11:00', 'oct-11'),
     {
-      at: at('2026-10-03T12:00'),
+      at: at('2026-10-05T12:00'),
       type: 'human',
       billId: 'oct-06',
       action: 'approve',
       actor: DIEGO,
       note: 'Thiago confirmó por llamada. Se paga a la llave Pix registrada; el cambio de llave se tramita aparte en el registro de proveedores.',
     },
-    bill('2026-10-03T14:00', 'oct-09'),
-    bill('2026-10-05T09:00', 'oct-10'),
-    bill('2026-10-05T11:00', 'oct-11'),
     {
       at: at('2026-10-05T14:00'),
       type: 'evidence',
@@ -105,8 +111,7 @@ export const SCRIPT: Record<Month, ScriptStep[]> = {
       at: at('2026-10-06T10:00'),
       type: 'vendor_reply',
       billId: 'oct-03',
-      message:
-        'Tienen razón: las otras 68 h las facturo el próximo mes. Adjunto la cuenta corregida por 92 h.',
+      message: 'Tienen razón, fueron 92 h. Adjunto la cuenta corregida.',
       replyBillId: 'oct-03-r1',
     },
     bill('2026-10-06T14:00', 'oct-14'),
@@ -136,6 +141,13 @@ export const SCRIPT: Record<Month, ScriptStep[]> = {
     },
     bill('2026-10-12T09:00', 'oct-18'),
     {
+      at: at('2026-10-13T08:00'),
+      type: 'clock',
+      to: at('2026-10-13T08:00'),
+      label:
+        'Ayer venció el plazo de 5 días que tenía Estudio Ceiba para entregar la landing: el caso pasa a una persona.',
+    },
+    {
       at: at('2026-10-13T10:00'),
       type: 'human',
       billId: 'oct-11',
@@ -161,13 +173,7 @@ export const SCRIPT: Record<Month, ScriptStep[]> = {
     },
     bill('2026-10-14T17:10', 'oct-19'),
     {
-      at: at('2026-10-20T09:00'),
-      type: 'clock',
-      to: at('2026-10-20T09:00'),
-      label: 'Vence el plazo de Estudio Ceiba para entregar la landing.',
-    },
-    {
-      at: at('2026-10-21T11:00'),
+      at: at('2026-10-15T11:00'),
       type: 'evidence',
       item: E.andresPrMerged,
       label: 'Se fusiona en GitHub el PR #3 de altamar-labs/app-movil (en vivo en la demo).',

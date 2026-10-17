@@ -184,7 +184,7 @@ export const CONTRACTS: Contract[] = [
     earlyPayment: null,
     allowPartial: false,
     // development milestones take time: the agent waits longer before escalating
-    vendorResponseDays: 20,
+    vendorResponseDays: 15,
     evidenceRuleText: 'Cada hito se paga cuando su PR se fusiona en altamar-labs/app-movil.',
   },
   {
