@@ -1,0 +1,78 @@
+{
+  "sha256": "934e31eeda09e073fadbe0bd0a3893e1156020aa3b7ff1091e245e856a07ed85",
+  "extractorVersion": "mandato-extractor/1",
+  "provider": "fireworks",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "recordedAt": "2026-10-17T03:22:16.775Z",
+  "latencyMs": 8258,
+  "file": "septiembre/sep-13-lexia-legal-factura.pdf",
+  "extraction": {
+    "documentType": "invoice",
+    "language": "es",
+    "issuer": {
+      "name": "Lexia Legal S.A.S.",
+      "taxId": "NIT 900.777.333-1",
+      "country": "CO",
+      "email": "facturacion@lexialegal.example"
+    },
+    "billTo": {
+      "name": "ANDES LABS INC.",
+      "taxId": "EIN 88-1234567"
+    },
+    "invoiceNumber": "LX-2026-131",
+    "issueDate": "2026-09-09",
+    "dueDate": "2026-09-24",
+    "servicePeriod": null,
+    "currency": "COP",
+    "total": "4500000",
+    "subtotal": "3781512.61",
+    "amountInWords": "CUATRO MILLONES QUINIENTOS MIL PESOS M/CTE",
+    "amountInWordsValue": "4500000",
+    "lineItems": [
+      {
+        "description": "Asesoría legal: contrato de arrendamiento de oficina",
+        "quantity": "1",
+        "unitPrice": "3781512.61",
+        "amount": "3781512.61"
+      }
+    ],
+    "taxes": [
+      {
+        "name": "IVA 19%",
+        "rate": "19",
+        "amount": "718487.39",
+        "kind": "tax"
+      }
+    ],
+    "payout": {
+      "method": "bre_b",
+      "destination": "@lexialegal",
+      "bankName": null,
+      "accountHolder": null
+    },
+    "category": "services",
+    "description": "Asesoría legal: contrato de arrendamiento de oficina",
+    "agentInstructions": {
+      "detected": false,
+      "quote": null
+    },
+    "confidence": {
+      "issuer": 1,
+      "invoiceNumber": 1,
+      "issueDate": 1,
+      "dueDate": 1,
+      "currency": 0.9,
+      "total": 1,
+      "payout": 1
+    },
+    "warnings": [
+      "Documento marcado como ficticio, generado para la demo de Mandato (no es una factura real).",
+      "Subtotal + IVA (3.781.512,61 + 718.487,39) coincide con el total a pagar."
+    ]
+  },
+  "usage": {
+    "inputTokens": 3569,
+    "outputTokens": 881,
+    "cacheReadTokens": 0
+  }
+}

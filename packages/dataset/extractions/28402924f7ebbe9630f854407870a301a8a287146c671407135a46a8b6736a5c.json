@@ -1,0 +1,68 @@
+{
+  "sha256": "28402924f7ebbe9630f854407870a301a8a287146c671407135a46a8b6736a5c",
+  "extractorVersion": "mandato-extractor/1",
+  "provider": "fireworks",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "recordedAt": "2026-10-17T03:22:19.552Z",
+  "latencyMs": 7175,
+  "file": "septiembre/sep-14-senal-analytics-segundo-cobro.pdf",
+  "extraction": {
+    "documentType": "invoice",
+    "language": "en",
+    "issuer": {
+      "name": "Señal Analytics Inc.",
+      "taxId": "EIN 86-1112223",
+      "country": "US",
+      "email": "billing@senal.example"
+    },
+    "billTo": {
+      "name": "Andes Labs Inc.",
+      "taxId": "EIN 88-1234567"
+    },
+    "invoiceNumber": "SA-2026-0911",
+    "issueDate": "2026-09-08",
+    "dueDate": "2026-09-30",
+    "servicePeriod": "2026-09",
+    "currency": "USD",
+    "total": "1200.00",
+    "subtotal": "1200.00",
+    "amountInWords": null,
+    "amountInWordsValue": null,
+    "lineItems": [
+      {
+        "description": "Team plan — September 2026",
+        "quantity": "1",
+        "unitPrice": "1200.00",
+        "amount": "1200.00"
+      }
+    ],
+    "taxes": [],
+    "payout": {
+      "method": "card",
+      "destination": "4421",
+      "bankName": "Visa",
+      "accountHolder": null
+    },
+    "category": "software",
+    "description": "Team plan — September 2026",
+    "agentInstructions": {
+      "detected": false,
+      "quote": null
+    },
+    "confidence": {
+      "issuer": 1,
+      "invoiceNumber": 1,
+      "issueDate": 1,
+      "dueDate": 1,
+      "currency": 1,
+      "total": 1,
+      "payout": 1
+    },
+    "warnings": []
+  },
+  "usage": {
+    "inputTokens": 3372,
+    "outputTokens": 683,
+    "cacheReadTokens": 0
+  }
+}

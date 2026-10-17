@@ -1,0 +1,75 @@
+{
+  "sha256": "23fa39f5ef57cad1c60179aa8b2a7a978a0f3f4dff242999e8d5969a0b88c295",
+  "extractorVersion": "mandato-extractor/1",
+  "provider": "fireworks",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "recordedAt": "2026-10-17T03:23:17.687Z",
+  "latencyMs": 6797,
+  "file": "en-vivo/vivo-03-lexia-legal-octubre.pdf",
+  "extraction": {
+    "documentType": "invoice",
+    "language": "es",
+    "issuer": {
+      "name": "Lexia Legal S.A.S.",
+      "taxId": "NIT 900.777.333-1",
+      "country": "CO",
+      "email": "facturacion@lexialegal.example"
+    },
+    "billTo": {
+      "name": "ANDES LABS INC.",
+      "taxId": "EIN 88-1234567"
+    },
+    "invoiceNumber": "LX-2026-140",
+    "issueDate": "2026-10-14",
+    "dueDate": "2026-10-29",
+    "servicePeriod": null,
+    "currency": "COP",
+    "total": "3000000",
+    "subtotal": "2521008.40",
+    "amountInWords": "TRES MILLONES DE PESOS M/CTE",
+    "amountInWordsValue": "3000000",
+    "lineItems": [
+      {
+        "description": "Asesoría legal: términos y condiciones del nuevo producto",
+        "quantity": "1",
+        "unitPrice": "2521008.40",
+        "amount": "2521008.40"
+      }
+    ],
+    "taxes": [
+      {
+        "name": "IVA 19%",
+        "rate": "19",
+        "amount": "478991.60",
+        "kind": "tax"
+      }
+    ],
+    "payout": {
+      "method": "bre_b",
+      "destination": "@lexialegal",
+      "bankName": null,
+      "accountHolder": null
+    },
+    "category": "services",
+    "description": "Asesoría legal: términos y condiciones del nuevo producto",
+    "agentInstructions": {
+      "detected": false,
+      "quote": null
+    },
+    "confidence": {
+      "issuer": 1,
+      "invoiceNumber": 1,
+      "issueDate": 1,
+      "dueDate": 1,
+      "currency": 1,
+      "total": 1,
+      "payout": 1
+    },
+    "warnings": []
+  },
+  "usage": {
+    "inputTokens": 3555,
+    "outputTokens": 768,
+    "cacheReadTokens": 0
+  }
+}

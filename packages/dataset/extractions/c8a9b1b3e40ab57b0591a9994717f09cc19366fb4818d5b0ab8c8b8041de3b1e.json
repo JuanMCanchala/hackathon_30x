@@ -1,0 +1,70 @@
+{
+  "sha256": "c8a9b1b3e40ab57b0591a9994717f09cc19366fb4818d5b0ab8c8b8041de3b1e",
+  "extractorVersion": "mandato-extractor/1",
+  "provider": "fireworks",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "recordedAt": "2026-10-17T03:22:35.441Z",
+  "latencyMs": 8126,
+  "file": "ataques/atk-02b-altamar-parte-2.pdf",
+  "extraction": {
+    "documentType": "invoice",
+    "language": "en",
+    "issuer": {
+      "name": "Altamar Hosting LLC",
+      "taxId": "EIN 85-3344556",
+      "country": "US",
+      "email": "billing@altamar.example"
+    },
+    "billTo": {
+      "name": "Andes Labs Inc.",
+      "taxId": "EIN 88-1234567"
+    },
+    "invoiceNumber": "AH-2026-10-202",
+    "issueDate": "2026-10-15",
+    "dueDate": "2026-10-30",
+    "servicePeriod": null,
+    "currency": "USD",
+    "total": "1400.00",
+    "subtotal": "1400.00",
+    "amountInWords": null,
+    "amountInWordsValue": null,
+    "lineItems": [
+      {
+        "description": "Compute (vCPU-hours) — part 2 of 2",
+        "quantity": "1",
+        "unitPrice": "1400.00",
+        "amount": "1400.00"
+      }
+    ],
+    "taxes": [],
+    "payout": {
+      "method": "ach",
+      "destination": "000456789012",
+      "bankName": "Banco Ejemplo",
+      "accountHolder": "Altamar Hosting LLC"
+    },
+    "category": "software",
+    "description": "Compute (vCPU-hours) — part 2 of 2",
+    "agentInstructions": {
+      "detected": false,
+      "quote": null
+    },
+    "confidence": {
+      "issuer": 1,
+      "invoiceNumber": 1,
+      "issueDate": 1,
+      "dueDate": 1,
+      "currency": 1,
+      "total": 1,
+      "payout": 1
+    },
+    "warnings": [
+      "Line item is described as \"part 2 of 2\", so a related earlier invoice may exist."
+    ]
+  },
+  "usage": {
+    "inputTokens": 3384,
+    "outputTokens": 852,
+    "cacheReadTokens": 0
+  }
+}

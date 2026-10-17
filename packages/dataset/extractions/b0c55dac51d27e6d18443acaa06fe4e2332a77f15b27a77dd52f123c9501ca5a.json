@@ -1,0 +1,77 @@
+{
+  "sha256": "b0c55dac51d27e6d18443acaa06fe4e2332a77f15b27a77dd52f123c9501ca5a",
+  "extractorVersion": "mandato-extractor/1",
+  "provider": "fireworks",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "recordedAt": "2026-10-17T03:21:02.059Z",
+  "latencyMs": 5726,
+  "file": "agosto/ago-13-lexia-legal-factura.pdf",
+  "extraction": {
+    "documentType": "invoice",
+    "language": "es",
+    "issuer": {
+      "name": "Lexia Legal S.A.S.",
+      "taxId": "NIT 900.777.333-1",
+      "country": "CO",
+      "email": "facturacion@lexialegal.example"
+    },
+    "billTo": {
+      "name": "ANDES LABS INC.",
+      "taxId": "EIN 88-1234567"
+    },
+    "invoiceNumber": "LX-2026-118",
+    "issueDate": "2026-08-10",
+    "dueDate": "2026-08-25",
+    "servicePeriod": null,
+    "currency": "COP",
+    "total": "6800000",
+    "subtotal": "5714285.71",
+    "amountInWords": "SEIS MILLONES OCHOCIENTOS MIL PESOS M/CTE",
+    "amountInWordsValue": "6800000",
+    "lineItems": [
+      {
+        "description": "Asesoría legal: revisión de contratos de contratistas",
+        "quantity": "1",
+        "unitPrice": "5714285.71",
+        "amount": "5714285.71"
+      }
+    ],
+    "taxes": [
+      {
+        "name": "IVA 19%",
+        "rate": "19",
+        "amount": "1085714.29",
+        "kind": "tax"
+      }
+    ],
+    "payout": {
+      "method": "bre_b",
+      "destination": "@lexialegal",
+      "bankName": null,
+      "accountHolder": null
+    },
+    "category": "services",
+    "description": "Asesoría legal: revisión de contratos de contratistas",
+    "agentInstructions": {
+      "detected": false,
+      "quote": null
+    },
+    "confidence": {
+      "issuer": 1,
+      "invoiceNumber": 1,
+      "issueDate": 1,
+      "dueDate": 1,
+      "currency": 1,
+      "total": 1,
+      "payout": 1
+    },
+    "warnings": [
+      "El documento se identifica a sí mismo como ficticio, generado para la demo de Mandato."
+    ]
+  },
+  "usage": {
+    "inputTokens": 3568,
+    "outputTokens": 740,
+    "cacheReadTokens": 2254
+  }
+}

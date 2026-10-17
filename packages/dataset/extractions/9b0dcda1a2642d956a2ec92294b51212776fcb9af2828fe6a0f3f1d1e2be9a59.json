@@ -1,0 +1,83 @@
+{
+  "sha256": "9b0dcda1a2642d956a2ec92294b51212776fcb9af2828fe6a0f3f1d1e2be9a59",
+  "extractorVersion": "mandato-extractor/1",
+  "provider": "fireworks",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "recordedAt": "2026-10-17T03:20:23.835Z",
+  "latencyMs": 10462,
+  "file": "agosto/ago-08-altamar-hosting-invoice.pdf",
+  "extraction": {
+    "documentType": "invoice",
+    "language": "en",
+    "issuer": {
+      "name": "Altamar Hosting LLC",
+      "taxId": "EIN 85-3344556",
+      "country": "US",
+      "email": "billing@altamar.example"
+    },
+    "billTo": {
+      "name": "Andes Labs Inc.",
+      "taxId": "EIN 88-1234567"
+    },
+    "invoiceNumber": "AH-2026-08-114",
+    "issueDate": "2026-08-01",
+    "dueDate": "2026-08-20",
+    "servicePeriod": null,
+    "currency": "USD",
+    "total": "1940.50",
+    "subtotal": "1940.50",
+    "amountInWords": null,
+    "amountInWordsValue": null,
+    "lineItems": [
+      {
+        "description": "Compute (vCPU-hours)",
+        "quantity": "1",
+        "unitPrice": "1284.30",
+        "amount": "1284.30"
+      },
+      {
+        "description": "Block storage (TB-month)",
+        "quantity": "1",
+        "unitPrice": "412.20",
+        "amount": "412.20"
+      },
+      {
+        "description": "Bandwidth (egress)",
+        "quantity": "1",
+        "unitPrice": "244.00",
+        "amount": "244.00"
+      }
+    ],
+    "taxes": [],
+    "payout": {
+      "method": "ach",
+      "destination": "000456789012",
+      "bankName": "Banco Ejemplo",
+      "accountHolder": "Altamar Hosting LLC"
+    },
+    "category": "software",
+    "description": "Cloud compute, block storage and bandwidth hosting services",
+    "agentInstructions": {
+      "detected": false,
+      "quote": null
+    },
+    "confidence": {
+      "issuer": 1,
+      "invoiceNumber": 1,
+      "issueDate": 1,
+      "dueDate": 1,
+      "currency": 1,
+      "total": 1,
+      "payout": 1
+    },
+    "warnings": [
+      "Document is marked as fictitious: \"Documento ficticio generado para la demo de Mandato · Fictitious document\"",
+      "Issue and due dates are in the future (2026)"
+    ]
+  },
+  "usage": {
+    "inputTokens": 3415,
+    "outputTokens": 764,
+    "cacheReadTokens": 0
+  }
+}

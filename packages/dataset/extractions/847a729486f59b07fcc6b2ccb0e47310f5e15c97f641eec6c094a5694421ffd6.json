@@ -1,0 +1,71 @@
+{
+  "sha256": "847a729486f59b07fcc6b2ccb0e47310f5e15c97f641eec6c094a5694421ffd6",
+  "extractorVersion": "mandato-extractor/1",
+  "provider": "fireworks",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "recordedAt": "2026-10-17T03:19:22.304Z",
+  "latencyMs": 14271,
+  "file": "agosto/ago-04-valentina-cuenta-de-cobro.pdf",
+  "extraction": {
+    "documentType": "cuenta_de_cobro",
+    "language": "es",
+    "issuer": {
+      "name": "VALENTINA RÍOS MEJÍA",
+      "taxId": "C.C. 1.020.304.050",
+      "country": "CO",
+      "email": "valentina.rios@example.com"
+    },
+    "billTo": {
+      "name": "ANDES LABS INC.",
+      "taxId": "EIN 88-1234567"
+    },
+    "invoiceNumber": "CC-2026-08",
+    "issueDate": "2026-08-03",
+    "dueDate": null,
+    "servicePeriod": "2026-08",
+    "currency": "COP",
+    "total": "14000000",
+    "subtotal": null,
+    "amountInWords": "CATORCE MILLONES DE PESOS M/CTE",
+    "amountInWordsValue": "14000000",
+    "lineItems": [
+      {
+        "description": "Servicios de desarrollo frontend correspondientes a agosto de 2026",
+        "quantity": null,
+        "unitPrice": null,
+        "amount": "14000000"
+      }
+    ],
+    "taxes": [],
+    "payout": {
+      "method": "bre_b",
+      "destination": "@valrios",
+      "bankName": null,
+      "accountHolder": null
+    },
+    "category": "contractor",
+    "description": "Servicios de desarrollo frontend correspondientes a agosto de 2026",
+    "agentInstructions": {
+      "detected": false,
+      "quote": null
+    },
+    "confidence": {
+      "issuer": 1,
+      "invoiceNumber": 1,
+      "issueDate": 1,
+      "dueDate": 1,
+      "currency": 1,
+      "total": 1,
+      "payout": 1
+    },
+    "warnings": [
+      "El documento se identifica a sí mismo como ficticio, generado para la demo de Mandato.",
+      "No se imprime subtotal ni desglose de impuestos; solo el valor total."
+    ]
+  },
+  "usage": {
+    "inputTokens": 3447,
+    "outputTokens": 1398,
+    "cacheReadTokens": 0
+  }
+}

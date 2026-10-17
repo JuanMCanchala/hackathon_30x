@@ -1,0 +1,70 @@
+{
+  "sha256": "37de124b6234ee26996eaa433a18426ff456ea376aac32d679fdf817dbc27004",
+  "extractorVersion": "mandato-extractor/1",
+  "provider": "fireworks",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "recordedAt": "2026-10-17T03:22:12.317Z",
+  "latencyMs": 13027,
+  "file": "septiembre/sep-10-rafael-whatsapp.txt",
+  "extraction": {
+    "documentType": "cuenta_de_cobro",
+    "language": "es",
+    "issuer": {
+      "name": "Rafael Mendoza Castro",
+      "taxId": "C.C. 79.555.123",
+      "country": "CO",
+      "email": null
+    },
+    "billTo": {
+      "name": null,
+      "taxId": null
+    },
+    "invoiceNumber": "RM-002",
+    "issueDate": "2026-09-07",
+    "dueDate": null,
+    "servicePeriod": "2026-09",
+    "currency": "COP",
+    "total": "9000000",
+    "subtotal": null,
+    "amountInWords": "nueve millones de pesos",
+    "amountInWordsValue": "9000000",
+    "lineItems": [
+      {
+        "description": "análisis de datos, septiembre de 2026",
+        "quantity": null,
+        "unitPrice": null,
+        "amount": "9000000"
+      }
+    ],
+    "taxes": [],
+    "payout": {
+      "method": "bre_b",
+      "destination": "@rafamendoza",
+      "bankName": null,
+      "accountHolder": null
+    },
+    "category": "contractor",
+    "description": "Análisis de datos, septiembre de 2026",
+    "agentInstructions": {
+      "detected": false,
+      "quote": null
+    },
+    "confidence": {
+      "issuer": 1,
+      "invoiceNumber": 1,
+      "issueDate": 1,
+      "dueDate": 1,
+      "currency": 1,
+      "total": 1,
+      "payout": 1
+    },
+    "warnings": [
+      "La cuenta de cobro no nombra cliente; el mensaje va dirigido a una persona (Laura) en el chat."
+    ]
+  },
+  "usage": {
+    "inputTokens": 2557,
+    "outputTokens": 821,
+    "cacheReadTokens": 1920
+  }
+}

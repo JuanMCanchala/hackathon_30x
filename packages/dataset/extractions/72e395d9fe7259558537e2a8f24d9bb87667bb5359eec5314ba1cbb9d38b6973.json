@@ -1,0 +1,70 @@
+{
+  "sha256": "72e395d9fe7259558537e2a8f24d9bb87667bb5359eec5314ba1cbb9d38b6973",
+  "extractorVersion": "mandato-extractor/1",
+  "provider": "fireworks",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "recordedAt": "2026-10-17T03:23:18.875Z",
+  "latencyMs": 15675,
+  "file": "en-vivo/vivo-01-valentina-cuenta-de-cobro-octubre.pdf",
+  "extraction": {
+    "documentType": "cuenta_de_cobro",
+    "language": "es",
+    "issuer": {
+      "name": "VALENTINA RÍOS MEJÍA",
+      "taxId": "C.C. 1.020.304.050",
+      "country": "CO",
+      "email": "valentina.rios@example.com"
+    },
+    "billTo": {
+      "name": "ANDES LABS INC.",
+      "taxId": "EIN 88-1234567"
+    },
+    "invoiceNumber": "CC-2026-10",
+    "issueDate": "2026-10-01",
+    "dueDate": null,
+    "servicePeriod": "2026-10",
+    "currency": "COP",
+    "total": "14000000",
+    "subtotal": null,
+    "amountInWords": "CATORCE MILLONES DE PESOS M/CTE",
+    "amountInWordsValue": "14000000",
+    "lineItems": [
+      {
+        "description": "Servicios de desarrollo frontend correspondientes a octubre de 2026",
+        "quantity": null,
+        "unitPrice": null,
+        "amount": "14000000"
+      }
+    ],
+    "taxes": [],
+    "payout": {
+      "method": "bre_b",
+      "destination": "@valentina.rios",
+      "bankName": null,
+      "accountHolder": null
+    },
+    "category": "contractor",
+    "description": "Servicios de desarrollo frontend correspondientes a octubre de 2026",
+    "agentInstructions": {
+      "detected": false,
+      "quote": null
+    },
+    "confidence": {
+      "issuer": 1,
+      "invoiceNumber": 1,
+      "issueDate": 1,
+      "dueDate": 1,
+      "currency": 1,
+      "total": 1,
+      "payout": 1
+    },
+    "warnings": [
+      "El documento indica en el pie de página que es un documento ficticio generado para una demo."
+    ]
+  },
+  "usage": {
+    "inputTokens": 3450,
+    "outputTokens": 1859,
+    "cacheReadTokens": 0
+  }
+}

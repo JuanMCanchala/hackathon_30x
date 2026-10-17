@@ -1,0 +1,79 @@
+{
+  "sha256": "ab4c27b650924751ca87345bfcce35dde0a08f37d6f907567cf3fb764a7de273",
+  "extractorVersion": "mandato-extractor/1",
+  "provider": "fireworks",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "recordedAt": "2026-10-17T03:21:29.215Z",
+  "latencyMs": 13867,
+  "file": "agosto/ago-15-lucia-paredes-recibo.pdf",
+  "extraction": {
+    "documentType": "invoice",
+    "language": "es",
+    "issuer": {
+      "name": "LUCÍA PAREDES VEGA",
+      "taxId": "RUC 10456789012",
+      "country": "PE",
+      "email": "lucia.paredes@example.com"
+    },
+    "billTo": {
+      "name": "ANDES LABS INC. (no domiciliado)",
+      "taxId": "EIN 88-1234567"
+    },
+    "invoiceNumber": "E001-245",
+    "issueDate": "2026-08-12",
+    "dueDate": "2026-08-27",
+    "servicePeriod": "2026-08",
+    "currency": "PEN",
+    "total": "9000.00",
+    "subtotal": null,
+    "amountInWords": "NUEVE MIL Y 00/100 SOLES",
+    "amountInWordsValue": "9000.00",
+    "lineItems": [
+      {
+        "description": "Consultoría de experiencia de usuario — agosto 2026",
+        "quantity": null,
+        "unitPrice": null,
+        "amount": "9000.00"
+      }
+    ],
+    "taxes": [
+      {
+        "name": "Retención (8 %) IR",
+        "rate": "8",
+        "amount": "0.00",
+        "kind": "withholding"
+      }
+    ],
+    "payout": {
+      "method": "wire",
+      "destination": "002-193-123456789012-34",
+      "bankName": "Banco Ejemplo del Perú",
+      "accountHolder": null
+    },
+    "category": "contractor",
+    "description": "Consultoría de experiencia de usuario — agosto 2026",
+    "agentInstructions": {
+      "detected": false,
+      "quote": null
+    },
+    "confidence": {
+      "issuer": 1,
+      "invoiceNumber": 1,
+      "issueDate": 1,
+      "dueDate": 1,
+      "currency": 1,
+      "total": 1,
+      "payout": 0.9
+    },
+    "warnings": [
+      "La línea de retención (8 %) IR está impresa como \"No aplica\"; se registró con importe 0.00.",
+      "El total por honorarios y el total neto recibido coinciden (S/ 9,000.00).",
+      "Documento marcado como ficticio, generado para la demo de Mandato."
+    ]
+  },
+  "usage": {
+    "inputTokens": 3411,
+    "outputTokens": 1546,
+    "cacheReadTokens": 0
+  }
+}

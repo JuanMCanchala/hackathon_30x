@@ -1,0 +1,79 @@
+{
+  "sha256": "723b4faf4fd7731961be47d27cfc654808d2761eee76cf4508c7444755c20b4b",
+  "extractorVersion": "mandato-extractor/1",
+  "provider": "fireworks",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "recordedAt": "2026-10-17T03:21:33.340Z",
+  "latencyMs": 103054,
+  "file": "agosto/ago-05-mateo-factura.pdf",
+  "extraction": {
+    "documentType": "invoice",
+    "language": "es",
+    "issuer": {
+      "name": "MATEO HERRERA GARZA",
+      "taxId": "RFC HEGM900101AB1",
+      "country": "MX",
+      "email": null
+    },
+    "billTo": {
+      "name": "ANDES LABS INC.",
+      "taxId": "RFC: XEXX010101000"
+    },
+    "invoiceNumber": "F-2026-0815",
+    "issueDate": "2026-08-03",
+    "dueDate": "2026-08-12",
+    "servicePeriod": "2026-08",
+    "currency": "MXN",
+    "total": "72000.00",
+    "subtotal": "72000.00",
+    "amountInWords": null,
+    "amountInWordsValue": null,
+    "lineItems": [
+      {
+        "description": "Servicios de desarrollo backend — agosto de 2026",
+        "quantity": "1",
+        "unitPrice": "72000.00",
+        "amount": "72000.00"
+      }
+    ],
+    "taxes": [
+      {
+        "name": "IVA 0% (exportación de servicios)",
+        "rate": "0",
+        "amount": "0.00",
+        "kind": "tax"
+      }
+    ],
+    "payout": {
+      "method": "spei",
+      "destination": "012180001234567891",
+      "bankName": "Banco Ficticio del Norte",
+      "accountHolder": null
+    },
+    "category": "contractor",
+    "description": "Servicios de desarrollo backend — agosto de 2026",
+    "agentInstructions": {
+      "detected": false,
+      "quote": null
+    },
+    "confidence": {
+      "issuer": 1,
+      "invoiceNumber": 1,
+      "issueDate": 1,
+      "dueDate": 1,
+      "currency": 1,
+      "total": 1,
+      "payout": 1
+    },
+    "warnings": [
+      "El receptor muestra dos identificadores fiscales: RFC XEXX010101000 (RFC genérico para residentes en el extranjero) y Tax ID: 88-1234567; se usó el RFC como taxId del receptor.",
+      "El IVA se declara a tasa 0% por exportación de servicios; no hay retenciones impresas.",
+      "Documento marcado como ficticio, generado para la demo de Mandato."
+    ]
+  },
+  "usage": {
+    "inputTokens": 3688,
+    "outputTokens": 1052,
+    "cacheReadTokens": 0
+  }
+}

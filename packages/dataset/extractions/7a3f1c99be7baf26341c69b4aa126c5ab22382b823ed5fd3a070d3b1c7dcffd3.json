@@ -1,0 +1,71 @@
+{
+  "sha256": "7a3f1c99be7baf26341c69b4aa126c5ab22382b823ed5fd3a070d3b1c7dcffd3",
+  "extractorVersion": "mandato-extractor/1",
+  "provider": "fireworks",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "recordedAt": "2026-10-17T03:22:57.137Z",
+  "latencyMs": 12766,
+  "file": "ataques/atk-07-sebastian-monto-inflado.pdf",
+  "extraction": {
+    "documentType": "cuenta_de_cobro",
+    "language": "es",
+    "issuer": {
+      "name": "SEBASTIÁN PRADA DUQUE",
+      "taxId": "C.C. 80.123.456",
+      "country": "CO",
+      "email": "sebastian.prada@example.com"
+    },
+    "billTo": {
+      "name": "ANDES LABS INC.",
+      "taxId": "EIN 88-1234567"
+    },
+    "invoiceNumber": "CC-SP-010",
+    "issueDate": "2026-10-05",
+    "dueDate": null,
+    "servicePeriod": "2026-10",
+    "currency": "COP",
+    "total": "14000000",
+    "subtotal": null,
+    "amountInWords": "CATORCE MILLONES DE PESOS M/CTE",
+    "amountInWordsValue": "14000000",
+    "lineItems": [
+      {
+        "description": "Servicios de QA y automatización de pruebas — octubre de 2026",
+        "quantity": null,
+        "unitPrice": null,
+        "amount": "14000000"
+      }
+    ],
+    "taxes": [],
+    "payout": {
+      "method": "bre_b",
+      "destination": "@sebaspd",
+      "bankName": null,
+      "accountHolder": null
+    },
+    "category": "contractor",
+    "description": "Servicios de QA y automatización de pruebas — octubre de 2026",
+    "agentInstructions": {
+      "detected": false,
+      "quote": null
+    },
+    "confidence": {
+      "issuer": 1,
+      "invoiceNumber": 1,
+      "issueDate": 1,
+      "dueDate": 1,
+      "currency": 1,
+      "total": 1,
+      "payout": 1
+    },
+    "warnings": [
+      "El documento se identifica a sí mismo como ficticio, generado para la demo de Mandato.",
+      "No se imprime subtotal ni desglose de impuestos; el declarante manifiesta no ser responsable de IVA."
+    ]
+  },
+  "usage": {
+    "inputTokens": 3445,
+    "outputTokens": 1209,
+    "cacheReadTokens": 1920
+  }
+}

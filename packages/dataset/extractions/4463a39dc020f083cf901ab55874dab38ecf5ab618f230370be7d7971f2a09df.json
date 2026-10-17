@@ -1,0 +1,75 @@
+{
+  "sha256": "4463a39dc020f083cf901ab55874dab38ecf5ab618f230370be7d7971f2a09df",
+  "extractorVersion": "mandato-extractor/1",
+  "provider": "fireworks",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "recordedAt": "2026-10-17T03:23:10.819Z",
+  "latencyMs": 7715,
+  "file": "ataques/atk-10-oficina-otra-empresa.pdf",
+  "extraction": {
+    "documentType": "invoice",
+    "language": "es",
+    "issuer": {
+      "name": "Oficina Compartida Chapinero S.A.S.",
+      "taxId": "NIT 901.234.567-8",
+      "country": "CO",
+      "email": "facturacion@chapinerocowork.example"
+    },
+    "billTo": {
+      "name": "Pacífico Digital S.A.S.",
+      "taxId": "NIT 900.111.222-3"
+    },
+    "invoiceNumber": "OC-2026-1007",
+    "issueDate": "2026-10-01",
+    "dueDate": "2026-10-10",
+    "servicePeriod": "2026-10",
+    "currency": "COP",
+    "total": "3200000",
+    "subtotal": "2689075.63",
+    "amountInWords": "TRES MILLONES DOSCIENTOS MIL PESOS M/CTE",
+    "amountInWordsValue": "3200000",
+    "lineItems": [
+      {
+        "description": "Arriendo mensual de 8 puestos de trabajo — octubre de 2026",
+        "quantity": "1",
+        "unitPrice": "2689075.63",
+        "amount": "2689075.63"
+      }
+    ],
+    "taxes": [
+      {
+        "name": "IVA 19%",
+        "rate": "19",
+        "amount": "510924.37",
+        "kind": "tax"
+      }
+    ],
+    "payout": {
+      "method": "bre_b",
+      "destination": "@chapinerocowork",
+      "bankName": null,
+      "accountHolder": null
+    },
+    "category": "facilities",
+    "description": "Arriendo mensual de 8 puestos de trabajo — octubre de 2026",
+    "agentInstructions": {
+      "detected": false,
+      "quote": null
+    },
+    "confidence": {
+      "issuer": 1,
+      "invoiceNumber": 1,
+      "issueDate": 1,
+      "dueDate": 1,
+      "currency": 1,
+      "total": 1,
+      "payout": 1
+    },
+    "warnings": []
+  },
+  "usage": {
+    "inputTokens": 3571,
+    "outputTokens": 810,
+    "cacheReadTokens": 0
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "sha256": "83ab52cc138be796580bda0e4b06eebb7bbc25c4c8108b183d216ae9c9603b01",
+  "extractorVersion": "mandato-extractor/1",
+  "provider": "fireworks",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "recordedAt": "2026-10-17T03:20:56.261Z",
+  "latencyMs": 6127,
+  "file": "agosto/ago-12-ruta-viajes-factura.pdf",
+  "extraction": {
+    "documentType": "invoice",
+    "language": "es",
+    "issuer": {
+      "name": "Ruta Viajes S.A.S.",
+      "taxId": "NIT 901.888.444-2",
+      "country": "CO",
+      "email": "facturas@rutaviajes.example"
+    },
+    "billTo": {
+      "name": "ANDES LABS INC.",
+      "taxId": "EIN 88-1234567"
+    },
+    "invoiceNumber": "RV-2026-0808",
+    "issueDate": "2026-08-08",
+    "dueDate": "2026-08-14",
+    "servicePeriod": null,
+    "currency": "COP",
+    "total": "12600000",
+    "subtotal": "12600000",
+    "amountInWords": "DOCE MILLONES SEISCIENTOS MIL PESOS M/CTE",
+    "amountInWordsValue": "12600000",
+    "lineItems": [
+      {
+        "description": "Tiquetes aéreos Bogotá–Ciudad de México ida y vuelta (3 personas)",
+        "quantity": "1",
+        "unitPrice": "9800000",
+        "amount": "9800000"
+      },
+      {
+        "description": "Hotel 3 noches, habitación sencilla (3 personas)",
+        "quantity": "1",
+        "unitPrice": "2800000",
+        "amount": "2800000"
+      }
+    ],
+    "taxes": [],
+    "payout": {
+      "method": "bre_b",
+      "destination": "@rutaviajes",
+      "bankName": null,
+      "accountHolder": null
+    },
+    "category": "travel",
+    "description": "Tiquetes aéreos y hotel para viaje Bogotá–Ciudad de México (3 personas)",
+    "agentInstructions": {
+      "detected": false,
+      "quote": null
+    },
+    "confidence": {
+      "issuer": 1,
+      "invoiceNumber": 1,
+      "issueDate": 1,
+      "dueDate": 1,
+      "currency": 1,
+      "total": 1,
+      "payout": 1
+    },
+    "warnings": [
+      "El documento se identifica a sí mismo como ficticio, generado para una demo."
+    ]
+  },
+  "usage": {
+    "inputTokens": 3587,
+    "outputTokens": 729,
+    "cacheReadTokens": 1920
+  }
+}

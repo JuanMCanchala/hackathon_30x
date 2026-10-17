@@ -1,0 +1,78 @@
+{
+  "sha256": "3da1913b7d826c2a2522a4336891d49cf15cab3a5ef043522f76b32a1d830a49",
+  "extractorVersion": "mandato-extractor/1",
+  "provider": "fireworks",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "recordedAt": "2026-10-17T03:21:16.131Z",
+  "latencyMs": 85850,
+  "file": "agosto/ago-01-oficina-chapinero-factura.pdf",
+  "extraction": {
+    "documentType": "invoice",
+    "language": "es",
+    "issuer": {
+      "name": "Oficina Compartida Chapinero S.A.S.",
+      "taxId": "NIT 901.234.567-8",
+      "country": "CO",
+      "email": "facturacion@chapinerocowork.example"
+    },
+    "billTo": {
+      "name": "ANDES LABS INC.",
+      "taxId": "EIN 88-1234567"
+    },
+    "invoiceNumber": "OC-2026-0801",
+    "issueDate": "2026-08-01",
+    "dueDate": "2026-08-10",
+    "servicePeriod": "2026-08",
+    "currency": "COP",
+    "total": "3200000",
+    "subtotal": "2689075.63",
+    "amountInWords": "TRES MILLONES DOSCIENTOS MIL PESOS M/CTE",
+    "amountInWordsValue": "3200000",
+    "lineItems": [
+      {
+        "description": "Arriendo mensual de 8 puestos de trabajo — agosto de 2026",
+        "quantity": "1",
+        "unitPrice": "2689075.63",
+        "amount": "2689075.63"
+      }
+    ],
+    "taxes": [
+      {
+        "name": "IVA 19%",
+        "rate": "19",
+        "amount": "510924.37",
+        "kind": "tax"
+      }
+    ],
+    "payout": {
+      "method": "bre_b",
+      "destination": "@chapinerocowork",
+      "bankName": null,
+      "accountHolder": null
+    },
+    "category": "facilities",
+    "description": "Arriendo mensual de 8 puestos de trabajo — agosto de 2026",
+    "agentInstructions": {
+      "detected": false,
+      "quote": null
+    },
+    "confidence": {
+      "issuer": 1,
+      "invoiceNumber": 1,
+      "issueDate": 1,
+      "dueDate": 1,
+      "currency": 1,
+      "total": 1,
+      "payout": 1
+    },
+    "warnings": [
+      "Documento marcado como ficticio/generado para la demo de Mandato (no es una factura real).",
+      "Subtotal + IVA (2.689.075,63 + 510.924,37) coincide exactamente con el total declarado de 3.200.000."
+    ]
+  },
+  "usage": {
+    "inputTokens": 3578,
+    "outputTokens": 904,
+    "cacheReadTokens": 0
+  }
+}

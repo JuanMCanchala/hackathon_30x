@@ -1,0 +1,77 @@
+{
+  "sha256": "4ec22ec6cbad92c67195dc2ea845388f9f0b282ba9aee80d5f4083db51dddd39",
+  "extractorVersion": "mandato-extractor/1",
+  "provider": "fireworks",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "recordedAt": "2026-10-17T03:21:33.302Z",
+  "latencyMs": 8683,
+  "file": "agosto/ago-17-pixelaria-fatura.pdf",
+  "extraction": {
+    "documentType": "invoice",
+    "language": "pt",
+    "issuer": {
+      "name": "Pixelaria Estúdio Ltda.",
+      "taxId": "CNPJ 12.345.678/0001-95",
+      "country": "BR",
+      "email": "financeiro@pixelaria.example"
+    },
+    "billTo": {
+      "name": "Andes Labs Inc.",
+      "taxId": "EIN 88-1234567"
+    },
+    "invoiceNumber": "PX-2026-031",
+    "issueDate": "2026-08-17",
+    "dueDate": "2026-08-31",
+    "servicePeriod": null,
+    "currency": "BRL",
+    "total": "27000.00",
+    "subtotal": "27000.00",
+    "amountInWords": null,
+    "amountInWordsValue": null,
+    "lineItems": [
+      {
+        "description": "Ilustrações para a nova landing page",
+        "quantity": "1",
+        "unitPrice": "18000.00",
+        "amount": "18000.00"
+      },
+      {
+        "description": "Animações de produto (3 peças)",
+        "quantity": "1",
+        "unitPrice": "9000.00",
+        "amount": "9000.00"
+      }
+    ],
+    "taxes": [],
+    "payout": {
+      "method": "pix",
+      "destination": "12.345.678/0001-95",
+      "bankName": null,
+      "accountHolder": null
+    },
+    "category": "services",
+    "description": "Ilustrações para landing page e animações de produto",
+    "agentInstructions": {
+      "detected": false,
+      "quote": null
+    },
+    "confidence": {
+      "issuer": 1,
+      "invoiceNumber": 1,
+      "issueDate": 1,
+      "dueDate": 1,
+      "currency": 1,
+      "total": 1,
+      "payout": 1
+    },
+    "warnings": [
+      "Documento marcado como fictício: \"Documento ficticio generado para la demo de Mandato · Fictitious document\".",
+      "A chave Pix informada é o próprio CNPJ do prestador."
+    ]
+  },
+  "usage": {
+    "inputTokens": 3458,
+    "outputTokens": 912,
+    "cacheReadTokens": 0
+  }
+}

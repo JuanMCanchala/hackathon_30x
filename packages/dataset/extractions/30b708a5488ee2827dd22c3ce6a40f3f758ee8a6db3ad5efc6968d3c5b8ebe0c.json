@@ -1,0 +1,70 @@
+{
+  "sha256": "30b708a5488ee2827dd22c3ce6a40f3f758ee8a6db3ad5efc6968d3c5b8ebe0c",
+  "extractorVersion": "mandato-extractor/1",
+  "provider": "fireworks",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "recordedAt": "2026-10-17T03:21:59.288Z",
+  "latencyMs": 8286,
+  "file": "septiembre/sep-07-tomas-email-con-adjunto.eml",
+  "extraction": {
+    "documentType": "invoice",
+    "language": "en",
+    "issuer": {
+      "name": "Tomás Aguirre Paz",
+      "taxId": "CUIT 20-31234567-8",
+      "country": "AR",
+      "email": "tomas.aguirre@example.com"
+    },
+    "billTo": {
+      "name": "Andes Labs Inc.",
+      "taxId": "EIN 88-1234567"
+    },
+    "invoiceNumber": "INV-TA-0009",
+    "issueDate": "2026-09-01",
+    "dueDate": "2026-09-15",
+    "servicePeriod": "2026-09",
+    "currency": "USD",
+    "total": "4200.00",
+    "subtotal": "4200.00",
+    "amountInWords": null,
+    "amountInWordsValue": null,
+    "lineItems": [
+      {
+        "description": "Data engineering services — September 2026",
+        "quantity": "1",
+        "unitPrice": "4200.00",
+        "amount": "4200.00"
+      }
+    ],
+    "taxes": [],
+    "payout": {
+      "method": "wire",
+      "destination": "000123456789",
+      "bankName": "Banco Ejemplo de Miami",
+      "accountHolder": "Tomás Aguirre Paz"
+    },
+    "category": "contractor",
+    "description": "Data engineering services — September 2026",
+    "agentInstructions": {
+      "detected": false,
+      "quote": null
+    },
+    "confidence": {
+      "issuer": 1,
+      "invoiceNumber": 1,
+      "issueDate": 1,
+      "dueDate": 1,
+      "currency": 1,
+      "total": 1,
+      "payout": 1
+    },
+    "warnings": [
+      "Issuer's tax ID is an Argentine CUIT while the invoice is denominated in USD and payment is requested to a bank in Miami."
+    ]
+  },
+  "usage": {
+    "inputTokens": 3485,
+    "outputTokens": 884,
+    "cacheReadTokens": 0
+  }
+}

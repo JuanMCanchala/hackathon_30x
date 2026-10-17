@@ -1,0 +1,78 @@
+{
+  "sha256": "1fa74729c59ef86f1a96363d2a8d5c35a3714291df45dc9b3d68a86ef6e44893",
+  "extractorVersion": "mandato-extractor/1",
+  "provider": "fireworks",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "recordedAt": "2026-10-17T03:19:35.148Z",
+  "latencyMs": 12764,
+  "file": "septiembre/sep-16-codigo-norte-proyecto-especial.pdf",
+  "extraction": {
+    "documentType": "invoice",
+    "language": "es",
+    "issuer": {
+      "name": "CÓDIGO NORTE S.A. DE C.V.",
+      "taxId": "RFC CNO150301XY9",
+      "country": "MX",
+      "email": null
+    },
+    "billTo": {
+      "name": "ANDES LABS INC.",
+      "taxId": "RFC: XEXX010101000"
+    },
+    "invoiceNumber": "CN-ESP-0915",
+    "issueDate": "2026-09-14",
+    "dueDate": "2026-09-30",
+    "servicePeriod": null,
+    "currency": "MXN",
+    "total": "370000.00",
+    "subtotal": "370000.00",
+    "amountInWords": null,
+    "amountInWordsValue": null,
+    "lineItems": [
+      {
+        "description": "Proyecto especial: migración de datos a la nueva plataforma",
+        "quantity": "1",
+        "unitPrice": "370000.00",
+        "amount": "370000.00"
+      }
+    ],
+    "taxes": [
+      {
+        "name": "IVA 0% (exportación de servicios)",
+        "rate": "0",
+        "amount": "0.00",
+        "kind": "tax"
+      }
+    ],
+    "payout": {
+      "method": "spei",
+      "destination": "014180009876543210",
+      "bankName": "Banco Ficticio del Norte",
+      "accountHolder": null
+    },
+    "category": "services",
+    "description": "Proyecto especial: migración de datos a la nueva plataforma",
+    "agentInstructions": {
+      "detected": false,
+      "quote": null
+    },
+    "confidence": {
+      "issuer": 1,
+      "invoiceNumber": 1,
+      "issueDate": 1,
+      "dueDate": 1,
+      "currency": 1,
+      "total": 1,
+      "payout": 1
+    },
+    "warnings": [
+      "El receptor muestra dos identificadores fiscales: RFC genérico XEXX010101000 y Tax ID 88-1234567 (Residencia fiscal: USA); se usó el RFC como taxId.",
+      "El documento se identifica a sí mismo como ficticio, generado para la demo de Mandato."
+    ]
+  },
+  "usage": {
+    "inputTokens": 3688,
+    "outputTokens": 1182,
+    "cacheReadTokens": 0
+  }
+}

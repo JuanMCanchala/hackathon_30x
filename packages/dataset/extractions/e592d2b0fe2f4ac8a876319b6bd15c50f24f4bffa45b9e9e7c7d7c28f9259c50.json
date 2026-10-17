@@ -1,0 +1,68 @@
+{
+  "sha256": "e592d2b0fe2f4ac8a876319b6bd15c50f24f4bffa45b9e9e7c7d7c28f9259c50",
+  "extractorVersion": "mandato-extractor/1",
+  "provider": "fireworks",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "recordedAt": "2026-10-17T03:19:14.811Z",
+  "latencyMs": 6856,
+  "file": "agosto/ago-02-tablero-email.eml",
+  "extraction": {
+    "documentType": "invoice",
+    "language": "en",
+    "issuer": {
+      "name": "Tablero Software LLC",
+      "taxId": "EIN 87-7654321",
+      "country": "US",
+      "email": "billing@tablero.example"
+    },
+    "billTo": {
+      "name": "Andes Labs Inc.",
+      "taxId": "EIN 88-1234567"
+    },
+    "invoiceNumber": "TB-2026-08",
+    "issueDate": "2026-08-01",
+    "dueDate": "2026-08-15",
+    "servicePeriod": "2026-08",
+    "currency": "USD",
+    "total": "620.00",
+    "subtotal": null,
+    "amountInWords": null,
+    "amountInWordsValue": null,
+    "lineItems": [
+      {
+        "description": "Tablero Team plan — 50 seats (August 2026)",
+        "quantity": "50",
+        "unitPrice": "12.40",
+        "amount": "620.00"
+      }
+    ],
+    "taxes": [],
+    "payout": {
+      "method": "card",
+      "destination": "4421",
+      "bankName": null,
+      "accountHolder": null
+    },
+    "category": "software",
+    "description": "Suscripción al plan Tablero Team, 50 puestos, agosto de 2026",
+    "agentInstructions": {
+      "detected": false,
+      "quote": null
+    },
+    "confidence": {
+      "issuer": 1,
+      "invoiceNumber": 1,
+      "issueDate": 1,
+      "dueDate": 1,
+      "currency": 1,
+      "total": 1,
+      "payout": 1
+    },
+    "warnings": []
+  },
+  "usage": {
+    "inputTokens": 2616,
+    "outputTokens": 678,
+    "cacheReadTokens": 0
+  }
+}

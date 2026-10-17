@@ -1,0 +1,74 @@
+{
+  "sha256": "5211d99d0ff8916a9310646c1085830d1e786ef0ea5fa94533950f15ea1ec89d",
+  "extractorVersion": "mandato-extractor/1",
+  "provider": "fireworks",
+  "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+  "recordedAt": "2026-10-17T03:22:27.250Z",
+  "latencyMs": 7623,
+  "file": "septiembre/sep-17-ruta-viajes-factura.pdf",
+  "extraction": {
+    "documentType": "invoice",
+    "language": "es",
+    "issuer": {
+      "name": "Ruta Viajes S.A.S.",
+      "taxId": "NIT 901.888.444-2",
+      "country": "CO",
+      "email": "facturas@rutaviajes.example"
+    },
+    "billTo": {
+      "name": "ANDES LABS INC.",
+      "taxId": "EIN 88-1234567"
+    },
+    "invoiceNumber": "RV-2026-0916",
+    "issueDate": "2026-09-16",
+    "dueDate": "2026-09-25",
+    "servicePeriod": null,
+    "currency": "COP",
+    "total": "17600000",
+    "subtotal": "17600000",
+    "amountInWords": "DIECISIETE MILLONES SEISCIENTOS MIL PESOS M/CTE",
+    "amountInWordsValue": "17600000",
+    "lineItems": [
+      {
+        "description": "Tiquetes aéreos Bogotá–São Paulo ida y vuelta (4 personas)",
+        "quantity": "1",
+        "unitPrice": "13200000",
+        "amount": "13200000"
+      },
+      {
+        "description": "Hotel 2 noches (4 personas)",
+        "quantity": "1",
+        "unitPrice": "4400000",
+        "amount": "4400000"
+      }
+    ],
+    "taxes": [],
+    "payout": {
+      "method": "bre_b",
+      "destination": "@rutaviajes",
+      "bankName": null,
+      "accountHolder": null
+    },
+    "category": "travel",
+    "description": "Tiquetes aéreos Bogotá–São Paulo ida y vuelta y hotel 2 noches para 4 personas",
+    "agentInstructions": {
+      "detected": false,
+      "quote": null
+    },
+    "confidence": {
+      "issuer": 1,
+      "invoiceNumber": 1,
+      "issueDate": 1,
+      "dueDate": 1,
+      "currency": 1,
+      "total": 1,
+      "payout": 1
+    },
+    "warnings": []
+  },
+  "usage": {
+    "inputTokens": 3578,
+    "outputTokens": 661,
+    "cacheReadTokens": 0
+  }
+}
