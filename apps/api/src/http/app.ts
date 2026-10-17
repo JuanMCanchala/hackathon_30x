@@ -1,3 +1,4 @@
+import { timingSafeEqual } from 'node:crypto';
 import { OpenAPIHono } from '@hono/zod-openapi';
 import { Scalar } from '@scalar/hono-api-reference';
 import { bodyLimit } from 'hono/body-limit';
@@ -14,6 +15,9 @@ import { registerEvidenceRoutes } from './routes/evidence';
 import { registerOrgRoutes } from './routes/org';
 import { registerPortalRoutes } from './routes/portal';
 
+const MULTIPART = [/^\/api\/v1\/bills$/, /^\/api\/v1\/portal\/[^/]+\/reply$/];
+const SELF_AUTHENTICATED = [/^\/api\/v1\/portal\/[^/]+\/reply$/, /^\/api\/v1\/webhooks\/github$/];
+
 export function createApp(c: Container, demo: DemoService | null) {
   const app = new OpenAPIHono({
     defaultHook: (result, ctx) => {
@@ -21,22 +25,45 @@ export function createApp(c: Container, demo: DemoService | null) {
     },
   });
 
+  // only the web app; same-origin requests need no CORS header
   app.use(
     '*',
     cors({
-      origin: (origin) => origin ?? '*',
-      allowHeaders: ['content-type', 'x-hub-signature-256', 'x-github-event'],
+      origin: (origin) => (origin === c.config.publicWebUrl ? origin : null),
+      allowHeaders: ['content-type', 'authorization', 'x-hub-signature-256', 'x-github-event'],
       allowMethods: ['GET', 'POST', 'OPTIONS'],
     }),
   );
-  // a multipart form carries a 10 MB file plus the form's own bytes
-  app.use(
-    '/api/v1/*',
-    bodyLimit({
-      maxSize: MAX_UPLOAD_BYTES + 256 * 1024,
-      onError: (ctx) => ctx.json({ error: 'El archivo supera los 10 MB.' }, 413),
-    }),
+
+  // 1 MB for JSON and CSV; a multipart form carries a 10 MB file plus the form's own bytes
+  const small = bodyLimit({
+    maxSize: 1024 * 1024,
+    onError: (ctx) => ctx.json({ error: 'La solicitud supera 1 MB.' }, 413),
+  });
+  const large = bodyLimit({
+    maxSize: MAX_UPLOAD_BYTES + 256 * 1024,
+    onError: (ctx) => ctx.json({ error: 'El archivo supera los 10 MB.' }, 413),
+  });
+  app.use('/api/v1/*', (ctx, next) =>
+    ctx.req.method === 'POST' && MULTIPART.some((r) => r.test(ctx.req.path))
+      ? large(ctx, next)
+      : small(ctx, next),
   );
+
+  // Outside demo mode every write needs the admin token, except the routes that authenticate
+  // themselves: the vendor portal (its link token) and the GitHub webhook (its signature).
+  if (!c.config.demoMode) {
+    const expected = Buffer.from(`Bearer ${c.config.adminToken}`);
+    app.use('/api/v1/*', async (ctx, next) => {
+      const write = !['GET', 'HEAD', 'OPTIONS'].includes(ctx.req.method);
+      if (write && !SELF_AUTHENTICATED.some((r) => r.test(ctx.req.path))) {
+        const given = Buffer.from(ctx.req.header('authorization') ?? '');
+        if (given.length !== expected.length || !timingSafeEqual(given, expected))
+          return ctx.json({ error: 'Falta la clave de administrador o no es válida.' }, 401);
+      }
+      return next();
+    });
+  }
 
   app.onError((error, ctx) => {
     if (error instanceof ServiceError)

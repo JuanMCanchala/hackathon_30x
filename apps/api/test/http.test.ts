@@ -1,5 +1,8 @@
 import { VENDORS } from '@recibido/dataset';
 import { afterEach, describe, expect, it } from 'vitest';
+import { createHash } from 'node:crypto';
+import { loadConfig } from '../src/config';
+import { humanActions, portalTokens } from '../src/db/schema';
 import { createApp } from '../src/http/app';
 import { DemoService } from '../src/services/demo';
 import { allPayments } from '../src/services/state';
@@ -21,6 +24,9 @@ async function server(env: Record<string, string> = {}) {
   const app = createApp(c, demo);
   return (path: string, init?: RequestInit) => app.request(path, init);
 }
+
+const ADMIN = 'una-clave-de-administrador-larga-0123456789';
+const bearer = (token: string) => ({ authorization: `Bearer ${token}` });
 
 function form(fields: Record<string, string | { bytes: Uint8Array; filename: string }>) {
   const body = new FormData();
@@ -72,10 +78,11 @@ describe('HTTP API', () => {
   });
 
   it('hides the demo routes when DEMO_MODE=false', async () => {
-    const http = await server({ DEMO_MODE: 'false' });
+    const http = await server({ DEMO_MODE: 'false', ADMIN_TOKEN: ADMIN });
     expect((await http('/api/v1/demo/tour')).status).toBe(404);
-    expect((await http('/api/v1/demo/reset', { method: 'POST' })).status).toBe(404);
-    expect((await http('/api/v1/demo/actions/close-october', { method: 'POST' })).status).toBe(404);
+    const post = { method: 'POST', headers: bearer(ADMIN) };
+    expect((await http('/api/v1/demo/reset', post)).status).toBe(404);
+    expect((await http('/api/v1/demo/actions/close-october', post)).status).toBe(404);
   });
 
   it('the receipt of oct-03 carries the vendor message and the evidence of each line', async () => {
@@ -143,5 +150,104 @@ describe('HTTP API', () => {
     expect((await post('/api/v1/demo/actions/reply-daniela')).status).toBe(409);
     expect((await post('/api/v1/demo/actions/arrive-october')).status).toBe(200);
     expect((await post('/api/v1/demo/actions/inventada')).status).toBe(400);
+  });
+});
+
+describe('outside demo mode', () => {
+  it('refuses to start without a long ADMIN_TOKEN', () => {
+    expect(() => loadConfig({ DEMO_MODE: 'false' })).toThrow(/ADMIN_TOKEN/);
+    expect(() => loadConfig({ DEMO_MODE: 'false', ADMIN_TOKEN: 'corta' })).toThrow(/ADMIN_TOKEN/);
+    expect(loadConfig({ DEMO_MODE: 'false', ADMIN_TOKEN: ADMIN }).adminToken).toBe(ADMIN);
+  });
+
+  it('every mutating route needs the admin token; the actor comes from config', async () => {
+    const http = await server({ DEMO_MODE: 'false', ADMIN_TOKEN: ADMIN });
+    const upload = (headers: Record<string, string>) =>
+      http('/api/v1/bills', { ...form({ file: fileOf('oct-06') }), headers });
+    expect((await upload({})).status).toBe(401);
+    expect((await upload(bearer('otra-clave-cualquiera-0123456789abcd'))).status).toBe(401);
+    const created = await upload(bearer(ADMIN));
+    expect(created.status).toBe(201);
+    const { billId } = (await created.json()) as { billId: string };
+
+    const resolve = (headers: Record<string, string>) =>
+      http(`/api/v1/bills/${billId}/resolve`, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', ...headers },
+        body: JSON.stringify({ action: 'reject', actor: 'Alguien Externo', note: 'no' }),
+      });
+    expect((await resolve({})).status).toBe(401);
+    expect((await resolve(bearer(ADMIN))).status).toBe(200);
+    const [action] = await c.db.select().from(humanActions);
+    expect(action?.actor).toBe('Administrador');
+
+    const json = { method: 'POST', headers: { 'content-type': 'application/json' } };
+    expect(
+      (
+        await http('/api/v1/evidence/deliverables/brand-kit-v2/accept', {
+          ...json,
+          body: JSON.stringify({ actor: 'x' }),
+        })
+      ).status,
+    ).toBe(401);
+    expect(
+      (await http('/api/v1/evidence/time-entries', { method: 'POST', body: 'fecha' })).status,
+    ).toBe(401);
+    // the token-bound portal and the signed webhook answer for themselves
+    expect((await http('/api/v1/portal/no-existe')).status).toBe(404);
+    expect((await http('/api/v1/webhooks/github', { method: 'POST', body: '{}' })).status).toBe(
+      401,
+    );
+    expect((await http('/api/v1/overview')).status).toBe(200);
+  });
+});
+
+describe('the HTTP edge', () => {
+  it('allows only the web app origin', async () => {
+    const http = await server({ PUBLIC_WEB_URL: 'https://recibido.example' });
+    const from = async (origin: string) =>
+      (await http('/api/v1/health', { headers: { origin } })).headers.get(
+        'access-control-allow-origin',
+      );
+    expect(await from('https://recibido.example')).toBe('https://recibido.example');
+    expect(await from('https://evil.example')).toBeNull();
+  });
+
+  it('a .pdf that is not a PDF is refused; JSON and CSV bodies stop at 1 MB', async () => {
+    const http = await server();
+    const fake = await http(
+      '/api/v1/bills',
+      form({ file: { bytes: Buffer.from('hola, soy un pdf'), filename: 'cuenta.pdf' } }),
+    );
+    expect(fake.status).toBe(400);
+    const big = 'x'.repeat(1024 * 1024 + 10);
+    expect(
+      (await http('/api/v1/evidence/time-entries', { method: 'POST', body: big })).status,
+    ).toBe(413);
+    expect(
+      (
+        await http('/api/v1/bills/x/resolve', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ note: big }),
+        })
+      ).status,
+    ).toBe(413);
+  });
+
+  it('reading the inbox twice creates nothing; its links open the portal', async () => {
+    const http = await server();
+    await ingest(c, 'oct-03');
+    const tokensBefore = (await c.db.select().from(portalTokens)).length;
+    const read = async () =>
+      (await (await http('/api/v1/conversations')).json()) as { portalToken: string | null }[];
+    const [first] = await read();
+    const [second] = await read();
+    expect((await c.db.select().from(portalTokens)).length).toBe(tokensBefore);
+    expect(first?.portalToken).toBe(second?.portalToken);
+    expect((await http(`/api/v1/portal/${first!.portalToken}`)).status).toBe(200);
+    // a link forged for another bill without the secret does not open anything
+    const forged = `${first!.portalToken!.split('.')[0]}.${createHash('sha256').update('x').digest('hex')}`;
+    expect((await http(`/api/v1/portal/${forged}`)).status).toBe(404);
   });
 });

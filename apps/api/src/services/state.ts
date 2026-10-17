@@ -5,7 +5,7 @@
  * Safety: the only payments created here are the ones a decision asked for (`payNowMinor`) or a
  * person approved (humans.ts), always to the vendor's registered destination.
  */
-import { createHash, randomBytes, randomUUID } from 'node:crypto';
+import { createHash, createHmac, randomBytes, randomUUID } from 'node:crypto';
 import { and, asc, desc, eq, isNull, max, or } from 'drizzle-orm';
 import { BUYER_IDS, COMPANY, FX } from '@recibido/dataset';
 import {
@@ -65,6 +65,8 @@ export interface Deps {
   clock: Clock;
   reader: Reader;
   matcher: Matcher;
+  /** signs stateless portal links (demo inbox); null disables them */
+  portalSecret: string | null;
 }
 
 export const newId = (prefix: string) => `${prefix}_${randomUUID()}`;
@@ -224,6 +226,14 @@ export async function addTimeline(
   text: string,
 ): Promise<void> {
   await ex.insert(timeline).values({ orgId: ORG_ID, at, kind, billId, text });
+}
+
+/**
+ * A portal link the demo inbox can show without storing a secret or writing on read:
+ * `<billId>.<HMAC-SHA256(secret, billId)>`. It opens only a bill the agent has written to.
+ */
+export function signedPortalToken(secret: string, billId: string): string {
+  return `${billId}.${createHmac('sha256', secret).update(billId).digest('hex')}`;
 }
 
 /** A random 32-byte token for the vendor portal; only its SHA-256 is stored. */

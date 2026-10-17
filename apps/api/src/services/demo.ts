@@ -78,7 +78,10 @@ export async function runStep(c: Container, step: ScriptStep): Promise<void> {
       return;
     }
     case 'evidence':
-      await c.addEvidence([step.item]);
+      // a script replays recorded evidence: nothing it adds came from a live source just now
+      await c.addEvidence([
+        { ...step.item, origin: step.item.origin === 'live' ? 'fixture' : step.item.origin },
+      ]);
       return;
     case 'human':
       await c.resolveEscalation((await billOf(c, step.billId)).id, step);
@@ -316,16 +319,17 @@ export class DemoService {
   }
 
   /**
-   * Without a GitHub repository, the PR is merged here (evidence labeled "simulado"). With one,
-   * the clock moves to the merge moment and polling (or the webhook) sees the real merge.
+   * Without a GitHub repository, the script's own merge step runs (stored as fixture evidence).
+   * With one, the clock moves to the merge moment and polling (or the webhook) sees the real merge.
    */
   private async mergeLivePr(): Promise<Record<string, unknown>> {
     const pr = this.livePr();
+    if (!pr.live) {
+      await this.run(LIVE_MERGE);
+      return { mode: 'simulated', url: pr.url };
+    }
     await this.c.clock.set(LIVE_MERGE.at);
-    if (pr.live) return { mode: 'live', url: pr.url };
-    await this.c.github.simulateMerge(pr.ref);
-    this.log.push(LIVE_MERGE);
-    return { mode: 'simulated', url: pr.url };
+    return { mode: 'live', url: pr.url };
   }
 
   /**
@@ -342,8 +346,15 @@ export class DemoService {
       if (step === BRAND_KIT && done['accept-brand-kit']) continue;
       if (step === LIVE_MERGE && (done['merge-pr'] || this.livePr().live)) continue;
       if (step.type === 'vendor_reply' && !step.replyBillId) {
+        const [original] = await this.c.db
+          .select()
+          .from(bills)
+          .where(eq(bills.datasetId, step.billId));
+        if (!original) {
+          this.problems.push(`${step.billId}: La cuenta ${step.billId} todavía no llegó.`);
+          continue;
+        }
         const all = await this.c.db.select().from(bills);
-        const original = await billOf(this.c, step.billId);
         const head = all.find((b) => b.status !== 'SUPERSEDED' && b.chain.includes(original.id));
         if (!head || !REOPENED.includes(head.status)) continue;
       }

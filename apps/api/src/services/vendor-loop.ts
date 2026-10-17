@@ -4,7 +4,8 @@
  * where money goes: a message about payout details reaches the engine as part of the bill's text,
  * and its vendor.payout check escalates it.
  */
-import { asc, eq, inArray } from 'drizzle-orm';
+import { timingSafeEqual } from 'node:crypto';
+import { and, asc, eq, inArray } from 'drizzle-orm';
 import { formatMoney, STATUS_LABEL, type BillStatus, type Decision } from '@recibido/domain';
 import type { Executor } from '../db/client';
 import { bills, messages, portalTokens } from '../db/schema';
@@ -21,6 +22,7 @@ import {
   REOPENED,
   ServiceError,
   sha256Hex,
+  signedPortalToken,
   type BillRow,
   type Deps,
 } from './state';
@@ -31,12 +33,33 @@ export async function createPortalToken(deps: Deps, billId: string): Promise<str
   return insertPortalToken(deps.db, bill.id, bill.vendorId, await deps.clock.now());
 }
 
+/** The bill and vendor a signed link is bound to: a bill the agent has written to. */
+async function signedBinding(
+  ex: Executor,
+  token: string,
+  secret: string | null,
+): Promise<{ billId: string; vendorId: string } | null> {
+  const billId = token.split('.')[0]!;
+  if (!secret || !token.includes('.')) return null;
+  const expected = Buffer.from(signedPortalToken(secret, billId));
+  const given = Buffer.from(token);
+  if (given.length !== expected.length || !timingSafeEqual(given, expected)) return null;
+  const [asked] = await ex
+    .select({ id: messages.id })
+    .from(messages)
+    .where(and(eq(messages.billId, billId), eq(messages.sender, 'agent')))
+    .limit(1);
+  const [bill] = await ex.select().from(bills).where(eq(bills.id, billId));
+  return asked && bill?.vendorId ? { billId, vendorId: bill.vendorId } : null;
+}
+
 /** The bill a token is bound to, followed to the latest correction of its case. */
-async function caseOf(ex: Executor, token: string): Promise<BillRow> {
-  const [row] = await ex
+async function caseOf(ex: Executor, token: string, secret: string | null): Promise<BillRow> {
+  const [stored] = await ex
     .select()
     .from(portalTokens)
     .where(eq(portalTokens.tokenHash, sha256Hex(token)));
+  const row = stored ?? (await signedBinding(ex, token, secret));
   if (!row) throw new ServiceError(404, 'El enlace no es válido.');
   const all = await ex.select().from(bills).where(eq(bills.orgId, ORG_ID));
   const head = all.find((b) => b.status !== 'SUPERSEDED' && b.chain.includes(row.billId));
@@ -65,7 +88,7 @@ export interface PortalView {
 
 /** What the vendor sees: their bill, our messages and what is missing. Never payout details. */
 export async function portalView(deps: Deps, token: string): Promise<PortalView> {
-  const bill = await caseOf(deps.db, token);
+  const bill = await caseOf(deps.db, token, deps.portalSecret);
   const vendor = (await allVendors(deps.db)).find((v) => v.id === bill.vendorId)!;
   const thread = await deps.db
     .select()
@@ -124,7 +147,7 @@ export async function vendorReply(
   const message = reply.message.trim();
   if (!message && !reply.file)
     throw new ServiceError(400, 'Escribe un mensaje o adjunta la cuenta.');
-  const bill = await caseOf(deps.db, token);
+  const bill = await caseOf(deps.db, token, deps.portalSecret);
   if (!REOPENED.includes(bill.status))
     throw new ServiceError(409, 'Este caso ya no espera una respuesta.');
 

@@ -58,6 +58,7 @@ export async function createContainer(config: Config, overrides: ContainerOverri
     clock: overrides.clock ?? orgClock(db),
     reader: overrides.reader ?? (reference ? new ReferenceReader() : new BillReader(llm)),
     matcher: overrides.matcher ?? (reference ? new ReferenceMatcher() : new LineMatcher(llm)),
+    portalSecret: config.portalTokenSecret,
   };
   const github = new GithubEvidence(deps, {
     repo: config.github.repo,

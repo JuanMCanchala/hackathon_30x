@@ -3,7 +3,7 @@ import type { Payment } from '@recibido/domain';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { documentText as datasetDocumentText } from '../../../packages/dataset/test/documents';
 import { replayScript } from '../../../packages/dataset/test/replay';
-import { bills } from '../src/db/schema';
+import { bills, orgState } from '../src/db/schema';
 import { DemoService } from '../src/services/demo';
 import { reconciliationView } from '../src/services/reconciliation';
 import { allPayments } from '../src/services/state';
@@ -112,8 +112,17 @@ describe('the guided demo', () => {
   it('never exposes a payout destination in the read views', async () => {
     const body = JSON.stringify([await paymentsView(c.deps), await reconciliationView(c.deps)]);
     for (const v of VENDORS) expect(body).not.toContain(`"${v.payout.destination}"`);
-    const seqs = (await allPayments(c.db)).map((p) => p.reference);
-    expect((await paymentsView(c.deps)).map((p) => p.reference)).toEqual(seqs);
+    const refs = (await paymentsView(c.deps)).map((p) => Number(p.reference.slice(4)));
+    expect(refs.length).toBeGreaterThan(1);
+    refs.slice(1).forEach((r, i) => expect(r).toBeGreaterThan(refs[i]!));
+  });
+
+  it('closing October before the bills arrived records problems instead of aborting', async () => {
+    await demo.reset();
+    await c.db.update(orgState).set({ phase: 'october' });
+    await demo.act('close-october');
+    expect((await demo.tourState()).phase).toBe('closed');
+    expect(demo.problems.some((p) => p.includes('todavía no llegó'))).toBe(true);
   });
 
   it('a second reset restores the October 1 state', async () => {

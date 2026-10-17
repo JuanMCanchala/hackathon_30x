@@ -1,11 +1,12 @@
 import { createRoute, z, type OpenAPIHono } from '@hono/zod-openapi';
 import type { Container } from '../../container';
 import { billList, billReceipt } from '../../services/views';
-import { binary, formFile, IdParam, json, multipart, ok } from '../openapi';
+import { actorOf, binary, formFile, IdParam, json, multipart, ok } from '../openapi';
 
 const Resolution = z.object({
   action: z.enum(['approve', 'reject']),
-  actor: z.string().trim().min(1).max(120),
+  /** demo mode only; otherwise the configured admin acts */
+  actor: z.string().max(120).optional(),
   note: z.string().max(2000).default(''),
 });
 
@@ -68,7 +69,11 @@ export function registerBillRoutes(app: OpenAPIHono, c: Container) {
       responses: ok('Resuelta'),
     }),
     async (ctx) => {
-      const result = await c.resolveEscalation(ctx.req.valid('param').id, ctx.req.valid('json'));
+      const body = ctx.req.valid('json');
+      const result = await c.resolveEscalation(ctx.req.valid('param').id, {
+        ...body,
+        actor: actorOf(c.config, body.actor),
+      });
       return ctx.json(
         { status: result.status, paymentReference: result.payment?.reference ?? null },
         200,

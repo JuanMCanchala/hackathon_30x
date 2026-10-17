@@ -32,11 +32,11 @@ import {
   allEvidence,
   allPayments,
   allVendors,
-  insertPortalToken,
   ORG_ID,
   REOPENED,
   ServiceError,
   type BillRow,
+  signedPortalToken,
   type Deps,
 } from './state';
 
@@ -287,9 +287,9 @@ export async function vendorsView(deps: Deps) {
 
 /**
  * The simulated inbox: one thread per case. With `portalLinks` (demo mode) every case that waits
- * on the vendor carries a fresh portal token, the link the vendor's e-mail would contain.
+ * on the vendor carries the link the agent's e-mail would contain: a signed token for the bill
+ * the agent wrote to (stateless, so reading the inbox writes nothing).
  */
-// ponytail: mints a token per read of an open thread; store the sent link once real e-mail exists
 export async function conversations(deps: Deps, options: { portalLinks: boolean }) {
   const { db } = deps;
   const vendors = await allVendors(db);
@@ -299,7 +299,6 @@ export async function conversations(deps: Deps, options: { portalLinks: boolean 
     .from(messages)
     .where(eq(messages.orgId, ORG_ID))
     .orderBy(asc(messages.seq));
-  const now = (await orgNow(db)).now ?? '';
   const threads = new Map<string, { head: BillRow; messages: typeof msgs }>();
   for (const m of msgs) {
     const head = rows.find((b) => b.status !== 'SUPERSEDED' && b.chain.includes(m.billId));
@@ -312,6 +311,7 @@ export async function conversations(deps: Deps, options: { portalLinks: boolean 
   for (const { head, messages: list } of threads.values()) {
     const open = REOPENED.includes(head.status);
     const vendor = vendors.find((v) => v.id === head.vendorId);
+    const askedOn = list.findLast((m) => m.sender === 'agent')?.billId;
     out.push({
       billId: head.id,
       datasetId: head.datasetId,
@@ -324,8 +324,8 @@ export async function conversations(deps: Deps, options: { portalLinks: boolean 
       lastAt: list.at(-1)!.at,
       messages: list.map(({ orgId: _org, ...m }) => m),
       portalToken:
-        options.portalLinks && open && head.vendorId
-          ? await insertPortalToken(db, head.id, head.vendorId, now)
+        options.portalLinks && open && askedOn && deps.portalSecret
+          ? signedPortalToken(deps.portalSecret, askedOn)
           : null,
     });
   }

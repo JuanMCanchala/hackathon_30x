@@ -26,6 +26,12 @@ const EnvSchema = z.object({
   /** Write live model answers to packages/dataset/recordings. */
   RECORD: bool.default(false),
   DEMO_MODE: bool.default(true),
+  /** Outside demo mode, required (≥ 24 chars): `Authorization: Bearer` on every mutating route. */
+  ADMIN_TOKEN: z.string().optional(),
+  /** Who the admin token acts as in human actions (outside demo mode). */
+  ADMIN_ACTOR: z.string().min(1).max(120).default('Administrador'),
+  /** Signs the demo inbox's portal links (HMAC of the bill id). Demo mode has a built-in one. */
+  PORTAL_TOKEN_SECRET: z.string().min(24).optional(),
   DEMO_PACE_MS: z.coerce.number().int().min(0).default(400),
   GITHUB_REPO: z.string().optional(),
   GITHUB_TOKEN: z.string().optional(),
@@ -54,6 +60,11 @@ export interface Config {
   reader: 'auto' | 'reference';
   record: boolean;
   demoMode: boolean;
+  /** null only in demo mode */
+  adminToken: string | null;
+  adminActor: string;
+  /** signs stateless portal links; null outside demo mode without PORTAL_TOKEN_SECRET */
+  portalTokenSecret: string | null;
   demoPaceMs: number;
   github: {
     repo: string | null;
@@ -108,6 +119,10 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env): Config {
     throw new Error(`Invalid configuration: ${issues}`);
   }
   const e = parsed.data;
+  if (!e.DEMO_MODE && (e.ADMIN_TOKEN ?? '').length < 24)
+    throw new Error(
+      'Invalid configuration: ADMIN_TOKEN (≥ 24 chars) is required when DEMO_MODE=false',
+    );
   return {
     port: e.PORT,
     databaseUrl: e.DATABASE_URL ?? null,
@@ -116,6 +131,10 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env): Config {
     reader: e.READER,
     record: e.RECORD,
     demoMode: e.DEMO_MODE,
+    adminToken: e.ADMIN_TOKEN ?? null,
+    adminActor: e.ADMIN_ACTOR,
+    portalTokenSecret:
+      e.PORTAL_TOKEN_SECRET ?? (e.DEMO_MODE ? 'recibido-demo-portal-links-v1' : null),
     demoPaceMs: e.DEMO_PACE_MS,
     github: {
       repo: e.GITHUB_REPO ?? null,

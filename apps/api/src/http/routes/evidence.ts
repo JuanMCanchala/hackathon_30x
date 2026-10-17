@@ -1,9 +1,6 @@
 import { createRoute, z, type OpenAPIHono } from '@hono/zod-openapi';
 import type { Container } from '../../container';
-import { ServiceError } from '../../services/state';
-import { IdParam, json, ok } from '../openapi';
-
-const MAX_CSV_BYTES = 1024 * 1024;
+import { actorOf, IdParam, json, ok } from '../openapi';
 
 export function registerEvidenceRoutes(app: OpenAPIHono, c: Container) {
   app.openapi(
@@ -14,13 +11,16 @@ export function registerEvidenceRoutes(app: OpenAPIHono, c: Container) {
       summary: 'Una persona del cliente acepta un entregable pendiente',
       request: {
         params: IdParam,
-        body: json(z.object({ actor: z.string().trim().min(1).max(120) })),
+        body: json(z.object({ actor: z.string().max(120).optional() })),
       },
       responses: ok('Entregable aceptado'),
     }),
     async (ctx) =>
       ctx.json(
-        await c.acceptDeliverable(ctx.req.valid('param').id, ctx.req.valid('json').actor),
+        await c.acceptDeliverable(
+          ctx.req.valid('param').id,
+          actorOf(c.config, ctx.req.valid('json').actor),
+        ),
         200,
       ),
   );
@@ -34,9 +34,8 @@ export function registerEvidenceRoutes(app: OpenAPIHono, c: Container) {
     responses: { 200: { description: 'Horas importadas' } },
   });
   app.post('/api/v1/evidence/time-entries', async (ctx) => {
-    const csv = await ctx.req.text();
-    if (Buffer.byteLength(csv) > MAX_CSV_BYTES) throw new ServiceError(413, 'El CSV supera 1 MB.');
-    return ctx.json(await c.importTimeEntriesCsv(csv), 200);
+    // the 1 MB body limit applies
+    return ctx.json(await c.importTimeEntriesCsv(await ctx.req.text()), 200);
   });
 
   app.openAPIRegistry.registerPath({

@@ -47,7 +47,13 @@ export async function formFile(
   if (!ACCEPTED.test(value.name))
     throw new ServiceError(400, 'Formato no soportado: usa PDF, correo (.eml) o texto (.txt).');
   if (value.size > MAX_UPLOAD_BYTES) throw new ServiceError(413, 'El archivo supera los 10 MB.');
-  return { bytes: new Uint8Array(await value.arrayBuffer()), filename: value.name };
+  const bytes = new Uint8Array(await value.arrayBuffer());
+  if (
+    /\.pdf$/i.test(value.name) &&
+    Buffer.from(bytes.subarray(0, 5)).toString('latin1') !== '%PDF-'
+  )
+    throw new ServiceError(400, 'El archivo no es un PDF válido.');
+  return { bytes, filename: value.name };
 }
 
 export async function formText(c: Context, field: string): Promise<string> {
@@ -61,3 +67,13 @@ export const multipart = (fields: Record<string, z.ZodType>) => ({
 });
 
 export const binary = () => z.any().openapi({ type: 'string', format: 'binary' });
+
+/** Who acts: the person named in the request in demo mode, the configured admin otherwise. */
+export function actorOf(
+  config: { demoMode: boolean; adminActor: string },
+  requested: string | undefined,
+): string {
+  if (!config.demoMode) return config.adminActor;
+  if (!requested?.trim()) throw new ServiceError(400, 'Falta quién realiza la acción.');
+  return requested.trim();
+}
