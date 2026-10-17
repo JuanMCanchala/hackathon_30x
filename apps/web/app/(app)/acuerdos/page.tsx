@@ -112,8 +112,13 @@ export default function AcuerdosPage() {
   const resolved = proposals?.filter((p) => p.status !== 'pending') ?? [];
   const canSign = session?.user.canSign;
 
+  const [revoking, setRevoking] = useState<PayeeView | null>(null);
+  const [revokeBusy, setRevokeBusy] = useState(false);
+
+  // Revoking cannot be undone: only a new signature brings the agreement back, so it asks first.
   const revoke = async (payee: PayeeView) => {
     if (!payee.mandate) return;
+    setRevokeBusy(true);
     try {
       await post(`/api/v1/mandates/${payee.mandate.id}/revoke`, {
         reason: 'Revocado desde la pantalla de acuerdos',
@@ -121,9 +126,12 @@ export default function AcuerdosPage() {
       toast(`Acuerdo con ${payee.name} revocado`, {
         description: 'Sus próximos cobros pedirán aprobación.',
       });
+      setRevoking(null);
       void mutate(() => true);
     } catch (error) {
       toast.error(error instanceof ApiError ? error.message : 'No se pudo revocar.');
+    } finally {
+      setRevokeBusy(false);
     }
   };
 
@@ -212,21 +220,23 @@ export default function AcuerdosPage() {
                         <ToneTag tone="pending" label="Sin acuerdo: todo pide aprobación" />
                       )}
                     </td>
-                    <td className="px-4 py-3.5 text-right align-top text-ink">
+                    <td className="px-4 py-3.5 text-right align-top whitespace-nowrap text-ink">
                       <p className="tabular-nums">{formatUsd(p.stats.usdCents)}</p>
-                      <p className="text-ink-3">{p.stats.paid} pagos</p>
+                      <p className="text-ink-3">
+                        {p.stats.paid} {p.stats.paid === 1 ? 'pago' : 'pagos'}
+                      </p>
                       {p.stats.escalated > 0 && (
                         <p className="text-ink-3">{p.stats.escalated} con aprobación</p>
                       )}
                     </td>
                     <td className="px-4 py-3.5 text-right align-top">
                       {canSign && (
-                        <div className="flex justify-end gap-1">
+                        <div className="flex justify-end gap-1 whitespace-nowrap">
                           <Button size="sm" variant="ghost" onClick={() => setEditing(p)}>
                             Datos de pago
                           </Button>
                           {p.mandate && (
-                            <Button size="sm" variant="ghost" onClick={() => revoke(p)}>
+                            <Button size="sm" variant="ghost" onClick={() => setRevoking(p)}>
                               Revocar
                             </Button>
                           )}
@@ -246,6 +256,25 @@ export default function AcuerdosPage() {
         )}
       </section>
       {editing && <DestinationDialog payee={editing} onClose={() => setEditing(null)} />}
+      <Dialog
+        open={revoking !== null}
+        onOpenChange={(open) => !open && setRevoking(null)}
+        title={`¿Revocar el acuerdo con ${revoking?.name ?? ''}?`}
+        description="Desde ahora cada cobro suyo pedirá aprobación. Para volver a pagarle solo, alguien tendrá que firmar un acuerdo nuevo. La revocación queda en el registro."
+      >
+        <div className="flex flex-wrap justify-end gap-2">
+          <Button variant="ghost" onClick={() => setRevoking(null)}>
+            Cancelar
+          </Button>
+          <Button
+            variant="danger"
+            loading={revokeBusy}
+            onClick={() => revoking && void revoke(revoking)}
+          >
+            Revocar el acuerdo
+          </Button>
+        </div>
+      </Dialog>
     </div>
   );
 }
