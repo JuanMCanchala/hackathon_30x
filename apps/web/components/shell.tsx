@@ -236,7 +236,7 @@ export function AppShell({ children }: { children: ReactNode }) {
 
   return (
     <div className="min-h-dvh lg:grid lg:grid-cols-[264px_1fr]">
-      <aside className="noche sticky top-0 hidden h-dvh flex-col gap-7 px-3 py-6 lg:flex">
+      <aside className="sticky bg-noche text-white top-0 hidden h-dvh flex-col gap-7 px-3 py-6 lg:flex">
         <Link href="/" className="px-2.5 text-white" aria-label="Mandato, página de inicio">
           <Logo />
         </Link>
@@ -296,7 +296,7 @@ export function AppShell({ children }: { children: ReactNode }) {
             onClick={() => setMenuOpen(false)}
           >
             <div
-              className="noche h-full w-[86vw] max-w-xs overflow-y-auto px-3 py-5"
+              className="h-full bg-noche text-white w-[86vw] max-w-xs overflow-y-auto px-3 py-5"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="mb-6 flex items-center justify-between px-2">
