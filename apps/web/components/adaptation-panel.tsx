@@ -10,15 +10,22 @@ import { useSWRConfig } from 'swr';
 import { Button } from './ui';
 import { ApiError, post } from '@/lib/api';
 import { useApi } from '@/lib/hooks';
-import type { Adaptation, CalendarEntry } from '@/lib/types';
+import {
+  LANG_COPY,
+  LANG_SHORT,
+  type Adaptation,
+  type AdaptationContent,
+  type CalendarEntry,
+  type TopicDetail,
+} from '@/lib/types';
 
-const FORMATS = [
+export const FORMATS = [
   { value: 'linkedin', label: 'LinkedIn' },
   { value: 'carousel', label: 'Carrusel de IG' },
   { value: 'reel', label: 'Reel o TikTok' },
   { value: 'youtube', label: 'YouTube' },
 ] as const;
-type Format = (typeof FORMATS)[number]['value'];
+export type Format = (typeof FORMATS)[number]['value'];
 
 /** The next weekday from tomorrow, as YYYY-MM-DD in Bogotá. */
 function nextWeekday(): string {
@@ -27,7 +34,7 @@ function nextWeekday(): string {
   return d.toLocaleDateString('en-CA', { timeZone: 'America/Bogota' });
 }
 
-function textOf(a: Adaptation, format: Format): string {
+export function textOf(a: AdaptationContent, format: Format): string {
   if (format === 'carousel')
     return a.carousel.map((s, i) => `${i + 1}. ${s.title}\n${s.body}`).join('\n\n');
   if (format === 'reel')
@@ -40,7 +47,7 @@ function textOf(a: Adaptation, format: Format): string {
   return a.linkedin;
 }
 
-function CopyButton({ text }: { text: string }) {
+export function CopyButton({ text }: { text: string }) {
   const [done, setDone] = useState(false);
   return (
     <Button
@@ -110,7 +117,7 @@ function ApproveRow({ adaptation, format }: { adaptation: Adaptation; format: Fo
   );
 }
 
-function FormatBody({ a, format }: { a: Adaptation; format: Format }) {
+export function FormatBody({ a, format }: { a: AdaptationContent; format: Format }) {
   if (format === 'carousel')
     return (
       <ol className="grid gap-2.5 sm:grid-cols-2">
@@ -166,8 +173,46 @@ function FormatBody({ a, format }: { a: Adaptation; format: Format }) {
   );
 }
 
+/** The English or Portuguese pieces an adaptation builds on, linked to the originals. */
+function BasedOn({ ids, pieces }: { ids: string[]; pieces: TopicDetail['inspiration'] }) {
+  const used = ids.map((id) => pieces.find((p) => p.id === id)).filter((p) => p !== undefined);
+  if (!used.length) return null;
+  return (
+    <div className="flex flex-wrap items-center gap-2 text-[0.84rem] text-ink-2">
+      <span>Basado en</span>
+      {used.map((p) => (
+        <a
+          key={p.id}
+          href={p.url}
+          target="_blank"
+          rel="noreferrer"
+          title={`${LANG_COPY[p.lang]}: ${(p.hook || p.title || p.text).slice(0, 120)}`}
+          className="inline-flex items-center gap-1.5 rounded-full bg-fill py-0.5 pr-2.5 pl-1 font-[620] text-ink hover:text-brand"
+        >
+          <span
+            className={
+              p.lang === 'pt'
+                ? 'rounded-full bg-lang-pt px-1.5 text-[0.68rem] font-[760] text-white'
+                : 'rounded-full bg-lang-en px-1.5 text-[0.68rem] font-[760] text-white'
+            }
+          >
+            {LANG_SHORT[p.lang]}
+          </span>
+          {p.authorName}
+        </a>
+      ))}
+    </div>
+  );
+}
+
 /** «Cómo lo contamos»: the topic in 30X's formats and voice, to copy or approve. */
-export function AdaptationPanel({ topicId }: { topicId: string }) {
+export function AdaptationPanel({
+  topicId,
+  inspiration = [],
+}: {
+  topicId: string;
+  inspiration?: TopicDetail['inspiration'];
+}) {
   const { data: list, mutate } = useApi<Adaptation[]>(`/api/v1/topics/${topicId}/adaptations`);
   const [busy, setBusy] = useState(false);
   const [index, setIndex] = useState(0);
@@ -194,8 +239,9 @@ export function AdaptationPanel({ topicId }: { topicId: string }) {
       <div className="sheet grid justify-items-start gap-3 p-6">
         <p className="max-w-xl text-ink-2">
           El radar escribe el post de LinkedIn, el carrusel, el guion del Reel y el video de YouTube
-          con la voz de 30X, a partir de los ganchos que funcionaron. Una persona revisa y aprueba;
-          nada se publica solo.
+          con la voz de 30X, a partir de los ganchos que funcionaron
+          {inspiration.length ? ' y de lo que ya despegó en inglés y portugués' : ''}. Una persona
+          revisa y aprueba; nada se publica solo.
         </p>
         <Button
           variant="primary"
@@ -214,6 +260,11 @@ export function AdaptationPanel({ topicId }: { topicId: string }) {
         <div className="max-w-2xl">
           <p className="text-[0.8rem] font-[700] text-ink-3">El ángulo de 30X</p>
           <p className="mt-1 text-[1.08rem] leading-snug font-[650] text-ink">{current.angle}</p>
+          {current.inspiredBy && (
+            <div className="mt-2">
+              <BasedOn ids={current.inspiredBy} pieces={inspiration} />
+            </div>
+          )}
         </div>
         <div className="flex items-center gap-2">
           {versions.length > 1 && (

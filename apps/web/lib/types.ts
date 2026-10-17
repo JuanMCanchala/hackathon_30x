@@ -43,6 +43,27 @@ export const PLATFORM_COPY: Record<Platform, string> = {
 
 export type Lane = 'mainstream' | 'technical' | 'media';
 
+/** The languages the radar follows: viral AI content usually starts in English or Portuguese. */
+export type Lang = 'en' | 'pt' | 'es';
+export const LANGS: readonly Lang[] = ['en', 'pt', 'es'];
+export const LANG_COPY: Record<Lang, string> = { en: 'Inglés', pt: 'Portugués', es: 'Español' };
+export const LANG_SHORT: Record<Lang, string> = { en: 'EN', pt: 'PT', es: 'ES' };
+
+export interface LanguageWave {
+  lang: Lang;
+  creators: number;
+  growthPct: number;
+  stage: Stage | 'ausente';
+  wavePos: number | null;
+  sparkline: number[];
+}
+
+export interface SpanishWindow {
+  open: boolean;
+  leader: Lang | null;
+  lagDays: number | null;
+}
+
 export interface RadarTopic {
   id: string;
   rank: number;
@@ -75,6 +96,8 @@ export interface RadarTopic {
   growingIn: Platform[];
   /** Grows in two or more of them; otherwise «por confirmar». */
   confirmed: boolean;
+  languages: Record<Lang, LanguageWave>;
+  spanishWindow: SpanishWindow;
 }
 
 export interface Radar {
@@ -88,6 +111,8 @@ export interface Radar {
   };
   topics: RadarTopic[];
   forming: RadarTopic[];
+  /** Viral in English or Portuguese, barely started in Spanish: adapt these first. */
+  windowsOpen: RadarTopic[];
   /** Growing topics left out because they do not serve 30X's audience. */
   hiddenByAudience: number;
   cost: { weekUsd: number; llmUsd: number; dataUsd: number };
@@ -158,6 +183,8 @@ export interface TopicDetail {
   why: { patterns: WhyPattern[]; narrative: string | null; cited: string[] };
   fit: TopicFit | null;
   evidence: Piece[];
+  /** What already worked in English or Portuguese, with its idea in Spanish. */
+  inspiration: (Piece & { lang: 'en' | 'pt'; es: string | null })[];
   coverage: { name: string; pieces: Piece[] }[];
 }
 
@@ -172,6 +199,8 @@ export interface Adaptation {
   reel: { hook: string; beats: string[]; onScreen: string[]; cta: string };
   youtube: { title: string; thumbnail: string };
   avoid: string[];
+  /** English or Portuguese pieces it builds on (absent in older adaptations). */
+  inspiredBy?: string[];
   createdAt: string;
 }
 
@@ -186,4 +215,71 @@ export interface CalendarEntry {
   scheduledFor: string;
   approvedBy: string;
   approvedAt: string;
+}
+
+/** What an adaptation says, without its bookkeeping: also what a caught piece turns into. */
+export type AdaptationContent = Omit<Adaptation, 'id' | 'topicId' | 'variant' | 'createdAt'>;
+
+/** «Vigía»: a followed topic. The steps of a search, in the order the rules apply. */
+export type WatchStep =
+  'encontradas' | 'idioma' | 'tema' | 'reciente' | 'viral' | 'nuevo' | 'presupuesto';
+
+export interface WatchSummary {
+  id: string;
+  term: string;
+  caught: number;
+  lastRunAt: string | null;
+  running: boolean;
+}
+
+export interface WatchReport {
+  steps: { step: WatchStep; left: number }[];
+  sources: {
+    source: string;
+    lang: 'en' | 'pt' | null;
+    query: string;
+    status: number;
+    found: number;
+  }[];
+  rejected: { rule: WatchStep; count: number; examples: { title: string; reason: string }[] }[];
+  caught: number;
+  costUsd: number;
+  tokens: { input: number; output: number };
+}
+
+export interface WatchHit {
+  piece: Piece;
+  lang: 'en' | 'pt';
+  score: number;
+  reasons: string[];
+  foundAt: string;
+  capture: {
+    es: string | null;
+    slides?: { n: number; image: string; text: string; es: string }[];
+    video?: { hook: string; points: string[]; transcriptChars: number } | null;
+    idea?: string | null;
+  } | null;
+  adaptation: AdaptationContent | null;
+}
+
+export interface WatchDetail {
+  watch: {
+    id: string;
+    term: string;
+    plan: Record<'en' | 'pt', { queries: string[]; match: string[] }>;
+    langs: ('en' | 'pt')[];
+    windowHours: number;
+    everyMinutes: number;
+    budget: number;
+    lastRunAt: string | null;
+    nextRunAt: string | null;
+    running: boolean;
+  };
+  run: {
+    startedAt: string;
+    finishedAt: string | null;
+    report: WatchReport | null;
+    error: string | null;
+  } | null;
+  hits: WatchHit[];
 }

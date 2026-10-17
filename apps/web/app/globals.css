@@ -30,6 +30,10 @@
   --brand-strong: #075867;
   --brand-tint: #e0f0f1;
   --on-brand: #ffffff;
+  /* Languages: the sources (English, Portuguese) in their own hues, Spanish in ink. */
+  --lang-en: #5a54d6;
+  --lang-pt: #2b8a3e;
+  --lang-es: #0c2730;
   --st-emergente: #0f9e8f;
   --st-crecimiento: #1561a8;
   --st-saturado: #b07d00;
@@ -74,6 +78,9 @@
   --brand-strong: #8ad9e2;
   --brand-tint: #11404a;
   --on-brand: #06222a;
+  --lang-en: #aaa7ff;
+  --lang-pt: #74d88a;
+  --lang-es: #e8f2f3;
   --st-emergente: #3cc7b6;
   --st-crecimiento: #6aa9ea;
   --st-saturado: #d9a93a;
@@ -150,6 +157,9 @@
   --color-held-tint: var(--held-tint);
   --color-pending-tint: var(--pending-tint);
   --color-rejected-tint: var(--rejected-tint);
+  --color-lang-en: var(--lang-en);
+  --color-lang-pt: var(--lang-pt);
+  --color-lang-es: var(--lang-es);
   --color-st-emergente: var(--st-emergente);
   --color-st-crecimiento: var(--st-crecimiento);
   --color-st-saturado: var(--st-saturado);

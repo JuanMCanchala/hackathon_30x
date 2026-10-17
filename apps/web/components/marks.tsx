@@ -1,5 +1,14 @@
 import clsx from 'clsx';
-import { PLATFORM_COPY, type Platform } from '@/lib/types';
+import { waveY, wavePath } from './ui';
+import {
+  LANGS,
+  LANG_COPY,
+  LANG_SHORT,
+  PLATFORM_COPY,
+  type Lang,
+  type LanguageWave,
+  type Platform,
+} from '@/lib/types';
 
 /** Eight weeks of distinct creators as a small swell; the last week is marked. */
 export function Sparkline({
@@ -114,6 +123,68 @@ export function UnconfirmedChip({ growingIn }: { growingIn: Platform[] }) {
       title={`Crece ${where}. Una sola fuente da muchas falsas alarmas: falta que lo confirme otra.`}
     >
       Por confirmar
+    </span>
+  );
+}
+
+const LANG_FG: Record<Lang, string> = {
+  en: 'text-lang-en',
+  pt: 'text-lang-pt',
+  es: 'text-lang-es',
+};
+
+/**
+ * A topic in its three languages: a tiny wave each, with a dot where the topic sits (hollow
+ * when nobody has written about it yet) and its creators this week.
+ */
+export function LangTrio({
+  languages,
+  className,
+}: {
+  languages: Record<Lang, LanguageWave>;
+  className?: string;
+}) {
+  return (
+    <span className={clsx('inline-flex items-end gap-2.5', className)}>
+      {LANGS.map((lang) => {
+        const w = languages[lang];
+        const absent = w.stage === 'ausente' || w.wavePos === null;
+        const p = absent ? 0.02 : w.wavePos!;
+        const x = 2 + p * 24;
+        const y = waveY(p, 12, 2.5);
+        return (
+          <span
+            key={lang}
+            className="grid justify-items-center gap-0.5"
+            title={`${LANG_COPY[lang]}: ${w.creators} creadores esta semana`}
+          >
+            <svg viewBox="0 0 28 14" className={clsx('h-3.5 w-7', LANG_FG[lang])} aria-hidden>
+              <path
+                d={wavePath(28, 12, 2.5, 2)}
+                fill="none"
+                stroke="currentColor"
+                strokeOpacity={0.35}
+                strokeWidth={1.6}
+              />
+              <circle
+                cx={x}
+                cy={y}
+                r={2.8}
+                fill={absent ? 'none' : 'currentColor'}
+                stroke="currentColor"
+                strokeWidth={absent ? 1.2 : 0}
+              />
+            </svg>
+            <span className="t-figure text-[0.78rem] leading-none text-ink-2">
+              <span className="sr-only">{LANG_COPY[lang]} </span>
+              <span aria-hidden className="mr-0.5 text-[0.66rem] font-[700] text-ink-3">
+                {LANG_SHORT[lang]}
+              </span>
+              {w.creators}
+            </span>
+          </span>
+        );
+      })}
     </span>
   );
 }

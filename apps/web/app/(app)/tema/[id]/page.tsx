@@ -7,10 +7,11 @@ import { AdaptationPanel } from '@/components/adaptation-panel';
 import { FitMeter, PlatformChips, TimingChip, UnconfirmedChip } from '@/components/marks';
 import { PieceCard } from '@/components/piece-card';
 import { Page } from '@/components/shell';
-import { HistoryLine, WeeklyBars } from '@/components/topic-charts';
-import { Empty, Skeleton, StageTag, fmtGrowth, fmtInt } from '@/components/ui';
+import { HistoryLine, LanguageCurves, WeeklyBars } from '@/components/topic-charts';
+import { Empty, Skeleton, StageTag, fmtCompact, fmtGrowth, fmtInt } from '@/components/ui';
 import { useApi } from '@/lib/hooks';
-import type { TopicDetail, TopicFit } from '@/lib/types';
+import { languageStory } from '@/lib/language';
+import { LANG_COPY, LANG_SHORT, PLATFORM_COPY, type TopicDetail, type TopicFit } from '@/lib/types';
 
 const fmtDay = new Intl.DateTimeFormat('es-CO', {
   weekday: 'long',
@@ -33,7 +34,7 @@ function Score({ label, value }: { label: string; value: number }) {
 
 function FitCard({ fit }: { fit: TopicFit | null }) {
   return (
-    <section className="sheet grid gap-4 p-5">
+    <section className="grid gap-4 p-5">
       <div className="flex items-start justify-between gap-3">
         <h2 className="t-h3 text-ink">¿Le sirve a 30X?</h2>
         {fit && <FitMeter fit={fit.score} />}
@@ -59,6 +60,87 @@ function FitCard({ fit }: { fit: TopicFit | null }) {
       ) : (
         <p className="text-ink-3">El encaje se mide cuando el modelo está disponible.</p>
       )}
+    </section>
+  );
+}
+
+const fmtShort = new Intl.DateTimeFormat('es-CO', {
+  day: 'numeric',
+  month: 'short',
+  timeZone: 'America/Bogota',
+});
+
+/**
+ * «Ya funcionó en inglés y portugués»: each piece next to its idea in Spanish, like a facing-page
+ * translation. The original keeps its language; the Spanish side is what the team adapts.
+ */
+function Inspiration({ pieces }: { pieces: TopicDetail['inspiration'] }) {
+  return (
+    <section className="grid gap-3">
+      <h2 className="t-h2 text-ink">Ya funcionó en inglés y portugués</h2>
+      <p className="-mt-1 max-w-3xl text-ink-2">
+        Lo que más despegó en otros idiomas, con su idea en español: la materia prima para contarlo
+        primero aquí.
+      </p>
+      <div className="sheet">
+        <div className="hidden grid-cols-2 gap-8 border-b border-rule px-5 py-2.5 text-[0.8rem] font-[650] text-ink-3 md:grid">
+          <span>Lo que publicaron</span>
+          <span>La idea en español</span>
+        </div>
+        <ol className="divide-y divide-rule">
+          {pieces.map((p) => {
+            const ratio = p.outlier;
+            const meta = [
+              PLATFORM_COPY[p.platform],
+              fmtShort.format(new Date(p.publishedAt)),
+              p.views ? `${fmtCompact(p.views)} vistas` : null,
+              p.likes ? `${fmtCompact(p.likes)} reacciones` : null,
+            ].filter(Boolean);
+            return (
+              <li key={p.id} className="grid gap-x-8 gap-y-2 px-5 py-4 md:grid-cols-2">
+                <div className="grid content-start gap-1.5">
+                  <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[0.82rem] text-ink-3">
+                    <span
+                      className={
+                        p.lang === 'pt'
+                          ? 'rounded-[5px] bg-lang-pt px-1.5 text-[0.7rem] leading-[1.15rem] font-[760] text-white'
+                          : 'rounded-[5px] bg-lang-en px-1.5 text-[0.7rem] leading-[1.15rem] font-[760] text-white'
+                      }
+                      title={LANG_COPY[p.lang]}
+                    >
+                      {LANG_SHORT[p.lang]}
+                    </span>
+                    <span className="font-[680] text-ink-2">{p.authorName}</span>
+                    {meta.join(', ')}
+                    {ratio !== null && ratio >= 1.5 && (
+                      <span className="font-[680] text-ink">
+                        {ratio.toLocaleString('es-CO', { maximumFractionDigits: 1 })}× su mediana
+                      </span>
+                    )}
+                  </p>
+                  <a
+                    href={p.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    lang={p.lang}
+                    className="group line-clamp-4 text-[0.95rem] leading-snug text-ink-2 hover:text-brand"
+                  >
+                    {p.hook || p.title || p.text}{' '}
+                    <ArrowUpRight
+                      className="inline size-3.5 text-ink-3 group-hover:text-brand"
+                      aria-label="Abrir el original"
+                    />
+                  </a>
+                </div>
+                <p className="text-[1.02rem] leading-snug font-[560] text-ink">
+                  <span className="sr-only">En español: </span>
+                  {p.es ?? 'Sin traducción todavía.'}
+                </p>
+              </li>
+            );
+          })}
+        </ol>
+      </div>
     </section>
   );
 }
@@ -189,6 +271,14 @@ export default function TopicPage() {
             )}
           </section>
 
+          <section className="sheet grid gap-4 p-5 sm:p-6">
+            <h2 className="t-h3 text-ink">La ola por idioma</h2>
+            <p className="max-w-3xl leading-relaxed text-ink-2">{languageStory(t)}</p>
+            <LanguageCurves languages={t.languages} weeks={data.weekly.map((w) => w.week)} />
+          </section>
+
+          {data.inspiration.length > 0 && <Inspiration pieces={data.inspiration} />}
+
           <section className="grid gap-3">
             <h2 className="t-h2 text-ink">La evidencia</h2>
             <p className="-mt-1 max-w-3xl text-ink-2">
@@ -207,9 +297,9 @@ export default function TopicPage() {
           </section>
         </div>
 
-        <aside className="grid gap-6">
+        <aside className="sheet grid divide-y divide-rule">
           <FitCard fit={data.fit} />
-          <section className="sheet grid gap-3 p-5">
+          <section className="grid gap-3 p-5">
             <h2 className="t-h3 text-ink">La curva</h2>
             <p className="text-[0.86rem] text-ink-2">
               Creadores distintos por semana en las fuentes que se muestrean igual cada semana.
@@ -217,7 +307,7 @@ export default function TopicPage() {
             <WeeklyBars weeks={data.weekly} />
           </section>
           {data.trigger && (
-            <section className="sheet grid gap-2 p-5">
+            <section className="grid gap-2 p-5">
               <h2 className="t-h3 flex items-center gap-2 text-ink">
                 <Newspaper className="size-4 text-brand" aria-hidden /> Qué lo disparó
               </h2>
@@ -239,14 +329,14 @@ export default function TopicPage() {
             </section>
           )}
           {data.history.length > 0 && (
-            <section className="sheet grid gap-4 p-5">
+            <section className="grid gap-4 p-5">
               <h2 className="t-h3 text-ink">Historia larga</h2>
               {data.history.map((h) => (
                 <HistoryLine key={h.source} points={h.points} label={h.label} />
               ))}
             </section>
           )}
-          <section className="sheet grid gap-2 p-5">
+          <section className="grid gap-2 p-5">
             <h2 className="t-h3 text-ink">¿30X ya habló de esto?</h2>
             {data.coverage.length ? (
               <ul className="grid gap-2">
@@ -272,14 +362,14 @@ export default function TopicPage() {
         </aside>
       </div>
 
-      <section className="grid gap-4">
+      <section id="contar" className="grid scroll-mt-24 gap-4">
         <div>
           <h2 className="t-h2 text-ink">Cómo lo contamos</h2>
           <p className="mt-1 max-w-3xl text-ink-2">
             Piezas listas para revisar, con la voz de 30X y los ganchos que funcionaron esta semana.
           </p>
         </div>
-        <AdaptationPanel topicId={t.id} />
+        <AdaptationPanel topicId={t.id} inspiration={data.inspiration} />
       </section>
     </Page>
   );
