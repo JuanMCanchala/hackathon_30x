@@ -95,6 +95,16 @@ curl -H 'content-type: application/json' -H 'x-mandato-user: usr_laura' \
 | POST   | `/api/v1/policy/compile` | Turns a Spanish sentence into a validated policy change (needs a model)   |
 | PUT    | `/api/v1/policy`         | Saves a new policy version (signers only)                                 |
 
+### Payments, questions and drafts
+
+| Method | Path                                | What it does                                                               |
+| ------ | ----------------------------------- | -------------------------------------------------------------------------- |
+| GET    | `/api/v1/payments`                  | Scheduled, sent and settled transfers, and the balance they leave          |
+| POST   | `/api/v1/payments/run`              | Sends what is due today and settles what has arrived (ADR-0018)            |
+| POST   | `/api/v1/ask`                       | "Pregúntale a Mandato": answers in Spanish citing receipts; read-only      |
+| POST   | `/api/v1/invoices/{id}/reply-draft` | Drafts the reply to the vendor from the decision's reasons; never sends it |
+| GET    | `/api/v1/radar`                     | Recent bills with anomaly signals (amount, repetition, timing)             |
+
 ### Oversight
 
 | Method | Path                         | What it does                                                    |

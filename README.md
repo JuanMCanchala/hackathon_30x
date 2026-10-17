@@ -77,6 +77,16 @@ person if anything is off ([RULES.md](docs/RULES.md), [ADR-0002](docs/adr/0002-d
    that re-checks every payment against nine invariants and the ledger's hash chain.
 5. **Other agents can pay through it.** An MCP server lets external AI agents request payments
    under the same rules and a narrower scope; there is no tool to approve, sign or change rules.
+6. **The money actually leaves — on the due date.** Every paid or approved bill gets a transfer
+   scheduled for its due date (never before, never late), through the payee's rail (Bre-B, SPEI,
+   Pix in seconds; ACH and wires in days), to the destination registered _when the money leaves_.
+   A tenth audit invariant checks every transfer ([ADR-0018](docs/adr/0018-paying-decided-bills-on-their-due-date.md)).
+7. **Ask it, in Spanish.** "Pregúntale a Mandato" answers questions about bills, payments and
+   agreements from a read-only snapshot, citing the receipts it used. It cannot pay or approve.
+8. **It writes back to the vendor.** On any receipt, the agent drafts the reply from the
+   decision's own reasons, in the vendor's language, for a person to send by WhatsApp or e-mail.
+9. **An anomaly radar.** Amounts far from a payee's usual, a second bill within days, a bill off
+   its usual date: signals for whoever approves, without blocking what the rules already decided.
 
 ## Screens
 
