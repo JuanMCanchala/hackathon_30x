@@ -60,6 +60,7 @@ export interface BillListItem {
   outcome: Outcome | null;
   outcomeLabel: string | null;
   summary: string | null;
+  amounts: { currency: Currency | null; billedMinor: number; evidencedMinor: number } | null;
   supersedesBillId: string | null;
   casePaidMinor: number;
 }
@@ -204,4 +205,23 @@ export interface TourState {
   actions: { id: TourAction; label: string; available: boolean; done: boolean }[];
   livePr: { url: string; live: boolean };
   problems: string[];
+}
+
+/** What the contractor sees on the portal (apps/api/src/services/vendor-loop.ts). */
+export interface PortalView {
+  bill: {
+    id: string;
+    status: BillStatus;
+    statusLabel: string;
+    invoiceNumber: string | null;
+    issueDate: string | null;
+    currency: string | null;
+    total: string | null;
+    receivedAt: string;
+  };
+  vendor: { name: string; contactName: string };
+  messages: { at: string; sender: 'agent' | 'vendor'; body: string }[];
+  missing: { description: string; billed: string; evidenced: string; status: string }[];
+  askAmount: string | null;
+  canReply: boolean;
 }

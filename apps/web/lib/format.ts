@@ -38,3 +38,12 @@ export const formatDate = (iso: string) => clean(day.format(new Date(iso)));
 export const formatDateTime = (iso: string) => clean(dayTime.format(new Date(iso)));
 
 export const formatPct = (pct: number) => `${pct.toLocaleString('es-CO')} %`;
+/** "16 oct 2026" from a calendar date ("2026-10-16"), read at noon UTC so no zone shifts the day. */
+export const formatDay = (isoDate: string) => formatDate(`${isoDate.slice(0, 10)}T12:00:00Z`);
+
+export const RAIL_LABEL: Record<string, string> = {
+  'bre-b': 'Bre-B',
+  spei: 'SPEI',
+  pix: 'Pix',
+  ach: 'ACH',
+};

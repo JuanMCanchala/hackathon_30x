@@ -1,15 +1,16 @@
 import type { Metadata } from 'next';
-import { PageHeader } from '@/components/ui';
+import { Receipt } from '@/components/receipt/receipt';
 
-export const metadata: Metadata = { title: 'Cuenta' };
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}): Promise<Metadata> {
+  return { title: `Recibo ${(await params).id}` };
+}
 
-// Placeholder: Task 13 builds the receipt.
+/** The receipt of one bill: the decision, its proof, its checks and its payment. */
 export default async function Page({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  return (
-    <PageHeader
-      title={`Cuenta ${id}`}
-      lead="El recibo de la decisión: la prueba, las reglas y el pago."
-    />
-  );
+  return <Receipt key={id} id={decodeURIComponent(id)} />;
 }
