@@ -87,6 +87,16 @@ person if anything is off ([RULES.md](docs/RULES.md), [ADR-0002](docs/adr/0002-d
    decision's own reasons, in the vendor's language, for a person to send by WhatsApp or e-mail.
 9. **An anomaly radar.** Amounts far from a payee's usual, a second bill within days, a bill off
    its usual date: signals for whoever approves, without blocking what the rules already decided.
+10. **The challenge's own score, live.** _Evaluación_ runs the 49 bills on a separate database
+    and shows autonomy, safety and explainability with their proof, bill by bill: the decision
+    each should get and the one it got, linked to its receipt. `pnpm eval` prints the same run.
+11. **Play the purchasing agent.** On _Agentes conectados_, ask Mandato to pay as an external AI
+    agent would, through the same gateway the MCP server uses, and watch it pay within the signed
+    agreement, hold what is outside the agent's permission, or escalate to a person.
+12. **The month's close.** What was paid, who decided it, why, and the transfer that paid it, per
+    month, downloadable as a CSV that Excel in Spanish opens as a table.
+13. **A receipt for the auditor.** Every decision prints as one page (or a PDF): the document's
+    hash, what the agent read, the 23 checks, the approvals, the transfer and the ledger entries.
 
 ## Screens
 

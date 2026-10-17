@@ -104,6 +104,10 @@ curl -H 'content-type: application/json' -H 'x-mandato-user: usr_laura' \
 | POST   | `/api/v1/ask`                       | "Pregúntale a Mandato": answers in Spanish citing receipts; read-only      |
 | POST   | `/api/v1/invoices/{id}/reply-draft` | Drafts the reply to the vendor from the decision's reasons; never sends it |
 | GET    | `/api/v1/radar`                     | Recent bills with anomaly signals (amount, repetition, timing)             |
+| GET    | `/api/v1/close?period=YYYY-MM`      | The month's close: each bill, who decided it, why, and its transfer        |
+| GET    | `/api/v1/close.csv?period=YYYY-MM`  | The same close as a CSV for Excel in Spanish (`;`, decimal commas)         |
+| GET    | `/api/v1/evaluation`                | The latest run of the challenge's evaluation on a separate database        |
+| POST   | `/api/v1/evaluation/run`            | Runs the 49 bills again; the demo's data is not touched                    |
 
 ### Oversight
 

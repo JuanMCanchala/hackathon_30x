@@ -11,6 +11,9 @@ pnpm eval --write-docs       # also refresh the results below
 pnpm eval --require-replay   # fail when a document has no recorded extraction
 ```
 
+The same run is in the product: the **Evaluación** screen (`GET /api/v1/evaluation`) runs it on a
+separate in-memory database and shows the three criteria and every bill, linked to its receipt.
+
 ## What a run does
 
 1. Boots the API's services on an in-memory PostgreSQL (PGlite) and seeds Andes Labs.
