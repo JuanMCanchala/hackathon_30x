@@ -1,5 +1,6 @@
 'use client';
 
+import * as DialogPrimitive from '@radix-ui/react-dialog';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import clsx from 'clsx';
 import {
@@ -23,12 +24,12 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState, useSyncExternalStore, type ReactNode } from 'react';
+import { useEffect, useState, useSyncExternalStore, type ReactNode } from 'react';
 import { useApi } from '@/lib/hooks';
 import { useLive } from '@/lib/live';
 import { useSession } from '@/lib/session';
 import type { Overview } from '@/lib/types';
-import { AskPanel } from './ask-panel';
+import { AskPanel, AskTrigger } from './ask-panel';
 import { Logo } from './brand';
 import { Button } from './ui';
 import { UploadDialog } from './upload-dialog';
@@ -232,9 +233,20 @@ function NavLinks({ onNavigate }: { onNavigate?: () => void }) {
 
 export function AppShell({ children }: { children: ReactNode }) {
   const { connected } = useLive();
-  const { session } = useSession();
   const [uploadOpen, setUploadOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [askOpen, setAskOpen] = useState(false);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        setAskOpen((open) => !open);
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
 
   return (
     <div className="min-h-dvh lg:grid lg:grid-cols-[264px_1fr]">
@@ -268,10 +280,10 @@ export function AppShell({ children }: { children: ReactNode }) {
           <Link href="/resumen" className="lg:hidden" aria-label="Mandato, resumen">
             <Logo />
           </Link>
-          <p className="hidden text-[0.88rem] font-[560] text-ink-2 lg:block">
-            {session ? `${'Andes Labs Inc.'}, cuentas por pagar` : ''}
-          </p>
-          <div className="ml-auto flex items-center gap-2">
+          <div className="flex min-w-0 flex-1 items-center justify-end md:justify-start">
+            <AskTrigger onOpen={() => setAskOpen(true)} />
+          </div>
+          <div className="flex items-center gap-2">
             <Button
               variant="primary"
               icon={<Upload className="size-4" aria-hidden />}
@@ -284,33 +296,27 @@ export function AppShell({ children }: { children: ReactNode }) {
           </div>
         </header>
 
-        {menuOpen && (
-          <div
-            className="fixed inset-0 z-40 bg-black/25 backdrop-blur-sm lg:hidden"
-            onClick={() => setMenuOpen(false)}
-          >
-            <div
-              className="h-full bg-noche text-white w-[86vw] max-w-xs overflow-y-auto px-3 py-5"
-              onClick={(e) => e.stopPropagation()}
-            >
+        <DialogPrimitive.Root open={menuOpen} onOpenChange={setMenuOpen}>
+          <DialogPrimitive.Portal>
+            <DialogPrimitive.Overlay className="fixed inset-0 z-40 bg-black/25 backdrop-blur-sm lg:hidden" />
+            <DialogPrimitive.Content className="fixed inset-y-0 left-0 z-50 w-[86vw] max-w-xs overflow-y-auto bg-noche px-3 py-5 text-white outline-none lg:hidden">
+              <DialogPrimitive.Title className="sr-only">Secciones</DialogPrimitive.Title>
               <div className="mb-6 flex items-center justify-between px-2">
                 <Logo />
-                <button
-                  type="button"
-                  onClick={() => setMenuOpen(false)}
+                <DialogPrimitive.Close
                   aria-label="Cerrar menú"
-                  className="rounded-md p-1.5 hover:bg-sheet"
+                  className="rounded-full p-1.5 text-white/80 hover:bg-white/10 hover:text-white"
                 >
                   <X className="size-5" />
-                </button>
+                </DialogPrimitive.Close>
               </div>
               <NavLinks onNavigate={() => setMenuOpen(false)} />
               <div className="mt-6 px-2">
                 <ThemeSwitch />
               </div>
-            </div>
-          </div>
-        )}
+            </DialogPrimitive.Content>
+          </DialogPrimitive.Portal>
+        </DialogPrimitive.Root>
 
         <main className="stagger mx-auto w-full max-w-[1180px] px-4 py-8 sm:px-10 lg:py-12">
           {children}
@@ -318,7 +324,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       </div>
 
       <UploadDialog open={uploadOpen} onOpenChange={setUploadOpen} />
-      <AskPanel />
+      <AskPanel open={askOpen} onOpenChange={setAskOpen} />
     </div>
   );
 }

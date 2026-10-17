@@ -4,8 +4,11 @@ import * as DialogPrimitive from '@radix-ui/react-dialog';
 import clsx from 'clsx';
 import { ArrowUp, Loader2, MessageCircleQuestion, X } from 'lucide-react';
 import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import { ApiError, post } from '@/lib/api';
+import { useApi } from '@/lib/hooks';
+import type { InvoiceDetail } from '@/lib/types';
 
 interface Answer {
   answer: string;
@@ -26,13 +29,74 @@ const STARTERS = [
   '¿Qué pagos salen la próxima semana?',
 ];
 
+const isMac = () => /Mac|iPhone|iPad/.test(navigator.platform);
+
+/** The shortcut as this keyboard writes it. */
+export function useShortcutLabel(): string {
+  return useSyncExternalStore(
+    () => () => {},
+    () => (isMac() ? '⌘K' : 'Ctrl K'),
+    () => '⌘K',
+  );
+}
+
+/** The question box in the top bar: opens the conversation, also with ⌘K or Ctrl+K. */
+export function AskTrigger({ onOpen }: { onOpen: () => void }) {
+  const shortcut = useShortcutLabel();
+  return (
+    <>
+      <button
+        type="button"
+        onClick={onOpen}
+        className="hidden h-10 w-full max-w-[440px] items-center gap-2.5 rounded-full bg-fill pr-2 pl-3.5 text-left text-[0.92rem] text-ink-3 transition hover:bg-sheet-2 hover:text-ink-2 md:flex"
+      >
+        <MessageCircleQuestion className="size-[1.1rem] shrink-0 text-brand" aria-hidden />
+        <span className="flex-1 truncate">Pregúntale a Mandato sobre cobros y pagos</span>
+        <kbd className="rounded-md bg-sheet px-1.5 py-0.5 font-sans text-[0.75rem] font-[600] text-ink-3 shadow-sheet">
+          {shortcut}
+        </kbd>
+      </button>
+      <button
+        type="button"
+        onClick={onOpen}
+        aria-label="Pregúntale a Mandato"
+        className="grid size-10 place-items-center rounded-full text-brand hover:bg-fill md:hidden"
+      >
+        <MessageCircleQuestion className="size-5" aria-hidden />
+      </button>
+    </>
+  );
+}
+
+/** Questions about the receipt on screen come first when the conversation opens from one. */
+function useStarters(open: boolean): string[] {
+  const pathname = usePathname();
+  const id = pathname.match(/^\/facturas\/(inv_[\w]+)/)?.[1];
+  const { data } = useApi<InvoiceDetail>(open && id ? `/api/v1/invoices/${id}` : null);
+  if (!data) return STARTERS;
+  const who = data.payee?.name ?? data.issuerName;
+  return [
+    `¿Por qué ${data.ref} quedó así y qué falta para pagarlo?`,
+    ...(who ? [`¿Qué historial tiene ${who} con nosotros?`] : []),
+    ...STARTERS.slice(0, 2),
+  ];
+}
+
 /** "Pregúntale a Mandato": a read-only conversation about the payables, with cited receipts. */
-export function AskPanel() {
-  const [open, setOpen] = useState(false);
+export function AskPanel({
+  open,
+  onOpenChange,
+}: {
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+}) {
   const [turns, setTurns] = useState<Turn[]>([]);
   const [draft, setDraft] = useState('');
   const [busy, setBusy] = useState(false);
   const end = useRef<HTMLDivElement>(null);
+  const input = useRef<HTMLTextAreaElement>(null);
+  const starters = useStarters(open);
+  const setOpen = onOpenChange;
 
   useEffect(() => {
     end.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
@@ -62,18 +126,15 @@ export function AskPanel() {
 
   return (
     <DialogPrimitive.Root open={open} onOpenChange={setOpen}>
-      <DialogPrimitive.Trigger asChild>
-        <button
-          type="button"
-          className="font-display fixed right-5 bottom-5 z-30 flex items-center gap-2 rounded-full bg-noche py-3 pr-5 pl-4 text-[1rem] font-[650] text-white shadow-float transition hover:-translate-y-0.5"
-        >
-          <MessageCircleQuestion className="size-5 text-marker" aria-hidden />
-          Pregúntale a Mandato
-        </button>
-      </DialogPrimitive.Trigger>
       <DialogPrimitive.Portal>
         <DialogPrimitive.Overlay className="fixed inset-0 z-40 bg-black/25 backdrop-blur-[3px]" />
-        <DialogPrimitive.Content className="fixed top-0 right-0 z-50 flex h-dvh w-full max-w-[460px] flex-col bg-paper shadow-float outline-none">
+        <DialogPrimitive.Content
+          onOpenAutoFocus={(e) => {
+            e.preventDefault();
+            input.current?.focus();
+          }}
+          className="fixed top-0 right-0 z-50 flex h-dvh w-full max-w-[460px] flex-col bg-paper shadow-float outline-none"
+        >
           <header className="bg-noche px-6 pt-6 pb-5 text-white">
             <div className="flex items-start justify-between gap-4">
               <div>
@@ -100,7 +161,7 @@ export function AskPanel() {
             {turns.length === 0 && (
               <div className="grid gap-2">
                 <p className="text-sm text-ink-3">Prueba con:</p>
-                {STARTERS.map((q) => (
+                {starters.map((q) => (
                   <button
                     key={q}
                     type="button"
@@ -148,7 +209,8 @@ export function AskPanel() {
               ))}
               {busy && (
                 <p className="flex items-center gap-2 text-sm text-ink-3">
-                  <Loader2 className="size-4 animate-spin" aria-hidden /> Revisando el registro…
+                  <Loader2 className="size-4 animate-spin" aria-hidden /> Revisando el registro,
+                  tarda unos segundos…
                 </p>
               )}
               {!busy && last && last.followUps.length > 0 && (
@@ -178,6 +240,7 @@ export function AskPanel() {
           >
             <div className="flex items-end gap-2 rounded-[22px] bg-fill p-1.5 pl-4">
               <textarea
+                ref={input}
                 value={draft}
                 onChange={(e) => setDraft(e.target.value)}
                 onKeyDown={(e) => {
