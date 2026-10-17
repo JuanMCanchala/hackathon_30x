@@ -89,7 +89,12 @@ export async function referencesView(deps: Deps) {
         .sort((a, b) => b.medianRatio - a.medianRatio),
     };
   });
-  const week = await radar(deps, { platform: 'all', region: 'global', untouched: true });
+  const week = await radar(deps, {
+    platform: 'all',
+    region: 'global',
+    untouched: true,
+    audience: '30x',
+  });
   return { profiles, gaps: week.topics.slice(0, 6) };
 }
 

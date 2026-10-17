@@ -115,7 +115,11 @@ export default function EvaluationPage() {
             note={`${s.early} con días de anticipación.`}
           />
           <Figure
-            value={s.medianLeadDays !== null ? `${fmtInt(s.medianLeadDays)} días` : 'sin dato'}
+            value={
+              s.medianLeadDays !== null
+                ? `${s.medianLeadDays.toLocaleString('es-CO', { maximumFractionDigits: 1 })} días`
+                : 'sin dato'
+            }
             label="de anticipación, en la mediana"
             note="Entre la primera señal y el pico de la ola."
           />

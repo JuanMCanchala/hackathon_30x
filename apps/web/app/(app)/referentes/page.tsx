@@ -1,5 +1,6 @@
 'use client';
 
+import clsx from 'clsx';
 import { ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
 import { Page } from '@/components/shell';
@@ -108,7 +109,13 @@ function ProfileCard({ p }: { p: Profile }) {
                     {piece.hook || piece.text}
                   </a>
                   {piece.ratio !== null && (
-                    <span className="shrink-0 rounded-full bg-marker px-2 py-0.5 text-[0.76rem] font-[760] text-on-marker">
+                    <span
+                      className={clsx(
+                        'shrink-0 rounded-full px-2 py-0.5 text-[0.76rem] font-[760]',
+                        piece.ratio >= 1.5 ? 'bg-marker text-on-marker' : 'bg-fill text-ink-2',
+                      )}
+                      title="Interacción frente a la mediana del propio perfil"
+                    >
                       {piece.ratio.toLocaleString('es-CO')}×
                     </span>
                   )}
