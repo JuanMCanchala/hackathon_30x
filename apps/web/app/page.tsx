@@ -259,7 +259,9 @@ export default function LandingPage() {
                     <CountUp to={480} />
                     <span className="text-white/50">/480</span>
                   </p>
-                  <p className="mt-2 text-white/75">datos bien leídos por DeepSeek V4.1 Flash</p>
+                  <p className="mt-2 text-white/75">
+                    datos bien leídos de PDF, fotos, correos y chats
+                  </p>
                 </div>
               </div>
             </Reveal>

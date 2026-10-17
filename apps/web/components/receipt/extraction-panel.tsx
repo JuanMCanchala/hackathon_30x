@@ -3,25 +3,7 @@
 import clsx from 'clsx';
 import { TriangleAlert } from 'lucide-react';
 import { formatPercent, payoutMethodLabel } from '@mandato/domain';
-import { modelName } from '@/lib/reader';
 import type { InvoiceDetail } from '@/lib/types';
-
-function readerLine(meta: InvoiceDetail['extractionMeta']): string {
-  const model = modelName(meta.model);
-  switch (meta.provider) {
-    case 'claude':
-    case 'fireworks':
-      return `Leído en vivo por ${model ?? 'el modelo de lenguaje'}`;
-    case 'replay':
-      return model ? `Lectura grabada de ${model}` : 'Lectura grabada';
-    case 'ground-truth':
-      return 'Lector de referencia (evaluación)';
-    case 'agent':
-      return 'Datos estructurados del agente';
-    default:
-      return 'Sin lectura';
-  }
-}
 
 function Confidence({ value }: { value: number }) {
   return (
@@ -81,7 +63,8 @@ export function ExtractionPanel({ invoice }: { invoice: InvoiceDetail }) {
   return (
     <div className="grid gap-3">
       <p className="text-sm text-ink-2">
-        {readerLine(meta)}. El lector no decide: solo extrae, y dice qué tan seguro está.
+        El lector no decide: solo extrae lo que dice el documento y qué tan seguro está de cada
+        dato.
       </p>
       <dl className="divide-y divide-rule overflow-hidden rounded-[14px] bg-sheet-2">
         {rows.map((row) => (

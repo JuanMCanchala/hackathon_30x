@@ -25,7 +25,6 @@ import { usePathname } from 'next/navigation';
 import { useState, useSyncExternalStore, type ReactNode } from 'react';
 import { useApi } from '@/lib/hooks';
 import { useLive } from '@/lib/live';
-import { modelName } from '@/lib/reader';
 import { useSession } from '@/lib/session';
 import type { Overview } from '@/lib/types';
 import { Logo } from './brand';
@@ -248,14 +247,6 @@ export function AppShell({ children }: { children: ReactNode }) {
               aria-hidden
             />
             {connected ? 'Conectado en tiempo real' : 'Reconectando…'}
-          </p>
-          <p>
-            Lector:{' '}
-            {session?.reader.name === 'ground-truth'
-              ? 'de referencia, sin IA (desarrollo)'
-              : session?.reader.live
-                ? `${modelName(session.reader.model)} en vivo y lecturas grabadas`
-                : 'lecturas grabadas'}
           </p>
           <ThemeSwitch />
         </div>
