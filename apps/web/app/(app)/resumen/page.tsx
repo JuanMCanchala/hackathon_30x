@@ -1,6 +1,6 @@
 'use client';
 
-import { BadgeCheck, ShieldCheck, ShieldX } from 'lucide-react';
+import { BadgeCheck, ChevronRight, ShieldCheck, ShieldX } from 'lucide-react';
 import clsx from 'clsx';
 import Link from 'next/link';
 import { formatPeriod, formatPeriodMonth, formatUsd } from '@mandato/domain';
@@ -79,7 +79,7 @@ export default function ResumenPage() {
           firmado.
         </Empty>
       ) : (
-        <section className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
+        <section className="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
           <div className="sheet p-5 sm:p-6">
             <div className="mb-2 flex flex-wrap items-baseline justify-between gap-2">
               <h2 className="t-h3 text-ink">Escalera de confianza</h2>
@@ -174,7 +174,10 @@ export default function ResumenPage() {
                     className="flex items-center justify-between gap-3 hover:text-brand"
                   >
                     <span className="text-[0.95rem] text-ink">Cobros esperando aprobación</span>
-                    <span className="t-figure text-xl text-ink">{data.pendingApprovals}</span>
+                    <span className="t-figure flex items-center gap-1 text-xl text-ink">
+                      {data.pendingApprovals}
+                      <ChevronRight className="size-4 text-ink-3" aria-hidden />
+                    </span>
                   </Link>
                 )}
                 {data.pendingProposals > 0 && (
@@ -185,7 +188,10 @@ export default function ResumenPage() {
                     <span className="text-[0.95rem] text-ink">
                       Acuerdos propuestos por el agente
                     </span>
-                    <span className="t-figure text-xl text-ink">{data.pendingProposals}</span>
+                    <span className="t-figure flex items-center gap-1 text-xl text-ink">
+                      {data.pendingProposals}
+                      <ChevronRight className="size-4 text-ink-3" aria-hidden />
+                    </span>
                   </Link>
                 )}
               </div>
