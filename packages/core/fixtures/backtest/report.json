@@ -1,0 +1,1103 @@
+{
+  "seriesFetchedAt": "2026-10-17T18:01:05.002Z",
+  "rule": "confirmed",
+  "params": {
+    "signalLift": 1.8,
+    "minVolume": 3,
+    "baselineWeeks": 4,
+    "runupWeeks": 12,
+    "evaluateFrom": { "wikipedia": "2024-11-04", "hn": "2024-11-04", "bluesky": "2025-01-06" },
+    "confirmWeeks": 4
+  },
+  "sources": ["wikipedia", "hn", "bluesky"],
+  "waves": [
+    {
+      "id": "chatgpt-atlas",
+      "name": "ChatGPT Atlas",
+      "event": "2025-10-21",
+      "peakWeek": "2025-10-20",
+      "peakSource": "wikipedia",
+      "detectedWeek": "2025-10-20",
+      "detectedBy": ["bluesky", "hn", "wikipedia"],
+      "leadDays": 0,
+      "detected": true,
+      "early": false,
+      "hnToWikipediaPeakDays": 0,
+      "hnToWikipediaSignalDays": 0,
+      "sources": [
+        {
+          "source": "wikipedia",
+          "signalWeeks": ["2025-10-20", "2026-07-06"],
+          "peakWeek": "2025-10-20",
+          "peakValue": 29113
+        },
+        {
+          "source": "hn",
+          "signalWeeks": ["2025-10-20", "2026-01-05", "2026-07-06"],
+          "peakWeek": "2025-10-20",
+          "peakValue": 23
+        },
+        {
+          "source": "bluesky",
+          "signalWeeks": [
+            "2025-10-20",
+            "2025-12-22",
+            "2026-03-16",
+            "2026-06-22",
+            "2026-06-29",
+            "2026-07-06"
+          ],
+          "peakWeek": "2025-10-20",
+          "peakValue": 3188
+        }
+      ]
+    },
+    {
+      "id": "claude-code",
+      "name": "Claude Code y los agentes de código",
+      "event": "2025-05-22",
+      "peakWeek": "2025-07-14",
+      "peakSource": "bluesky",
+      "detectedWeek": "2025-06-02",
+      "detectedBy": ["bluesky", "hn"],
+      "leadDays": 42,
+      "detected": true,
+      "early": true,
+      "hnToWikipediaPeakDays": null,
+      "hnToWikipediaSignalDays": null,
+      "sources": [
+        {
+          "source": "hn",
+          "signalWeeks": [
+            "2025-02-24",
+            "2025-03-03",
+            "2025-03-10",
+            "2025-06-02",
+            "2025-06-16",
+            "2025-06-23",
+            "2026-01-05",
+            "2026-01-12"
+          ],
+          "peakWeek": "2025-06-23",
+          "peakValue": 51
+        },
+        {
+          "source": "bluesky",
+          "signalWeeks": [
+            "2025-02-24",
+            "2025-05-19",
+            "2025-05-26",
+            "2025-06-02",
+            "2025-06-09",
+            "2026-01-05",
+            "2026-01-12",
+            "2026-03-30"
+          ],
+          "peakWeek": "2025-07-14",
+          "peakValue": 1257
+        }
+      ]
+    },
+    {
+      "id": "deepseek-r1",
+      "name": "DeepSeek R1",
+      "event": "2025-01-20",
+      "peakWeek": "2025-01-27",
+      "peakSource": "wikipedia",
+      "detectedWeek": "2024-11-25",
+      "detectedBy": ["hn", "wikipedia"],
+      "leadDays": 63,
+      "detected": true,
+      "early": true,
+      "hnToWikipediaPeakDays": 0,
+      "hnToWikipediaSignalDays": 7,
+      "sources": [
+        {
+          "source": "wikipedia",
+          "signalWeeks": [
+            "2024-11-25",
+            "2024-12-02",
+            "2024-12-09",
+            "2024-12-23",
+            "2024-12-30",
+            "2025-01-06",
+            "2025-01-20",
+            "2025-01-27"
+          ],
+          "peakWeek": "2025-01-27",
+          "peakValue": 1754473
+        },
+        {
+          "source": "hn",
+          "signalWeeks": [
+            "2024-11-18",
+            "2024-12-23",
+            "2024-12-30",
+            "2025-01-20",
+            "2025-01-27",
+            "2025-06-23",
+            "2025-08-11",
+            "2025-08-18",
+            "2025-10-20",
+            "2025-12-01",
+            "2026-01-12",
+            "2026-04-20",
+            "2026-04-27",
+            "2026-05-04",
+            "2026-08-10"
+          ],
+          "peakWeek": "2025-01-27",
+          "peakValue": 501
+        },
+        {
+          "source": "bluesky",
+          "signalWeeks": [
+            "2025-01-20",
+            "2025-01-27",
+            "2025-02-03",
+            "2025-12-01",
+            "2026-02-23",
+            "2026-04-20"
+          ],
+          "peakWeek": "2025-01-27",
+          "peakValue": 10000
+        }
+      ]
+    },
+    {
+      "id": "gemini-3",
+      "name": "Gemini 3",
+      "event": "2025-11-18",
+      "peakWeek": "2025-11-17",
+      "peakSource": "wikipedia",
+      "detectedWeek": "2025-10-13",
+      "detectedBy": ["bluesky", "hn"],
+      "leadDays": 35,
+      "detected": true,
+      "early": true,
+      "hnToWikipediaPeakDays": 0,
+      "hnToWikipediaSignalDays": 35,
+      "sources": [
+        {
+          "source": "wikipedia",
+          "signalWeeks": ["2025-03-17", "2025-08-04", "2025-11-17", "2026-03-30", "2026-04-06"],
+          "peakWeek": "2025-11-17",
+          "peakValue": 2821
+        },
+        {
+          "source": "hn",
+          "signalWeeks": [
+            "2025-10-13",
+            "2025-11-10",
+            "2025-11-17",
+            "2026-04-13",
+            "2026-05-18",
+            "2026-07-20",
+            "2026-08-31"
+          ],
+          "peakWeek": "2025-11-17",
+          "peakValue": 68
+        },
+        {
+          "source": "bluesky",
+          "signalWeeks": [
+            "2025-03-17",
+            "2025-05-05",
+            "2025-05-12",
+            "2025-06-30",
+            "2025-07-07",
+            "2025-07-28",
+            "2025-08-04",
+            "2025-09-29",
+            "2025-10-13",
+            "2025-11-03",
+            "2025-11-10",
+            "2025-11-17",
+            "2026-01-26",
+            "2026-05-18",
+            "2026-07-20",
+            "2026-08-10"
+          ],
+          "peakWeek": "2025-11-17",
+          "peakValue": 3819
+        }
+      ]
+    },
+    {
+      "id": "genie-3",
+      "name": "Genie 3",
+      "event": "2025-08-05",
+      "peakWeek": "2025-08-04",
+      "peakSource": "bluesky",
+      "detectedWeek": "2025-08-04",
+      "detectedBy": ["bluesky", "hn"],
+      "leadDays": 0,
+      "detected": true,
+      "early": false,
+      "hnToWikipediaPeakDays": null,
+      "hnToWikipediaSignalDays": null,
+      "sources": [
+        {
+          "source": "hn",
+          "signalWeeks": ["2025-08-04", "2026-01-26"],
+          "peakWeek": "2025-08-04",
+          "peakValue": 4
+        },
+        {
+          "source": "bluesky",
+          "signalWeeks": [
+            "2025-01-20",
+            "2025-02-10",
+            "2025-06-09",
+            "2025-08-04",
+            "2025-10-20",
+            "2025-11-10",
+            "2026-01-05",
+            "2026-01-26",
+            "2026-02-02",
+            "2026-05-04",
+            "2026-07-13",
+            "2026-08-31"
+          ],
+          "peakWeek": "2025-08-04",
+          "peakValue": 634
+        }
+      ]
+    },
+    {
+      "id": "ghibli-images",
+      "name": "Imágenes estilo Ghibli",
+      "event": "2025-03-25",
+      "peakWeek": "2025-03-31",
+      "peakSource": "wikipedia",
+      "detectedWeek": "2025-03-24",
+      "detectedBy": ["bluesky", "hn", "wikipedia"],
+      "leadDays": 7,
+      "detected": true,
+      "early": true,
+      "hnToWikipediaPeakDays": 7,
+      "hnToWikipediaSignalDays": 0,
+      "sources": [
+        {
+          "source": "wikipedia",
+          "signalWeeks": ["2025-03-24", "2025-03-31"],
+          "peakWeek": "2025-03-31",
+          "peakValue": 426398
+        },
+        {
+          "source": "hn",
+          "signalWeeks": ["2025-03-24", "2025-05-26", "2025-11-24"],
+          "peakWeek": "2025-03-24",
+          "peakValue": 23
+        },
+        {
+          "source": "bluesky",
+          "signalWeeks": [
+            "2025-01-06",
+            "2025-03-24",
+            "2025-03-31",
+            "2026-04-20",
+            "2026-04-27",
+            "2026-07-27"
+          ],
+          "peakWeek": "2025-03-24",
+          "peakValue": 10000
+        }
+      ]
+    },
+    {
+      "id": "gpt-5",
+      "name": "GPT-5",
+      "event": "2025-08-07",
+      "peakWeek": "2025-08-04",
+      "peakSource": "wikipedia",
+      "detectedWeek": "2025-06-16",
+      "detectedBy": ["bluesky", "hn"],
+      "leadDays": 49,
+      "detected": true,
+      "early": true,
+      "hnToWikipediaPeakDays": 0,
+      "hnToWikipediaSignalDays": 35,
+      "sources": [
+        {
+          "source": "wikipedia",
+          "signalWeeks": [
+            "2025-01-13",
+            "2025-01-27",
+            "2025-02-10",
+            "2025-07-21",
+            "2025-07-28",
+            "2025-08-04",
+            "2025-08-11"
+          ],
+          "peakWeek": "2025-08-04",
+          "peakValue": 22260
+        },
+        {
+          "source": "hn",
+          "signalWeeks": [
+            "2024-12-16",
+            "2025-02-10",
+            "2025-06-16",
+            "2025-07-21",
+            "2025-07-28",
+            "2025-08-04",
+            "2025-08-11",
+            "2025-11-10",
+            "2025-12-08",
+            "2026-02-09",
+            "2026-04-20",
+            "2026-04-27",
+            "2026-06-22",
+            "2026-07-06"
+          ],
+          "peakWeek": "2025-08-04",
+          "peakValue": 130
+        },
+        {
+          "source": "bluesky",
+          "signalWeeks": [
+            "2025-02-10",
+            "2025-03-31",
+            "2025-05-19",
+            "2025-06-16",
+            "2025-07-07",
+            "2025-07-21",
+            "2025-07-28",
+            "2025-08-04",
+            "2025-08-11",
+            "2026-04-20"
+          ],
+          "peakWeek": "2025-08-04",
+          "peakValue": 10000
+        }
+      ]
+    },
+    {
+      "id": "grok-4",
+      "name": "Grok 4",
+      "event": "2025-07-09",
+      "peakWeek": "2025-07-07",
+      "peakSource": "bluesky",
+      "detectedWeek": "2025-07-07",
+      "detectedBy": ["bluesky", "hn"],
+      "leadDays": 0,
+      "detected": true,
+      "early": false,
+      "hnToWikipediaPeakDays": null,
+      "hnToWikipediaSignalDays": null,
+      "sources": [
+        {
+          "source": "hn",
+          "signalWeeks": [
+            "2025-07-07",
+            "2025-11-17",
+            "2026-01-05",
+            "2026-02-23",
+            "2026-07-06",
+            "2026-08-10",
+            "2026-09-21"
+          ],
+          "peakWeek": "2025-07-07",
+          "peakValue": 25
+        },
+        {
+          "source": "bluesky",
+          "signalWeeks": [
+            "2025-02-17",
+            "2025-06-16",
+            "2025-06-23",
+            "2025-06-30",
+            "2025-07-07",
+            "2025-09-15",
+            "2025-09-22",
+            "2025-11-17",
+            "2026-04-13",
+            "2026-04-20",
+            "2026-07-06",
+            "2026-08-10",
+            "2026-09-21"
+          ],
+          "peakWeek": "2025-07-07",
+          "peakValue": 2863
+        }
+      ]
+    },
+    {
+      "id": "kimi-k2",
+      "name": "Kimi K2",
+      "event": "2025-07-11",
+      "peakWeek": "2025-07-14",
+      "peakSource": "bluesky",
+      "detectedWeek": "2025-07-07",
+      "detectedBy": ["bluesky", "hn"],
+      "leadDays": 7,
+      "detected": true,
+      "early": true,
+      "hnToWikipediaPeakDays": null,
+      "hnToWikipediaSignalDays": null,
+      "sources": [
+        {
+          "source": "hn",
+          "signalWeeks": [
+            "2025-07-07",
+            "2025-07-14",
+            "2025-09-01",
+            "2025-11-03",
+            "2026-01-26",
+            "2026-02-02",
+            "2026-03-16",
+            "2026-04-20"
+          ],
+          "peakWeek": "2025-07-07",
+          "peakValue": 9
+        },
+        {
+          "source": "bluesky",
+          "signalWeeks": [
+            "2025-07-07",
+            "2025-07-14",
+            "2025-11-03",
+            "2025-11-10",
+            "2026-01-26",
+            "2026-04-20",
+            "2026-06-08",
+            "2026-06-15",
+            "2026-09-28"
+          ],
+          "peakWeek": "2025-07-14",
+          "peakValue": 442
+        }
+      ]
+    },
+    {
+      "id": "llama-4",
+      "name": "Llama 4",
+      "event": "2025-04-05",
+      "peakWeek": "2025-04-07",
+      "peakSource": "bluesky",
+      "detectedWeek": "2025-03-31",
+      "detectedBy": ["bluesky", "hn"],
+      "leadDays": 7,
+      "detected": true,
+      "early": true,
+      "hnToWikipediaPeakDays": null,
+      "hnToWikipediaSignalDays": null,
+      "sources": [
+        {
+          "source": "hn",
+          "signalWeeks": ["2025-03-31", "2025-04-07", "2026-03-09"],
+          "peakWeek": "2025-04-07",
+          "peakValue": 18
+        },
+        {
+          "source": "bluesky",
+          "signalWeeks": [
+            "2025-01-20",
+            "2025-01-27",
+            "2025-03-03",
+            "2025-03-31",
+            "2025-04-07",
+            "2025-12-08",
+            "2025-12-29",
+            "2026-03-23",
+            "2026-04-06",
+            "2026-05-18",
+            "2026-05-25",
+            "2026-06-22",
+            "2026-06-29",
+            "2026-07-06"
+          ],
+          "peakWeek": "2025-04-07",
+          "peakValue": 1193
+        }
+      ]
+    },
+    {
+      "id": "manus",
+      "name": "Manus",
+      "event": "2025-03-06",
+      "peakWeek": "2025-03-31",
+      "peakSource": "wikipedia",
+      "detectedWeek": "2025-03-03",
+      "detectedBy": ["bluesky", "hn"],
+      "leadDays": 28,
+      "detected": true,
+      "early": true,
+      "hnToWikipediaPeakDays": 21,
+      "hnToWikipediaSignalDays": 7,
+      "sources": [
+        {
+          "source": "wikipedia",
+          "signalWeeks": [
+            "2025-03-10",
+            "2025-03-17",
+            "2025-03-24",
+            "2025-03-31",
+            "2025-12-29",
+            "2026-04-27",
+            "2026-08-10"
+          ],
+          "peakWeek": "2025-03-31",
+          "peakValue": 10612
+        },
+        {
+          "source": "hn",
+          "signalWeeks": ["2025-03-03"],
+          "peakWeek": "2025-03-10",
+          "peakValue": 69
+        },
+        {
+          "source": "bluesky",
+          "signalWeeks": [
+            "2025-03-03",
+            "2025-03-10",
+            "2025-05-05",
+            "2025-07-07",
+            "2025-07-14",
+            "2025-07-21",
+            "2025-09-08",
+            "2025-10-13",
+            "2025-11-17",
+            "2025-12-22",
+            "2025-12-29",
+            "2026-02-16",
+            "2026-04-27",
+            "2026-08-10"
+          ],
+          "peakWeek": "2025-03-10",
+          "peakValue": 466
+        }
+      ]
+    },
+    {
+      "id": "mcp",
+      "name": "Model Context Protocol (MCP)",
+      "event": "2025-03-26",
+      "peakWeek": "2025-05-19",
+      "peakSource": "wikipedia",
+      "detectedWeek": "2025-03-03",
+      "detectedBy": ["bluesky", "hn"],
+      "leadDays": 77,
+      "detected": true,
+      "early": true,
+      "hnToWikipediaPeakDays": 56,
+      "hnToWikipediaSignalDays": 42,
+      "sources": [
+        {
+          "source": "wikipedia",
+          "signalWeeks": [
+            "2025-04-14",
+            "2025-04-21",
+            "2025-04-28",
+            "2025-05-05",
+            "2025-05-12",
+            "2025-05-19",
+            "2025-05-26"
+          ],
+          "peakWeek": "2025-05-19",
+          "peakValue": 14567
+        },
+        {
+          "source": "hn",
+          "signalWeeks": [
+            "2024-11-25",
+            "2025-01-20",
+            "2025-03-03",
+            "2025-03-10",
+            "2025-09-22",
+            "2025-11-10",
+            "2025-12-08",
+            "2026-01-12",
+            "2026-01-19"
+          ],
+          "peakWeek": "2025-03-24",
+          "peakValue": 19
+        },
+        {
+          "source": "bluesky",
+          "signalWeeks": [
+            "2025-03-03",
+            "2025-03-10",
+            "2025-03-17",
+            "2025-03-24",
+            "2025-03-31",
+            "2025-12-08",
+            "2026-09-14"
+          ],
+          "peakWeek": "2025-05-19",
+          "peakValue": 506
+        }
+      ]
+    },
+    {
+      "id": "moltbook",
+      "name": "Moltbook",
+      "event": "2026-01-28",
+      "peakWeek": "2026-02-02",
+      "peakSource": "wikipedia",
+      "detectedWeek": "2026-01-26",
+      "detectedBy": ["bluesky", "hn"],
+      "leadDays": 7,
+      "detected": true,
+      "early": true,
+      "hnToWikipediaPeakDays": 0,
+      "hnToWikipediaSignalDays": 7,
+      "sources": [
+        {
+          "source": "wikipedia",
+          "signalWeeks": ["2026-02-02"],
+          "peakWeek": "2026-02-02",
+          "peakValue": 139342
+        },
+        {
+          "source": "hn",
+          "signalWeeks": ["2026-01-26", "2026-02-02"],
+          "peakWeek": "2026-02-02",
+          "peakValue": 82
+        },
+        {
+          "source": "bluesky",
+          "signalWeeks": ["2026-01-26", "2026-02-02", "2026-03-09"],
+          "peakWeek": "2026-02-02",
+          "peakValue": 3745
+        }
+      ]
+    },
+    {
+      "id": "nano-banana",
+      "name": "Nano Banana",
+      "event": "2025-08-26",
+      "peakWeek": "2025-09-08",
+      "peakSource": "bluesky",
+      "detectedWeek": "2025-08-25",
+      "detectedBy": ["bluesky", "hn"],
+      "leadDays": 14,
+      "detected": true,
+      "early": true,
+      "hnToWikipediaPeakDays": null,
+      "hnToWikipediaSignalDays": null,
+      "sources": [
+        {
+          "source": "hn",
+          "signalWeeks": [
+            "2025-08-25",
+            "2025-09-01",
+            "2025-11-17",
+            "2025-11-24",
+            "2026-02-23",
+            "2026-06-29",
+            "2026-07-27",
+            "2026-10-05"
+          ],
+          "peakWeek": "2025-09-01",
+          "peakValue": 35
+        },
+        {
+          "source": "bluesky",
+          "signalWeeks": [
+            "2025-08-11",
+            "2025-08-18",
+            "2025-08-25",
+            "2025-09-01",
+            "2025-09-08",
+            "2025-11-17",
+            "2025-11-24",
+            "2025-12-01",
+            "2026-02-23",
+            "2026-06-29",
+            "2026-10-05"
+          ],
+          "peakWeek": "2025-09-08",
+          "peakValue": 892
+        }
+      ]
+    },
+    {
+      "id": "openclaw",
+      "name": "OpenClaw",
+      "event": "2026-01-25",
+      "peakWeek": "2026-02-16",
+      "peakSource": "wikipedia",
+      "detectedWeek": "2026-01-26",
+      "detectedBy": ["bluesky", "hn"],
+      "leadDays": 21,
+      "detected": true,
+      "early": true,
+      "hnToWikipediaPeakDays": 0,
+      "hnToWikipediaSignalDays": 7,
+      "sources": [
+        {
+          "source": "wikipedia",
+          "signalWeeks": ["2026-02-02", "2026-02-09", "2026-02-16"],
+          "peakWeek": "2026-02-16",
+          "peakValue": 170653
+        },
+        {
+          "source": "hn",
+          "signalWeeks": [
+            "2024-12-16",
+            "2025-05-12",
+            "2025-07-07",
+            "2025-09-29",
+            "2026-01-26",
+            "2026-02-02",
+            "2026-02-09",
+            "2026-02-16",
+            "2026-09-21"
+          ],
+          "peakWeek": "2026-02-16",
+          "peakValue": 211
+        },
+        {
+          "source": "bluesky",
+          "signalWeeks": ["2026-01-19", "2026-01-26", "2026-02-02", "2026-02-09", "2026-02-16"],
+          "peakWeek": "2026-03-16",
+          "peakValue": 3549
+        }
+      ]
+    },
+    {
+      "id": "sora-2",
+      "name": "Sora 2",
+      "event": "2025-09-30",
+      "peakWeek": "2025-09-29",
+      "peakSource": "bluesky",
+      "detectedWeek": "2025-09-29",
+      "detectedBy": ["bluesky", "hn"],
+      "leadDays": 0,
+      "detected": true,
+      "early": false,
+      "hnToWikipediaPeakDays": null,
+      "hnToWikipediaSignalDays": null,
+      "sources": [
+        {
+          "source": "hn",
+          "signalWeeks": ["2025-09-29", "2025-10-06"],
+          "peakWeek": "2025-09-29",
+          "peakValue": 33
+        },
+        {
+          "source": "bluesky",
+          "signalWeeks": [
+            "2025-01-20",
+            "2025-03-10",
+            "2025-04-21",
+            "2025-05-26",
+            "2025-07-21",
+            "2025-09-22",
+            "2025-09-29",
+            "2025-10-06",
+            "2025-12-01",
+            "2026-02-09",
+            "2026-03-23",
+            "2026-07-06",
+            "2026-08-10",
+            "2026-09-14"
+          ],
+          "peakWeek": "2025-09-29",
+          "peakValue": 2859
+        }
+      ]
+    },
+    {
+      "id": "veo-3",
+      "name": "Veo 3",
+      "event": "2025-05-20",
+      "peakWeek": "2025-05-26",
+      "peakSource": "wikipedia",
+      "detectedWeek": "2025-05-19",
+      "detectedBy": ["bluesky", "hn", "wikipedia"],
+      "leadDays": 7,
+      "detected": true,
+      "early": true,
+      "hnToWikipediaPeakDays": 7,
+      "hnToWikipediaSignalDays": 0,
+      "sources": [
+        {
+          "source": "wikipedia",
+          "signalWeeks": ["2025-05-19", "2025-05-26", "2025-06-02"],
+          "peakWeek": "2025-05-26",
+          "peakValue": 4039
+        },
+        {
+          "source": "hn",
+          "signalWeeks": ["2025-05-19", "2025-05-26", "2025-10-13"],
+          "peakWeek": "2025-05-19",
+          "peakValue": 10
+        },
+        {
+          "source": "bluesky",
+          "signalWeeks": [
+            "2025-01-20",
+            "2025-03-10",
+            "2025-03-24",
+            "2025-05-19",
+            "2025-05-26",
+            "2026-03-02",
+            "2026-05-18",
+            "2026-10-05"
+          ],
+          "peakWeek": "2025-05-19",
+          "peakValue": 1271
+        }
+      ]
+    },
+    {
+      "id": "vibe-coding",
+      "name": "Vibe coding",
+      "event": "2025-02-02",
+      "peakWeek": "2025-03-24",
+      "peakSource": "wikipedia",
+      "detectedWeek": "2025-02-03",
+      "detectedBy": ["bluesky", "hn"],
+      "leadDays": 49,
+      "detected": true,
+      "early": true,
+      "hnToWikipediaPeakDays": 0,
+      "hnToWikipediaSignalDays": 28,
+      "sources": [
+        {
+          "source": "wikipedia",
+          "signalWeeks": ["2025-03-03", "2025-03-10", "2025-03-17", "2025-03-24"],
+          "peakWeek": "2025-03-24",
+          "peakValue": 142688
+        },
+        {
+          "source": "hn",
+          "signalWeeks": [
+            "2025-02-03",
+            "2025-02-10",
+            "2025-02-17",
+            "2025-02-24",
+            "2025-03-03",
+            "2025-03-10",
+            "2025-03-17"
+          ],
+          "peakWeek": "2025-03-24",
+          "peakValue": 34
+        },
+        {
+          "source": "bluesky",
+          "signalWeeks": [
+            "2025-02-03",
+            "2025-02-10",
+            "2025-02-17",
+            "2025-02-24",
+            "2025-03-03",
+            "2025-03-10",
+            "2025-03-17",
+            "2026-04-06",
+            "2026-04-13"
+          ],
+          "peakWeek": "2025-03-17",
+          "peakValue": 1707
+        }
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "id": "docker",
+      "name": "Docker",
+      "falseAlarm": true,
+      "alarms": [{ "week": "2025-01-27", "sources": ["bluesky", "hn"] }],
+      "sources": [
+        { "source": "wikipedia", "signalWeeks": [], "peakWeek": "2025-01-27", "peakValue": 11494 },
+        {
+          "source": "hn",
+          "signalWeeks": ["2025-01-06"],
+          "peakWeek": "2026-02-16",
+          "peakValue": 93
+        },
+        {
+          "source": "bluesky",
+          "signalWeeks": ["2025-01-27"],
+          "peakWeek": "2024-11-18",
+          "peakValue": 1975
+        }
+      ]
+    },
+    {
+      "id": "excel",
+      "name": "Excel",
+      "falseAlarm": false,
+      "alarms": [],
+      "sources": [
+        { "source": "wikipedia", "signalWeeks": [], "peakWeek": "2025-02-17", "peakValue": 54719 },
+        {
+          "source": "hn",
+          "signalWeeks": ["2026-06-29"],
+          "peakWeek": "2026-02-23",
+          "peakValue": 78
+        },
+        { "source": "bluesky", "signalWeeks": [], "peakWeek": "2024-11-18", "peakValue": 4951 }
+      ]
+    },
+    {
+      "id": "javascript",
+      "name": "JavaScript",
+      "falseAlarm": false,
+      "alarms": [],
+      "sources": [
+        { "source": "wikipedia", "signalWeeks": [], "peakWeek": "2025-01-20", "peakValue": 21014 },
+        {
+          "source": "hn",
+          "signalWeeks": ["2026-07-06"],
+          "peakWeek": "2026-02-16",
+          "peakValue": 55
+        },
+        { "source": "bluesky", "signalWeeks": [], "peakWeek": "2024-11-18", "peakValue": 4622 }
+      ]
+    },
+    {
+      "id": "kubernetes",
+      "name": "Kubernetes",
+      "falseAlarm": false,
+      "alarms": [],
+      "sources": [
+        { "source": "wikipedia", "signalWeeks": [], "peakWeek": "2024-11-18", "peakValue": 12971 },
+        {
+          "source": "hn",
+          "signalWeeks": [
+            "2025-09-29",
+            "2025-11-10",
+            "2026-01-26",
+            "2026-04-27",
+            "2026-07-20",
+            "2026-10-05"
+          ],
+          "peakWeek": "2026-02-16",
+          "peakValue": 30
+        },
+        { "source": "bluesky", "signalWeeks": [], "peakWeek": "2025-06-02", "peakValue": 1593 }
+      ]
+    },
+    {
+      "id": "linux",
+      "name": "Linux",
+      "falseAlarm": false,
+      "alarms": [],
+      "sources": [
+        { "source": "wikipedia", "signalWeeks": [], "peakWeek": "2025-12-01", "peakValue": 29890 },
+        { "source": "hn", "signalWeeks": [], "peakWeek": "2024-12-09", "peakValue": 129 },
+        { "source": "bluesky", "signalWeeks": [], "peakWeek": "2024-11-18", "peakValue": 10000 }
+      ]
+    },
+    {
+      "id": "machine-learning",
+      "name": "Machine learning",
+      "falseAlarm": false,
+      "alarms": [],
+      "sources": [
+        {
+          "source": "wikipedia",
+          "signalWeeks": ["2026-03-02"],
+          "peakWeek": "2026-03-02",
+          "peakValue": 116767
+        },
+        {
+          "source": "hn",
+          "signalWeeks": ["2025-01-13", "2025-11-03", "2026-01-19", "2026-06-15", "2026-08-31"],
+          "peakWeek": "2024-10-28",
+          "peakValue": 19
+        },
+        { "source": "bluesky", "signalWeeks": [], "peakWeek": "2024-11-25", "peakValue": 5807 }
+      ]
+    },
+    {
+      "id": "postgresql",
+      "name": "PostgreSQL",
+      "falseAlarm": false,
+      "alarms": [],
+      "sources": [
+        { "source": "wikipedia", "signalWeeks": [], "peakWeek": "2024-11-18", "peakValue": 10234 },
+        { "source": "hn", "signalWeeks": [], "peakWeek": "2026-02-23", "peakValue": 96 },
+        { "source": "bluesky", "signalWeeks": [], "peakWeek": "2025-05-12", "peakValue": 525 }
+      ]
+    },
+    {
+      "id": "python",
+      "name": "Python",
+      "falseAlarm": false,
+      "alarms": [],
+      "sources": [
+        { "source": "wikipedia", "signalWeeks": [], "peakWeek": "2024-10-14", "peakValue": 50827 },
+        { "source": "hn", "signalWeeks": [], "peakWeek": "2026-02-16", "peakValue": 191 },
+        {
+          "source": "bluesky",
+          "signalWeeks": ["2025-10-20"],
+          "peakWeek": "2025-10-20",
+          "peakValue": 10000
+        }
+      ]
+    },
+    {
+      "id": "sql",
+      "name": "SQL",
+      "falseAlarm": false,
+      "alarms": [],
+      "sources": [
+        { "source": "wikipedia", "signalWeeks": [], "peakWeek": "2024-10-21", "peakValue": 18074 },
+        { "source": "hn", "signalWeeks": [], "peakWeek": "2026-02-16", "peakValue": 440 },
+        {
+          "source": "bluesky",
+          "signalWeeks": ["2025-02-10"],
+          "peakWeek": "2024-12-02",
+          "peakValue": 6226
+        }
+      ]
+    },
+    {
+      "id": "typescript",
+      "name": "TypeScript",
+      "falseAlarm": true,
+      "alarms": [{ "week": "2025-03-10", "sources": ["bluesky", "wikipedia"] }],
+      "sources": [
+        {
+          "source": "wikipedia",
+          "signalWeeks": ["2025-03-10"],
+          "peakWeek": "2025-03-10",
+          "peakValue": 14364
+        },
+        { "source": "hn", "signalWeeks": [], "peakWeek": "2026-02-23", "peakValue": 86 },
+        {
+          "source": "bluesky",
+          "signalWeeks": ["2025-03-10"],
+          "peakWeek": "2025-03-10",
+          "peakValue": 1920
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "waves": 18,
+    "detected": 18,
+    "early": 14,
+    "detectionRate": 1,
+    "medianLeadDays": 10.5,
+    "controls": 10,
+    "falseAlarms": 2,
+    "falseAlarmRate": 0.2,
+    "medianHnToWikipediaPeakDays": 0,
+    "medianHnToWikipediaSignalDays": 7
+  },
+  "alternatives": [
+    {
+      "rule": "any",
+      "summary": {
+        "waves": 18,
+        "detected": 18,
+        "early": 17,
+        "detectionRate": 1,
+        "medianLeadDays": 49,
+        "controls": 10,
+        "falseAlarms": 8,
+        "falseAlarmRate": 0.8,
+        "medianHnToWikipediaPeakDays": 0,
+        "medianHnToWikipediaSignalDays": 7
+      }
+    }
+  ],
+  "passed": true
+}

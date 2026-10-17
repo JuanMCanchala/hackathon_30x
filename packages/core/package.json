@@ -1,0 +1,17 @@
+{
+  "name": "@radar/core",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Pure trend logic: engagement, outliers, growth, lifecycle stages, feature lift, topic clustering and the backtest.",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./backtest-report": "./fixtures/backtest/report.json"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "backtest": "tsx scripts/backtest.ts",
+    "fetch-backtest": "tsx scripts/fetch-backtest.ts"
+  }
+}

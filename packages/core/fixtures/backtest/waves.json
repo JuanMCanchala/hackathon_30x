@@ -1,0 +1,419 @@
+{
+  "description": "Olas de IA y temas estables de control. «event» es la fecha pública del lanzamiento o del momento viral de cada ola: su pico se busca entre 4 semanas antes y 8 después, para no confundirla con otra ola del mismo tema. Cada tema dice qué series leer: páginas vistas de Wikipedia (en y es, sumadas), historias de Hacker News y posts de Bluesky por semana. Wikipedia se usa solo cuando el artículo trata de la ola misma: los artículos generales (Claude, Llama, Grok, Kimi, Genie, Sora) tienen picos de otras olas.",
+  "window": {
+    "from": "2024-10-07",
+    "to": "2026-10-11"
+  },
+  "topics": [
+    {
+      "id": "deepseek-r1",
+      "name": "DeepSeek R1",
+      "kind": "wave",
+      "event": "2025-01-20",
+      "note": "Modelos abiertos de razonamiento del laboratorio chino DeepSeek.",
+      "wikipedia": [
+        {
+          "lang": "en",
+          "article": "DeepSeek"
+        },
+        {
+          "lang": "es",
+          "article": "DeepSeek"
+        }
+      ],
+      "hn": "DeepSeek",
+      "bluesky": "deepseek"
+    },
+    {
+      "id": "mcp",
+      "name": "Model Context Protocol (MCP)",
+      "kind": "wave",
+      "event": "2025-03-26",
+      "note": "El estándar abierto para conectar agentes de IA con herramientas y datos.",
+      "wikipedia": [
+        {
+          "lang": "en",
+          "article": "Model Context Protocol"
+        }
+      ],
+      "hn": "Model Context Protocol",
+      "bluesky": "\"model context protocol\""
+    },
+    {
+      "id": "vibe-coding",
+      "name": "Vibe coding",
+      "kind": "wave",
+      "event": "2025-02-02",
+      "note": "Programar describiendo lo que se quiere y dejando que la IA escriba el código.",
+      "wikipedia": [
+        {
+          "lang": "en",
+          "article": "Vibe coding"
+        },
+        {
+          "lang": "es",
+          "article": "Vibe coding"
+        }
+      ],
+      "hn": "vibe coding",
+      "bluesky": "\"vibe coding\""
+    },
+    {
+      "id": "ghibli-images",
+      "name": "Imágenes estilo Ghibli",
+      "kind": "wave",
+      "event": "2025-03-25",
+      "note": "Los retratos estilo Studio Ghibli hechos con generadores de imágenes.",
+      "wikipedia": [
+        {
+          "lang": "en",
+          "article": "Studio Ghibli"
+        },
+        {
+          "lang": "es",
+          "article": "Studio Ghibli"
+        }
+      ],
+      "hn": "Ghibli",
+      "bluesky": "ghibli"
+    },
+    {
+      "id": "manus",
+      "name": "Manus",
+      "kind": "wave",
+      "event": "2025-03-06",
+      "note": "El agente autónomo de propósito general.",
+      "wikipedia": [
+        {
+          "lang": "en",
+          "article": "Manus (AI agent)"
+        }
+      ],
+      "hn": "Manus",
+      "bluesky": "\"manus ai\""
+    },
+    {
+      "id": "llama-4",
+      "name": "Llama 4",
+      "kind": "wave",
+      "event": "2025-04-05",
+      "note": "La familia de modelos abiertos de Meta.",
+      "hn": "Llama 4",
+      "bluesky": "\"llama 4\""
+    },
+    {
+      "id": "veo-3",
+      "name": "Veo 3",
+      "kind": "wave",
+      "event": "2025-05-20",
+      "note": "El modelo de Google que genera video con audio.",
+      "wikipedia": [
+        {
+          "lang": "en",
+          "article": "Veo (text-to-video model)"
+        }
+      ],
+      "hn": "Veo 3",
+      "bluesky": "\"veo 3\""
+    },
+    {
+      "id": "claude-code",
+      "name": "Claude Code y los agentes de código",
+      "kind": "wave",
+      "event": "2025-05-22",
+      "note": "Claude y los agentes que programan desde la terminal.",
+      "hn": "Claude Code",
+      "bluesky": "\"claude code\""
+    },
+    {
+      "id": "kimi-k2",
+      "name": "Kimi K2",
+      "kind": "wave",
+      "event": "2025-07-11",
+      "note": "Los modelos abiertos de Moonshot AI.",
+      "hn": "Kimi K2",
+      "bluesky": "\"kimi k2\""
+    },
+    {
+      "id": "grok-4",
+      "name": "Grok 4",
+      "kind": "wave",
+      "event": "2025-07-09",
+      "note": "El asistente de xAI y sus polémicas.",
+      "hn": "Grok 4",
+      "bluesky": "\"grok 4\""
+    },
+    {
+      "id": "gpt-5",
+      "name": "GPT-5",
+      "kind": "wave",
+      "event": "2025-08-07",
+      "note": "La generación de modelos de OpenAI.",
+      "wikipedia": [
+        {
+          "lang": "en",
+          "article": "GPT-5"
+        },
+        {
+          "lang": "es",
+          "article": "GPT-5"
+        }
+      ],
+      "hn": "GPT-5",
+      "bluesky": "\"gpt-5\""
+    },
+    {
+      "id": "genie-3",
+      "name": "Genie 3",
+      "kind": "wave",
+      "event": "2025-08-05",
+      "note": "Los modelos de Google que generan mundos interactivos.",
+      "hn": "Genie 3",
+      "bluesky": "\"genie 3\""
+    },
+    {
+      "id": "nano-banana",
+      "name": "Nano Banana",
+      "kind": "wave",
+      "event": "2025-08-26",
+      "note": "El editor de imágenes de Gemini que se volvió viral.",
+      "hn": "Nano Banana",
+      "bluesky": "\"nano banana\""
+    },
+    {
+      "id": "sora-2",
+      "name": "Sora 2",
+      "kind": "wave",
+      "event": "2025-09-30",
+      "note": "El generador de video de OpenAI.",
+      "hn": "Sora 2",
+      "bluesky": "\"sora 2\""
+    },
+    {
+      "id": "chatgpt-atlas",
+      "name": "ChatGPT Atlas",
+      "kind": "wave",
+      "event": "2025-10-21",
+      "note": "El navegador con agente de OpenAI.",
+      "wikipedia": [
+        {
+          "lang": "en",
+          "article": "ChatGPT Atlas"
+        }
+      ],
+      "hn": "ChatGPT Atlas",
+      "bluesky": "\"chatgpt atlas\""
+    },
+    {
+      "id": "gemini-3",
+      "name": "Gemini 3",
+      "kind": "wave",
+      "event": "2025-11-18",
+      "note": "La generación de modelos de Google.",
+      "wikipedia": [
+        {
+          "lang": "en",
+          "article": "Gemini 3"
+        }
+      ],
+      "hn": "Gemini 3",
+      "bluesky": "\"gemini 3\""
+    },
+    {
+      "id": "openclaw",
+      "name": "OpenClaw",
+      "kind": "wave",
+      "event": "2026-01-25",
+      "note": "El asistente personal abierto que se volvió viral.",
+      "wikipedia": [
+        {
+          "lang": "en",
+          "article": "OpenClaw"
+        }
+      ],
+      "hn": "OpenClaw",
+      "bluesky": "openclaw"
+    },
+    {
+      "id": "moltbook",
+      "name": "Moltbook",
+      "kind": "wave",
+      "event": "2026-01-28",
+      "note": "La red social donde publican agentes de IA.",
+      "wikipedia": [
+        {
+          "lang": "en",
+          "article": "Moltbook"
+        }
+      ],
+      "hn": "Moltbook",
+      "bluesky": "moltbook"
+    },
+    {
+      "id": "python",
+      "name": "Python",
+      "kind": "control",
+      "wikipedia": [
+        {
+          "lang": "en",
+          "article": "Python (programming language)"
+        },
+        {
+          "lang": "es",
+          "article": "Python"
+        }
+      ],
+      "hn": "Python",
+      "bluesky": "python"
+    },
+    {
+      "id": "javascript",
+      "name": "JavaScript",
+      "kind": "control",
+      "wikipedia": [
+        {
+          "lang": "en",
+          "article": "JavaScript"
+        },
+        {
+          "lang": "es",
+          "article": "JavaScript"
+        }
+      ],
+      "hn": "JavaScript",
+      "bluesky": "javascript"
+    },
+    {
+      "id": "linux",
+      "name": "Linux",
+      "kind": "control",
+      "wikipedia": [
+        {
+          "lang": "en",
+          "article": "Linux"
+        },
+        {
+          "lang": "es",
+          "article": "Linux"
+        }
+      ],
+      "hn": "Linux",
+      "bluesky": "linux"
+    },
+    {
+      "id": "machine-learning",
+      "name": "Machine learning",
+      "kind": "control",
+      "wikipedia": [
+        {
+          "lang": "en",
+          "article": "Machine learning"
+        },
+        {
+          "lang": "es",
+          "article": "Aprendizaje automático"
+        }
+      ],
+      "hn": "machine learning",
+      "bluesky": "\"machine learning\""
+    },
+    {
+      "id": "sql",
+      "name": "SQL",
+      "kind": "control",
+      "wikipedia": [
+        {
+          "lang": "en",
+          "article": "SQL"
+        },
+        {
+          "lang": "es",
+          "article": "SQL"
+        }
+      ],
+      "hn": "SQL",
+      "bluesky": "sql"
+    },
+    {
+      "id": "excel",
+      "name": "Excel",
+      "kind": "control",
+      "wikipedia": [
+        {
+          "lang": "en",
+          "article": "Microsoft Excel"
+        },
+        {
+          "lang": "es",
+          "article": "Microsoft Excel"
+        }
+      ],
+      "hn": "Excel",
+      "bluesky": "excel"
+    },
+    {
+      "id": "docker",
+      "name": "Docker",
+      "kind": "control",
+      "wikipedia": [
+        {
+          "lang": "en",
+          "article": "Docker (software)"
+        }
+      ],
+      "hn": "Docker",
+      "bluesky": "docker"
+    },
+    {
+      "id": "kubernetes",
+      "name": "Kubernetes",
+      "kind": "control",
+      "wikipedia": [
+        {
+          "lang": "en",
+          "article": "Kubernetes"
+        },
+        {
+          "lang": "es",
+          "article": "Kubernetes"
+        }
+      ],
+      "hn": "Kubernetes",
+      "bluesky": "kubernetes"
+    },
+    {
+      "id": "postgresql",
+      "name": "PostgreSQL",
+      "kind": "control",
+      "wikipedia": [
+        {
+          "lang": "en",
+          "article": "PostgreSQL"
+        },
+        {
+          "lang": "es",
+          "article": "PostgreSQL"
+        }
+      ],
+      "hn": "Postgres",
+      "bluesky": "postgres"
+    },
+    {
+      "id": "typescript",
+      "name": "TypeScript",
+      "kind": "control",
+      "wikipedia": [
+        {
+          "lang": "en",
+          "article": "TypeScript"
+        },
+        {
+          "lang": "es",
+          "article": "TypeScript"
+        }
+      ],
+      "hn": "TypeScript",
+      "bluesky": "typescript"
+    }
+  ]
+}
