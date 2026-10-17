@@ -7,6 +7,7 @@ import { useParams } from 'next/navigation';
 import { describeMandate, formatDate, formatMoney, formatUsd } from '@mandato/domain';
 import { AppIcon } from '@/components/brand';
 import { PaymentPanel } from '@/components/payment-timeline';
+import { SignalsPanel } from '@/components/radar';
 import { ProposalCard } from '@/components/proposal-card';
 import { ApprovalPanel } from '@/components/receipt/approval-panel';
 import { DocumentViewer } from '@/components/receipt/document-viewer';
@@ -165,6 +166,8 @@ export default function ReceiptPage() {
               </span>
             </div>
           </div>
+
+          <SignalsPanel signals={invoice.signals} />
 
           {invoice.payment ? (
             <div className="sheet p-6">

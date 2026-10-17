@@ -7,6 +7,7 @@ import { formatPeriod, formatPeriodMonth, formatUsd } from '@mandato/domain';
 import { BudgetMeter, MonthMix, TrustLadder } from '@/components/charts';
 import { Floating, Pen, Spark } from '@/components/landing/doodles';
 import { InvoiceRows } from '@/components/invoice-list';
+import { RadarCard } from '@/components/radar';
 import { Button, Empty, Skeleton, fmtDateTime } from '@/components/ui';
 import { useApi } from '@/lib/hooks';
 import type { Overview } from '@/lib/types';
@@ -179,6 +180,7 @@ export default function ResumenPage() {
                 )}
               </div>
             )}
+            <RadarCard />
           </div>
         </section>
       )}

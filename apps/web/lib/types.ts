@@ -13,6 +13,7 @@ import type {
   Requester,
   RuleMeta,
   RuleResult,
+  Signal,
 } from '@mandato/domain';
 
 export type { Outcome, InvoiceStatus, RuleResult, Mandate, Payee, PolicyTerms, RuleMeta };
@@ -71,6 +72,15 @@ export interface ApprovalEntry {
   note: string | null;
   via: 'web' | 'link';
   at: string;
+}
+
+export interface RadarItem {
+  invoiceId: string;
+  ref: string;
+  title: string | null;
+  payeeName: string;
+  receivedAt: string;
+  signals: Signal[];
 }
 
 export interface PaymentView {
@@ -174,6 +184,7 @@ export interface InvoiceDetail {
     resolutionNote: string | null;
   } | null;
   payment: PaymentView | null;
+  signals: Signal[];
   ledger: {
     seq: number;
     type: string;
