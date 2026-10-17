@@ -8,3 +8,5 @@ export * from './evidence';
 export * from './checks';
 export * from './explain';
 export { decide, ENGINE_VERSION, statusForOutcome } from './engine';
+export * from './payments';
+export * from './reconcile';
