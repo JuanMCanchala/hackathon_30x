@@ -10,7 +10,7 @@ import { Button, Dialog, PageHeader, Skeleton, ToneTag } from '@/components/ui';
 import { ApiError, post } from '@/lib/api';
 import { useApi } from '@/lib/hooks';
 import { useLive } from '@/lib/live';
-import { OUTCOME_COPY, toneOf, toneOfOutcome } from '@/lib/outcomes';
+import { OUTCOME_COPY, STATUS_COPY, toneOf } from '@/lib/outcomes';
 import type { Catalog, CatalogBill } from '@/lib/types';
 
 const FORMAT_COPY: Record<CatalogBill['format'], string> = {
@@ -39,10 +39,7 @@ function BillLine({ bill }: { bill: CatalogBill }) {
       </div>
       <div className="grid justify-items-end gap-1">
         {decided ? (
-          <ToneTag
-            tone={toneOf(decided.status)}
-            label={decided.outcome ? OUTCOME_COPY[decided.outcome].short : 'Recibida'}
-          />
+          <ToneTag tone={toneOf(decided.status)} label={STATUS_COPY[decided.status]} />
         ) : (
           <span className="text-xs text-ink-3">
             {FORMAT_COPY[bill.format]}, se espera:{' '}
@@ -137,7 +134,7 @@ export default function RecorridoPage() {
     <div className="grid gap-10">
       <PageHeader
         title="Recorrido guiado"
-        lead="Andes Labs Inc. es una empresa ficticia con contratistas y proveedores en Colombia, México, Brasil y Argentina. En cinco pasos ves cómo el agente gana autonomía sin salirse de lo firmado."
+        lead="Andes Labs Inc. es una empresa ficticia con contratistas y proveedores en Colombia, México, Brasil, Argentina y Estados Unidos. En cinco pasos ves cómo el agente gana autonomía sin salirse de lo firmado."
         actions={
           <Button
             variant="ghost"
@@ -231,8 +228,8 @@ export default function RecorridoPage() {
                 <div className="flex items-center gap-1">
                   {b.invoice ? (
                     <ToneTag
-                      tone={toneOfOutcome(b.invoice.outcome ?? 'ESCALATE')}
-                      label={OUTCOME_COPY[b.invoice.outcome ?? 'ESCALATE'].short}
+                      tone={toneOf(b.invoice.status)}
+                      label={STATUS_COPY[b.invoice.status]}
                     />
                   ) : (
                     <>
