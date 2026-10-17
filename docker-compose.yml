@@ -1,8 +1,9 @@
 # Mandato with PostgreSQL:  docker compose up --build  →  http://localhost:3000
 #
-# Without an API key the API serves the dataset's reference reader (labelled as such in the
-# interface). To have Claude read every document:
-#   ANTHROPIC_API_KEY=… READER=auto docker compose up --build
+# The demo documents replay their recorded readings, so no key is needed. To have a language
+# model read new uploads and compile rules written in Spanish, pass one key:
+#   FIREWORKS_API_KEY=… docker compose up --build      # DeepSeek V4.1 Flash on Fireworks
+#   ANTHROPIC_API_KEY=… docker compose up --build      # Claude
 services:
   db:
     image: postgres:17-alpine
@@ -25,7 +26,9 @@ services:
     environment:
       DATABASE_URL: postgres://mandato:mandato@db:5432/mandato
       ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
-      READER: ${READER:-reference}
+      FIREWORKS_API_KEY: ${FIREWORKS_API_KEY:-}
+      LLM_PROVIDER: ${LLM_PROVIDER:-auto}
+      READER: ${READER:-auto}
       DEMO_MODE: 'true'
       APPROVAL_LINK_SECRET: ${APPROVAL_LINK_SECRET:-local-compose-secret-change-me-outside-demos}
       PUBLIC_WEB_URL: ${PUBLIC_WEB_URL:-http://localhost:3000}

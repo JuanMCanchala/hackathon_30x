@@ -25,6 +25,8 @@ jobs:
           node-version-file: .nvmrc
           cache: pnpm
       - run: pnpm install --frozen-lockfile
+      # Poppler renders PDF pages for the OpenAI-compatible reader, as in the API image.
+      - run: sudo apt-get update && sudo apt-get install -y --no-install-recommends poppler-utils
       - run: pnpm format:check
       - run: pnpm lint
       - run: pnpm typecheck
