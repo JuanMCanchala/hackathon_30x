@@ -1,0 +1,24 @@
+{
+  "name": "@radar/mcp",
+  "version": "0.1.0",
+  "private": true,
+  "description": "MCP server so any assistant can ask Radar 30X which AI topics grow, why, and how 30X would tell them.",
+  "type": "module",
+  "bin": {
+    "radar-30x-mcp": "./dist/index.js"
+  },
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "build": "node build.mjs",
+    "start": "node dist/index.js",
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  }
+}
