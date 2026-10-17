@@ -24,6 +24,28 @@ type InvoiceRow = typeof invoices.$inferSelect;
 export type PaymentRow = typeof payments.$inferSelect;
 
 /**
+/**
+ * A bill approved while its payee was unknown is paid once a person signs that payee's
+ * registration: the registration is what gives the money a verified destination. Only a bill
+ * that had no payee and no transfer qualifies.
+ */
+export async function scheduleForNewPayee(
+  tx: Tx,
+  invoiceId: string,
+  payeeId: string,
+  at: string,
+): Promise<LedgerAppend[]> {
+  const [invoice] = await tx.select().from(invoices).where(eq(invoices.id, invoiceId));
+  if (!invoice || invoice.status !== 'APPROVED' || invoice.payeeId !== null) return [];
+  const [existing] = await tx
+    .select({ id: payments.id })
+    .from(payments)
+    .where(eq(payments.invoiceId, invoiceId));
+  if (existing) return [];
+  await tx.update(invoices).set({ payeeId }).where(eq(invoices.id, invoiceId));
+  return schedulePayment(tx, { ...invoice, payeeId }, at);
+}
+
  * Schedules the transfer for a bill that was just paid or approved. Returns the ledger entries
  * to append with the decision, or none when there is nothing safe to pay (no registered,
  * active payee or no amount): approving a bill never invents a destination.

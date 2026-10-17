@@ -17,6 +17,7 @@ import { mandates, payees, proposals, users } from '../db/schema';
 import { badRequest, conflict, forbidden, newId, notFound } from '../lib/common';
 import { nowIso, withOrgLock, type Deps } from './deps';
 import { appendLedger, type LedgerAppend } from './ledger';
+import { scheduleForNewPayee } from './payments';
 
 async function signer(tx: Tx, orgId: string, userId: string) {
   const [user] = await tx
@@ -118,6 +119,7 @@ export async function acceptProposal(
         payeeId: mandate.payeeId,
       },
     });
+    if (payee) entries.push(...(await scheduleForNewPayee(tx, proposal.invoiceId, payee.id, at)));
     await appendLedger(tx, input.orgId, entries);
     return { mandateId: mandate.id, payeeId: mandate.payeeId };
   });

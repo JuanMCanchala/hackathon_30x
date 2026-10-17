@@ -143,6 +143,24 @@ describe('payments', () => {
   });
 });
 
+describe('a bill approved before its payee existed', () => {
+  it('is paid once a person signs the registration, to the registered destination', async () => {
+    const [rafael] = await container.deps.db
+      .select()
+      .from(invoices)
+      .where(eq(invoices.datasetId, 'ago-11'));
+    expect(rafael?.status).toBe('APPROVED');
+    expect(rafael?.payeeId).not.toBeNull();
+    const [payment] = await container.deps.db
+      .select()
+      .from(payments)
+      .where(eq(payments.invoiceId, rafael!.id));
+    expect(payment?.payeeId).toBe(rafael!.payeeId);
+    expect(payment?.destination).toBe('@rafamendoza');
+    expect(payment?.amountMinor).toBe(rafael!.amountMinor);
+  });
+});
+
 describe('metrics', () => {
   it('keeps the attack lab out of the autonomy metrics', async () => {
     const rows = await container.deps.db

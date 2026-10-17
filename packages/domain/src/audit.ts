@@ -236,6 +236,7 @@ export function auditLedger(entries: readonly LedgerEntry[], hash: HashFn): Audi
     { invoiceId: string; required: number; approvers: Set<string> }
   >();
   const transferred = new Set<string>();
+  const proposalInvoice = new Map<string, string>();
   let decisionsChecked = 0;
   let paymentsChecked = 0;
   let approvalsChecked = 0;
@@ -382,6 +383,19 @@ export function auditLedger(entries: readonly LedgerEntry[], hash: HashFn): Audi
           flag('I10', p.ref, 'La factura se transfirió dos veces.');
         }
         transferred.add(p.invoiceId);
+        break;
+      }
+      case 'PROPOSAL_CREATED': {
+        const p = entry.payload as PayloadOf<'PROPOSAL_CREATED'>;
+        proposalInvoice.set(p.proposalId, p.invoiceId);
+        break;
+      }
+      case 'PROPOSAL_ACCEPTED': {
+        // A signed registration makes a bill from someone unknown that payee's bill. It never
+        // moves a bill that already belonged to a payee.
+        const p = entry.payload as PayloadOf<'PROPOSAL_ACCEPTED'>;
+        const state = invoices.get(proposalInvoice.get(p.proposalId) ?? '');
+        if (state && state.payeeId === null) state.payeeId = p.payeeId;
         break;
       }
       case 'INVOICE_REJECTED': {
