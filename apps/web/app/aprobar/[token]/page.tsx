@@ -1,6 +1,6 @@
 'use client';
 
-import { CircleCheck, CircleSlash, Clock } from 'lucide-react';
+import { CircleCheck, CircleSlash, Clock, TriangleAlert } from 'lucide-react';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { formatMoney, formatUsd } from '@mandato/domain';
@@ -82,6 +82,9 @@ export default function AprobarPage() {
 
   const inv = view?.invoice;
   const blocked = view && (view.usedAt || view.expired || inv?.status !== 'PENDING_APPROVAL');
+  // The summary already states the main reason; list only the ones it does not.
+  const others =
+    inv?.failing.filter((f) => !inv.summary?.includes(f.detail.replace(/\.$/, ''))) ?? [];
 
   return (
     <main className="mx-auto grid min-h-dvh w-full max-w-md content-start gap-6 px-4 py-6">
@@ -129,15 +132,27 @@ export default function AprobarPage() {
                 {inv.invoiceNumber ? `, factura ${inv.invoiceNumber}` : ''}
               </p>
               {inv.summary && <p className="voice text-ink">{inv.summary}</p>}
-              {inv.failing.length > 0 && (
-                <ul className="grid gap-2">
-                  {inv.failing.map((f) => (
-                    <li key={f.title} className="rounded-lg bg-pending-tint/70 px-3 py-2 text-sm">
-                      <p className="font-[620] text-ink">{f.title}</p>
-                      <p className="text-ink-2">{f.detail}</p>
-                    </li>
-                  ))}
-                </ul>
+              {others.length > 0 && (
+                <div className="grid gap-2">
+                  <p className="text-sm font-[620] text-ink">Además:</p>
+                  <ul className="grid gap-2">
+                    {others.map((f) => (
+                      <li
+                        key={f.title}
+                        className="flex gap-2.5 rounded-lg bg-pending-tint/70 px-3 py-2.5 text-sm"
+                      >
+                        <TriangleAlert
+                          className="mt-0.5 size-4 shrink-0 text-pending"
+                          aria-hidden
+                        />
+                        <div>
+                          <p className="text-ink">{f.detail}</p>
+                          <p className="mt-0.5 text-xs text-ink-3">Regla: {f.title}</p>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               )}
               {inv.approval && inv.approval.required > 1 && (
                 <p className="text-sm text-ink-2">
