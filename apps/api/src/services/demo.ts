@@ -246,15 +246,27 @@ export class DemoService {
   private async done() {
     const evidence = await allEvidence(this.c.db);
     const kind = (id: string) => evidence.find((e) => e.id === id)?.kind;
-    const [daniela] = await this.c.db
-      .select({ id: bills.id })
-      .from(bills)
-      .where(eq(bills.datasetId, 'oct-03-r1'));
+    const daniela = await this.caseOf('oct-03');
     return {
-      'reply-daniela': daniela !== undefined,
+      // settled once a corrected version replaced it or it no longer waits, by the tour's step
+      // or by a reply through the real portal
+      'reply-daniela':
+        daniela !== null &&
+        (daniela.head?.id !== daniela.original.id || !REOPENED.includes(daniela.original.status)),
       'accept-brand-kit':
         BRAND_KIT.type === 'evidence' && kind(BRAND_KIT.item.id) === 'deliverable_accepted',
       'merge-pr': kind(this.livePr().id) === 'pr_merged',
+    };
+  }
+
+  /** A dataset bill as it arrived and the current head of its case (null before it arrives). */
+  private async caseOf(datasetId: string) {
+    const all = await this.c.db.select().from(bills);
+    const original = all.find((b) => b.datasetId === datasetId);
+    if (!original) return null;
+    return {
+      original,
+      head: all.find((b) => b.status !== 'SUPERSEDED' && b.chain.includes(original.id)),
     };
   }
 
@@ -360,17 +372,12 @@ export class DemoService {
       if (step === BRAND_KIT && done['accept-brand-kit']) continue;
       if (step === LIVE_MERGE && (done['merge-pr'] || this.livePr().live)) continue;
       if (step.type === 'vendor_reply' && !step.replyBillId) {
-        const [original] = await this.c.db
-          .select()
-          .from(bills)
-          .where(eq(bills.datasetId, step.billId));
-        if (!original) {
+        const found = await this.caseOf(step.billId);
+        if (!found) {
           this.problems.push(`${step.billId}: La cuenta ${step.billId} todavía no llegó.`);
           continue;
         }
-        const all = await this.c.db.select().from(bills);
-        const head = all.find((b) => b.status !== 'SUPERSEDED' && b.chain.includes(original.id));
-        if (!head || !REOPENED.includes(head.status)) continue;
+        if (!found.head || !REOPENED.includes(found.head.status)) continue;
       }
       await this.run(step);
     }

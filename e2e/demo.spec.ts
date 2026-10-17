@@ -100,6 +100,8 @@ test('the demo path: October arrives, the vendors answer, the month closes clean
   await page.goto('/recorrido');
   await page.getByRole('button', { name: 'Cierre de octubre y extracto de Blinka' }).click();
   await expect(phase(page)).toHaveText('Octubre cerrado', { timeout: 60_000 });
+  // Daniela's portal reply counts as her tour step: the close skipped nothing
+  await expect(page.getByText('Pasos que la demo saltó')).toHaveCount(0);
 
   await page.goto('/conciliacion');
   // the bank statement's lines, not the totals above them

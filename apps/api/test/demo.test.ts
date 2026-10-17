@@ -8,7 +8,7 @@ import { DemoService } from '../src/services/demo';
 import { reconciliationView } from '../src/services/reconciliation';
 import { allPayments } from '../src/services/state';
 import { billList, overview, paymentsView } from '../src/services/views';
-import { setup } from './helpers';
+import { fileOf, setup } from './helpers';
 
 type Env = Awaited<ReturnType<typeof setup>>;
 let c: Env;
@@ -136,6 +136,26 @@ describe('the guided demo', () => {
     await demo.act('close-october');
     expect((await demo.tourState()).phase).toBe('closed');
     expect(demo.problems.some((p) => p.includes('todavía no llegó'))).toBe(true);
+  });
+
+  it('a real portal reply from Daniela settles her tour step', async () => {
+    await demo.reset();
+    const daniela = async () =>
+      (await demo.tourState()).actions.find((a) => a.id === 'reply-daniela')!;
+    expect((await daniela()).done).toBe(false);
+    await demo.act('arrive-october');
+    await demo.idle();
+    expect(await daniela()).toMatchObject({ done: false, available: true });
+    const original = (await c.db.select().from(bills)).find((b) => b.datasetId === 'oct-03')!;
+    // the vendor answers through the portal herself: no dataset id on what she sends
+    const token = await c.createPortalToken(original.id);
+    await c.vendorReply(token, {
+      message: 'Te adjunto la cuenta corregida por las 92 h registradas.',
+      file: fileOf('oct-03-r1'),
+    });
+    expect(await daniela()).toMatchObject({ done: true, available: false });
+    await demo.act('close-october');
+    expect(demo.problems).toEqual([]);
   });
 
   it('a second reset restores the October 1 state', async () => {
