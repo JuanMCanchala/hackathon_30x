@@ -1,13 +1,15 @@
 /**
- * "Escríbelo en español": a policy change written in natural language is compiled by Claude into
- * a patch of known fields, validated with Zod and shown as a diff with its replayed impact. The
- * person saves it; nothing changes until then (pattern of allowance.eth, docs/product/05).
+ * "Escríbelo en español": a policy change written in natural language is compiled by the language
+ * model (Claude or an OpenAI-compatible one, ADR-0017) into a patch of known fields, validated
+ * with Zod and shown as a diff with its replayed impact. The person saves it; nothing changes
+ * until then (pattern of allowance.eth, docs/product/05).
  */
 import Anthropic from '@anthropic-ai/sdk';
 import { betaZodOutputFormat } from '@anthropic-ai/sdk/helpers/beta/zod';
 import { z } from 'zod';
 import { PolicyTermsSchema, type PolicyTerms } from '@mandato/domain';
 import { AppError } from '../lib/common';
+import { chatJson, jsonSchemaOf } from '../llm/openai-compatible';
 
 const PolicyPatchSchema = z.object({
   autonomousLimitUsd: z.number().nullable(),
@@ -37,44 +39,68 @@ const SYSTEM = `You translate a finance manager's request, written in Spanish, i
 
 Return only the fields the request changes; every other field must be null. Interpret amounts written as "5 mil", "5k", "cinco mil dólares" as numbers in USD. If the request mentions something these fields cannot express (specific payees, weekdays, categories, approvals by a named person…), do not approximate it: list it in "unsupported". Write "explanation" in Spanish, one or two sentences, describing exactly what would change. Never loosen a rule the request did not ask to loosen.`;
 
-export class PolicyCompiler {
-  private readonly client: Anthropic;
+export type PolicyCompilerOptions =
+  | { provider: 'anthropic'; apiKey: string; model: string }
+  | { provider: 'fireworks'; apiKey: string; model: string; baseUrl: string };
 
-  constructor(private readonly options: { apiKey?: string; model: string }) {
-    this.client = new Anthropic(options.apiKey ? { apiKey: options.apiKey } : {});
+const PATCH_SCHEMA = jsonSchemaOf(PolicyPatchSchema);
+
+export class PolicyCompiler {
+  private readonly anthropic: Anthropic | null;
+
+  constructor(private readonly options: PolicyCompilerOptions) {
+    this.anthropic =
+      options.provider === 'anthropic' ? new Anthropic({ apiKey: options.apiKey }) : null;
+  }
+
+  /** The model's patch, or null when it declines. */
+  private async requestPatch(prompt: string): Promise<unknown> {
+    if (this.options.provider === 'fireworks') {
+      const result = await chatJson({
+        baseUrl: this.options.baseUrl,
+        apiKey: this.options.apiKey,
+        model: this.options.model,
+        system: SYSTEM,
+        content: [{ type: 'text', text: prompt }],
+        schema: PATCH_SCHEMA,
+        schemaName: 'policy_patch',
+        maxTokens: 8000,
+      });
+      return result.json;
+    }
+    const response = await this.anthropic!.beta.messages.parse({
+      model: this.options.model,
+      max_tokens: 4000,
+      betas: ['server-side-fallback-2026-07-01'],
+      fallbacks: 'default',
+      system: [{ type: 'text', text: SYSTEM, cache_control: { type: 'ephemeral' } }],
+      messages: [{ role: 'user', content: prompt }],
+      output_config: { effort: 'low', format: betaZodOutputFormat(PolicyPatchSchema) },
+    });
+    return response.stop_reason === 'refusal' ? null : response.parsed_output;
   }
 
   async compile(
     request: string,
     current: PolicyTerms,
   ): Promise<{ patch: PolicyPatch; terms: PolicyTerms }> {
-    const response = await this.client.beta.messages.parse({
-      model: this.options.model,
-      max_tokens: 4000,
-      betas: ['server-side-fallback-2026-07-01'],
-      fallbacks: 'default',
-      system: [{ type: 'text', text: SYSTEM, cache_control: { type: 'ephemeral' } }],
-      messages: [
-        {
-          role: 'user',
-          content: `Current policy (for reference): ${JSON.stringify({
-            autonomousLimitUsd: current.autonomousLimitUsdCents / 100,
-            dualApprovalAboveUsd: current.dualApprovalAboveUsdCents / 100,
-            monthlyBudgetUsd: current.monthlyBudgetUsdCents / 100,
-            allowedCurrencies: current.allowedCurrencies,
-            minExtractionConfidencePercent: current.minExtractionConfidence * 100,
-            duplicateWindowDays: current.duplicateWindowDays,
-            maxInvoiceAgeDays: current.maxInvoiceAgeDays,
-            defaultPaymentTermsDays: current.defaultPaymentTermsDays,
-          })}\n\nRequest: ${request}`,
-        },
-      ],
-      output_config: { effort: 'low', format: betaZodOutputFormat(PolicyPatchSchema) },
-    });
-    if (response.stop_reason === 'refusal' || !response.parsed_output) {
+    const raw = await this.requestPatch(
+      `Current policy (for reference): ${JSON.stringify({
+        autonomousLimitUsd: current.autonomousLimitUsdCents / 100,
+        dualApprovalAboveUsd: current.dualApprovalAboveUsdCents / 100,
+        monthlyBudgetUsd: current.monthlyBudgetUsdCents / 100,
+        allowedCurrencies: current.allowedCurrencies,
+        minExtractionConfidencePercent: current.minExtractionConfidence * 100,
+        duplicateWindowDays: current.duplicateWindowDays,
+        maxInvoiceAgeDays: current.maxInvoiceAgeDays,
+        defaultPaymentTermsDays: current.defaultPaymentTermsDays,
+      })}\n\nRequest: ${request}`,
+    );
+    const parsedPatch = PolicyPatchSchema.safeParse(raw);
+    if (!raw || !parsedPatch.success) {
       throw new AppError(422, 'not_compilable', 'No pude convertir ese texto en una regla.');
     }
-    const patch = PolicyPatchSchema.parse(response.parsed_output);
+    const patch = parsedPatch.data;
     const cents = (usd: number | null, fallback: number) =>
       usd === null ? fallback : Math.round(usd * 100);
     const candidate: PolicyTerms = {

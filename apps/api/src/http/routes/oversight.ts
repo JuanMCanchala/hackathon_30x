@@ -1,5 +1,6 @@
 import { createRoute, z, type OpenAPIHono } from '@hono/zod-openapi';
 import { eq } from 'drizzle-orm';
+import { llmSettings } from '../../config';
 import { agents, users } from '../../db/schema';
 import { latestAudit, runAudit } from '../../services/audit';
 import type { Deps } from '../../services/deps';
@@ -22,6 +23,7 @@ export function registerOversightRoutes(app: OpenAPIHono, deps: Deps) {
     async (c) => {
       const user = await currentUser(deps, c);
       const team = await deps.db.select().from(users).where(eq(users.orgId, user.orgId));
+      const llm = llmSettings(deps.config);
       return c.json(
         {
           user,
@@ -35,8 +37,9 @@ export function registerOversightRoutes(app: OpenAPIHono, deps: Deps) {
           demoMode: deps.config.DEMO_MODE,
           reader: {
             name: deps.extractor.name,
-            live: Boolean(deps.config.ANTHROPIC_API_KEY),
-            model: deps.config.ANTHROPIC_API_KEY ? deps.config.EXTRACTION_MODEL : null,
+            live: llm !== null && deps.config.READER === 'auto',
+            provider: llm?.provider ?? null,
+            model: llm?.model ?? null,
           },
           policyCompiler: Boolean(deps.policyCompiler),
         },

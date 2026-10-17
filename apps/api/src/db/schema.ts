@@ -119,7 +119,7 @@ export const documents = pgTable(
 );
 
 export interface ExtractionMeta {
-  provider: 'claude' | 'replay' | 'ground-truth' | 'agent' | 'none';
+  provider: 'claude' | 'fireworks' | 'replay' | 'ground-truth' | 'agent' | 'none';
   model: string | null;
   cacheHit: boolean;
   latencyMs: number | null;

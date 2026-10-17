@@ -24,10 +24,26 @@ export interface Extractor {
   extract(document: DocumentInput): Promise<ExtractionOutcome>;
 }
 
+export interface LiveExtraction {
+  extraction: ExtractedInvoice;
+  model: string;
+  latencyMs: number;
+  usage: { inputTokens: number; outputTokens: number; cacheReadTokens: number };
+}
+
+/** A language model that reads documents live; its readings can be recorded and replayed. */
+export interface LiveReader extends Extractor {
+  readonly provider: 'claude' | 'fireworks';
+  /** Reads or throws (with a Spanish message); extract() never throws. */
+  read(document: DocumentInput): Promise<LiveExtraction>;
+}
+
 /** A recorded extraction, as stored in packages/dataset/extractions/<sha256>.json. */
 export interface RecordedExtraction {
   sha256: string;
   extractorVersion: string;
+  /** Who read it; recordings made before ADR-0017 were all Claude's. */
+  provider?: LiveReader['provider'];
   model: string;
   recordedAt: string;
   latencyMs: number;

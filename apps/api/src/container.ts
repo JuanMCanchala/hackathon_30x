@@ -1,13 +1,14 @@
 /** Composition root (ADR-0008): wires adapters to ports from configuration. */
 import { join } from 'node:path';
 import { EXTRACTIONS_DIR } from '@mandato/dataset';
-import type { Config } from './config';
+import { llmSettings, type Config } from './config';
 import { openDatabase, type Database } from './db/client';
 import { EventBus } from './events/bus';
 import { CachedExtractor, ExtractionCache } from './extraction/cache';
 import { ClaudeExtractor } from './extraction/claude';
+import { FireworksExtractor } from './extraction/fireworks';
 import { GroundTruthExtractor } from './extraction/truth';
-import type { Extractor } from './extraction/types';
+import type { Extractor, LiveReader } from './extraction/types';
 import { systemClock, type Clock } from './lib/common';
 import type { Deps } from './services/deps';
 import { PolicyCompiler } from './services/policy-compiler';
@@ -26,14 +27,34 @@ export interface ContainerOverrides {
   ephemeral?: boolean;
 }
 
-export function liveReader(config: Config): ClaudeExtractor | null {
-  return config.ANTHROPIC_API_KEY
+/** The configured language model as a live document reader (ADR-0010, ADR-0017). */
+export function liveReader(config: Config): LiveReader | null {
+  const llm = llmSettings(config);
+  if (!llm) return null;
+  return llm.provider === 'anthropic'
     ? new ClaudeExtractor({
-        apiKey: config.ANTHROPIC_API_KEY,
-        model: config.EXTRACTION_MODEL,
+        apiKey: llm.apiKey,
+        model: llm.model,
         effort: config.EXTRACTION_EFFORT,
       })
-    : null;
+    : new FireworksExtractor({
+        apiKey: llm.apiKey,
+        model: llm.model,
+        baseUrl: config.FIREWORKS_BASE_URL,
+      });
+}
+
+function policyCompiler(config: Config): PolicyCompiler | null {
+  const llm = llmSettings(config);
+  if (!llm) return null;
+  return llm.provider === 'anthropic'
+    ? new PolicyCompiler({ provider: 'anthropic', apiKey: llm.apiKey, model: llm.model })
+    : new PolicyCompiler({
+        provider: 'fireworks',
+        apiKey: llm.apiKey,
+        model: llm.model,
+        baseUrl: config.FIREWORKS_BASE_URL,
+      });
 }
 
 export async function createContainer(
@@ -63,9 +84,7 @@ export async function createContainer(
     documents,
     extractor,
     config,
-    policyCompiler: config.ANTHROPIC_API_KEY
-      ? new PolicyCompiler({ apiKey: config.ANTHROPIC_API_KEY, model: config.EXTRACTION_MODEL })
-      : null,
+    policyCompiler: policyCompiler(config),
   };
   return { deps, database };
 }

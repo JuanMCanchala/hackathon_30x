@@ -1,5 +1,5 @@
 /**
- * Record/replay of extractions (ADR-0010): recorded Claude extractions live in
+ * Record/replay of extractions (ADR-0010): recorded readings live in
  * packages/dataset/extractions/<sha256>.json so anyone can replay the exact end-to-end
  * evaluation without an API key.
  */
@@ -7,12 +7,12 @@ import { existsSync } from 'node:fs';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { ExtractedInvoiceSchema } from '@mandato/domain';
-import type { ClaudeExtractor } from './claude';
 import {
   EXTRACTOR_VERSION,
   type DocumentInput,
   type ExtractionOutcome,
   type Extractor,
+  type LiveReader,
   type RecordedExtraction,
 } from './types';
 
@@ -48,10 +48,10 @@ export class CachedExtractor implements Extractor {
 
   constructor(
     private readonly cache: ExtractionCache,
-    private readonly live: ClaudeExtractor | null,
+    private readonly live: LiveReader | null,
     private readonly record = false,
   ) {
-    this.name = live ? 'claude+replay' : 'replay';
+    this.name = live ? `${live.name}+replay` : 'replay';
   }
 
   async extract(document: DocumentInput): Promise<ExtractionOutcome> {
@@ -71,7 +71,7 @@ export class CachedExtractor implements Extractor {
     }
     if (!this.live) {
       const error =
-        'no hay una lectura grabada para este archivo y no hay una API key de Claude configurada';
+        'no hay una lectura grabada para este archivo y no hay un modelo de lenguaje configurado';
       return {
         extraction: null,
         error,
@@ -83,6 +83,7 @@ export class CachedExtractor implements Extractor {
     await this.cache.put({
       sha256: document.sha256,
       extractorVersion: EXTRACTOR_VERSION,
+      provider: this.live.provider,
       model: result.model,
       recordedAt: new Date().toISOString(),
       latencyMs: result.latencyMs,
@@ -94,7 +95,7 @@ export class CachedExtractor implements Extractor {
       extraction: result.extraction,
       error: null,
       meta: {
-        provider: 'claude',
+        provider: this.live.provider,
         model: result.model,
         cacheHit: false,
         latencyMs: result.latencyMs,

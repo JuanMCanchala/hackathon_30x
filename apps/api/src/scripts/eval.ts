@@ -3,7 +3,7 @@
  * August → September (with the team's actions) → live files → attack lab → independent audit,
  * and scores the run with the challenge's own criteria.
  *
- *   pnpm eval                    # engine run (perfect reading) + end-to-end run (recorded Claude)
+ *   pnpm eval                    # engine run (perfect reading) + end-to-end run (recorded readings)
  *   pnpm eval --mode truth       # engine only
  *   pnpm eval --write-docs       # also refresh the results section of docs/EVALUATION.md
  *
@@ -146,7 +146,9 @@ async function runMode(mode: 'truth' | 'replay'): Promise<RunReport> {
     ...process.env,
     DEMO_MODE: 'true',
     DEMO_PACE_MS: '0',
+    // The harness never calls a language model: it replays what was recorded.
     ANTHROPIC_API_KEY: '',
+    FIREWORKS_API_KEY: '',
   } as NodeJS.ProcessEnv);
   const extractor: Extractor =
     mode === 'truth'
@@ -300,7 +302,7 @@ async function runMode(mode: 'truth' | 'replay'): Promise<RunReport> {
     ];
     return {
       mode,
-      reader: extractor.name,
+      reader: mode === 'truth' ? extractor.name : await recordedReaders(),
       bills,
       groups,
       totals,
@@ -317,6 +319,22 @@ async function runMode(mode: 'truth' | 'replay'): Promise<RunReport> {
   } finally {
     await database.close();
   }
+}
+
+/** Which models made the recorded readings, e.g. "deepseek-v4p1-flash (48)". */
+async function recordedReaders(): Promise<string> {
+  const counts = new Map<string, number>();
+  for (const bill of [...AUGUST, ...SEPTEMBER, ...LIVE, ...ATTACKS.flatMap((a) => a.bills)]) {
+    const sha = createHash('sha256')
+      .update(await readFile(filePath(bill)))
+      .digest('hex');
+    const file = join(EXTRACTIONS_DIR, `${sha}.json`);
+    if (!existsSync(file)) continue;
+    const { model } = JSON.parse(await readFile(file, 'utf8')) as { model: string };
+    const short = model.replace(/^accounts\/[^/]+\/(models|routers)\//, '');
+    counts.set(short, (counts.get(short) ?? 0) + 1);
+  }
+  return [...counts].map(([model, n]) => `${model} (${n})`).join(', ') || 'none';
 }
 
 async function recordingsMissing(): Promise<string[]> {
@@ -342,7 +360,7 @@ function markdown(reports: RunReport[], missing: string[]): string {
   const lines: string[] = [];
   for (const r of reports) {
     lines.push(
-      `### ${r.mode === 'truth' ? 'Engine run (perfect reading)' : 'End-to-end run (recorded Claude extractions)'}`,
+      `### ${r.mode === 'truth' ? 'Engine run (perfect reading)' : `End-to-end run (recorded readings: ${r.reader})`}`,
     );
     lines.push('');
     lines.push(
@@ -407,7 +425,7 @@ async function main() {
     const report = await runMode(mode);
     reports.push(report);
     console.info(
-      `\n${mode === 'truth' ? 'Motor (lectura perfecta)' : 'De punta a punta (lecturas grabadas de Claude)'}`,
+      `\n${mode === 'truth' ? 'Motor (lectura perfecta)' : `De punta a punta (lecturas grabadas: ${report.reader})`}`,
     );
     for (const g of [...report.groups, report.totals]) {
       console.info(

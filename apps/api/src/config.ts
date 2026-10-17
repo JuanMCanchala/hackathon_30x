@@ -11,11 +11,17 @@ const EnvSchema = z.object({
   /** PostgreSQL connection string. When absent, PGlite persists under DATA_DIR (ADR-0009). */
   DATABASE_URL: z.string().url().optional(),
   DATA_DIR: z.string().default(`${REPO_ROOT}.data`),
-  /** Without a key the API replays recorded extractions only (ADR-0010). */
+  /** Without a language model key the API replays recorded extractions only (ADR-0010). */
   ANTHROPIC_API_KEY: z.string().min(1).optional(),
+  /** Any OpenAI-compatible endpoint can read instead; Fireworks by default (ADR-0017). */
+  FIREWORKS_API_KEY: z.string().min(1).optional(),
+  FIREWORKS_MODEL: z.string().default('accounts/fireworks/models/deepseek-v4p1-flash'),
+  FIREWORKS_BASE_URL: z.string().url().default('https://api.fireworks.ai/inference/v1'),
+  /** Which language model reads and compiles rules: `auto` prefers Anthropic when both are set. */
+  LLM_PROVIDER: z.enum(['auto', 'anthropic', 'fireworks']).default('auto'),
   /**
-   * Which reader serves documents: `auto` (recorded Claude extractions, plus live Claude when a
-   * key is set) or `reference` (the dataset's ground truth — development and evaluation only).
+   * Which reader serves documents: `auto` (recorded extractions, plus the language model live
+   * when a key is set) or `reference` (the dataset's ground truth — development and evaluation).
    */
   READER: z.enum(['auto', 'reference']).default('auto'),
   EXTRACTION_MODEL: z.string().default('claude-opus-5-5'),
@@ -42,6 +48,33 @@ const EnvSchema = z.object({
 });
 
 export type Config = z.infer<typeof EnvSchema> & { repoRoot: string };
+
+export interface LlmSettings {
+  provider: 'anthropic' | 'fireworks';
+  apiKey: string;
+  model: string;
+}
+
+/** The language model that reads documents and compiles rules, or null without a key. */
+export function llmSettings(config: Config): LlmSettings | null {
+  const anthropic = config.ANTHROPIC_API_KEY
+    ? {
+        provider: 'anthropic' as const,
+        apiKey: config.ANTHROPIC_API_KEY,
+        model: config.EXTRACTION_MODEL,
+      }
+    : null;
+  const fireworks = config.FIREWORKS_API_KEY
+    ? {
+        provider: 'fireworks' as const,
+        apiKey: config.FIREWORKS_API_KEY,
+        model: config.FIREWORKS_MODEL,
+      }
+    : null;
+  if (config.LLM_PROVIDER === 'anthropic') return anthropic;
+  if (config.LLM_PROVIDER === 'fireworks') return fireworks;
+  return anthropic ?? fireworks;
+}
 
 /** Reads the repository's .env when there is one; variables already set in the shell win. */
 export function loadDotEnv(path = `${REPO_ROOT}.env`): void {

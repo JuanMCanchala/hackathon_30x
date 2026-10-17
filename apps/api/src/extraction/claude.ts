@@ -1,9 +1,9 @@
 import Anthropic from '@anthropic-ai/sdk';
 import { betaZodOutputFormat } from '@anthropic-ai/sdk/helpers/beta/zod';
-import { ExtractedInvoiceSchema, type ExtractedInvoice } from '@mandato/domain';
+import { ExtractedInvoiceSchema } from '@mandato/domain';
 import { prepareDocument } from './prepare';
 import { EXTRACTION_SYSTEM_PROMPT, EXTRACTION_USER_INSTRUCTION } from './prompt';
-import type { DocumentInput, ExtractionOutcome, Extractor } from './types';
+import type { DocumentInput, ExtractionOutcome, LiveExtraction, LiveReader } from './types';
 
 export interface ClaudeExtractorOptions {
   apiKey?: string;
@@ -11,26 +11,20 @@ export interface ClaudeExtractorOptions {
   effort: 'low' | 'medium' | 'high';
 }
 
-export interface ClaudeExtraction {
-  extraction: ExtractedInvoice;
-  model: string;
-  latencyMs: number;
-  usage: { inputTokens: number; outputTokens: number; cacheReadTokens: number };
-}
-
 /**
  * Reads bills with Claude using structured outputs: the response is constrained to the
  * ExtractedInvoice JSON schema and validated again with Zod on our side.
  */
-export class ClaudeExtractor implements Extractor {
+export class ClaudeExtractor implements LiveReader {
   readonly name = 'claude';
+  readonly provider = 'claude' as const;
   private readonly client: Anthropic;
 
   constructor(private readonly options: ClaudeExtractorOptions) {
     this.client = new Anthropic(options.apiKey ? { apiKey: options.apiKey } : {});
   }
 
-  async read(document: DocumentInput): Promise<ClaudeExtraction> {
+  async read(document: DocumentInput): Promise<LiveExtraction> {
     const prepared = await prepareDocument(document.bytes, document.mediaType, document.filename);
     const started = Date.now();
     const response = await this.client.beta.messages.parse({

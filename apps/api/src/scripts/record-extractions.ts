@@ -1,17 +1,18 @@
 /**
- * Records Claude's real extractions of every dataset document (ADR-0010):
+ * Records the language model's real readings of every dataset document (ADR-0010), with the
+ * configured provider: Claude, or DeepSeek on Fireworks (ADR-0017). Keys come from .env.
  *
- *   ANTHROPIC_API_KEY=… pnpm extractions:record            # only missing ones
- *   ANTHROPIC_API_KEY=… pnpm extractions:record --force    # all of them
- *   ANTHROPIC_API_KEY=… pnpm extractions:record ago-04     # some of them
+ *   pnpm extractions:record            # only missing ones
+ *   pnpm extractions:record --force    # all of them
+ *   pnpm extractions:record ago-04     # some of them
  */
 import { createHash } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
 import { basename } from 'node:path';
 import { ALL_BILLS, EXTRACTIONS_DIR, filePath, type DatasetBill } from '@mandato/dataset';
 import { loadConfig, loadDotEnv } from '../config';
+import { liveReader } from '../container';
 import { ExtractionCache } from '../extraction/cache';
-import { ClaudeExtractor } from '../extraction/claude';
 import { EXTRACTOR_VERSION } from '../extraction/types';
 
 async function main() {
@@ -20,15 +21,13 @@ async function main() {
   const ids = args.filter((a) => !a.startsWith('--'));
   loadDotEnv();
   const config = loadConfig();
-  if (!config.ANTHROPIC_API_KEY) {
-    console.error('Falta ANTHROPIC_API_KEY.');
+  const configured = liveReader(config);
+  if (!configured) {
+    console.error('Falta ANTHROPIC_API_KEY o FIREWORKS_API_KEY.');
     process.exit(1);
   }
-  const reader = new ClaudeExtractor({
-    apiKey: config.ANTHROPIC_API_KEY,
-    model: config.EXTRACTION_MODEL,
-    effort: config.EXTRACTION_EFFORT,
-  });
+  const reader = configured;
+  console.info(`Lector: ${reader.provider}`);
   const cache = new ExtractionCache(EXTRACTIONS_DIR);
   const bills = ids.length ? ALL_BILLS.filter((b) => ids.includes(b.id)) : ALL_BILLS;
   const queue = [...bills];
@@ -57,6 +56,7 @@ async function main() {
       await cache.put({
         sha256: sha,
         extractorVersion: EXTRACTOR_VERSION,
+        provider: reader.provider,
         model: result.model,
         recordedAt: new Date().toISOString(),
         latencyMs: result.latencyMs,

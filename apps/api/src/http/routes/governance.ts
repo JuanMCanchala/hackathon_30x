@@ -106,7 +106,7 @@ export function registerGovernanceRoutes(app: OpenAPIHono, deps: Deps) {
         throw new AppError(
           503,
           'compiler_unavailable',
-          'Configura ANTHROPIC_API_KEY para escribir reglas en español.',
+          'Configura ANTHROPIC_API_KEY o FIREWORKS_API_KEY para escribir reglas en español.',
         );
       }
       const current = await currentPolicy(deps.db, user.orgId);
