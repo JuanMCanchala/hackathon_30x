@@ -12,6 +12,7 @@
 import { appendFile, mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { execFile } from 'node:child_process';
 import { request } from 'node:https';
 import { gzipSync } from 'node:zlib';
 
@@ -178,7 +179,9 @@ function plan(seeds, now) {
       })),
     },
     instagram: {
-      pause: 25_000,
+      // Instagram answers curl and rate-limits other clients sooner; a long pause keeps it quiet.
+      curl: true,
+      pause: 45_000,
       requests: seeds.instagram.map((username) => ({
         key: slug(username),
         ext: 'json',
@@ -224,6 +227,23 @@ function rawGet(url, headers, hops = 3) {
   });
 }
 
+/** GET through curl: the client Instagram tolerates best from a server. */
+function curlGet(url, headers) {
+  const args = ['-s', '-m', '30', '-w', '\n%{http_code}', url];
+  for (const [k, v] of Object.entries(headers)) args.push('-H', `${k}: ${v}`);
+  return new Promise((resolve, reject) => {
+    execFile('curl', args, { maxBuffer: 20 * 1024 * 1024, encoding: 'buffer' }, (error, stdout) => {
+      if (error) return reject(error);
+      const text = stdout.toString('utf8');
+      const cut = text.lastIndexOf('\n');
+      resolve({
+        status: Number(text.slice(cut + 1)),
+        body: Buffer.from(text.slice(0, cut), 'utf8'),
+      });
+    });
+  });
+}
+
 async function runGroup(dir, source, group) {
   let ok = 0;
   for (const req of group.requests) {
@@ -232,7 +252,9 @@ async function runGroup(dir, source, group) {
     let bytes = 0;
     let file = null;
     try {
-      const res = await rawGet(req.url, req.headers);
+      const res = group.curl
+        ? await curlGet(req.url, req.headers)
+        : await rawGet(req.url, req.headers);
       status = res.status;
       const body = res.body;
       bytes = body.length;
