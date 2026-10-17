@@ -21,7 +21,7 @@ export default function BillsPage() {
           <Mono>pnpm dev</Mono>.
         </p>
       ) : isLoading ? (
-        <div className="sheet h-64 animate-pulse" aria-busy />
+        <div className="sheet h-64" aria-busy aria-label="Cargando las cuentas" />
       ) : !data?.length ? (
         <p className="sheet p-6 text-ink-2">
           Todavía no llegó ninguna cuenta. Empieza el{' '}
@@ -49,11 +49,14 @@ export default function BillsPage() {
                 <Mono className="text-right text-[0.9375rem]">
                   {formatDecimal(b.total, b.currency)}
                 </Mono>
-                <span className="justify-self-start sm:justify-self-end">
-                  {b.outcome && <OutcomeStamp outcome={b.outcome} size="sm" />}
-                </span>
-                <span className="justify-self-end">
-                  <StatusChip status={b.status} />
+                {/* phones: stamp and chip share a wrapping row; from sm they are grid cells */}
+                <span className="col-span-2 flex flex-wrap items-center justify-between gap-2 sm:contents">
+                  <span className="sm:justify-self-end">
+                    {b.outcome && <OutcomeStamp outcome={b.outcome} size="sm" />}
+                  </span>
+                  <span className="sm:justify-self-end">
+                    <StatusChip status={b.status} />
+                  </span>
                 </span>
               </Link>
             </li>

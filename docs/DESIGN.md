@@ -80,8 +80,9 @@ its 10 % tint in both themes, and the closest pair under simulated deuteranopia 
 
 ## Motion (emil-design-eng)
 
-- The proof bar fills left to right one tick at a time when it first enters (each tick 90 ms,
-  `cubic-bezier(0.22, 1, 0.36, 1)`), total ≤ 900 ms; the hatched remainder is static.
+- The proof bar fills left to right one tick at a time when it first enters (40 % visible): each
+  tick grows over 260 ms, staggered min(90, 640 / (n − 1)) ms, `cubic-bezier(0.22, 1, 0.36, 1)`, so
+  the whole fill ends within 900 ms even with 20 ticks; the hatched remainder is static.
 - The stamp lands after the bar: scale 1.12 → 1, opacity 0 → 1, rotate −5° → −2°, 220 ms, the same
   ease-out. Only on a decision change, never on re-render or poll refresh.
 - Status chips cross-fade 150 ms when a bill changes status live (the PR merge moment).
@@ -93,13 +94,16 @@ its 10 % tint in both themes, and the closest pair under simulated deuteranopia 
 1. Hero: left, "Ningún pago sin prueba de entrega." (64–96 px, 900) and one line: "Recibido paga
    las cuentas de servicios solo por el trabajo que puede probar, le pide al contratista lo que
    falta y te deja a ti solo lo que se sale de las reglas." CTA "Ver la demo" → `/recorrido`,
-   secondary "Cómo decide". Right: the live specimen — Daniela's bill (160 h, COP) with the proof
-   bar filling as 14 Toggl entries and 9 PR ticks land, ending at 92 h and the stamp
-   "PAGAR UNA PARTE", then the vendor message bubble. Replays on click.
+   secondary "Cómo decide". Right: the live specimen: Daniela's bill (dataset `oct-03`, 160 h at
+   COP 130.000) with the proof bar filling as her 20 Toggl entries for September land (92 h; she
+   has no PRs), then the stamp "PAGAR UNA PARTE", the engine's own sentence and the vendor message.
+   Replays with "Repetir"; captioned as an example from the dataset.
 2. "El problema": three-way match exists for goods; for services there is no receiving note — a
    ledger row comparison: Bienes (orden · recepción · factura ✓) vs Servicios (contrato · ¿? ·
    cuenta).
-3. "Cómo decide": the five outcomes as five stamps in a row with one line each (not cards).
+3. "Cómo decide": three moves (Lee, Prueba, Decide), then the five outcomes as a ledger list, one
+   row each (stamp column and one line). A single row of five overflowed at 1440 px with
+   "ESCALAR A UNA PERSONA".
 4. "Medido, no prometido": numbers only from `/api/v1/overview` after the demo ran, else a
    sentence pointing to `pnpm eval` and the README table.
 5. "Para Blinka": local rails (Bre-B, SPEI, Pix, ACH), yield-aware timing, bank reconciliation —

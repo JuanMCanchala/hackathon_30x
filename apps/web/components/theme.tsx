@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 import { Monitor, Moon, Sun } from 'lucide-react';
-import { useSyncExternalStore } from 'react';
+import { useEffect, useSyncExternalStore } from 'react';
 
 type Theme = 'system' | 'light' | 'dark';
 const KEY = 'recibido:theme'; // keep in sync with the pre-paint script in app/layout.tsx
@@ -27,6 +27,13 @@ function subscribe(listener: () => void) {
   };
 }
 
+const SYSTEM_DARK = '(prefers-color-scheme: dark)';
+
+function apply(theme: Theme) {
+  const dark = theme === 'dark' || (theme === 'system' && matchMedia(SYSTEM_DARK).matches);
+  document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+}
+
 function choose(next: Theme) {
   chosen = next;
   try {
@@ -34,9 +41,7 @@ function choose(next: Theme) {
   } catch {
     // storage unavailable: the choice lasts for this page
   }
-  const dark =
-    next === 'dark' || (next === 'system' && matchMedia('(prefers-color-scheme: dark)').matches);
-  document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+  apply(next);
   listeners.forEach((l) => l());
 }
 
@@ -48,9 +53,18 @@ const OPTIONS = [
 
 export function ThemeSwitch({ className }: { className?: string }) {
   const theme = useSyncExternalStore(subscribe, read, () => 'system' as Theme);
+
+  // "sistema" follows the OS when it switches while the page is open
+  useEffect(() => {
+    const media = matchMedia(SYSTEM_DARK);
+    const onChange = () => read() === 'system' && apply('system');
+    media.addEventListener('change', onChange);
+    return () => media.removeEventListener('change', onChange);
+  }, []);
+
   return (
     <div
-      role="radiogroup"
+      role="group"
       aria-label="Tema"
       className={clsx('inline-flex rounded-[6px] border border-rule p-0.5', className)}
     >
@@ -58,8 +72,7 @@ export function ThemeSwitch({ className }: { className?: string }) {
         <button
           key={value}
           type="button"
-          role="radio"
-          aria-checked={theme === value}
+          aria-pressed={theme === value}
           title={label}
           onClick={() => choose(value)}
           className={clsx(

@@ -72,6 +72,7 @@
     --escalate: #f25a80;
     --hold: #9aa4b0;
     --hatch: rgb(233 238 234 / 0.24);
+    --shadow: 0 0 0 1px rgb(255 255 255 / 0.03), 0 16px 40px -24px rgb(0 0 0 / 0.8);
   }
 }
 

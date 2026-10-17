@@ -13,7 +13,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { useOverview } from '@/lib/api';
 import { formatDateTime } from '@/lib/format';
 import type { Phase } from '@/lib/types';
@@ -108,12 +108,24 @@ function RailFooter() {
 export function AppShell({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
 
-  // the phone menu closes on navigation (NavLinks) and on Escape
+  const toggle = useRef<HTMLButtonElement>(null);
+  const panel = useRef<HTMLDivElement>(null);
+
+  // the phone menu closes on navigation (NavLinks) and on Escape; while open it holds the focus
+  // and the page behind it does not scroll
   useEffect(() => {
     if (!open) return;
+    const button = toggle.current;
     const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setOpen(false);
     window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
+    const overflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    panel.current?.querySelector<HTMLElement>('a, button')?.focus();
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      document.body.style.overflow = overflow;
+      button?.focus();
+    };
   }, [open]);
 
   return (
@@ -142,6 +154,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           <Logo />
         </Link>
         <button
+          ref={toggle}
           type="button"
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
@@ -154,6 +167,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       </header>
       {open && (
         <div
+          ref={panel}
           id="menu-movil"
           className="rise-in fixed inset-x-0 top-14 bottom-0 z-20 grid content-between gap-8 overflow-y-auto border-t border-rule bg-sheet px-4 py-5 lg:hidden"
         >

@@ -91,6 +91,7 @@ export default function Landing() {
               </Link>
             </li>
           </ul>
+          <ThemeSwitch />
           <p className="w-full text-[0.875rem] text-ink-3">
             Datos ficticios de Altamar Labs Inc. Hecho para el reto de Blinka del Hackathon 30X.
           </p>

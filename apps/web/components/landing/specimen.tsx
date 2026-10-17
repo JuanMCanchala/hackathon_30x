@@ -128,6 +128,9 @@ export function Specimen() {
           {VENDOR_MESSAGE}
         </blockquote>
       </div>
+      <figcaption className="text-[0.8125rem] text-ink-3">
+        Ejemplo del dataset: cuenta de Daniela, septiembre.
+      </figcaption>
     </figure>
   );
 }
