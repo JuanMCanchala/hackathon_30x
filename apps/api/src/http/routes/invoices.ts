@@ -294,7 +294,7 @@ export function registerInvoiceRoutes(app: OpenAPIHono, deps: Deps) {
   // Real-time updates (ADR-0014).
   app.get('/api/v1/events', async (c) => {
     const user = await currentUser(deps, c);
-    return streamSSE(c, async (stream) => {
+    const response = streamSSE(c, async (stream) => {
       const unsubscribe = deps.bus.subscribe((event) => {
         if (event.orgId !== user.orgId) return;
         void stream.writeSSE({ event: event.type, data: JSON.stringify(event) });
@@ -307,5 +307,10 @@ export function registerInvoiceRoutes(app: OpenAPIHono, deps: Deps) {
       }
       unsubscribe();
     });
+    // Events must cross proxies as they happen: no-transform stops the web server's gzip from
+    // buffering them, and X-Accel-Buffering does the same for nginx-style proxies.
+    response.headers.set('Cache-Control', 'no-cache, no-transform');
+    response.headers.set('X-Accel-Buffering', 'no');
+    return response;
   });
 }

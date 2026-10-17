@@ -22,6 +22,17 @@ beforeAll(async () => {
 afterAll(() => container.database.close());
 
 describe('HTTP API', () => {
+  it('streams events that proxies must not compress or buffer', async () => {
+    const response = await app.request('/api/v1/events', as('usr_laura'));
+    expect(response.headers.get('content-type')).toContain('text/event-stream');
+    expect(response.headers.get('cache-control')).toContain('no-transform');
+    expect(response.headers.get('x-accel-buffering')).toBe('no');
+    const reader = response.body!.getReader();
+    const first = new TextDecoder().decode((await reader.read()).value);
+    expect(first).toContain('event: ready');
+    await reader.cancel();
+  });
+
   it('serves the OpenAPI document', async () => {
     const response = await app.request('/openapi.json');
     expect(response.status).toBe(200);
