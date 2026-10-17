@@ -188,17 +188,15 @@ export function nameSimilarity(a: string, b: string): number {
   return jaroWinkler(foldName(a), foldName(b));
 }
 
-/** Masks a payout destination for receipts: keeps enough to recognise it, not to reuse it. */
+/**
+ * Shortens a payout destination for receipts and agents. Bre-B aliases and Pix e-mail keys are
+ * meant to be shared, and a person must see exactly how a new key differs from the registered
+ * one, so they stay whole. Account numbers (CLABE, ACH, CCI) keep only their last four digits.
+ */
 export function maskDestination(value: string): string {
   const trimmed = value.trim();
-  if (trimmed.includes('@') && !trimmed.startsWith('@')) {
-    const [user = '', domain = ''] = trimmed.split('@');
-    return `${user.slice(0, 2)}•••@${domain}`;
-  }
-  if (trimmed.startsWith('@')) {
-    return trimmed.length <= 5 ? trimmed : `${trimmed.slice(0, 4)}•••${trimmed.slice(-2)}`;
-  }
-  const compact = trimmed.replace(/\s+/g, '');
+  if (trimmed.includes('@') || /[a-z]/i.test(trimmed.replace(/^card\s*/i, ''))) return trimmed;
+  const compact = trimmed.replace(/[\s.\-/]+/g, '');
   if (compact.length <= 6) return compact;
   return `•••${compact.slice(-4)}`;
 }

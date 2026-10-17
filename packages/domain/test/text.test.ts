@@ -62,8 +62,12 @@ describe('identifiers', () => {
 
   it('masks destinations for receipts', () => {
     expect(maskDestination('012180001234567891')).toBe('•••7891');
-    expect(maskDestination('@valrios')).toBe('@val•••os');
-    expect(maskDestination('camila.souza@exemplo.com.br')).toBe('ca•••@exemplo.com.br');
+    expect(maskDestination('012 180 0012 3456 7891')).toBe('•••7891');
+    expect(maskDestination('4421')).toBe('4421');
+    // Shared aliases stay whole so a changed key is visible next to the registered one.
+    expect(maskDestination('@valrios')).toBe('@valrios');
+    expect(maskDestination('@valentina.rios')).toBe('@valentina.rios');
+    expect(maskDestination('camila.souza@exemplo.com.br')).toBe('camila.souza@exemplo.com.br');
   });
 });
 
