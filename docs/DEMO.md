@@ -6,7 +6,7 @@ DeepSeek V4.1 Flash, para que funcione sin claves).
 
 ## Antes de grabar
 
-1. Abre la demo en vivo (<!-- DEMO_URL -->https://recibido.vercel.app<!-- /DEMO_URL -->) o
+1. Abre la demo en vivo (<!-- DEMO_URL -->Demo en vivo: (enlace en preparación)<!-- /DEMO_URL -->) o
    levántala en local con `pnpm dev` y abre `http://localhost:3000`.
 2. Ve a **Recorrido** y pulsa **Reiniciar la demo**: Altamar Labs vuelve al 1 de octubre de 2026,
    con septiembre ya vivido por los servicios reales.
@@ -31,7 +31,7 @@ DeepSeek V4.1 Flash, para que funcione sin claves).
 | 1:25–1:40 | Recorrido → **Se fusiona el PR del hito M3** → `oct-05`               | Fusiona el PR en GitHub (o pulsa la acción) y abre la cuenta de Andrés.                                                          | «El hito de Andrés esperaba un pull request abierto. Lo fusionamos… y en segundos la cuenta se paga sola, y el recibo cita el PR.»                                                                                                                                                                                                                                                |
 | 1:40–2:05 | Recorrido → **Lee un recibo** → `oct-03`                              | Recorre el recibo: barra de prueba, evidencia con enlaces, los 18 chequeos, lo que leyó el modelo, "Para pagarla", plan de pago. | «Cada decisión tiene su recibo. El modelo de lenguaje solo lee la cuenta y cruza las líneas con el contrato; horas, montos, topes y fechas los calcula código. Pagamos por Bre-B en la fecha de vencimiento y el dinero rinde mientras tanto.»                                                                                                                                    |
 | 2:05–2:20 | Recorrido → **Cierre de octubre y extracto de Blinka** → Conciliación | Pulsa la acción y abre Conciliación; señala una diferencia cambiaria, la comisión, el pago devuelto y la línea sin conciliar.    | «Llega el extracto de Blinka: cada línea del banco queda unida a su pago, su cuenta, su contrato y su evidencia, con la diferencia de cambio. Un pago devuelto y un cargo de tarjeta que nada explica quedan marcados.»                                                                                                                                                           |
-| 2:20–2:45 | **Resumen** (El marcador)                                             | Muestra autonomía, cero pagos indebidos, casos resueltos por el proveedor, rendimiento y comisiones.                             | «Medido sobre 45 cuentas etiquetadas, con las lecturas reales del modelo: el **80,5 %** de los casos se decide bien sin una persona, contra 0 % hoy; **cero pagos indebidos**, según un verificador independiente; y 9 de esos casos los cerró el proveedor, no el equipo.»                                                                                                       |
+| 2:20–2:45 | **Resumen** (El marcador)                                             | Muestra autonomía, cero pagos indebidos, casos resueltos por el proveedor, rendimiento y comisiones.                             | «Medido sobre 45 cuentas etiquetadas, con las lecturas reales del modelo: el **80,5 %** de los casos se decide bien sin una persona, contra 0 % hoy; **cero pagos indebidos**, según un verificador independiente; y 9 se cerraron tras pedirle al proveedor (5 respondió él, 4 con evidencia nueva).»                                                                            |
 | 2:45–3:00 | README → Costo mensual                                                | Muestra la tabla de costo.                                                                                                       | «Leer una cuenta cuesta menos de una décima de centavo de dólar: mil cuentas al mes son USD 0,88 de modelo. Le proponemos a Blinka un piloto con un cliente que pague contratistas en LatAm, sobre su riel real.» Cierre con la frase.                                                                                                                                            |
 
 Si sobra tiempo en el Demo Day:
@@ -41,7 +41,7 @@ Si sobra tiempo en el Demo Day:
 - **Responder como proveedor**: Conversaciones → _Abrir como proveedor_ en un caso abierto, y
   escribe «cambiamos de banco, paguen a esta cuenta»: el caso se escala, porque el proveedor nunca
   puede cambiar a dónde va el dinero.
-- **`oct-19`**: el WhatsApp de «1.200» sin moneda; intenta aprobarla y Recibido no deja: no leyó
+- **`oct-19`**: el WhatsApp de «1.200» sin moneda; intenta aprobarla y Recibido no lo permite: no leyó
   el monto con certeza.
 
 ## Preguntas probables del jurado
@@ -68,7 +68,7 @@ escala. Los datos de pago solo cambian en el registro de proveedores.
 caso, hereda lo ya pagado y solo paga la diferencia. Un verificador independiente lo comprueba
 sobre cada pago.
 
-**¿Qué pasa con el 20 % que no se automatiza?** Son los casos que _deben_ llegar a una persona:
+**¿Qué pasa con los 8 casos que no se automatizan (19,5 %)?** Son los casos que _deben_ llegar a una persona:
 una cuenta bancaria nueva, una empresa no registrada, horas sobre el tope, un monto sobre el
 límite, un proveedor que no respondió a tiempo. El techo que permiten las etiquetas es 80,5 % y lo
 alcanzamos.
@@ -80,14 +80,13 @@ conservar el rendimiento del fondo, salvo que el descuento por pronto pago valga
 simulación determinista; conectarlo a la API de Blinka es un adaptador. Bre-B, SPEI, Pix y ACH ya
 se eligen por moneda.
 
-**¿Qué cuesta operarlo?** USD 0,00088 de modelo por cuenta (medido). Con hosting: unos USD 20 al
-mes para un piloto de 200 cuentas y unos USD 64 para 10.000. El costo es el hosting, no la
+**¿Qué cuesta operarlo?** USD 0,00088 de modelo por cuenta (medido). Con hosting: unos USD 40 al mes para un piloto de 200 cuentas (Vercel Pro y Railway) y unos USD 64 para 10.000; la demo, sin uso comercial, cabe en Vercel Hobby. El costo es el hosting, no la
 inferencia.
 
 **¿Cómo lo midieron?** `pnpm eval` corre los servicios reales sobre 45 cuentas etiquetadas, dos
 veces (lectura perfecta y lecturas reales grabadas), y bloquea el CI si hay un solo pago indebido.
 Las etiquetas nunca se ajustaron al modelo.
 
-**¿En qué se diferencia de un AP automation normal?** Hace el _three-way match_ para servicios,
+**¿En qué se diferencia de una herramienta de cuentas por pagar tradicional?** Hace el _three-way match_ para servicios,
 paga partes, le pregunta primero al proveedor, elige el riel local y el momento del pago, y
 concilia hasta la evidencia.

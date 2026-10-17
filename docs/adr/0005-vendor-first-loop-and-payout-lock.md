@@ -5,7 +5,7 @@
 
 ## Context
 
-Most AP escalations are data problems the vendor can fix: a missing period, a wrong rate, a total
+Many AP exceptions are data problems the vendor can fix: a missing period, a wrong rate, a total
 that does not add up, hours not yet synced. Sending each one to a person costs the team time and
 keeps autonomy low. But a channel where the vendor talks to the agent is also the classic fraud
 channel: "we changed banks, pay to this account".
@@ -26,6 +26,6 @@ channel: "we changed banks, pay to this account".
 
 ## Consequences
 
-- In the eval, 9 of the 33 cases decided without a person closed through the vendor loop.
+- In the eval, 9 of the 33 cases decided without a person closed after the agent asked the vendor (5 after the vendor answered, 4 when new evidence arrived).
 - A person sees only what the vendor could not resolve, or what no vendor may resolve.
 - Changing a payout destination is a registry operation outside every agent path.

@@ -39,7 +39,8 @@ reales grabadas de DeepSeek V4.1 Flash):
 
 ## Pruébalo
 
-**Demo en vivo:** <!-- DEMO_URL -->https://recibido.vercel.app<!-- /DEMO_URL --> → menú
+<!-- DEMO_URL -->Demo en vivo: (enlace en preparación)<!-- /DEMO_URL -->. En la demo, abre el menú
+
 **Recorrido**. No hace falta ninguna clave: las lecturas del modelo están grabadas.
 
 **En tu máquina** (Node ≥ 22.12 y pnpm):
@@ -111,8 +112,8 @@ prove delivery without one.
   milestone over the monthly cap, a bill above the auto-pay limit, hidden instructions, a vendor
   who missed the deadline, an ambiguous WhatsApp amount). Each of those _must_ reach a person, so
   the ceiling for October is 63.2 % and Recibido reaches it.
-- **The vendor loop is where the autonomy comes from**: 9 of the 33 cases closed without a person
-  only because Recibido asked the contractor first (5 answered, 4 closed when the evidence arrived).
+- **The vendor loop**: 9 of the 33 cases closed after Recibido asked the contractor (5 after the
+  vendor answered, 4 when new evidence arrived).
 - **Median ≈ 15 days bill → payment is deliberate**: Recibido pays on the due date to keep the
   money in the fund, unless an early-payment discount is worth more.
 - **The model's misreadings never changed a decision**: 15 of 495 critical fields differ from the
@@ -155,7 +156,7 @@ stage, what it does on failure and its Spanish label: [RULES.md](docs/RULES.md).
    accepted by the client's PM, a usage report, a delivery confirmation, or "the signed schedule
    is enough" for a retainer. Evidence links are structural (contract term → evidence ref), so a
    live merge pays without a model call ([ADR-0004](docs/adr/0004-structural-evidence-links.md)).
-2. **The vendor first, then a person.** Most AP escalations are data problems the vendor can fix.
+2. **The vendor first, then a person.** Many AP exceptions are data problems the vendor can fix.
    Recibido writes to the contractor in Spanish with the exact gap ("Facturaste 160 h y hay
    registro de 92 h…") through a signed portal link; a message or a corrected bill re-runs the
    engine. The vendor can never change where money goes: any payout wording escalates
@@ -278,17 +279,14 @@ Threat model with file references: [SECURITY.md](docs/SECURITY.md).
 Flash on OpenRouter) used 84,453 input tokens (31,872 of them cache hits) and 52,698 output tokens:
 **USD 0.0396**, a mean of **1,877 input and 1,171 output tokens, USD 0.00088 per bill**
 ([EVALUATION.md](docs/EVALUATION.md#results)). Price: USD 0.15 per million input tokens (cache
-miss), 0.003 per million cached, 0.60 per million output; DeepSeek's own API charges the same
-off-peak and double at peak hours (sources below).
+miss), 0.003 per million cached, 0.60 per million output: the list price of DeepSeek V4.1 Flash on
+OpenRouter, equal to DeepSeek's own off-peak price (sources below).
 
-Worst case per bill (no cache hits, DeepSeek peak price): 1,877 × 0.30 / 10⁶ + 1,171 × 1.20 / 10⁶ =
-**USD 0.00197**.
-
-| Bills per month | Inference (measured mean, USD 0.00088) | Inference (worst case, USD 0.00197) |
-| --------------: | -------------------------------------: | ----------------------------------: |
-|             200 |                               USD 0.18 |                            USD 0.39 |
-|           1,000 |                               USD 0.88 |                            USD 1.97 |
-|          10,000 |                               USD 8.80 |                           USD 19.68 |
+| Bills per month | Inference (measured mean, USD 0.00088 per bill) |
+| --------------: | ----------------------------------------------: |
+|             200 |                                        USD 0.18 |
+|           1,000 |                                        USD 0.88 |
+|          10,000 |                                        USD 8.80 |
 
 A corrected bill or a vendor message with a file is one more bill (one more reading). Evidence,
 GitHub merges, the engine, the planner and reconciliation make no model call.
@@ -297,23 +295,23 @@ GitHub merges, the engine, the planner and reconciliation make no model call.
 
 | Piece            | Option                                                                               | Monthly  |
 | ---------------- | ------------------------------------------------------------------------------------ | -------- |
-| Web (Next.js)    | Vercel Hobby (non-commercial: demo, pilot)                                           | USD 0    |
+| Web (Next.js)    | Vercel Hobby (non-commercial: the demo only)                                         | USD 0    |
 | Web (Next.js)    | Vercel Pro (commercial use, one seat)                                                | USD 20   |
 | API + PostgreSQL | Railway: API 0.5 vCPU / 0.5 GB ≈ USD 15 + Postgres 0.1 vCPU / 0.25 GB / 1 GB ≈ USD 5 | ≈ USD 20 |
 
 Railway bills usage (≈ USD 20 per vCPU-month, ≈ USD 10 per GB-month of RAM); its Hobby plan's
-USD 5 fee is credited against usage. Recibido is not compute-bound: a bill is one or two model
-calls of a few seconds and a few milliseconds of engine work, so one small instance covers 10,000
-bills a month (≈ 330 a day). We size it up for headroom at that volume.
+USD 5 fee is credited against usage. A bill is one or two model calls of a few seconds plus the
+engine; we have not load-tested, so at 10,000 bills a month (≈ 330 a day) we size the API up for
+headroom.
 
 | Bills per month | Hosting                                                        | Inference (mean) | **Total**    |
 | --------------: | -------------------------------------------------------------- | ---------------: | ------------ |
-|             200 | Vercel Hobby USD 0 + Railway ≈ USD 20                          |         USD 0.18 | **≈ USD 20** |
+|             200 | Vercel Pro USD 20 + Railway ≈ USD 20 (pilot, commercial use)   |         USD 0.18 | **≈ USD 40** |
 |           1,000 | Vercel Pro USD 20 + Railway ≈ USD 20                           |         USD 0.88 | **≈ USD 41** |
 |          10,000 | Vercel Pro USD 20 + Railway with API at 1 vCPU / 1 GB ≈ USD 35 |         USD 8.80 | **≈ USD 64** |
 
-Even in the worst inference case, 10,000 bills cost under USD 20 of model a month: the cost of
-Recibido is hosting, not inference. Sources, fetched 2026-10-17:
+At the measured mean, 10,000 bills cost under USD 9 of model a month: the cost of Recibido is
+hosting, not inference. A non-commercial demo fits on Vercel Hobby (USD 0). Sources, fetched 2026-10-17:
 [DeepSeek pricing](https://api-docs.deepseek.com/quick_start/pricing),
 [OpenRouter models API](https://openrouter.ai/api/v1/models),
 [Railway pricing](https://railway.com/pricing), [Vercel pricing](https://vercel.com/pricing).

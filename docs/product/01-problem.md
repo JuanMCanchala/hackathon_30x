@@ -29,7 +29,7 @@ that "pays bills" stalls today:
 
 - An agent that pays services bills without evidence is paying on trust, at machine speed.
 - An agent that sends every services bill to a person saves nobody any time.
-- Most of what goes to a person is a **data problem the vendor could fix** in a minute (a missing
+- Much of what goes to a person is a **data problem the vendor could fix** in a minute (a missing
   period, a total that does not add up, hours not yet synced), but nobody asks the vendor first.
 - Paying early, or over an international wire, loses yield and fees on every payment.
 

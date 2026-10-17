@@ -24,7 +24,7 @@
 1. **A three-way match for services**, from digital evidence, line by line, with a structural link
    from each contract term to its evidence.
 2. **Partial payments.** Pay the proven part now; ask for the rest.
-3. **The vendor loop.** Most AP exceptions are data the vendor can fix; Recibido asks the vendor
+3. **The vendor loop.** Many AP exceptions are data the vendor can fix; Recibido asks the vendor
    first, through a signed link, and only then a person, without ever letting the vendor change the
    payout.
 4. **Blinka-specific treasury.** Local rails (Bre-B, SPEI, Pix, ACH) instead of a wire, and

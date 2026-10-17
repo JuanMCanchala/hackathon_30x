@@ -25,14 +25,14 @@ system fails. The approved product design is [PROPOSAL.md](PROPOSAL.md); the che
 
 ### Non-functional
 
-| Quality         | Target                                                                                                        |
-| --------------- | ------------------------------------------------------------------------------------------------------------- |
-| Safety          | Zero improper payments; enforced by the engine and re-checked by an independent checker (I1–I7).              |
-| Explainability  | Every decision explains itself in Spanish from its check trace; no model writes the reason.                   |
-| Reproducibility | Same inputs, same decision; model answers recorded and replayed; simulated clock.                             |
-| Operability     | Runs from a fresh clone with no keys and no database server; one container per app; PostgreSQL in production. |
-| Cost            | Under USD 0.001 of model per bill (measured USD 0.00088).                                                     |
-| Latency         | A decision in milliseconds once read; a live GitHub merge pays within one poll (5 s) or instantly by webhook. |
+| Quality         | Target                                                                                                                                       |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| Safety          | Zero improper payments; enforced by the engine and re-checked by an independent checker (I1–I7).                                             |
+| Explainability  | Every decision explains itself in Spanish from its check trace; no model writes the reason.                                                  |
+| Reproducibility | Same inputs, same decision; model answers recorded and replayed; simulated clock.                                                            |
+| Operability     | Runs from a fresh clone with no keys and no database server; one container per app; PostgreSQL in production.                                |
+| Cost            | Under USD 0.001 of model per bill (measured USD 0.00088).                                                                                    |
+| Latency         | A decision in milliseconds once read (in our runs; not load-tested); a live GitHub merge pays within one poll (5 s) or instantly by webhook. |
 
 ## Context (C4 level 1)
 
@@ -354,9 +354,8 @@ the sums but only the agent's are judged.
 ## Scalability
 
 - **Per bill:** one reading and at most one matching (two model calls of a few seconds, recorded
-  answers replay instantly); the engine runs in milliseconds.
-- **Throughput:** the org lock serializes only the write and decide step, not the model calls, so
-  one process handles thousands of bills a day. 10,000 bills a month is about 330 a day.
+  answers replay instantly); the engine took milliseconds in our runs.
+- **Throughput:** the org lock serializes only the write and decide step, not the model calls, so one process should handle the expected volume (10,000 bills a month is about 330 a day); we have not load-tested it.
 - **Horizontal scale:** replace the in-process lock with `pg_advisory_xact_lock(org)` (marked with
   a `ponytail:` comment in [`lock.ts`](../apps/api/src/services/lock.ts)); the rest is stateless.
 - **Multi-entity:** every table already carries `org_id`; Blinka's customers with hundreds of

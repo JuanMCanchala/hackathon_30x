@@ -77,6 +77,15 @@ For the live GitHub moment, point a repository webhook (`Pull requests`, JSON, s
 `GITHUB_WEBHOOK_SECRET`) at `<API>/api/v1/webhooks/github`, and set `GITHUB_REPO` and
 `GITHUB_DEMO_PR` to an open PR. Without them, the tour simulates the merge.
 
+### The hosted demo (one Vercel project)
+
+The public demo runs as a single Vercel project: the Next.js web with the API embedded in a route
+handler, PGlite in memory, and the demo seeded on cold start. Its state lives in the function
+instance, so it can reset when Vercel recycles the instance; **Recorrido → Reiniciar la demo**
+puts it back at October 1 at any time. It needs no keys (recorded readings). This is a demo
+setup, not a production one: Docker Compose or Railway with PostgreSQL (above) remain the
+production path.
+
 ### As deployed
 
 <!-- deploy:start -->
