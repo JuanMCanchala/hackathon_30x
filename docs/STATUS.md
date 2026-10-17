@@ -59,6 +59,13 @@ The SDD ledger with every review round and ruling is local in
   `PUBLIC_WEB_URL`; portal links are HMAC-signed.
 - The matcher prompt (matcher-2) no longer lets a unit guess alone lower confidence; code still
   checks hours and rates. Truth labels were never edited to match the model.
+- Demo clock: each tour step sets the org clock to its own scripted time (Daniela answers on
+  Oct 6 after the October bills arrived up to Oct 14), and business logic uses that time. The
+  "Hoy en la demo" display (tour and overview `clock.now`) shows the latest moment reached, the
+  max of the org clock and the timeline (`shownNow` in `apps/api/src/services/views.ts`), so it
+  never goes backwards on screen.
+- A person cannot approve an escalated bill whose total or currency was not read, or whose total
+  confidence is under the policy minimum (409); they ask for the formal bill or reject it.
 
 ## What only you can do
 
