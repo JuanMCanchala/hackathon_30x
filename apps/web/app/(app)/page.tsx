@@ -5,7 +5,13 @@ import { ChevronRight, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
 import { Page } from '@/components/shell';
-import { FitMeter, PlatformChips, Sparkline, TimingChip } from '@/components/marks';
+import {
+  FitMeter,
+  PlatformChips,
+  Sparkline,
+  TimingChip,
+  UnconfirmedChip,
+} from '@/components/marks';
 import { Empty, Skeleton, StageTag, fmtDateTime, fmtGrowth, fmtInt } from '@/components/ui';
 import { WaveChart } from '@/components/wave';
 import { useApi } from '@/lib/hooks';
@@ -86,6 +92,7 @@ function TopicRow({ topic }: { topic: RadarTopic }) {
         <div className="min-w-0">
           <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[1.04rem] leading-snug font-[700] text-ink">
             {topic.name}
+            {!topic.confirmed && <UnconfirmedChip growingIn={topic.growingIn} />}
             {topic.untouched && (topic.fit ?? 0) >= 7 && (
               <span className="rounded-full bg-brand-tint px-2 py-0.5 text-[0.72rem] font-[680] text-brand">
                 Oportunidad: 30X no lo ha tocado
@@ -134,7 +141,14 @@ export default function RadarPage() {
   const [platform, setPlatform] = useState<(typeof PLATFORMS)[number]['value']>('all');
   const [region, setRegion] = useState<(typeof REGIONS)[number]['value']>('global');
   const [untouched, setUntouched] = useState(false);
-  const query = new URLSearchParams({ platform, region, ...(untouched ? { untouched: '1' } : {}) });
+  // The brief asks to filter by audience: on by default, one click to see everything.
+  const [forAudience, setForAudience] = useState(true);
+  const query = new URLSearchParams({
+    platform,
+    region,
+    audience: forAudience ? '30x' : 'all',
+    ...(untouched ? { untouched: '1' } : {}),
+  });
   const { data, isLoading, error } = useApi<Radar>(`/api/v1/radar?${query}`);
 
   return (
@@ -184,6 +198,17 @@ export default function RadarPage() {
             <Segmented label="Idioma" options={REGIONS} value={region} onChange={setRegion} />
             <button
               type="button"
+              aria-pressed={forAudience}
+              onClick={() => setForAudience((v) => !v)}
+              className={clsx(
+                'rounded-full px-3.5 py-2 text-[0.88rem] font-[620] transition',
+                forAudience ? 'bg-brand text-on-brand' : 'bg-fill text-ink-2 hover:text-ink',
+              )}
+            >
+              Le sirve a 30X
+            </button>
+            <button
+              type="button"
               aria-pressed={untouched}
               onClick={() => setUntouched((v) => !v)}
               className={clsx(
@@ -201,9 +226,23 @@ export default function RadarPage() {
             </Empty>
           )}
           {isLoading && !data && <Skeleton className="h-[560px]" />}
+          {data && forAudience && data.hiddenByAudience > 0 && (
+            <p className="text-[0.9rem] text-ink-2">
+              {data.hiddenByAudience === 1
+                ? 'Un tema que crece no le sirve a la audiencia de 30X y quedó fuera.'
+                : `${data.hiddenByAudience} temas que crecen no le sirven a la audiencia de 30X y quedaron fuera.`}{' '}
+              <button
+                type="button"
+                onClick={() => setForAudience(false)}
+                className="font-[650] text-brand hover:underline"
+              >
+                Ver todos
+              </button>
+            </p>
+          )}
           {data && data.topics.length === 0 && (
             <Empty title="Nada crece con este filtro">
-              Prueba con todas las redes o quita «Sin explotar por 30X».
+              Prueba con todas las redes, o quita «Le sirve a 30X» o «Sin explotar por 30X».
             </Empty>
           )}
           {data && data.topics.length > 0 && (

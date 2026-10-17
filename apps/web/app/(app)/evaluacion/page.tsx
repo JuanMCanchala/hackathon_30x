@@ -45,12 +45,14 @@ interface Evaluation {
   cost: { weekUsd: number; llmUsd: number; dataUsd: number };
 }
 
+const SOURCE_NAME: Record<string, string> = {
+  wikipedia: 'Wikipedia',
+  hn: 'Hacker News',
+  bluesky: 'Bluesky',
+};
+const list = (items: string[]) => new Intl.ListFormat('es', { type: 'conjunction' }).format(items);
 const usd = (n: number) =>
-  new Intl.NumberFormat('es-CO', {
-    style: 'currency',
-    currency: 'USD',
-    maximumFractionDigits: 2,
-  }).format(n);
+  `USD ${n.toLocaleString('es-CO', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 const fmtWeek = new Intl.DateTimeFormat('es-CO', {
   day: 'numeric',
   month: 'short',
@@ -129,14 +131,10 @@ export default function EvaluationPage() {
         <section className="grid gap-3">
           <h2 className="t-h2 text-ink">Ola por ola</h2>
           <p className="-mt-1 max-w-3xl text-ink-2">
-            Señal: una semana con {b.params.signalLift} veces su nivel de las{' '}
-            {b.params.baselineWeeks} anteriores y al menos {b.params.minVolume} de volumen, en{' '}
-            {b.sources
-              .map((x) =>
-                x === 'hn' ? 'Hacker News' : x === 'wikipedia' ? 'Wikipedia' : 'Bluesky',
-              )
-              .join(' y ')}
-            .
+            Señal: una semana con {b.params.signalLift.toLocaleString('es-CO')} veces su nivel de
+            las {b.params.baselineWeeks} anteriores y al menos {b.params.minVolume} de volumen, en
+            dos fuentes a la vez entre {list(b.sources.map((x) => SOURCE_NAME[x] ?? x))}. Con una
+            sola fuente, entre 60 y 80 % de los temas estables daban falsas alarmas.
           </p>
           <div className="sheet overflow-x-auto">
             <table className="w-full min-w-[640px] text-left text-[0.92rem]">
@@ -179,6 +177,12 @@ export default function EvaluationPage() {
               </tbody>
             </table>
           </div>
+          {b.controls.some((c) => c.falseAlarm) && (
+            <p className="max-w-3xl text-ink-2">
+              Falsas alarmas: {list(b.controls.filter((c) => c.falseAlarm).map((c) => c.name))}. Sin
+              alarma: {list(b.controls.filter((c) => !c.falseAlarm).map((c) => c.name))}.
+            </p>
+          )}
           {s?.medianHnToWikipediaSignalDays !== null &&
             s?.medianHnToWikipediaSignalDays !== undefined && (
               <p className="max-w-3xl text-ink-2">

@@ -99,3 +99,21 @@ export function TimingChip({ timing }: { timing: string }) {
     </span>
   );
 }
+
+/**
+ * A growth seen in a single source: the backtest showed one source alone gives many false
+ * alarms, so the radar says so instead of hiding it.
+ */
+export function UnconfirmedChip({ growingIn }: { growingIn: Platform[] }) {
+  const where = growingIn.length
+    ? `solo en ${growingIn.map((p) => PLATFORM_COPY[p]).join(', ')}`
+    : 'en ninguna fuente por sí sola';
+  return (
+    <span
+      className="inline-flex rounded-full border border-dashed border-rule-strong px-2 py-0.5 text-[0.72rem] font-[650] whitespace-nowrap text-ink-2"
+      title={`Crece ${where}. Una sola fuente da muchas falsas alarmas: falta que lo confirme otra.`}
+    >
+      Por confirmar
+    </span>
+  );
+}

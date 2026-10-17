@@ -71,6 +71,10 @@ export interface RadarTopic {
   forming: boolean;
   /** Nobody talked about it in the four weeks before: new this week. */
   fresh: boolean;
+  /** Sources sampled alike where it grows by itself. */
+  growingIn: Platform[];
+  /** Grows in two or more of them; otherwise «por confirmar». */
+  confirmed: boolean;
 }
 
 export interface Radar {
@@ -84,6 +88,8 @@ export interface Radar {
   };
   topics: RadarTopic[];
   forming: RadarTopic[];
+  /** Growing topics left out because they do not serve 30X's audience. */
+  hiddenByAudience: number;
   cost: { weekUsd: number; llmUsd: number; dataUsd: number };
 }
 

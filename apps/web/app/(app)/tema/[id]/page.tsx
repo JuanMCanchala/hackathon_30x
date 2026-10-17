@@ -4,7 +4,7 @@ import { ArrowLeft, ArrowUpRight, Newspaper } from 'lucide-react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { AdaptationPanel } from '@/components/adaptation-panel';
-import { FitMeter, PlatformChips, TimingChip } from '@/components/marks';
+import { FitMeter, PlatformChips, TimingChip, UnconfirmedChip } from '@/components/marks';
 import { PieceCard } from '@/components/piece-card';
 import { Page } from '@/components/shell';
 import { HistoryLine, WeeklyBars } from '@/components/topic-charts';
@@ -85,6 +85,10 @@ export default function TopicPage() {
   if (!data)
     return (
       <Page className="grid gap-6">
+        <p className="text-ink-2" role="status">
+          Abriendo el tema. La primera vez tarda unos segundos: el radar cuenta los patrones y
+          escribe por qué crece.
+        </p>
         <Skeleton className="h-40" />
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_360px]">
           <Skeleton className="h-[480px]" />
@@ -113,6 +117,7 @@ export default function TopicPage() {
           )}
           <StageTag stage={t.stage} />
           <TimingChip timing={t.timing} />
+          {!t.confirmed && <UnconfirmedChip growingIn={t.growingIn} />}
           {t.untouched && (
             <span className="rounded-full bg-brand-tint px-2.5 py-1 text-[0.8rem] font-[680] text-brand">
               Sin explotar por 30X
