@@ -1,0 +1,21 @@
+{
+  "name": "@mandato/dataset",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Fictitious company Andes Labs Inc.: payees, mandates, bills, attacks and scripted human actions.",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "generate": "tsx scripts/generate.ts",
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@mandato/domain": "workspace:*"
+  },
+  "devDependencies": {
+    "puppeteer-core": "^25.14.0"
+  }
+}
