@@ -46,6 +46,11 @@ test('the demo path: October arrives, the vendors answer, the month closes clean
   await page.getByRole('button', { name: 'Llegan las cuentas de octubre' }).click();
   await expect(phase(page)).toHaveText('Octubre en curso', { timeout: 60_000 });
   await receiptStatus(page, 'oct-03', 'Pagada en parte');
+  // approving an escalation says how much of it nobody proved
+  await page.goto('/cuentas/oct-13');
+  await expect(page.locator('section[aria-labelledby="decidir"]')).toContainText(
+    'de esto, COP 9.800.000 sin evidencia',
+  );
 
   // Daniela answers through the real portal, as the vendor
   // her thread: the one conversation with a portal link that is Daniela's

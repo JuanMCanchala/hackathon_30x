@@ -131,6 +131,7 @@ function ReceiptBody({ r, refresh }: { r: BillReceipt; refresh: () => void }) {
         <ResolvePanel
           billId={r.bill.id}
           owedMinor={(a?.billedMinor ?? 0) - r.bill.casePaidMinor}
+          unevidencedMinor={Math.max((a?.billedMinor ?? 0) - (a?.evidencedMinor ?? 0), 0)}
           currency={currency}
           destination={r.vendor?.payout.display ?? null}
           amountUncertain={

@@ -18,6 +18,7 @@ type Action = 'approve' | 'reject';
 export function ResolvePanel({
   billId,
   owedMinor,
+  unevidencedMinor,
   currency,
   destination,
   amountUncertain,
@@ -25,6 +26,8 @@ export function ResolvePanel({
 }: {
   billId: string;
   owedMinor: number;
+  /** what the bill charges beyond its evidence (a person may approve it anyway) */
+  unevidencedMinor: number;
   currency: Currency | null;
   destination: string | null;
   /** the reader did not read the total or its currency with certainty: the API refuses approval */
@@ -56,6 +59,10 @@ export function ResolvePanel({
 
   const amount =
     !amountUncertain && currency && owedMinor > 0 ? formatMoney(owedMinor, currency) : null;
+  const unproven =
+    amount && unevidencedMinor > 0
+      ? formatMoney(Math.min(unevidencedMinor, owedMinor), currency!)
+      : null;
 
   return (
     <section
@@ -72,6 +79,12 @@ export function ResolvePanel({
             <>
               {' '}
               Aprobar paga <span className="t-mono text-ink">{amount}</span>
+              {unproven && (
+                <>
+                  {' '}
+                  (de esto, <span className="t-mono text-ink">{unproven}</span> sin evidencia)
+                </>
+              )}
               {destination && (
                 <>
                   {' '}
