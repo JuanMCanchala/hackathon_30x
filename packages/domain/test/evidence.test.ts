@@ -119,3 +119,79 @@ describe('evaluateLine', () => {
     expect(r.evidence.map((e) => e.id)).not.toContain('pr');
   });
 });
+
+describe('evaluateLine hardening', () => {
+  const usageTerm: ContractTerm = {
+    id: 'u1',
+    kind: 'usage',
+    title: 'Uso',
+    unitPriceMinor: 10,
+    evidence: { type: 'usage_report', meter: 'api-calls' },
+  };
+  const usageLine: ExtractedLine = {
+    description: 'Llamadas',
+    quantity: '100',
+    unit: 'unit',
+    unitPrice: '0.10',
+    amount: '10.00',
+  };
+  const usage = (q: string, id: string) =>
+    item({ id, kind: 'usage_report', ref: 'api-calls', quantity: q, source: 'medidor' });
+
+  it('null or malformed period counts nothing for period-bound evidence', () => {
+    const run2 = (b: Parameters<typeof bill>[0]) =>
+      evaluateLine(hoursLine('10'), 0, hourlyTerm, bill(b), 'COP', [item({ minutes: 600 })], 'v1');
+    expect(run2({ periodTo: null }).status).toBe('missing');
+    expect(run2({ periodFrom: null }).evidencedMinor).toBe(0);
+    expect(run2({ periodFrom: 'sept' }).status).toBe('missing');
+    const u = evaluateLine(usageLine, 0, usageTerm, bill({ periodTo: null }), 'COP', [usage('100', 'x')], 'v1');
+    expect(u.status).toBe('missing');
+  });
+
+  it('usage sums exactly and ignores malformed quantities', () => {
+    const r = run(usageLine, usageTerm, [usage('0.1', 'a'), usage('0.2', 'b'), usage('NaN', 'c'), usage('1e3', 'd')]);
+    expect(r.evidencedQuantity).toBe('0.3');
+    expect(r.evidencedQuantity).not.toContain('NaN');
+    const bad = run({ ...usageLine, quantity: 'lots' }, usageTerm, [usage('5', 'a')]);
+    expect(bad.status).toBe('missing');
+    expect(bad.evidencedQuantity).toBe('0');
+  });
+
+  it('duplicate evidence ids count once', () => {
+    const e = item({ id: 'dup', minutes: 300 });
+    const r = run(hoursLine('10'), hourlyTerm, [e, { ...e }]);
+    expect(r.evidencedQuantity).toBe('5');
+    expect(r.evidence).toHaveLength(1);
+  });
+
+  it('unparsable unit price → missing, 0 evidenced', () => {
+    const h = run({ ...hoursLine('10'), unitPrice: null }, hourlyTerm, [item({ minutes: 600 })]);
+    expect(h.status).toBe('missing');
+    expect(h.evidencedMinor).toBe(0);
+    const u = run({ ...usageLine, unitPrice: 'x' }, usageTerm, [usage('100', 'a')]);
+    expect(u.status).toBe('missing');
+    expect(u.evidencedMinor).toBe(0);
+  });
+
+  it('ticket, delivery and goods requirements', () => {
+    const mk = (kind: ContractTerm['kind'], evidence: ContractTerm['evidence']): ContractTerm => ({
+      id: 't',
+      kind,
+      title: 'T',
+      unitPriceMinor: 100,
+      evidence,
+    });
+    const line: ExtractedLine = { description: 'x', quantity: '1', unit: 'unit', unitPrice: '1.00', amount: '1.00' };
+    const ticket = mk('milestone', { type: 'ticket', key: 'ALT-1' });
+    expect(run(line, ticket, [item({ kind: 'ticket_closed', ref: 'ALT-1' })]).status).toBe('evidenced');
+    expect(run(line, ticket, [item({ kind: 'ticket_open', ref: 'ALT-1' })]).status).toBe('missing');
+    const goods = mk('goods', { type: 'delivery', orderId: 'O-9' });
+    expect(run(line, goods, [item({ kind: 'delivery_confirmed', ref: 'O-9' })]).evidencedMinor).toBe(100);
+    expect(run(line, goods, [item({ kind: 'delivery_confirmed', ref: 'O-8' })]).status).toBe('missing');
+  });
+
+  it('evidence of another vendor is ignored', () => {
+    const r = run(hoursLine('10'), hourlyTerm, [item({ vendorId: 'other', minutes: 600 })]);
+    expect(r.status).toBe('missing');
+  });
+});

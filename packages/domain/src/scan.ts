@@ -1,24 +1,47 @@
 import { normalizeDestination } from './text';
 
-const KEYWORDS = /cuenta|banco|clabe|pix|llave|bre-b|ach|routing|account|iban|chave/gi;
+const KEYWORDS = /cuenta|banco|clabe|pix|llave|bre-b|\bach\b|routing|account|iban|chave/gi;
 const EMAIL = /[\w.+-]+@[\w-]+(?:\.[\w-]+)+/g;
-const DIGITS = /\d(?:[ -]?\d){7,}/g;
+const UUID = /\b[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\b/gi;
+const IBAN = /\b[a-z]{2}\d{2}(?: ?[a-z0-9]){10,}\b/gi;
+const DIGITS = /\+?\(?\d[\d ().-]*\d/g;
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 const NEAR = 60;
 
-/** Normalized payout candidates (account numbers, CLABEs, e-mail/phone keys) near banking words. */
+const blank = (s: string, re: RegExp) => s.replace(re, (m) => ' '.repeat(m.length));
+
+/**
+ * Normalized payout candidates. UUIDs, IBAN-like strings and 18-digit runs (CLABE) always count;
+ * e-mail-like keys and other digit runs (>= 8 digits) only near a banking word.
+ */
 export function scanPayoutMentions(text: string): string[] {
   const keywords = [...text.matchAll(KEYWORDS)].map((m) => [m.index, m.index + m[0].length] as const);
   const near = (start: number, end: number) =>
     keywords.some(([ks, ke]) => ks - end <= NEAR && start - ke <= NEAR);
   const found = new Set<string>();
-  for (const re of [EMAIL, DIGITS]) {
-    for (const m of text.matchAll(re)) {
-      if (ISO_DATE.test(m[0]) || !near(m.index, m.index + m[0].length)) continue;
-      found.add(normalizeDestination(m[0]));
-    }
+  let rest = text;
+  for (const re of [UUID, IBAN]) {
+    for (const m of rest.matchAll(re)) found.add(normalizeDestination(m[0]));
+    rest = blank(rest, re);
+  }
+  for (const m of rest.matchAll(EMAIL)) {
+    if (near(m.index, m.index + m[0].length)) found.add(normalizeDestination(m[0]));
+  }
+  rest = blank(rest, EMAIL);
+  for (const m of rest.matchAll(DIGITS)) {
+    const digits = m[0].replace(/\D/g, '');
+    if (digits.length < 8 || ISO_DATE.test(m[0].trim())) continue;
+    if (digits.length === 18 || near(m.index, m.index + m[0].length)) found.add(digits);
   }
   return [...found];
+}
+
+/** Same destination, tolerating a phone key written with or without country code. */
+export function sameDestination(candidate: string, registered: string): boolean {
+  const a = normalizeDestination(candidate);
+  const b = normalizeDestination(registered);
+  if (a === b) return true;
+  return a.length >= 8 && b.length >= 8 && (a.endsWith(b) || b.endsWith(a));
 }
 
 const PAYOUT_CHANGE = [
@@ -44,7 +67,6 @@ const INSTRUCTIONS = [
   /aprueb[ae]\s+(este|el)\s+pago/,
   /approve\s+(this|the)\s+(payment|invoice|bill)/,
   /aprove\s+(este|o)\s+pagamento/,
-  /sin\s+revisi[oó]n/,
   /\bsystem\s*:/,
   /\bsistema\s+autom[aá]tico/,
   /as\s+an\s+ai\b/,

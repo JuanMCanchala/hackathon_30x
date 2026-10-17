@@ -13,11 +13,15 @@ import type {
 
 const DAY = /^\d{4}-\d{2}-\d{2}/;
 
-/** Compares by the ISO date prefix as written (offsets ignored); a missing bound is open. */
+/**
+ * Deny by default: without a well-formed period nothing counts. Compares the ISO date prefix as
+ * written (offsets ignored), inclusive.
+ */
 function inPeriod(item: EvidenceItem, from: string | null, to: string | null): boolean {
+  const f = from && DAY.exec(from)?.[0];
+  const t = to && DAY.exec(to)?.[0];
   const d = DAY.exec(item.occurredAt)?.[0];
-  if (!d) return false;
-  return (!from || d >= from.slice(0, 10)) && (!to || d <= to.slice(0, 10));
+  return !!(f && t && d && d >= f && d <= t);
 }
 
 /** Evidence kind that closes each requirement, and the ref it must carry. */
@@ -38,15 +42,24 @@ function closing(req: EvidenceRequirement): { kind: EvidenceKind; ref: string } 
   }
 }
 
-/** floor(decimal quantity × minor unit price), exact. Null when the quantity is not a decimal. */
-function mulFloor(quantity: string, unitMinor: number): number | null {
-  const m = /^(\d+)(?:\.(\d+))?$/.exec(quantity.trim());
+const QTY_SCALE = 6;
+const STRICT_DECIMAL = /^(\d+)(?:\.(\d{1,6}))?$/;
+
+/** Strict decimal → integer at 10^-6 scale; null when malformed or too precise. */
+function parseQty(q: string | null | undefined): bigint | null {
+  const m = STRICT_DECIMAL.exec((q ?? '').trim());
   if (!m) return null;
-  const frac = m[2] ?? '';
-  return Number((BigInt(m[1]! + frac) * BigInt(unitMinor)) / 10n ** BigInt(frac.length));
+  return BigInt(m[1]! + (m[2] ?? '').padEnd(QTY_SCALE, '0'));
 }
 
-/** Minutes → decimal hours, at most 2 decimals, no trailing zeros ("5550" → "92.5"). */
+function qtyToString(scaled: bigint): string {
+  const s = scaled.toString().padStart(QTY_SCALE + 1, '0');
+  const frac = s.slice(-QTY_SCALE).replace(/0+$/, '');
+  const whole = s.slice(0, -QTY_SCALE);
+  return frac ? whole + '.' + frac : whole;
+}
+
+/** Minutes → decimal hours, at most 2 decimals, no trailing zeros ('5550' → '92.5'). */
 function hoursString(minutes: number): string {
   const whole = Math.floor(minutes / 60);
   const hundredths = Math.floor(((minutes % 60) * 100) / 60);
@@ -92,45 +105,54 @@ export function evaluateLine(
     return { ...base, evidencedMinor: billedMinor, status: 'not_required' };
   }
 
+  const periodBound = term.kind === 'hours' || term.kind === 'usage';
+  const inScope = (e: EvidenceItem) => !periodBound || inPeriod(e, bill.periodFrom, bill.periodTo);
   const { kind, ref } = closing(term.evidence);
   const mine = evidence.filter((e) => e.vendorId === vendorId);
-  const counted = mine.filter(
-    (e) => e.kind === kind && e.ref === ref && inPeriod(e, bill.periodFrom, bill.periodTo),
-  );
-  const unitMinor = parseDecimalToMinor(line.unitPrice, currency) ?? 0;
+  const seen = new Set<string>();
+  const counted = mine.filter((e) => {
+    if (e.kind !== kind || e.ref !== ref || !inScope(e) || seen.has(e.id)) return false;
+    seen.add(e.id);
+    return true;
+  });
+  const unitMinor = parseDecimalToMinor(line.unitPrice, currency);
 
   if (term.kind === 'hours') {
     const billedMinutes = (line.quantity && parseHoursToMinutes(line.quantity)) || 0;
     const logged = counted.reduce((sum, e) => sum + (e.minutes ?? 0), 0);
-    const minutes = Math.min(billedMinutes, logged);
-    const evidencedMinor = Math.min(billedMinor, Number((BigInt(minutes) * BigInt(unitMinor)) / 60n));
+    const minutes = unitMinor === null ? 0 : Math.min(billedMinutes, logged);
+    const evidencedMinor = Math.min(
+      billedMinor,
+      Number((BigInt(minutes) * BigInt(unitMinor ?? 0)) / 60n),
+    );
     return {
       ...base,
       evidencedMinor,
       evidencedQuantity: hoursString(minutes),
       status: statusOf(minutes, billedMinutes),
       evidence: counted,
-      supporting: mine.filter(
-        (e) => e.kind === 'pr_merged' && inPeriod(e, bill.periodFrom, bill.periodTo),
-      ),
+      supporting: mine.filter((e) => e.kind === 'pr_merged' && inPeriod(e, bill.periodFrom, bill.periodTo)),
     };
   }
 
   if (term.kind === 'usage') {
-    const billedQty = Number(line.quantity ?? NaN);
-    const reported = counted.reduce((sum, e) => sum + Number(e.quantity ?? 0), 0);
-    const qty = Number.isFinite(billedQty) ? Math.min(billedQty, reported) : 0;
-    const evidencedMinor = Math.min(billedMinor, mulFloor(String(qty), unitMinor) ?? 0);
+    const billedQty = parseQty(line.quantity) ?? 0n;
+    const reported = counted.reduce((sum, e) => sum + (parseQty(e.quantity) ?? 0n), 0n);
+    const qty = unitMinor === null ? 0n : billedQty < reported ? billedQty : reported;
+    const evidencedMinor = Math.min(
+      billedMinor,
+      Number((qty * BigInt(unitMinor ?? 0)) / 10n ** BigInt(QTY_SCALE)),
+    );
     return {
       ...base,
       evidencedMinor,
-      evidencedQuantity: String(qty),
+      evidencedQuantity: qtyToString(qty),
       status: statusOf(evidencedMinor, billedMinor),
       evidence: counted,
     };
   }
 
-  // milestone / goods / retainer with a requirement: all-or-nothing
+  // milestone / goods / retainer with a requirement: all-or-nothing, not period-bound
   const ok = counted.length > 0;
   return {
     ...base,
