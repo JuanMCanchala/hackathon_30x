@@ -215,6 +215,7 @@ const INK = rgb(0.13, 0.13, 0.15);
 const MUTED = rgb(0.42, 0.42, 0.46);
 const RULE = rgb(0.82, 0.82, 0.85);
 const WHITE = rgb(1, 1, 1);
+const BOTTOM = 50;
 
 /** WinAnsi has no arrow: print "ES -> PT/EN" instead of "ES → PT/EN". */
 const winAnsi = (s: string) => s.replace(/→/g, '->');
@@ -232,6 +233,8 @@ function text(
   y: number,
   opts: { size?: number; bold?: boolean; color?: RGB; align?: 'left' | 'right' } = {},
 ) {
+  // one page only: content that would run into the bottom margin is a layout bug, not a page 2
+  if (y < BOTTOM) throw new Error(`"${s}" would be drawn below the bottom margin`);
   const size = opts.size ?? 9.5;
   const font = opts.bold ? pen.bold : pen.regular;
   const str = winAnsi(s);

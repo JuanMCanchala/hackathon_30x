@@ -1,8 +1,16 @@
 import { normalizeDestination } from './text';
 
-/** "cuenta de cobro" is the Colombian name of the bill itself, not a bank account. */
+/**
+ * Words that put a nearby number or e-mail in payout territory. "cuenta de cobro" is the
+ * Colombian name of the bill itself, not a bank account.
+ */
 const KEYWORDS =
-  /cuenta(?!\s+de\s+cobro)|banco|clabe|pix|llave|bre-b|\bach\b|routing|account|iban|chave/gi;
+  /cuenta(?!\s+de\s+cobro)|\bconta\b|banco|clabe|pix|llave|bre-b|\bach\b|routing|account|iban|chave|nequi|daviplata|consign|transfer|datos\s+para\s+el\s+pago|dados\s+para\s+pagamento|dados\s+banc[aá]rios|payment\s+details|remit\s+to/gi;
+/** A payout word right before a tax-id label turns that id into a key ("Chave Pix: CNPJ ..."). */
+const PAYOUT_WORD =
+  /pix|chave|llave|bre-b|clabe|cuenta(?!\s+de\s+cobro)|\bconta\b|account|nequi|daviplata/i;
+const TAX_LABEL = String.raw`(?:nit|c\.?\s?c|cnpj|cpf|rfc|ein|tax\s*id)\.?:?\s*(?:n[oº°]\.?\s*)?`;
+const CNPJ = /\b\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}\b/g;
 const EMAIL = /[\w.+-]+@[\w-]+(?:\.[\w-]+)+/g;
 const UUID = /\b[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\b/gi;
 const IBAN_PREFIX = /\b[a-z]{2}\d{2}/gi;
@@ -13,23 +21,40 @@ const IBAN_MAX = 34;
 
 const blank = (s: string, re: RegExp) => s.replace(re, (m) => ' '.repeat(m.length));
 
-/** A currency marker right before a digit run, or a currency code right after it. */
-const CURRENCY_BEFORE = /(?:\$|\b(?:COP|MXN|BRL|USD))\s*$/i;
-const CURRENCY_AFTER = /^\s*(?:COP|MXN|BRL|USD)\b/i;
-/** "20.800.000", "12345678" or "12345678.50": an amount, not "412-873345-09" */
-const AMOUNT_SHAPE = /^(?:\d{1,3}(?:\.\d{3})+|\d+(?:\.\d{1,2})?)$/;
-
 /**
- * An id as printed ("1.036.645.218", "34.567.891/0001-84"): its characters with optional
- * separators between them, not glued to more digits (so "1036645218-7" is not that id).
+ * A known id printed as a tax id: behind its label ("NIT 900.456.789-4", "C.C. 1.036.645.218",
+ * "CNPJ 34.567.891/0001-84"), separators allowed, and not continued by more digits (so
+ * "1036645218-7" or "1036645218 77" is not that id).
  */
-function printedId(id: string): RegExp | null {
+function printedTaxId(id: string): RegExp | null {
   const chars = normalizeDestination(id);
   if (chars.length < 6) return null;
-  return new RegExp(
-    `(?<![a-z0-9]|\\d[./-])${[...chars].join('[\\s./-]?')}(?![a-z0-9]|[./-]\\d)`,
-    'gi',
-  );
+  const body = [...chars].join(String.raw`[\s./-]?`);
+  return new RegExp(String.raw`(?<![a-z0-9])${TAX_LABEL}${body}(?![a-z0-9]|[./-]\d|\s\d)`, 'gi');
+}
+
+/** Blank the known ids printed as tax ids, unless a payout word sits just before the label. */
+function blankTaxIds(text: string, ids: readonly string[]): string {
+  let out = text;
+  for (const re of ids.map(printedTaxId)) {
+    if (!re) continue;
+    out = out.replace(re, (m: string, offset: number) =>
+      PAYOUT_WORD.test(out.slice(Math.max(0, offset - 20), offset)) ? m : ' '.repeat(m.length),
+    );
+  }
+  return out;
+}
+
+/** "20800000.00" → "2080000000" and "20800000": how a stated amount reads as a digit run. */
+function amountDigits(amounts: readonly (string | null)[]): Set<string> {
+  const out = new Set<string>();
+  for (const a of amounts) {
+    const m = /^(\d+)(?:\.(\d+))?$/.exec(a?.trim() ?? '');
+    if (!m) continue;
+    out.add(m[1]!);
+    if (m[2]) out.add(m[1]! + m[2]);
+  }
+  return out;
 }
 
 /**
@@ -67,11 +92,14 @@ function findIbans(text: string): { start: number; end: number }[] {
 
 /**
  * Normalized payout candidates. UUIDs, IBAN-like strings and 18-digit runs (CLABE) always count;
- * e-mail-like keys and other digit runs (>= 8 digits) only near a banking word. Amounts written
- * with a currency marker are not candidates, nor are the `ignore` ids (tax ids printed on the
- * bill: the vendor's own and the buyer's) wherever they appear.
+ * e-mail-like keys, CNPJs and other digit runs (>= 8 digits) only near a banking word. Not
+ * candidates: `ignoreIds` printed as tax ids (the vendor's own and the buyer's, see
+ * {@link printedTaxId}) and digit runs that are one of the bill's own `amounts`.
  */
-export function scanPayoutMentions(text: string, ignore: readonly string[] = []): string[] {
+export function scanPayoutMentions(
+  text: string,
+  opts: { ignoreIds?: readonly string[]; amounts?: readonly (string | null)[] } = {},
+): string[] {
   const keywords = [...text.matchAll(KEYWORDS)].map(
     (m) => [m.index, m.index + m[0].length] as const,
   );
@@ -79,7 +107,8 @@ export function scanPayoutMentions(text: string, ignore: readonly string[] = [])
     keywords.some(([ks, ke]) => ks - end <= NEAR && start - ke <= NEAR);
   const found = new Set<string>();
   let rest = text;
-  for (const re of ignore.map(printedId)) if (re) rest = blank(rest, re);
+  const stated = amountDigits(opts.amounts ?? []);
+  rest = blankTaxIds(rest, opts.ignoreIds ?? []);
   for (const m of rest.matchAll(UUID)) found.add(normalizeDestination(m[0]));
   rest = blank(rest, UUID);
   for (const { start, end } of findIbans(rest)) {
@@ -90,16 +119,14 @@ export function scanPayoutMentions(text: string, ignore: readonly string[] = [])
     if (near(m.index, m.index + m[0].length)) found.add(normalizeDestination(m[0]));
   }
   rest = blank(blank(rest, EMAIL), ISO_DATE);
+  for (const m of rest.matchAll(CNPJ)) {
+    if (near(m.index, m.index + m[0].length)) found.add(m[0].replace(/\D/g, ''));
+  }
+  rest = blank(rest, CNPJ);
   for (const m of rest.matchAll(DIGITS)) {
     const digits = m[0].replace(/\D/g, '');
     if (digits.length < 8) continue;
-    const end = m.index + m[0].length;
-    const amount =
-      digits.length !== 18 && // a CLABE stays a CLABE whatever precedes it
-      AMOUNT_SHAPE.test(m[0]) &&
-      (CURRENCY_BEFORE.test(rest.slice(Math.max(0, m.index - 6), m.index)) ||
-        CURRENCY_AFTER.test(rest.slice(end, end + 6)));
-    if (amount) continue;
+    if (digits.length !== 18 && stated.has(digits)) continue; // a CLABE stays a CLABE
     if (digits.length === 18 || near(m.index, m.index + m[0].length)) found.add(digits);
   }
   return [...found];

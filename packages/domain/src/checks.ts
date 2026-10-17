@@ -257,17 +257,24 @@ const vendorPayout: Check = ({ reading, vendor, ctx }) => {
   ].filter((t): t is string => !!t);
   const remedy =
     'Confirmar con el proveedor por un canal conocido. Los datos de pago solo cambian en el registro de proveedores, nunca desde una cuenta o un mensaje.';
-  if (texts.some(mentionsPayoutChange))
-    return fail('La cuenta o el mensaje pide cambiar los datos de pago.', remedy);
-  // tax ids printed on every bill (the vendor's own, the buyer's) are not destinations
-  const ids = [vendor!.taxId, ...(ctx.bill.knownNonPayoutIds ?? [])];
-  const candidates = [...new Set(texts.flatMap((t) => scanPayoutMentions(t, ids)))];
+  // tax ids printed on every bill (the vendor's own, the buyer's) and the bill's own amounts are
+  // not destinations
+  const opts = {
+    ignoreIds: [vendor!.taxId, ...(ctx.bill.knownNonPayoutIds ?? [])],
+    amounts: [reading!.total, ...reading!.lines.flatMap((l) => [l.amount, l.unitPrice])],
+  };
+  const candidates = [...new Set(texts.flatMap((t) => scanPayoutMentions(t, opts)))];
   const other = candidates.filter((c) => !sameDestination(c, registered.destination));
-  if (other.length)
+  const named = other.length
+    ? `${other.length === 1 ? 'el destino' : 'los destinos'} ${other.join(', ')}`
+    : '';
+  if (texts.some(mentionsPayoutChange))
     return fail(
-      `Aparece ${other.length === 1 ? 'el destino' : 'los destinos'} ${other.join(', ')}, distinto del registrado (${registered.display}).`,
+      `La cuenta o el mensaje pide cambiar los datos de pago${named ? ` (aparece ${named})` : ''}.`,
       remedy,
     );
+  if (other.length)
+    return fail(`Aparece ${named}, distinto del registrado (${registered.display}).`, remedy);
   return pass(
     candidates.length
       ? `Los datos de pago que trae la cuenta coinciden con el destino registrado (${registered.display}).`

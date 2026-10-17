@@ -41,6 +41,11 @@ describe('vendor.payout on the rendered documents', () => {
     }
   });
 
+  it('names the Pix key oct-06 asks for', () => {
+    const detail = payout(result.bills['oct-06']!.decisions[0]!.checks).detail;
+    expect(detail).toContain('5511988776655');
+  });
+
   it('keeps every labeled first and final outcome', () => {
     const wrong = BILLS.flatMap((b) => {
       const got = result.bills[b.id]!;

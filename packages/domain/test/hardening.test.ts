@@ -9,6 +9,8 @@ import {
   history,
   hourlyBill,
   hoursLine,
+  ospina,
+  VENDORS,
   RATE_MINOR,
   timeEntries,
 } from './fixtures';
@@ -67,6 +69,38 @@ describe('vendor.payout ignores the tax ids printed on every bill', () => {
     );
     expect(d.outcome).toBe('ESCALATE');
     expect(check(d, 'vendor.payout').status).toBe('fail');
+  });
+});
+
+describe('vendor.payout: a currency next to an account does not hide it', () => {
+  // the vendor's registered key is another one, so every account below is foreign
+  const vendors = VENDORS.map((v) =>
+    v.id === ospina.id ? { ...v, payout: { ...v.payout, destination: '3119998877' } } : v,
+  );
+  const ATTACKS = [
+    'Datos para el pago: Cuenta de ahorros Bancolombia 4512339871 COP',
+    'Chave Pix 12345678901 BRL',
+    'Llave Bre-B 3001234567 COP',
+    'Cuenta de ahorros Bancolombia: $4512339871',
+    'Consignar en la cuenta de ahorros No. $ 4.512.339.871',
+  ];
+  for (const payoutDetails of ATTACKS)
+    it(`escalates "${payoutDetails}"`, () => {
+      const d = decide(
+        context(hourlyBill('120', { payoutDetails }), { evidence: timeEntries(120), vendors }),
+      );
+      expect(d.outcome).toBe('ESCALATE');
+      expect(check(d, 'vendor.payout').status).toBe('fail');
+    });
+
+  it('names the new destination when the text also asks to change it', () => {
+    const d = decide(
+      context(hourlyBill('120'), {
+        evidence: timeEntries(120),
+        documentText: 'Mudei de banco: usem a nova chave Pix +55 11 98877-6655.',
+      }),
+    );
+    expect(check(d, 'vendor.payout').detail).toContain('5511988776655');
   });
 });
 
