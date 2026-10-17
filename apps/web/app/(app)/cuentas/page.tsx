@@ -9,7 +9,7 @@ import { ProofBar } from '@/components/proof-bar';
 import { Mono, PageHeader, stagger } from '@/components/ui';
 import { UploadDialog } from '@/components/upload-dialog';
 import { useBills } from '@/lib/api';
-import { formatDate, formatDecimal, OUTCOMES } from '@/lib/format';
+import { formatBilledAsRead, formatDate, OUTCOMES } from '@/lib/format';
 import { useFresh } from '@/lib/motion';
 import type { BillListItem, Outcome } from '@/lib/types';
 
@@ -47,7 +47,9 @@ function Row({ b, index }: { b: BillListItem; index: number }) {
             <span className="block text-[0.75rem] text-ink-3">Sin monto</span>
           )}
         </span>
-        <Mono className="text-right text-[0.9375rem]">{formatDecimal(b.total, b.currency)}</Mono>
+        <Mono className="text-right text-[0.9375rem]">
+          {formatBilledAsRead(b.total, b.currency, a?.currency ?? null)}
+        </Mono>
         <span className="order-4 col-span-2 flex flex-wrap items-center justify-between gap-2 md:order-none md:contents">
           <span className="md:justify-self-start">
             {b.outcome && <OutcomeStamp outcome={b.outcome} size="sm" />}

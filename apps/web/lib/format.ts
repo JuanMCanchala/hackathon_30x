@@ -12,15 +12,42 @@ const CURRENCIES: Currency[] = ['USD', 'COP', 'MXN', 'BRL'];
 export const isCurrency = (c: string | null | undefined): c is Currency =>
   CURRENCIES.includes(c as Currency);
 
+const asRead = (value: string) => value.trim().replace(/\.0+$/, '');
+const readCurrency = (c: string | null | undefined) => c?.trim().toUpperCase() || null;
+
 /**
  * "COP 20.800.000" from the reading's canonical decimal ("20800000.00"); "1200 (sin moneda)" when
- * the amount was read but its currency was not.
+ * the amount was read but its currency was not; "EUR 1200 (moneda no admitida)" for a currency
+ * Recibido does not pay in.
  */
 export function formatDecimal(value: string | null, currency: string | null): string {
-  if (!isCurrency(currency))
-    return value?.trim() ? `${value.trim().replace(/\.0+$/, '')} (sin moneda)` : 'Sin leer';
-  const minor = parseDecimalToMinor(value, currency);
-  return minor === null ? 'Sin leer' : formatMoney(minor, currency);
+  if (!value?.trim()) return 'Sin leer';
+  const read = readCurrency(currency);
+  if (!read) return `${asRead(value)} (sin moneda)`;
+  if (!isCurrency(read)) return `${read} ${asRead(value)} (moneda no admitida)`;
+  const minor = parseDecimalToMinor(value, read);
+  return minor === null ? 'Sin leer' : formatMoney(minor, read);
+}
+
+/** True when the bill was read in a currency other than the one its contract pays in. */
+export function currencyDiffers(read: string | null, contract: Currency | null): boolean {
+  return contract !== null && readCurrency(read) !== contract;
+}
+
+/**
+ * The billed total as the bill states it, never restated in the contract's currency:
+ * "1200 (sin moneda; el contrato es en COP)", "USD 1.200 (el contrato es en COP)".
+ */
+export function formatBilledAsRead(
+  value: string | null,
+  read: string | null,
+  contract: Currency | null,
+): string {
+  if (!value?.trim() || !contract || !currencyDiffers(read, contract))
+    return formatDecimal(value, read);
+  if (!readCurrency(read)) return `${asRead(value)} (sin moneda; el contrato es en ${contract})`;
+  if (!isCurrency(readCurrency(read))) return formatDecimal(value, read);
+  return `${formatDecimal(value, read)} (el contrato es en ${contract})`;
 }
 
 const TZ = 'America/Bogota';

@@ -94,7 +94,7 @@ its 10 % tint in both themes, and the closest pair under simulated deuteranopia 
   navigation; ledger rows stagger 30 ms on first show; the reconciliation chain's five cards
   appear 60 ms apart when a line is selected. Live lists (activity, conversations, decision
   history, ledger) animate only items that arrive while you watch (`useFresh` in
-  `apps/web/lib/motion.tsx`), never on a poll; a tour step completed live pops its check mark.
+  `apps/web/lib/motion.ts`), never on a poll; a tour step completed live pops its check mark.
 - Not done on purpose: no hover lift on cards (no card is clickable; a lift would promise a
   click), nothing loops, no counters, no loaders.
 - `prefers-reduced-motion: reduce` → no fill, stamp or entrance animation, final state

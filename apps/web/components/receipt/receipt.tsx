@@ -9,7 +9,14 @@ import { OutcomeStamp, StatusChip } from '@/components/outcome';
 import { fillDurationMs, ProofBar } from '@/components/proof-bar';
 import { Mono } from '@/components/ui';
 import { useBill } from '@/lib/api';
-import { formatDateTime, formatHours, formatMoney, isCurrency } from '@/lib/format';
+import {
+  currencyDiffers,
+  formatBilledAsRead,
+  formatDateTime,
+  formatHours,
+  formatMoney,
+  isCurrency,
+} from '@/lib/format';
 import type { BillReceipt } from '@/lib/types';
 import { ResolvePanel } from './resolve';
 import {
@@ -69,6 +76,8 @@ function ReceiptBody({ r, refresh }: { r: BillReceipt; refresh: () => void }) {
   const stampDelay = latest?.seq === firstSeq ? fillDurationMs(ticks.length) : 0;
   const hours = hoursOf(r.lines, r.contract);
   const a = r.amounts;
+  // a bill read without currency, or in another one, is never restated in the contract's currency
+  const otherCurrency = !!a && currencyDiffers(r.reading?.currency ?? null, a.currency);
 
   return (
     <article className="grid gap-10">
@@ -126,8 +135,9 @@ function ReceiptBody({ r, refresh }: { r: BillReceipt; refresh: () => void }) {
           destination={r.vendor?.payout.display ?? null}
           amountUncertain={
             !r.reading?.total?.trim() ||
-            !r.reading.currency?.trim() ||
-            r.reading.confidence.total < DEFAULT_POLICY.minReadingConfidence
+            !r.amounts?.currency ||
+            r.reading.confidence.total < DEFAULT_POLICY.minReadingConfidence ||
+            currencyDiffers(r.reading.currency, r.amounts.currency)
           }
           onDone={refresh}
         />
@@ -142,12 +152,14 @@ function ReceiptBody({ r, refresh }: { r: BillReceipt; refresh: () => void }) {
             ticks={ticks}
             currency={currency}
             legend={
-              hours
-                ? {
-                    proven: `${formatHours(hours.evidenced)} con prueba`,
-                    unproven: `${formatHours(Math.max(hours.billed - hours.evidenced, 0))} sin prueba`,
-                  }
-                : undefined
+              otherCurrency
+                ? false
+                : hours
+                  ? {
+                      proven: `${formatHours(hours.evidenced)} con prueba`,
+                      unproven: `${formatHours(Math.max(hours.billed - hours.evidenced, 0))} sin prueba`,
+                    }
+                  : undefined
             }
           />
           <dl className="grid grid-cols-2 gap-x-6 gap-y-4 border-t border-rule pt-5 sm:grid-cols-5">
@@ -161,7 +173,13 @@ function ReceiptBody({ r, refresh }: { r: BillReceipt; refresh: () => void }) {
               <div key={label}>
                 <dt className="text-[0.8125rem] text-ink-3">{label}</dt>
                 <dd className="t-mono mt-0.5 text-[1rem] font-[600] text-ink">
-                  {formatMoney(minor as number, currency)}
+                  {label === 'Facturado' && otherCurrency
+                    ? formatBilledAsRead(
+                        r.reading?.total ?? null,
+                        r.reading?.currency ?? null,
+                        a.currency,
+                      )
+                    : formatMoney(minor as number, currency)}
                 </dd>
               </div>
             ))}

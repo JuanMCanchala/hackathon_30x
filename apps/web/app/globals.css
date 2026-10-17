@@ -246,7 +246,7 @@
   }
   /* entrances: fade and rise a few px; --rise / --dur / --delay tune one use */
   .rise-in {
-    animation: rise-in var(--dur, 240ms) var(--ease-out) both;
+    animation: rise-in var(--dur, 240ms) var(--ease-out) backwards;
     animation-delay: var(--delay, 0ms);
   }
   /* a step's check mark when it completes while you watch */
