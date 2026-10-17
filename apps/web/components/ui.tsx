@@ -21,12 +21,13 @@ export { clsx as cx };
 
 type Variant = 'primary' | 'secondary' | 'ghost' | 'danger' | 'approve';
 
+// Apple-style capsules: filled blue for the main action, tinted grey for the rest.
 const VARIANTS: Record<Variant, string> = {
-  primary: 'bg-brand text-on-brand hover:bg-brand-strong',
-  secondary: 'bg-sheet text-ink border border-rule-strong hover:border-ink-3 hover:bg-sheet-2',
-  ghost: 'text-ink-2 hover:bg-sheet-2 hover:text-ink',
-  danger: 'bg-sheet text-held border border-held/40 hover:bg-held-tint',
-  approve: 'bg-paid text-white hover:brightness-110',
+  primary: 'bg-marker text-on-marker font-[650] hover:bg-marker-strong active:translate-y-px',
+  secondary: 'bg-fill text-ink hover:bg-rule-strong/60',
+  ghost: 'text-brand hover:bg-fill',
+  danger: 'bg-held-tint text-held hover:brightness-95',
+  approve: 'bg-paid text-on-paid hover:brightness-110',
 };
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -45,10 +46,10 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
       ref={ref}
       disabled={disabled || loading}
       className={clsx(
-        'inline-flex items-center justify-center gap-2 rounded-lg font-[560] transition-colors disabled:cursor-not-allowed disabled:opacity-55',
-        size === 'sm' && 'h-8 px-3 text-sm',
-        size === 'md' && 'h-10 px-4 text-[0.94rem]',
-        size === 'lg' && 'h-13 px-6 text-base',
+        'font-display inline-flex items-center justify-center gap-1.5 rounded-full font-[600] tracking-[-0.01em] transition-[filter,background-color] disabled:cursor-not-allowed disabled:opacity-45',
+        size === 'sm' && 'h-8 px-3.5 text-[0.84rem]',
+        size === 'md' && 'h-10 px-5 text-[0.94rem]',
+        size === 'lg' && 'h-12 px-7 text-[1.0625rem]',
         VARIANTS[variant],
         className,
       )}
@@ -89,7 +90,7 @@ export function ToneTag({
   return (
     <span
       className={clsx(
-        'inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[0.8rem] font-[560] whitespace-nowrap text-ink',
+        'inline-flex items-center gap-1.5 rounded-full px-2.5 py-[3px] text-[0.78rem] font-[590] whitespace-nowrap text-ink',
         style.bg,
         className,
       )}
@@ -135,7 +136,7 @@ export const Input = forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputE
       <input
         ref={ref}
         className={clsx(
-          'h-10 w-full rounded-lg border border-rule-strong bg-sheet px-3 text-[0.95rem] text-ink placeholder:text-ink-3 tabular-nums',
+          'h-10 w-full rounded-[10px] border border-transparent bg-fill px-3 text-[0.95rem] text-ink placeholder:text-ink-3 tabular-nums outline-none focus:border-brand focus:bg-sheet focus:ring-4 focus:ring-brand/15',
           className,
         )}
         {...rest}
@@ -152,7 +153,7 @@ export const Textarea = forwardRef<
     <textarea
       ref={ref}
       className={clsx(
-        'w-full rounded-lg border border-rule-strong bg-sheet px-3 py-2.5 text-[0.95rem] text-ink placeholder:text-ink-3',
+        'w-full rounded-[12px] border border-transparent bg-fill px-3 py-2.5 text-[0.95rem] text-ink placeholder:text-ink-3 outline-none focus:border-brand focus:bg-sheet focus:ring-4 focus:ring-brand/15',
         className,
       )}
       {...rest}
@@ -173,7 +174,7 @@ export function Field({
 }) {
   return (
     <div className="grid gap-1.5">
-      <label htmlFor={htmlFor} className="text-sm font-[600] text-ink">
+      <label htmlFor={htmlFor} className="text-[0.84rem] font-[560] text-ink-2">
         {label}
       </label>
       {children}
@@ -194,10 +195,10 @@ export function PageHeader({
   actions?: ReactNode;
 }) {
   return (
-    <header className="mb-8 flex flex-wrap items-end justify-between gap-4">
+    <header className="mb-6 flex flex-wrap items-end justify-between gap-4">
       <div className="max-w-2xl">
         <h1 className="t-h1 text-ink">{title}</h1>
-        {lead && <p className="mt-2 text-[1.02rem] leading-relaxed text-ink-2">{lead}</p>}
+        {lead && <p className="mt-2.5 text-[1.0625rem] leading-relaxed text-ink-2">{lead}</p>}
       </div>
       {actions && <div className="flex flex-wrap items-center gap-2">{actions}</div>}
     </header>
@@ -223,7 +224,7 @@ export function Empty({
 }
 
 export function Skeleton({ className }: { className?: string }) {
-  return <div className={clsx('animate-pulse rounded-md bg-rule/60', className)} aria-hidden />;
+  return <div className={clsx('animate-pulse rounded-[18px] bg-sheet', className)} aria-hidden />;
 }
 
 // ------------------------------------------------------------------ overlays
@@ -246,10 +247,10 @@ export function Dialog({
   return (
     <DialogPrimitive.Root open={open} onOpenChange={onOpenChange}>
       <DialogPrimitive.Portal>
-        <DialogPrimitive.Overlay className="fixed inset-0 z-40 bg-ink/40 backdrop-blur-[2px]" />
+        <DialogPrimitive.Overlay className="fixed inset-0 z-40 bg-black/25 backdrop-blur-[6px]" />
         <DialogPrimitive.Content
           className={clsx(
-            'fixed top-1/2 left-1/2 z-50 max-h-[90dvh] w-[calc(100vw-2rem)] -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-2xl border border-rule bg-sheet p-6 shadow-sheet',
+            'fixed top-1/2 left-1/2 z-50 max-h-[90dvh] w-[calc(100vw-2rem)] -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-[22px] bg-sheet p-6 shadow-float',
             wide ? 'max-w-3xl' : 'max-w-lg',
           )}
         >
@@ -263,10 +264,10 @@ export function Dialog({
               )}
             </div>
             <DialogPrimitive.Close
-              className="rounded-md p-1 text-ink-3 hover:bg-sheet-2 hover:text-ink"
+              className="grid size-7 place-items-center rounded-full bg-fill text-ink-2 hover:text-ink"
               aria-label="Cerrar"
             >
-              <X className="size-5" />
+              <X className="size-4" strokeWidth={2.5} />
             </DialogPrimitive.Close>
           </div>
           {children}
@@ -283,7 +284,7 @@ export function Tip({ content, children }: { content: ReactNode; children: React
       <TooltipPrimitive.Portal>
         <TooltipPrimitive.Content
           sideOffset={6}
-          className="z-50 max-w-xs rounded-lg border border-rule bg-sheet px-3 py-2 text-sm text-ink shadow-sheet"
+          className="material z-50 max-w-xs rounded-[12px] px-3 py-2 text-sm text-ink shadow-float"
         >
           {content}
         </TooltipPrimitive.Content>

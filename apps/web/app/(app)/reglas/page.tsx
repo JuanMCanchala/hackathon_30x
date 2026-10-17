@@ -212,7 +212,7 @@ export default function ReglasPage() {
             <span className="text-sm text-ink-3">desde el {fmtDay(policy.createdAt)}</span>
           </div>
 
-          <div className="grid gap-2 rounded-xl border border-dashed border-rule-strong p-4">
+          <div className="grid gap-2 rounded-[16px] bg-brand-tint/70 p-4">
             <label htmlFor="nl" className="flex items-center gap-2 text-sm font-[620] text-ink">
               <Sparkles className="size-4 text-brand" aria-hidden /> Escríbelo en español
             </label>
@@ -387,7 +387,7 @@ export default function ReglasPage() {
                     : `De ${preview.evaluated} facturas, ${preview.changes.length} se habrían decidido distinto: ${preview.becomesPay} se pagarían solas, ${preview.becomesEscalate} pedirían aprobación y ${preview.becomesHold} se frenarían.`}
                 </p>
                 {preview.changes.length > 0 && (
-                  <ul className="max-h-80 divide-y divide-rule overflow-y-auto rounded-lg border border-rule">
+                  <ul className="max-h-80 divide-y divide-rule overflow-y-auto rounded-[14px] bg-sheet-2">
                     {preview.changes.map((c) => (
                       <li key={c.invoiceId} className="grid gap-1 px-3.5 py-2.5 text-sm">
                         <Link

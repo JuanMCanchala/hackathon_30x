@@ -28,7 +28,7 @@ function AttackResult({
   return (
     <Link
       href={`/facturas/${invoiceId}`}
-      className="grid gap-1.5 rounded-lg border border-rule px-3.5 py-3 hover:bg-sheet-2"
+      className="grid gap-1.5 rounded-[14px] bg-sheet-2 px-3.5 py-3 transition-colors hover:bg-fill"
     >
       <span className="flex flex-wrap items-center gap-2">
         <StatusTag status={data.status} />

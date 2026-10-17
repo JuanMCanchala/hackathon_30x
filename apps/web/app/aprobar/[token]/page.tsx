@@ -1,10 +1,11 @@
 'use client';
 
+import clsx from 'clsx';
 import { CircleCheck, CircleSlash, Clock, TriangleAlert } from 'lucide-react';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { formatMoney, formatUsd } from '@mandato/domain';
-import { Guilloche, Logo } from '@/components/guilloche';
+import { Logo } from '@/components/brand';
 import { Button, Textarea } from '@/components/ui';
 
 interface LinkView {
@@ -103,69 +104,72 @@ export default function AprobarPage() {
 
       {view && inv && phase !== 'invalid' && (
         <>
-          <article className="sheet relative overflow-hidden">
-            <Guilloche
-              size={360}
-              bands={3}
-
-              className="pointer-events-none absolute -top-32 -right-32 text-[var(--guilloche)] opacity-[0.16]"
-            />
-            <div className="relative grid gap-4 p-6">
-              <p className="text-sm text-ink-2">
-                {view.approver.name}, este cobro necesita tu aprobación. {inv.ref}
+          <article
+            className={clsx(
+              'pass pass-in',
+              phase === 'done'
+                ? result === 'approve'
+                  ? 'pass-paid'
+                  : 'pass-held'
+                : 'pass-pending',
+            )}
+          >
+            <div className="relative z-10 grid gap-5 p-6">
+              <p className="text-[0.88rem] font-[560] text-white/85">
+                {view.approver.name}, este cobro espera tu aprobación. Comprobante {inv.ref}.
               </p>
               <div>
-                <p className="t-display text-ink">
+                <p className="text-[0.95rem] font-[560] text-white/85">
+                  {inv.payee?.name ?? inv.issuerName ?? 'Quien cobra'}
+                  {inv.invoiceNumber ? `, factura ${inv.invoiceNumber}` : ''}
+                </p>
+                <p className="t-figure mt-1 text-[2.6rem] leading-none">
                   {inv.amountMinor !== null && inv.currency
                     ? formatMoney(inv.amountMinor, inv.currency)
-                    : 'sin monto'}
+                    : 'Sin monto'}
                 </p>
                 {inv.currency !== 'USD' && inv.usdCents !== null && (
-                  <p className="text-sm text-ink-3">≈ {formatUsd(inv.usdCents)}</p>
+                  <p className="mt-1.5 text-[0.95rem] text-white/80">≈ {formatUsd(inv.usdCents)}</p>
                 )}
               </div>
-              <p className="text-lg text-ink">
-                Para{' '}
-                <span className="font-[650]">
-                  {inv.payee?.name ?? inv.issuerName ?? 'quien cobra'}
-                </span>
-                {inv.invoiceNumber ? `, factura ${inv.invoiceNumber}` : ''}
-              </p>
-              {inv.summary && <p className="voice text-ink">{inv.summary}</p>}
-              {others.length > 0 && (
-                <div className="grid gap-2">
-                  <p className="text-sm font-[620] text-ink">Además:</p>
-                  <ul className="grid gap-2">
-                    {others.map((f) => (
-                      <li
-                        key={f.title}
-                        className="flex gap-2.5 rounded-lg bg-pending-tint/70 px-3 py-2.5 text-sm"
-                      >
-                        <TriangleAlert
-                          className="mt-0.5 size-4 shrink-0 text-pending"
-                          aria-hidden
-                        />
-                        <div>
-                          <p className="text-ink">{f.detail}</p>
-                          <p className="mt-0.5 text-xs text-ink-3">Regla: {f.title}</p>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-              {inv.approval && inv.approval.required > 1 && (
-                <p className="text-sm text-ink-2">
-                  Necesita {inv.approval.required} aprobaciones de personas distintas.{' '}
-                  {inv.approval.approvals
-                    .filter((a) => a.action === 'approve')
-                    .map((a) => `${a.name} ya aprobó.`)
-                    .join(' ')}
-                </p>
-              )}
             </div>
-            <div className="perforation" aria-hidden />
+            {inv.summary && (
+              <>
+                <div className="pass-notch" aria-hidden />
+                <p className="relative z-10 px-6 pt-5 pb-6 text-[1.05rem] leading-relaxed font-[480]">
+                  {inv.summary}
+                </p>
+              </>
+            )}
           </article>
+          {others.length > 0 && (
+            <div className="sheet grid gap-2 p-4">
+              <p className="px-1 text-[0.84rem] font-[560] text-ink-2">Además</p>
+              <ul className="grid gap-2">
+                {others.map((f) => (
+                  <li
+                    key={f.title}
+                    className="flex gap-2.5 rounded-[12px] bg-sheet-2 px-3 py-2.5 text-sm"
+                  >
+                    <TriangleAlert className="mt-0.5 size-4 shrink-0 text-pending" aria-hidden />
+                    <div>
+                      <p className="text-ink">{f.detail}</p>
+                      <p className="mt-0.5 text-xs text-ink-3">Regla: {f.title}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {inv.approval && inv.approval.required > 1 && (
+            <p className="px-1 text-sm text-ink-2">
+              Necesita {inv.approval.required} aprobaciones de personas distintas.{' '}
+              {inv.approval.approvals
+                .filter((a) => a.action === 'approve')
+                .map((a) => `${a.name} ya aprobó.`)
+                .join(' ')}
+            </p>
+          )}
 
           {phase === 'done' ? (
             <div className="sheet grid justify-items-center gap-3 p-6 text-center">

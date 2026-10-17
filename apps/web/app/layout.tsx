@@ -4,19 +4,26 @@ import type { ReactNode } from 'react';
 import { Providers } from '@/components/providers';
 import './globals.css';
 
-// Self-hosted variable fonts (OFL, see app/fonts): no network needed to build or run.
-const archivo = localFont({
-  src: './fonts/Archivo.woff2',
-  variable: '--font-archivo',
-  weight: '100 900',
+// Self-hosted variable fonts (OFL, see app/fonts): Bricolage Grotesque gives the voice, Inter
+// keeps data readable, Caveat writes the hand-drawn notes.
+const bricolage = localFont({
+  src: './fonts/Bricolage.woff2',
+  variable: '--font-bricolage',
+  weight: '200 800',
   display: 'swap',
-  declarations: [{ prop: 'font-stretch', value: '62% 125%' }],
 });
 
-const newsreader = localFont({
-  src: './fonts/Newsreader.woff2',
-  variable: '--font-newsreader',
-  weight: '200 800',
+const inter = localFont({
+  src: './fonts/Inter.woff2',
+  variable: '--font-inter',
+  weight: '100 900',
+  display: 'swap',
+});
+
+const caveat = localFont({
+  src: './fonts/Caveat.woff2',
+  variable: '--font-caveat',
+  weight: '400 700',
   display: 'swap',
 });
 
@@ -28,8 +35,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#eef2ee' },
-    { media: '(prefers-color-scheme: dark)', color: '#0c1815' },
+    { media: '(prefers-color-scheme: light)', color: '#f2f3f8' },
+    { media: '(prefers-color-scheme: dark)', color: '#0a0f2b' },
   ],
 };
 
@@ -40,7 +47,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
       lang="es"
-      className={`${archivo.variable} ${newsreader.variable}`}
+      className={`${bricolage.variable} ${inter.variable} ${caveat.variable}`}
       suppressHydrationWarning
     >
       <head>

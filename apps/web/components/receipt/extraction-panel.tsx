@@ -44,7 +44,7 @@ export function ExtractionPanel({ invoice }: { invoice: InvoiceDetail }) {
   const meta = invoice.extractionMeta;
   if (!x) {
     return (
-      <div className="rounded-lg border border-rule bg-pending-tint/60 p-4 text-sm text-ink">
+      <div className="rounded-[14px] bg-pending-tint p-4 text-sm text-ink">
         <p className="font-[600]">No hubo lectura del documento.</p>
         <p className="mt-1 text-ink-2">
           {meta.error ?? 'El lector no devolvió datos.'} Por eso el agente no pudo decidir solo.
@@ -83,7 +83,7 @@ export function ExtractionPanel({ invoice }: { invoice: InvoiceDetail }) {
       <p className="text-sm text-ink-2">
         {readerLine(meta)}. El lector no decide: solo extrae, y dice qué tan seguro está.
       </p>
-      <dl className="divide-y divide-rule rounded-lg border border-rule bg-sheet">
+      <dl className="divide-y divide-rule overflow-hidden rounded-[14px] bg-sheet-2">
         {rows.map((row) => (
           <div
             key={row.label}

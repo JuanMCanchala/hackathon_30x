@@ -26,7 +26,7 @@ const TOOLS = [
 
 function Snippet({ title, code }: { title: string; code: string }) {
   return (
-    <div className="overflow-hidden rounded-lg border border-rule">
+    <div className="overflow-hidden rounded-[14px] bg-sheet-2">
       <div className="flex items-center justify-between border-b border-rule bg-sheet-2 px-3.5 py-2">
         <p className="text-sm font-[600] text-ink">{title}</p>
         <Button

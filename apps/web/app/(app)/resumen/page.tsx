@@ -1,10 +1,11 @@
 'use client';
 
 import { BadgeCheck, ShieldCheck, ShieldX } from 'lucide-react';
+import clsx from 'clsx';
 import Link from 'next/link';
 import { formatPeriod, formatPeriodMonth, formatUsd } from '@mandato/domain';
 import { BudgetMeter, MonthMix, TrustLadder } from '@/components/charts';
-import { Guilloche } from '@/components/guilloche';
+import { Floating, Pen, Spark } from '@/components/landing/doodles';
 import { InvoiceRows } from '@/components/invoice-list';
 import { Button, Empty, Skeleton, fmtDateTime } from '@/components/ui';
 import { useApi } from '@/lib/hooks';
@@ -48,9 +49,19 @@ export default function ResumenPage() {
 
   return (
     <div className="grid gap-10">
-      <section className="max-w-3xl">
-        <p className="mb-3 text-sm text-ink-3">{data.organization.legalName}</p>
-        <h1 className="t-display text-ink">{headline(data)}</h1>
+      <section className="noche relative overflow-hidden rounded-[30px] px-7 py-9 sm:px-10 sm:py-11">
+        <Floating className="top-6 right-8 hidden w-14 text-marker/80 sm:block" tilt={-10}>
+          <Pen />
+        </Floating>
+        <Floating className="right-[22%] bottom-6 hidden w-10 text-marker/70 md:block" delay={900}>
+          <Spark />
+        </Floating>
+        <p className="font-hand -rotate-1 text-[1.6rem] leading-none text-marker">
+          {data.organization.legalName}, en números
+        </p>
+        <h1 className="font-display mt-3 max-w-4xl text-[clamp(1.9rem,1.2rem+2.4vw,3rem)] leading-[1.02] font-[780] tracking-[-0.035em] text-white">
+          {headline(data)}
+        </h1>
       </section>
 
       {data.ladder.length === 0 ? (
@@ -90,32 +101,31 @@ export default function ResumenPage() {
           <div className="grid content-start gap-6">
             <Link
               href="/auditoria"
-              className="sheet relative overflow-hidden p-5 hover:border-rule-strong"
+              className={clsx(
+                'lift relative overflow-hidden rounded-[22px] p-6',
+                audit?.ok ? 'bg-marker text-on-marker' : 'sheet',
+              )}
               aria-label="Ver la auditoría"
             >
-              <Guilloche
-                size={220}
-                bands={2}
-
-                className="pointer-events-none absolute -top-16 -right-16 text-brand opacity-[0.16]"
-              />
               {audit ? (
                 <>
-                  <p className="flex items-center gap-2 text-sm text-ink-2">
+                  <p className="font-display flex items-center gap-2 text-[0.95rem] font-[620]">
                     {audit.ok ? (
-                      <ShieldCheck className="size-5 text-paid" aria-hidden />
+                      <ShieldCheck className="size-5" aria-hidden />
                     ) : (
                       <ShieldX className="size-5 text-held" aria-hidden />
                     )}
                     Auditor independiente
                   </p>
-                  <p className="t-display mt-3 text-ink">{audit.violations}</p>
-                  <p className="text-[0.95rem] text-ink">pagos fuera de las reglas</p>
-                  <p className="mt-3 text-sm text-ink-3">
+                  <p className="t-figure mt-2 text-[4.5rem] leading-none">{audit.violations}</p>
+                  <p className="font-display text-[1.05rem] font-[650]">
+                    pagos fuera de las reglas
+                  </p>
+                  <p className="mt-3 text-sm opacity-80">
                     {audit.paymentsChecked} pagos y {audit.decisionsChecked} decisiones revisadas,
                     cadena {audit.chainIntact ? 'íntegra' : 'rota'}.
                   </p>
-                  <p className="mt-1 text-sm text-ink-3">Revisado el {fmtDateTime(audit.at)}</p>
+                  <p className="mt-1 text-sm opacity-80">Revisado el {fmtDateTime(audit.at)}</p>
                 </>
               ) : (
                 <>

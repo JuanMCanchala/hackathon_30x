@@ -40,7 +40,7 @@ export default function FacturasPage() {
         <div
           role="tablist"
           aria-label="Filtrar por estado"
-          className="inline-flex flex-wrap rounded-lg border border-rule bg-sheet p-0.5"
+          className="inline-flex flex-wrap rounded-[9px] bg-fill p-0.5"
         >
           {FILTERS.map((f) => (
             <button
@@ -50,9 +50,9 @@ export default function FacturasPage() {
               aria-selected={status === f.value}
               onClick={() => setStatus(f.value)}
               className={clsx(
-                'rounded-md px-3 py-1.5 text-sm',
+                'rounded-[7px] px-3 py-1 text-[0.86rem] transition',
                 status === f.value
-                  ? 'bg-brand-tint font-[620] text-ink'
+                  ? 'bg-sheet font-[590] text-ink shadow-[0_1px_3px_rgb(0_0_0/0.12)]'
                   : 'text-ink-2 hover:text-ink',
               )}
             >
@@ -63,7 +63,7 @@ export default function FacturasPage() {
         <select
           value={period}
           onChange={(e) => setPeriod(e.target.value)}
-          className="h-10 rounded-lg border border-rule-strong bg-sheet px-3 text-sm text-ink"
+          className="h-10 rounded-[10px] bg-fill px-3 text-sm text-ink"
           aria-label="Mes"
         >
           <option value="">Todos los meses</option>

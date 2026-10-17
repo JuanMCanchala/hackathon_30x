@@ -5,7 +5,6 @@ import { Check, Download, ShieldCheck, ShieldX, X } from 'lucide-react';
 import { useState } from 'react';
 import { toast } from 'sonner';
 import { useSWRConfig } from 'swr';
-import { Guilloche } from '@/components/guilloche';
 import { LEDGER_COPY } from '@/components/receipt/ledger-trail';
 import { Button, PageHeader, Skeleton, fmtDateTime } from '@/components/ui';
 import { ApiError, post } from '@/lib/api';
@@ -44,13 +43,13 @@ export default function AuditoriaPage() {
           <>
             <a
               href="/api/v1/reconciliation.csv"
-              className="inline-flex h-10 items-center gap-2 rounded-lg border border-rule-strong bg-sheet px-4 text-[0.94rem] font-[560] text-ink hover:bg-sheet-2"
+              className="inline-flex h-10 items-center gap-2 rounded-full bg-fill px-4 text-brand text-[0.94rem] font-[560] text-ink hover:bg-sheet-2"
             >
               <Download className="size-4" aria-hidden /> Conciliación (CSV)
             </a>
             <a
               href="/api/v1/ledger/export.json"
-              className="inline-flex h-10 items-center gap-2 rounded-lg border border-rule-strong bg-sheet px-4 text-[0.94rem] font-[560] text-ink hover:bg-sheet-2"
+              className="inline-flex h-10 items-center gap-2 rounded-full bg-fill px-4 text-brand text-[0.94rem] font-[560] text-ink hover:bg-sheet-2"
             >
               <Download className="size-4" aria-hidden /> Registro (JSON)
             </a>
@@ -70,12 +69,6 @@ export default function AuditoriaPage() {
       ) : (
         <section className="grid gap-6 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
           <div className="sheet relative overflow-hidden p-6">
-            <Guilloche
-              size={360}
-              bands={3}
-
-              className="pointer-events-none absolute -right-28 -bottom-32 text-[var(--guilloche)] opacity-[0.15]"
-            />
             <p className="flex items-center gap-2 text-sm text-ink-2">
               {report.ok ? (
                 <ShieldCheck className="size-5 text-paid" aria-hidden />

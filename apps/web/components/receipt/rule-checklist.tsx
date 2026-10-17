@@ -82,7 +82,7 @@ export function RuleChecklist({ results }: { results: RuleResult[] }) {
             <li key={stage.id}>
               <p className="text-[0.95rem] font-[650] text-ink">{stage.title}</p>
               <p className="mb-2 text-sm text-ink-3">{stage.question}</p>
-              <ul className="divide-y divide-rule rounded-lg border border-rule">
+              <ul className="divide-y divide-rule overflow-hidden rounded-[14px] bg-sheet-2">
                 {items.map((r) => (
                   <li
                     key={r.id}

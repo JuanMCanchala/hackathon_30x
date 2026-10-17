@@ -96,18 +96,18 @@ export function UploadDialog({
     >
       <Tabs.Root defaultValue="file">
         <Tabs.List
-          className="mb-4 inline-flex rounded-lg border border-rule bg-sheet-2 p-0.5"
+          className="mb-4 inline-flex rounded-[9px] bg-fill p-0.5"
           aria-label="Forma de envío"
         >
           <Tabs.Trigger
             value="file"
-            className="flex items-center gap-2 rounded-md px-3 py-1.5 text-sm text-ink-2 data-[state=active]:bg-sheet data-[state=active]:text-ink data-[state=active]:shadow-sm"
+            className="flex items-center gap-2 rounded-[7px] px-3 py-1 text-[0.86rem] text-ink-2 data-[state=active]:bg-sheet data-[state=active]:font-[590] data-[state=active]:text-ink data-[state=active]:shadow-[0_1px_3px_rgb(0_0_0/0.12)]"
           >
             <FileUp className="size-4" aria-hidden /> Archivo
           </Tabs.Trigger>
           <Tabs.Trigger
             value="text"
-            className="flex items-center gap-2 rounded-md px-3 py-1.5 text-sm text-ink-2 data-[state=active]:bg-sheet data-[state=active]:text-ink data-[state=active]:shadow-sm"
+            className="flex items-center gap-2 rounded-[7px] px-3 py-1 text-[0.86rem] text-ink-2 data-[state=active]:bg-sheet data-[state=active]:font-[590] data-[state=active]:text-ink data-[state=active]:shadow-[0_1px_3px_rgb(0_0_0/0.12)]"
           >
             <MessageSquareText className="size-4" aria-hidden /> Mensaje de chat
           </Tabs.Trigger>

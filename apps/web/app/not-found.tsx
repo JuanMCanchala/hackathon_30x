@@ -7,7 +7,7 @@ export default function NotFound() {
       <p className="text-ink-2">
         Puede que el enlace esté mal escrito o que la demo se haya reiniciado.
       </p>
-      <Link href="/" className="text-brand hover:underline">
+      <Link href="/resumen" className="text-brand hover:underline">
         Volver al resumen
       </Link>
     </main>

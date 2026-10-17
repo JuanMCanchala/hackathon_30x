@@ -8,29 +8,40 @@ import { SOURCE_COPY } from '@/lib/outcomes';
 import type { InvoiceListItem } from '@/lib/types';
 import { fmtDateTime, Money, StatusTag } from './ui';
 
-const KIND_ICON: Record<string, typeof FileText> = {
-  pdf: FileText,
-  image: FileImage,
-  email: Mail,
-  text: MessageCircle,
-  agent: Bot,
+// Settings-style glyphs: each way a bill arrives has its own tile color.
+const KIND_ICON: Record<string, { icon: typeof FileText; tile: string }> = {
+  pdf: { icon: FileText, tile: 'bg-[#ff6b5e]' },
+  image: { icon: FileImage, tile: 'bg-[#bf5af2]' },
+  email: { icon: Mail, tile: 'bg-[#0a84ff]' },
+  text: { icon: MessageCircle, tile: 'bg-[#30b94d]' },
+  agent: { icon: Bot, tile: 'bg-[#5e5ce6]' },
 };
 
 export function KindIcon({ kind, className }: { kind: string | null; className?: string }) {
-  const Icon = (kind && KIND_ICON[kind]) || FileText;
-  return <Icon className={clsx('size-4 text-ink-3', className)} aria-hidden />;
+  const { icon: Icon, tile } = (kind && KIND_ICON[kind]) || KIND_ICON.pdf!;
+  return (
+    <span
+      className={clsx('grid size-8 place-items-center rounded-[8px] text-white', tile, className)}
+      aria-hidden
+    >
+      <Icon className="size-[1.05rem]" strokeWidth={2.1} />
+    </span>
+  );
 }
 
 /** A dense, scannable list of decisions. Each row opens the receipt. */
 export function InvoiceRows({ items, compact }: { items: InvoiceListItem[]; compact?: boolean }) {
   const { fresh } = useLive();
   return (
-    <ul className="divide-y divide-rule">
-      {items.map((item) => (
-        <li key={item.id} className={clsx(fresh.has(item.id) && 'row-in')}>
+    <ul>
+      {items.map((item, index) => (
+        <li key={item.id} className={clsx('relative', fresh.has(item.id) && 'row-in')}>
+          {index > 0 && (
+            <span className="absolute top-0 right-0 left-[3.9rem] h-px bg-rule" aria-hidden />
+          )}
           <Link
             href={`/facturas/${item.id}`}
-            className="grid grid-cols-[auto_1fr_auto] items-center gap-x-4 gap-y-1 px-4 py-3.5 hover:bg-sheet-2 sm:grid-cols-[auto_minmax(0,1fr)_auto_auto]"
+            className="grid grid-cols-[auto_1fr_auto] items-center gap-x-3.5 gap-y-1 px-4 py-3 transition-colors hover:bg-sheet-2 sm:grid-cols-[auto_minmax(0,1fr)_auto_auto]"
           >
             <KindIcon kind={item.documentKind} />
             <span className="min-w-0">

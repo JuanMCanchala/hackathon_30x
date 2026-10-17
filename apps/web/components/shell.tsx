@@ -28,12 +28,12 @@ import { useLive } from '@/lib/live';
 import { modelName } from '@/lib/reader';
 import { useSession } from '@/lib/session';
 import type { Overview } from '@/lib/types';
-import { Logo } from './guilloche';
+import { Logo } from './brand';
 import { Button } from './ui';
 import { UploadDialog } from './upload-dialog';
 
 const NAV = [
-  { href: '/', label: 'Resumen', icon: Gauge },
+  { href: '/resumen', label: 'Resumen', icon: Gauge },
   { href: '/facturas', label: 'Facturas', icon: FileStack },
   { href: '/aprobaciones', label: 'Por aprobar', icon: Stamp, badge: 'approvals' as const },
   { href: '/acuerdos', label: 'Acuerdos', icon: Handshake, badge: 'proposals' as const },
@@ -95,7 +95,7 @@ function ThemeSwitch() {
     <div
       role="radiogroup"
       aria-label="Tema"
-      className="inline-flex rounded-lg border border-rule bg-sheet p-0.5"
+      className="inline-flex w-fit rounded-full bg-white/10 p-0.5"
     >
       {options.map(({ value, label, icon: Icon }) => (
         <button
@@ -106,8 +106,8 @@ function ThemeSwitch() {
           title={label}
           onClick={() => chooseTheme(value)}
           className={clsx(
-            'rounded-md p-1.5 text-ink-3 hover:text-ink',
-            theme === value && 'bg-brand-tint text-ink',
+            'rounded-full px-2.5 py-1 text-white/60 transition hover:text-white',
+            theme === value && 'bg-marker text-on-marker hover:text-on-marker',
           )}
         >
           <Icon className="size-4" aria-hidden />
@@ -123,8 +123,8 @@ function UserSwitch() {
   const user = session?.user;
   return (
     <DropdownMenu.Root>
-      <DropdownMenu.Trigger className="flex items-center gap-2 rounded-lg px-2 py-1.5 text-left hover:bg-sheet-2">
-        <span className="grid size-8 place-items-center rounded-full bg-brand-tint text-sm font-[700] text-brand-strong">
+      <DropdownMenu.Trigger className="flex items-center gap-2 rounded-full py-1 pr-2 pl-1 text-left hover:bg-fill">
+        <span className="grid size-8 place-items-center rounded-full bg-gradient-to-b from-[#a8a8ad] to-[#86868b] text-[0.8rem] font-[600] text-white">
           {user?.name
             .split(' ')
             .map((p) => p[0])
@@ -141,7 +141,7 @@ function UserSwitch() {
         <DropdownMenu.Content
           align="end"
           sideOffset={6}
-          className="z-50 w-72 rounded-xl border border-rule bg-sheet p-1.5 shadow-sheet"
+          className="material z-50 w-72 rounded-[14px] p-1.5 shadow-float"
         >
           <DropdownMenu.Label className="px-2.5 py-2 text-xs text-ink-3">
             Demo: actúa como otra persona del equipo
@@ -151,11 +151,11 @@ function UserSwitch() {
               key={u.id}
               onSelect={() => switchUser(u.id)}
               className={clsx(
-                'flex cursor-pointer items-start gap-3 rounded-lg px-2.5 py-2 outline-none data-[highlighted]:bg-sheet-2',
-                u.id === user?.id && 'bg-brand-tint/60',
+                'flex cursor-pointer items-start gap-3 rounded-[9px] px-2.5 py-2 outline-none data-[highlighted]:bg-fill',
+                u.id === user?.id && 'bg-brand-tint',
               )}
             >
-              <span className="mt-0.5 grid size-7 shrink-0 place-items-center rounded-full bg-brand-tint text-xs font-[700] text-brand-strong">
+              <span className="mt-0.5 grid size-7 shrink-0 place-items-center rounded-full bg-gradient-to-b from-[#a8a8ad] to-[#86868b] text-[0.72rem] font-[600] text-white">
                 {u.name
                   .split(' ')
                   .map((p) => p[0])
@@ -188,7 +188,7 @@ function NavLinks({ onNavigate }: { onNavigate?: () => void }) {
   return (
     <nav aria-label="Secciones" className="grid gap-0.5">
       {NAV.map(({ href, label, icon: Icon, badge }) => {
-        const active = href === '/' ? pathname === '/' : pathname.startsWith(href);
+        const active = pathname.startsWith(href);
         const count = badge ? badges[badge] : 0;
         return (
           <Link
@@ -197,22 +197,27 @@ function NavLinks({ onNavigate }: { onNavigate?: () => void }) {
             onClick={onNavigate}
             aria-current={active ? 'page' : undefined}
             className={clsx(
-              'group flex items-center gap-3 rounded-lg px-3 py-2 text-[0.95rem] transition-colors',
+              'group font-display flex items-center gap-2.5 rounded-full px-3 py-2 text-[0.98rem] transition-colors',
               active
-                ? 'bg-sheet font-[620] text-ink shadow-[inset_3px_0_0_var(--brand)]'
-                : 'text-ink-2 hover:bg-sheet/70 hover:text-ink',
+                ? 'bg-marker font-[650] text-on-marker'
+                : 'font-[500] text-white/75 hover:bg-white/10 hover:text-white',
             )}
           >
             <Icon
               className={clsx(
-                'size-[1.15rem]',
-                active ? 'text-brand' : 'text-ink-3 group-hover:text-ink-2',
+                'size-[1.1rem]',
+                active ? 'text-on-marker' : 'text-white/55 group-hover:text-marker',
               )}
               aria-hidden
             />
             <span className="flex-1">{label}</span>
             {count > 0 && (
-              <span className="min-w-6 rounded-full bg-pending-tint px-1.5 text-center text-xs font-[700] text-ink">
+              <span
+                className={clsx(
+                  'min-w-6 rounded-full px-1.5 text-center text-[0.75rem] font-[600] tabular-nums',
+                  active ? 'bg-noche/15 text-on-marker' : 'bg-white/10 text-white/80',
+                )}
+              >
                 {count}
               </span>
             )}
@@ -231,12 +236,12 @@ export function AppShell({ children }: { children: ReactNode }) {
 
   return (
     <div className="min-h-dvh lg:grid lg:grid-cols-[264px_1fr]">
-      <aside className="sticky top-0 hidden h-dvh flex-col gap-6 border-r border-rule px-4 py-5 lg:flex">
-        <Link href="/" className="px-2" aria-label="Mandato, inicio">
+      <aside className="noche sticky top-0 hidden h-dvh flex-col gap-7 px-3 py-6 lg:flex">
+        <Link href="/" className="px-2.5 text-white" aria-label="Mandato, página de inicio">
           <Logo />
         </Link>
         <NavLinks />
-        <div className="mt-auto grid gap-3 px-2 text-xs text-ink-3">
+        <div className="mt-auto grid gap-3 px-2.5 text-[0.78rem] leading-snug text-white/55">
           <p className="flex items-center gap-2">
             <span
               className={clsx('size-2 rounded-full', connected ? 'bg-paid' : 'bg-rule-strong')}
@@ -257,19 +262,19 @@ export function AppShell({ children }: { children: ReactNode }) {
       </aside>
 
       <div className="min-w-0">
-        <header className="sticky top-0 z-30 flex items-center gap-3 border-b border-rule bg-paper/90 px-4 py-3 backdrop-blur sm:px-8">
+        <header className="material sticky top-0 z-30 flex items-center gap-3 border-b border-rule/70 px-4 py-2.5 sm:px-8">
           <button
             type="button"
-            className="rounded-md p-1.5 text-ink-2 hover:bg-sheet lg:hidden"
+            className="rounded-full p-1.5 text-brand hover:bg-fill lg:hidden"
             onClick={() => setMenuOpen(true)}
             aria-label="Abrir menú"
           >
             <Menu className="size-5" />
           </button>
-          <Link href="/" className="lg:hidden" aria-label="Mandato, inicio">
+          <Link href="/resumen" className="lg:hidden" aria-label="Mandato, resumen">
             <Logo />
           </Link>
-          <p className="hidden text-sm text-ink-2 lg:block">
+          <p className="hidden text-[0.88rem] font-[560] text-ink-2 lg:block">
             {session ? `${'Andes Labs Inc.'}, cuentas por pagar` : ''}
           </p>
           <div className="ml-auto flex items-center gap-2">
@@ -287,11 +292,11 @@ export function AppShell({ children }: { children: ReactNode }) {
 
         {menuOpen && (
           <div
-            className="fixed inset-0 z-40 bg-ink/40 lg:hidden"
+            className="fixed inset-0 z-40 bg-black/25 backdrop-blur-sm lg:hidden"
             onClick={() => setMenuOpen(false)}
           >
             <div
-              className="h-full w-[86vw] max-w-xs overflow-y-auto bg-paper px-4 py-5"
+              className="noche h-full w-[86vw] max-w-xs overflow-y-auto px-3 py-5"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="mb-6 flex items-center justify-between px-2">
@@ -313,7 +318,9 @@ export function AppShell({ children }: { children: ReactNode }) {
           </div>
         )}
 
-        <main className="mx-auto w-full max-w-[1200px] px-4 py-8 sm:px-8 lg:py-10">{children}</main>
+        <main className="stagger mx-auto w-full max-w-[1180px] px-4 py-8 sm:px-10 lg:py-12">
+          {children}
+        </main>
       </div>
 
       <UploadDialog open={uploadOpen} onOpenChange={setUploadOpen} />

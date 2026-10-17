@@ -84,7 +84,7 @@ export function ProposalCard({ proposal, compact }: { proposal: ProposalLike; co
 
         {!compact && <p className="voice text-ink-2">{d.rationale}</p>}
 
-        <dl className="divide-y divide-rule rounded-lg border border-rule">
+        <dl className="divide-y divide-rule overflow-hidden rounded-[14px] bg-sheet-2">
           {d.changes.map((c) => (
             <div
               key={c.label}

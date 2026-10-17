@@ -1,55 +1,84 @@
 'use client';
 
 import clsx from 'clsx';
-import { ChevronLeft } from 'lucide-react';
+import { ChevronLeft, CircleCheck, CircleDashed, CircleSlash, Hand } from 'lucide-react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { describeMandate, formatDate, formatMoney, formatUsd } from '@mandato/domain';
-import { Guilloche } from '@/components/guilloche';
+import { AppIcon } from '@/components/brand';
 import { ProposalCard } from '@/components/proposal-card';
 import { ApprovalPanel } from '@/components/receipt/approval-panel';
 import { DocumentViewer } from '@/components/receipt/document-viewer';
 import { ExtractionPanel } from '@/components/receipt/extraction-panel';
 import { LedgerTrail } from '@/components/receipt/ledger-trail';
 import { RuleChecklist } from '@/components/receipt/rule-checklist';
-import { Empty, Skeleton, StatusTag, fmtDateTime } from '@/components/ui';
+import { Empty, Skeleton, fmtDateTime } from '@/components/ui';
 import { useApi } from '@/lib/hooks';
 import { OUTCOME_COPY, SOURCE_COPY, toneOf } from '@/lib/outcomes';
 import type { InvoiceDetail } from '@/lib/types';
 
-const STAMP_TONE = {
-  paid: 'border-paid text-paid',
-  held: 'border-held text-held',
-  pending: 'border-pending text-pending',
-  rejected: 'border-rejected text-rejected',
-} as const;
+const PASS_ICON = { paid: CircleCheck, held: Hand, pending: CircleDashed, rejected: CircleSlash };
 
-function Stamp({ invoice }: { invoice: InvoiceDetail }) {
+function passLabel(invoice: InvoiceDetail): string {
+  if (invoice.status === 'APPROVED') return 'Pagada con aprobación';
+  if (invoice.status === 'REJECTED') return 'Rechazada';
+  return invoice.outcome ? OUTCOME_COPY[invoice.outcome].stamp : 'Recibida';
+}
+
+/** The decision as a Wallet pass: its color is the outcome; the stub carries the reason. */
+function DecisionPass({ invoice, name }: { invoice: InvoiceDetail; name: string }) {
   const tone = toneOf(invoice.status);
-  const label =
-    invoice.status === 'APPROVED'
-      ? 'Pagada con aprobación'
-      : invoice.status === 'REJECTED'
-        ? 'Rechazada'
-        : invoice.outcome
-          ? OUTCOME_COPY[invoice.outcome].stamp
-          : 'Recibida';
+  const Icon = PASS_ICON[tone];
+  const fields: [string, string][] = [
+    ['Para', name],
+    ...(invoice.invoiceNumber ? [['Número', invoice.invoiceNumber] as [string, string]] : []),
+    ...(invoice.dueDate ? [['Vence', formatDate(invoice.dueDate)] as [string, string]] : []),
+    ['Llegó por', SOURCE_COPY[invoice.source] ?? invoice.source],
+  ];
   return (
-    <div
-      className={clsx(
-        'stamp-in inline-block rotate-[-4deg] rounded-md border-[3px] px-4 py-2 text-center outline-1 outline-current outline-offset-[3px] [outline-style:solid]',
-        STAMP_TONE[tone],
+    <section className={clsx('pass pass-in', `pass-${tone}`)} aria-label="Decisión">
+      <div className="relative z-10 grid gap-7 p-6 sm:p-8">
+        <div className="flex items-center justify-between gap-4">
+          <p className="flex items-center gap-2 text-[0.88rem] font-[560] text-white/85">
+            <AppIcon className="size-6 rounded-[6px]" />
+            {invoice.ref}
+          </p>
+          <p className="flex items-center gap-1.5 rounded-full bg-white/20 px-3 py-1 text-[0.88rem] font-[620] backdrop-blur-sm">
+            <Icon className="size-4" strokeWidth={2.4} aria-hidden />
+            {passLabel(invoice)}
+          </p>
+        </div>
+        <div>
+          <p className="text-[0.95rem] font-[560] text-white/80">{invoice.title ?? name}</p>
+          <p className="t-figure mt-1 text-[clamp(2.4rem,1.6rem+3vw,3.4rem)] leading-none">
+            {invoice.amountMinor !== null && invoice.currency
+              ? formatMoney(invoice.amountMinor, invoice.currency)
+              : 'Sin monto'}
+          </p>
+          {invoice.currency !== 'USD' && invoice.usdCents !== null && (
+            <p className="mt-1.5 text-[0.95rem] text-white/80">
+              ≈ {formatUsd(invoice.usdCents)} con la tasa de la política
+            </p>
+          )}
+        </div>
+        <dl className="grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-4">
+          {fields.map(([label, value]) => (
+            <div key={label} className="min-w-0">
+              <dt className="text-[0.78rem] font-[560] text-white/70">{label}</dt>
+              <dd className="mt-0.5 text-[0.98rem] leading-snug font-[600] break-words">{value}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+      {invoice.decision && (
+        <>
+          <div className="pass-notch" aria-hidden />
+          <p className="relative z-10 px-6 pt-5 pb-7 text-[1.1rem] leading-relaxed font-[480] sm:px-8">
+            {invoice.decision.summary}
+          </p>
+        </>
       )}
-    >
-      <p className="text-[1.35rem] leading-none font-[800] tracking-[-0.01em] [font-stretch:125%]">
-        {label}
-      </p>
-      {invoice.decidedAt && (
-        <p className="mt-1 text-[0.72rem] font-[600] opacity-90">
-          {fmtDateTime(invoice.decidedAt)}
-        </p>
-      )}
-    </div>
+    </section>
   );
 }
 
@@ -95,96 +124,45 @@ export default function ReceiptPage() {
     <div className="grid gap-6">
       <Link
         href="/facturas"
-        className="inline-flex w-fit items-center gap-1 text-sm text-ink-2 hover:text-ink"
+        className="inline-flex w-fit items-center gap-0.5 text-[0.95rem] text-brand hover:underline"
       >
         <ChevronLeft className="size-4" aria-hidden /> Facturas
       </Link>
 
       <div className="grid items-start gap-8 xl:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)]">
         <article className="grid gap-8">
-          <header className="sheet relative overflow-hidden">
-            <Guilloche
-              size={420}
-              bands={3}
-
-              className="pointer-events-none absolute -top-40 -right-36 text-[var(--guilloche)] opacity-[0.14]"
-            />
-            <div className="relative grid gap-5 p-6 sm:p-8">
-              <p className="text-sm text-ink-2">
-                Comprobante {invoice.ref}, {SOURCE_COPY[invoice.source] ?? invoice.source}, recibido
-                el {fmtDateTime(invoice.receivedAt)}
-              </p>
-              <h1 className="t-h2 max-w-2xl text-ink">{invoice.title ?? name}</h1>
-
-              <div className="flex flex-wrap items-end gap-x-8 gap-y-4">
-                <div>
-                  <p className="text-sm text-ink-3">Monto</p>
-                  <p className="t-display text-ink">
-                    {invoice.amountMinor !== null && invoice.currency
-                      ? formatMoney(invoice.amountMinor, invoice.currency)
-                      : 'sin monto'}
-                  </p>
-                  {invoice.currency !== 'USD' && invoice.usdCents !== null && (
-                    <p className="text-sm text-ink-3">
-                      ≈ {formatUsd(invoice.usdCents)} con la tasa de la política
-                    </p>
-                  )}
-                </div>
-                <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 pb-1.5 text-sm">
-                  <dt className="text-ink-3">Para</dt>
-                  <dd className="text-ink">{name}</dd>
-                  {invoice.invoiceNumber && (
-                    <>
-                      <dt className="text-ink-3">Número</dt>
-                      <dd className="text-ink">{invoice.invoiceNumber}</dd>
-                    </>
-                  )}
-                  {invoice.dueDate && (
-                    <>
-                      <dt className="text-ink-3">Vence</dt>
-                      <dd className="text-ink">{formatDate(invoice.dueDate)}</dd>
-                    </>
-                  )}
-                </dl>
-                {/* Like a cheque: the amount, and the stamp beside it. Padding leaves room for the tilt. */}
-                <div className="px-2 pb-2 sm:ml-auto">
-                  <Stamp invoice={invoice} />
-                </div>
+          <div className="grid gap-4">
+            <DecisionPass invoice={invoice} name={name} />
+            {d && d.counterfactual.length > 0 && (
+              <div className="sheet p-5 sm:p-6">
+                <p className="text-[0.95rem] font-[620] text-ink">{counterfactualTitle}</p>
+                <ul className="mt-3 grid gap-2.5">
+                  {d.counterfactual.map((c) => (
+                    <li key={c} className="flex gap-3 text-[1rem] leading-snug text-ink">
+                      <span
+                        className="mt-[0.45rem] size-1.5 shrink-0 rounded-full bg-brand"
+                        aria-hidden
+                      />
+                      <span>{c}.</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-
-              {d && <p className="voice max-w-2xl text-ink">{d.summary}</p>}
-
-              {d && d.counterfactual.length > 0 && (
-                <div className="rounded-xl border border-rule bg-sheet-2 p-4 sm:p-5">
-                  <p className="text-[0.95rem] font-[650] text-ink">{counterfactualTitle}</p>
-                  <ul className="mt-2 grid gap-1.5">
-                    {d.counterfactual.map((c) => (
-                      <li key={c} className="voice text-[1.05rem] text-ink-2">
-                        {c}.
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
+            )}
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 px-1 text-[0.84rem] text-ink-3">
               {invoice.mandate && (
-                <p className="text-sm text-ink-2">
+                <span>
                   Acuerdo aplicado: {describeMandate(invoice.mandate.terms)}, versión{' '}
                   {invoice.mandate.version}, firmado por{' '}
                   {invoice.mandate.signedBy.map((s) => s.name).join(' y ')}.
-                </p>
+                </span>
               )}
-              <div className="flex flex-wrap items-center gap-3">
-                <StatusTag status={invoice.status} />
-                {d && (
-                  <span className="text-xs text-ink-3">
-                    Política v{d.policyVersion}, motor {d.engineVersion}
-                  </span>
-                )}
-              </div>
+              <span>
+                Recibido el {fmtDateTime(invoice.receivedAt)}
+                {d ? `; política v${d.policyVersion}, motor ${d.engineVersion}.` : ''}
+              </span>
             </div>
-            <div className="perforation" aria-hidden />
-          </header>
+          </div>
 
           {invoice.approval && (
             <div className="sheet p-6">

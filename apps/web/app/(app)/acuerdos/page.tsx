@@ -68,7 +68,7 @@ function DestinationDialog({ payee, onClose }: { payee: PayeeView; onClose: () =
             id="method"
             value={method}
             onChange={(e) => setMethod(e.target.value as PayoutMethod)}
-            className="h-10 rounded-lg border border-rule-strong bg-sheet px-3 text-sm text-ink"
+            className="h-10 rounded-[10px] bg-fill px-3 text-sm text-ink"
           >
             {METHODS.map((m) => (
               <option key={m} value={m}>

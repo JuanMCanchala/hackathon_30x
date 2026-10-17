@@ -15,7 +15,7 @@ export function DocumentViewer({ invoice }: { invoice: InvoiceDetail }) {
 
   if (!doc) {
     return (
-      <div className="rounded-lg border border-rule bg-sheet-2 p-4 text-sm text-ink-2">
+      <div className="rounded-[14px] bg-sheet-2 p-4 text-sm text-ink-2">
         Solicitud estructurada de un agente externo: no hay documento, solo los datos que envió.
         <pre className="mt-3 overflow-x-auto rounded-md bg-sheet p-3 text-xs text-ink">
           {JSON.stringify(invoice.extraction, null, 2)}
@@ -41,7 +41,7 @@ export function DocumentViewer({ invoice }: { invoice: InvoiceDetail }) {
         />
       )}
       {data?.kind === 'email' && (
-        <div className="overflow-hidden rounded-lg border border-rule bg-sheet">
+        <div className="overflow-hidden rounded-[14px] border border-rule bg-sheet">
           <dl className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 border-b border-rule bg-sheet-2 px-4 py-3 text-sm">
             <dt className="text-ink-3">De</dt>
             <dd className="text-ink">{data.from}</dd>
@@ -85,7 +85,7 @@ export function DocumentViewer({ invoice }: { invoice: InvoiceDetail }) {
         </div>
       )}
       {data?.kind === 'chat' && (
-        <div className="grid gap-2 rounded-lg border border-rule bg-sheet-2 p-4">
+        <div className="grid gap-2 rounded-[14px] bg-sheet-2 p-4">
           {data.messages.map((m, i) => (
             <div
               key={i}

@@ -53,6 +53,12 @@ export function TrustLadder({ steps }: { steps: Step[] }) {
         role="img"
         aria-label={`Escalera de confianza. ${description}.`}
       >
+        <defs>
+          <linearGradient id="ladder-fill" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stopColor="var(--brand)" stopOpacity={0.26} />
+            <stop offset="1" stopColor="var(--brand)" stopOpacity={0.02} />
+          </linearGradient>
+        </defs>
         {[0.25, 0.5, 0.75, 1].map((g) => (
           <g key={g}>
             <line
@@ -78,7 +84,7 @@ export function TrustLadder({ steps }: { steps: Step[] }) {
         />
 
         {treads.map((t) => (
-          <path key={t.key} d={t.area} fill="var(--brand-tint)" opacity={t.open ? 0.5 : 1} />
+          <path key={t.key} d={t.area} fill="url(#ladder-fill)" opacity={t.open ? 0.45 : 1} />
         ))}
         {treads.map((t) => (
           <path
@@ -171,7 +177,7 @@ export function TrustLadder({ steps }: { steps: Step[] }) {
 
       {hover !== null && steps[hover] && (
         <div
-          className="pointer-events-none absolute z-10 w-56 rounded-lg border border-rule bg-sheet px-3 py-2.5 text-sm shadow-sheet"
+          className="pointer-events-none absolute z-10 w-56 material rounded-[12px] px-3 py-2.5 text-sm shadow-float"
           style={{
             left: `${((x(hover) + stepW / 2) / W) * 100}%`,
             top: 8,

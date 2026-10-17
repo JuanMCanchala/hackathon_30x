@@ -64,7 +64,7 @@ function LinkDialog({
             {approvers.map((a) => (
               <label
                 key={a.id}
-                className="flex cursor-pointer items-center gap-3 rounded-lg border border-rule px-3 py-2.5 has-[:checked]:border-brand has-[:checked]:bg-brand-tint/50"
+                className="flex cursor-pointer items-center gap-3 rounded-[12px] border border-transparent bg-sheet-2 px-3 py-2.5 has-[:checked]:border-brand has-[:checked]:bg-brand-tint/50"
               >
                 <input
                   type="radio"
@@ -95,7 +95,7 @@ function LinkDialog({
             <input
               readOnly
               value={url}
-              className="h-10 min-w-0 flex-1 rounded-lg border border-rule bg-sheet-2 px-3 text-xs text-ink-2"
+              className="h-10 min-w-0 flex-1 rounded-[14px] bg-sheet-2 px-3 text-xs text-ink-2"
               aria-label="Enlace de aprobación"
             />
             <Button
@@ -155,10 +155,7 @@ export function ApprovalPanel({ invoice }: { invoice: InvoiceDetail }) {
         {Array.from({ length: approval.required }).map((_, i) => {
           const entry = approval.approvals.filter((a) => a.action === 'approve')[i];
           return (
-            <li
-              key={i}
-              className="flex items-center gap-3 rounded-lg border border-rule px-3.5 py-2.5"
-            >
+            <li key={i} className="flex items-center gap-3 rounded-[12px] bg-sheet-2 px-3.5 py-2.5">
               {entry ? (
                 <CircleCheck className="size-5 text-paid" aria-hidden />
               ) : (
