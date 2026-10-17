@@ -15,6 +15,8 @@ Hoy el equipo de medios de 30X paga servicios de scraping que cuestan miles de d
 | Pantalla                               | Qué responde                                                                                                                                                                                                                                                                                   |
 | -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Radar de la semana** (`/`)           | El titular de la semana, **la ola** (la curva del ciclo de vida con los 10 temas en su etapa y la ventana para entrar) y los 10 temas que más crecen: crecimiento, curva de 8 semanas, dónde se mueve, momento recomendado y encaje con 30X. Filtros por red, idioma y «sin explotar por 30X». |
+| **La ola por idioma**                  | Lo viral sobre IA suele nacer en inglés o portugués y llega días después al español. El radar muestra cada tema en las tres olas y separa los que ya despegaron afuera y casi nadie cuenta en español: «Adáptalo al español» antes que nadie.                                                  |
+| **Vigía** (`/vigia`)                   | Sigues un tema («negocios») y el radar lo busca cada hora en inglés y portugués. Reglas sin costo deciden qué atrapar y solo lo atrapado se lee: el texto de cada lámina de un carrusel, las ideas clave de un video y su idea en español, lista para adaptar.                                 |
 | **Se está formando**                   | Temas que suben en el carril técnico (GitHub, Hacker News, Hugging Face, X, Bluesky) y todavía no llegan a LinkedIn ni a Instagram: la ventaja de llegar primero.                                                                                                                              |
 | **Tema** (`/tema/[id]`)                | Por qué crece, qué tienen en común las piezas que despegaron (contado, no adivinado), la evidencia medida contra la mediana de cada autor, el encaje con 30X, la curva, qué lo disparó y la historia larga.                                                                                    |
 | **Cómo lo contamos**                   | Post de LinkedIn con la voz de Andrés Bilbao, carrusel de Instagram, guion de Reel o TikTok, video de YouTube, tres ganchos y qué evitar. Se copia o se aprueba al calendario; nada se publica solo.                                                                                           |
@@ -69,6 +71,23 @@ Todas las respuestas del modelo quedan grabadas: la demo, las pruebas y CI las r
 
 Los criterios se ajustaron después de ver los datos y lo decimos: exigir que dos fuentes coincidan (con una sola, 60 a 80 % de falsas alarmas) y medir Wikipedia con la mediana diaria (picos de bots). CI corre el backtest en cada cambio y falla si detecta menos del 70 % de las olas o da más de 30 % de falsas alarmas.
 
+## Lo viral nace en otro idioma
+
+Las ideas sobre IA que se vuelven virales en español casi siempre funcionaron antes en inglés o en portugués. Radar mide cada tema por separado en los tres idiomas (creadores, etapa y lugar en su ola) y marca una **ventana abierta en español** cuando el inglés o el portugués ya tiene al menos 6 creadores esa semana y el español va en la cuarta parte o menos. Para cada tema mide además cuántas semanas le lleva el idioma líder al español.
+
+En la página de cada tema, «Ya funcionó en inglés y portugués» pone cada pieza original junto a su idea en español, y las piezas que escribe el radar citan en qué originales se basaron: se adapta la idea, no se traduce palabra por palabra. (En una prueba de Kapwing, la versión localizada de un video en un canal en español sacó 3.897 vistas; la misma pieza como doblaje en el canal original, 32.)
+
+## Vigía: seguir un tema
+
+Escribes un tema y el radar lo convierte, una sola vez, en búsquedas y palabras clave en inglés y portugués. Desde ahí cada búsqueda es un embudo:
+
+1. **Encontrar** (sin tokens): YouTube (lo de hoy o de esta semana), Bluesky, Hacker News y los perfiles de Instagram que sigue el radar, cuyos feeds públicos traen cada lámina de los carruseles. Los videos que podrían pasar se abren uno por uno para leer su fecha exacta, su canal y sus métricas.
+2. **Decidir con reglas** (sin tokens, `packages/core/src/screen.ts`), en orden y cada una con su razón escrita: que esté en inglés o portugués, que el tema aparezca en el gancho (no en un enlace ni en el nombre del autor), que sea de las últimas 72 horas, que sea viral (2× o más la mediana de su autor, o entre el 25 % más rápido de su red en esa búsqueda), que no la hayamos atrapado antes y que quepa en el presupuesto de 12 por búsqueda. Las reglas están detrás de una sola función: un motor de decisiones como JEV puede tomar su lugar.
+3. **Leer lo atrapado** (con tokens, solo esas 12): la idea en español, el texto de cada lámina (el modelo lee las imágenes), y el gancho y las ideas clave de cada video a partir de sus subtítulos.
+4. **Adaptar**: cada pieza atrapada se convierte en post de LinkedIn, carrusel, guion de Reel y video de YouTube con la voz de 30X.
+
+Una búsqueda real de «negocios» encontró 623 piezas; 378 estaban en inglés o portugués, 132 hablaban del tema, 59 eran de las últimas 72 horas, 19 eran virales y 12 se atraparon. Leerlas, con dos carruseles y dos videos, costó USD 0,006.
+
 ## Fuentes
 
 Todo es contenido público, leído sin iniciar sesión en ninguna red.
@@ -86,6 +105,32 @@ Todo es contenido público, leído sin iniciar sesión en ninguna red.
 | La comunidad (sensor)                                      | Posts de LinkedIn, Instagram o TikTok que alguien vio funcionar              |
 
 LinkedIn, Instagram y TikTok no tienen una búsqueda pública. Radar llega a ellos por tres caminos: perfiles semilla verificados, la comunidad como sensor y, si se configura `APIFY_TOKEN`, la búsqueda de posts de LinkedIn por palabra clave a USD 0,002 por post.
+
+**Qué métricas de una pieza son públicas** (probado el 17 de octubre de 2026 con una pieza real de cada red, sin iniciar sesión):
+
+| Red       | Se lee                                                                    | No es público                                  |
+| --------- | ------------------------------------------------------------------------- | ---------------------------------------------- |
+| TikTok    | vistas, likes, comentarios, compartidos, guardados y seguidores del autor | nada                                           |
+| YouTube   | vistas, likes, comentarios, suscriptores del canal y duración             | dislikes                                       |
+| Bluesky   | likes, reposts, respuestas, citas y guardados                             | nada                                           |
+| Instagram | likes, comentarios, vistas de reels y seguidores (desde el perfil)        | compartidos y guardados (solo los ve el dueño) |
+| LinkedIn  | reacciones, comentarios y seguidores de la empresa                        | compartidos e impresiones                      |
+| X         | likes y respuestas                                                        | retuits, citas y vistas                        |
+
+**Para buscar por palabra en Instagram, TikTok, LinkedIn y X** hace falta un proveedor de datos públicos. Con [treg.to](https://treg.to/catalog) (se paga por llamada: hashtags de Instagram a USD 0,0015, TikTok a USD 0,001, LinkedIn a USD 0,002) seguir 3 temas cada hora en dos idiomas cuesta unos USD 45 al mes; con Apify, unos USD 490.
+
+## Quién más lo hace
+
+| Herramienta              | Qué da                                                                      | Cómo consigue los datos                             | USD al mes |
+| ------------------------ | --------------------------------------------------------------------------- | --------------------------------------------------- | ---------- |
+| Sandcastles              | videos que superan lo habitual del creador, con gancho y formato desarmados | no lo publica                                       | 39–499     |
+| Virlo                    | un agente convierte un nicho en palabras clave y rankea outliers; alertas   | datos públicos de TikTok, Instagram, YouTube y Meta | 49–199     |
+| vidIQ, 1of10, ViewStats  | outliers de YouTube: vistas ÷ promedio del canal, en bandas 2×, 5× y 10×    | API oficial de YouTube y extensión                  | 0–249      |
+| Shortimize               | sigue cuentas y avisa cuando un video se dispara                            | no lo publica                                       | 99–249     |
+| Taplio, Kleo, AuthoredUp | bibliotecas de posts virales de LinkedIn y reescritura con tu voz           | extensión con la sesión del usuario; Kleo usa Apify | 20–199     |
+| Foreplay                 | archivo de anuncios y tableros de inspiración                               | extensión y scraper de bibliotecas de anuncios      | 49–459     |
+
+Ninguna usa el idioma como señal (viral en inglés o portugués, ausente en español), ninguna rankea carruseles de Instagram junto con video, LinkedIn y X, y todas explican el porqué para creadores individuales, no para la voz de una escuela de negocios y su audiencia en Latinoamérica.
 
 ## Cuánto cuesta
 
@@ -120,7 +165,7 @@ Sin llave, `LLM_MODE=replay` reproduce las respuestas grabadas y `data/snapshot`
 
 ```text
 apps/api          Hono + PGlite: pipeline, radar, temas, adaptaciones, calendario y sensor
-apps/web          Next.js 16: radar, tema, calendario, referentes, sensor, evaluación
+apps/web          Next.js 16: radar, tema, vigía, calendario, referentes, sensor, evaluación
 apps/mcp          servidor MCP (stdio)
 apps/sensor       extensión de Chrome
 packages/core     lógica pura: crecimiento, etapas, outliers, patrones, temas, backtest
@@ -131,7 +176,8 @@ data/             semana congelada de la demo y respuestas grabadas del modelo
 ## Límites, dichos de frente
 
 - El crecimiento se mide en fuentes con historia pareja (Bluesky, noticias, Hacker News, GitHub); LinkedIn e Instagram aportan presencia y evidencia, no la curva.
-- La búsqueda de YouTube da fechas aproximadas («hace 2 días»); esas piezas no cuentan para el crecimiento.
+- La búsqueda de YouTube da fechas aproximadas («hace 2 días») y ninguna para los shorts; esas piezas no cuentan para el crecimiento, y Vigía abre cada video candidato para leer su fecha exacta o lo descarta.
+- Vigía decide «del tema» por palabras clave en el gancho: rápido y sin costo, pero a veces deja pasar una pieza que solo menciona la palabra. Cada decisión muestra su razón para revisarla.
 - Instagram y X limitan las consultas por hora; la captura reintenta en la siguiente vuelta.
 - El modelo puede etiquetar mal una pieza; el radar trabaja con miles, y cada tema muestra su evidencia para revisarla.
 - Solo se guarda contenido público y el nombre público de su autor: nada de correos, teléfonos ni perfiles privados.
