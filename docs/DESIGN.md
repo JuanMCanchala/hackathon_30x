@@ -10,7 +10,7 @@ Recibido pays only what it can prove. The one protagonist of the whole product i
 **proof bar**: a thick horizontal bar as long as what the contractor billed, where the part backed
 by evidence is solid ink and the unproven remainder is hatched. Each evidence item (a Toggl entry,
 a merged PR, an accepted deliverable) is a tick segment inside the solid part. The bar answers the
-product's question at a glance: *how much of this bill is proven?*
+product's question at a glance: _how much of this bill is proven?_
 
 Beside it lives the **receiving stamp**: the outcome, set in heavy expanded capitals inside a
 rounded rectangle with a 1.5px border, rotated −2°, in the outcome's ink. It is the only rotated
@@ -27,20 +27,20 @@ gradient, no Inter, no thin type, no decorative serif, no noisy textures. One st
 
 Define on `:root` and redefine under `[data-theme='dark']` (set before paint, like Mandato).
 
-| Token | Light | Dark | Use |
-| --- | --- | --- | --- |
-| `--paper` | `#f3f4f1` | `#0f1412` | page background |
-| `--sheet` | `#ffffff` | `#161c19` | cards, tables |
-| `--ink` | `#0f1f1a` | `#e9eeea` | text, the solid part of the proof bar |
-| `--ink-2` | `#45524c` | `#a9b5ae` | secondary text |
-| `--ink-3` | `#7a8680` | `#77837c` | captions, axis |
-| `--rule` | `#dfe3de` | `#26302b` | borders |
-| `--stamp` | `#e0442a` | `#ff6a4d` | brand: the stamp ink, primary actions, focus ring |
-| `--pay` | `#1d7f46` | `#4cc47e` | PAY |
-| `--part` | `#0d7480` | `#3cc0cc` | PAY_PART |
-| `--ask` | `#a86b0c` | `#e6a63a` | ASK_VENDOR |
-| `--escalate` | `#b3123f` | `#ff6b8f` | ESCALATE |
-| `--hold` | `#4c5560` | `#9aa4b0` | HOLD |
+| Token        | Light     | Dark      | Use                                               |
+| ------------ | --------- | --------- | ------------------------------------------------- |
+| `--paper`    | `#f3f4f1` | `#0f1412` | page background                                   |
+| `--sheet`    | `#ffffff` | `#161c19` | cards, tables                                     |
+| `--ink`      | `#0f1f1a` | `#e9eeea` | text, the solid part of the proof bar             |
+| `--ink-2`    | `#45524c` | `#a9b5ae` | secondary text                                    |
+| `--ink-3`    | `#7a8680` | `#77837c` | captions, axis                                    |
+| `--rule`     | `#dfe3de` | `#26302b` | borders                                           |
+| `--stamp`    | `#e0442a` | `#ff6a4d` | brand: the stamp ink, primary actions, focus ring |
+| `--pay`      | `#1d7f46` | `#4cc47e` | PAY                                               |
+| `--part`     | `#0d7480` | `#3cc0cc` | PAY_PART                                          |
+| `--ask`      | `#a86b0c` | `#e6a63a` | ASK_VENDOR                                        |
+| `--escalate` | `#b3123f` | `#ff6b8f` | ESCALATE                                          |
+| `--hold`     | `#4c5560` | `#9aa4b0` | HOLD                                              |
 
 Each outcome also has a `-tint` (10–14 % on the sheet). Validate text contrast ≥ 4.5:1 for every
 outcome ink on its tint and on the sheet, in both themes, and check the five against
