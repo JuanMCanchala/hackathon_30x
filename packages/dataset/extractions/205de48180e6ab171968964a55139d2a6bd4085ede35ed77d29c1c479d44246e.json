@@ -1,10 +1,10 @@
 {
   "sha256": "205de48180e6ab171968964a55139d2a6bd4085ede35ed77d29c1c479d44246e",
-  "extractorVersion": "mandato-extractor/1",
+  "extractorVersion": "mandato-extractor/2",
   "provider": "fireworks",
   "model": "accounts/fireworks/models/deepseek-v4p1-flash",
-  "recordedAt": "2026-10-17T03:19:28.382Z",
-  "latencyMs": 13499,
+  "recordedAt": "2026-10-17T04:37:55.929Z",
+  "latencyMs": 14773,
   "file": "agosto/ago-10-sebastian-cuenta-de-cobro.pdf",
   "extraction": {
     "documentType": "cuenta_de_cobro",
@@ -55,17 +55,17 @@
       "issueDate": 1,
       "dueDate": 1,
       "currency": 1,
-      "total": 1,
+      "total": 0.85,
       "payout": 1
     },
     "warnings": [
-      "El total en palabras (DIECIOCHO MILLONES DE PESOS M/CTE) no coincide con la cifra impresa ($10.000.000).",
-      "El documento se presenta como ficticio, generado para una demo."
+      "El total en cifras ($10.000.000) no coincide con el valor en letras (DIECIOCHO MILLONES DE PESOS M/CTE = 18.000.000).",
+      "El documento se identifica a sí mismo como ficticio, generado para una demo."
     ]
   },
   "usage": {
-    "inputTokens": 3446,
-    "outputTokens": 1636,
+    "inputTokens": 3473,
+    "outputTokens": 1890,
     "cacheReadTokens": 0
   }
 }

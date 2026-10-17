@@ -1,10 +1,10 @@
 {
   "sha256": "1fa74729c59ef86f1a96363d2a8d5c35a3714291df45dc9b3d68a86ef6e44893",
-  "extractorVersion": "mandato-extractor/1",
+  "extractorVersion": "mandato-extractor/2",
   "provider": "fireworks",
   "model": "accounts/fireworks/models/deepseek-v4p1-flash",
-  "recordedAt": "2026-10-17T03:19:35.148Z",
-  "latencyMs": 12764,
+  "recordedAt": "2026-10-17T04:31:36.124Z",
+  "latencyMs": 83386,
   "file": "septiembre/sep-16-codigo-norte-proyecto-especial.pdf",
   "extraction": {
     "documentType": "invoice",
@@ -66,13 +66,14 @@
       "payout": 1
     },
     "warnings": [
-      "El receptor muestra dos identificadores fiscales: RFC genérico XEXX010101000 y Tax ID 88-1234567 (Residencia fiscal: USA); se usó el RFC como taxId.",
-      "El documento se identifica a sí mismo como ficticio, generado para la demo de Mandato."
+      "El receptor muestra dos identificadores fiscales: RFC XEXX010101000 (residencia fiscal USA) y Tax ID: 88-1234567; se usó el RFC como taxId del cliente.",
+      "El documento indica ser ficticio, generado para la demo de Mandato.",
+      "Las fechas de emisión y vencimiento (2026) son posteriores a la fecha actual."
     ]
   },
   "usage": {
-    "inputTokens": 3688,
-    "outputTokens": 1182,
+    "inputTokens": 3715,
+    "outputTokens": 1097,
     "cacheReadTokens": 0
   }
 }

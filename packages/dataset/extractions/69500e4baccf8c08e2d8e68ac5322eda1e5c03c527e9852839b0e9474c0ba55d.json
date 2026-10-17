@@ -1,10 +1,10 @@
 {
   "sha256": "69500e4baccf8c08e2d8e68ac5322eda1e5c03c527e9852839b0e9474c0ba55d",
-  "extractorVersion": "mandato-extractor/1",
+  "extractorVersion": "mandato-extractor/2",
   "provider": "fireworks",
   "model": "accounts/fireworks/models/deepseek-v4p1-flash",
-  "recordedAt": "2026-10-17T03:22:21.932Z",
-  "latencyMs": 13463,
+  "recordedAt": "2026-10-17T04:29:55.432Z",
+  "latencyMs": 19943,
   "file": "septiembre/sep-11-sebastian-cuenta-de-cobro-corregida.pdf",
   "extraction": {
     "documentType": "cuenta_de_cobro",
@@ -59,13 +59,14 @@
       "payout": 1
     },
     "warnings": [
-      "El documento indica que es una cuenta de cobro corregida que reemplaza la enviada el 5 de agosto de 2026; verificar que no se pague también la versión anterior.",
-      "No se imprime subtotal ni líneas de impuestos/retenciones; el total coincide con el valor en palabras."
+      "El documento indica ser una cuenta de cobro corregida que reemplaza la enviada el 5 de agosto de 2026; verificar que no se pague también la versión anterior.",
+      "No se indica fecha de vencimiento ni plazo de pago.",
+      "El documento declara que el emisor no es responsable de IVA; no se imprimen impuestos ni retenciones."
     ]
   },
   "usage": {
-    "inputTokens": 3467,
-    "outputTokens": 1540,
+    "inputTokens": 3494,
+    "outputTokens": 1026,
     "cacheReadTokens": 0
   }
 }

@@ -1,10 +1,10 @@
 {
   "sha256": "fd6a469902b5883b41bd7abd3cb08e6e1a39bafb5fe63156d836b94b503be150",
-  "extractorVersion": "mandato-extractor/1",
+  "extractorVersion": "mandato-extractor/2",
   "provider": "fireworks",
   "model": "accounts/fireworks/models/deepseek-v4p1-flash",
-  "recordedAt": "2026-10-17T03:22:44.302Z",
-  "latencyMs": 7764,
+  "recordedAt": "2026-10-17T04:42:21.164Z",
+  "latencyMs": 7284,
   "file": "ataques/atk-06-camila-en-dolares.pdf",
   "extraction": {
     "documentType": "invoice",
@@ -44,7 +44,7 @@
       "accountHolder": null
     },
     "category": "contractor",
-    "description": "Design de produto — outubro de 2026",
+    "description": "Prestação de serviços de design de produto — outubro de 2026",
     "agentInstructions": {
       "detected": false,
       "quote": null
@@ -59,12 +59,12 @@
       "payout": 1
     },
     "warnings": [
-      "Documento marcado como fictício: \"Documento ficticio generado para la demo de Mandato · Fictitious document\"."
+      "Documento marcado como fictício, gerado para demonstração."
     ]
   },
   "usage": {
-    "inputTokens": 3419,
-    "outputTokens": 772,
+    "inputTokens": 3446,
+    "outputTokens": 724,
     "cacheReadTokens": 0
   }
 }

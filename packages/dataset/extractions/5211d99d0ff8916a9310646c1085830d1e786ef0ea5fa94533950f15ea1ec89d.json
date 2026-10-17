@@ -1,10 +1,10 @@
 {
   "sha256": "5211d99d0ff8916a9310646c1085830d1e786ef0ea5fa94533950f15ea1ec89d",
-  "extractorVersion": "mandato-extractor/1",
+  "extractorVersion": "mandato-extractor/2",
   "provider": "fireworks",
   "model": "accounts/fireworks/models/deepseek-v4p1-flash",
-  "recordedAt": "2026-10-17T03:22:27.250Z",
-  "latencyMs": 7623,
+  "recordedAt": "2026-10-17T04:32:16.785Z",
+  "latencyMs": 106978,
   "file": "septiembre/sep-17-ruta-viajes-factura.pdf",
   "extraction": {
     "documentType": "invoice",
@@ -64,11 +64,14 @@
       "total": 1,
       "payout": 1
     },
-    "warnings": []
+    "warnings": [
+      "El documento se identifica a sí mismo como ficticio, generado para la demo de Mandato.",
+      "No se imprime ningún impuesto ni retención; subtotal y total son iguales."
+    ]
   },
   "usage": {
-    "inputTokens": 3578,
-    "outputTokens": 661,
+    "inputTokens": 3605,
+    "outputTokens": 920,
     "cacheReadTokens": 0
   }
 }

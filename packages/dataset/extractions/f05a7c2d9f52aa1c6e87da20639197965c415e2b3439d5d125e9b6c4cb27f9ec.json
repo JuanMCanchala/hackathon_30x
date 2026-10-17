@@ -1,10 +1,10 @@
 {
   "sha256": "f05a7c2d9f52aa1c6e87da20639197965c415e2b3439d5d125e9b6c4cb27f9ec",
-  "extractorVersion": "mandato-extractor/1",
+  "extractorVersion": "mandato-extractor/2",
   "provider": "fireworks",
   "model": "accounts/fireworks/models/deepseek-v4p1-flash",
-  "recordedAt": "2026-10-17T03:19:22.120Z",
-  "latencyMs": 14202,
+  "recordedAt": "2026-10-17T04:37:34.072Z",
+  "latencyMs": 13835,
   "file": "agosto/ago-06-camila-fatura-foto.png",
   "extraction": {
     "documentType": "invoice",
@@ -59,13 +59,12 @@
       "payout": 1
     },
     "warnings": [
-      "Footer states the document is fictitious (\"Documento ficticio generado para la demo de Mandato - Fictitious document\").",
-      "Pix key is the issuer's e-mail address; no bank name or account holder is printed."
+      "O documento indica ser fictício, gerado para demonstração (\"Documento ficticio generado para la demo de Mandato · Fictitious document\")."
     ]
   },
   "usage": {
-    "inputTokens": 3362,
-    "outputTokens": 923,
-    "cacheReadTokens": 0
+    "inputTokens": 3389,
+    "outputTokens": 876,
+    "cacheReadTokens": 1920
   }
 }

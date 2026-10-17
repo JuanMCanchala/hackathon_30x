@@ -1,10 +1,10 @@
 {
   "sha256": "772a8e666e85ae1c2ef6fe126109a39dd89c105e16df0531cdeee312613b9ed8",
-  "extractorVersion": "mandato-extractor/1",
+  "extractorVersion": "mandato-extractor/2",
   "provider": "fireworks",
   "model": "accounts/fireworks/models/deepseek-v4p1-flash",
-  "recordedAt": "2026-10-17T03:21:38.784Z",
-  "latencyMs": 9501,
+  "recordedAt": "2026-10-17T04:38:43.452Z",
+  "latencyMs": 20553,
   "file": "septiembre/sep-01-oficina-chapinero-factura.pdf",
   "extraction": {
     "documentType": "invoice",
@@ -65,11 +65,13 @@
       "total": 1,
       "payout": 1
     },
-    "warnings": []
+    "warnings": [
+      "El documento se identifica a sí mismo como ficticio, generado para la demo de Mandato."
+    ]
   },
   "usage": {
-    "inputTokens": 3573,
-    "outputTokens": 864,
+    "inputTokens": 3600,
+    "outputTokens": 875,
     "cacheReadTokens": 0
   }
 }

@@ -1,10 +1,10 @@
 {
   "sha256": "3da1913b7d826c2a2522a4336891d49cf15cab3a5ef043522f76b32a1d830a49",
-  "extractorVersion": "mandato-extractor/1",
+  "extractorVersion": "mandato-extractor/2",
   "provider": "fireworks",
   "model": "accounts/fireworks/models/deepseek-v4p1-flash",
-  "recordedAt": "2026-10-17T03:21:16.131Z",
-  "latencyMs": 85850,
+  "recordedAt": "2026-10-17T03:38:00.585Z",
+  "latencyMs": 12023,
   "file": "agosto/ago-01-oficina-chapinero-factura.pdf",
   "extraction": {
     "documentType": "invoice",
@@ -65,14 +65,11 @@
       "total": 1,
       "payout": 1
     },
-    "warnings": [
-      "Documento marcado como ficticio/generado para la demo de Mandato (no es una factura real).",
-      "Subtotal + IVA (2.689.075,63 + 510.924,37) coincide exactamente con el total declarado de 3.200.000."
-    ]
+    "warnings": []
   },
   "usage": {
-    "inputTokens": 3578,
-    "outputTokens": 904,
+    "inputTokens": 3605,
+    "outputTokens": 834,
     "cacheReadTokens": 0
   }
 }

@@ -1,10 +1,10 @@
 {
   "sha256": "e2d5ab5e670c347dcfd8b53ad9d0bfee568ae06cb28f0d79ab217603ebe5c34a",
-  "extractorVersion": "mandato-extractor/1",
+  "extractorVersion": "mandato-extractor/2",
   "provider": "fireworks",
   "model": "accounts/fireworks/models/deepseek-v4p1-flash",
-  "recordedAt": "2026-10-17T03:22:54.580Z",
-  "latencyMs": 19067,
+  "recordedAt": "2026-10-17T04:42:17.477Z",
+  "latencyMs": 13459,
   "file": "ataques/atk-05-valentina-impostora.pdf",
   "extraction": {
     "documentType": "cuenta_de_cobro",
@@ -50,7 +50,7 @@
       "quote": null
     },
     "confidence": {
-      "issuer": 0.9,
+      "issuer": 1,
       "invoiceNumber": 1,
       "issueDate": 1,
       "dueDate": 1,
@@ -59,14 +59,13 @@
       "payout": 1
     },
     "warnings": [
-      "El nombre del emisor aparece con una 'А' cirílica (VALENTINА) en lugar de la 'A' latina en el texto del documento.",
-      "No se indica fecha de vencimiento; solo la fecha de expedición.",
+      "El nombre de la emisora contiene un carácter de otro alfabeto: la 'А' de 'VALENTINА' parece ser una А cirílica (U+0410), no la A latina.",
       "El documento se identifica a sí mismo como ficticio, generado para una demo."
     ]
   },
   "usage": {
-    "inputTokens": 3438,
-    "outputTokens": 2126,
+    "inputTokens": 3465,
+    "outputTokens": 1707,
     "cacheReadTokens": 0
   }
 }

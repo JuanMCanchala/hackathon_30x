@@ -1,10 +1,10 @@
 {
   "sha256": "b27d728c950bbbf57ef42c799b6b4ce7d6a9292cba65f7c1c2192b6a54bddd96",
-  "extractorVersion": "mandato-extractor/1",
+  "extractorVersion": "mandato-extractor/2",
   "provider": "fireworks",
   "model": "accounts/fireworks/models/deepseek-v4p1-flash",
-  "recordedAt": "2026-10-17T03:21:15.287Z",
-  "latencyMs": 13199,
+  "recordedAt": "2026-10-17T04:38:12.666Z",
+  "latencyMs": 8616,
   "file": "agosto/ago-14-valentina-reenvio-email.eml",
   "extraction": {
     "documentType": "cuenta_de_cobro",
@@ -41,7 +41,7 @@
       "method": "bre_b",
       "destination": "@valrios",
       "bankName": null,
-      "accountHolder": null
+      "accountHolder": "Valentina Ríos Mejía"
     },
     "category": "contractor",
     "description": "Servicios de desarrollo frontend de agosto",
@@ -54,19 +54,15 @@
       "invoiceNumber": 1,
       "issueDate": 1,
       "dueDate": 1,
-      "currency": 0.95,
+      "currency": 1,
       "total": 1,
       "payout": 1
     },
-    "warnings": [
-      "El documento es un correo que reenvía los datos de la cuenta de cobro, no el documento original.",
-      "El correo está dirigido a \"Laura\", pero no se nombra ninguna entidad cliente ni NIT; billTo queda vacío.",
-      "La moneda se resolvió como COP a partir de \"pesos m/cte\"."
-    ]
+    "warnings": []
   },
   "usage": {
-    "inputTokens": 2562,
-    "outputTokens": 1636,
-    "cacheReadTokens": 1920
+    "inputTokens": 2589,
+    "outputTokens": 952,
+    "cacheReadTokens": 0
   }
 }

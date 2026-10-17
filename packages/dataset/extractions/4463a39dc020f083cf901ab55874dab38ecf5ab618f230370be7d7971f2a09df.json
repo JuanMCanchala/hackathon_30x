@@ -1,10 +1,10 @@
 {
   "sha256": "4463a39dc020f083cf901ab55874dab38ecf5ab618f230370be7d7971f2a09df",
-  "extractorVersion": "mandato-extractor/1",
+  "extractorVersion": "mandato-extractor/2",
   "provider": "fireworks",
   "model": "accounts/fireworks/models/deepseek-v4p1-flash",
-  "recordedAt": "2026-10-17T03:23:10.819Z",
-  "latencyMs": 7715,
+  "recordedAt": "2026-10-17T04:42:44.002Z",
+  "latencyMs": 5745,
   "file": "ataques/atk-10-oficina-otra-empresa.pdf",
   "extraction": {
     "documentType": "invoice",
@@ -68,8 +68,8 @@
     "warnings": []
   },
   "usage": {
-    "inputTokens": 3571,
-    "outputTokens": 810,
-    "cacheReadTokens": 0
+    "inputTokens": 3598,
+    "outputTokens": 751,
+    "cacheReadTokens": 1920
   }
 }

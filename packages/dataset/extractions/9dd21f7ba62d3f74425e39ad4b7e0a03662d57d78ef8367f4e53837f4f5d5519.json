@@ -1,10 +1,10 @@
 {
   "sha256": "9dd21f7ba62d3f74425e39ad4b7e0a03662d57d78ef8367f4e53837f4f5d5519",
-  "extractorVersion": "mandato-extractor/1",
+  "extractorVersion": "mandato-extractor/2",
   "provider": "fireworks",
   "model": "accounts/fireworks/models/deepseek-v4p1-flash",
-  "recordedAt": "2026-10-17T03:21:58.885Z",
-  "latencyMs": 16807,
+  "recordedAt": "2026-10-17T04:39:35.370Z",
+  "latencyMs": 28675,
   "file": "septiembre/sep-06-camila-fatura-foto.png",
   "extraction": {
     "documentType": "invoice",
@@ -13,7 +13,7 @@
       "name": "Camila Souza Lima",
       "taxId": "CPF 111.444.777-35",
       "country": "BR",
-      "email": "camilla.souza@exemplo.com.br"
+      "email": "camila.souza@exemplo.com.br"
     },
     "billTo": {
       "name": "Andes Labs Inc.",
@@ -59,13 +59,13 @@
       "payout": 1
     },
     "warnings": [
-      "Issuer e-mail is printed as \"camilla.souza@exemplo.com.br\" (double l) while the Pix key and the receipt address use \"camila.souza@exemplo.com.br\" (single l).",
-      "Footer states the document is fictitious: \"Documento ficticio generado para la demo de Mandato · Fictitious document\"."
+      "Footer states the document is a fictitious demo document (\"Documento ficticio generado para la demo de Mandato · Fictitious document\").",
+      "Pix key is an e-mail address that matches the issuer's contact e-mail."
     ]
   },
   "usage": {
-    "inputTokens": 3362,
-    "outputTokens": 945,
-    "cacheReadTokens": 2254
+    "inputTokens": 3389,
+    "outputTokens": 915,
+    "cacheReadTokens": 2280
   }
 }

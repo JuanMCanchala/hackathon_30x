@@ -1,10 +1,10 @@
 {
   "sha256": "847a729486f59b07fcc6b2ccb0e47310f5e15c97f641eec6c094a5694421ffd6",
-  "extractorVersion": "mandato-extractor/1",
+  "extractorVersion": "mandato-extractor/2",
   "provider": "fireworks",
   "model": "accounts/fireworks/models/deepseek-v4p1-flash",
-  "recordedAt": "2026-10-17T03:19:22.304Z",
-  "latencyMs": 14271,
+  "recordedAt": "2026-10-17T03:38:05.602Z",
+  "latencyMs": 11133,
   "file": "agosto/ago-04-valentina-cuenta-de-cobro.pdf",
   "extraction": {
     "documentType": "cuenta_de_cobro",
@@ -59,13 +59,12 @@
       "payout": 1
     },
     "warnings": [
-      "El documento se identifica a sí mismo como ficticio, generado para la demo de Mandato.",
-      "No se imprime subtotal ni desglose de impuestos; solo el valor total."
+      "El documento se identifica a sí mismo como ficticio, generado para la demo de Mandato."
     ]
   },
   "usage": {
-    "inputTokens": 3447,
-    "outputTokens": 1398,
-    "cacheReadTokens": 0
+    "inputTokens": 3474,
+    "outputTokens": 1319,
+    "cacheReadTokens": 1920
   }
 }

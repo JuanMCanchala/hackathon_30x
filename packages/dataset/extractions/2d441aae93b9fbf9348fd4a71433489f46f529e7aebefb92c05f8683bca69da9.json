@@ -1,10 +1,10 @@
 {
   "sha256": "2d441aae93b9fbf9348fd4a71433489f46f529e7aebefb92c05f8683bca69da9",
-  "extractorVersion": "mandato-extractor/1",
+  "extractorVersion": "mandato-extractor/2",
   "provider": "fireworks",
   "model": "accounts/fireworks/models/deepseek-v4p1-flash",
-  "recordedAt": "2026-10-17T03:22:35.104Z",
-  "latencyMs": 8594,
+  "recordedAt": "2026-10-17T04:41:49.820Z",
+  "latencyMs": 11888,
   "file": "ataques/atk-02a-altamar-parte-1.pdf",
   "extraction": {
     "documentType": "invoice",
@@ -59,12 +59,13 @@
       "payout": 1
     },
     "warnings": [
-      "Line item is billed as 'part 1 of 2' of compute usage; a second invoice for the remainder may follow."
+      "Line item is labelled 'part 1 of 2', so a second invoice for the same service may follow.",
+      "Issue and due dates are in the future (October 2026)."
     ]
   },
   "usage": {
-    "inputTokens": 3384,
-    "outputTokens": 946,
+    "inputTokens": 3411,
+    "outputTokens": 850,
     "cacheReadTokens": 0
   }
 }

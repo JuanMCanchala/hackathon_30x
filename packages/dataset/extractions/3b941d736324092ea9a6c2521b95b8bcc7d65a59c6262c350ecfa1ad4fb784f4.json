@@ -1,10 +1,10 @@
 {
   "sha256": "3b941d736324092ea9a6c2521b95b8bcc7d65a59c6262c350ecfa1ad4fb784f4",
-  "extractorVersion": "mandato-extractor/1",
+  "extractorVersion": "mandato-extractor/2",
   "provider": "fireworks",
   "model": "accounts/fireworks/models/deepseek-v4p1-flash",
-  "recordedAt": "2026-10-17T03:20:50.064Z",
-  "latencyMs": 7437,
+  "recordedAt": "2026-10-17T04:37:57.110Z",
+  "latencyMs": 7281,
   "file": "agosto/ago-11-rafael-whatsapp.txt",
   "extraction": {
     "documentType": "cuenta_de_cobro",
@@ -58,11 +58,13 @@
       "total": 1,
       "payout": 1
     },
-    "warnings": []
+    "warnings": [
+      "La cuenta de cobro llega dentro de un mensaje de WhatsApp; no se nombra cliente ni destinatario de la factura."
+    ]
   },
   "usage": {
-    "inputTokens": 2591,
-    "outputTokens": 838,
-    "cacheReadTokens": 0
+    "inputTokens": 2618,
+    "outputTokens": 823,
+    "cacheReadTokens": 1920
   }
 }

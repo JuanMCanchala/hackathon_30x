@@ -1,10 +1,10 @@
 {
   "sha256": "e28f06eafbe3bd016197ef80657b1b5524a494660698d0e93cbb3bdd3e0cad70",
-  "extractorVersion": "mandato-extractor/1",
+  "extractorVersion": "mandato-extractor/2",
   "provider": "fireworks",
   "model": "accounts/fireworks/models/deepseek-v4p1-flash",
-  "recordedAt": "2026-10-17T03:22:08.396Z",
-  "latencyMs": 12508,
+  "recordedAt": "2026-10-17T04:39:49.700Z",
+  "latencyMs": 27213,
   "file": "septiembre/sep-08-altamar-hosting-invoice.pdf",
   "extraction": {
     "documentType": "invoice",
@@ -56,7 +56,7 @@
       "accountHolder": "Altamar Hosting LLC"
     },
     "category": "software",
-    "description": "Compute, block storage and bandwidth (cloud hosting services)",
+    "description": "Compute, block storage y bandwidth (servicios de hosting en la nube)",
     "agentInstructions": {
       "detected": false,
       "quote": null
@@ -71,12 +71,12 @@
       "payout": 1
     },
     "warnings": [
-      "Document is marked as fictitious: \"Documento ficticio generado para la demo de Mandato · Fictitious document\"."
+      "El documento se identifica a sí mismo como ficticio, generado para la demo de Mandato."
     ]
   },
   "usage": {
-    "inputTokens": 3415,
-    "outputTokens": 828,
+    "inputTokens": 3442,
+    "outputTokens": 800,
     "cacheReadTokens": 0
   }
 }

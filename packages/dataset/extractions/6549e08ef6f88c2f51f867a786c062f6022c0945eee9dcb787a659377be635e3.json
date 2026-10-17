@@ -1,10 +1,10 @@
 {
   "sha256": "6549e08ef6f88c2f51f867a786c062f6022c0945eee9dcb787a659377be635e3",
-  "extractorVersion": "mandato-extractor/1",
+  "extractorVersion": "mandato-extractor/2",
   "provider": "fireworks",
   "model": "accounts/fireworks/models/deepseek-v4p1-flash",
-  "recordedAt": "2026-10-17T03:23:17.767Z",
-  "latencyMs": 10532,
+  "recordedAt": "2026-10-17T04:42:56.383Z",
+  "latencyMs": 8935,
   "file": "en-vivo/vivo-02-tablero-email-octubre.eml",
   "extraction": {
     "documentType": "invoice",
@@ -58,11 +58,13 @@
       "total": 1,
       "payout": 1
     },
-    "warnings": []
+    "warnings": [
+      "Payment is to be charged to the customer's Visa card on file ending in 4421; no bank account or key is given."
+    ]
   },
   "usage": {
-    "inputTokens": 2600,
-    "outputTokens": 794,
+    "inputTokens": 2627,
+    "outputTokens": 971,
     "cacheReadTokens": 0
   }
 }

@@ -1,10 +1,10 @@
 {
   "sha256": "c8a9b1b3e40ab57b0591a9994717f09cc19366fb4818d5b0ab8c8b8041de3b1e",
-  "extractorVersion": "mandato-extractor/1",
+  "extractorVersion": "mandato-extractor/2",
   "provider": "fireworks",
   "model": "accounts/fireworks/models/deepseek-v4p1-flash",
-  "recordedAt": "2026-10-17T03:22:35.441Z",
-  "latencyMs": 8126,
+  "recordedAt": "2026-10-17T04:41:54.560Z",
+  "latencyMs": 9838,
   "file": "ataques/atk-02b-altamar-parte-2.pdf",
   "extraction": {
     "documentType": "invoice",
@@ -59,12 +59,12 @@
       "payout": 1
     },
     "warnings": [
-      "Line item is described as \"part 2 of 2\", so a related earlier invoice may exist."
+      "Line item is marked \"part 2 of 2\", suggesting a related earlier invoice for the same service."
     ]
   },
   "usage": {
-    "inputTokens": 3384,
-    "outputTokens": 852,
+    "inputTokens": 3411,
+    "outputTokens": 853,
     "cacheReadTokens": 0
   }
 }

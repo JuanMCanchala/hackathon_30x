@@ -1,10 +1,10 @@
 {
   "sha256": "23fa39f5ef57cad1c60179aa8b2a7a978a0f3f4dff242999e8d5969a0b88c295",
-  "extractorVersion": "mandato-extractor/1",
+  "extractorVersion": "mandato-extractor/2",
   "provider": "fireworks",
   "model": "accounts/fireworks/models/deepseek-v4p1-flash",
-  "recordedAt": "2026-10-17T03:23:17.687Z",
-  "latencyMs": 6797,
+  "recordedAt": "2026-10-17T04:43:02.706Z",
+  "latencyMs": 7342,
   "file": "en-vivo/vivo-03-lexia-legal-octubre.pdf",
   "extraction": {
     "documentType": "invoice",
@@ -65,11 +65,14 @@
       "total": 1,
       "payout": 1
     },
-    "warnings": []
+    "warnings": [
+      "El documento se identifica a sí mismo como ficticio, generado para una demo (\"Documento ficticio generado para la demo de Mandato\").",
+      "El subtotal más el IVA (2.521.008,40 + 478.991,60 = 3.000.000,00) coincide con el total, pero el total está redondeado a pesos enteros."
+    ]
   },
   "usage": {
-    "inputTokens": 3555,
-    "outputTokens": 768,
+    "inputTokens": 3582,
+    "outputTokens": 792,
     "cacheReadTokens": 0
   }
 }

@@ -1,10 +1,10 @@
 {
   "sha256": "1d803200e4b0fdb8c2b6e651d8af26f9a332da8d91a510a709450700fa38bf6a",
-  "extractorVersion": "mandato-extractor/1",
+  "extractorVersion": "mandato-extractor/2",
   "provider": "fireworks",
   "model": "accounts/fireworks/models/deepseek-v4p1-flash",
-  "recordedAt": "2026-10-17T03:23:03.031Z",
-  "latencyMs": 27925,
+  "recordedAt": "2026-10-17T04:42:13.694Z",
+  "latencyMs": 23869,
   "file": "ataques/atk-03-tomas-cambio-de-cuenta.eml",
   "extraction": {
     "documentType": "invoice",
@@ -59,16 +59,16 @@
       "payout": 0.8
     },
     "warnings": [
-      "El correo anuncia un cambio de cuenta bancaria ('Cambié de banco'); conviene verificar con el emisor antes de pagar.",
-      "El titular de la cuenta ('Tomás Aguirre Paz') no coincide exactamente con el remitente ('Tomás Aguirre').",
-      "El correo está fechado 2026-10-16, un día después de la fecha de vencimiento indicada (2026-10-15).",
-      "No se adjunta la factura original; los datos provienen únicamente del cuerpo del correo.",
-      "El método de pago no se especifica (solo se da un número de cuenta); se clasificó como 'other'."
+      "Issuer announces a new bank account ('Cambié de banco') and asks for payment to it; account-change requests should be verified with the issuer before paying.",
+      "The e-mail is dated 2026-10-16, after the stated due date of 2026-10-15.",
+      "Issuer name in the From header ('Tomás Aguirre') differs from the account holder name ('Tomás Aguirre Paz').",
+      "No itemized lines are given; the single amount is the invoice total stated in the e-mail.",
+      "Payout method is not stated (only a bank account number), so it was recorded as 'other'."
     ]
   },
   "usage": {
-    "inputTokens": 2578,
-    "outputTokens": 3566,
+    "inputTokens": 2605,
+    "outputTokens": 2873,
     "cacheReadTokens": 0
   }
 }

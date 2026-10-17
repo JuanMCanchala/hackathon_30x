@@ -1,10 +1,10 @@
 {
   "sha256": "6ae73ebfff945ed59de10bc2c3ea3e372743e26453c0d79b562319ad9aceb203",
-  "extractorVersion": "mandato-extractor/1",
+  "extractorVersion": "mandato-extractor/2",
   "provider": "fireworks",
   "model": "accounts/fireworks/models/deepseek-v4p1-flash",
-  "recordedAt": "2026-10-17T03:20:02.513Z",
-  "latencyMs": 12250,
+  "recordedAt": "2026-10-17T03:37:54.390Z",
+  "latencyMs": 5844,
   "file": "agosto/ago-03-senal-analytics-invoice.pdf",
   "extraction": {
     "documentType": "invoice",
@@ -58,14 +58,11 @@
       "total": 1,
       "payout": 1
     },
-    "warnings": [
-      "Document is marked as a fictitious demo document (\"Documento ficticio generado para la demo de Mandato · Fictitious document\").",
-      "Payment is to be charged to the customer's card on file (Visa ending in 4421); no bank account or transfer key is given."
-    ]
+    "warnings": []
   },
   "usage": {
-    "inputTokens": 3372,
-    "outputTokens": 795,
-    "cacheReadTokens": 0
+    "inputTokens": 3399,
+    "outputTokens": 598,
+    "cacheReadTokens": 1920
   }
 }

@@ -1,10 +1,10 @@
 {
   "sha256": "08e37e7f6301bb455e94e1f2205c9bdb90aaf856081b1506ba932732a78bda57",
-  "extractorVersion": "mandato-extractor/1",
+  "extractorVersion": "mandato-extractor/2",
   "provider": "fireworks",
   "model": "accounts/fireworks/models/deepseek-v4p1-flash",
-  "recordedAt": "2026-10-17T03:21:55.810Z",
-  "latencyMs": 16956,
+  "recordedAt": "2026-10-17T04:39:07.022Z",
+  "latencyMs": 23355,
   "file": "septiembre/sep-04-valentina-cuenta-de-cobro-nueva-llave.pdf",
   "extraction": {
     "documentType": "cuenta_de_cobro",
@@ -56,16 +56,17 @@
       "dueDate": 1,
       "currency": 1,
       "total": 1,
-      "payout": 1
+      "payout": 0.9
     },
     "warnings": [
-      "La nota resaltada dice que la llave Bre-B fue cambiada, pero la 'nueva' llave (@valentina.rios) es idéntica a la impresa en el cuerpo del documento; verificar con la emisora antes de pagar.",
-      "El documento no imprime subtotal ni líneas de impuestos/retenciones; solo el valor total."
+      "La nota resaltada dice que la llave Bre-B fue cambiada, pero la 'nueva' llave @valentina.rios es idéntica a la indicada en el cuerpo del documento; verificar con la emisora antes de pagar.",
+      "No se indica fecha de vencimiento.",
+      "El documento no imprime subtotal ni líneas desglosadas: el valor de la línea corresponde al total del concepto."
     ]
   },
   "usage": {
-    "inputTokens": 3479,
-    "outputTokens": 1848,
+    "inputTokens": 3506,
+    "outputTokens": 2009,
     "cacheReadTokens": 0
   }
 }

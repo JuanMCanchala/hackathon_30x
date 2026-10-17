@@ -1,10 +1,10 @@
 {
   "sha256": "a1a1121fbb237c84ef0afa8e4032c6262dc60a1ccc5d4771021b50a5846154ee",
-  "extractorVersion": "mandato-extractor/1",
+  "extractorVersion": "mandato-extractor/2",
   "provider": "fireworks",
   "model": "accounts/fireworks/models/deepseek-v4p1-flash",
-  "recordedAt": "2026-10-17T03:23:07.233Z",
-  "latencyMs": 10004,
+  "recordedAt": "2026-10-17T04:42:47.442Z",
+  "latencyMs": 11156,
   "file": "ataques/atk-09-mateo-totales-no-cuadran.pdf",
   "extraction": {
     "documentType": "invoice",
@@ -17,7 +17,7 @@
     },
     "billTo": {
       "name": "ANDES LABS INC.",
-      "taxId": "RFC: XEXX010101000 · Tax ID: 88-1234567"
+      "taxId": "RFC: XEXX010101000"
     },
     "invoiceNumber": "F-2026-1015",
     "issueDate": "2026-10-01",
@@ -45,7 +45,7 @@
     "taxes": [
       {
         "name": "IVA 0% (exportación de servicios)",
-        "rate": "0%",
+        "rate": "0",
         "amount": "0.00",
         "kind": "tax"
       }
@@ -72,14 +72,13 @@
       "payout": 1
     },
     "warnings": [
-      "El total impreso (MXN 72,000.00) no coincide con la suma de subtotal más IVA (70,000.00 + 0.00 = 70,000.00).",
-      "El receptor muestra dos identificadores fiscales: RFC XEXX010101000 y Tax ID 88-1234567; se conservaron ambos.",
-      "El documento se identifica como ficticio, generado para una demo."
+      "El total (72,000.00) no coincide con el subtotal más el IVA (70,000.00 + 0.00 = 70,000.00).",
+      "El receptor muestra dos identificadores fiscales: RFC: XEXX010101000 y Tax ID: 88-1234567; se usó el RFC como taxId."
     ]
   },
   "usage": {
-    "inputTokens": 3710,
-    "outputTokens": 1122,
-    "cacheReadTokens": 2302
+    "inputTokens": 3737,
+    "outputTokens": 1279,
+    "cacheReadTokens": 0
   }
 }

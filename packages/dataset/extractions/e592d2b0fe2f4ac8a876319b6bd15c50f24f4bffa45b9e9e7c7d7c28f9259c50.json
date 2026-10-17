@@ -1,10 +1,10 @@
 {
   "sha256": "e592d2b0fe2f4ac8a876319b6bd15c50f24f4bffa45b9e9e7c7d7c28f9259c50",
-  "extractorVersion": "mandato-extractor/1",
+  "extractorVersion": "mandato-extractor/2",
   "provider": "fireworks",
   "model": "accounts/fireworks/models/deepseek-v4p1-flash",
-  "recordedAt": "2026-10-17T03:19:14.811Z",
-  "latencyMs": 6856,
+  "recordedAt": "2026-10-17T03:38:03.018Z",
+  "latencyMs": 14563,
   "file": "agosto/ago-02-tablero-email.eml",
   "extraction": {
     "documentType": "invoice",
@@ -44,7 +44,7 @@
       "accountHolder": null
     },
     "category": "software",
-    "description": "Suscripción al plan Tablero Team, 50 puestos, agosto de 2026",
+    "description": "Tablero Team plan — 50 seats (August 2026)",
     "agentInstructions": {
       "detected": false,
       "quote": null
@@ -61,8 +61,8 @@
     "warnings": []
   },
   "usage": {
-    "inputTokens": 2616,
-    "outputTokens": 678,
-    "cacheReadTokens": 0
+    "inputTokens": 2643,
+    "outputTokens": 800,
+    "cacheReadTokens": 400
   }
 }

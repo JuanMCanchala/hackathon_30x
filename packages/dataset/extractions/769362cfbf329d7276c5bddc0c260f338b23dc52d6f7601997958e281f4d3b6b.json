@@ -1,10 +1,10 @@
 {
   "sha256": "769362cfbf329d7276c5bddc0c260f338b23dc52d6f7601997958e281f4d3b6b",
-  "extractorVersion": "mandato-extractor/1",
+  "extractorVersion": "mandato-extractor/2",
   "provider": "fireworks",
   "model": "accounts/fireworks/models/deepseek-v4p1-flash",
-  "recordedAt": "2026-10-17T03:20:13.304Z",
-  "latencyMs": 10711,
+  "recordedAt": "2026-10-17T04:08:42.344Z",
+  "latencyMs": 7895,
   "file": "agosto/ago-07-tomas-email-con-adjunto.eml",
   "extraction": {
     "documentType": "invoice",
@@ -61,8 +61,8 @@
     "warnings": []
   },
   "usage": {
-    "inputTokens": 3486,
-    "outputTokens": 781,
+    "inputTokens": 3513,
+    "outputTokens": 757,
     "cacheReadTokens": 0
   }
 }

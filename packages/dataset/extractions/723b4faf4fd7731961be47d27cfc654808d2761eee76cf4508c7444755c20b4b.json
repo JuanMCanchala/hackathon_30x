@@ -1,10 +1,10 @@
 {
   "sha256": "723b4faf4fd7731961be47d27cfc654808d2761eee76cf4508c7444755c20b4b",
-  "extractorVersion": "mandato-extractor/1",
+  "extractorVersion": "mandato-extractor/2",
   "provider": "fireworks",
   "model": "accounts/fireworks/models/deepseek-v4p1-flash",
-  "recordedAt": "2026-10-17T03:21:33.340Z",
-  "latencyMs": 103054,
+  "recordedAt": "2026-10-17T04:08:44.532Z",
+  "latencyMs": 10068,
   "file": "agosto/ago-05-mateo-factura.pdf",
   "extraction": {
     "documentType": "invoice",
@@ -66,14 +66,14 @@
       "payout": 1
     },
     "warnings": [
-      "El receptor muestra dos identificadores fiscales: RFC XEXX010101000 (RFC genérico para residentes en el extranjero) y Tax ID: 88-1234567; se usó el RFC como taxId del receptor.",
-      "El IVA se declara a tasa 0% por exportación de servicios; no hay retenciones impresas.",
-      "Documento marcado como ficticio, generado para la demo de Mandato."
+      "El receptor muestra dos identificadores: RFC XEXX010101000 (México) y Tax ID 88-1234567 (USA); se usó el RFC como taxId.",
+      "El CFDI indica 'Uso CFDI: S01 Sin efectos fiscales'.",
+      "El documento se identifica a sí mismo como ficticio, generado para una demo."
     ]
   },
   "usage": {
-    "inputTokens": 3688,
-    "outputTokens": 1052,
+    "inputTokens": 3715,
+    "outputTokens": 1155,
     "cacheReadTokens": 0
   }
 }
