@@ -113,7 +113,7 @@ export const confidence = defineRule(
     if (d.minConfidence >= threshold) {
       return pass(
         meta,
-        `Leí los datos clave con confianza suficiente (mínimo ${formatPercent(d.minConfidence)}).`,
+        `Leí los datos clave con confianza suficiente: el menos seguro tiene ${formatPercent(d.minConfidence)} y la política pide ${formatPercent(threshold)}.`,
         { observed: formatPercent(d.minConfidence), expected },
       );
     }
