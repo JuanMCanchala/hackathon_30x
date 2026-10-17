@@ -10,8 +10,10 @@
 import { and, desc, eq, gte, sql } from 'drizzle-orm';
 import { z } from 'zod';
 import {
+  mean,
   percentile,
   rankTopics,
+  windowIndexOf,
   rollingWindows,
   RADAR_WINDOWS,
   type Platform,
@@ -40,8 +42,13 @@ const WAVE: Record<StageKey, [number, number]> = {
   estable: [0.26, 0.32],
 };
 
+/** A topic counts as useful for 30X's audience from this fit on (1 to 10). */
+export const AUDIENCE_FIT = 6;
+
 export interface RadarFilters {
   platform: 'all' | Platform;
+  /** `30x`: only topics whose fit with 30X's audience is at least AUDIENCE_FIT. */
+  audience?: 'all' | '30x';
   /** `latam`: pieces in Spanish only. */
   region: 'global' | 'latam';
   /** Only topics 30X and Andrés Bilbao have not touched in 60 days. */
@@ -69,6 +76,9 @@ export interface RadarTopicView {
   forming: boolean;
   /** Nobody talked about it in the four weeks before: new this week, its growth is not a ratio. */
   fresh: boolean;
+  /** Sources sampled alike where it grows by itself; with fewer than two it is «por confirmar». */
+  growingIn: Platform[];
+  confirmed: boolean;
 }
 
 /** One piece as the radar counts it. */
@@ -150,6 +160,8 @@ export interface TopicMeta {
   name: string;
   definition: string | null;
   generic: boolean;
+  /** Named by the model; unnamed topics only carry a raw label. */
+  named: boolean;
   fit: number | null;
   why: string | null;
 }
@@ -182,6 +194,7 @@ async function topicMeta(deps: Deps): Promise<Map<string, TopicMeta>> {
         name: t.name,
         definition: t.definition,
         generic: t.generic,
+        named: t.named,
         fit: fit.get(t.id) ?? null,
         why: why.get(t.id) ?? null,
       },
@@ -193,6 +206,8 @@ export interface ScoredTopic {
   core: CoreTopic;
   meta: TopicMeta;
   stage: StageKey;
+  /** Uniform sources where the topic grows on its own (lift ≥ 1.5 with 2+ creators). */
+  growingIn: Platform[];
   platforms: Platform[];
   presence: Partial<Record<Platform, number>>;
   forming: boolean;
@@ -296,6 +311,7 @@ async function computeScores(
       core,
       meta: metaById.get(core.id)!,
       stage,
+      growingIn: growingIn(list, windows),
       platforms,
       presence,
       forming: formingById.get(core.id) ?? false,
@@ -304,6 +320,29 @@ async function computeScores(
     };
   });
   return { asOf, scored, pieces };
+}
+
+const UNIFORM: readonly Platform[] = ['bluesky', 'news', 'hn', 'github'];
+
+/**
+ * The uniform sources where a topic grows by itself. The backtest showed that one source alone
+ * gives many false alarms, so a topic growing in only one is shown as «por confirmar».
+ */
+function growingIn(list: PieceRow[], windows: ReturnType<typeof rollingWindows>): Platform[] {
+  const out: Platform[] = [];
+  for (const platform of UNIFORM) {
+    const creators = windows.map(() => new Set<string>());
+    for (const p of list) {
+      if (p.platform !== platform || !isUniform(p)) continue;
+      const k = windowIndexOf(p.publishedAt, windows);
+      if (k >= 0) creators[k]!.add(p.authorId);
+    }
+    const series = creators.map((c) => c.size);
+    const current = series.at(-1) ?? 0;
+    const baseline = mean(series.slice(-5, -1));
+    if (current >= 2 && (current + 1) / (baseline + 1) >= 1.5) out.push(platform);
+  }
+  return out;
 }
 
 export function topicView(s: ScoredTopic, rank: number): RadarTopicView {
@@ -327,6 +366,8 @@ export function topicView(s: ScoredTopic, rank: number): RadarTopicView {
     untouched: s.untouched,
     forming: s.forming,
     fresh: baselineOf(s.core) < 0.5,
+    growingIn: s.growingIn,
+    confirmed: s.growingIn.length >= 2,
   };
 }
 
@@ -426,15 +467,26 @@ export async function radar(deps: Deps, filters: RadarFilters) {
   const windows = rollingWindows(asOf, RADAR_WINDOWS);
   const current = windows.at(-1)!;
 
-  let candidates = scored.filter((s) => s.core.momentum > 0);
+  let candidates = scored.filter((s) => s.core.momentum > 0 && s.meta.named);
   if (filters.platform !== 'all') {
     const platform = filters.platform;
     candidates = candidates.filter((s) => (s.presence[platform] ?? 0) >= 1);
   }
   if (filters.untouched) candidates = candidates.filter((s) => s.untouched);
+  // How many of the unfiltered top 10 the audience filter leaves out, to say so on screen.
+  const fits = (s: ScoredTopic) => (s.meta.fit ?? 0) >= AUDIENCE_FIT;
+  const hiddenByAudience =
+    filters.audience === '30x' ? candidates.slice(0, 10).filter((s) => !fits(s)).length : 0;
+  if (filters.audience === '30x') candidates = candidates.filter(fits);
   const top = spreadOnWave(candidates.slice(0, 10).map((s, i) => topicView(s, i + 1)));
   const forming = scored
-    .filter((s) => s.forming && !top.some((t) => t.id === s.core.id))
+    .filter(
+      (s) =>
+        s.forming &&
+        s.meta.named &&
+        (filters.audience !== '30x' || fits(s)) &&
+        !top.some((t) => t.id === s.core.id),
+    )
     .sort((a, b) => b.core.technicalLift - a.core.technicalLift)
     .slice(0, 6)
     .map((s, i) => topicView(s, i + 1));
@@ -455,6 +507,7 @@ export async function radar(deps: Deps, filters: RadarFilters) {
     },
     topics: top,
     forming,
+    hiddenByAudience,
     cost: await weekCost(deps, asOf),
   };
 }

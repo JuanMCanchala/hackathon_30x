@@ -6,6 +6,7 @@ import type { Deps } from '../../services/deps';
 import { askRadar, evaluationView, referencesView } from '../../services/insights';
 import { pipelineStatus, startPipeline } from '../../services/pipeline';
 import { radar } from '../../services/radar';
+import { exportSnapshot } from '../../services/snapshot';
 import { topicDetail } from '../../services/topic';
 
 const PLATFORMS = ['all', 'linkedin', 'instagram', 'youtube', 'tiktok', 'x', 'bluesky'] as const;
@@ -14,6 +15,7 @@ const RadarQuery = z.object({
   platform: z.enum(PLATFORMS).default('all'),
   region: z.enum(['global', 'latam']).default('global'),
   untouched: z.enum(['1', '0']).optional(),
+  audience: z.enum(['all', '30x']).default('all'),
 });
 
 const AdaptBody = z.object({ variant: z.number().int().min(0).max(5).default(0) });
@@ -41,7 +43,12 @@ export function registerRadarRoutes(app: OpenAPIHono, deps: Deps) {
   app.get('/api/v1/radar', async (c) => {
     const q = RadarQuery.parse(c.req.query());
     return c.json(
-      await radar(deps, { platform: q.platform, region: q.region, untouched: q.untouched === '1' }),
+      await radar(deps, {
+        platform: q.platform,
+        region: q.region,
+        untouched: q.untouched === '1',
+        audience: q.audience,
+      }),
     );
   });
 
@@ -86,6 +93,9 @@ export function registerRadarRoutes(app: OpenAPIHono, deps: Deps) {
       .parse(await c.req.json().catch(() => ({})));
     return c.json(startPipeline(deps, body), 202);
   });
+
+  // Freezes the current week into SNAPSHOT_DIR, the database the demo starts from.
+  app.post('/api/v1/snapshot', async (c) => c.json(await exportSnapshot(deps)));
 
   app.post('/api/v1/ask', async (c) => {
     const body = AskBody.parse(await c.req.json());

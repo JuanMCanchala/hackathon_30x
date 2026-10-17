@@ -8,29 +8,40 @@ import { clusterLabels, nameTopics } from '../pipeline/cluster';
 import { enrichPending } from '../pipeline/enrich';
 import { ingestRuns } from '../pipeline/ingest';
 import type { Deps } from './deps';
-import { radar } from './radar';
-import { topicDetail } from './topic';
+import { radar, scoreTopics } from './radar';
+import { fitForTopic, topicDetail } from './topic';
+
+/** Runs `fn` over `items`, `limit` at a time. */
+async function inParallel<T>(items: T[], limit: number, fn: (item: T) => Promise<unknown>) {
+  let next = 0;
+  const worker = async () => {
+    while (next < items.length) {
+      const item = items[next++]!;
+      await fn(item).catch((error) => console.error('warm:', (error as Error).message));
+    }
+  };
+  await Promise.all(Array.from({ length: limit }, worker));
+}
 
 /**
- * Writes the "why" and the fit of every topic a person is likely to open first: the top 10 of
- * each network filter, so the radar's table shows its reasons without waiting.
+ * Prepares what a person sees first: the fit of the 60 topics growing the most (so the audience
+ * filter works from the first visit), then the "why" of the top 10 of every network filter.
  */
 export async function warmTopics(deps: Deps): Promise<number> {
+  const { asOf, scored } = await scoreTopics(deps);
+  const ranked = scored
+    .filter((s) => s.core.momentum > 0 && s.meta.named && !s.meta.generic)
+    .slice(0, 60);
+  await inParallel(ranked, 6, (s) => fitForTopic(deps, s.core.id, asOf));
   const seen = new Set<string>();
-  for (const platform of ['all', 'linkedin', 'instagram', 'youtube', 'x'] as const) {
-    const week = await radar(deps, { platform, region: 'global', untouched: false });
-    for (const t of [...week.topics, ...week.forming]) seen.add(t.id);
-  }
-  let warmed = 0;
-  for (const id of seen) {
-    try {
-      await topicDetail(deps, id);
-      warmed += 1;
-    } catch (error) {
-      console.error(`warm ${id}:`, (error as Error).message);
+  for (const audience of ['30x', 'all'] as const) {
+    for (const platform of ['all', 'linkedin', 'instagram', 'youtube', 'x'] as const) {
+      const week = await radar(deps, { platform, region: 'global', untouched: false, audience });
+      for (const t of [...week.topics, ...week.forming]) seen.add(t.id);
     }
   }
-  return warmed;
+  await inParallel([...seen], 3, (id) => topicDetail(deps, id));
+  return seen.size;
 }
 
 export interface PipelineStatus {

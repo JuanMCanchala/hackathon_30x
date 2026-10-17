@@ -434,6 +434,28 @@ export async function topicDetail(
   };
 }
 
+/** The fit with 30X alone, from the topic's most engaging recent pieces: cheap enough for many. */
+export async function fitForTopic(deps: Deps, id: string, asOf: string) {
+  const [topic] = await deps.db.select().from(topics).where(eq(topics.id, id));
+  if (!topic) return null;
+  const windows = rollingWindows(asOf, RADAR_WINDOWS);
+  const samples = await deps.db
+    .select({ title: items.title, text: items.text, hook: enrichments.hook })
+    .from(itemTopics)
+    .innerJoin(items, eq(items.id, itemTopics.itemId))
+    .leftJoin(enrichments, eq(enrichments.itemId, items.id))
+    .where(and(eq(itemTopics.topicId, id), gte(items.publishedAt, windows.at(-2)!.start)))
+    .orderBy(desc(items.engagement))
+    .limit(6);
+  return fitOf(deps, {
+    topicId: id,
+    week: windows.at(-1)!.label,
+    name: topic.name,
+    definition: topic.definition,
+    samples: samples.map((p) => (p.hook || p.title || p.text).slice(0, 160)),
+  });
+}
+
 /** Pieces by id, for citations. */
 export async function piecesById(deps: Deps, ids: string[]) {
   if (!ids.length) return [];

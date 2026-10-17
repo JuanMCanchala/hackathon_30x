@@ -154,7 +154,7 @@ Para cada tema devuelve:
 Devuelve una entrada por tema con su id.`;
 
 /** Names topics that have pieces but no name from the model yet, the biggest first. */
-export async function nameTopics(deps: Deps, limit = 1200): Promise<number> {
+export async function nameTopics(deps: Deps, limit = 300): Promise<number> {
   const pending = await deps.db
     .select({ id: topics.id, pieces: sql<number>`count(${itemTopics.itemId})::int` })
     .from(topics)
