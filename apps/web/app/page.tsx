@@ -1,11 +1,15 @@
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import type { CSSProperties } from 'react';
 import { Logo } from '@/components/brand';
 import { Measured } from '@/components/landing/measured';
 import { ForBlinka, HowItDecides, Problem } from '@/components/landing/sections';
 import { Specimen } from '@/components/landing/specimen';
 import { ThemeSwitch } from '@/components/theme';
 import { buttonClass } from '@/components/ui';
+
+/** The hero enters once on load: headline, then the line, then the actions. */
+const HERO_IN = { '--rise': '14px', '--dur': '400ms' } as CSSProperties;
 
 const REPO = 'https://github.com/JuanMCanchala/hackathon_30x/tree/feat/recibido';
 
@@ -47,12 +51,20 @@ export default function Landing() {
       <main>
         <section className="mx-auto grid max-w-[1200px] items-center gap-12 px-4 pt-10 pb-20 sm:px-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,30rem)] lg:gap-16 lg:pt-16 lg:pb-16">
           <div className="grid content-start gap-7">
-            <h1 className="t-hero max-w-[12ch]">Ningún pago sin prueba de entrega.</h1>
-            <p className="max-w-[46ch] text-[1.125rem] text-ink-2 sm:text-[1.25rem]">
+            <h1 className="t-hero rise-in max-w-[12ch]" style={HERO_IN}>
+              Ningún pago sin prueba de entrega.
+            </h1>
+            <p
+              className="rise-in max-w-[46ch] text-[1.125rem] text-ink-2 sm:text-[1.25rem]"
+              style={{ ...HERO_IN, '--delay': '90ms' } as CSSProperties}
+            >
               Recibido paga las cuentas de servicios solo por el trabajo que puede probar, le pide
               al contratista lo que falta y te deja a ti solo lo que se sale de las reglas.
             </p>
-            <div className="flex flex-wrap gap-3">
+            <div
+              className="rise-in flex flex-wrap gap-3"
+              style={{ ...HERO_IN, '--delay': '180ms' } as CSSProperties}
+            >
               <Link href="/recorrido" className={buttonClass('primary')}>
                 Ver la demo
                 <ArrowRight className="size-4" aria-hidden strokeWidth={2.5} />

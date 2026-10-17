@@ -17,6 +17,7 @@ import {
   RAIL_LABEL,
   SENDER,
 } from '@/lib/format';
+import { useFresh } from '@/lib/motion';
 import type { BillReceipt, Currency } from '@/lib/types';
 
 /** A receipt section: a heading, an optional aside on its right, then a sheet. */
@@ -401,6 +402,7 @@ export function PaymentSection({ r }: { r: BillReceipt }) {
 }
 
 export function ConversationSection({ r }: { r: BillReceipt }) {
+  const fresh = useFresh(r.messages.map((m) => m.id));
   return (
     <Section
       title="Conversación con el proveedor"
@@ -424,6 +426,7 @@ export function ConversationSection({ r }: { r: BillReceipt }) {
                 className={clsx(
                   'max-w-[60ch] rounded-[10px] px-4 py-3',
                   fromVendor ? 'ml-auto bg-fill' : 'border border-rule',
+                  fresh(m.id) && 'rise-in',
                 )}
               >
                 <p className="flex flex-wrap justify-between gap-x-4 text-[0.8125rem]">
@@ -458,6 +461,7 @@ export function HistorySection({ r }: { r: BillReceipt }) {
     ...r.decisions.map((d) => ({ at: d.at, key: d.id, kind: 'decision' as const, d })),
     ...r.humanActions.map((a) => ({ at: a.at, key: a.id, kind: 'person' as const, a })),
   ].sort((x, y) => x.at.localeCompare(y.at));
+  const fresh = useFresh(entries.map((e) => e.key));
   return (
     <Section title="Historial de decisiones">
       {entries.length === 0 ? (
@@ -465,7 +469,7 @@ export function HistorySection({ r }: { r: BillReceipt }) {
       ) : (
         <ol className="grid gap-4">
           {entries.map((e) => (
-            <li key={e.key} className="grid gap-1.5">
+            <li key={e.key} className={clsx('grid gap-1.5', fresh(e.key) && 'rise-in')}>
               <p className="flex flex-wrap items-center justify-between gap-2">
                 {e.kind === 'decision' ? (
                   <OutcomeStamp outcome={e.d.outcome} size="sm" />

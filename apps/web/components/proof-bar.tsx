@@ -1,7 +1,14 @@
 'use client';
 
 import clsx from 'clsx';
-import { useEffect, useRef, useState, type CSSProperties, type RefObject } from 'react';
+import {
+  useEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+  type ReactNode,
+  type RefObject,
+} from 'react';
 import { formatMoney } from '@/lib/format';
 import type { Currency } from '@/lib/types';
 
@@ -46,6 +53,20 @@ export function useInView(ref: RefObject<Element | null>, enabled = true): boole
     return () => io.disconnect();
   }, [ref, enabled]);
   return seen;
+}
+
+/**
+ * Plays the `.rise-in` / `.stamp-land` entrances inside it once, when it first comes into view
+ * (40 % visible). Before that they wait in their first frame.
+ */
+export function Reveal({ children, className }: { children: ReactNode; className?: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const seen = useInView(ref);
+  return (
+    <div ref={ref} data-play={seen ? 'true' : 'false'} className={className}>
+      {children}
+    </div>
+  );
 }
 
 /**

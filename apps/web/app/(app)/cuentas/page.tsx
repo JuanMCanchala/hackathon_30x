@@ -6,16 +6,18 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { OutcomeStamp, StatusChip } from '@/components/outcome';
 import { ProofBar } from '@/components/proof-bar';
-import { Mono, PageHeader } from '@/components/ui';
+import { Mono, PageHeader, stagger } from '@/components/ui';
 import { UploadDialog } from '@/components/upload-dialog';
 import { useBills } from '@/lib/api';
 import { formatDate, formatDecimal, OUTCOMES } from '@/lib/format';
+import { useFresh } from '@/lib/motion';
 import type { BillListItem, Outcome } from '@/lib/types';
 
-function Row({ b }: { b: BillListItem }) {
+function Row({ b, index }: { b: BillListItem; index: number }) {
   const a = b.amounts;
   return (
-    <li>
+    // enters with a short stagger when the list first shows; a bill that arrives later enters alone
+    <li className="rise-in" style={stagger(index, 30)}>
       <Link
         href={`/cuentas/${b.datasetId ?? b.id}`}
         className={clsx(
@@ -63,6 +65,10 @@ export default function BillsPage() {
   const { data, error, isLoading } = useBills();
   const [filter, setFilter] = useState<Outcome | null>(null);
   const shown = data?.filter((b) => !filter || b.outcome === filter) ?? [];
+  const fresh = useFresh(
+    shown.map((b) => b.id),
+    !!data,
+  );
   const count = (o: Outcome) => data?.filter((b) => b.outcome === o).length ?? 0;
 
   return (
@@ -125,8 +131,8 @@ export default function BillsPage() {
               <p className="px-6 py-8 text-ink-2">Ninguna cuenta tiene esa decisión todavía.</p>
             ) : (
               <ol className="divide-y divide-rule">
-                {shown.map((b) => (
-                  <Row key={b.id} b={b} />
+                {shown.map((b, i) => (
+                  <Row key={b.id} b={b} index={fresh(b.id) ? 0 : i} />
                 ))}
               </ol>
             )}

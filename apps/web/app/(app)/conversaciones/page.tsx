@@ -7,9 +7,12 @@ import { StatusChip } from '@/components/outcome';
 import { buttonClass, Mono, PageHeader } from '@/components/ui';
 import { useConversations } from '@/lib/api';
 import { formatDateTime, SENDER } from '@/lib/format';
+import { useFresh } from '@/lib/motion';
 
 export default function ConversationsPage() {
   const { data, error } = useConversations();
+  // a reply that arrives while you watch slides in
+  const fresh = useFresh(data?.flatMap((t) => t.messages.map((m) => m.id)) ?? [], !!data);
   return (
     <>
       <PageHeader
@@ -62,6 +65,7 @@ export default function ConversationsPage() {
                       className={clsx(
                         'max-w-[64ch] rounded-[10px] px-4 py-3',
                         fromVendor ? 'ml-auto bg-fill' : 'border border-rule',
+                        fresh(m.id) && 'rise-in',
                       )}
                     >
                       <p className="flex flex-wrap justify-between gap-x-4 text-[0.8125rem]">

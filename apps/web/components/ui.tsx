@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import Link from 'next/link';
-import type { ButtonHTMLAttributes, ComponentProps, ReactNode } from 'react';
+import type { ButtonHTMLAttributes, ComponentProps, CSSProperties, ReactNode } from 'react';
 
 type Variant = 'primary' | 'secondary' | 'ghost';
 
@@ -93,3 +93,7 @@ export function FileField({
     </div>
   );
 }
+
+/** `--delay` for a staggered `.rise-in`: `step` ms apart, capped so a long list never drags. */
+export const stagger = (i: number, step = 40, max = 320): CSSProperties =>
+  ({ '--delay': `${Math.min(i * step, max)}ms` }) as CSSProperties;

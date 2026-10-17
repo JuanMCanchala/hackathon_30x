@@ -244,9 +244,14 @@
   .fade-in {
     animation: fade-in 150ms ease both;
   }
+  /* entrances: fade and rise a few px; --rise / --dur / --delay tune one use */
   .rise-in {
-    animation: rise-in 240ms var(--ease-out) both;
+    animation: rise-in var(--dur, 240ms) var(--ease-out) both;
     animation-delay: var(--delay, 0ms);
+  }
+  /* a step's check mark when it completes while you watch */
+  .check-in {
+    animation: check-in 260ms var(--ease-out) both;
   }
   /* a sequence (the landing specimen) waits until it is on screen */
   [data-play='false'] :is(.stamp-land, .rise-in) {
@@ -295,7 +300,13 @@
 @keyframes rise-in {
   from {
     opacity: 0;
-    transform: translateY(6px);
+    transform: translateY(var(--rise, 6px));
+  }
+}
+@keyframes check-in {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
   }
 }
 
@@ -303,7 +314,8 @@
   .proof .proof-tick,
   .stamp-land,
   .fade-in,
-  .rise-in {
+  .rise-in,
+  .check-in {
     animation: none !important;
   }
   .btn {

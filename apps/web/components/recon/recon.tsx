@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useRef, useState, type ReactNode } from 'react';
 import { EvidenceRow } from '@/components/evidence';
 import { StatusChip } from '@/components/outcome';
-import { Mono } from '@/components/ui';
+import { Mono, stagger } from '@/components/ui';
 import { useReconciliation } from '@/lib/api';
 import {
   CONTRACT_TYPE,
@@ -55,7 +55,11 @@ function ChainCard({
   children: ReactNode;
 }) {
   return (
-    <li className="relative grid grid-cols-[2rem_minmax(0,1fr)] gap-3">
+    // the five links appear one after another when a line is selected
+    <li
+      className="rise-in relative grid grid-cols-[2rem_minmax(0,1fr)] gap-3"
+      style={stagger(step - 1, 60)}
+    >
       {!last && (
         <span
           aria-hidden
@@ -308,7 +312,7 @@ export function ReconciliationView() {
           className="grid scroll-mt-20 content-start gap-3 lg:sticky lg:top-8 lg:self-start"
         >
           <h2 className="t-h3">De la línea a la evidencia</h2>
-          <Chain row={row} all={data.rows} />
+          <Chain key={row.line.id} row={row} all={data.rows} />
         </div>
       </div>
     </div>

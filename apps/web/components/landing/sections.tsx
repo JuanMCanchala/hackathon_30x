@@ -3,6 +3,8 @@ import clsx from 'clsx';
 import { Check } from 'lucide-react';
 import { OutcomeStamp } from '@/components/outcome';
 import { formatMoney } from '@/lib/format';
+import { Reveal } from '@/components/proof-bar';
+import { stagger } from '@/components/ui';
 
 /* ---------- El problema: the three-way match has no receiving note for services ---------- */
 
@@ -169,19 +171,24 @@ export function HowItDecides() {
               sostienen.
             </p>
           </div>
-          <ul className="divide-y divide-rule border-y border-rule">
-            {OUTCOMES.map((o) => (
-              <li
-                key={o.outcome}
-                className="grid gap-3 py-5 sm:grid-cols-[17rem_minmax(0,1fr)] sm:items-center sm:gap-6"
-              >
-                <span>
-                  <OutcomeStamp outcome={o.outcome} size="md" />
-                </span>
-                <p className="text-[0.9375rem] text-ink-2">{o.text}</p>
-              </li>
-            ))}
-          </ul>
+          {/* the five stamps settle in one after another the first time the list is seen */}
+          <Reveal>
+            <ul className="divide-y divide-rule border-y border-rule">
+              {OUTCOMES.map((o, i) => (
+                <li
+                  key={o.outcome}
+                  className="grid gap-3 py-5 sm:grid-cols-[17rem_minmax(0,1fr)] sm:items-center sm:gap-6"
+                >
+                  <span>
+                    <OutcomeStamp outcome={o.outcome} size="md" land delayMs={i * 70} />
+                  </span>
+                  <p className="rise-in text-[0.9375rem] text-ink-2" style={stagger(i, 70)}>
+                    {o.text}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
         </div>
       </div>
     </section>

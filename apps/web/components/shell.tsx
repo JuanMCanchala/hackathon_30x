@@ -13,7 +13,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
 import { useOverview } from '@/lib/api';
 import { formatDateTime } from '@/lib/format';
 import type { Phase } from '@/lib/types';
@@ -107,6 +107,7 @@ function RailFooter() {
 
 export function AppShell({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   const toggle = useRef<HTMLButtonElement>(null);
   const panel = useRef<HTMLDivElement>(null);
@@ -179,7 +180,14 @@ export function AppShell({ children }: { children: ReactNode }) {
       )}
 
       <main id="contenido" className="min-w-0 px-4 py-8 sm:px-8 lg:px-12 lg:py-12">
-        <div className="mx-auto max-w-[1200px]">{children}</div>
+        {/* each screen enters once on navigation (8 px rise); polls do not replay it */}
+        <div
+          key={pathname}
+          className="rise-in mx-auto max-w-[1200px]"
+          style={{ '--rise': '8px', '--dur': '280ms' } as CSSProperties}
+        >
+          {children}
+        </div>
       </main>
     </div>
   );

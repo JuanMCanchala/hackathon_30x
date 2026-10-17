@@ -6,6 +6,7 @@ import { OUTCOME_INK, OutcomeStamp } from '@/components/outcome';
 import { ButtonLink, Mono, PageHeader } from '@/components/ui';
 import { useBills, useOverview } from '@/lib/api';
 import { formatDateTime, formatMoney, formatPct, OUTCOMES } from '@/lib/format';
+import { useFresh } from '@/lib/motion';
 
 function hoursPhrase(h: number | null): string {
   if (h === null) return '—';
@@ -15,6 +16,8 @@ function hoursPhrase(h: number | null): string {
 
 export default function OverviewPage() {
   const { data, error } = useOverview();
+  // new activity slides in while the tour runs; what was there on load stays still
+  const fresh = useFresh(data?.timeline.slice(0, 12).map((t) => t.seq) ?? [], !!data);
   const { data: bills } = useBills();
 
   if (error && !data)
@@ -172,7 +175,10 @@ export default function OverviewPage() {
                 {data.timeline.slice(0, 12).map((t) => (
                   <li
                     key={t.seq}
-                    className="grid gap-x-4 gap-y-0.5 px-5 py-3 text-[0.9375rem] sm:grid-cols-[8rem_minmax(0,1fr)]"
+                    className={clsx(
+                      fresh(t.seq) && 'rise-in',
+                      'grid gap-x-4 gap-y-0.5 px-5 py-3 text-[0.9375rem] sm:grid-cols-[8rem_minmax(0,1fr)]',
+                    )}
                   >
                     <Mono className="text-[0.8125rem] text-ink-3">{formatDateTime(t.at)}</Mono>
                     {t.billId ? (

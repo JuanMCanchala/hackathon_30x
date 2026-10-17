@@ -2,6 +2,8 @@
 
 import { useOverview } from '@/lib/api';
 import { formatDateTime, formatMoney, formatPct } from '@/lib/format';
+import { Reveal } from '@/components/proof-bar';
+import { stagger } from '@/components/ui';
 
 const muted = 'text-[color-mix(in_srgb,var(--paper)_72%,var(--ink))]';
 
@@ -27,35 +29,43 @@ export function Measured() {
         </div>
 
         {card ? (
-          <dl className="grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-6">
-            <Figure
-              className="lg:col-span-3"
-              big
-              value={formatPct(card.autonomyPct)}
-              label={`de los casos decididos sin una persona (${card.decidedWithoutPerson} de ${card.bills})`}
-            />
-            <Figure
-              className="lg:col-span-3"
-              big
-              value={String(card.improperPayments)}
-              label="pagos indebidos, según un verificador independiente del motor"
-            />
-            <Figure
-              className="lg:col-span-2"
-              value={formatPct(card.evidenceCoveragePct)}
-              label="del valor facturado tiene prueba de entrega"
-            />
-            <Figure
-              className="lg:col-span-2"
-              value={formatMoney(card.feesSavedUsdMinor, 'USD')}
-              label="ahorrados en comisiones frente a una transferencia internacional"
-            />
-            <Figure
-              className="lg:col-span-2"
-              value={formatMoney(card.yieldKeptUsdMinor, 'USD')}
-              label="de rendimiento por pagar el día del vencimiento, no antes"
-            />
-          </dl>
+          // the figures fade up once when seen; the numbers never count up
+          <Reveal>
+            <dl className="grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-6">
+              <Figure
+                i={0}
+                className="lg:col-span-3"
+                big
+                value={formatPct(card.autonomyPct)}
+                label={`de los casos decididos sin una persona (${card.decidedWithoutPerson} de ${card.bills})`}
+              />
+              <Figure
+                i={1}
+                className="lg:col-span-3"
+                big
+                value={String(card.improperPayments)}
+                label="pagos indebidos, según un verificador independiente del motor"
+              />
+              <Figure
+                i={2}
+                className="lg:col-span-2"
+                value={formatPct(card.evidenceCoveragePct)}
+                label="del valor facturado tiene prueba de entrega"
+              />
+              <Figure
+                i={3}
+                className="lg:col-span-2"
+                value={formatMoney(card.feesSavedUsdMinor, 'USD')}
+                label="ahorrados en comisiones frente a una transferencia internacional"
+              />
+              <Figure
+                i={4}
+                className="lg:col-span-2"
+                value={formatMoney(card.yieldKeptUsdMinor, 'USD')}
+                label="de rendimiento por pagar el día del vencimiento, no antes"
+              />
+            </dl>
+          </Reveal>
         ) : (
           <pre className="t-mono w-fit max-w-full overflow-x-auto rounded-[6px] border border-[color-mix(in_srgb,var(--paper)_24%,var(--ink))] px-4 py-3 text-[0.9375rem]">
             pnpm eval
@@ -67,11 +77,13 @@ export function Measured() {
 }
 
 function Figure({
+  i,
   value,
   label,
   big = false,
   className,
 }: {
+  i: number;
   value: string;
   label: string;
   big?: boolean;
@@ -79,7 +91,8 @@ function Figure({
 }) {
   return (
     <div
-      className={`grid content-start gap-3 border-t border-[color-mix(in_srgb,var(--paper)_24%,var(--ink))] pt-5 ${className ?? ''}`}
+      style={stagger(i, 80)}
+      className={`rise-in grid content-start gap-3 border-t border-[color-mix(in_srgb,var(--paper)_24%,var(--ink))] pt-5 ${className ?? ''}`}
     >
       <dt className={`order-2 max-w-[30ch] text-[0.9375rem] ${muted}`}>{label}</dt>
       <dd

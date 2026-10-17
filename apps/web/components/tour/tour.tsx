@@ -8,6 +8,7 @@ import { useSWRConfig } from 'swr';
 import { Button, buttonClass, Mono } from '@/components/ui';
 import { api, useBills, useTour } from '@/lib/api';
 import { formatDateTime } from '@/lib/format';
+import { useFresh } from '@/lib/motion';
 import type { Phase, TourAction, TourState } from '@/lib/types';
 
 interface Step {
@@ -103,19 +104,26 @@ function ActionButton({
   step,
   tour,
   running,
+  justDone,
   onRun,
 }: {
   step: Step & { action: TourAction };
   tour: TourState | undefined;
   running: TourAction | 'reset' | null;
+  justDone: boolean;
   onRun: (a: TourAction) => void;
 }) {
   const state = tour?.actions.find((a) => a.id === step.action);
   const disabled = !state?.available || running !== null;
   if (state?.done)
     return (
-      <span className="inline-flex h-11 items-center gap-2 text-[0.9375rem] font-[700] text-pay">
-        <Check className="size-4" aria-hidden strokeWidth={3} />
+      <span
+        className={clsx(
+          'inline-flex h-11 items-center gap-2 text-[0.9375rem] font-[700] text-pay',
+          justDone && 'fade-in',
+        )}
+      >
+        <Check className={clsx('size-4', justDone && 'check-in')} aria-hidden strokeWidth={3} />
         Hecho
       </span>
     );
@@ -170,6 +178,8 @@ export function GuidedTour() {
   const phaseIndex = PHASES.findIndex((p) => p.id === phase);
   const arrived = bills?.filter((b) => /^oct-\d+$/.test(b.datasetId ?? '')).length ?? 0;
   // the first step whose action is still to do is where the jury is
+  // a step completed while you watch animates its check; the ones already done on load do not
+  const justDone = useFresh(tour?.actions.filter((a) => a.done).map((a) => a.id) ?? [], !!tour);
   const current = STEPS.findIndex(
     (s) => s.action && !tour?.actions.find((a) => a.id === s.action)?.done,
   );
@@ -196,7 +206,14 @@ export function GuidedTour() {
                   done ? 'bg-pay text-sheet' : here ? 'bg-ink text-paper' : 'bg-fill text-ink-2',
                 )}
               >
-                {done ? <Check className="size-4" strokeWidth={3} /> : i + 1}
+                {done ? (
+                  <Check
+                    className={clsx('size-4', s.action && justDone(s.action) && 'check-in')}
+                    strokeWidth={3}
+                  />
+                ) : (
+                  i + 1
+                )}
               </span>
               <div className="grid gap-2">
                 <h2 className="t-h3">{s.title}</h2>
@@ -216,6 +233,7 @@ export function GuidedTour() {
                       step={s as Step & { action: TourAction }}
                       tour={tour}
                       running={running}
+                      justDone={justDone(s.action)}
                       onRun={(a) => void run(a)}
                     />
                   )}
