@@ -1,0 +1,20 @@
+{
+  "name": "@radar/sources",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Public sources: raw capture, parsers that turn each response into pieces, series for history, and public post readers.",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "capture": "node scripts/capture.mjs"
+  },
+  "dependencies": {
+    "@radar/core": "workspace:*",
+    "cheerio": "^1.2.0",
+    "fast-xml-parser": "^5.11.2"
+  }
+}

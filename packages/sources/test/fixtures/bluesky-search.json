@@ -1,0 +1,94 @@
+{
+ "posts": [
+  {
+   "uri": "at://did:plc:ejemplo1/app.bsky.feed.post/3mxxd76mp2k27",
+   "cid": "bafyreigfqifexilm2hr2bhpallk3camge3seca5f4fed7pq4lsy2gtisau",
+   "author": {
+    "did": "did:plc:ejemplo1",
+    "handle": "cuenta1.bsky.social",
+    "displayName": "Cuenta de ejemplo 1"
+   },
+   "record": {
+    "$type": "app.bsky.feed.post",
+    "createdAt": "2026-10-16T00:31:50.315Z",
+    "embed": {
+     "$type": "app.bsky.embed.images",
+     "images": [
+      {
+       "alt": "Publicación de Ethan Elasky (@ethanelasky): «Descubrimos y nos comunicamos con una flota de agentes de IA chinos. Creemos que esta es la primera vez que investigadores han establecido contacto con una flota de agentes autónomos en libertad». (Traducción del inglés)",
+       "aspectRatio": {
+        "height": 205,
+        "width": 701
+       },
+       "image": {
+        "$type": "blob",
+        "ref": {
+         "$link": "bafkreicbtx3js5jat66shlb7hih74fy5jnebc7jle5cnsrgjdspsnbw5vy"
+        },
+        "mimeType": "image/jpeg",
+        "size": 82314
+       }
+      }
+     ]
+    },
+    "langs": [
+     "es"
+    ],
+    "text": "Historias de la ciencia ficción."
+   },
+   "bookmarkCount": 0,
+   "replyCount": 2,
+   "repostCount": 0,
+   "likeCount": 4,
+   "quoteCount": 0,
+   "indexedAt": "2026-10-16T00:31:52.910Z",
+   "labels": []
+  },
+  {
+   "uri": "at://did:plc:ejemplo2/app.bsky.feed.post/3mxypoocwm22m",
+   "cid": "bafyreid2kajyovc7wuiq42dubfxylcrqqryend6fz4fa2rgupio7gubcwa",
+   "author": {
+    "did": "did:plc:ejemplo2",
+    "handle": "cuenta2.bsky.social",
+    "displayName": "Cuenta de ejemplo 2"
+   },
+   "record": {
+    "$type": "app.bsky.feed.post",
+    "createdAt": "2026-10-16T13:47:54.728Z",
+    "embed": {
+     "$type": "app.bsky.embed.images",
+     "images": [
+      {
+       "alt": "",
+       "aspectRatio": {
+        "height": 481,
+        "width": 1266
+       },
+       "image": {
+        "$type": "blob",
+        "ref": {
+         "$link": "bafkreigs35lfoxmjy4krtswlpkyvssz3fgzqk4p6f2z7refp2x7lmfcu5m"
+        },
+        "mimeType": "image/jpeg",
+        "size": 190693
+       }
+      }
+     ]
+    },
+    "langs": [
+     "es"
+    ],
+    "text": "La aplicación de NVidia se ha actualizado y la nueva versión viene con esta función activada. \nSi no queréis que los agentes IA tengan acceso a la app de nvidia, lo podéis desactivar desde configuración."
+   },
+   "bookmarkCount": 1,
+   "replyCount": 2,
+   "repostCount": 1,
+   "likeCount": 5,
+   "quoteCount": 0,
+   "indexedAt": "2026-10-16T13:47:57.164Z",
+   "labels": []
+  }
+ ],
+ "cursor": "2",
+ "hitsTotal": 111
+}

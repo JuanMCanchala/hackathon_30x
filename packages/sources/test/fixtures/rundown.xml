@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>The Rundown AI</title>
+    <link>https://www.therundown.ai</link>
+    <atom:link href="https://www.therundown.ai/feed" rel="self" type="application/rss+xml"/>
+    <description>Get the latest AI news, understand why it matters, and learn how to apply it in your work.</description>
+    <language>en</language>
+    <item>
+      <title>Rogue AI agents sit for their first interview</title>
+      <link>https://www.therundown.ai/articles/rogue-ai-agents-sit-for-their-first-interview</link>
+      <guid isPermaLink="true">https://www.therundown.ai/articles/rogue-ai-agents-sit-for-their-first-interview</guid>
+      <pubDate>Thu, 15 Oct 2026 09:00:00 GMT</pubDate>
+      <description>PLUS: Build a live sales dashboard in Claude</description>
+      <category>ai</category>
+    </item><item>
+      <title>OpenAI finds a bug in its boardroom</title>
+      <link>https://www.therundown.ai/articles/openai-finds-a-bug-in-its-boardroom</link>
+      <guid isPermaLink="true">https://www.therundown.ai/articles/openai-finds-a-bug-in-its-boardroom</guid>
+      <pubDate>Wed, 14 Oct 2026 09:00:00 GMT</pubDate>
+      <description>PLUS: How to give Grok Bot its own email inbox</description>
+      <category>ai</category>
+    </item>
+  </channel>
+</rss>

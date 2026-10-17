@@ -1,0 +1,50 @@
+[
+ {
+  "paper": {
+   "id": "2610.21185",
+   "authors": [
+    {
+     "_id": "6ad1bddd8304c5d882d7b966",
+     "user": {
+      "_id": "6704652c1724cced1adcee88",
+      "avatarUrl": "https://cdn-avatars.huggingface.co/v1/production/uploads/6704652c1724cced1adcee88/MN4Ps2AcIjIVp9xYkqmvh.jpeg",
+      "isPro": false,
+      "fullname": "Kostas Triaridis",
+      "user": "kostino",
+      "type": "user",
+      "name": "kostino"
+     },
+     "name": "Kostas Triaridis",
+     "status": "claimed_verified",
+     "statusLastChangedAt": "2026-10-17T00:45:04.893Z",
+     "hidden": false
+    },
+    {
+     "_id": "6ad1bddd8304c5d882d7b967",
+     "name": "Morris E. Sharp",
+     "hidden": false
+    }
+   ],
+   "publishedAt": "2026-10-15T00:00:00.000Z",
+   "submittedOnDailyAt": "2026-10-16T00:00:00.000Z",
+   "title": "Mine, Sample, Render: Test-Time Diversity Alignment Of Generative Models",
+   "summary": "Modern generative models produce high-quality individual outputs but struggle to sample diversely, even when explicitly instructed to do so. We introduce MINE-SAMPLE-RENDER (MSR), a test-time approach that externalizes the diversity into an explicit, corpus-derived sampling procedure. Our pipeline (i) mines an interpretable categorical schema from a corpus of real artifacts and supplies statistics for sampling; (ii) samples attribute configurations from the corpus-derived statistics; (iii) uses a generative model purely as a conditional renderer of a sampled configuration. Across weather report generation, user simulation, webpage design, text-to-image generation, and agent-generated 3D assets, we evaluate the diversity and output quality of MSR-guided generation and show that MSR improves alignment with corpus distributions and diversity of generated outputs.",
+   "upvotes": 5,
+   "discussionId": "6ad1bddd8304c5d882d7b969",
+   "ai_summary": "MSR improves generative diversity by mining categorical schemas from real artifacts to guide conditional rendering at test time.",
+   "ai_keywords": [
+    "test-time sampling",
+    "corpus-derived statistics",
+    "categorical schema",
+    "conditional renderer",
+    "diversity alignment"
+   ],
+   "ai_summary_model": "thinkingmachines/Inkling-Small"
+  },
+  "publishedAt": "2026-10-14T20:00:00.000Z",
+  "title": "Mine, Sample, Render: Test-Time Diversity Alignment Of Generative Models",
+  "summary": "Modern generative models produce high-quality individual outputs but struggle to sample diversely, even when explicitly instructed to do so. We introduce MINE-SAMPLE-RENDER (MSR), a test-time approach that externalizes the diversity into an explicit, corpus-derived sampling procedure. Our pipeline (i) mines an interpretable categorical schema from a corpus of real artifacts and supplies statistics for sampling; (ii) samples attribute configurations from the corpus-derived statistics; (iii) uses a generative model purely as a conditional renderer of a sampled configuration. Across weather report generation, user simulation, webpage design, text-to-image generation, and agent-generated 3D assets, we evaluate the diversity and output quality of MSR-guided generation and show that MSR improves alignment with corpus distributions and diversity of generated outputs.",
+  "numComments": 1,
+  "isAuthorParticipating": true
+ }
+]

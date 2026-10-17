@@ -1,0 +1,67 @@
+{
+ "total_count": 1379,
+ "items": [
+  {
+   "id": 1209966933,
+   "full_name": "morluto/rea",
+   "html_url": "https://github.com/morluto/rea",
+   "description": "Reverse engineer anything with agents, from app behavior down to native binaries.",
+   "stargazers_count": 303382,
+   "forks_count": 76787,
+   "created_at": "2026-04-14T00:51:32Z",
+   "pushed_at": "2026-10-17T16:53:16Z",
+   "topics": [
+    "agent-skills",
+    "ai-agents",
+    "binary-analysis",
+    "claude-code",
+    "cli",
+    "codex",
+    "cordis",
+    "decompiler",
+    "developer-tools",
+    "dsh",
+    "dsh-plugin",
+    "ghidra",
+    "hopper",
+    "llm",
+    "mcp",
+    "model-context-protocol",
+    "rea",
+    "reverse-engineering",
+    "static-analysis",
+    "touhou"
+   ],
+   "language": "TypeScript",
+   "owner": {
+    "login": "morluto",
+    "html_url": "https://github.com/morluto"
+   }
+  },
+  {
+   "id": 1136590548,
+   "full_name": "affaan-m/ECC",
+   "html_url": "https://github.com/affaan-m/ECC",
+   "description": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.",
+   "stargazers_count": 282142,
+   "forks_count": 41952,
+   "created_at": "2026-01-18T00:51:51Z",
+   "pushed_at": "2026-10-15T19:17:01Z",
+   "topics": [
+    "ai-agents",
+    "anthropic",
+    "claude",
+    "claude-code",
+    "developer-tools",
+    "llm",
+    "mcp",
+    "productivity"
+   ],
+   "language": "JavaScript",
+   "owner": {
+    "login": "affaan-m",
+    "html_url": "https://github.com/affaan-m"
+   }
+  }
+ ]
+}

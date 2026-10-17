@@ -1,0 +1,26 @@
+{
+ "hits": [
+  {
+   "objectID": "50122800",
+   "title": "Claude reveals ECDSA curve origins",
+   "url": "https://www.anthropic.com/research/ecdsa-curve-origins",
+   "author": "ahlCVA",
+   "points": 977,
+   "num_comments": 355,
+   "created_at": "2026-10-16T18:55:59Z",
+   "created_at_i": 1792176959,
+   "story_text": "<a href=\"https:&#x2F;&#x2F;words.filippo.io&#x2F;seeds-solved&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;words.filippo.io&#x2F;seeds-solved&#x2F;</a>"
+  },
+  {
+   "objectID": "50091788",
+   "title": "Containment and monitoring failures are to blame for AI hacking reports: experts",
+   "url": "https://www.csoonline.com/article/4234854/ai-agents-arent-going-rogue-frontier-labs-are-skipping-security-basics.html",
+   "author": "latexr",
+   "points": 947,
+   "num_comments": 620,
+   "created_at": "2026-10-14T17:45:23Z",
+   "created_at_i": 1791999923
+  }
+ ],
+ "nbHits": 891
+}

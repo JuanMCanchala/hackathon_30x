@@ -1,0 +1,40 @@
+{
+ "thread": {
+  "post": {
+   "uri": "at://did:plc:ejemplo3/app.bsky.feed.post/3my3a33s3es2n",
+   "cid": "bafyreicnxivujeeexq3v2mlykwihiiwfsorbqjecdmmv7fbn7bacwarjdi",
+   "author": {
+    "did": "did:plc:ejemplo3",
+    "handle": "cuenta3.bsky.social",
+    "displayName": "Cuenta de ejemplo 3"
+   },
+   "record": {
+    "$type": "app.bsky.feed.post",
+    "createdAt": "2026-10-17T13:46:30.852Z",
+    "langs": [
+     "es"
+    ],
+    "reply": {
+     "parent": {
+      "cid": "bafyreidmxldqis4srbjm5zohhu66xrqij3342lo2yed7ioulfhjwnpkdnm",
+      "uri": "at://did:plc:o4dsdsnahsoajw7onsaz34z6/app.bsky.feed.post/3my37y6xlpk26"
+     },
+     "root": {
+      "cid": "bafyreidmxldqis4srbjm5zohhu66xrqij3342lo2yed7ioulfhjwnpkdnm",
+      "uri": "at://did:plc:o4dsdsnahsoajw7onsaz34z6/app.bsky.feed.post/3my37y6xlpk26"
+     }
+    },
+    "text": "Están tirando mucho de Inteligencia Artificial, porque de la otra…"
+   },
+   "bookmarkCount": 0,
+   "replyCount": 3,
+   "repostCount": 2,
+   "likeCount": 54,
+   "quoteCount": 0,
+   "indexedAt": "2026-10-17T13:46:31.859Z",
+   "labels": []
+  },
+  "threadContext": {},
+  "$type": "app.bsky.feed.defs#threadViewPost"
+ }
+}
