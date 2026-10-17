@@ -55,11 +55,22 @@ describe('classifyStage', () => {
 });
 
 describe('stageContext', () => {
-  it('takes percentiles over active topics only', () => {
-    const c = stageContext([0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-    expect(c.p50).toBe(5.5);
-    expect(c.p10).toBeCloseTo(1.9);
-    expect(c.p90).toBeCloseTo(9.1);
+  it('takes percentiles over topics with a real conversation only (3+ creators)', () => {
+    const c = stageContext([0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
+    expect(c.p50).toBe(7.5);
+    expect(c.p10).toBeCloseTo(3.9);
+    expect(c.p90).toBeCloseTo(11.1);
+  });
+
+  it('does not call a crowd saturated while it still surges', () => {
+    const c = stageContext([3, 3, 4, 4, 5, 5, 6, 6, 7, 8, 9, 10]);
+    const surging = classifyStage({ creators: [2, 2, 3, 2, 30], engagement: flat(5, 10) }, c);
+    expect(surging.stage).toBe('growing');
+    const crowdedFlat = classifyStage(
+      { creators: [28, 30, 29, 31, 30], engagement: flat(5, 10) },
+      c,
+    );
+    expect(crowdedFlat.stage).toBe('saturated');
   });
 
   it('calls nobody saturated by crowd when there are too few topics to rank', () => {

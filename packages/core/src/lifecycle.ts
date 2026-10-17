@@ -39,9 +39,13 @@ export interface StageContext {
  */
 export const MIN_TOPICS_FOR_SATURATION = 10;
 
-/** Percentiles of the current week's creators among topics with at least one this week. */
+/**
+ * Percentiles of the current week's creators among topics with a real conversation this week
+ * (at least MIN_CREATORS). Counting the long tail of one-voice topics would put the 90th
+ * percentile at two or three creators and call almost anything "saturated".
+ */
 export function stageContext(currentCreators: readonly number[]): StageContext {
-  const active = currentCreators.filter((c) => c > 0);
+  const active = currentCreators.filter((c) => c >= MIN_CREATORS);
   return {
     p10: percentile(active, 10),
     p50: percentile(active, 50),
@@ -96,13 +100,14 @@ export function classifyStage(input: StageInput, ctx: StageContext): StageResult
     };
   }
 
-  // 2. Saturated: everyone is on it, or it stopped growing while each piece earns less.
-  if (current >= MIN_CREATORS && current >= ctx.p90) {
+  // 2. Saturated: everyone is on it and it no longer surges, or it stopped growing while each
+  //    piece earns less. A crowd that is still surging is a rising wave, not a saturated one.
+  if (current >= MIN_CREATORS && current >= ctx.p90 && lift < SIGNAL_LIFT) {
     return {
       stage: 'saturated',
       lift,
       signal,
-      reason: `Lo publicaron ${voices(current)} esta semana, más que el 90 % de los temas: ya todos lo están contando.`,
+      reason: `Lo publicaron ${voices(current)} esta semana, más que el 90 % de los temas, y ya no sube: todos lo están contando.`,
     };
   }
   const peak = Math.max(0, ...e.slice(0, t + 1));
