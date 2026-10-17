@@ -11,20 +11,22 @@ import { useApi } from '@/lib/hooks';
 import type { Overview } from '@/lib/types';
 
 function headline(o: Overview): string {
-  const steps = o.ladder;
-  const last = steps.at(-1);
-  if (!last) return 'Todavía no hay cobros. Empieza el recorrido guiado o sube una factura.';
+  const closed = o.ladder.filter((s) => !s.inProgress);
+  const open = o.ladder.find((s) => s.inProgress);
   const alone = (s: Overview['ladder'][number]) => s.paidByAgent + s.heldByAgent;
-  const safe = o.latestAudit
-    ? o.latestAudit.ok
-      ? ', sin un solo pago fuera de lo firmado'
-      : ''
-    : '';
-  if (steps.length === 1) {
+  const safe = o.latestAudit?.ok ? ', sin un solo pago fuera de lo firmado' : '';
+  const last = closed.at(-1);
+  const first = closed[0];
+  if (last && first && last !== first) {
+    return `En ${formatPeriodMonth(last.periodKey)} el agente decidió solo ${alone(last)} de ${last.total} cobros. En ${formatPeriodMonth(first.periodKey)} fueron ${alone(first)} de ${first.total}${safe}.`;
+  }
+  if (last) {
     return `En ${formatPeriodMonth(last.periodKey)} el agente decidió solo ${alone(last)} de ${last.total} cobros${safe}.`;
   }
-  const first = steps[0]!;
-  return `En ${formatPeriodMonth(last.periodKey)} el agente decidió solo ${alone(last)} de ${last.total} cobros. En ${formatPeriodMonth(first.periodKey)} fueron ${alone(first)} de ${first.total}${safe}.`;
+  if (open) {
+    return `En lo que va de ${formatPeriodMonth(open.periodKey)}, el agente decidió solo ${alone(open)} de ${open.total} cobros${safe}.`;
+  }
+  return 'Todavía no hay cobros. Empieza el recorrido guiado o sube una factura.';
 }
 
 export default function ResumenPage() {

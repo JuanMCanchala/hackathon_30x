@@ -186,6 +186,7 @@ export interface Overview {
     paidByAgent: number;
     heldByAgent: number;
     escalated: number;
+    inProgress: boolean;
     signedInPeriod: number;
   }[];
   recent: InvoiceListItem[];

@@ -26,20 +26,22 @@ export function TrustLadder({ steps }: { steps: Step[] }) {
   const y = (v: number) => pad.top + innerH * (1 - v);
   const x = (i: number) => pad.left + i * stepW;
 
-  let path = `M${x(0)} ${y(0)}`;
-  steps.forEach((s, i) => {
-    path += ` L${x(i)} ${y(s.autonomy)} L${x(i + 1)} ${y(s.autonomy)}`;
-  });
-  path += ` L${x(n)} ${y(0)} Z`;
-  let line = '';
-  steps.forEach((s, i) => {
-    line += `${i === 0 ? 'M' : 'L'}${x(i)} ${y(s.autonomy)} L${x(i + 1)} ${y(s.autonomy)} `;
-  });
+  // Each month is a tread with the riser that leads to it. The month in progress is dashed and
+  // lighter: its share can still move until the month ends.
+  const level = (i: number) => y(steps[i]!.autonomy);
+  const treads = steps.map((s, i) => ({
+    key: s.periodKey,
+    open: s.inProgress,
+    area: `M${x(i)} ${y(0)} L${x(i)} ${level(i)} L${x(i + 1)} ${level(i)} L${x(i + 1)} ${y(0)} Z`,
+    line: `M${x(i)} ${level(i === 0 ? 0 : i - 1)} L${x(i)} ${level(i)} L${x(i + 1)} ${level(i)}`,
+  }));
+  const monthName = (s: Step) =>
+    `${capitalize(formatPeriodMonth(s.periodKey))}${s.inProgress ? ' (en curso)' : ''}`;
 
   const description = steps
     .map(
       (s) =>
-        `${formatPeriodMonth(s.periodKey)}: ${formatPercent(s.autonomy)} sin intervención (${s.paidByAgent + s.heldByAgent} de ${s.total})`,
+        `${monthName(s)}: ${formatPercent(s.autonomy)} sin intervención (${s.paidByAgent + s.heldByAgent} de ${s.total})`,
     )
     .join('; ');
 
@@ -75,8 +77,21 @@ export function TrustLadder({ steps }: { steps: Step[] }) {
           strokeWidth={1}
         />
 
-        <path d={path} fill="var(--brand-tint)" />
-        <path d={line} fill="none" stroke="var(--brand)" strokeWidth={2.5} strokeLinejoin="round" />
+        {treads.map((t) => (
+          <path key={t.key} d={t.area} fill="var(--brand-tint)" opacity={t.open ? 0.5 : 1} />
+        ))}
+        {treads.map((t) => (
+          <path
+            key={t.key}
+            d={t.line}
+            fill="none"
+            stroke="var(--brand)"
+            strokeWidth={2.5}
+            strokeLinejoin="round"
+            strokeLinecap="round"
+            strokeDasharray={t.open ? '6 6' : undefined}
+          />
+        ))}
 
         {steps.map((s, i) => {
           const cx = x(i);
@@ -90,7 +105,7 @@ export function TrustLadder({ steps }: { steps: Step[] }) {
               onBlur={() => setHover(null)}
               tabIndex={0}
               role="listitem"
-              aria-label={`${formatPeriodMonth(s.periodKey)}: ${formatPercent(s.autonomy)}`}
+              aria-label={`${monthName(s)}: ${formatPercent(s.autonomy)}`}
               className="outline-none"
             >
               <rect x={cx} y={pad.top - 30} width={stepW} height={innerH + 30} fill="transparent" />
@@ -104,7 +119,11 @@ export function TrustLadder({ steps }: { steps: Step[] }) {
                   opacity={0.08}
                 />
               )}
-              <text x={cx + 12} y={top - 12} className="t-figure fill-ink text-[26px]">
+              <text
+                x={cx + 12}
+                y={top - 12}
+                className={clsx('t-figure text-[26px]', s.inProgress ? 'fill-ink-2' : 'fill-ink')}
+              >
                 {Math.round(s.autonomy * 100)}
                 <tspan className="fill-ink-3 text-[15px]"> %</tspan>
               </text>
@@ -122,6 +141,7 @@ export function TrustLadder({ steps }: { steps: Step[] }) {
                 textAnchor="middle"
                 className="fill-ink-3 text-[11.5px]"
               >
+                {s.inProgress ? 'en curso: ' : ''}
                 {s.paidByAgent + s.heldByAgent} de {s.total} sin intervención
               </text>
               {i < steps.length - 1 && s.signedInPeriod > 0 && (
@@ -158,9 +178,7 @@ export function TrustLadder({ steps }: { steps: Step[] }) {
             transform: 'translateX(-50%)',
           }}
         >
-          <p className="font-[620] text-ink">
-            {capitalize(formatPeriodMonth(steps[hover].periodKey))}
-          </p>
+          <p className="font-[620] text-ink">{monthName(steps[hover])}</p>
           <dl className="mt-1.5 grid grid-cols-[1fr_auto] gap-x-3 gap-y-0.5 text-ink-2">
             <dt>Pagadas solas</dt>
             <dd className="text-right tabular-nums text-ink">{steps[hover].paidByAgent}</dd>
@@ -187,7 +205,7 @@ export function TrustLadder({ steps }: { steps: Step[] }) {
         <tbody>
           {steps.map((s) => (
             <tr key={s.periodKey}>
-              <td>{formatPeriodMonth(s.periodKey)}</td>
+              <td>{monthName(s)}</td>
               <td>{formatPercent(s.autonomy)}</td>
               <td>{s.paidByAgent}</td>
               <td>{s.heldByAgent}</td>
@@ -268,11 +286,14 @@ export function MonthMix({ steps }: { steps: Step[] }) {
       <ul className="grid gap-2.5">
         {steps.map((s) => (
           <li key={s.periodKey} className="grid grid-cols-[6.5rem_1fr] items-center gap-3">
-            <span className="text-sm text-ink-2">{capitalize(formatPeriodMonth(s.periodKey))}</span>
+            <span className="text-sm text-ink-2">
+              {capitalize(formatPeriodMonth(s.periodKey))}
+              {s.inProgress && <span className="block text-xs text-ink-3">en curso</span>}
+            </span>
             <span
               className="flex h-6 gap-[2px]"
               role="img"
-              aria-label={`${capitalize(formatPeriodMonth(s.periodKey))}: ${MIX.map((m) => `${s[m.key]} ${m.label.toLowerCase()}`).join(', ')}`}
+              aria-label={`${capitalize(formatPeriodMonth(s.periodKey))}${s.inProgress ? ' (en curso)' : ''}: ${MIX.map((m) => `${s[m.key]} ${m.label.toLowerCase()}`).join(', ')}`}
             >
               {MIX.map((m) =>
                 s[m.key] > 0 ? (

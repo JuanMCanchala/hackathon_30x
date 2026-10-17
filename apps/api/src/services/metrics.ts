@@ -52,6 +52,8 @@ export async function overview(deps: Deps, orgId: string) {
     paidByAgent: p.paidByAgent,
     heldByAgent: p.heldByAgent,
     escalated: p.escalated,
+    /** The current month is still open: its share can move until it ends. */
+    inProgress: p.periodKey === currentPeriod,
     signedInPeriod: accepted.filter((a) => {
       const resolved = a.resolvedAt?.toISOString();
       return resolved ? periodKeyOf(resolved, org.timeZone) === p.periodKey : false;
