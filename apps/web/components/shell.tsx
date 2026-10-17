@@ -9,6 +9,7 @@ import {
   Monitor,
   Moon,
   RadioTower,
+  Radar,
   Sun,
   Users,
   Waves,
@@ -22,6 +23,7 @@ import { Logo } from './brand';
 
 const NAV = [
   { href: '/', label: 'Radar', icon: Waves },
+  { href: '/vigia', label: 'Vigía', icon: Radar },
   { href: '/referentes', label: 'Referentes', icon: Users },
   { href: '/calendario', label: 'Calendario', icon: CalendarDays },
   { href: '/sensor', label: 'Sensor', icon: RadioTower },
