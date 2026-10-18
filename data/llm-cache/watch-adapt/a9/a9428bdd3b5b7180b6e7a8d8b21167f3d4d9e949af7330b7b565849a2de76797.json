@@ -1,0 +1,80 @@
+{
+ "key": "a9428bdd3b5b7180b6e7a8d8b21167f3d4d9e949af7330b7b565849a2de76797",
+ "name": "watch-adapt",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T07:22:51.936Z",
+ "latencyMs": 15692,
+ "usage": {
+  "inputTokens": 1333,
+  "outputTokens": 1608
+ },
+ "output": {
+  "angle": "El mayor opportunity de IA hoy no es un chatbot: es construir un cerebro de empresa que conecte tu organigrama, tus SOPs y tus datos para que cualquiera sepa qué hacer sin depender de un ejército de gerentes.",
+  "hooks": [
+   "Tu empresa no necesita más gerentes. Necesita un cerebro.",
+   "Conecta tu organigrama y tus SOPs a la IA. Cambia todo.",
+   "El mayor opportunity de IA hoy: un cerebro para toda tu empresa."
+  ],
+  "linkedin": "En Rappi aprendí que el cuello de botella casi nunca es la gente. Es la información.\n\nCuando alguien nuevo entraba, la pregunta no era \"¿puedo hacerlo?\". Era \"¿a quién le pregunto?\". Y esa pregunta cuesta semanas.\n\nHoy eso se puede resolver con algo que llamo cerebro de empresa: conectas una herramienta técnica a tu organigrama, a quién gestiona qué y a tus SOPs. Cualquiera en la compañía pregunta qué hacer y el sistema le responde.\n\nNo es magia. Es contexto bien estructurado.\n\nLo interesante es el cambio de rol. Las consultoras que ganen no van a venir a gestionar tu operación. Van a construir los sistemas que la gestionan y te dejan trabajar de ida y vuelta.\n\nEso es una ventaja injusta: tu conocimiento deja de vivir en la cabeza de cinco personas y pasa a vivir en un sistema que escala contigo.\n\nEmpieza chico. Toma un proceso, documenta quién decide qué, conéctalo y mide cuántas preguntas deja de hacer tu equipo.\n\n#IA #Operaciones #30X",
+  "carousel": [
+   {
+    "title": "La mayor oportunidad de IA hoy",
+    "body": "No es otro chatbot. Es un cerebro de empresa: el contexto de todo tu negocio, conectado y consultable."
+   },
+   {
+    "title": "Qué es un cerebro de empresa",
+    "body": "Un sistema que conecta tu organigrama, quién gestiona qué y tus SOPs en una sola base consultable."
+   },
+   {
+    "title": "Cómo se construye",
+    "body": "Conectas una herramienta técnica a tu base de datos organizacional. No necesitas reemplazar todo tu stack."
+   },
+   {
+    "title": "Qué cambia para tu equipo",
+    "body": "Cualquiera pregunta qué hacer y el sistema le responde. Menos dependencia de cinco personas clave."
+   },
+   {
+    "title": "El sistema gestiona, no la gente",
+    "body": "Dejas de necesitar un ejército de coordinadores. El sistema te dice la gestión y te navega por ella."
+   },
+   {
+    "title": "El nuevo rol de las consultoras",
+    "body": "Las que ganen no vienen a gestionar. Construyen los sistemas que gestionan y te dejan operar de ida y vuelta."
+   },
+   {
+    "title": "Cómo empezar esta semana",
+    "body": "Elige un proceso. Documenta quién decide qué. Conéctalo. Mide cuántas preguntas deja de hacer tu equipo."
+   }
+  ],
+  "reel": {
+   "hook": "Ahora mismo hay una oportunidad enorme para algo llamado cerebros de empresa.",
+   "beats": [
+    "Se les dice cerebros de empresa o paquetes de contexto.",
+    "Conectas una herramienta técnica a tu organigrama, quién gestiona qué y tus SOPs.",
+    "Cualquiera en la empresa puede preguntar qué hacer y el sistema le responde.",
+    "Ya no necesitas un montón de gente coordinando: el sistema te navega la gestión.",
+    "Las consultoras que ganen no vienen a gestionar. Construyen los sistemas que gestionan."
+   ],
+   "onScreen": [
+    "Cerebro de empresa",
+    "Organigrama + SOPs + datos",
+    "Cualquiera pregunta qué hacer",
+    "El sistema gestiona",
+    "Nuevo rol de las consultoras"
+   ],
+   "cta": "Toma un proceso de tu empresa esta semana, documenta quién decide qué y conéctalo. Mide cuántas preguntas deja de hacer tu equipo."
+  },
+  "youtube": {
+   "title": "La mayor oportunidad de IA para tu empresa: el cerebro de empresa",
+   "thumbnail": "Andrés señalando un organigrama que se conecta con flechas a una base de datos central, texto grande: CEREBRO DE EMPRESA."
+  },
+  "avoid": [
+   "No copies el cierre tipo \"link en mi bio\": en 30X cerramos con una acción concreta, no con tráfico a otro canal.",
+   "No repitas \"segundo cerebro\" sin aterrizarlo: en LatAm suena a productividad personal, no a sistema de negocio.",
+   "No vendas la idea como reemplazo total de personas: el punto es dónde vive el contexto, no despedir gente."
+  ],
+  "inspiredBy": [
+   "youtube:D1ds32wBoDk"
+  ]
+ }
+}
