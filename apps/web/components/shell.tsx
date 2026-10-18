@@ -135,8 +135,18 @@ const isActive = (pathname: string, href: string) =>
     ? pathname.startsWith('/radar') || pathname.startsWith('/tema')
     : pathname.startsWith(href);
 
-const ago = (iso: string) => {
-  const min = Math.max(0, (Date.now() - new Date(iso).getTime()) / 60_000);
+/** The current time, refreshed every minute, so «hace 5 min» stays true while the page is open. */
+function useNow() {
+  const [now, setNow] = useState(() => Date.now());
+  useEffect(() => {
+    const timer = setInterval(() => setNow(Date.now()), 60_000);
+    return () => clearInterval(timer);
+  }, []);
+  return now;
+}
+
+const ago = (iso: string, now: number) => {
+  const min = Math.max(0, (now - new Date(iso).getTime()) / 60_000);
   if (min < 60) return `hace ${Math.max(1, Math.round(min))} min`;
   if (min < 48 * 60) return `hace ${Math.round(min / 60)} h`;
   return `hace ${Math.round(min / 1440)} días`;
@@ -147,10 +157,11 @@ function Sidebar({ pathname, onNavigate }: { pathname: string; onNavigate?: () =
   const [profile] = useProfile();
   const [decisions] = useDecisions();
   const { data: radar } = useApi<Radar>('/api/v1/radar');
+  const now = useNow();
   const pending = radar ? radar.topics.filter((t) => !decisions[t.id]).length : 0;
   // The capture runs every two hours; the next one is two hours after the last.
   const next = radar?.basis.updatedAt
-    ? Math.round((new Date(radar.basis.updatedAt).getTime() + 2 * 3_600_000 - Date.now()) / 60_000)
+    ? Math.round((new Date(radar.basis.updatedAt).getTime() + 2 * 3_600_000 - now) / 60_000)
     : null;
   return (
     <div className="flex h-full flex-col gap-1">
@@ -230,6 +241,7 @@ export function AppShell({ children }: { children: ReactNode }) {
   const [askOpen, setAskOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const { data: radar } = useApi<Radar>('/api/v1/radar');
+  const now = useNow();
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -273,7 +285,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           {radar?.basis.updatedAt && (
             <span className="flex items-center gap-2 text-[0.86rem] text-ink-2">
               <span className="size-2 rounded-full bg-st-emergente" aria-hidden />
-              Actualizado {ago(radar.basis.updatedAt)}
+              Actualizado {ago(radar.basis.updatedAt, now)}
             </span>
           )}
           <button
