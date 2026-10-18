@@ -1,0 +1,273 @@
+{
+  "fetchedAt": "2026-10-18T03:06:18.460Z",
+  "waves": [
+    {
+      "id": "deepseek-r1",
+      "name": "DeepSeek R1",
+      "event": "2025-01-20",
+      "specific": true,
+      "en": {
+        "title": "DeepSeek",
+        "created": "2024-11-26T14:36:48Z",
+        "peak": { "date": "2025-01-28", "views": 860907 }
+      },
+      "es": {
+        "title": "DeepSeek",
+        "created": "2025-01-27T14:34:27Z",
+        "peak": { "date": "2025-01-28", "views": 12220 }
+      }
+    },
+    {
+      "id": "mcp",
+      "name": "Model Context Protocol (MCP)",
+      "event": "2025-03-26",
+      "specific": true,
+      "en": {
+        "title": "Model Context Protocol",
+        "created": "2025-04-14T12:01:07Z",
+        "peak": { "date": "2025-06-05", "views": 3147 }
+      },
+      "es": {
+        "title": "Protocolo de Contexto de Modelo",
+        "created": "2025-03-20T19:59:39Z",
+        "peak": { "date": "2025-06-19", "views": 42 }
+      }
+    },
+    {
+      "id": "vibe-coding",
+      "name": "Vibe coding",
+      "event": "2025-02-02",
+      "specific": true,
+      "en": {
+        "title": "Vibe coding",
+        "created": "2025-03-03T11:58:30Z",
+        "peak": { "date": "2025-03-26", "views": 30248 }
+      },
+      "es": {
+        "title": "Vibe coding",
+        "created": "2025-03-24T11:05:29Z",
+        "peak": { "date": "2025-03-26", "views": 569 }
+      }
+    },
+    {
+      "id": "ghibli-images",
+      "name": "Imágenes estilo Ghibli",
+      "event": "2025-03-25",
+      "specific": false,
+      "en": {
+        "title": "Studio Ghibli",
+        "created": "2002-11-18T01:57:29Z",
+        "peak": { "date": "2025-03-30", "views": 179862 }
+      },
+      "es": {
+        "title": "Studio Ghibli",
+        "created": "2005-05-11T15:25:06Z",
+        "peak": { "date": "2025-03-31", "views": 17491 }
+      }
+    },
+    {
+      "id": "manus",
+      "name": "Manus",
+      "event": "2025-03-06",
+      "specific": true,
+      "en": {
+        "title": "Manus (AI agent)",
+        "created": "2025-03-10T09:02:59Z",
+        "peak": { "date": "2025-04-03", "views": 1923 }
+      },
+      "es": {
+        "title": "Manus (agente de IA)",
+        "created": "2025-04-27T20:14:41Z",
+        "peak": { "date": "2025-05-28", "views": 30 }
+      }
+    },
+    {
+      "id": "llama-4",
+      "name": "Llama 4",
+      "event": "2025-04-05",
+      "specific": false,
+      "en": {
+        "title": "Llama (language model)",
+        "created": "2023-03-16T20:12:51Z",
+        "peak": { "date": "2025-04-06", "views": 2320 }
+      },
+      "es": {
+        "title": "LLaMA (gran modelo de lenguaje)",
+        "created": "2023-05-07T12:51:13Z",
+        "peak": { "date": "2025-04-07", "views": 92 }
+      }
+    },
+    {
+      "id": "veo-3",
+      "name": "Veo 3",
+      "event": "2025-05-20",
+      "specific": true,
+      "en": {
+        "title": "Veo (text-to-video model)",
+        "created": "2025-05-23T14:37:41Z",
+        "peak": { "date": "2025-06-24", "views": 753 }
+      },
+      "es": { "title": "Veo 3", "created": "2025-09-20T13:15:54Z", "peak": null }
+    },
+    {
+      "id": "claude-code",
+      "name": "Claude Code y los agentes de código",
+      "event": "2025-05-22",
+      "specific": false,
+      "en": {
+        "title": "Claude (AI)",
+        "created": "2024-01-22T05:51:58Z",
+        "peak": { "date": "2025-08-19", "views": 15 }
+      },
+      "es": {
+        "title": "Claude (chatbot)",
+        "created": "2023-06-08T19:58:51Z",
+        "peak": { "date": "2025-06-10", "views": 234 }
+      }
+    },
+    {
+      "id": "kimi-k2",
+      "name": "Kimi K2",
+      "event": "2025-07-11",
+      "specific": true,
+      "en": { "title": "Kimi (AI)", "created": "2025-09-09T09:28:18Z", "peak": null },
+      "es": { "title": "Kimi (chatbot)", "created": "2026-03-06T12:31:12Z", "peak": null }
+    },
+    {
+      "id": "grok-4",
+      "name": "Grok 4",
+      "event": "2025-07-09",
+      "specific": false,
+      "en": {
+        "title": "Grok (chatbot)",
+        "created": "2023-11-04T18:16:32Z",
+        "peak": { "date": "2025-07-09", "views": 34907 }
+      },
+      "es": {
+        "title": "Grok (chatbot)",
+        "created": "2023-12-08T08:13:46Z",
+        "peak": { "date": "2025-07-11", "views": 918 }
+      }
+    },
+    {
+      "id": "gpt-5",
+      "name": "GPT-5",
+      "event": "2025-08-07",
+      "specific": false,
+      "en": {
+        "title": "GPT-5",
+        "created": "2024-05-06T05:19:02Z",
+        "peak": { "date": "2025-08-08", "views": 11835 }
+      },
+      "es": {
+        "title": "GPT-5",
+        "created": "2025-08-13T14:00:18Z",
+        "peak": { "date": "2025-08-28", "views": 59 }
+      }
+    },
+    {
+      "id": "genie-3",
+      "name": "Genie 3",
+      "event": "2025-08-05",
+      "specific": true,
+      "en": { "title": "Genie (world model)", "created": "2026-02-10T01:12:18Z", "peak": null },
+      "es": null
+    },
+    {
+      "id": "nano-banana",
+      "name": "Nano Banana",
+      "event": "2025-08-26",
+      "specific": false,
+      "en": {
+        "title": "Gemini (language model)",
+        "created": "2023-08-21T04:42:52Z",
+        "peak": { "date": "2025-09-14", "views": 4175 }
+      },
+      "es": {
+        "title": "Gemini (modelo de lenguaje)",
+        "created": "2023-12-06T17:10:42Z",
+        "peak": { "date": "2025-09-25", "views": 327 }
+      }
+    },
+    {
+      "id": "sora-2",
+      "name": "Sora 2",
+      "event": "2025-09-30",
+      "specific": false,
+      "en": {
+        "title": "Sora (text-to-video model)",
+        "created": "2024-02-15T22:06:16Z",
+        "peak": { "date": "2025-10-08", "views": 5618 }
+      },
+      "es": {
+        "title": "Sora (inteligencia artificial)",
+        "created": "2024-02-16T02:36:46Z",
+        "peak": { "date": "2025-10-08", "views": 240 }
+      }
+    },
+    {
+      "id": "chatgpt-atlas",
+      "name": "ChatGPT Atlas",
+      "event": "2025-10-21",
+      "specific": true,
+      "en": {
+        "title": "ChatGPT Atlas",
+        "created": "2025-10-21T20:37:30Z",
+        "peak": { "date": "2025-10-23", "views": 6841 }
+      },
+      "es": {
+        "title": "ChatGPT Atlas",
+        "created": "2025-11-18T20:11:11Z",
+        "peak": { "date": "2025-11-18", "views": 12 }
+      }
+    },
+    {
+      "id": "gemini-3",
+      "name": "Gemini 3",
+      "event": "2025-11-18",
+      "specific": false,
+      "en": {
+        "title": "Gemini 3",
+        "created": "2003-04-19T17:09:22Z",
+        "peak": { "date": "2025-11-19", "views": 741 }
+      },
+      "es": {
+        "title": "Gemini 3",
+        "created": "2007-03-16T16:34:01Z",
+        "peak": { "date": "2025-11-18", "views": 40 }
+      }
+    },
+    {
+      "id": "openclaw",
+      "name": "OpenClaw",
+      "event": "2026-01-25",
+      "specific": true,
+      "en": {
+        "title": "OpenClaw",
+        "created": "2026-01-30T04:52:36Z",
+        "peak": { "date": "2026-02-16", "views": 47525 }
+      },
+      "es": {
+        "title": "OpenClaw",
+        "created": "2026-01-31T22:03:12Z",
+        "peak": { "date": "2026-02-16", "views": 929 }
+      }
+    },
+    {
+      "id": "moltbook",
+      "name": "Moltbook",
+      "event": "2026-01-28",
+      "specific": true,
+      "en": {
+        "title": "Moltbook",
+        "created": "2026-01-31T10:08:39Z",
+        "peak": { "date": "2026-02-01", "views": 112362 }
+      },
+      "es": {
+        "title": "Moltbook",
+        "created": "2026-02-05T06:10:56Z",
+        "peak": { "date": "2026-02-20", "views": 228 }
+      }
+    }
+  ]
+}

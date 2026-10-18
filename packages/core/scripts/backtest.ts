@@ -14,6 +14,7 @@ import {
   type BacktestSeriesFile,
   type WavesFile,
 } from '../src/backtest';
+import { languageLag, type LanguageLagFile } from '../src/language-lag';
 
 const DIR = join(dirname(fileURLToPath(import.meta.url)), '../fixtures/backtest');
 const SERIES = join(DIR, 'series');
@@ -48,6 +49,11 @@ if (!files.length) {
 }
 
 const report = runBacktest(files);
+// Recorded by packages/sources/scripts/fetch-language-lag.ts: how late Spanish Wikipedia arrives.
+const lagPath = join(DIR, 'language-lag.json');
+const lag = existsSync(lagPath)
+  ? languageLag(JSON.parse(await readFile(lagPath, 'utf8')) as LanguageLagFile)
+  : null;
 const fetched =
   files
     .map((f) => f.fetchedAt ?? '')
@@ -57,7 +63,7 @@ const fetched =
 const reportPath = join(DIR, 'report.json');
 await writeFile(
   reportPath,
-  await format(JSON.stringify({ seriesFetchedAt: fetched, ...report }), {
+  await format(JSON.stringify({ seriesFetchedAt: fetched, ...report, languageLag: lag }), {
     ...(await resolveConfig(reportPath)),
     parser: 'json',
   }),
@@ -77,5 +83,17 @@ for (const c of report.controls) {
   console.log(
     `  ${c.falseAlarm ? '!' : '·'} ${c.name}: ${c.falseAlarm ? `falsa alarma ${alarms}` : 'sin alarmas'}`,
   );
+}
+if (lag) {
+  console.log('\nCuánto tarda una ola en llegar a Wikipedia en español:');
+  if (lag.medianCreatedLagDays !== null)
+    console.log(
+      `  mediana de ${lag.medianCreatedLagDays} días entre el artículo en inglés y el de español (${lag.counted.created} olas con artículo propio)`,
+    );
+  if (lag.medianPeakLagDays !== null)
+    console.log(
+      `  mediana de ${lag.medianPeakLagDays} días entre el pico de visitas en inglés y en español (${lag.counted.peak} olas)`,
+    );
+  console.log(`  ${lag.counted.notInSpanish} de ${lag.counted.waves} olas sin artículo en español`);
 }
 process.exit(report.passed ? 0 : 1);

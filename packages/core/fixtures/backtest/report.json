@@ -1099,5 +1099,139 @@
       }
     }
   ],
-  "passed": true
+  "passed": true,
+  "languageLag": {
+    "fetchedAt": "2026-10-18T03:06:18.460Z",
+    "waves": [
+      {
+        "id": "deepseek-r1",
+        "name": "DeepSeek R1",
+        "inSpanish": true,
+        "createdLagDays": 62,
+        "peakLagDays": 0
+      },
+      {
+        "id": "mcp",
+        "name": "Model Context Protocol (MCP)",
+        "inSpanish": true,
+        "createdLagDays": -25,
+        "peakLagDays": 14
+      },
+      {
+        "id": "vibe-coding",
+        "name": "Vibe coding",
+        "inSpanish": true,
+        "createdLagDays": 21,
+        "peakLagDays": 0
+      },
+      {
+        "id": "ghibli-images",
+        "name": "Imágenes estilo Ghibli",
+        "inSpanish": true,
+        "createdLagDays": null,
+        "peakLagDays": 1
+      },
+      {
+        "id": "manus",
+        "name": "Manus",
+        "inSpanish": true,
+        "createdLagDays": 48,
+        "peakLagDays": 55
+      },
+      {
+        "id": "llama-4",
+        "name": "Llama 4",
+        "inSpanish": true,
+        "createdLagDays": null,
+        "peakLagDays": 1
+      },
+      {
+        "id": "veo-3",
+        "name": "Veo 3",
+        "inSpanish": true,
+        "createdLagDays": 120,
+        "peakLagDays": null
+      },
+      {
+        "id": "claude-code",
+        "name": "Claude Code y los agentes de código",
+        "inSpanish": true,
+        "createdLagDays": null,
+        "peakLagDays": -70
+      },
+      {
+        "id": "kimi-k2",
+        "name": "Kimi K2",
+        "inSpanish": true,
+        "createdLagDays": 178,
+        "peakLagDays": null
+      },
+      {
+        "id": "grok-4",
+        "name": "Grok 4",
+        "inSpanish": true,
+        "createdLagDays": null,
+        "peakLagDays": 2
+      },
+      {
+        "id": "gpt-5",
+        "name": "GPT-5",
+        "inSpanish": true,
+        "createdLagDays": null,
+        "peakLagDays": 20
+      },
+      {
+        "id": "genie-3",
+        "name": "Genie 3",
+        "inSpanish": false,
+        "createdLagDays": null,
+        "peakLagDays": null
+      },
+      {
+        "id": "nano-banana",
+        "name": "Nano Banana",
+        "inSpanish": true,
+        "createdLagDays": null,
+        "peakLagDays": 11
+      },
+      {
+        "id": "sora-2",
+        "name": "Sora 2",
+        "inSpanish": true,
+        "createdLagDays": null,
+        "peakLagDays": 0
+      },
+      {
+        "id": "chatgpt-atlas",
+        "name": "ChatGPT Atlas",
+        "inSpanish": true,
+        "createdLagDays": 28,
+        "peakLagDays": 26
+      },
+      {
+        "id": "gemini-3",
+        "name": "Gemini 3",
+        "inSpanish": true,
+        "createdLagDays": null,
+        "peakLagDays": -1
+      },
+      {
+        "id": "openclaw",
+        "name": "OpenClaw",
+        "inSpanish": true,
+        "createdLagDays": 1,
+        "peakLagDays": 0
+      },
+      {
+        "id": "moltbook",
+        "name": "Moltbook",
+        "inSpanish": true,
+        "createdLagDays": 5,
+        "peakLagDays": 19
+      }
+    ],
+    "medianCreatedLagDays": 28,
+    "medianPeakLagDays": 1,
+    "counted": { "created": 9, "peak": 15, "waves": 18, "notInSpanish": 1 }
+  }
 }

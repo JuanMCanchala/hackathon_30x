@@ -75,6 +75,8 @@ Los criterios se ajustaron después de ver los datos y lo decimos: exigir que do
 
 Las ideas sobre IA que se vuelven virales en español casi siempre funcionaron antes en inglés o en portugués. Radar mide cada tema por separado en los tres idiomas (creadores, etapa y lugar en su ola) y marca una **ventana abierta en español** cuando el inglés o el portugués ya tiene al menos 6 creadores esa semana y el español va en la cuarta parte o menos. Para cada tema mide además cuántas semanas le lleva el idioma líder al español.
 
+Wikipedia lo confirma con las 18 olas del backtest: el artículo en español aparece con una **mediana de 28 días después del artículo en inglés** (9 olas con artículo propio; una todavía no tiene artículo en español). El pico de visitas, en cambio, llega casi a la vez en los dos idiomas (mediana de 1 día, 15 olas): el interés en español existe desde el primer día y lo que tarda es el contenido. Esa es la ventana que mide el radar. `pnpm eval` lo recalcula desde `packages/core/fixtures/backtest/language-lag.json`, grabado con `packages/sources/scripts/fetch-language-lag.ts`.
+
 En la página de cada tema, «Ya funcionó en inglés y portugués» pone cada pieza original junto a su idea en español, y las piezas que escribe el radar citan en qué originales se basaron: se adapta la idea, no se traduce palabra por palabra. (En una prueba de Kapwing, la versión localizada de un video en un canal en español sacó 3.897 vistas; la misma pieza como doblaje en el canal original, 32.)
 
 ## Vigía: seguir un tema
