@@ -1,4 +1,4 @@
-# Radar 30X
+# OndAI
 
 **Qué temas de IA están despegando en redes, por qué funcionan y cómo los cuenta 30X.**
 
@@ -14,7 +14,8 @@ Hoy el equipo de medios de 30X paga servicios de scraping que cuestan miles de d
 
 | Pantalla                               | Qué responde                                                                                                                                                                                                                                                                                   |
 | -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Radar de la semana** (`/`)           | El titular de la semana, **la ola** (la curva del ciclo de vida con los 10 temas en su etapa y la ventana para entrar) y los 10 temas que más crecen: crecimiento, curva de 8 semanas, dónde se mueve, momento recomendado y encaje con 30X. Filtros por red, idioma y «sin explotar por 30X». |
+| **Landing** (`/`)                      | La portada de OndAI que diseñó el equipo: el problema, cómo funciona, la onda, resultados y para 30X. «Ver la demo» lleva al radar. Su sistema de diseño está en [docs/design-system.md](docs/design-system.md) y es el mismo de toda la app.                                                  |
+| **Radar de la semana** (`/radar`)      | El titular de la semana, **la ola** (la curva del ciclo de vida con los 10 temas en su etapa y la ventana para entrar) y los 10 temas que más crecen: crecimiento, curva de 8 semanas, dónde se mueve, momento recomendado y encaje con 30X. Filtros por red, idioma y «sin explotar por 30X». |
 | **La ola por idioma**                  | Lo viral sobre IA suele nacer en inglés o portugués y llega días después al español. El radar muestra cada tema en las tres olas y separa los que ya despegaron afuera y casi nadie cuenta en español: «Adáptalo al español» antes que nadie.                                                  |
 | **Vigía** (`/vigia`)                   | Sigues un tema («negocios») y el radar lo busca cada hora en inglés y portugués. Reglas sin costo deciden qué atrapar y solo lo atrapado se lee: el texto de cada lámina de un carrusel, las ideas clave de un video y su idea en español, lista para adaptar.                                 |
 | **Se está formando**                   | Temas que suben en el carril técnico (GitHub, Hacker News, Hugging Face, X, Bluesky) y todavía no llegan a LinkedIn ni a Instagram: la ventaja de llegar primero.                                                                                                                              |
