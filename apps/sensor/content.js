@@ -1,5 +1,5 @@
-// Adds an "Al radar" button to each post of the LinkedIn feed. It only reads the post's public
-// permalink (its activity id); the radar reads the post's public page on its own.
+// Adds an "A OndAI" button to each post of the LinkedIn feed. It only reads the post's public
+// permalink (its activity id); OndAI reads the post's public page on its own.
 const MARK = 'data-radar-sensor';
 
 function permalinkOf(el) {
@@ -16,15 +16,15 @@ function decorate(post) {
   const button = document.createElement('button');
   button.type = 'button';
   button.className = 'radar-sensor-button';
-  button.textContent = 'Al radar';
-  button.title = 'Mandar este post al Radar 30X';
+  button.textContent = 'A OndAI';
+  button.title = 'Mandar este post a OndAI';
   button.addEventListener('click', (event) => {
     event.preventDefault();
     event.stopPropagation();
     button.disabled = true;
     button.textContent = 'Enviando…';
     chrome.runtime.sendMessage({ type: 'radar:send', url }, (result) => {
-      button.textContent = result?.ok ? 'En el radar' : 'No entró';
+      button.textContent = result?.ok ? 'En OndAI' : 'No entró';
       button.classList.toggle('is-done', Boolean(result?.ok));
       if (!result?.ok) button.disabled = false;
     });

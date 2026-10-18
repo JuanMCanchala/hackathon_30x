@@ -1,4 +1,4 @@
-// Radar 30X sensor: sends a public post's URL to the radar, which reads its public page.
+// OndAI sensor: sends a public post's URL to OndAI, which reads its public page.
 const DEFAULTS = { base: 'http://localhost:3300', name: 'Equipo 30X' };
 
 async function settings() {
@@ -14,12 +14,12 @@ async function send(url) {
       body: JSON.stringify({ url, submittedBy: name }),
     });
     const body = await res.json().catch(() => ({}));
-    if (!res.ok) throw new Error(body?.error?.message ?? `El radar respondió ${res.status}.`);
+    if (!res.ok) throw new Error(body?.error?.message ?? `OndAI respondió ${res.status}.`);
     const topics = (body.topics ?? []).map((t) => t.name).join(', ');
-    notify('Entró al radar', topics ? `Sumó a: ${topics}` : (body.title ?? url));
+    notify('Entró a OndAI', topics ? `Sumó a: ${topics}` : (body.title ?? url));
     return { ok: true, topics };
   } catch (error) {
-    notify('No entró al radar', String(error.message ?? error));
+    notify('No entró a OndAI', String(error.message ?? error));
     return { ok: false, error: String(error.message ?? error) };
   }
 }
@@ -36,12 +36,12 @@ function notify(title, message) {
 chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.create({
     id: 'radar-link',
-    title: 'Mandar este enlace al Radar 30X',
+    title: 'Mandar este enlace a OndAI',
     contexts: ['link'],
   });
   chrome.contextMenus.create({
     id: 'radar-page',
-    title: 'Mandar esta página al Radar 30X',
+    title: 'Mandar esta página a OndAI',
     contexts: ['page'],
   });
 });

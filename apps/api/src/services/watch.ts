@@ -272,7 +272,7 @@ async function collect(
   sources.push({
     source: 'instagram',
     lang: null,
-    query: 'perfiles que sigue el radar',
+    query: 'perfiles que sigue OndAI',
     status: 200,
     found: feeds.length,
   });

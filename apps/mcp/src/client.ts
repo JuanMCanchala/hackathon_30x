@@ -1,4 +1,4 @@
-/** Thin HTTP client for the Radar API. */
+/** Thin HTTP client for the OndAI API. */
 
 export class RadarError extends Error {
   constructor(
@@ -30,7 +30,7 @@ export class RadarClient {
     if (!response.ok) {
       throw new RadarError(
         response.status,
-        body.error?.message ?? `El radar respondió ${response.status}`,
+        body.error?.message ?? `OndAI respondió ${response.status}`,
       );
     }
     return body;

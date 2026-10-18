@@ -69,7 +69,7 @@ await writeFile(
   }),
 );
 
-console.log('Backtest del radar: ¿habría visto venir las olas de IA de 2025–2026?\n');
+console.log('Backtest de OndAI: ¿habría visto venir las olas de IA de 2025–2026?\n');
 for (const line of describeBacktest(report)) console.log(`  ${line}`);
 console.log('');
 for (const w of report.waves) {

@@ -82,10 +82,10 @@ export function createApp(deps: Deps, options: AppOptions = {}) {
   app.doc31('/openapi.json', {
     openapi: '3.1.0',
     info: {
-      title: 'Radar 30X API',
+      title: 'OndAI API',
       version: '1.0.0',
       description:
-        'Qué temas de IA están despegando en redes, por qué funcionan y cómo los cuenta 30X. Reto Radar de contenido, Hackathon 30X.',
+        'OndAI, tu AI trend analyst para 30X: qué temas de IA están despegando en redes, por qué funcionan y cómo los cuenta 30X. Reto Radar de contenido, Hackathon 30X.',
     },
   });
   // Routes are plain app.get/app.post, so the spec above lists none: the contract is written.

@@ -1,5 +1,5 @@
 /**
- * MCP tools so any assistant (Claude, ChatGPT, an internal agent) can ask the radar: the week's
+ * MCP tools so any assistant (Claude, ChatGPT, an internal agent) can ask OndAI, the AI trend analyst built for 30X: the week's
  * growing topics, one topic in depth, how 30X would tell it, free questions, and sending a public
  * post as the community sensor. Read-only apart from the sensor; nothing is ever published.
  */
@@ -22,7 +22,7 @@ function text(value: string) {
 function failure(error: unknown) {
   const message =
     error instanceof RadarError || error instanceof Error ? error.message : String(error);
-  return { ...text(`El radar no pudo responder: ${message}`), isError: true };
+  return { ...text(`OndAI no pudo responder: ${message}`), isError: true };
 }
 
 const growth = (t: RadarTopic) =>
@@ -35,14 +35,14 @@ function line(t: RadarTopic): string {
 }
 
 export function createRadarServer(client: RadarClient): McpServer {
-  const server = new McpServer({ name: 'radar-30x', version: '1.0.0' });
+  const server = new McpServer({ name: 'ondai', title: 'OndAI', version: '1.0.0' });
 
   server.registerTool(
     'radar_semana',
     {
       title: 'Los temas de IA que más crecen esta semana',
       description:
-        'Los 10 temas de IA que más crecen esta semana en redes, por defecto solo los que le sirven a la audiencia de 30X, con su etapa (emergente, en crecimiento, saturado, en declive), el momento recomendado para publicar y el encaje con 30X.',
+        'La onda de la semana según OndAI: los 10 temas de IA que más crecen esta semana en redes, por defecto solo los que le sirven a la audiencia de 30X, con su etapa (emergente, en crecimiento, saturado, en declive), el momento recomendado para publicar y el encaje con 30X.',
       inputSchema: {
         red: z
           .enum(['all', 'linkedin', 'instagram', 'youtube', 'tiktok', 'x'])
@@ -167,9 +167,9 @@ export function createRadarServer(client: RadarClient): McpServer {
   server.registerTool(
     'preguntar_al_radar',
     {
-      title: 'Pregúntale al radar',
+      title: 'Pregúntale a OndAI',
       description:
-        'Pregunta libre sobre los temas de IA de la semana; responde con los datos del radar y cita los temas.',
+        'Pregunta libre sobre los temas de IA de la semana; responde con los datos de OndAI y cita los temas.',
       inputSchema: { pregunta: z.string().min(3).describe('La pregunta, en español') },
     },
     async ({ pregunta }) => {
@@ -185,9 +185,9 @@ export function createRadarServer(client: RadarClient): McpServer {
   server.registerTool(
     'mandar_al_radar',
     {
-      title: 'Mandar un post público al radar',
+      title: 'Mandar un post público a OndAI',
       description:
-        'Suma un post público (LinkedIn, Instagram, TikTok, YouTube, X o Bluesky) que está funcionando. El radar lee su página pública y lo agrega a su tema.',
+        'Suma un post público (LinkedIn, Instagram, TikTok, YouTube, X o Bluesky) que está funcionando. OndAI lee su página pública y lo agrega a su tema.',
       inputSchema: {
         url: z.string().url().describe('Enlace público del post'),
         quien: z.string().optional().describe('Quién lo manda'),
@@ -197,7 +197,7 @@ export function createRadarServer(client: RadarClient): McpServer {
       try {
         const r = await client.send(url, quien ?? 'Agente por MCP');
         return text(
-          `Entró al radar: ${r.title}.${r.topics.length ? ` Sumó a: ${r.topics.map((t) => t.name).join(', ')}.` : ''}`,
+          `Entró a OndAI: ${r.title}.${r.topics.length ? ` Sumó a: ${r.topics.map((t) => t.name).join(', ')}.` : ''}`,
         );
       } catch (error) {
         return failure(error);

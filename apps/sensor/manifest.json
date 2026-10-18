@@ -1,15 +1,15 @@
 {
   "manifest_version": 3,
-  "name": "Radar 30X: sensor de la comunidad",
+  "name": "OndAI: sensor de la comunidad",
   "version": "0.1.0",
-  "description": "Manda al Radar 30X los posts públicos que ves funcionando en LinkedIn, Instagram, TikTok, YouTube y X.",
+  "description": "Manda a OndAI, tu AI trend analyst, los posts públicos que ves funcionando en LinkedIn, Instagram, TikTok, YouTube y X.",
   "permissions": ["contextMenus", "storage", "notifications", "activeTab"],
   "host_permissions": ["http://localhost/*", "https://*/*"],
   "background": {
     "service_worker": "background.js"
   },
   "action": {
-    "default_title": "Mandar esta página al Radar 30X",
+    "default_title": "Mandar esta página a OndAI",
     "default_icon": "icon.png"
   },
   "options_page": "options.html",

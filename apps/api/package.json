@@ -2,7 +2,7 @@
   "name": "@radar/api",
   "version": "0.1.0",
   "private": true,
-  "description": "Radar HTTP API: collection, enrichment, topics, scores, explanations, adaptations, the sensor and the MCP gateway.",
+  "description": "OndAI HTTP API: collection, enrichment, topics, scores, explanations, adaptations, the sensor and the MCP gateway.",
   "type": "module",
   "scripts": {
     "dev": "tsx watch --clear-screen=false src/index.ts",

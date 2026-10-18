@@ -2,7 +2,7 @@
   "name": "radar",
   "version": "0.1.0",
   "private": true,
-  "description": "Radar 30X: which AI topics are taking off on social networks, why they work, and how 30X tells them.",
+  "description": "OndAI, the AI trend analyst built for 30X: which AI topics are taking off on social networks, why they work, and how 30X tells them.",
   "type": "module",
   "packageManager": "pnpm@12.9.1",
   "engines": {

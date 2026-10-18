@@ -26,7 +26,7 @@ async function main() {
   const app = createApp(deps, { ready: importing });
   const server = serve({ fetch: app.fetch, port: config.PORT }, (info) => {
     console.info(
-      `Radar API en http://localhost:${info.port}, base de datos ${database.kind}, modelo ${config.LLM_MODE === 'replay' ? 'solo respuestas grabadas' : 'grabado y en vivo'}`,
+      `OndAI API en http://localhost:${info.port}, base de datos ${database.kind}, modelo ${config.LLM_MODE === 'replay' ? 'solo respuestas grabadas' : 'grabado y en vivo'}`,
     );
   });
   let stopWatches = () => {};

@@ -46,7 +46,7 @@ async function connect() {
   return client;
 }
 
-describe('Radar MCP', () => {
+describe('OndAI MCP', () => {
   it('lists the tools an assistant can use, and none that publishes', async () => {
     const client = await connect();
     const { tools } = await client.listTools();

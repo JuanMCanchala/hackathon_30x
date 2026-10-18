@@ -2,7 +2,7 @@
   "name": "@radar/mcp",
   "version": "0.1.0",
   "private": true,
-  "description": "MCP server so any assistant can ask Radar 30X which AI topics grow, why, and how 30X would tell them.",
+  "description": "MCP server so any assistant can ask OndAI which AI topics grow, why, and how 30X would tell them.",
   "type": "module",
   "bin": {
     "radar-30x-mcp": "./dist/index.js"
