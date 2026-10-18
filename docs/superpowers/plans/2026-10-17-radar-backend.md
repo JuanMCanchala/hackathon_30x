@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Fix what breaks the deployed demo (the API doesn't start, empty topic pages, a radar that drifts to 0 topics, open destructive endpoints), then add the improvements that score the most with the jury, all on the back end. The front end is being redesigned by another team: don't touch `apps/web`, except to keep the API contract stable.
+**Goal:** Fix what breaks the deployed demo (the API doesn't start, empty topic pages, a radar that drifts to 0 topics, open destructive endpoints), then add every improvement found by the audit, the research and the security review, all on the back end. **Do every task in order: Tasks 1–7 (essential) first, then 8–12 (additions). Do all of them; ignore time estimates.** Commit after each task and push `feat/radar-backend` as you go; never merge into `main` or `feat/radar` yourself. The front end is being redesigned by another team: don't touch `apps/web`, except to keep the API contract stable.
 
 **Branch:** `feat/radar-backend`, cut from `feat/radar` at `ccff77d`, in the worktree `30x/30x-radar`. Before every push, rebase on `origin/feat/radar`. Push only this branch; Juan or Nicolás merges it.
 
@@ -116,7 +116,7 @@ A clean boot imports 388,249 rows in about 31 s and peaks at about 1.0 GB. `snap
   - Every timestamp in the responses parses with `Date.parse`.
 - [ ] Commit `test(api): smoke the demo week end to end`.
 
-### Task 8 (jury value, if time allows): measure that ideas reach Spanish later
+### Task 8 (addition): measure that ideas reach Spanish later
 
 The technology research recommends using Wikipedia as ground truth for language lag. For each of the 18 backtest waves:
 
@@ -129,12 +129,12 @@ Send a User-Agent header. These endpoints answered without a key on 2026-10-17.
 - [ ] Add the result to `pnpm eval` and to the README's «Lo viral nace en otro idioma» section, for example: «mediana de X días entre el artículo en inglés y en español».
 - [ ] Commit `feat(core): measure how long AI waves take to reach Spanish Wikipedia`.
 
-### Task 9 (if time allows): small, cheap upgrades
+### Task 9 (addition): small upgrades
 
 - [ ] **ELD language detection** (`eld` on npm, Apache-2.0):
   - Use the platform's language first (Bluesky `langs`), then ELD limited to en/es/pt, then the current `guessLang` (`packages/core/src/screen.ts`).
   - If ELD runs in api/sources, keep it out of core so core stays pure. Add a test.
-- [ ] **Poisson burst check** next to the lift in `packages/core`: P(X ≥ this week's creators | baseline mean). Keep it only if `pnpm eval` shows fewer than 2/10 false alarms with 18/18 waves still detected. Otherwise drop it and cite Kleinberg in the README.
+- [ ] **Poisson burst check** next to the lift in `packages/core`: P(X ≥ this week's creators | baseline mean). Try it in the backtest. Keep it as a signal only if `pnpm eval` shows fewer than 2/10 false alarms with 18/18 waves still detected. Otherwise expose it as an extra field, without gating, and cite Kleinberg in the README. Ledger the result either way.
 - [ ] **Re-check each redirect hop** in `packages/sources/src/http.ts` `send()`: https only, and no private or link-local hosts.
 - [ ] **Fence scraped text in LLM prompts** (`explain.ts:90-101`, `insights.ts:182`): add one line saying it is untrusted data.
 - [ ] **README fixes:**
@@ -145,12 +145,32 @@ Send a User-Agent header. These endpoints answered without a key on 2026-10-17.
   - Check that the Snap 2026 paper really uses distinct creators before citing it.
 - [ ] One commit per item.
 
+### Task 10 (addition): exact YouTube data with the official API
+
+Today YouTube dates are approximate («hace 2 días») and Shorts have none, so those pieces don't count for growth (README, Límites).
+
+- [ ] Check `wallenv ls` for a YouTube or Google Cloud API key. If there is none, ask Nicolás to add one (for example `YOUTUBE_API_KEY`). Meanwhile implement everything behind the optional key, with recorded fixtures for tests.
+- [ ] Add `videos.list` in `packages/sources`: 1 unit per 50 ids, with `part=snippet,statistics,contentDetails`. Fill in the exact `publishedAt`, views, likes and comments for the YouTube ids already scraped, in Vigía and in capture. Never use `search.list` (100 units per call).
+- [ ] Tests with a recorded response. With exact dates, YouTube pieces count for growth again; update the README limit.
+- [ ] Commit `feat(sources): exact YouTube dates and counts through videos.list`.
+
+### Task 11 (addition): LinkedIn and Instagram coverage
+
+Of 80,460 pieces, 295 are LinkedIn and 435 Instagram, so `/radar?platform=instagram` returns 0 topics. The challenge's own example question is about LinkedIn.
+
+- [ ] Check `wallenv ls` for `APIFY_TOKEN`. If it's missing, ask Nicolás for it.
+- [ ] With the token, run the existing Apify LinkedIn keyword search (`packages/sources/src/apify.ts`, about USD 0.002 per post) for the current top 20 topics. Then process only the new items and re-export `data/snapshot`. Coordinate with Juan before committing new data, since he owns the snapshot.
+- [ ] Commit `data: add LinkedIn pieces for the week's top topics`.
+
+### Task 12 (addition): after deploy, check from the cloud host
+
+- [ ] From the Railway host, do one fetch each of Instagram `web_profile_info`, `api.bsky.app`, YouTube, and GDELT DOC 2.0 (`timelinelang`). Cloud IPs get throttled more than home ones.
+- [ ] If GDELT answers, add a news-volume-per-language series per topic (en/pt/es) as a second measure of the lag to Spanish, with fixtures and a test.
+- [ ] Document what failed from the cloud in the README's Límites.
+
 ### Not in this plan
 
-- Front end (another team).
-- YouTube Data API `videos.list`: it needs a Google Cloud API key in wallenv. Add it only if Nicolás provides one.
-- Populating LinkedIn with Apify: 2–3 hours, with risk.
-- GDELT: test it from the Railway host first.
+- Front end (another team): only keep the API contract stable and documented.
 
 ## Finish
 
