@@ -5,6 +5,18 @@ import { createApp } from './http/app';
 import { importSnapshotIfEmpty } from './services/snapshot';
 import { startWatchScheduler } from './services/watch';
 
+// A connection to a provider that times out can surface from undici as an 'error' event nobody
+// listens to («socket idle timeout» on an HTTP/2 stream). The request that used it already
+// failed and is retried; it must not take the whole server down.
+process.on('uncaughtException', (error) => {
+  if ((error as { code?: string }).code?.startsWith('UND_ERR')) {
+    console.error('red:', error.message);
+    return;
+  }
+  console.error(error);
+  process.exit(1);
+});
+
 async function main() {
   loadDotEnv();
   const config = loadConfig();
