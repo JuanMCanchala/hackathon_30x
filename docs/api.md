@@ -30,9 +30,9 @@ Algunos servicios usan otros códigos puntuales: `bad_url` y `unsupported_url` (
 
 ## Autenticación, límites y arranque
 
-**Admin.** Estas rutas piden `Authorization: Bearer <ADMIN_TOKEN>`: `POST /pipeline/run`, `POST /snapshot`, `DELETE /watches/:id` y `DELETE /calendar/:id`. Responden 401 `unauthorized` sin token o con uno incorrecto, y 403 `forbidden` cuando no hay `ADMIN_TOKEN` configurado y `DEMO_MODE` está activo. Sin token configurado y fuera de la demo quedan abiertas.
+**Admin.** Estas rutas piden `Authorization: Bearer <ADMIN_TOKEN>`: `POST /pipeline/run`, `POST /snapshot`, `DELETE /calendar/:id` y `DELETE /watches/:id` cuando el tema viene con la semana demo (se siguió antes de cargar el snapshot). Los temas que sigue un visitante se pueden dejar de seguir sin token (con el límite por visitante). Responden 401 `unauthorized` sin token o con uno incorrecto, y 403 `forbidden` cuando no hay `ADMIN_TOKEN` configurado y `DEMO_MODE` está activo. Sin token configurado y fuera de la demo quedan abiertas.
 
-**Límite por visitante.** Las rutas que llaman a un modelo pago comparten un presupuesto de **20 solicitudes por hora por IP** (ventana deslizante; la IP sale del primer `x-forwarded-for`). Pasado el límite responden 429 `rate_limited`. Son: `POST /ask`, `GET /topics/:id?refresh=1`, `POST /topics/:id/adaptations`, `POST /sensor`, `POST /watches`, `POST /watches/:id/run` y `POST /watches/:id/hits/:item/adapt`. `POST /calendar` no tiene límite ni token.
+**Límite por visitante.** Las rutas que llaman a un modelo pago comparten un presupuesto de **20 solicitudes por hora por IP** (ventana deslizante; la IP sale del primer `x-forwarded-for`). Además hay un tope de **300 por hora para todos los visitantes juntos**, porque la IP de `x-forwarded-for` se puede falsificar llamando a la API sin pasar por el proxy. Pasado cualquiera de los dos límites responden 429 `rate_limited`. Son: `POST /ask`, `GET /topics/:id?refresh=1`, `POST /topics/:id/adaptations`, `POST /sensor`, `POST /watches`, `POST /watches/:id/run`, `POST /watches/:id/hits/:item/adapt` y `DELETE /watches/:id` de un tema de visitante. `POST /calendar` no tiene límite ni token.
 
 **Vigía.** Hay como máximo 5 vigías activas. La sexta responde 409 `conflict`.
 
@@ -116,7 +116,7 @@ interface Radar {
 }
 ```
 
-`coverage` explica por qué una sola red llena menos de 10 lugares. Solo **no es `null`** cuando `platform` es una red concreta (no `all`) **y** `topics.length < 10`. `pieces` cuenta las piezas de esa red esta semana que caen en algún tema. `reason` es la frase lista para mostrar (por ejemplo: «Solo 86 piezas de LinkedIn caen esta semana en temas del radar: alcanzan para 2 temas, no para 10.»).
+`coverage` explica por qué una sola red llena menos de 10 lugares. Solo **no es `null`** cuando `platform` es una red concreta (no `all`) **y** `topics.length < 10`. `pieces` cuenta las piezas de esa red esta semana que caen en algún tema. `reason` es la frase lista para mostrar y nombra la causa: el filtro de encaje con 30X (por ejemplo: «El filtro de encaje con 30X deja fuera 8 de los 10 temas de LinkedIn; con todas las audiencias aparecen.»), pocas piezas de esa red («Solo 37 piezas de X caen esta semana en temas del radar: alcanzan para 2 temas, no para 10.»), o ambas.
 
 ### RadarTopic (la vista de tema)
 
