@@ -4,7 +4,7 @@
  * exactly as captured, without network.
  */
 import { existsSync } from 'node:fs';
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { cp, mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { gunzipSync, gzipSync } from 'node:zlib';
 import { sql } from 'drizzle-orm';
@@ -27,6 +27,9 @@ const TABLES: [string, PgTable][] = [
   ['sensor_submissions', schema.sensorSubmissions],
   ['runs', schema.runs],
   ['llm_usage', schema.llmUsage],
+  ['watches', schema.watches],
+  ['watch_runs', schema.watchRuns],
+  ['watch_hits', schema.watchHits],
 ];
 
 export async function exportSnapshot(deps: Deps): Promise<Record<string, number>> {
@@ -39,6 +42,9 @@ export async function exportSnapshot(deps: Deps): Promise<Record<string, number>
     const text = rows.map((r) => JSON.stringify(r)).join('\n');
     await writeFile(join(dir, `${name}.jsonl.gz`), gzipSync(text));
   }
+  // The slides Vigía caught: Instagram's links expire, so the copies travel with the snapshot.
+  const media = join(deps.config.DATA_DIR, 'media');
+  if (existsSync(media)) await cp(media, join(dir, 'media'), { recursive: true });
   return counts;
 }
 
@@ -62,5 +68,8 @@ export async function importSnapshotIfEmpty(deps: Deps): Promise<number> {
     }
     total += rows.length;
   }
+  const media = join(dir, 'media');
+  if (existsSync(media))
+    await cp(media, join(deps.config.DATA_DIR, 'media'), { recursive: true, force: false });
   return total;
 }
