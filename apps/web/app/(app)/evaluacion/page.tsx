@@ -4,7 +4,7 @@ import { Check, X } from 'lucide-react';
 import { Page } from '@/components/shell';
 import { PageHeader, Skeleton, fmtInt } from '@/components/ui';
 import { useApi } from '@/lib/hooks';
-import { PLATFORM_COPY, type Platform } from '@/lib/types';
+import { LANG_COPY, PLATFORM_COPY, type Lang, type Platform } from '@/lib/types';
 
 interface WaveRow {
   id: string;
@@ -18,8 +18,20 @@ interface WaveRow {
   hnToWikipediaSignalDays: number | null;
 }
 
+interface LanguageLag {
+  topics: number;
+  sameWeek: number;
+  later: number;
+  laterMedianDays: number | null;
+  waiting: number;
+  waitingMedianDays: number | null;
+  stillOpen: number;
+  examples: { name: string; leader: Lang; lagDays: number; open: boolean; reached: boolean }[];
+}
+
 interface Evaluation {
   asOf: string;
+  languageLag: LanguageLag;
   backtest: {
     params: { signalLift: number; minVolume: number; baselineWeeks: number };
     sources: string[];
@@ -50,6 +62,60 @@ const SOURCE_NAME: Record<string, string> = {
   hn: 'Hacker News',
   bluesky: 'Bluesky',
 };
+const weeks = (days: number) => {
+  const w = Math.round(days / 7);
+  return w === 1 ? 'una semana' : `${w} semanas`;
+};
+
+/** How far ahead English or Portuguese ran: the topics where Spanish arrived, or still has not. */
+function LanguageLagSection({ lag }: { lag: LanguageLag }) {
+  const max = Math.max(7, ...lag.examples.map((e) => e.lagDays));
+  return (
+    <section className="grid gap-3">
+      <h2 className="t-h2 text-ink">Cuánto tarda en llegar al español</h2>
+      <p className="max-w-3xl text-ink-2">
+        De {fmtInt(lag.topics)} temas que despegaron en inglés o portugués, el español despegó la
+        misma semana en {fmtInt(lag.sameWeek)}
+        {lag.later > 0 && lag.laterMedianDays !== null
+          ? `, despegó después en ${fmtInt(lag.later)} (${weeks(lag.laterMedianDays)} más tarde en la mediana)`
+          : ''}{' '}
+        y todavía no despega en {fmtInt(lag.waiting)}. {fmtInt(lag.stillOpen)} siguen con la ventana
+        abierta: mucho afuera y casi nada en español.
+      </p>
+      {lag.examples.length > 0 && (
+        <ol className="sheet divide-y divide-rule">
+          {lag.examples.map((e) => (
+            <li
+              key={e.name}
+              className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-4 gap-y-1.5 px-5 py-3 md:grid-cols-[minmax(0,16rem)_minmax(0,1fr)_auto]"
+            >
+              <p className="truncate font-[650] text-ink">{e.name}</p>
+              <span
+                className="col-span-2 h-2.5 overflow-hidden rounded-full bg-fill md:col-span-1"
+                aria-hidden
+              >
+                <span
+                  className={
+                    e.leader === 'pt'
+                      ? 'block h-full rounded-full bg-lang-pt'
+                      : 'block h-full rounded-full bg-lang-en'
+                  }
+                  style={{ width: `${(e.lagDays / max) * 100}%` }}
+                />
+              </span>
+              <p className="row-start-1 text-right text-[0.88rem] text-ink-2 md:row-start-auto">
+                {e.reached
+                  ? `El español llegó ${weeks(e.lagDays)} después del ${LANG_COPY[e.leader].toLowerCase()}`
+                  : `El ${LANG_COPY[e.leader].toLowerCase()} va ${weeks(e.lagDays)} por delante`}
+              </p>
+            </li>
+          ))}
+        </ol>
+      )}
+    </section>
+  );
+}
+
 const list = (items: string[]) => new Intl.ListFormat('es', { type: 'conjunction' }).format(items);
 const usd = (n: number) =>
   `USD ${n.toLocaleString('es-CO', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
@@ -197,6 +263,8 @@ export default function EvaluationPage() {
             )}
         </section>
       )}
+
+      {data.languageLag?.topics > 0 && <LanguageLagSection lag={data.languageLag} />}
 
       <section className="grid gap-3">
         <h2 className="t-h2 text-ink">Con qué se mide esta semana</h2>

@@ -62,6 +62,8 @@ export interface SpanishWindow {
   open: boolean;
   leader: Lang | null;
   lagDays: number | null;
+  /** Whether Spanish stood out too; if not, the lag is still counting. */
+  reached?: boolean;
 }
 
 export interface RadarTopic {

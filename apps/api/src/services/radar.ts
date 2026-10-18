@@ -100,7 +100,7 @@ export interface RadarTopicView {
    * it first. `leader` is the language it comes from; `lagDays`, how long Spanish took (or has
    * taken so far) after the leader's first standout week.
    */
-  spanishWindow: { open: boolean; leader: Lang | null; lagDays: number | null };
+  spanishWindow: { open: boolean; leader: Lang | null; lagDays: number | null; reached: boolean };
 }
 
 /** One piece as the radar counts it. */
@@ -236,7 +236,7 @@ export interface ScoredTopic {
   meta: TopicMeta;
   stage: StageKey;
   languages: Record<Lang, LanguageWave>;
-  spanishWindow: { open: boolean; leader: Lang | null; lagDays: number | null };
+  spanishWindow: { open: boolean; leader: Lang | null; lagDays: number | null; reached: boolean };
   /** Uniform sources where the topic grows on its own (lift ≥ 1.5 with 2+ creators). */
   growingIn: Platform[];
   platforms: Platform[];
@@ -419,7 +419,7 @@ function spanishWindowOf(languages: Record<Lang, LanguageWave>, series: number[]
   const [en, pt] = [languages.en, languages.pt];
   const leader: Lang | null =
     Math.max(en.creators, pt.creators) >= 6 ? (en.creators >= pt.creators ? 'en' : 'pt') : null;
-  if (!leader) return { open: false, leader: null, lagDays: null };
+  if (!leader) return { open: false, leader: null, lagDays: null, reached: false };
   const lead = languages[leader];
   const open = languages.es.creators <= Math.max(2, Math.floor(lead.creators / 4));
   const leadStart = firstStandout(series[LANGS.indexOf(leader)] ?? []);
@@ -431,7 +431,13 @@ function spanishWindowOf(languages: Record<Lang, LanguageWave>, series: number[]
       : esStart !== null
         ? esStart - leadStart
         : esSeries.length - 1 - leadStart;
-  return { open, leader, lagDays: lagWeeks !== null && lagWeeks >= 0 ? lagWeeks * 7 : null };
+  return {
+    open,
+    leader,
+    lagDays: lagWeeks !== null && lagWeeks >= 0 ? lagWeeks * 7 : null,
+    /** Whether Spanish stood out too; if not, the lag is still counting. */
+    reached: esStart !== null,
+  };
 }
 
 const UNIFORM: readonly Platform[] = ['bluesky', 'news', 'hn', 'github'];

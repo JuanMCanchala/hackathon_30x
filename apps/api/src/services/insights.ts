@@ -136,12 +136,25 @@ export async function evaluationView(deps: Deps) {
       leader: s.spanishWindow.leader!,
       lagDays: s.spanishWindow.lagDays!,
       open: s.spanishWindow.open,
+      reached: s.spanishWindow.reached,
     }));
+  const later = lags.filter((l) => l.reached && l.lagDays > 0);
+  const waiting = lags.filter((l) => !l.reached);
   const languageLag = {
     topics: lags.length,
-    medianDays: lags.length ? median(lags.map((l) => l.lagDays)) : null,
+    /** Spanish stood out the same week as the language that led. */
+    sameWeek: lags.filter((l) => l.reached && l.lagDays === 0).length,
+    /** Spanish stood out later: how many, and how many days later in the median. */
+    later: later.length,
+    laterMedianDays: later.length ? median(later.map((l) => l.lagDays)) : null,
+    /** Spanish has not stood out yet: how many, and for how long the leader has been ahead. */
+    waiting: waiting.length,
+    waitingMedianDays: waiting.length ? median(waiting.map((l) => l.lagDays)) : null,
     stillOpen: lags.filter((l) => l.open).length,
-    examples: lags.sort((a, b) => b.lagDays - a.lagDays).slice(0, 6),
+    examples: [...later, ...waiting]
+      .filter((l) => l.lagDays > 0)
+      .sort((a, b) => b.lagDays - a.lagDays)
+      .slice(0, 8),
   };
   return {
     asOf,
