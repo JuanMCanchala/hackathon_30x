@@ -4,6 +4,7 @@ import type { Config } from './config';
 import { openDatabase, type Database } from './db/client';
 import { llmUsage } from './db/schema';
 import { EventBus } from './events/bus';
+import { createJevJudge, type PieceJudge } from './jev/client';
 import { newId, systemClock, type Clock } from './lib/common';
 import { RecordedLlm, type Llm, type LlmUsage } from './llm/cached';
 import { CachedEmbedder, type Embedder } from './llm/embeddings';
@@ -17,6 +18,7 @@ export interface Container {
 export interface ContainerOverrides {
   llm?: Llm;
   embedder?: Embedder;
+  jev?: PieceJudge | null;
   clock?: Clock;
   /** In-memory database (tests). */
   ephemeral?: boolean;
@@ -65,6 +67,13 @@ export async function createContainer(
         : null,
       `${config.EMBEDDING_MODEL}@512`,
     );
-  const deps: Deps = { db, bus: new EventBus(), clock, config, llm, embedder };
+  // Replay means no network: the demo and the tests never call JEV unless they inject it.
+  const jev =
+    overrides.jev !== undefined
+      ? overrides.jev
+      : config.TYPESAFE_API_KEY && config.LLM_MODE !== 'replay'
+        ? createJevJudge({ apiKey: config.TYPESAFE_API_KEY, retries: 1 })
+        : null;
+  const deps: Deps = { db, bus: new EventBus(), clock, config, llm, embedder, jev };
   return { deps, database };
 }

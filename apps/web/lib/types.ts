@@ -247,6 +247,8 @@ export interface WatchReport {
   caught: number;
   costUsd: number;
   tokens: { input: number; output: number };
+  /** What JEV judged before the rules, or why it did not. Older runs have none. */
+  jev?: { judged: number; inputTokens: number; ms: number; costUsd: number } | { skipped: string };
 }
 
 export interface WatchHit {

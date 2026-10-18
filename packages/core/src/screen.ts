@@ -55,7 +55,23 @@ export interface ScreenOptions {
   budget: number;
   /** Keys already caught for this topic in earlier searches. */
   seen: ReadonlySet<string>;
+  /**
+   * What a decision engine (JEV) said about some pieces, computed before the screen so it stays
+   * pure. A judged piece is about the topic when `onTopic` reaches `JEV_ON_TOPIC`; the rest fall
+   * back to the keywords.
+   */
+  judged?: ReadonlyMap<string, ScreenVerdict>;
 }
+
+export interface ScreenVerdict {
+  /** Probability that the piece is about the topic, 0..1. */
+  onTopic: number;
+  /** Fit with 30X's audience, 1..10. */
+  fit: number;
+}
+
+/** A judged piece is about the topic from this probability on (0.57 let a false positive through). */
+export const JEV_ON_TOPIC = 0.6;
 
 export interface ScreenDecision {
   key: string;
@@ -73,6 +89,8 @@ export interface ScreenDecision {
   ratio: number | null;
   /** The topic term it mentions. */
   matched: string | null;
+  /** Fit with 30X's audience (1..10) when JEV judged the piece. */
+  fit: number | null;
 }
 
 export interface ScreenResult {
@@ -182,6 +200,7 @@ export function screen(candidates: readonly ScreenCandidate[], opts: ScreenOptio
       velocity,
       ratio,
       matched: null,
+      fit: null,
     };
     decisions.set(c.key, d);
     return { c, d };
@@ -208,6 +227,14 @@ export function screen(candidates: readonly ScreenCandidate[], opts: ScreenOptio
   );
 
   stop('tema', ({ c, d }) => {
+    const verdict = opts.judged?.get(c.key);
+    if (verdict) {
+      const pct = `${Math.round(verdict.onTopic * 100)} %`;
+      if (verdict.onTopic < JEV_ON_TOPIC) return `JEV: solo lo menciona de paso (${pct}).`;
+      d.fit = verdict.fit;
+      d.reasons.push(`JEV: es del tema (${pct}).`);
+      return null;
+    }
     const terms = opts.match[c.lang!] ?? [];
     d.matched = mentions(c.text, terms);
     if (d.matched) {
@@ -239,6 +266,7 @@ export function screen(candidates: readonly ScreenCandidate[], opts: ScreenOptio
     const cut = percentile(group, VIRAL_PERCENTILE);
     const rank = group.filter((v) => v <= d.velocity).length / Math.max(1, group.length);
     d.score = rank + Math.min(d.ratio ?? 0, 10) / 5 + (1 - d.ageHours / opts.windowHours) * 0.3;
+    if (d.fit !== null) d.score += (d.fit - 5) / 10;
     if (c.engagement <= 0)
       return `Sin interacciones públicas en ${name}: no se puede saber si es viral.`;
     if (d.ratio !== null && d.ratio >= VIRAL_RATIO) {
@@ -270,7 +298,10 @@ export function screen(candidates: readonly ScreenCandidate[], opts: ScreenOptio
       : `Fuera del presupuesto de ${opts.budget} por búsqueda; vuelve a competir en la próxima.`,
   );
 
-  for (const { d } of alive) d.pass = true;
+  for (const { d } of alive) {
+    d.pass = true;
+    if (d.fit !== null) d.reasons.push(`Encaje con 30X: ${d.fit}/10 (JEV).`);
+  }
   return {
     decisions: [...decisions.values()],
     funnel,

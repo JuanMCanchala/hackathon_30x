@@ -37,6 +37,7 @@ export async function testContainer(options: { now?: string; llmDir?: string } =
   const config = loadConfig({
     ...process.env,
     FIREWORKS_API_KEY: '',
+    TYPESAFE_API_KEY: '',
     LLM_MODE: 'replay',
     DEMO_MODE: 'false',
   });
