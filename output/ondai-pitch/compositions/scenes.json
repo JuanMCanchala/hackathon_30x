@@ -1,0 +1,712 @@
+[
+  {
+    "id": "f01-intro",
+    "file": "f01-intro.html",
+    "duration": 15,
+    "start": 0,
+    "sfx": [
+      {
+        "t": 0,
+        "type": "tick",
+        "gain": 0.8
+      },
+      {
+        "t": 0.3,
+        "type": "tick",
+        "gain": 0.8
+      },
+      {
+        "t": 0.6,
+        "type": "tick",
+        "gain": 0.8
+      },
+      {
+        "t": 0.9,
+        "type": "clock"
+      },
+      {
+        "t": 2.3,
+        "type": "whoosh",
+        "gain": 0.6
+      },
+      {
+        "t": 2.42,
+        "type": "ping",
+        "gain": 0.45
+      },
+      {
+        "t": 2.7,
+        "type": "ping",
+        "gain": 0.45
+      },
+      {
+        "t": 2.98,
+        "type": "ping",
+        "gain": 0.45
+      },
+      {
+        "t": 3.26,
+        "type": "ping",
+        "gain": 0.45
+      },
+      {
+        "t": 3.54,
+        "type": "ping",
+        "gain": 0.45
+      },
+      {
+        "t": 3.82,
+        "type": "ping",
+        "gain": 0.45
+      },
+      {
+        "t": 3.95,
+        "type": "impact-soft"
+      },
+      {
+        "t": 6.33,
+        "type": "whoosh-back",
+        "gain": 0.6
+      },
+      {
+        "t": 6.9,
+        "type": "impact"
+      },
+      {
+        "t": 9.1,
+        "type": "pop-low"
+      },
+      {
+        "t": 12.1,
+        "type": "whoosh-long",
+        "gain": 0.7
+      },
+      {
+        "t": 13.5,
+        "type": "tape-stop"
+      }
+    ]
+  },
+  {
+    "id": "f02-reveal",
+    "file": "f02-reveal.html",
+    "duration": 4,
+    "start": 15,
+    "sfx": [
+      {
+        "t": 0,
+        "type": "impact-soft"
+      },
+      {
+        "t": 0.05,
+        "type": "shimmer"
+      },
+      {
+        "t": 3.38,
+        "type": "whoosh-long"
+      }
+    ]
+  },
+  {
+    "id": "f03-radar",
+    "file": "f03-radar.html",
+    "duration": 9,
+    "start": 19,
+    "sfx": [
+      {
+        "t": 1.62,
+        "type": "whoosh"
+      },
+      {
+        "t": 3.15,
+        "type": "pop"
+      },
+      {
+        "t": 3.84,
+        "type": "whoosh"
+      },
+      {
+        "t": 4.45,
+        "type": "pop-high"
+      },
+      {
+        "t": 5.34,
+        "type": "whoosh"
+      },
+      {
+        "t": 5.55,
+        "type": "pop"
+      }
+    ]
+  },
+  {
+    "id": "f04-elegir",
+    "file": "f04-elegir.html",
+    "duration": 10,
+    "start": 28,
+    "sfx": [
+      {
+        "t": 0,
+        "type": "whoosh"
+      },
+      {
+        "t": 2.06,
+        "type": "click"
+      },
+      {
+        "t": 2.43,
+        "type": "pop",
+        "gain": 0.7
+      },
+      {
+        "t": 3.35,
+        "type": "swipe-right"
+      },
+      {
+        "t": 6.02,
+        "type": "pop-low",
+        "gain": 0.7
+      },
+      {
+        "t": 6.34,
+        "type": "click"
+      },
+      {
+        "t": 7.1,
+        "type": "tick",
+        "gain": 0.5
+      },
+      {
+        "t": 8,
+        "type": "swipe-left"
+      }
+    ]
+  },
+  {
+    "id": "f05-adapt",
+    "file": "f05-adapt.html",
+    "duration": 9,
+    "start": 38,
+    "sfx": [
+      {
+        "t": 0,
+        "type": "whoosh"
+      },
+      {
+        "t": 1.3,
+        "type": "pop"
+      },
+      {
+        "t": 2.2,
+        "type": "pop"
+      },
+      {
+        "t": 2.82,
+        "type": "pop-low"
+      },
+      {
+        "t": 3.42,
+        "type": "shimmer",
+        "gain": 0.7
+      },
+      {
+        "t": 4.7,
+        "type": "tick"
+      },
+      {
+        "t": 6.06,
+        "type": "click"
+      },
+      {
+        "t": 8.64,
+        "type": "click"
+      }
+    ]
+  },
+  {
+    "id": "f06-approve",
+    "file": "f06-approve.html",
+    "duration": 13,
+    "start": 47,
+    "sfx": [
+      {
+        "t": 0.12,
+        "type": "pop"
+      },
+      {
+        "t": 1.16,
+        "type": "click"
+      },
+      {
+        "t": 1.45,
+        "type": "tick"
+      },
+      {
+        "t": 2.97,
+        "type": "click"
+      },
+      {
+        "t": 3.24,
+        "type": "impact-soft"
+      },
+      {
+        "t": 4.1,
+        "type": "pop-low"
+      },
+      {
+        "t": 4.45,
+        "type": "pop-high"
+      },
+      {
+        "t": 4.95,
+        "type": "swipe-right"
+      },
+      {
+        "t": 5.8,
+        "type": "whoosh"
+      },
+      {
+        "t": 6.75,
+        "type": "pop"
+      },
+      {
+        "t": 8.05,
+        "type": "swipe-left",
+        "gain": 0.7
+      },
+      {
+        "t": 8.2,
+        "type": "impact-soft"
+      },
+      {
+        "t": 8.9,
+        "type": "shimmer"
+      }
+    ]
+  },
+  {
+    "id": "f07-dive",
+    "file": "f07-dive.html",
+    "duration": 10,
+    "start": 60,
+    "sfx": [
+      {
+        "t": 0,
+        "type": "whoosh",
+        "gain": 0.7
+      },
+      {
+        "t": 2.9,
+        "type": "whoosh-long"
+      },
+      {
+        "t": 6.9,
+        "type": "shimmer",
+        "gain": 0.6
+      },
+      {
+        "t": 8.4,
+        "type": "riser"
+      }
+    ]
+  },
+  {
+    "id": "f08-sources",
+    "file": "f08-sources.html",
+    "duration": 12,
+    "start": 70,
+    "sfx": [
+      {
+        "t": 0.1,
+        "type": "impact"
+      },
+      {
+        "t": 0.62,
+        "type": "pop-low",
+        "gain": 0.8
+      },
+      {
+        "t": 1.85,
+        "type": "tick"
+      },
+      {
+        "t": 3,
+        "type": "swipe-right",
+        "gain": 0.6
+      },
+      {
+        "t": 4.5,
+        "type": "riser-short"
+      },
+      {
+        "t": 5.4,
+        "type": "impact"
+      },
+      {
+        "t": 7.2,
+        "type": "tick",
+        "gain": 0.8
+      },
+      {
+        "t": 8.2,
+        "type": "pop-high"
+      }
+    ]
+  },
+  {
+    "id": "f09-measure",
+    "file": "f09-measure.html",
+    "duration": 10,
+    "start": 82,
+    "sfx": [
+      {
+        "t": 0,
+        "type": "whoosh"
+      },
+      {
+        "t": 0.45,
+        "type": "tick",
+        "gain": 0.7
+      },
+      {
+        "t": 1.6,
+        "type": "pop"
+      },
+      {
+        "t": 2.25,
+        "type": "swipe-left",
+        "gain": 0.7
+      },
+      {
+        "t": 2.6,
+        "type": "shimmer",
+        "gain": 0.5
+      },
+      {
+        "t": 4.5,
+        "type": "pop-low"
+      },
+      {
+        "t": 6,
+        "type": "pop-high"
+      },
+      {
+        "t": 7.7,
+        "type": "impact-soft"
+      }
+    ]
+  },
+  {
+    "id": "f10-languages",
+    "file": "f10-languages.html",
+    "duration": 13,
+    "start": 92,
+    "sfx": [
+      {
+        "t": 0,
+        "type": "whoosh"
+      },
+      {
+        "t": 1.69,
+        "type": "click"
+      },
+      {
+        "t": 2.3,
+        "type": "pop"
+      },
+      {
+        "t": 3.3,
+        "type": "pop"
+      },
+      {
+        "t": 3.85,
+        "type": "whoosh"
+      },
+      {
+        "t": 4,
+        "type": "shimmer",
+        "gain": 0.8
+      },
+      {
+        "t": 5.2,
+        "type": "pop-high"
+      },
+      {
+        "t": 6.5,
+        "type": "pop"
+      },
+      {
+        "t": 8.6,
+        "type": "pop-low"
+      }
+    ]
+  },
+  {
+    "id": "f11-vigia",
+    "file": "f11-vigia.html",
+    "duration": 15,
+    "start": 105,
+    "sfx": [
+      {
+        "t": 0,
+        "type": "whoosh"
+      },
+      {
+        "t": 0.9,
+        "type": "pop"
+      },
+      {
+        "t": 2.95,
+        "type": "whoosh"
+      },
+      {
+        "t": 3.15,
+        "type": "tick",
+        "gain": 0.7
+      },
+      {
+        "t": 3.85,
+        "type": "tick",
+        "gain": 0.8
+      },
+      {
+        "t": 4.3,
+        "type": "tick",
+        "gain": 0.6
+      },
+      {
+        "t": 4.6,
+        "type": "tick",
+        "gain": 0.6
+      },
+      {
+        "t": 4.9,
+        "type": "tick",
+        "gain": 0.6
+      },
+      {
+        "t": 4.4,
+        "type": "riser-short"
+      },
+      {
+        "t": 5.3,
+        "type": "impact"
+      },
+      {
+        "t": 6.6,
+        "type": "pop-low"
+      },
+      {
+        "t": 7.5,
+        "type": "whoosh"
+      },
+      {
+        "t": 8.4,
+        "type": "pop"
+      },
+      {
+        "t": 12,
+        "type": "pop"
+      }
+    ]
+  },
+  {
+    "id": "f12-backtest",
+    "file": "f12-backtest.html",
+    "duration": 15,
+    "start": 120,
+    "sfx": [
+      {
+        "t": 0,
+        "type": "whoosh"
+      },
+      {
+        "t": 1.7,
+        "type": "pop"
+      },
+      {
+        "t": 3.2,
+        "type": "riser"
+      },
+      {
+        "t": 4.15,
+        "type": "whoosh"
+      },
+      {
+        "t": 4.85,
+        "type": "impact"
+      },
+      {
+        "t": 5.6,
+        "type": "pop"
+      },
+      {
+        "t": 5.45,
+        "type": "riser-short",
+        "gain": 0.8
+      },
+      {
+        "t": 6.35,
+        "type": "impact-soft"
+      },
+      {
+        "t": 8.6,
+        "type": "pop-low"
+      },
+      {
+        "t": 9.7,
+        "type": "whoosh"
+      },
+      {
+        "t": 10.4,
+        "type": "pop"
+      },
+      {
+        "t": 11,
+        "type": "pop"
+      },
+      {
+        "t": 11.6,
+        "type": "pop-high"
+      }
+    ]
+  },
+  {
+    "id": "f13-trust",
+    "file": "f13-trust.html",
+    "duration": 15,
+    "start": 135,
+    "sfx": [
+      {
+        "t": 0,
+        "type": "whoosh"
+      },
+      {
+        "t": 3.62,
+        "type": "swipe-left",
+        "gain": 0.6
+      },
+      {
+        "t": 5.25,
+        "type": "pop"
+      },
+      {
+        "t": 7.42,
+        "type": "swipe-left",
+        "gain": 0.6
+      },
+      {
+        "t": 8.45,
+        "type": "pop-high"
+      },
+      {
+        "t": 9.95,
+        "type": "whoosh-back",
+        "gain": 0.55
+      },
+      {
+        "t": 10.6,
+        "type": "impact-soft",
+        "gain": 0.5
+      }
+    ]
+  },
+  {
+    "id": "f14-pilot",
+    "file": "f14-pilot.html",
+    "duration": 14,
+    "start": 150,
+    "sfx": [
+      {
+        "t": 0,
+        "type": "whoosh"
+      },
+      {
+        "t": 1.3,
+        "type": "shimmer",
+        "gain": 0.45
+      },
+      {
+        "t": 7.45,
+        "type": "riser-short",
+        "gain": 0.7
+      },
+      {
+        "t": 8.35,
+        "type": "pop"
+      },
+      {
+        "t": 8.85,
+        "type": "tick"
+      },
+      {
+        "t": 9.15,
+        "type": "tick"
+      },
+      {
+        "t": 9.45,
+        "type": "tick"
+      },
+      {
+        "t": 9.75,
+        "type": "tick"
+      },
+      {
+        "t": 10.6,
+        "type": "impact-soft"
+      }
+    ]
+  },
+  {
+    "id": "f15-cost",
+    "file": "f15-cost.html",
+    "duration": 8,
+    "start": 164,
+    "sfx": [
+      {
+        "t": 0,
+        "type": "whoosh"
+      },
+      {
+        "t": 0.95,
+        "type": "pop-low"
+      },
+      {
+        "t": 2.15,
+        "type": "whoosh-long",
+        "gain": 0.6
+      },
+      {
+        "t": 2.55,
+        "type": "riser-short",
+        "gain": 0.6
+      },
+      {
+        "t": 3.45,
+        "type": "impact-soft"
+      }
+    ]
+  },
+  {
+    "id": "f16-close",
+    "file": "f16-close.html",
+    "duration": 8,
+    "start": 172,
+    "sfx": [
+      {
+        "t": 0.1,
+        "type": "final-hit"
+      },
+      {
+        "t": 1.2,
+        "type": "shimmer",
+        "gain": 0.55
+      },
+      {
+        "t": 2.9,
+        "type": "pop-low",
+        "gain": 0.5
+      }
+    ]
+  }
+]

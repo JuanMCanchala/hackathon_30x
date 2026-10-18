@@ -1,0 +1,75 @@
+<!-- scene {"id":"f16-close","start":172.0,"duration":8.0} -->
+<!-- Narration p33 172.11–174.11 «Tu equipo, siempre un paso adelante.» («un paso adelante» ≈ 173.2)
+     p34 174.91–175.59 «¿Empezamos?». The film's end: the final hit, the logo, the line with «un
+     paso adelante» in the gradient, the discreet CTA, the wave advancing gently to the right, and
+     a full-frame black layer that reaches opacity 1 at 8.0 so the last frame is black. Rules:
+     svg-path-draw, gradient-text-sweep, spring-pop-entrance. -->
+<!-- sfx [{"t":0.1,"type":"final-hit"},{"t":1.2,"type":"shimmer","gain":0.55},{"t":2.9,"type":"pop-low","gain":0.5}] -->
+<style>
+  #f16-glow { left: 410px; top: 40px; width: 1100px; height: 760px; background: radial-gradient(circle, rgba(255, 79, 0, 0.42), rgba(255, 79, 0, 0) 64%); }
+  #f16-glow2 { left: 860px; top: 300px; width: 900px; height: 700px; background: radial-gradient(circle, rgba(193, 183, 255, 0.24), rgba(193, 183, 255, 0) 64%); }
+  #f16-wave { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+  #f16-lock { position: absolute; left: 0; right: 0; top: 150px; display: flex; flex-direction: column; align-items: center; }
+  #f16-mark { display: flex; align-items: center; gap: 30px; }
+  #f16-plane { width: 124px; height: 96px; }
+  #f16-word { font-size: 150px; font-weight: 800; letter-spacing: -0.05em; line-height: 1; display: flex; }
+  #f16-word span { display: inline-block; color: transparent; background-image: linear-gradient(100deg, #fffdf9 0%, #fffdf9 40%, #ffd9c4 47%, #ffffff 50%, #d9d2ff 53%, #fffdf9 60%, #fffdf9 100%); background-size: 400% 100%; background-position: 100% 50%; -webkit-background-clip: text; background-clip: text; }
+  #f16-line1 { margin-top: 70px; font-size: 76px; color: var(--cream); white-space: nowrap; }
+  #f16-line2 { margin-top: 6px; font-size: 128px; white-space: nowrap; }
+  #f16-cta { margin-top: 52px; font-size: 30px; font-weight: 500; }
+  #f16-cta b { font-weight: 800; }
+  #f16-cta em { font-style: normal; color: var(--ink2d); font-weight: 500; }
+  #f16-ask { margin-top: 22px; font-size: 40px; font-weight: 500; letter-spacing: -0.02em; color: var(--cream); }
+  #f16-black { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; background: #000; opacity: 0; }
+</style>
+<div class="k-stage" id="f16-stage">
+  <div class="k-glow" id="f16-glow"></div>
+  <div class="k-glow" id="f16-glow2"></div>
+  <svg id="f16-wave" viewBox="0 0 1920 1080" aria-hidden="true" data-layout-allow-overflow>
+    <g id="f16-wave-g">
+      <path id="f16-wave-path" d="M -260 990 C 80 900, 300 1050, 600 975 S 1080 880, 1360 950 S 1860 1010, 2200 900" fill="none" stroke="#ff4f00" stroke-width="20" stroke-linecap="round" />
+    </g>
+  </svg>
+  <div id="f16-lock">
+    <div id="f16-mark">
+      <div id="f16-plane"></div>
+      <div id="f16-word"><span>O</span><span>n</span><span>d</span><span>A</span><span>I</span></div>
+    </div>
+    <div id="f16-line1" class="k-light">Tu equipo, siempre</div>
+    <div id="f16-line2" class="k-display"><span class="k-grad" id="f16-grad">un paso adelante.</span></div>
+    <div id="f16-cta" class="k-pill k-pill-dark"><b>OndAI × 30X</b><em>— Piloto de 1 mes</em></div>
+    <div id="f16-ask">¿Empezamos?</div>
+  </div>
+  <div id="f16-black"></div>
+</div>
+<script>
+  $('#f16-plane').innerHTML = K.plane(124);
+  const path = $('#f16-wave-path');
+  const len = path.getTotalLength();
+  path.style.strokeDasharray = len;
+
+  // The final hit: the mark and the glow bloom together.
+  tl.fromTo('#f16-glow', { scale: 0.3, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.4, ease: 'expo.out' }, 0.1);
+  tl.fromTo('#f16-glow2', { scale: 0.5, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.8, ease: 'expo.out' }, 0.3);
+  tl.fromTo('#f16-plane', { x: -180, y: 90, rotation: -24, scale: 0.4, opacity: 0 }, { x: 0, y: 0, rotation: 0, scale: 1, opacity: 1, duration: 0.9, ease: 'power3.out' }, 0.1);
+  tl.fromTo('#f16-word span', { y: 90, opacity: 0, filter: 'blur(16px)' }, { y: 0, opacity: 1, filter: 'blur(0px)', duration: 0.75, ease: 'expo.out', stagger: 0.05 }, 0.14);
+  tl.fromTo('#f16-word span', { backgroundPosition: '100% 50%' }, { backgroundPosition: '0% 50%', duration: 1.3, ease: 'power2.inOut' }, 0.8);
+
+  // The wave draws in from the left, then keeps advancing gently into the future (right).
+  tl.fromTo(path, { strokeDashoffset: len }, { strokeDashoffset: 0, duration: 1.6, ease: 'power3.inOut' }, 0.1);
+  tl.fromTo('#f16-wave-g', { x: -40 }, { x: 160, duration: 7.9, ease: 'none' }, 0.1);
+
+  // «Tu equipo, siempre» · «un paso adelante.»
+  tl.fromTo('#f16-line1', { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }, 0.3);
+  tl.fromTo('#f16-line2', { opacity: 0, y: 60, filter: 'blur(14px)' }, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.8, ease: 'expo.out' }, 1.15);
+  K.sweep(tl, '#f16-grad', 1.15, 5.6, 2);
+
+  // The discreet CTA, then «¿Empezamos?».
+  tl.fromTo('#f16-cta', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }, 2.2);
+  tl.fromTo('#f16-ask', { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, 2.9);
+
+  // Logo holds with a slow settle; everything fades to black, ending fully black at 8.0.
+  tl.fromTo('#f16-lock', { scale: 1 }, { scale: 1.035, duration: 6.7, ease: 'sine.inOut' }, 0.8);
+  K.drift(tl, '#f16-glow', { x: 30, y: -16, scale: 1.06, period: 3.2, total: 6.4, at: 1.4 });
+  tl.fromTo('#f16-black', { opacity: 0 }, { opacity: 1, duration: 1.2, ease: 'power1.inOut' }, 6.8);
+</script>

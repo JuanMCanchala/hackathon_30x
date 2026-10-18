@@ -1,0 +1,124 @@
+<!-- scene {"id":"f15-cost","start":164.0,"duration":8.0} -->
+<!-- Narration p32 164.12–167.28 «Por una fracción de lo que cuesta una suite de social listening.»
+     («fracción» ≈ 164.9, «suite de social listening» ≈ 166.2). Same base: USD por mes, bars to
+     scale on one shared track. OndAI's estimated operating cost vs the suite's software license
+     (Vendr medians), labeled as different kinds of cost. Rules: stat-bars-and-fills,
+     counting-dynamic-scale. -->
+<!-- sfx [{"t":0.0,"type":"whoosh"},{"t":0.95,"type":"pop-low"},{"t":2.15,"type":"whoosh-long","gain":0.6},{"t":2.55,"type":"riser-short","gain":0.6},{"t":3.45,"type":"impact-soft"}] -->
+<style>
+  #f15-glow { left: 1000px; top: 20px; width: 1000px; height: 600px; background: radial-gradient(ellipse, rgba(255, 79, 0, 0.3), rgba(255, 79, 0, 0) 65%); }
+  #f15-glow2 { left: 100px; top: 480px; width: 1300px; height: 600px; background: radial-gradient(ellipse, rgba(193, 183, 255, 0.16), rgba(193, 183, 255, 0) 65%); }
+  #f15-head { position: absolute; left: 160px; top: 110px; }
+  #f15-title { margin-top: 16px; font-size: 96px; color: var(--cream); white-space: nowrap; }
+  #f15-pct { position: absolute; right: 160px; top: 96px; text-align: right; }
+  #f15-pct-n { font-size: 150px; font-weight: 800; letter-spacing: -0.05em; line-height: 1; }
+  #f15-pct-l { margin-top: 6px; font-size: 30px; font-weight: 500; color: var(--ink2d); letter-spacing: -0.01em; }
+
+  .f15-row { position: absolute; left: 160px; width: 1600px; }
+  .f15-lab { display: flex; align-items: baseline; justify-content: space-between; }
+  .f15-name { font-size: 46px; font-weight: 800; letter-spacing: -0.035em; color: var(--cream); }
+  .f15-val { font-size: 46px; font-weight: 800; letter-spacing: -0.035em; white-space: nowrap; }
+  .f15-kind { margin-top: 8px; font-family: 'JetBrains Mono', monospace; font-size: 22px; letter-spacing: 0.06em; color: var(--ink2d); }
+  .f15-kind b { color: var(--lavender); font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; margin-right: 10px; }
+  .f15-track { position: relative; margin-top: 22px; width: 1400px; height: 56px; border-radius: 10px; background: rgba(255, 253, 249, 0.06); border: 2px solid rgba(255, 253, 249, 0.1); box-sizing: border-box; }
+  .f15-bar { position: absolute; left: 0; top: -2px; height: 56px; border-radius: 10px 0 0 10px; transform-origin: 0 50%; }
+  #f15-a-lo { background: var(--marker); }
+  #f15-a-hi { background: rgba(255, 79, 0, 0.5); border-radius: 0; }
+  #f15-b-lo { background: var(--lavender); }
+  #f15-b-hi { background: repeating-linear-gradient(135deg, rgba(193, 183, 255, 0.5) 0 10px, rgba(193, 183, 255, 0.22) 10px 20px); border-radius: 0 10px 10px 0; }
+  #f15-a-val { position: absolute; left: 46px; top: 0; line-height: 52px; color: var(--marker-dark); }
+  #f15-b-year { position: absolute; right: 0; top: 0; font-family: 'JetBrains Mono', monospace; font-size: 22px; letter-spacing: 0.06em; color: var(--ink2d); }
+  #f15-axis { position: absolute; left: 160px; top: 760px; width: 1400px; height: 60px; }
+  .f15-tick { position: absolute; top: 0; height: 14px; border-left: 2px solid rgba(255, 253, 249, 0.3); }
+  .f15-tl { position: absolute; top: 22px; font-family: 'JetBrains Mono', monospace; font-size: 22px; color: var(--ink2d); transform: translateX(-50%); white-space: nowrap; }
+  #f15-unit { position: absolute; left: 1580px; top: 778px; font-family: 'JetBrains Mono', monospace; font-size: 22px; font-weight: 700; letter-spacing: 0.1em; color: var(--ink2d); white-space: nowrap; }
+  #f15-note { position: absolute; left: 160px; top: 900px; display: flex; align-items: center; gap: 18px; font-size: 32px; font-weight: 500; color: var(--cream); letter-spacing: -0.01em; }
+  #f15-note i { flex: none; width: 10px; height: 44px; border-radius: 5px; background: var(--lavender); }
+</style>
+<div class="k-stage" id="f15-stage">
+  <div class="k-glow" id="f15-glow"></div>
+  <div class="k-glow" id="f15-glow2"></div>
+
+  <div id="f15-head">
+    <div class="k-eyebrow" id="f15-eyebrow">Misma base · USD por mes</div>
+    <div id="f15-title" class="k-display"><span class="k-light">Una</span> fracción</div>
+  </div>
+  <div id="f15-pct">
+    <div id="f15-pct-n" class="k-grad">≈ 1–3 %</div>
+    <div id="f15-pct-l">del costo mensual de la suite</div>
+  </div>
+
+  <div class="f15-row" id="f15-a" style="top: 330px">
+    <div class="f15-lab"><div class="f15-name">OndAI</div></div>
+    <div class="f15-kind"><b>Costo de operación estimado</b>modelos, búsquedas y hosting</div>
+    <div class="f15-track" id="f15-a-track">
+      <div class="f15-bar" id="f15-a-lo"></div>
+      <div class="f15-bar" id="f15-a-hi"></div>
+      <div class="f15-val" id="f15-a-val">USD 40–45/mes</div>
+    </div>
+  </div>
+
+  <div class="f15-row" id="f15-b" style="top: 540px">
+    <div class="f15-lab" style="width: 1400px"><div class="f15-name">Suite de social listening</div><div class="f15-val" id="f15-b-val">USD <span id="f15-b1">1.583</span>–<span id="f15-b2">4.167</span>/mes</div></div>
+    <div class="f15-kind" style="width: 1400px; position: relative"><b>Licencia de software</b>medianas de Brandwatch, Meltwater y Sprout Social según Vendr</div>
+    <div class="f15-track" id="f15-b-track">
+      <div class="f15-bar" id="f15-b-lo"></div>
+      <div class="f15-bar" id="f15-b-hi"></div>
+    </div>
+  </div>
+
+  <div id="f15-axis"></div>
+  <div id="f15-unit">USD/mes</div>
+  <div id="f15-yr" class="k-mono" style="position: absolute; left: 160px; top: 836px; font-size: 22px; letter-spacing: 0.06em; color: var(--ink2d)">Suite: USD 19.000–50.000 al año ÷ 12</div>
+
+  <div id="f15-note"><i></i>Software frente a operación: no es el mismo tipo de costo.</div>
+</div>
+<script>
+  // One scale for both bars: 1400 px = USD 4.167 por mes.
+  const MAX = 4167, W = 1400;
+  const px = (v) => (v / MAX) * W;
+  const fmt = (v) => Math.round(v).toLocaleString('de-DE'); // 1.583 (Spanish thousands dot)
+  tl.set('#f15-a-lo', { width: px(40) }, 0);
+  tl.set('#f15-a-hi', { left: px(40), width: px(45) - px(40) }, 0);
+  tl.set('#f15-b-lo', { width: px(1583) }, 0);
+  tl.set('#f15-b-hi', { left: px(1583), width: px(4167) - px(1583) }, 0);
+
+  let ax = '';
+  [0, 1000, 2000, 3000, 4000].forEach((v) => {
+    ax += `<div class="f15-tick" style="left:${px(v)}px"></div><div class="f15-tl" style="left:${px(v)}px">${v === 0 ? '0' : v.toLocaleString('de-DE')}</div>`;
+  });
+  $('#f15-axis').innerHTML = ax;
+
+  K.enter(tl, '#f15-stage', 0);
+  tl.fromTo('#f15-glow', { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 1.6, ease: 'expo.out' }, 0.2);
+  tl.fromTo('#f15-glow2', { opacity: 0 }, { opacity: 1, duration: 1.6, ease: 'power2.out' }, 0);
+  K.drift(tl, '#f15-glow', { x: -40, y: 20, scale: 1.08, period: 3.6, total: 7.2 });
+
+  // Both rows and the shared track are laid out first: same base, before any value.
+  tl.fromTo('#f15-eyebrow', { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.6, ease: 'power3.out' }, 0.15);
+  tl.fromTo(['#f15-a .f15-lab', '#f15-a .f15-kind', '#f15-b .f15-name', '#f15-b .f15-kind'], { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out', stagger: 0.08 }, 0.25);
+  tl.fromTo(['#f15-a-track', '#f15-b-track'], { scaleX: 0, opacity: 0 }, { scaleX: 1, opacity: 1, duration: 0.8, ease: 'expo.out', transformOrigin: '0% 50%', stagger: 0.1 }, 0.3);
+  tl.fromTo(['#f15-axis', '#f15-unit'], { opacity: 0 }, { opacity: 1, duration: 0.6, ease: 'power2.out' }, 0.6);
+
+  // «Por una fracción» — the OndAI sliver and its figure.
+  tl.fromTo('#f15-title', { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.7, ease: 'expo.out' }, 0.85);
+  tl.fromTo(['#f15-a-lo', '#f15-a-hi'], { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: 'power3.out', stagger: 0.1 }, 0.95);
+  tl.fromTo('#f15-a-val', { opacity: 0, x: -16 }, { opacity: 1, x: 0, duration: 0.5, ease: 'power3.out' }, 1.0);
+
+  // «…de lo que cuesta una suite de social listening» — the long bar runs the full scale.
+  tl.fromTo('#f15-b-lo', { scaleX: 0 }, { scaleX: 1, duration: 0.7, ease: 'power2.in' }, 2.15);
+  tl.fromTo('#f15-b-hi', { scaleX: 0 }, { scaleX: 1, duration: 0.9, ease: 'expo.out' }, 2.85);
+  tl.fromTo('#f15-b-val', { opacity: 0 }, { opacity: 1, duration: 0.4, ease: 'power2.out' }, 2.2);
+  K.count(tl, $('#f15-b1'), { from: 0, to: 1583, start: 2.2, duration: 0.65, ease: 'power2.in', fmt });
+  K.count(tl, $('#f15-b2'), { from: 1583, to: 4167, start: 2.85, duration: 0.9, ease: 'expo.out', fmt });
+  tl.fromTo('#f15-yr', { opacity: 0 }, { opacity: 1, duration: 0.6, ease: 'power2.out' }, 3.3);
+
+  // The ratio lands on the music, then the honest note.
+  tl.fromTo('#f15-pct-n', { opacity: 0, scale: 0.6, filter: 'blur(14px)' }, { opacity: 1, scale: 1, filter: 'blur(0px)', duration: 0.8, ease: 'expo.out', transformOrigin: '100% 50%' }, 3.45);
+  K.sweep(tl, '#f15-pct-n', 3.45, 4.0);
+  tl.fromTo('#f15-pct-l', { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, 3.75);
+  tl.fromTo('#f15-note', { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.7, ease: 'power3.out' }, 4.4);
+  tl.fromTo('#f15-a-lo', { boxShadow: '0 0 0 0 rgba(255,79,0,0)' }, { boxShadow: '0 0 0 8px rgba(255,79,0,0.28)', duration: 0.5, ease: 'power2.out', yoyo: true, repeat: 3 }, 4.2);
+
+  K.exit(tl, '#f15-stage', 7.5);
+</script>

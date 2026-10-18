@@ -1,0 +1,153 @@
+<!-- scene {"id":"f04-elegir","start":28.0,"duration":10.0} -->
+<!-- Narration p08 28.10–29.68 «Después eliges como en Tinder.» · p09 30.43–31.69 «Este sirve: a
+     la derecha.» · p10 34.02–36.27 «Este ya lo contó todo el mundo: a la izquierda.»
+     Real deck: assets/capture/elegir.mp4 in two invisible cuts of the same recording at the same
+     framing — clip 1 media 0.12→5.00 at local 0 (right release media 3.47 → local 3.35 = 31.35
+     global), clip 2 media 5.48→10.48 at local 4.88 (left release media 8.60 → local 8.00 = 36.00
+     global). The pointer is replayed from elegir.json on each clip window.
+     Rules: cursor-drag, camera-cursor-tracking, kinetic-beat-slam. -->
+<!-- sfx [{"t":0.0,"type":"whoosh"},{"t":2.06,"type":"click"},{"t":2.43,"type":"pop","gain":0.7},{"t":3.35,"type":"swipe-right"},{"t":6.02,"type":"pop-low","gain":0.7},{"t":6.34,"type":"click"},{"t":7.1,"type":"tick","gain":0.5},{"t":8.0,"type":"swipe-left"}] -->
+<style>
+  #f04-glow { left: 40px; top: 160px; width: 1200px; height: 800px; background: radial-gradient(ellipse, rgba(255, 79, 0, 0.3), rgba(255, 79, 0, 0) 65%); }
+  #f04-glow2 { left: 1180px; top: 240px; width: 760px; height: 700px; background: radial-gradient(circle, rgba(193, 183, 255, 0.18), rgba(193, 183, 255, 0) 64%); }
+  #f04-screen { left: 64px; top: 220px; width: 1140px; height: 641px; }
+  #f04-label { position: absolute; left: 64px; top: 162px; color: var(--ink2d); }
+
+  #f04-col { position: absolute; left: 1272px; top: 220px; width: 600px; height: 660px; }
+  .f04-beat { position: absolute; left: 0; top: 0; width: 600px; }
+
+  /* p08 */
+  #f04-head { font-size: 98px; line-height: 1.0; }
+  #f04-head .f04-l1 { display: block; font-weight: 300; letter-spacing: -0.04em; color: #fffdf9; }
+  #f04-head .f04-l2 { display: block; font-weight: 800; letter-spacing: -0.045em; color: #fffdf9; }
+  #f04-head-sub { margin-top: 30px; font-size: 32px; line-height: 1.3; color: var(--ink2d); max-width: 540px; }
+
+  /* p09 */
+  #f04-yes { font-size: 132px; color: var(--marker-dark); white-space: nowrap; display: flex; align-items: baseline; gap: 26px; }
+  #f04-yes-arrow { display: inline-block; }
+  .f04-topic { margin-top: 30px; padding: 26px 30px; }
+  .f04-topic h3 { margin: 0; font-size: 40px; font-weight: 800; letter-spacing: -0.025em; color: #fffdf9; }
+  .f04-row { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 12px; }
+  .f04-tag { font-family: 'JetBrains Mono', monospace; font-size: 22px; font-weight: 500; padding: 8px 16px; border-radius: 999px; white-space: nowrap; }
+  .f04-tag-dark { background: rgba(255, 253, 249, 0.08); color: #fffdf9; border: 1px solid rgba(255, 253, 249, 0.2); }
+  .f04-tag-up { background: rgba(255, 79, 0, 0.18); color: #fffdf9; border: 1px solid rgba(255, 95, 23, 0.6); }
+  .f04-stage-grow { background: #e6e1ff; color: #3b33a8; }
+
+  /* p10 */
+  #f04-no { font-size: 112px; color: #fffdf9; white-space: nowrap; display: flex; align-items: baseline; gap: 22px; }
+  #f04-no-arrow { display: inline-block; color: var(--lavender); }
+  #f04-note { margin-top: 26px; padding: 22px 28px; }
+  #f04-note b { display: block; font-size: 32px; font-weight: 800; letter-spacing: -0.02em; color: #fffdf9; }
+  #f04-note span { display: block; margin-top: 8px; font-size: 30px; line-height: 1.25; color: var(--ink2d); }
+  #f04-note em { font-style: normal; color: #fffdf9; font-weight: 600; }
+  #f04-rule { margin-top: 26px; }
+  #f04-rule .k-eyebrow { font-size: 22px; }
+  .f04-stage { margin-top: 16px; display: flex; align-items: center; gap: 18px; }
+  .f04-chip { font-size: 26px; font-weight: 700; padding: 9px 18px; border-radius: 999px; white-space: nowrap; }
+  .f04-emer { background: #e6f2e8; color: #1e6b3a; }
+  .f04-sat { background: #fff0d4; color: #8a5a00; }
+  .f04-stage i { flex: 0 0 auto; width: 34px; height: 2px; background: rgba(255, 253, 249, 0.4); }
+  .f04-stage span { font-size: 30px; font-weight: 600; color: #fffdf9; white-space: nowrap; }
+  .f04-stage span.f04-dim { font-weight: 400; color: var(--ink2d); }
+</style>
+<div class="k-stage" id="f04-stage">
+  <div class="k-glow" id="f04-glow"></div>
+  <div class="k-glow" id="f04-glow2"></div>
+  <div id="f04-label" class="k-eyebrow">OndAI · Elegir · semana 11–18 oct</div>
+  <div class="k-screen" id="f04-screen" data-layout-allow-overflow>
+    <div class="k-cam" id="f04-cam">
+      <video class="clip" id="f04-clip1" src="assets/capture/elegir.mp4" data-start="0" data-duration="4.88" data-media-start="0.12" muted playsinline style="width: 1140px; height: 641px"></video>
+      <video class="clip" id="f04-clip2" src="assets/capture/elegir.mp4" data-start="4.88" data-duration="5.12" data-media-start="5.48" data-hf-media-start-basis="local" muted playsinline style="width: 1140px; height: 641px"></video>
+      <div class="k-ripple" id="f04-ripple"></div>
+      <div class="k-cursor" id="f04-cursor"></div>
+    </div>
+  </div>
+
+  <div id="f04-col">
+    <div class="f04-beat" id="f04-b1">
+      <div id="f04-head"><span class="f04-l1">Eliges como</span><span class="f04-l2">en Tinder.</span></div>
+      <div id="f04-head-sub">OndAI ordena los temas por encaje con 30X.</div>
+    </div>
+    <div class="f04-beat" id="f04-b2">
+      <div id="f04-yes" class="k-display">SIRVE <span id="f04-yes-arrow">→</span></div>
+      <div class="f04-topic k-glass" id="f04-yes-card">
+        <h3>IA para multitarea</h3>
+        <div class="f04-row">
+          <span class="f04-tag f04-tag-dark">encaje 8/10</span>
+          <span class="f04-tag f04-tag-up">+460 %</span>
+          <span class="f04-tag f04-stage-grow">En crecimiento</span>
+        </div>
+      </div>
+    </div>
+    <div class="f04-beat" id="f04-b3">
+      <div id="f04-no" class="k-display"><span id="f04-no-arrow">←</span> NO SIRVE</div>
+      <div class="k-glass" id="f04-note">
+        <b>Verificación con IA</b>
+        <span>ya llegó al español: <em>8 creadores en ES, 8 en EN</em></span>
+      </div>
+      <div id="f04-rule">
+        <div class="k-eyebrow">La regla · etapa del tema</div>
+        <div class="f04-stage" id="f04-st1"><b class="f04-chip f04-emer">Emergente</b><i></i><span>Entra ya</span></div>
+        <div class="f04-stage" id="f04-st2"><b class="f04-chip f04-sat">Saturado</b><i></i><span class="f04-dim">solo con ángulo propio</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  // The sub line is the deck's own subtitle (in the recording).
+  const view = { w: 1140, h: 641 };
+  const s = 1140 / 1440; // display px per captured CSS px
+  $('#f04-cursor').innerHTML = K.cursorSvg;
+
+  // One camera for both clips, so the cut between them is invisible.
+  const cam = (cx, cy, z) => K.frame(view, s, cx, cy, z);
+  const c0 = cam(700, 430, 1.1);
+  const c1 = cam(720, 420, 1.28);
+  const c2 = cam(800, 430, 1.28);
+  const c3 = cam(740, 430, 1.28);
+  const c4 = cam(630, 440, 1.28);
+  const c5 = cam(660, 440, 1.24);
+  tl.set('#f04-cam', c0, 0);
+  // p08: one push into the deck.
+  tl.to('#f04-cam', { ...c1, duration: 2.0, ease: 'power3.out' }, 0.1);
+  // p09: the camera leans with the right drag, then settles (still across the cut at 4.88).
+  tl.to('#f04-cam', { ...c2, duration: 1.3, ease: 'power2.inOut' }, 2.1);
+  tl.to('#f04-cam', { ...c3, duration: 1.4, ease: 'sine.inOut' }, 3.6);
+  // p10: it leans with the left drag.
+  tl.to('#f04-cam', { ...c4, duration: 1.6, ease: 'power2.inOut' }, 6.4);
+  tl.to('#f04-cam', { ...c5, duration: 1.4, ease: 'sine.inOut' }, 8.05);
+
+  // The real pointer, replayed from the log on each clip window.
+  const log = __CAPTURE_elegir;
+  K.cursor(tl, { cursor: '#f04-cursor', ripple: '#f04-ripple', log: log.log, offset: 0, mediaStart: 0.12, s, from: 0, until: 4.88 });
+  K.cursor(tl, { cursor: '#f04-cursor', ripple: '#f04-ripple', log: log.log, offset: 4.88, mediaStart: 5.48, s, from: 4.88, until: 10 });
+
+  // Entry (f03 leaves to the left as this arrives from the right).
+  K.enter(tl, ['#f04-screen', '#f04-label'], 0, { x: 300, duration: 0.8 });
+  tl.fromTo('#f04-glow', { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 1.4, ease: 'expo.out' }, 0);
+  tl.fromTo('#f04-glow2', { opacity: 0 }, { opacity: 1, duration: 1.6, ease: 'power2.out' }, 0.3);
+  K.drift(tl, '#f04-glow', { x: 40, scale: 1.08, period: 2.5, total: 10 });
+
+  // p08 · «Después eliges como en Tinder.»
+  tl.fromTo('#f04-head .f04-l1', { x: 120, opacity: 0, filter: 'blur(12px)' }, { x: 0, opacity: 1, filter: 'blur(0px)', duration: 0.7, ease: 'expo.out' }, 0.12);
+  tl.fromTo('#f04-head .f04-l2', { x: 160, opacity: 0, filter: 'blur(12px)' }, { x: 0, opacity: 1, filter: 'blur(0px)', duration: 0.7, ease: 'expo.out' }, 0.62);
+  tl.fromTo('#f04-head-sub', { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out' }, 1.0);
+  tl.to('#f04-b1', { x: -60, opacity: 0, filter: 'blur(10px)', duration: 0.3, ease: 'power3.in' }, 2.08);
+
+  // p09 · «Este sirve: a la derecha.» SIRVE slams; the arrow kicks right on the release.
+  tl.fromTo('#f04-yes', { scale: 1.5, opacity: 0, filter: 'blur(18px)' }, { scale: 1, opacity: 1, filter: 'blur(0px)', duration: 0.45, ease: 'power4.out', transformOrigin: '0% 60%' }, 2.4);
+  tl.fromTo('#f04-yes-card', { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: 'back.out(1.4)' }, 2.75);
+  tl.fromTo('#f04-yes-arrow', { x: 0 }, { x: 34, duration: 0.18, ease: 'power3.out', yoyo: true, repeat: 1 }, 3.35);
+  tl.to('#f04-b2', { x: 80, opacity: 0, filter: 'blur(10px)', duration: 0.35, ease: 'power3.in' }, 5.55);
+
+  // p10 · «Este ya lo contó todo el mundo: a la izquierda.» The truthful note, then the rule.
+  tl.fromTo('#f04-no', { x: 140, opacity: 0, filter: 'blur(16px)' }, { x: 0, opacity: 1, filter: 'blur(0px)', duration: 0.5, ease: 'expo.out' }, 6.0);
+  tl.fromTo('#f04-note', { y: 36, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out' }, 6.5);
+  tl.fromTo('#f04-rule .k-eyebrow', { opacity: 0 }, { opacity: 1, duration: 0.4, ease: 'power2.out' }, 7.05);
+  tl.fromTo('#f04-st1', { x: 40, opacity: 0 }, { x: 0, opacity: 1, duration: 0.5, ease: 'back.out(1.6)' }, 7.1);
+  tl.fromTo('#f04-st2', { x: 40, opacity: 0 }, { x: 0, opacity: 1, duration: 0.5, ease: 'back.out(1.6)' }, 7.35);
+  tl.fromTo('#f04-no-arrow', { x: 0 }, { x: -34, duration: 0.18, ease: 'power3.out', yoyo: true, repeat: 1 }, 8.0);
+
+  // Leave to the left for the next act.
+  K.exit(tl, ['#f04-screen', '#f04-label', '#f04-col'], 9.5);
+</script>

@@ -1,0 +1,166 @@
+1
+00:00:00,000 --> 00:00:02,040
+Lunes, siete de la mañana.
+
+2
+00:00:02,360 --> 00:00:05,960
+Tu equipo creativo ya vio lo que
+se hizo viral el fin de semana.
+
+3
+00:00:06,330 --> 00:00:08,160
+Pero nadie sabe por qué funcionó…
+
+4
+00:00:09,100 --> 00:00:10,640
+…ni qué publicar esta semana.
+
+5
+00:00:12,120 --> 00:00:14,630
+Y para cuando lo descubren,
+la onda ya pasó.
+
+6
+00:00:15,020 --> 00:00:17,280
+Esto es OndAI, tu AI trend analyst.
+
+7
+00:00:19,100 --> 00:00:22,602
+Cada lunes abres el Radar y ves la
+onda de la semana: qué temas suben,
+
+8
+00:00:22,652 --> 00:00:25,540
+en qué etapa están y qué
+tanto encajan con tu marca.
+
+9
+00:00:28,100 --> 00:00:29,930
+Después eliges como en Tinder.
+
+10
+00:00:30,430 --> 00:00:31,940
+Este sirve: a la derecha.
+
+11
+00:00:34,020 --> 00:00:36,520
+Este ya lo contó todo el
+mundo: a la izquierda.
+
+12
+00:00:38,090 --> 00:00:42,910
+Lo que eliges llega con el ángulo, el
+gancho y el borrador, en la voz de 30X.
+
+13
+00:00:47,100 --> 00:00:49,680
+Una persona aprueba y
+queda en el calendario.
+
+14
+00:00:50,250 --> 00:00:52,000
+Nada se publica solo.
+
+15
+00:00:54,110 --> 00:00:57,040
+Tu equipo deja de buscar
+a mano y empieza a crear.
+
+16
+00:01:00,110 --> 00:01:01,950
+¿Y cómo sabe OndAI qué va a despegar?
+
+17
+00:01:02,830 --> 00:01:04,030
+Adentrémonos.
+
+18
+00:01:10,100 --> 00:01:14,170
+OndAI lee doce fuentes públicas cada dos
+horas, con ocho semanas de historia.
+
+19
+00:01:14,790 --> 00:01:18,980
+Cuando un tema crece 1,8 veces
+sobre su promedio, hay señal.
+
+20
+00:01:22,020 --> 00:01:25,220
+Y aquí está la clave: el
+código mide y la IA redacta.
+
+21
+00:01:25,810 --> 00:01:29,860
+La etapa y el crecimiento salen de
+conteos, no de la opinión de un modelo.
+
+22
+00:01:32,110 --> 00:01:34,480
+Por eso sabes si un tema
+ya despegó en inglés
+
+23
+00:01:34,530 --> 00:01:36,770
+y todavía nadie lo cuenta en español.
+
+24
+00:01:37,150 --> 00:01:38,460
+Esa es tu ventana.
+
+25
+00:01:45,130 --> 00:01:47,500
+Vigía sigue el tema que
+le importa a tu empresa.
+
+26
+00:01:48,090 --> 00:01:51,630
+De casi cuatrocientas piezas,
+solo doce pasan el filtro.
+
+27
+00:02:00,100 --> 00:02:03,880
+Lo probamos contra el pasado, solo
+con lo que se sabía en cada momento.
+
+28
+00:02:04,380 --> 00:02:08,700
+Detectó las dieciocho ondas de IA, con
+diez días y medio de ventaja en mediana.
+
+29
+00:02:15,100 --> 00:02:18,280
+Solo usa contenido público,
+sin iniciar sesión.
+
+30
+00:02:18,830 --> 00:02:22,090
+Cuesta entre cuarenta y cuarenta
+y cinco dólares al mes.
+
+31
+00:02:22,620 --> 00:02:24,770
+Y una persona aprueba cada pieza.
+
+32
+00:02:30,100 --> 00:02:34,050
+Proponemos un piloto de un mes
+con el equipo de medios de 30X.
+
+33
+00:02:37,100 --> 00:02:41,470
+Si al menos dos de los cinco temas de
+cada semana se producen, OndAI se queda.
+
+34
+00:02:44,120 --> 00:02:47,530
+Por una fracción de lo que cuesta
+una suite de social listening.
+
+35
+00:02:52,110 --> 00:02:54,360
+Tu equipo, siempre un paso adelante.
+
+36
+00:02:54,910 --> 00:02:56,110
+¿Empezamos?
+

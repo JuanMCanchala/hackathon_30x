@@ -1,0 +1,247 @@
+<!-- scene {"id":"f01-intro","start":0.0,"duration":15.0} -->
+<!-- Narration p01 0.00–1.79 «Lunes, siete de la mañana.» · p02 2.36–5.71 «Tu equipo creativo ya
+     vio lo que se hizo viral el fin de semana.» · p03 6.33–7.91 «Pero nadie sabe por qué
+     funcionó…» · p04 9.10–10.39 «…ni qué publicar esta semana.» · p05 12.12–14.38 «Y para cuando
+     lo descubren, la onda ya pasó.» Rules: kinetic-beat-slam (VIRAL, ¿POR QUÉ?),
+     discrete-text-sequence (the clock), depth-scatter-assemble (the week's viral pieces),
+     svg-path-draw (the wave), gradient-text-sweep. No fake UI: the cards are graphics carrying the
+     real pieces of the frozen demo week (11–18 oct 2026). -->
+<!-- sfx [{"t":0.0,"type":"tick","gain":0.8},{"t":0.3,"type":"tick","gain":0.8},{"t":0.6,"type":"tick","gain":0.8},{"t":0.9,"type":"clock"},{"t":2.3,"type":"whoosh","gain":0.6},{"t":2.42,"type":"ping","gain":0.45},{"t":2.7,"type":"ping","gain":0.45},{"t":2.98,"type":"ping","gain":0.45},{"t":3.26,"type":"ping","gain":0.45},{"t":3.54,"type":"ping","gain":0.45},{"t":3.82,"type":"ping","gain":0.45},{"t":3.95,"type":"impact-soft"},{"t":6.33,"type":"whoosh-back","gain":0.6},{"t":6.9,"type":"impact"},{"t":9.1,"type":"pop-low"},{"t":12.1,"type":"whoosh-long","gain":0.7},{"t":13.5,"type":"tape-stop"}] -->
+<style>
+  #f01-glow-a { left: 420px; top: 120px; width: 1080px; height: 860px; background: radial-gradient(circle, rgba(255, 79, 0, 0.30), rgba(255, 79, 0, 0) 64%); }
+  #f01-glow-b { left: 980px; top: 360px; width: 820px; height: 700px; background: radial-gradient(circle, rgba(193, 183, 255, 0.20), rgba(193, 183, 255, 0) 64%); }
+
+  /* The clock */
+  #f01-clock { position: absolute; left: 0; right: 0; top: 330px; display: flex; flex-direction: column; align-items: center; }
+  #f01-day { font-family: 'JetBrains Mono', monospace; font-size: 40px; font-weight: 500; letter-spacing: 0.4em; color: var(--lavender); margin-bottom: 18px; padding-left: 0.4em; }
+  #f01-time { font-family: 'JetBrains Mono', monospace; font-size: 230px; font-weight: 500; letter-spacing: -0.02em; line-height: 1; color: #fffdf9; display: flex; }
+  #f01-time .f01-sec { color: var(--ink2d); }
+  #f01-rule { width: 1060px; height: 4px; margin-top: 34px; background: rgba(255, 253, 249, 0.12); border-radius: 4px; overflow: hidden; }
+  #f01-rule i { display: block; width: 100%; height: 100%; background: var(--marker); transform-origin: 0 50%; }
+  #f01-stamp { position: absolute; left: 96px; top: 44px; font-size: 26px; color: var(--ink2d); display: flex; align-items: center; gap: 14px; }
+  #f01-stamp i { width: 12px; height: 12px; border-radius: 50%; background: var(--marker); box-shadow: 0 0 0 6px rgba(255, 79, 0, 0.22); }
+
+  /* The week's viral pieces, in depth */
+  #f01-cloud { position: absolute; inset: 0; perspective: 1500px; }
+  #f01-deck { position: absolute; inset: 0; transform-style: preserve-3d; }
+  .f01-card { position: absolute; left: 0; top: 0; width: 470px; padding: 28px 32px 26px; border-radius: 24px; background: #201515; border: 2px solid rgba(255, 253, 249, 0.14); box-shadow: 0 36px 90px rgba(0, 0, 0, 0.55); transform-style: preserve-3d; }
+  .f01-plat { display: flex; align-items: center; gap: 12px; font-family: 'JetBrains Mono', monospace; font-size: 22px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--lavender); }
+  .f01-plat i { width: 12px; height: 12px; border-radius: 50%; background: var(--marker); }
+  .f01-plat b { font-weight: 500; color: var(--ink2d); text-transform: none; letter-spacing: 0.02em; }
+  .f01-title { margin-top: 16px; font-size: 31px; font-weight: 600; line-height: 1.18; letter-spacing: -0.015em; color: #fffdf9; }
+  .f01-metrics { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 10px; }
+  .f01-metrics span { font-family: 'JetBrains Mono', monospace; font-size: 22px; font-weight: 500; color: #fffdf9; background: rgba(255, 79, 0, 0.16); border: 1px solid rgba(255, 95, 23, 0.45); border-radius: 999px; padding: 6px 14px; white-space: nowrap; }
+  #f01-viral { position: absolute; left: 0; right: 0; top: 400px; text-align: center; font-size: 250px; }
+  #f01-pointer { z-index: 6; }
+
+  /* ¿POR QUÉ? */
+  #f01-why { position: absolute; left: 0; right: 0; top: 390px; text-align: center; font-size: 230px; }
+
+  /* The empty week */
+  #f01-week { position: absolute; left: 0; right: 0; top: 250px; display: flex; flex-direction: column; align-items: center; }
+  #f01-q { font-size: 92px; color: #fffdf9; text-align: center; }
+  #f01-q b { font-weight: 800; }
+  #f01-strip { margin-top: 70px; display: flex; gap: 22px; }
+  .f01-slot { width: 196px; height: 250px; border-radius: 18px; border: 2px dashed rgba(255, 253, 249, 0.3); display: flex; flex-direction: column; align-items: center; padding-top: 22px; }
+  .f01-slot span { font-family: 'JetBrains Mono', monospace; font-size: 26px; font-weight: 500; letter-spacing: 0.12em; color: var(--ink2d); }
+  .f01-slot i { margin-top: 70px; width: 56px; height: 4px; border-radius: 4px; background: rgba(255, 253, 249, 0.16); }
+  .f01-slot.f01-today { border-color: rgba(255, 95, 23, 0.9); }
+  .f01-slot.f01-today span { color: var(--marker-dark); }
+
+  /* The wave */
+  #f01-wavewrap { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+  #f01-wave { position: absolute; left: 0; top: 0; width: 1920px; height: 1700px; overflow: visible; }
+  #f01-peakglow { left: 860px; top: 0px; width: 520px; height: 460px; background: radial-gradient(circle, rgba(255, 79, 0, 0.5), rgba(255, 79, 0, 0) 65%); }
+  #f01-dot { opacity: 0; position: absolute; left: 1101px; top: 211px; width: 38px; height: 38px; border-radius: 50%; background: #fffdf9; box-shadow: 0 0 0 10px rgba(255, 79, 0, 0.45), 0 0 40px rgba(255, 79, 0, 0.8); }
+  #f01-label { position: absolute; left: 1170px; top: 150px; font-size: 30px; color: #fffdf9; letter-spacing: 0.18em; }
+</style>
+<div class="k-stage" id="f01-stage">
+  <div class="k-glow" id="f01-glow-a"></div>
+  <div class="k-glow" id="f01-glow-b"></div>
+
+  <div id="f01-clock">
+    <div id="f01-day">LUNES</div>
+    <div id="f01-time"><span id="f01-hm">06:59</span><span class="f01-sec" id="f01-s">:57</span></div>
+    <div id="f01-rule"><i id="f01-rule-fill"></i></div>
+  </div>
+  <div id="f01-stamp" class="k-mono"><i></i>LUN 07:00</div>
+
+  <div id="f01-cloud" data-layout-allow-overflow>
+    <div id="f01-deck">
+      <div class="f01-card" id="f01-c1">
+        <div class="f01-plat"><i></i>YouTube <b>· midudev</b></div>
+        <div class="f01-title">«La IA pone en apuros a Adobe»</div>
+        <div class="f01-metrics"><span>197 k vistas</span><span>4 K likes</span></div>
+      </div>
+      <div class="f01-card" id="f01-c2">
+        <div class="f01-plat"><i></i>YouTube <b>· The AI Advantage</b></div>
+        <div class="f01-title">«ChatGPT Just Solved My Biggest Browser Problem»</div>
+        <div class="f01-metrics"><span>37,2 k vistas</span><span>4,8× su mediana</span></div>
+      </div>
+      <div class="f01-card" id="f01-c3">
+        <div class="f01-plat"><i></i>X <b>· Google AI</b></div>
+        <div class="f01-title">«Our SynthID technology lets you easily verify if an image, video, or audio file is AI-generated…»</div>
+        <div class="f01-metrics"><span>1.715 likes</span><span>406 reposts</span></div>
+      </div>
+      <div class="f01-card" id="f01-c4">
+        <div class="f01-plat"><i></i>YouTube <b>· TubeGuruji</b></div>
+        <div class="f01-title">«Build Social Media AI Agent Team Using Claude Code &amp; Next.js»</div>
+        <div class="f01-metrics"><span>19,3 k vistas</span></div>
+      </div>
+      <div class="f01-card" id="f01-c5">
+        <div class="f01-plat"><i></i>GitHub</div>
+        <div class="f01-title">outcrawlai/scout</div>
+        <div class="f01-metrics"><span>934 estrellas</span></div>
+      </div>
+      <div class="f01-card" id="f01-c6">
+        <div class="f01-plat"><i></i>Hacker News</div>
+        <div class="f01-title">«What mathematicians should know about the Lean Theorem Prover: reliability &amp; AI»</div>
+        <div class="f01-metrics"><span>208 puntos</span><span>58 comentarios</span></div>
+      </div>
+    </div>
+    <div id="f01-viral" class="k-display"><span class="k-grad" id="f01-viral-word">VIRAL</span></div>
+    <div class="k-cursor" id="f01-pointer"></div>
+  </div>
+
+  <div id="f01-why" class="k-display"><span class="k-grad" id="f01-why-word">¿POR QUÉ?</span></div>
+
+  <div id="f01-week">
+    <div id="f01-q" class="k-light">¿Qué publicar <b>esta semana?</b></div>
+    <div id="f01-strip">
+      <div class="f01-slot f01-today"><span>LUN</span><i></i></div>
+      <div class="f01-slot"><span>MAR</span><i></i></div>
+      <div class="f01-slot"><span>MIÉ</span><i></i></div>
+      <div class="f01-slot"><span>JUE</span><i></i></div>
+      <div class="f01-slot"><span>VIE</span><i></i></div>
+      <div class="f01-slot"><span>SÁB</span><i></i></div>
+      <div class="f01-slot"><span>DOM</span><i></i></div>
+    </div>
+  </div>
+
+  <div id="f01-wavewrap" data-layout-allow-overflow>
+    <div class="k-glow" id="f01-peakglow"></div>
+    <svg id="f01-wave" viewBox="0 0 1920 1700" aria-hidden="true" data-layout-allow-overflow>
+      <path id="f01-rise" d="M -80 900 C 260 900, 520 860, 700 660 C 860 480, 960 236, 1120 230" fill="none" stroke="#ff4f00" stroke-width="26" stroke-linecap="round" />
+      <path id="f01-fall" d="M 1120 230 C 1280 224, 1360 560, 1470 920 C 1560 1220, 1660 1520, 1880 1640" fill="none" stroke="#ff4f00" stroke-width="26" stroke-linecap="round" />
+    </svg>
+    <div id="f01-dot"></div>
+    <div id="f01-label" class="k-mono">LA ONDA</div>
+  </div>
+</div>
+<script>
+  // ---- 0–2.3 · «Lunes, siete de la mañana.» The clock ticks into 07:00 (discrete states).
+  const CLOCK = [
+    { t: 0.0, hm: '06:59', s: ':57' },
+    { t: 0.3, hm: '06:59', s: ':58' },
+    { t: 0.6, hm: '06:59', s: ':59' },
+    { t: 0.9, hm: '07:00', s: ':00' },
+  ];
+  const hm = $('#f01-hm');
+  const sec = $('#f01-s');
+  const clockAt = (t) => {
+    let st = CLOCK[0];
+    for (const c of CLOCK) if (t >= c.t) st = c;
+    hm.textContent = st.hm;
+    sec.textContent = st.s;
+  };
+  const drv = { t: 0 };
+  clockAt(0);
+  tl.fromTo(drv, { t: 0 }, { t: 2.3, duration: 2.3, ease: 'none', onUpdate: () => clockAt(drv.t) }, 0);
+  tl.fromTo('#f01-clock', { opacity: 0, scale: 1.06, filter: 'blur(10px)' }, { opacity: 1, scale: 1, filter: 'blur(0px)', duration: 0.45, ease: 'power3.out' }, 0);
+  tl.fromTo('#f01-rule-fill', { scaleX: 0 }, { scaleX: 0.75, duration: 0.9, ease: 'none' }, 0);
+  tl.to('#f01-rule-fill', { scaleX: 1, duration: 0.12, ease: 'power2.out' }, 0.9);
+  // 07:00 lands: a small beat on the digits.
+  tl.fromTo('#f01-time', { scale: 1.07 }, { scale: 1, duration: 0.5, ease: 'back.out(2.2)' }, 0.9);
+  tl.fromTo('#f01-s', { opacity: 1 }, { opacity: 0.45, duration: 0.4, ease: 'power2.out' }, 1.0);
+  tl.fromTo('#f01-glow-a', { opacity: 0.4, scale: 0.8 }, { opacity: 1, scale: 1, duration: 2.0, ease: 'sine.out' }, 0);
+  // The clock leaves the center and becomes the stamp in the corner.
+  tl.to('#f01-clock', { y: -260, scale: 0.4, opacity: 0, filter: 'blur(8px)', duration: 0.36, ease: 'power3.in' }, 2.08);
+  tl.fromTo('#f01-stamp', { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.5, ease: 'power3.out' }, 2.45);
+
+  // ---- 2.36–6.3 · the week's viral pieces pile up in depth (depth-scatter-assemble).
+  const cards = [
+    { id: '#f01-c1', x: 120, y: 150, z: 0, rx: 6, ry: 14, rot: -4 },
+    { id: '#f01-c2', x: 1330, y: 110, z: -60, rx: 5, ry: -14, rot: 4 },
+    { id: '#f01-c3', x: 1320, y: 650, z: 40, rx: -6, ry: -12, rot: -3 },
+    { id: '#f01-c4', x: 130, y: 690, z: -40, rx: -6, ry: 12, rot: 3 },
+    { id: '#f01-c5', x: 725, y: 70, z: -320, rx: 8, ry: 0, rot: 2 },
+    { id: '#f01-c6', x: 725, y: 790, z: -260, rx: -8, ry: 0, rot: -2 },
+  ];
+  const GOLDEN = Math.PI * (3 - Math.sqrt(5));
+  cards.forEach((c, i) => {
+    const a = i * GOLDEN + 0.6;
+    const at = 2.42 + i * 0.28;
+    tl.fromTo(
+      c.id,
+      { x: c.x + Math.cos(a) * 420, y: c.y + Math.sin(a) * 300, z: -900, rotationX: Math.sin(a) * 40, rotationY: Math.cos(a) * 50, rotation: c.rot * 3, opacity: 0 },
+      { x: c.x, y: c.y, z: c.z, rotationX: c.rx, rotationY: c.ry, rotation: c.rot, opacity: 1, duration: 0.9, ease: 'expo.out' },
+      at,
+    );
+    // The pile keeps breathing toward us while it holds.
+    tl.to(c.id, { z: c.z + 70, rotationY: c.ry * 0.7, duration: 6.33 - at - 0.9, ease: 'sine.inOut' }, at + 0.9);
+  });
+  tl.fromTo('#f01-deck', { rotationY: -6 }, { rotationY: 4, duration: 4.0, ease: 'sine.inOut' }, 2.36);
+  tl.fromTo('#f01-glow-b', { opacity: 0 }, { opacity: 1, duration: 1.4, ease: 'power2.out' }, 2.4);
+
+  // «VIRAL» slams in at ≈4.0, big, in the gradient.
+  tl.fromTo('#f01-viral', { scale: 1.6, opacity: 0, filter: 'blur(24px)' }, { scale: 1, opacity: 1, filter: 'blur(0px)', duration: 0.5, ease: 'power4.out' }, 3.92);
+  K.sweep(tl, '#f01-viral-word', 3.95, 2.38);
+
+  // A pointer hops between the pieces without landing anywhere.
+  $('#f01-pointer').innerHTML = K.cursorSvg;
+  const hops = [
+    { x: 1990, y: 520, t: 4.25 },
+    { x: 1560, y: 330, t: 4.35 },
+    { x: 420, y: 300, t: 4.95 },
+    { x: 1540, y: 860, t: 5.5 },
+    { x: 380, y: 880, t: 6.0 },
+  ];
+  tl.set('#f01-pointer', { x: hops[0].x, y: hops[0].y, opacity: 0 }, 0);
+  tl.to('#f01-pointer', { opacity: 1, duration: 0.15 }, hops[0].t);
+  for (let i = 1; i < hops.length; i++) {
+    tl.to('#f01-pointer', { x: hops[i].x, y: hops[i].y, duration: i === 1 ? 0.45 : 0.42, ease: 'power3.inOut' }, hops[i].t - (i === 1 ? 0.0 : 0.3));
+  }
+
+  // ---- 6.33 · «Pero nadie sabe por qué funcionó…» Everything freezes, desaturates, falls back.
+  tl.to('#f01-cloud', { scale: 0.86, opacity: 0.16, filter: 'grayscale(1) blur(7px)', duration: 0.55, ease: 'power3.out' }, 6.33);
+  tl.to('#f01-glow-b', { opacity: 0.25, duration: 0.6 }, 6.33);
+  tl.fromTo('#f01-why', { scale: 1.8, opacity: 0, filter: 'blur(26px)' }, { scale: 1, opacity: 1, filter: 'blur(0px)', duration: 0.42, ease: 'power4.out' }, 6.86);
+  K.sweep(tl, '#f01-why-word', 6.9, 1.9);
+  tl.fromTo('#f01-why', { rotation: 0 }, { rotation: -1.2, duration: 0.08, yoyo: true, repeat: 3, ease: 'none' }, 6.95);
+  tl.to('#f01-why', { scale: 1.06, duration: 1.45, ease: 'sine.inOut' }, 7.3);
+  tl.to('#f01-why', { scale: 1.4, opacity: 0, filter: 'blur(20px)', duration: 0.35, ease: 'power3.in' }, 8.8);
+  tl.to('#f01-cloud', { opacity: 0, duration: 0.4, ease: 'power2.in' }, 8.75);
+
+  // ---- 9.1 · «…ni qué publicar esta semana.» A bare week with empty slots.
+  tl.fromTo('#f01-q', { y: 50, opacity: 0, filter: 'blur(12px)' }, { y: 0, opacity: 1, filter: 'blur(0px)', duration: 0.6, ease: 'expo.out' }, 9.08);
+  tl.fromTo('.f01-slot', { y: 60, opacity: 0, rotationX: -40 }, { y: 0, opacity: 1, rotationX: 0, duration: 0.6, ease: 'back.out(1.6)', stagger: 0.07 }, 9.3);
+  tl.fromTo('#f01-week', { scale: 1 }, { scale: 1.04, duration: 2.6, ease: 'sine.inOut' }, 9.3);
+  tl.to('#f01-week', { y: 120, opacity: 0, filter: 'blur(10px)', duration: 0.45, ease: 'power3.in' }, 11.75);
+  tl.to('#f01-stamp', { opacity: 0, duration: 0.4 }, 11.8);
+
+  // ---- 12.1 · «…la onda ya pasó.» The wave rises to its peak, then falls; the camera follows it down.
+  const rise = $('#f01-rise');
+  const fall = $('#f01-fall');
+  const lr = rise.getTotalLength();
+  const lf = fall.getTotalLength();
+  // Gap longer than the path + offset past the end: no round-cap dot shows before the draw.
+  rise.style.strokeDasharray = `${lr} ${lr + 200}`;
+  fall.style.strokeDasharray = `${lf} ${lf + 200}`;
+  tl.set(rise, { strokeDashoffset: lr + 60 }, 0);
+  tl.set(fall, { strokeDashoffset: lf + 60 }, 0);
+  tl.set(['#f01-label', '#f01-peakglow'], { opacity: 0 }, 0);
+  tl.to(rise, { strokeDashoffset: 0, duration: 1.2, ease: 'power2.inOut' }, 12.1);
+  tl.fromTo('#f01-dot', { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.45, ease: 'back.out(2.5)' }, 13.2);
+  tl.fromTo('#f01-peakglow', { scale: 0.4, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.6, ease: 'expo.out' }, 13.1);
+  tl.fromTo('#f01-label', { opacity: 0, x: -16 }, { opacity: 1, x: 0, duration: 0.4, ease: 'power3.out' }, 12.6);
+  // «ya pasó»: the wave falls, the peak goes cold, the frame follows it down and clears.
+  tl.to(fall, { strokeDashoffset: 0, duration: 1.0, ease: 'power2.in' }, 13.5);
+  tl.to('#f01-dot', { backgroundColor: '#8a847c', boxShadow: '0 0 0 10px rgba(138,132,124,0.25), 0 0 0px rgba(0,0,0,0)', duration: 0.4 }, 13.5);
+  tl.to(['#f01-label', '#f01-peakglow'], { opacity: 0, duration: 0.4 }, 13.55);
+  tl.to('#f01-wavewrap', { y: -520, duration: 1.15, ease: 'power2.in' }, 13.55);
+  tl.to('#f01-wavewrap', { opacity: 0, filter: 'blur(10px)', duration: 0.7, ease: 'power1.in' }, 13.95);
+  tl.to('#f01-glow-a', { opacity: 0, duration: 0.8, ease: 'power2.in' }, 13.9);
+  tl.to('#f01-glow-b', { opacity: 0, duration: 0.6 }, 13.9);
+  // Clean dark frame from 14.7 so the reveal starts on darkness.
+  tl.set('#f01-stage', { opacity: 0 }, 14.75);
+</script>

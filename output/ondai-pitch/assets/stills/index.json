@@ -1,0 +1,220 @@
+{
+  "landing": {
+    "url": "http://localhost:3300/",
+    "width": 1440,
+    "height": 4200,
+    "scale": 2,
+    "boxes": {
+      "Tu AI trend analyst": {
+        "x": 465,
+        "y": 1367,
+        "w": 510,
+        "h": 67
+      }
+    }
+  },
+  "radar": {
+    "url": "http://localhost:3300/radar",
+    "width": 1440,
+    "height": 2612,
+    "scale": 2,
+    "boxes": {
+      "Temas con se\u00f1al": {
+        "x": 306,
+        "y": 241,
+        "w": 104,
+        "h": 21
+      },
+      "Ventana abierta en ES": {
+        "x": 585,
+        "y": 241,
+        "w": 139,
+        "h": 21
+      },
+      "La onda": {
+        "x": 348,
+        "y": 565,
+        "w": 57,
+        "h": 24
+      },
+      "Ventana abierta en espa\u00f1ol": {
+        "x": 348,
+        "y": 1036,
+        "w": 199,
+        "h": 24
+      },
+      "Los temas que m\u00e1s crecen": {
+        "x": 348,
+        "y": 1435,
+        "w": 192,
+        "h": 24
+      }
+    }
+  },
+  "tema": {
+    "url": "http://localhost:3300/tema/t_720b9dcf",
+    "width": 1440,
+    "height": 3071,
+    "scale": 2,
+    "boxes": {
+      "Por qu\u00e9 crece": {
+        "x": 348,
+        "y": 313,
+        "w": 100,
+        "h": 24
+      },
+      "Encaje con 30X": {
+        "x": 719,
+        "y": 313,
+        "w": 111,
+        "h": 24
+      },
+      "La onda por idioma": {
+        "x": 1091,
+        "y": 313,
+        "w": 139,
+        "h": 24
+      },
+      "Curva semanal \u00b7 8 semanas": {
+        "x": 306,
+        "y": 714,
+        "w": 199,
+        "h": 24
+      },
+      "Ya funcion\u00f3 en ingl\u00e9s y portugu\u00e9s": {
+        "x": 348,
+        "y": 1582,
+        "w": 243,
+        "h": 24
+      },
+      "La evidencia": {
+        "x": 327,
+        "y": 2199,
+        "w": 90,
+        "h": 24
+      }
+    }
+  },
+  "contar": {
+    "url": "http://localhost:3300/tema/t_addbb60d/contar",
+    "width": 1440,
+    "height": 1593,
+    "scale": 2,
+    "boxes": {
+      "Elige el gancho": {
+        "x": 382,
+        "y": 285,
+        "w": 980,
+        "h": 21
+      },
+      "Vista previa \u00b7 LinkedIn": {
+        "x": 306,
+        "y": 507,
+        "w": 160,
+        "h": 24
+      },
+      "Qu\u00e9 evitar": {
+        "x": 976,
+        "y": 505,
+        "w": 77,
+        "h": 24
+      },
+      "Nada se publica solo. Una persona aprueba cada pieza.": {
+        "x": 913,
+        "y": 699,
+        "w": 470,
+        "h": 54
+      }
+    }
+  },
+  "calendario": {
+    "url": "https://ondai.vercel.app/calendario",
+    "width": 1440,
+    "height": 1324,
+    "scale": 2,
+    "boxes": {
+      "Lo que el equipo aprob\u00f3": {
+        "x": 285,
+        "y": 117,
+        "w": 664,
+        "h": 33
+      },
+      "Borradores esperando aprobaci\u00f3n": {
+        "x": 306,
+        "y": 1076,
+        "w": 249,
+        "h": 24
+      }
+    }
+  },
+  "evaluacion": {
+    "url": "http://localhost:3300/evaluacion",
+    "width": 1440,
+    "height": 2600,
+    "scale": 2,
+    "boxes": {
+      "\u00bfLo habr\u00eda visto venir?": {
+        "x": 285,
+        "y": 117,
+        "w": 599,
+        "h": 33
+      },
+      "Onda por onda": {
+        "x": 306,
+        "y": 367,
+        "w": 108,
+        "h": 24
+      },
+      "\u00bfCu\u00e1nto tarda en llegar al espa\u00f1ol?": {
+        "x": 306,
+        "y": 1462,
+        "w": 256,
+        "h": 24
+      },
+      "Temas de control": {
+        "x": 306,
+        "y": 2030,
+        "w": 125,
+        "h": 24
+      }
+    }
+  },
+  "vigia": {
+    "url": "https://ondai.vercel.app/vigia",
+    "width": 1440,
+    "height": 3094,
+    "scale": 2,
+    "boxes": {
+      "Sigue un tema": {
+        "x": 285,
+        "y": 117,
+        "w": 442,
+        "h": 33
+      },
+      "Atrapadas \u00b7 las mejores primero": {
+        "x": 306,
+        "y": 380,
+        "w": 692,
+        "h": 24
+      },
+      "La \u00faltima b\u00fasqueda": {
+        "x": 1060,
+        "y": 380,
+        "w": 302,
+        "h": 24
+      },
+      "Encontradas": {
+        "x": 1060,
+        "y": 425,
+        "w": 88,
+        "h": 22
+      },
+      "Atrapadas": {
+        "x": 1060,
+        "y": 669,
+        "w": 88,
+        "h": 22
+      }
+    }
+  }
+}

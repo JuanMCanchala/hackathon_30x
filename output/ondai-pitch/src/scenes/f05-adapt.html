@@ -1,0 +1,162 @@
+<!-- scene {"id":"f05-adapt","start":38.0,"duration":9.0} -->
+<!-- Narration p11 38.09–42.66 «Lo que eliges llega con el ángulo, el gancho y el borrador, en la voz
+     de 30X.» (voiced: «ángulo» ≈ 39.3, «gancho» ≈ 40.2, «borrador» ≈ 40.8, «en la voz de 30X» ≈ 41.4).
+     Real «Cómo lo contamos» for «Shadow AI» (assets/capture/contar.mp4), one continuous offset with
+     f06: global = media + 36.70, so local = media − 1.30. Rules: ai-tracking-box (L-bracket locks on
+     the real blocks, riding the camera), coordinate-target-zoom (one push for the sentence),
+     camera-cursor-tracking (the recorded pointer, the click on «Aprobar al calendario»).
+     Ends on the open dialog with the screen exactly where f06 starts (no exit). -->
+<!-- sfx [{"t":0.0,"type":"whoosh"},{"t":1.3,"type":"pop"},{"t":2.2,"type":"pop"},{"t":2.82,"type":"pop-low"},{"t":3.42,"type":"shimmer","gain":0.7},{"t":4.7,"type":"tick"},{"t":6.06,"type":"click"},{"t":8.64,"type":"click"}] -->
+<style>
+  #f05-glow { left: 260px; top: 160px; width: 1400px; height: 860px; background: radial-gradient(ellipse, rgba(255, 79, 0, 0.3), rgba(255, 79, 0, 0) 65%); }
+  #f05-glow2 { left: 1100px; top: 520px; width: 900px; height: 640px; background: radial-gradient(ellipse, rgba(193, 183, 255, 0.22), rgba(193, 183, 255, 0) 65%); }
+  #f05-rig { position: absolute; left: 160px; top: 120px; width: 1600px; height: 900px; transform-origin: 50% 50%; }
+  #f05-screen { left: 0; top: 0; width: 1600px; height: 900px; }
+  #f05-ov { position: absolute; left: 2px; top: 2px; width: 1596px; height: 896px; }
+  .f05-spot { position: absolute; left: 0; top: 0; border-radius: 16px; box-shadow: 0 0 0 4000px rgba(20, 14, 13, 0.3); opacity: 0; }
+  .f05-lock { position: absolute; left: 0; top: 0; opacity: 0; }
+  .f05-lock i { position: absolute; width: 30px; height: 30px; border: 0 solid var(--marker); }
+  .f05-lock i:nth-child(1) { left: -7px; top: -7px; border-top-width: 5px; border-left-width: 5px; border-top-left-radius: 12px; }
+  .f05-lock i:nth-child(2) { right: -7px; top: -7px; border-top-width: 5px; border-right-width: 5px; border-top-right-radius: 12px; }
+  .f05-lock i:nth-child(3) { left: -7px; bottom: -7px; border-bottom-width: 5px; border-left-width: 5px; border-bottom-left-radius: 12px; }
+  .f05-lock i:nth-child(4) { right: -7px; bottom: -7px; border-bottom-width: 5px; border-right-width: 5px; border-bottom-right-radius: 12px; }
+  .f05-tagw { position: absolute; width: 0; height: 0; }
+  .f05-tag { position: absolute; right: 0; top: -24px; display: flex; align-items: center; gap: 10px; padding: 8px 18px 8px 14px; border-radius: 999px; background: var(--marker); color: #201515; font-family: 'JetBrains Mono', monospace; font-size: 21px; font-weight: 700; letter-spacing: 0.1em; white-space: nowrap; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35); opacity: 0; }
+  .f05-tag b { font-weight: 500; opacity: 0.72; }
+  #f05-tagw-voz .f05-tag { right: auto; left: 0; }
+  .f05-tag-dark { background: #201515; color: var(--cream); border: 2px solid rgba(255, 253, 249, 0.2); }
+  .f05-tag-dark b { color: var(--lavender); opacity: 1; }
+  #f05-notew { position: absolute; }
+  #f05-note { width: 470px; padding: 14px 20px 16px; border-radius: 18px; opacity: 0; }
+  #f05-note .k-eyebrow { font-size: 18px; }
+  #f05-note p { margin: 6px 0 0; font-size: 26px; font-weight: 700; letter-spacing: -0.01em; color: var(--cream); }
+  #f05-note p em { font-style: normal; color: #ff8a4c; }
+  #f05-label { position: absolute; left: 160px; top: 52px; color: var(--ink2d); }
+</style>
+<div class="k-stage" id="f05-stage">
+  <div class="k-glow" id="f05-glow"></div>
+  <div class="k-glow" id="f05-glow2"></div>
+  <div id="f05-label" class="k-eyebrow">Shadow AI · Cómo lo contamos</div>
+  <div id="f05-rig">
+    <div class="k-screen" id="f05-screen">
+      <div class="k-cam" id="f05-cam" data-layout-allow-overflow>
+        <video class="clip" id="f05-video" src="assets/capture/contar.mp4" data-start="0" data-duration="9" data-media-start="1.3" muted playsinline style="width: 1600px; height: 900px"></video>
+        <div class="f05-spot" id="f05-spot-ang"></div>
+        <div class="f05-spot" id="f05-spot-gan"></div>
+        <div class="f05-spot" id="f05-spot-bor"></div>
+        <div class="f05-spot" id="f05-spot-voz"></div>
+        <div class="k-ripple" id="f05-ripple"></div>
+        <div class="k-cursor" id="f05-cursor"></div>
+      </div>
+    </div>
+    <div id="f05-ov" data-layout-allow-overflow>
+      <div class="k-cam" id="f05-ovcam" data-layout-allow-overflow>
+        <div class="f05-lock" id="f05-lock-ang"><i></i><i></i><i></i><i></i></div>
+        <div class="f05-lock" id="f05-lock-gan"><i></i><i></i><i></i><i></i></div>
+        <div class="f05-lock" id="f05-lock-bor"><i></i><i></i><i></i><i></i></div>
+        <div class="f05-lock" id="f05-lock-voz"><i></i><i></i><i></i><i></i></div>
+        <div class="f05-tagw" id="f05-tagw-ang"><div class="f05-tag" id="f05-tag-ang"><b>01</b>ÁNGULO</div></div>
+        <div class="f05-tagw" id="f05-tagw-gan"><div class="f05-tag" id="f05-tag-gan"><b>02</b>GANCHO</div></div>
+        <div class="f05-tagw" id="f05-tagw-bor"><div class="f05-tag" id="f05-tag-bor"><b>03</b>BORRADOR</div></div>
+        <div class="f05-tagw" id="f05-tagw-voz"><div class="f05-tag f05-tag-dark" id="f05-tag-voz"><b>04</b>EN LA VOZ DE 30X</div></div>
+        <div id="f05-notew">
+          <div class="k-glass" id="f05-note">
+            <div class="k-eyebrow">Basado en datos</div>
+            <p>12 creadores esta semana, <em>+247 %</em></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  const view = { w: 1596, h: 896 };
+  const s = 1600 / 1440; // display px per captured CSS px
+  $('#f05-cursor').innerHTML = K.cursorSvg;
+  const cams = ['#f05-cam', '#f05-ovcam'];
+
+  // Camera: both the clipped capture and the overlay (callouts) ride the same transform.
+  const camAt = (cx, cy, z) => K.frame(view, s, cx, cy, z);
+  const c0 = camAt(720, 405, 1);
+  tl.set(cams, { x: c0.x, y: c0.y, scale: 1 }, 0);
+  const move = (cx, cy, z, at, duration, ease) => {
+    const f = camAt(cx, cy, z);
+    tl.to(cams, { x: f.x, y: f.y, scale: f.scale, duration, ease }, at);
+  };
+
+  // Callout geometry, CSS px of the 1440 × 810 recording (cam px = CSS × s).
+  const B = {
+    ang: { x: 370, y: 184, w: 980, h: 94 }, // «Ángulo · variante 1» + the angle
+    gan: { x: 378, y: 309, w: 328, h: 78 }, // the chosen hook
+    bor: { x: 296, y: 472, w: 590, h: 286 }, // «Vista previa · LinkedIn»
+    voz: { x: 511, y: 112, w: 192, h: 42 }, // «en la voz de 30X» in the page title
+  };
+  // Static layout, written once at build time (cam px = CSS × s).
+  const put = (sel, x, y, w, h) => {
+    const el = $(sel);
+    el.style.left = x + 'px';
+    el.style.top = y + 'px';
+    if (w != null) { el.style.width = w + 'px'; el.style.height = h + 'px'; }
+  };
+  const box = (sel, b, pad) => put(sel, (b.x - pad) * s, (b.y - pad) * s, (b.w + 2 * pad) * s, (b.h + 2 * pad) * s);
+  for (const k of Object.keys(B)) {
+    box('#f05-spot-' + k, B[k], 4);
+    box('#f05-lock-' + k, B[k], 6);
+  }
+  // Tags straddle the top edge of their block, flush right (the genre's label); «voz» sits beside
+  // the title words it names.
+  for (const k of ['ang', 'gan', 'bor']) put('#f05-tagw-' + k, (B[k].x + B[k].w + 6) * s, (B[k].y - 6) * s);
+  put('#f05-tagw-voz', (B.voz.x + B.voz.w + 14) * s, (B.voz.y + B.voz.h / 2) * s + 2);
+  put('#f05-notew', (B.gan.x - 4) * s, (B.gan.y + B.gan.h + 16) * s);
+
+  // The screen arrives from the right (Elegir left before it).
+  K.enter(tl, '#f05-rig', 0, { x: 320, duration: 0.9 });
+  tl.fromTo('#f05-label', { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.6, ease: 'power3.out' }, 0.3);
+  tl.fromTo('#f05-glow', { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 1.4, ease: 'expo.out' }, 0);
+  tl.fromTo('#f05-glow2', { opacity: 0 }, { opacity: 1, duration: 1.6, ease: 'power2.out' }, 0.4);
+  K.drift(tl, '#f05-glow', { x: 40, y: -20, scale: 1.08, period: 3, total: 6, at: 1.4 }); // back at rest by 7.4
+
+  // The pointer, replayed from the log on the real blocks.
+  const log = __CAPTURE_contar;
+  K.cursor(tl, { cursor: '#f05-cursor', ripple: '#f05-ripple', log: log.log, offset: 0, mediaStart: 1.3, s, from: 0, until: 9 });
+  // Its first move (media 1.20–2.10) straddles the clip start: finish it from where it is at 0.
+  tl.fromTo('#f05-cursor', { x: 725 * s, y: 402 * s }, { x: 1000 * s, y: 250 * s, duration: 0.8, ease: 'power2.inOut', immediateRender: false }, 0.01);
+
+  // One push for the sentence: ángulo, gancho and borrador framed together.
+  move(850, 440, 1.22, 1.1, 1.4, 'expo.out');
+
+  // Each block locks on as the voice names it; the previous lock lets go.
+  const lock = (k, at) => {
+    tl.fromTo('#f05-spot-' + k, { opacity: 0 }, { opacity: 1, duration: 0.35, ease: 'power2.out' }, at - 0.05);
+    tl.fromTo('#f05-lock-' + k, { opacity: 0, scale: 1.12 }, { opacity: 1, scale: 1, duration: 0.5, ease: 'back.out(2)', transformOrigin: '50% 50%' }, at);
+    tl.fromTo('#f05-tag-' + k, { opacity: 0, y: 14, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: 'back.out(2.2)', transformOrigin: k === 'voz' ? '0% 50%' : '100% 50%' }, at + 0.08);
+  };
+  const release = (k, at) => {
+    tl.to('#f05-spot-' + k, { opacity: 0, duration: 0.3, ease: 'power2.inOut' }, at);
+    tl.to('#f05-lock-' + k, { opacity: 0, duration: 0.3, ease: 'power2.in' }, at);
+    tl.to('#f05-tag-' + k, { opacity: 0.82, duration: 0.3, ease: 'power2.out' }, at);
+  };
+  lock('ang', 1.3);
+  release('ang', 2.15);
+  lock('gan', 2.2);
+  release('gan', 2.77);
+  lock('bor', 2.82);
+  // «en la voz de 30X»: the camera rises to the page title, which says exactly that.
+  move(850, 392, 1.22, 3.15, 0.9, 'power2.inOut');
+  release('bor', 3.37);
+  lock('voz', 3.42);
+
+  // The hook's own data, small, under it.
+  tl.fromTo('#f05-note', { opacity: 0, y: -16 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }, 4.7);
+  tl.to('#f05-spot-voz', { opacity: 0, duration: 0.4, ease: 'power2.inOut' }, 4.6);
+  tl.to('#f05-lock-voz', { opacity: 0, duration: 0.4, ease: 'power2.in' }, 4.6);
+
+  // The pointer heads for «Aprobar al calendario»: the editorial labels clear the way.
+  tl.to('#f05-tag-bor', { opacity: 0, scale: 0.85, duration: 0.3, ease: 'power2.in' }, 4.5);
+  tl.to(['#f05-tag-ang', '#f05-tag-gan', '#f05-tag-voz'], { opacity: 0, scale: 0.85, duration: 0.35, ease: 'power2.in', stagger: 0.04 }, 5.15);
+  tl.to('#f05-note', { opacity: 0, y: 10, duration: 0.3, ease: 'power2.in' }, 5.75);
+
+  // The dialog opens (6.21): settle the camera on it — the framing f06 starts from.
+  move(720, 404, 1.2, 6.3, 1.2, 'power3.inOut');
+  tl.to('#f05-glow2', { x: -420, y: -260, duration: 2.4, ease: 'sine.inOut' }, 6.3);
+</script>

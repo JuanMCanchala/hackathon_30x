@@ -1,0 +1,21 @@
+{
+  "url": "http://localhost:3300/",
+  "viewport": {
+    "width": 1440,
+    "height": 810,
+    "deviceScaleFactor": 2
+  },
+  "duration": 9.308433464000002,
+  "log": [
+    {
+      "t": 0.8013794500000003,
+      "type": "move",
+      "x0": 720,
+      "y0": 405,
+      "x": 980,
+      "y": 380,
+      "ms": 1200,
+      "down": false
+    }
+  ]
+}

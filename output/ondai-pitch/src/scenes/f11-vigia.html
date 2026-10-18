@@ -1,0 +1,139 @@
+<!-- scene {"id":"f11-vigia","start":105.0,"duration":15.0} -->
+<!-- Narration p23 105.13–107.25 «Vigía sigue el tema que le importa a tu empresa.» p24
+     108.09–111.38 «De casi cuatrocientas piezas, solo doce pasan el filtro.» («cuatrocientas»
+     ≈ 108.9, «doce» ≈ 110.3) then music to 120.1.
+     Real UI: Vigía on the deployed demo (still). The funnel is the documented search «negocios»
+     (README), labeled as such: not a live run. Rules: coordinate-target-zoom, stat-bars-and-fills,
+     counting-dynamic-scale. -->
+<!-- sfx [{"t":0.0,"type":"whoosh"},{"t":0.9,"type":"pop"},{"t":2.95,"type":"whoosh"},{"t":3.15,"type":"tick","gain":0.7},{"t":3.85,"type":"tick","gain":0.8},{"t":4.3,"type":"tick","gain":0.6},{"t":4.6,"type":"tick","gain":0.6},{"t":4.9,"type":"tick","gain":0.6},{"t":4.4,"type":"riser-short"},{"t":5.3,"type":"impact"},{"t":6.6,"type":"pop-low"},{"t":7.5,"type":"whoosh"},{"t":8.4,"type":"pop"},{"t":12.0,"type":"pop"}] -->
+<style>
+  #f11-screen { left: 160px; top: 120px; width: 1600px; height: 900px; }
+  #f11-shot { position: absolute; inset: 0; overflow: hidden; }
+  #f11-glow { left: 200px; top: 160px; width: 1500px; height: 860px; background: radial-gradient(ellipse, rgba(255, 79, 0, 0.3), rgba(255, 79, 0, 0) 65%); }
+  #f11-glow2 { left: 1100px; top: 140px; width: 800px; height: 760px; background: radial-gradient(circle, rgba(193, 183, 255, 0.26), rgba(193, 183, 255, 0) 65%); }
+  #f11-url { position: absolute; left: 160px; top: 52px; color: var(--ink2d); }
+  .f11-ring { position: absolute; left: 0; top: 0; border: 4px solid var(--marker); border-radius: 14px; box-shadow: 0 0 0 8px rgba(255, 79, 0, 0.16); }
+
+  /* The documented funnel. */
+  #f11-funnel { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+  #f11-eye { position: absolute; left: 140px; top: 112px; font-size: 26px; }
+  #f11-sub { position: absolute; left: 140px; top: 156px; font-size: 30px; color: var(--ink2d); white-space: nowrap; }
+  .f11-row { position: absolute; left: 140px; height: 80px; width: 1120px; display: flex; align-items: center; }
+  .f11-row b { width: 200px; padding-right: 36px; text-align: right; font-size: 66px; font-weight: 800; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; flex: none; }
+  .f11-bar { height: 38px; border-radius: 10px; flex: none; transform-origin: 0 50%; }
+  .f11-row span { margin-left: 22px; font-size: 32px; color: var(--ink2d); white-space: nowrap; }
+  .f11-mute { background: #8a847c; }
+  .f11-lav { background: var(--lavender); }
+  .f11-mark { background: var(--marker); }
+  #f11-r6 b { color: var(--marker-dark); }
+  #f11-r6 span { color: var(--cream); font-weight: 700; }
+  #f11-hl { position: absolute; left: 112px; top: 0; width: 1150px; height: 84px; border-radius: 18px; border: 3px solid var(--lavender); background: rgba(193, 183, 255, 0.08); }
+  #f11-big { position: absolute; left: 1300px; top: 290px; max-width: 560px; font-size: 168px; }
+  #f11-cap { position: absolute; left: 1306px; top: 660px; max-width: 520px; font-size: 30px; line-height: 1.3; color: var(--ink2d); }
+  #f11-cap strong { color: var(--lavender); font-weight: 700; }
+  #f11-cost { position: absolute; left: 1300px; top: 790px; }
+  #f11-cost em { font-style: normal; color: var(--marker-dark); }
+</style>
+<div class="k-stage" id="f11-stage">
+  <div class="k-glow" id="f11-glow"></div>
+  <div class="k-glow" id="f11-glow2"></div>
+  <div id="f11-url" class="k-eyebrow">ondai.vercel.app · Vigía</div>
+  <div class="k-screen" id="f11-screen">
+    <div id="f11-shot" data-layout-allow-overflow>
+      <div class="k-cam" id="f11-cam">
+        <img class="clip" id="f11-still" src="assets/stills/vigia.png" data-start="0" data-duration="15" style="width: 1600px" alt="" />
+        <div class="f11-ring" id="f11-ring-topic"></div>
+        <div class="f11-ring" id="f11-ring-a1"></div>
+        <div class="f11-ring" id="f11-ring-a2"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="f11-funnel">
+    <div id="f11-eye" class="k-eyebrow">Búsqueda real de «negocios»</div>
+    <div id="f11-sub">La documentada en el proyecto · no es una corrida en vivo</div>
+    <div id="f11-hl"></div>
+    <div class="f11-row" id="f11-r1"><b>623</b><i class="f11-bar f11-mute"></i><span>encontradas</span></div>
+    <div class="f11-row" id="f11-r2"><b>378</b><i class="f11-bar f11-mute"></i><span>en inglés o portugués</span></div>
+    <div class="f11-row" id="f11-r3"><b>132</b><i class="f11-bar f11-lav"></i><span>del tema</span></div>
+    <div class="f11-row" id="f11-r4"><b>59</b><i class="f11-bar f11-lav"></i><span>de las últimas 72 h</span></div>
+    <div class="f11-row" id="f11-r5"><b>19</b><i class="f11-bar f11-mark"></i><span>virales</span></div>
+    <div class="f11-row" id="f11-r6"><b>12</b><i class="f11-bar f11-mark"></i><span>atrapadas</span></div>
+    <div id="f11-big" class="k-display"><span class="k-grad" id="f11-grad">12 DE 400</span></div>
+    <div id="f11-cap">«Casi cuatrocientas» = las <strong>378</strong> en inglés o portugués.</div>
+    <div class="k-pill k-pill-dark" id="f11-cost">Leerlas costó <em>USD 0,006</em></div>
+  </div>
+</div>
+<script>
+  const view = { w: 1600, h: 900 };
+  const s = 1600 / 1440;
+  const ring = (sel, x, y, w, h) => tl.set(sel, { x: x * s, y: y * s, width: w * s, height: h * s, opacity: 0 }, 0);
+  const pop = (sel, at) => tl.fromTo(sel, { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.4, ease: 'back.out(2)', transformOrigin: '50% 50%' }, at);
+  ring('#f11-ring-topic', 281, 258, 345, 44); // «IA en empresas · 72 atrapadas · busca cada hora»
+  ring('#f11-ring-a1', 323, 661, 94, 47); // «Adaptar» on the first caught piece
+  ring('#f11-ring-a2', 323, 1305, 94, 47); // «Adaptar» on the CERT-In piece
+
+  // ── A · Vigía follows the company's topic: one push onto the followed topic ──
+  const c0 = K.frame(view, s, 830, 330, 1.25);
+  const c1 = K.frame(view, s, 740, 292, 1.45);
+  tl.set('#f11-cam', { x: c0.x, y: c0.y, scale: c0.scale }, 0);
+  K.enter(tl, '#f11-stage', 0, { x: 300, duration: 0.8 });
+  tl.fromTo('#f11-url', { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.6, ease: 'power3.out' }, 0.25);
+  tl.to('#f11-cam', { x: c1.x, y: c1.y, scale: c1.scale, duration: 2.2, ease: 'power4.out' }, 0.35);
+  pop('#f11-ring-topic', 0.9);
+  K.drift(tl, '#f11-glow', { scale: 1.1, x: 30, period: 3.6, total: 14.4 });
+  K.drift(tl, '#f11-glow2', { scale: 1.15, y: 40, period: 2.8, total: 14 });
+
+  tl.to(['#f11-screen', '#f11-url'], { x: -320, opacity: 0, filter: 'blur(14px)', duration: 0.32, ease: 'power3.in' }, 2.9);
+
+  // ── B · the documented funnel, counted row by row with the voice ──
+  const rows = [
+    { v: 623, w: 700, at: 3.1 },
+    { v: 378, w: 425, at: 3.85 },
+    { v: 132, w: 148, at: 4.3 },
+    { v: 59, w: 66, at: 4.6 },
+    { v: 19, w: 22, at: 4.9 },
+    { v: 12, w: 14, at: 5.25 },
+  ];
+  tl.set(['#f11-eye', '#f11-sub', '#f11-hl', '.f11-row', '#f11-big', '#f11-cap', '#f11-cost'], { opacity: 0 }, 0);
+  tl.fromTo(['#f11-eye', '#f11-sub'], { x: 200, opacity: 0, filter: 'blur(10px)' }, { x: 0, opacity: 1, filter: 'blur(0px)', duration: 0.6, ease: 'expo.out', stagger: 0.08 }, 3.0);
+  rows.forEach((r, i) => {
+    const row = '#f11-r' + (i + 1);
+    const top = 250 + i * 92;
+    tl.set(row, { y: top }, 0);
+    $(row + ' .f11-bar').style.width = r.w + 'px';
+    tl.fromTo(row, { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.45, ease: 'power3.out' }, r.at);
+    tl.fromTo(row + ' .f11-bar', { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: 'power3.out' }, r.at);
+    tl.fromTo(row + ' span', { opacity: 0, x: -12 }, { opacity: 1, x: 0, duration: 0.4, ease: 'power2.out' }, r.at + 0.25);
+    K.count(tl, $(row + ' b'), { from: i === 0 ? 0 : rows[i - 1].v, to: r.v, start: r.at, duration: 0.55, fmt: (v) => Math.round(v) });
+  });
+  // «casi cuatrocientas» = the 378 in English or Portuguese: that row lights up when it is said.
+  tl.set('#f11-hl', { y: 250 + 92 - 2 }, 0);
+  tl.fromTo('#f11-hl', { opacity: 0, scaleX: 0.96 }, { opacity: 1, scaleX: 1, duration: 0.4, ease: 'back.out(2)', transformOrigin: '0% 50%' }, 3.95);
+  tl.to('#f11-r2 b', { color: '#c1b7ff', duration: 0.3 }, 3.95);
+  tl.to('#f11-hl', { opacity: 0.35, duration: 0.5 }, 5.2);
+
+  // «doce»: the key figure lands with an impact (counting-dynamic-scale on the gradient words).
+  tl.fromTo('#f11-big', { opacity: 0, scale: 0.55, filter: 'blur(14px)' }, { opacity: 1, scale: 1, filter: 'blur(0px)', duration: 0.7, ease: 'back.out(1.4)', transformOrigin: '0% 50%' }, 5.3);
+  K.sweep(tl, '#f11-grad', 5.3, 3.0);
+  tl.fromTo('#f11-r6', { scale: 1 }, { scale: 1.06, duration: 0.18, ease: 'power2.out', yoyo: true, repeat: 1, transformOrigin: '0% 50%' }, 5.3);
+  tl.fromTo('#f11-cap', { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, 5.95);
+  tl.fromTo('#f11-cost', { opacity: 0, y: 20, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.55, ease: 'back.out(1.8)' }, 6.6);
+
+  // ── C · music: back to the real Vigía — the caught pieces and their «Adaptar» buttons ──
+  tl.to('#f11-funnel', { x: -320, opacity: 0, filter: 'blur(14px)', duration: 0.35, ease: 'power3.in' }, 7.4);
+  const c2 = K.frame(view, s, 655, 570, 1.75);
+  const c3 = K.frame(view, s, 655, 1222, 1.75);
+  tl.set('#f11-cam', { x: c2.x, y: c2.y, scale: c2.scale }, 7.5);
+  tl.fromTo(['#f11-screen', '#f11-url'], { x: 320, opacity: 0, filter: 'blur(14px)' }, { x: 0, opacity: 1, filter: 'blur(0px)', duration: 0.6, ease: 'expo.out', immediateRender: false }, 7.55);
+  tl.to('#f11-ring-topic', { opacity: 0, duration: 0.01 }, 7.5);
+  pop('#f11-ring-a1', 8.4);
+  tl.to('#f11-ring-a1', { opacity: 0, duration: 0.3 }, 9.7);
+  // Scroll down the caught pieces (slow-fast-slow), the next «Adaptar» lights up.
+  tl.to('#f11-cam', { y: c2.y + (c3.y - c2.y) * 0.1, duration: 0.6, ease: 'power3.in' }, 9.8);
+  tl.to('#f11-cam', { y: c2.y + (c3.y - c2.y) * 0.75, duration: 0.55, ease: 'none' }, 10.4);
+  tl.to('#f11-cam', { y: c3.y, duration: 1.6, ease: 'power4.out' }, 10.95);
+  pop('#f11-ring-a2', 12.0);
+
+  K.exit(tl, '#f11-stage', 14.5);
+</script>

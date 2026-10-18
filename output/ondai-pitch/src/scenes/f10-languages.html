@@ -1,0 +1,199 @@
+<!-- scene {"id":"f10-languages","start":92.0,"duration":13.0} -->
+<!-- Narration p21 92.11–96.52 «Por eso sabes si un tema ya despegó en inglés y todavía nadie lo
+     cuenta en español.» p22 97.15–98.21 «Esa es tu ventana.» then music to 105.1.
+     Real UI: the Radar's «La onda» switched to «Por idioma» (recording radar.mp4, click at media
+     5.19 → local 1.69). Then the three waves as a labeled schematic, «TU VENTANA», the real case
+     «IA open source» and the Wikipedia note. Rules: camera-cursor-tracking, svg-path-draw,
+     gradient-text-sweep, nudge-curve. -->
+<!-- sfx [{"t":0.0,"type":"whoosh"},{"t":1.69,"type":"click"},{"t":2.3,"type":"pop"},{"t":3.3,"type":"pop"},{"t":3.85,"type":"whoosh"},{"t":4.0,"type":"shimmer","gain":0.8},{"t":5.2,"type":"pop-high"},{"t":6.5,"type":"pop"},{"t":8.6,"type":"pop-low"}] -->
+<style>
+  #f10-screen { left: 160px; top: 120px; width: 1600px; height: 900px; }
+  #f10-shot { position: absolute; inset: 0; overflow: hidden; }
+  #f10-glow { left: 220px; top: 160px; width: 1480px; height: 860px; background: radial-gradient(ellipse, rgba(193, 183, 255, 0.28), rgba(193, 183, 255, 0) 65%); }
+  #f10-glow2 { left: 300px; top: 420px; width: 1100px; height: 700px; background: radial-gradient(ellipse, rgba(255, 79, 0, 0.26), rgba(255, 79, 0, 0) 65%); }
+  #f10-url { position: absolute; left: 160px; top: 52px; color: var(--ink2d); }
+  .f10-ring { position: absolute; left: 0; top: 0; border: 4px solid var(--marker); border-radius: 18px; box-shadow: 0 0 0 8px rgba(255, 79, 0, 0.16); }
+  #f10-ring-en { border-color: #5a54d6; box-shadow: 0 0 0 8px rgba(90, 84, 214, 0.18); }
+
+  /* The schematic: three waves on one time axis. */
+  #f10-graph { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+  #f10-head { position: absolute; left: 140px; top: 64px; font-size: 112px; white-space: nowrap; }
+  #f10-chart { position: absolute; left: 120px; top: 230px; width: 1100px; height: 640px; }
+  .f10-wlab { position: absolute; left: 0; top: 0; font-size: 34px; font-weight: 700; letter-spacing: -0.01em; white-space: nowrap; }
+  #f10-lab-en { color: var(--en); }
+  #f10-lab-pt { color: var(--pt); }
+  #f10-lab-es { color: var(--es); }
+  #f10-axis { position: absolute; left: 1010px; top: 784px; font-size: 22px; color: var(--ink2d); letter-spacing: 0.12em; white-space: nowrap; }
+  #f10-schema { position: absolute; left: 140px; top: 210px; font-size: 22px; color: var(--ink2d); letter-spacing: 0.12em; }
+  #f10-win { position: absolute; left: 0; top: 0; font-size: 40px; padding: 16px 32px; letter-spacing: 0.02em; transform-origin: 50% 50%; }
+
+  /* The real case, beside the waves. */
+  #f10-case { position: absolute; left: 1270px; top: 270px; width: 520px; padding: 40px 44px 44px; }
+  #f10-case .k-eyebrow { font-size: 22px; }
+  #f10-case h3 { margin: 16px 0 28px; font-size: 54px; font-weight: 800; letter-spacing: -0.035em; line-height: 1; }
+  .f10-row { display: flex; align-items: baseline; gap: 20px; margin-top: 10px; }
+  .f10-row b { font-size: 92px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; min-width: 116px; font-variant-numeric: tabular-nums; }
+  .f10-row span { font-size: 32px; color: var(--ink2d); }
+  #f10-n-en { color: var(--en); }
+  #f10-n-es { color: var(--es); }
+  #f10-lead { margin-top: 26px; padding-top: 24px; border-top: 2px solid rgba(255, 253, 249, 0.14); font-size: 32px; line-height: 1.25; }
+  #f10-lead strong { font-weight: 800; color: var(--cream); }
+  #f10-kick { position: absolute; left: 1270px; top: 840px; font-size: 32px; }
+  #f10-note { position: absolute; left: 140px; top: 950px; max-width: 1640px; font-size: 26px; line-height: 1.35; color: var(--ink2d); }
+  #f10-note em { font-style: normal; font-family: 'JetBrains Mono', monospace; font-size: 22px; font-weight: 500; letter-spacing: 0.12em; color: var(--lavender); margin-right: 14px; }
+</style>
+<div class="k-stage" id="f10-stage">
+  <div class="k-glow" id="f10-glow"></div>
+  <div class="k-glow" id="f10-glow2"></div>
+  <div id="f10-url" class="k-eyebrow">ondai.vercel.app · Radar</div>
+  <div class="k-screen" id="f10-screen">
+    <div id="f10-shot" data-layout-allow-overflow>
+      <div class="k-cam" id="f10-cam">
+        <video class="clip" id="f10-radar" src="assets/capture/radar.mp4" data-start="0" data-duration="4.2" data-media-start="3.5" muted playsinline style="width: 1600px; height: 900px"></video>
+        <div class="f10-ring" id="f10-ring-en"></div>
+        <div class="f10-ring" id="f10-ring-es"></div>
+        <div class="k-ripple" id="f10-ripple"></div>
+        <div class="k-cursor" id="f10-cursor"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="f10-graph">
+    <div id="f10-head" class="k-display"><span class="k-grad" id="f10-grad">INGLÉS → ESPAÑOL</span></div>
+    <div id="f10-schema" class="k-mono">ESQUEMA · CÓMO VIAJA UN TEMA</div>
+    <svg id="f10-chart" viewBox="0 0 1100 640" aria-hidden="true" data-layout-allow-overflow>
+      <defs>
+        <linearGradient id="f10-fill-en" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c1b7ff" stop-opacity="0.32" /><stop offset="1" stop-color="#c1b7ff" stop-opacity="0" /></linearGradient>
+        <linearGradient id="f10-fill-pt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8fd8a3" stop-opacity="0.22" /><stop offset="1" stop-color="#8fd8a3" stop-opacity="0" /></linearGradient>
+        <linearGradient id="f10-fill-es" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff4f00" stop-opacity="0.36" /><stop offset="1" stop-color="#ff4f00" stop-opacity="0" /></linearGradient>
+      </defs>
+      <rect id="f10-band" x="156" y="40" width="456" height="500" fill="rgba(255,79,0,0.10)" />
+      <line id="f10-edge-a" x1="156" y1="40" x2="156" y2="560" stroke="#ff8a4c" stroke-width="3" stroke-dasharray="10 10" />
+      <line id="f10-edge-b" x1="612" y1="40" x2="612" y2="560" stroke="#ff8a4c" stroke-width="3" stroke-dasharray="10 10" />
+      <line id="f10-base" x1="20" y1="540" x2="1080" y2="540" stroke="rgba(255,253,249,0.28)" stroke-width="2" />
+      <path id="f10-area-en" fill="url(#f10-fill-en)" />
+      <path id="f10-area-pt" fill="url(#f10-fill-pt)" />
+      <path id="f10-area-es" fill="url(#f10-fill-es)" />
+      <path id="f10-w-pt" fill="none" stroke="#8fd8a3" stroke-width="8" stroke-linecap="round" />
+      <path id="f10-w-en" fill="none" stroke="#c1b7ff" stroke-width="10" stroke-linecap="round" />
+      <path id="f10-w-es" fill="none" stroke="#ff4f00" stroke-width="16" stroke-linecap="round" />
+      <path id="f10-brk" d="M 160 590 L 608 590" fill="none" stroke="#ff8a4c" stroke-width="4" />
+      <circle id="f10-dot-en" cx="156" cy="0" r="12" fill="#c1b7ff" />
+      <circle id="f10-dot-es" cx="612" cy="0" r="14" fill="#ff4f00" />
+    </svg>
+    <div class="f10-wlab" id="f10-lab-en">Inglés</div>
+    <div class="f10-wlab" id="f10-lab-pt">Portugués</div>
+    <div class="f10-wlab" id="f10-lab-es">Español</div>
+    <div id="f10-axis" class="k-mono">TIEMPO →</div>
+    <div class="k-pill k-pill-marker" id="f10-win">TU VENTANA</div>
+
+    <div class="k-glass" id="f10-case">
+      <div class="k-eyebrow">Caso real · Radar</div>
+      <h3>IA open source</h3>
+      <div class="f10-row"><b id="f10-n-en">13</b><span>creadores en inglés</span></div>
+      <div class="f10-row"><b id="f10-n-es">2</b><span>en español</span></div>
+      <div id="f10-lead">El inglés va <strong>7 semanas</strong> por delante.</div>
+    </div>
+    <div class="k-pill k-pill-cream" id="f10-kick">Llega antes al español</div>
+    <div id="f10-note"><em>NOTA · WIKIPEDIA</em>En las 18 olas del backtest, el artículo de Wikipedia en español llegó con una mediana de 28 días después del inglés (9 olas con artículo propio).</div>
+  </div>
+</div>
+<script>
+  const view = { w: 1600, h: 900 };
+  const s = 1600 / 1440;
+  $('#f10-cursor').innerHTML = K.cursorSvg;
+
+  // ── A · the real Radar: «Por idioma» (recording from media 3.5; click at local 1.69) ──
+  const camA = K.frame(view, s, 840, 350, 1.2);
+  const camA2 = K.frame(view, s, 840, 380, 1.32);
+  tl.set('#f10-cam', { x: camA.x, y: camA.y, scale: camA.scale }, 0);
+  const ring = (sel, x, y, w, h) => tl.set(sel, { x: x * s, y: y * s, width: w * s, height: h * s, opacity: 0 }, 0);
+  ring('#f10-ring-en', 800, 236, 196, 40); // the topics already high on the English line
+  ring('#f10-ring-es', 664, 456, 136, 36); // the same topics still low on the Spanish line
+
+  K.enter(tl, '#f10-stage', 0, { x: 300, duration: 0.8 });
+  tl.fromTo('#f10-url', { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.6, ease: 'power3.out' }, 0.25);
+  K.drift(tl, '#f10-glow', { scale: 1.08, x: -30, period: 3.2, total: 12.5 });
+  K.drift(tl, '#f10-glow2', { scale: 1.12, x: 40, y: -20, period: 2.6, total: 12.5 });
+
+  const radarLog = __CAPTURE_radar;
+  K.cursor(tl, { cursor: '#f10-cursor', ripple: '#f10-ripple', log: radarLog.log, offset: 0, mediaStart: 3.5, s, until: 3.9 });
+
+  // One push for the sentence, after the click, into the three language lines.
+  tl.to('#f10-cam', { x: camA2.x, y: camA2.y, scale: camA2.scale, duration: 1.4, ease: 'power4.out' }, 1.85);
+  tl.to('#f10-cursor', { opacity: 0, duration: 0.3 }, 2.2);
+  tl.fromTo('#f10-ring-en', { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.4, ease: 'back.out(2)', transformOrigin: '50% 50%' }, 2.3);
+  tl.fromTo('#f10-ring-es', { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.4, ease: 'back.out(2)', transformOrigin: '50% 50%' }, 3.3);
+
+  // The screen whips out to the left; the schematic takes the frame.
+  tl.to(['#f10-screen', '#f10-url'], { x: -320, opacity: 0, filter: 'blur(14px)', duration: 0.32, ease: 'power3.in' }, 3.82);
+
+  // ── B · three waves, one time axis (a schematic, labeled as such) ──
+  const BASE = 540;
+  const wave = (cx, sg, A, x0 = 20, x1 = 1080) => {
+    const pts = [];
+    for (let x = x0; x <= x1; x += 10) pts.push([x, BASE - A * Math.exp(-((x - cx) * (x - cx)) / (2 * sg * sg))]);
+    const line = 'M ' + pts.map((p) => p[0] + ' ' + p[1].toFixed(1)).join(' L ');
+    return { line, area: line + ` L ${x1} ${BASE} L ${x0} ${BASE} Z`, y: (x) => BASE - A * Math.exp(-((x - cx) * (x - cx)) / (2 * sg * sg)) };
+  };
+  const W = { en: wave(330, 120, 400), pt: wave(520, 130, 270, 60), es: wave(800, 130, 350, 300) };
+  const CX = 120, CY = 230; // chart origin on the canvas (1:1 scale)
+  ['en', 'pt', 'es'].forEach((k) => {
+    $('#f10-w-' + k).setAttribute('d', W[k].line);
+    $('#f10-area-' + k).setAttribute('d', W[k].area);
+  });
+  $('#f10-dot-en').setAttribute('cy', W.en.y(156).toFixed(1));
+  $('#f10-dot-es').setAttribute('cy', W.es.y(612).toFixed(1));
+
+  tl.set(['#f10-head', '#f10-schema', '#f10-chart', '.f10-wlab', '#f10-axis', '#f10-win', '#f10-case', '#f10-kick', '#f10-note'], { opacity: 0 }, 0);
+  tl.fromTo('#f10-head', { x: 260, opacity: 0, filter: 'blur(14px)' }, { x: 0, opacity: 1, filter: 'blur(0px)', duration: 0.7, ease: 'expo.out' }, 3.95);
+  K.sweep(tl, '#f10-grad', 4.0, 2.9);
+  tl.fromTo('#f10-schema', { opacity: 0 }, { opacity: 1, duration: 0.5, ease: 'power2.out' }, 4.3);
+  tl.set('#f10-chart', { opacity: 1 }, 3.95);
+  tl.set(['#f10-band', '#f10-edge-a', '#f10-edge-b', '#f10-brk', '#f10-dot-en', '#f10-dot-es'], { opacity: 0 }, 0);
+  tl.fromTo('#f10-base', { opacity: 0 }, { opacity: 1, duration: 0.4 }, 3.95);
+  tl.fromTo('#f10-axis', { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.5, ease: 'power3.out' }, 4.2);
+
+  // svg-path-draw: English first, Portuguese next, Spanish late.
+  const draw = (k, at, dur) => {
+    const p = $('#f10-w-' + k);
+    const len = p.getTotalLength();
+    p.style.strokeDasharray = len + ' ' + (len + 60);
+    tl.set(p, { opacity: 0 }, 0);
+    tl.set(p, { opacity: 1 }, at);
+    tl.fromTo(p, { strokeDashoffset: len }, { strokeDashoffset: 0, duration: dur, ease: 'power2.inOut' }, at);
+    tl.fromTo('#f10-area-' + k, { opacity: 0 }, { opacity: 1, duration: 0.6, ease: 'power2.out' }, at + dur * 0.6);
+  };
+  draw('en', 4.0, 0.95);
+  draw('pt', 4.3, 0.95);
+  draw('es', 4.6, 1.0);
+  const lab = (k, x, y, at) => {
+    tl.set('#f10-lab-' + k, { x: CX + x, y: CY + y }, 0);
+    tl.fromTo('#f10-lab-' + k, { opacity: 0, y: CY + y + 18 }, { opacity: 1, y: CY + y, duration: 0.5, ease: 'back.out(1.6)' }, at);
+  };
+  lab('en', 385, 88, 4.55);
+  lab('pt', 545, 192, 4.85);
+  lab('es', 845, 136, 5.2);
+
+  // «Esa es tu ventana»: the gap between English taking off and Spanish taking off.
+  tl.fromTo('#f10-band', { opacity: 0, scaleX: 0, transformOrigin: '156px 0px' }, { opacity: 1, scaleX: 1, duration: 0.7, ease: 'expo.out' }, 5.1);
+  tl.fromTo(['#f10-edge-a', '#f10-edge-b'], { opacity: 0 }, { opacity: 1, duration: 0.35, stagger: 0.12 }, 5.1);
+  tl.fromTo(['#f10-dot-en', '#f10-dot-es'], { opacity: 0, scale: 0, transformOrigin: '50% 50%' }, { opacity: 1, scale: 1, duration: 0.45, ease: 'back.out(2.4)', stagger: 0.14 }, 5.15);
+  tl.fromTo('#f10-brk', { opacity: 0, scaleX: 0, transformOrigin: '160px 590px' }, { opacity: 1, scaleX: 1, duration: 0.6, ease: 'expo.out' }, 5.15);
+  tl.set('#f10-win', { x: CX + 384 - 150, y: CY + 612 }, 0);
+  tl.fromTo('#f10-win', { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.55, ease: 'back.out(2)' }, 5.2);
+
+  // Music: the real case slides in beside the waves (nudge-curve on the chart group), then the
+  // kicker and the labeled Wikipedia note. The waves keep breathing.
+  tl.fromTo('#f10-case', { x: 300, opacity: 0, filter: 'blur(12px)' }, { x: 0, opacity: 1, filter: 'blur(0px)', duration: 0.8, ease: 'expo.out' }, 6.5);
+  K.count(tl, $('#f10-n-en'), { from: 0, to: 13, start: 6.75, duration: 0.9 });
+  K.count(tl, $('#f10-n-es'), { from: 0, to: 2, start: 7.0, duration: 0.7 });
+  tl.fromTo('#f10-lead', { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, 7.5);
+  tl.fromTo('#f10-kick', { opacity: 0, y: 24, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: 'back.out(1.8)' }, 8.6);
+  tl.fromTo('#f10-note', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }, 9.4);
+  // The window keeps pulsing while the music plays (motion, no new text).
+  tl.to('#f10-band', { opacity: 0.55, duration: 1.1, ease: 'sine.inOut', yoyo: true, repeat: 4 }, 6.4);
+  K.drift(tl, '#f10-dot-es', { scale: 1.35, period: 0.9, total: 5.4, at: 6.6 });
+
+  K.exit(tl, '#f10-stage', 12.5);
+</script>

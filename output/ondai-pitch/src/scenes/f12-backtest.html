@@ -1,0 +1,158 @@
+<!-- scene {"id":"f12-backtest","start":120.0,"duration":15.0} -->
+<!-- Narration p25 120.10–123.63 «Lo probamos contra el pasado, solo con lo que se sabía en cada
+     momento.» p26 124.38–128.45 «Detectó las dieciocho ondas de IA, con diez días y medio de
+     ventaja en mediana.» («dieciocho» ≈ 124.9, «diez días y medio» ≈ 126.4) then music to 135.1.
+     Real UI: Evaluación (still). Figures and the per-wave lead come from its table (anticipation
+     per wave; «En el pico» = 0). The methodological note stays on screen the whole scene.
+     Rules: counting-dynamic-scale, stat-bars-and-fills, kinetic-beat-slam. -->
+<!-- sfx [{"t":0.0,"type":"whoosh"},{"t":1.7,"type":"pop"},{"t":3.2,"type":"riser"},{"t":4.15,"type":"whoosh"},{"t":4.85,"type":"impact"},{"t":5.6,"type":"pop"},{"t":5.45,"type":"riser-short","gain":0.8},{"t":6.35,"type":"impact-soft"},{"t":8.6,"type":"pop-low"},{"t":9.7,"type":"whoosh"},{"t":10.4,"type":"pop"},{"t":11.0,"type":"pop"},{"t":11.6,"type":"pop-high"}] -->
+<style>
+  #f12-screen { left: 160px; top: 96px; width: 1600px; height: 900px; }
+  #f12-shot { position: absolute; inset: 0; overflow: hidden; }
+  #f12-glow { left: 220px; top: 140px; width: 1480px; height: 860px; background: radial-gradient(ellipse, rgba(255, 79, 0, 0.3), rgba(255, 79, 0, 0) 65%); }
+  #f12-glow2 { left: 900px; top: 60px; width: 900px; height: 700px; background: radial-gradient(circle, rgba(193, 183, 255, 0.24), rgba(193, 183, 255, 0) 65%); }
+  #f12-url { position: absolute; left: 160px; top: 36px; color: var(--ink2d); }
+  .f12-ring { position: absolute; left: 0; top: 0; border: 4px solid var(--marker); border-radius: 18px; box-shadow: 0 0 0 8px rgba(255, 79, 0, 0.16); }
+  #f12-note { position: absolute; left: 160px; top: 1018px; font-size: 24px; color: var(--ink2d); white-space: nowrap; }
+  #f12-note em { font-style: normal; font-family: 'JetBrains Mono', monospace; font-size: 22px; font-weight: 500; letter-spacing: 0.12em; color: var(--lavender); margin-right: 14px; }
+
+  /* The figures. */
+  #f12-figs { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+  .f12-num { position: absolute; top: 70px; font-size: 200px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  #f12-a { left: 140px; }
+  #f12-a-solid { left: 140px; color: var(--cream); }
+  #f12-b { left: 940px; font-size: 168px; top: 96px; }
+  .f12-lab { position: absolute; top: 290px; font-size: 36px; color: var(--cream); white-space: nowrap; }
+  #f12-lab-a { left: 148px; }
+  #f12-lab-b { left: 948px; }
+  .f12-pill { position: absolute; top: 352px; font-size: 28px; padding: 12px 24px; }
+  #f12-p14 { left: 148px; }
+  #f12-p2 { left: 948px; }
+  #f12-ceye { position: absolute; left: 140px; top: 462px; font-size: 22px; }
+  .f12-col { position: absolute; top: 508px; width: 800px; height: 432px; }
+  #f12-col1 { left: 140px; }
+  #f12-col2 { left: 1000px; }
+  .f12-r { position: absolute; left: 0; height: 48px; width: 800px; display: flex; align-items: center; }
+  .f12-r span { width: 250px; flex: none; font-size: 28px; font-weight: 500; white-space: nowrap; }
+  .f12-track { position: relative; width: 380px; height: 22px; flex: none; }
+  .f12-track i { position: absolute; left: 0; top: 0; height: 22px; border-radius: 6px; background: var(--marker); transform-origin: 0 50%; }
+  .f12-r b { margin-left: 18px; font-family: 'JetBrains Mono', monospace; font-size: 24px; font-weight: 500; color: var(--cream); white-space: nowrap; }
+  .f12-r b.f12-pk { color: var(--ink2d); }
+  .f12-med { position: absolute; top: -6px; width: 0; height: 444px; border-left: 3px dashed var(--lavender); }
+  #f12-medlab { position: absolute; left: 0; top: 0; font-size: 22px; color: var(--lavender); white-space: nowrap; letter-spacing: 0.08em; }
+</style>
+<div class="k-stage" id="f12-stage">
+  <div class="k-glow" id="f12-glow"></div>
+  <div class="k-glow" id="f12-glow2"></div>
+  <div id="f12-url" class="k-eyebrow">ondai.vercel.app · Evaluación</div>
+  <div class="k-screen" id="f12-screen">
+    <div id="f12-shot" data-layout-allow-overflow>
+      <div class="k-cam" id="f12-cam">
+        <img class="clip" id="f12-still" src="assets/stills/evaluacion.png" data-start="0" data-duration="15" style="width: 1600px" alt="" />
+        <div class="f12-ring" id="f12-ring-sub"></div>
+        <div class="f12-ring" id="f12-ring-c1"></div>
+        <div class="f12-ring" id="f12-ring-c2"></div>
+        <div class="f12-ring" id="f12-ring-c3"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="f12-figs">
+    <div class="f12-num k-display" id="f12-a-solid">18/18</div>
+    <div class="f12-num k-display" id="f12-a"><span class="k-grad" id="f12-a-grad">18/18</span></div>
+    <div class="f12-lab" id="f12-lab-a">ondas de IA detectadas</div>
+    <div class="k-pill k-pill-dark f12-pill" id="f12-p14">14 antes de la semana del pico</div>
+    <div class="f12-num k-display" id="f12-b"><span class="k-grad" id="f12-b-grad"><span id="f12-b-n">10,5</span> DÍAS</span></div>
+    <div class="f12-lab" id="f12-lab-b">de anticipación (mediana)</div>
+    <div class="k-pill k-pill-dark f12-pill" id="f12-p2">2 falsas alarmas en 10 temas estables</div>
+    <div class="k-eyebrow" id="f12-ceye">Días de anticipación por onda · tabla de la Evaluación</div>
+    <div class="f12-col" id="f12-col1"><div class="f12-med" id="f12-med1"></div></div>
+    <div class="f12-col" id="f12-col2"><div class="f12-med" id="f12-med2"></div><div class="k-mono" id="f12-medlab">MEDIANA 10,5</div></div>
+  </div>
+  <div id="f12-note"><em>NOTA</em>Backtest retrospectivo; criterios ajustados con las series analizadas.</div>
+</div>
+<script>
+  const view = { w: 1600, h: 900 };
+  const s = 1600 / 1440;
+  const ring = (sel, x, y, w, h) => tl.set(sel, { x: x * s, y: y * s, width: w * s, height: h * s, opacity: 0 }, 0);
+  const pop = (sel, at) => tl.fromTo(sel, { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.4, ease: 'back.out(2)', transformOrigin: '50% 50%' }, at);
+  ring('#f12-ring-sub', 278, 152, 616, 30); // «… con solo lo que se sabía en cada momento.»
+  ring('#f12-ring-c1', 281, 198, 363, 131); // 18/18
+  ring('#f12-ring-c2', 652, 198, 364, 131); // 10,5 días
+  ring('#f12-ring-c3', 1024, 198, 363, 131); // 2/10
+
+  // The method note: visible from the first frames to the exit.
+  tl.fromTo('#f12-note', { opacity: 0 }, { opacity: 1, duration: 0.5, ease: 'power2.out' }, 0.3);
+
+  // ── A · the real Evaluación: «¿Lo habría visto venir?», then down into the wave-by-wave table ──
+  const c0 = K.frame(view, s, 834, 300, 1.22);
+  const c1 = K.frame(view, s, 700, 230, 1.5);
+  const c2 = K.frame(view, s, 834, 640, 1.25);
+  tl.set('#f12-cam', { x: c0.x, y: c0.y, scale: c0.scale }, 0);
+  K.enter(tl, '#f12-stage', 0, { x: 300, duration: 0.8 });
+  tl.fromTo('#f12-url', { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.6, ease: 'power3.out' }, 0.25);
+  tl.to('#f12-cam', { x: c1.x, y: c1.y, scale: c1.scale, duration: 1.8, ease: 'power4.out' }, 0.4);
+  pop('#f12-ring-sub', 1.7);
+  tl.to('#f12-ring-sub', { opacity: 0, duration: 0.25 }, 2.75);
+  tl.to('#f12-cam', { x: c2.x, y: c2.y, scale: c2.scale, duration: 1.2, ease: 'power3.inOut' }, 2.8);
+  K.drift(tl, '#f12-glow', { scale: 1.1, x: -30, period: 3.6, total: 14.4 });
+  K.drift(tl, '#f12-glow2', { scale: 1.12, y: 30, period: 2.4, total: 14.4 });
+  tl.to(['#f12-screen', '#f12-url'], { x: -320, opacity: 0, filter: 'blur(14px)', duration: 0.32, ease: 'power3.in' }, 4.1);
+
+  // ── B · the figures, with the voice ──
+  const waves = [
+    ['MCP', 77], ['DeepSeek R1', 63], ['GPT-5', 49], ['Vibe coding', 49], ['Claude Code', 42],
+    ['Gemini 3', 35], ['Manus', 28], ['OpenClaw', 21], ['Nano Banana', 14],
+    ['Ghibli', 7], ['Kimi K2', 7], ['Llama 4', 7], ['Moltbook', 7], ['Veo 3', 7],
+    ['ChatGPT Atlas', 0], ['Genie 3', 0], ['Grok 4', 0], ['Sora 2', 0],
+  ];
+  const PX = 380 / 77; // px per day
+  waves.forEach(([name, d], i) => {
+    const col = i < 9 ? '#f12-col1' : '#f12-col2';
+    const r = document.createElement('div');
+    r.className = 'f12-r';
+    r.id = 'f12-w' + i;
+    r.style.top = (i % 9) * 48 + 'px';
+    r.innerHTML = `<span>${name}</span><div class="f12-track"><i style="width:${Math.max(6, d * PX).toFixed(1)}px"></i></div><b class="${d ? '' : 'f12-pk'}">${d ? d + ' días' : 'en el pico'}</b>`;
+    $(col).appendChild(r);
+  });
+  tl.set(['#f12-med1', '#f12-med2'], { x: 250 + 10.5 * PX }, 0);
+  tl.set('#f12-medlab', { x: 250 + 10.5 * PX + 12, y: -40 }, 0);
+
+  tl.set(['.f12-num', '.f12-lab', '.f12-pill', '#f12-ceye', '.f12-r', '.f12-med', '#f12-medlab'], { opacity: 0 }, 0);
+  // 18/18 — count up under the riser, land on the impact at «dieciocho».
+  tl.fromTo('#f12-a', { opacity: 0, scale: 0.6, filter: 'blur(14px)' }, { opacity: 1, scale: 1, filter: 'blur(0px)', duration: 0.6, ease: 'back.out(1.5)', transformOrigin: '0% 70%' }, 4.3);
+  K.count(tl, $('#f12-a-grad'), { from: 0, to: 18, start: 4.3, duration: 0.55, fmt: (v) => Math.round(v) + '/18' });
+  K.sweep(tl, '#f12-a-grad', 4.3, 2.0);
+  tl.fromTo('#f12-lab-a', { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }, 4.9);
+  tl.fromTo('#f12-a', { y: 0 }, { y: -10, duration: 0.12, ease: 'power2.out', yoyo: true, repeat: 1 }, 4.85);
+  tl.fromTo('#f12-ceye', { opacity: 0 }, { opacity: 1, duration: 0.4 }, 4.95);
+  tl.fromTo('.f12-r', { opacity: 0, x: 30 }, { opacity: 1, x: 0, duration: 0.4, ease: 'power3.out', stagger: 0.055 }, 4.95);
+  tl.fromTo('.f12-track i', { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: 'power3.out', stagger: 0.055 }, 5.0);
+  tl.fromTo('#f12-p14', { opacity: 0, y: 14, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: 'back.out(1.8)' }, 5.6);
+
+  // 10,5 días — the gradient passes to it (one key word at a time); the median line draws.
+  tl.set('#f12-a-solid', { opacity: 1 }, 6.3);
+  tl.to('#f12-a', { opacity: 0, duration: 0.35, ease: 'power2.out' }, 6.3);
+  tl.fromTo('#f12-b', { opacity: 0, scale: 0.6, filter: 'blur(14px)' }, { opacity: 1, scale: 1, filter: 'blur(0px)', duration: 0.6, ease: 'back.out(1.5)', transformOrigin: '0% 70%' }, 6.35);
+  K.count(tl, $('#f12-b-n'), { from: 0, to: 10.5, start: 6.35, duration: 0.8, fmt: (v) => v.toFixed(1).replace('.', ',') });
+  K.sweep(tl, '#f12-b-grad', 6.35, 3.3);
+  tl.fromTo('#f12-lab-b', { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }, 6.7);
+  tl.fromTo(['#f12-med1', '#f12-med2'], { opacity: 0, scaleY: 0, transformOrigin: '50% 0%' }, { opacity: 1, scaleY: 1, duration: 0.7, ease: 'expo.out' }, 6.6);
+  tl.fromTo('#f12-medlab', { opacity: 0 }, { opacity: 1, duration: 0.4 }, 6.9);
+  tl.fromTo('#f12-p2', { opacity: 0, y: 14, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: 'back.out(1.8)' }, 8.6);
+
+  // ── C · music: the real cards that hold these figures, then the table again ──
+  tl.to('#f12-figs', { x: -320, opacity: 0, filter: 'blur(14px)', duration: 0.35, ease: 'power3.in' }, 9.6);
+  const c3 = K.frame(view, s, 834, 300, 1.25);
+  const c4 = K.frame(view, s, 834, 520, 1.25);
+  tl.set('#f12-cam', { x: c3.x, y: c3.y, scale: c3.scale }, 9.7);
+  tl.fromTo(['#f12-screen', '#f12-url'], { x: 320, opacity: 0, filter: 'blur(14px)' }, { x: 0, opacity: 1, filter: 'blur(0px)', duration: 0.6, ease: 'expo.out', immediateRender: false }, 9.75);
+  pop('#f12-ring-c1', 10.4);
+  pop('#f12-ring-c2', 11.0);
+  pop('#f12-ring-c3', 11.6);
+  tl.to(['#f12-ring-c1', '#f12-ring-c2', '#f12-ring-c3'], { opacity: 0, duration: 0.3 }, 12.5);
+  tl.to('#f12-cam', { x: c4.x, y: c4.y, duration: 1.8, ease: 'power2.inOut' }, 12.5);
+
+  K.exit(tl, '#f12-stage', 14.5);
+</script>

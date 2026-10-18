@@ -1,0 +1,131 @@
+<!-- scene {"id":"f03-radar","start":19.0,"duration":9.0} -->
+<!-- Narration p07 19.10–25.29 «Cada lunes abres el Radar y ves la onda de la semana: qué temas
+     suben, en qué etapa están y qué tanto encajan con tu marca.» then music to 28.1.
+     Real UI only: the landing hero (recording), the Radar's week (still), «La onda» life-cycle
+     curve (recording), the topic «IA open source» (still). Rules: ai-tracking-box (labels on real
+     elements), camera-cursor-tracking, scale-swap-transition (in-screen whips). -->
+<!-- sfx [{"t":1.62,"type":"whoosh"},{"t":3.15,"type":"pop"},{"t":3.84,"type":"whoosh"},{"t":4.45,"type":"pop-high"},{"t":5.34,"type":"whoosh"},{"t":5.55,"type":"pop"}] -->
+<style>
+  #f03-screen { left: 160px; top: 120px; width: 1600px; height: 900px; }
+  .f03-shot { position: absolute; inset: 0; overflow: hidden; }
+  #f03-glow { left: 240px; top: 180px; width: 1440px; height: 900px; background: radial-gradient(ellipse, rgba(255, 79, 0, 0.32), rgba(255, 79, 0, 0) 65%); }
+  .f03-chip { position: absolute; left: 0; top: 0; display: flex; align-items: center; gap: 14px; padding: 16px 28px 16px 22px; border-radius: 999px; background: #201515; color: #fffdf9; font-size: 34px; font-weight: 700; letter-spacing: -0.01em; white-space: nowrap; box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45); border: 2px solid rgba(255, 253, 249, 0.18); transform-origin: 0 50%; }
+  .f03-chip i { display: block; width: 16px; height: 16px; border-radius: 50%; background: var(--marker); box-shadow: 0 0 0 6px rgba(255, 79, 0, 0.25); }
+  .f03-chip em { font-style: normal; font-family: 'JetBrains Mono', monospace; font-size: 20px; font-weight: 500; color: var(--lavender); letter-spacing: 0.08em; }
+  .f03-ring { position: absolute; left: 0; top: 0; border: 4px solid var(--marker); border-radius: 18px; box-shadow: 0 0 0 8px rgba(255, 79, 0, 0.16); }
+  #f03-url { position: absolute; left: 160px; top: 52px; color: var(--ink2d); }
+</style>
+<div class="k-stage" id="f03-stage">
+  <div class="k-glow" id="f03-glow"></div>
+  <div id="f03-url" class="k-eyebrow">ondai.vercel.app</div>
+  <div class="k-screen" id="f03-screen">
+    <div class="f03-shot" id="f03-a" data-layout-allow-overflow>
+      <div class="k-cam" id="f03-cam-a">
+        <video class="clip" id="f03-landing" src="assets/capture/landing.mp4" data-start="0" data-duration="1.75" data-media-start="2.0" muted playsinline style="width: 1600px; height: 900px"></video>
+      </div>
+    </div>
+    <div class="f03-shot" id="f03-b" data-layout-allow-overflow>
+      <div class="k-cam" id="f03-cam-b">
+        <img class="clip" id="f03-radar-still" src="assets/stills/radar.png" data-start="1.6" data-duration="2.4" style="width: 1600px" alt="" />
+        <div class="f03-ring" id="f03-ring-b"></div>
+      </div>
+    </div>
+    <div class="f03-shot" id="f03-c" data-layout-allow-overflow>
+      <div class="k-cam" id="f03-cam-c">
+        <video class="clip" id="f03-onda" src="assets/capture/radar.mp4" data-start="3.82" data-duration="1.7" data-media-start="0" data-hf-media-start-basis="local" muted playsinline style="width: 1600px; height: 900px"></video>
+        <div class="f03-ring" id="f03-ring-c"></div>
+        <div class="k-ripple" id="f03-ripple"></div>
+        <div class="k-cursor" id="f03-cursor"></div>
+      </div>
+    </div>
+    <div class="f03-shot" id="f03-d" data-layout-allow-overflow>
+      <div class="k-cam" id="f03-cam-d">
+        <img class="clip" id="f03-tema-still" src="assets/stills/tema.png" data-start="5.3" data-duration="3.7" style="width: 1600px" alt="" />
+        <div class="f03-ring" id="f03-ring-d"></div>
+      </div>
+    </div>
+  </div>
+  <div class="f03-chip" id="f03-chip-1"><i></i><em>01</em>Qué crece</div>
+  <div class="f03-chip" id="f03-chip-2"><i></i><em>02</em>Cuándo entrar</div>
+  <div class="f03-chip" id="f03-chip-3"><i></i><em>03</em>Por qué</div>
+</div>
+<script>
+  const view = { w: 1600, h: 900 };
+  const s = 1600 / 1440; // display px per captured CSS px
+  const SX = 160, SY = 120; // screen origin on the canvas
+  $('#f03-cursor').innerHTML = K.cursorSvg;
+
+  // A camera per shot; `on` maps a capture point to canvas coordinates under that camera.
+  const cam = (sel, cx, cy, z) => {
+    const f = K.frame(view, s, cx, cy, z);
+    tl.set(sel, { x: f.x, y: f.y, scale: f.scale }, 0);
+    return { ...f, on: (px, py) => ({ x: SX + f.x + f.scale * px * s, y: SY + f.y + f.scale * py * s }) };
+  };
+  const ring = (sel, x, y, w, h) => tl.set(sel, { x: x * s, y: y * s, width: w * s, height: h * s, opacity: 0 }, 0);
+
+  // A: the landing hero at its own size.
+  const camA = cam('#f03-cam-a', 720, 405, 1);
+  // B: the week on the Radar — the headline and the four counters.
+  const camB = cam('#f03-cam-b', 800, 280, 1.2);
+  ring('#f03-ring-b', 285, 223, 262, 125); // «Temas con señal · 10 · +4 formándose»
+  // C: «La onda», the life-cycle curve and its «Entra ya» zone (recording scrolled 425 px down).
+  const camC = cam('#f03-cam-c', 620, 330, 1.32);
+  ring('#f03-ring-c', 352, 223, 292, 259); // ZONA «ENTRA YA»
+  // D: the topic «IA open source»: why it grows, fit with 30X, the wave by language.
+  const camD = cam('#f03-cam-d', 724, 420, 1.3);
+  ring('#f03-ring-d', 246, 248, 312, 336); // «Por qué crece»
+
+  // The screen arrives from the right (shared handoff; the reveal's whoosh carries it).
+  K.enter(tl, '#f03-screen', 0, { x: 300, duration: 0.8 });
+  tl.fromTo('#f03-url', { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.6, ease: 'power3.out' }, 0.3);
+  tl.fromTo('#f03-cam-a', { scale: 1 }, { scale: 1.04, duration: 1.7, ease: 'sine.inOut' }, 0);
+  K.drift(tl, '#f03-glow', { scale: 1.1, x: 30, period: 3, total: 9 });
+
+  // In-screen whips between shots: the outgoing shot slides left with blur, the next comes in.
+  const whip = (out, inn, t) => {
+    tl.to(out, { x: -260, opacity: 0, filter: 'blur(14px)', duration: 0.24, ease: 'power3.in' }, t - 0.2);
+    tl.fromTo(inn, { x: 260, opacity: 0, filter: 'blur(14px)' }, { x: 0, opacity: 1, filter: 'blur(0px)', duration: 0.42, ease: 'expo.out' }, t);
+  };
+  tl.set(['#f03-b', '#f03-c', '#f03-d'], { opacity: 0 }, 0);
+  whip('#f03-a', '#f03-b', 1.66);
+  whip('#f03-b', '#f03-c', 3.88);
+  whip('#f03-c', '#f03-d', 5.38);
+
+  // B: a slow pan across the counters, then «Qué crece» on «Temas con señal».
+  tl.fromTo('#f03-cam-b', { x: camB.x + 40 }, { x: camB.x - 20, duration: 2.3, ease: 'sine.inOut' }, 1.66);
+
+  // Chips pop on the element they name, then dock in a row above the screen.
+  const dock = [
+    { x: 1080, y: 40 },
+    { x: 1330, y: 40 },
+    { x: 1630, y: 40 },
+  ];
+  const chip = (n, at, target, dockAt, dockScale) => {
+    const sel = '#f03-chip-' + n;
+    tl.set(sel, { x: target.x, y: target.y, scale: 0.6, opacity: 0 }, 0);
+    tl.to(sel, { scale: 1, opacity: 1, duration: 0.55, ease: 'back.out(2)' }, at);
+    tl.to(sel, { x: dock[n - 1].x, y: dock[n - 1].y, scale: dockScale, duration: 0.55, ease: 'expo.inOut' }, dockAt);
+  };
+  const tB = camB.on(285, 223 + 125);
+  chip(1, 3.15, { x: tB.x - 40, y: tB.y + 26 }, 3.78, 0.72);
+  tl.fromTo('#f03-ring-b', { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.4, ease: 'back.out(2)', transformOrigin: '50% 50%' }, 3.1);
+
+  // C: the recording plays with its real pointer; «Cuándo entrar» on the «Entra ya» zone.
+  const radarLog = __CAPTURE_radar;
+  K.cursor(tl, { cursor: '#f03-cursor', ripple: '#f03-ripple', log: radarLog.log, offset: 3.82, mediaStart: 0, s, until: 5.5 });
+  const tC = camC.on(352 + 292, 223 + 40);
+  chip(2, 4.45, { x: tC.x + 10, y: tC.y - 40 }, 5.28, 0.72);
+  tl.fromTo('#f03-ring-c', { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.4, ease: 'back.out(2)', transformOrigin: '50% 50%' }, 4.4);
+
+  // D: why it grows — «Por qué» on the topic's own explanation, then a slow push while the
+  // music breathes (one push for the sentence).
+  const tD = camD.on(246 + 312, 248 + 10);
+  chip(3, 5.55, { x: tD.x + 10, y: tD.y - 20 }, 7.9, 0.72);
+  tl.fromTo('#f03-ring-d', { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.4, ease: 'back.out(2)', transformOrigin: '50% 50%' }, 5.5);
+  const camD2 = K.frame(view, s, 560, 420, 1.5);
+  tl.to('#f03-cam-d', { x: camD2.x, y: camD2.y, scale: 1.5, duration: 2.6, ease: 'power2.inOut' }, 6.2);
+  tl.to('#f03-ring-d', { opacity: 0, duration: 0.3 }, 6.2);
+
+  // Leave to the left as Elegir comes in.
+  K.exit(tl, ['#f03-screen', '#f03-url', '.f03-chip'], 8.5);
+</script>

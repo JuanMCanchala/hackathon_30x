@@ -1,0 +1,201 @@
+<!-- scene {"id":"f07-dive","start":60.0,"duration":10.0} -->
+<!-- Narration p15 60.11–61.70 «¿Y cómo sabe OndAI qué va a despegar?», p16 62.83–63.68
+     «Adentrémonos.», then music to 70.1 (riser into f08's impact at 70.1).
+     Rules: 3d-camera-flight (a perspective dive through a seeded point field, drawn on a canvas
+     from one timeline proxy), depth-scatter-assemble (the field organizes into lanes, then into
+     one rising curve), svg-path-draw (the curve draws itself; we travel along it).
+     Graphics only: no data is claimed here, the curve is a motif, not a chart. -->
+<!-- sfx [{"t":0.0,"type":"whoosh","gain":0.7},{"t":2.9,"type":"whoosh-long"},{"t":6.9,"type":"shimmer","gain":0.6},{"t":8.4,"type":"riser"}] -->
+<style>
+  #f07-field { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+  #f07-field canvas { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; display: block; }
+  #f07-glow { left: 460px; top: 180px; width: 1000px; height: 720px; background: radial-gradient(ellipse, rgba(255, 79, 0, 0.30), rgba(255, 79, 0, 0) 66%); }
+  #f07-glow2 { left: 820px; top: 300px; width: 900px; height: 700px; background: radial-gradient(ellipse, rgba(193, 183, 255, 0.20), rgba(193, 183, 255, 0) 66%); }
+  #f07-q { position: absolute; left: 0; right: 0; top: 330px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+  #f07-q1 { font-size: 92px; color: var(--cream); display: flex; gap: 0.26em; }
+  #f07-q2 { margin-top: 18px; font-size: 136px; color: var(--cream); display: flex; gap: 0.24em; }
+  .f07-w { display: inline-block; }
+  #f07-adentro { position: absolute; left: 0; right: 0; top: 720px; text-align: center; font-size: 30px; color: var(--ink2d); letter-spacing: 0.32em; }
+</style>
+<div class="k-stage" id="f07-stage">
+  <div class="k-glow" id="f07-glow"></div>
+  <div class="k-glow" id="f07-glow2"></div>
+  <div id="f07-field" data-layout-allow-overflow></div>
+  <div id="f07-q">
+    <div id="f07-q1" class="k-light"><span class="f07-w">¿Y</span><span class="f07-w">cómo</span><span class="f07-w">sabe</span><span class="f07-w" style="font-weight: 700">OndAI</span></div>
+    <div id="f07-q2" class="k-display"><span class="f07-w">qué</span><span class="f07-w">va</span><span class="f07-w">a</span><span class="f07-w k-grad" id="f07-grad">despegar?</span></div>
+  </div>
+  <div id="f07-adentro" class="k-mono">ADENTRÉMONOS</div>
+</div>
+<script>
+  // ---------- deterministic field ----------
+  const mulberry = (a) => () => {
+    a |= 0; a = (a + 0x6d2b79f5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+  const rnd = mulberry(20261018);
+  const ss = (a, b, t) => { const x = Math.min(1, Math.max(0, (t - a) / (b - a))); return x * x * (3 - 2 * x); };
+  const lerp = (a, b, p) => a + (b - a) * p;
+
+  const N = 360, LANES = 5, PER = N / LANES;
+  const F = 900, DEPTH = 6000, NEAR = 120;
+  const TONES = [[255, 253, 249], [193, 183, 255], [255, 138, 76]];
+  const ORANGE = [255, 79, 0];
+  const pts = [];
+  for (let i = 0; i < N; i++) {
+    const lane = i % LANES;
+    const k = Math.floor(i / LANES);
+    const r = rnd();
+    pts.push({
+      x: (rnd() * 2 - 1) * 2300,
+      y: (rnd() * 2 - 1) * 1350,
+      z: rnd() * DEPTH,
+      lane,
+      u: (k + 0.15 + rnd() * 0.7) / PER,
+      j: rnd() * 2 - 1,
+      tone: r < 0.5 ? TONES[0] : r < 0.82 ? TONES[1] : TONES[2],
+    });
+  }
+  // Far dust that stays when everything else has gone: the clean field f08 starts on.
+  const dust = [];
+  for (let i = 0; i < 70; i++) dust.push({ x: rnd() * 1920, y: rnd() * 1080, a: 0.12 + rnd() * 0.22, r: 0.8 + rnd() * 1.2 });
+
+  // Camera speed (px of depth per second) and its integral, tabulated once (seek-safe).
+  const speed = (t) => 40 + 2900 * ss(2.83, 4.1, t) - 2620 * ss(5.0, 7.2, t);
+  const STEP = 1 / 120, camTab = [0];
+  for (let k = 1; k <= 1200; k++) camTab.push(camTab[k - 1] + speed(k * STEP) * STEP);
+  const camZ = (t) => { const f = Math.min(1199.999, Math.max(0, t / STEP)); const k = Math.floor(f); return lerp(camTab[k], camTab[k + 1], f - k); };
+
+  // The rising curve (screen space before the travel camera): a slow start, then lift-off.
+  const E = Math.exp(3.1) - 1;
+  const CX = (u) => 200 + 1520 * u;
+  const CY = (u) => 870 - 610 * (Math.exp(3.1 * u) - 1) / E + 12 * Math.sin(u * 15) * (1 - u);
+
+  // The canvas is created here (the runtime clones the template's markup).
+  const cv = document.createElement('canvas');
+  cv.width = 1920;
+  cv.height = 1080;
+  $('#f07-field').appendChild(cv);
+  const ctx = cv.getContext('2d');
+
+  function draw(t) {
+    ctx.clearRect(0, 0, 1920, 1080);
+    const cz = camZ(t);
+    const v = speed(t);
+    const fieldA = lerp(0.32, 1, ss(2.7, 3.4, t));
+    const out = 1 - ss(9.25, 9.9, t);
+
+    // Travel camera along the curve (2D, after the curve exists).
+    const b = ss(7.8, 9.95, t);
+    const S = 1 + 2.7 * b * b;
+    const uF = 0.42 + 0.58 * b;
+    const fx = CX(uF), fy = CY(uF);
+    const ax = lerp(fx, 960, ss(7.8, 8.9, t)), ay = lerp(fy, 520, ss(7.8, 8.9, t));
+    const T = (x, y) => [ax + (x - fx) * S, ay + (y - fy) * S];
+
+    // Dust.
+    for (const d of dust) {
+      ctx.fillStyle = `rgba(255,253,249,${d.a * lerp(0.6, 1, out)})`;
+      const dx = ((d.x - cz * 0.02 * (d.x - 960) / 960) % 1920 + 1920) % 1920;
+      ctx.beginPath(); ctx.arc(dx, d.y, d.r, 0, Math.PI * 2); ctx.fill();
+    }
+
+    // Grid that appears under the curve: a baseline and eight week ticks (no labels).
+    const gA = 0.16 * ss(6.6, 7.5, t) * out;
+    if (gA > 0.001) {
+      ctx.strokeStyle = `rgba(197,192,177,${gA})`;
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      let p = T(200, 900), q = T(1720, 900);
+      ctx.moveTo(p[0], p[1]); ctx.lineTo(q[0], q[1]);
+      for (let k = 0; k < 8; k++) {
+        const x = 200 + (1520 * k) / 7;
+        p = T(x, 900); q = T(x, 300);
+        ctx.moveTo(p[0], p[1]); ctx.lineTo(q[0], q[1]);
+      }
+      ctx.stroke();
+    }
+
+    // Points: field → lanes → curve.
+    for (const p of pts) {
+      const d = ((p.z - cz - NEAR) % DEPTH + DEPTH) % DEPTH + NEAR;
+      const s = F / d;
+      const px = 960 + p.x * s, py = 540 + p.y * s;
+      const dp = d + v * 0.05, sp = F / dp;
+      const qx = 960 + p.x * sp, qy = 540 + p.y * sp;
+      const aField = Math.min(1, (DEPTH - d) / 1400) * Math.min(1, (d - NEAR) / 260) * fieldA;
+      const rField = Math.min(7, Math.max(0.6, 3.4 * s));
+
+      const m = ss(5.0 + 1.0 * p.u, 6.2 + 1.0 * p.u, t);
+      const c = ss(6.3 + 0.6 * p.u, 7.3 + 0.6 * p.u, t);
+      const lx = CX(p.u), ly = 540 + (p.lane - 2) * 66 + p.j * 5;
+      const kx = CX(p.u), ky = CY(p.u) + p.j * 3;
+      const [tx, ty] = T(lerp(lx, kx, c), lerp(ly, ky, c));
+      const x = lerp(px, tx, m), y = lerp(py, ty, m);
+      const a = lerp(aField, 0.92, m) * out;
+      if (a < 0.01) continue;
+      const r = lerp(rField, lerp(2.6, 2.4 * Math.sqrt(S), c), m);
+      const col = [0, 1, 2].map((k) => Math.round(lerp(p.tone[k], ORANGE[k], c)));
+      const rgba = `rgba(${col[0]},${col[1]},${col[2]},${a})`;
+      // Streak along the travel (fades as the point is captured).
+      const w = 1 - m;
+      if (w > 0.02 && v > 300) {
+        ctx.strokeStyle = `rgba(${col[0]},${col[1]},${col[2]},${a * 0.55})`;
+        ctx.lineWidth = Math.max(0.6, r * 0.8);
+        ctx.beginPath();
+        ctx.moveTo(x - (px - qx) * w, y - (py - qy) * w);
+        ctx.lineTo(x, y);
+        ctx.stroke();
+      }
+      ctx.fillStyle = rgba;
+      ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.fill();
+    }
+
+    // The curve draws itself through the captured points, with a glowing head.
+    const dr = ss(6.9, 8.1, t);
+    if (dr > 0.001 && out > 0.001) {
+      ctx.save();
+      ctx.globalAlpha = out;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      ctx.shadowColor = 'rgba(255,79,0,0.75)';
+      ctx.shadowBlur = 28;
+      ctx.strokeStyle = '#ff4f00';
+      ctx.lineWidth = 11 * Math.sqrt(S);
+      ctx.beginPath();
+      const STEPS = 140;
+      for (let k = 0; k <= STEPS * dr; k++) {
+        const u = k / STEPS;
+        const [x, y] = T(CX(u), CY(u));
+        if (k === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+      const [hx, hy] = T(CX(dr), CY(dr));
+      ctx.shadowBlur = 40;
+      ctx.fillStyle = '#fff3ea';
+      ctx.beginPath(); ctx.arc(hx, hy, 9 * Math.sqrt(S), 0, Math.PI * 2); ctx.fill();
+      ctx.restore();
+    }
+  }
+
+  draw(0);
+  const clock = { t: 0 };
+  tl.fromTo(clock, { t: 0 }, { t: 10, duration: 10, ease: 'none', onUpdate: () => draw(clock.t) }, 0);
+
+  // ---------- the question ----------
+  tl.fromTo('#f07-glow', { scale: 0.5, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.4, ease: 'expo.out' }, 0);
+  tl.fromTo('#f07-glow2', { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.8, ease: 'expo.out' }, 0.4);
+  tl.fromTo('#f07-q1 .f07-w', { y: 60, opacity: 0, filter: 'blur(14px)' }, { y: 0, opacity: 1, filter: 'blur(0px)', duration: 0.7, ease: 'expo.out', stagger: 0.12 }, 0.08);
+  tl.fromTo('#f07-q2 .f07-w', { y: 90, opacity: 0, filter: 'blur(18px)' }, { y: 0, opacity: 1, filter: 'blur(0px)', duration: 0.8, ease: 'expo.out', stagger: 0.12 }, 0.78);
+  K.sweep(tl, '#f07-grad', 1.2, 2.0);
+  tl.fromTo('#f07-q', { scale: 1 }, { scale: 1.04, duration: 2.6, ease: 'sine.inOut' }, 0.3);
+  K.drift(tl, '#f07-glow2', { x: 50, y: -20, scale: 1.08, period: 2.6, total: 5.2, at: 0.4 });
+
+  // «Adentrémonos»: the label lands as it's said, then the camera flies through the question.
+  tl.fromTo('#f07-adentro', { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, 2.82);
+  tl.to('#f07-q', { scale: 2.6, opacity: 0, filter: 'blur(26px)', duration: 0.9, ease: 'power3.in' }, 2.95);
+  tl.to(['#f07-glow', '#f07-glow2'], { scale: 1.8, opacity: 0, duration: 1.2, ease: 'power2.in' }, 3.0);
+  tl.to('#f07-adentro', { scale: 1.8, opacity: 0, filter: 'blur(14px)', duration: 0.7, ease: 'power3.in' }, 4.05);
+</script>
