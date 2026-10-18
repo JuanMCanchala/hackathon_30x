@@ -220,9 +220,6 @@ importers:
       '@radar/sources':
         specifier: workspace:*
         version: link:../../packages/sources
-      '@scalar/hono-api-reference':
-        specifier: ^0.12.13
-        version: 0.12.13(hono@4.13.13)
       '@typesafe-ai/sdk':
         specifier: 0.7.0
         version: 0.7.0
@@ -1683,32 +1680,6 @@ packages:
   '@rolldown/pluginutils@1.0.1':
     resolution: {integrity: sha512-2j9bGt5Jh8hj+vPtgzPtl72j0yRxHAyumoo6TNfAjsLB04UtpSvPbPcDcBMxz7n+9CYB0c1GxQFxYRg2jimqGw==}
 
-  '@scalar/client-side-rendering@0.4.12':
-    resolution: {integrity: sha512-FjzUNhDgMlrIqANp3Lj/2XuRoSL8glyueE6Qc62Y1HzNQEEmk2pmdCTAfrN7bU9L49X5qtNAn3KZdL8ng1taBw==}
-    engines: {node: '>=22'}
-
-  '@scalar/helpers@0.16.4':
-    resolution: {integrity: sha512-9eILWzUcAkHEuYMMvijpSIy69t+Vkq+NudLB/7lgARFTWqXfQpIxW1L3VH7ogKyRie5+E4CNZ3PSvlw6IIfLGw==}
-    engines: {node: '>=22'}
-
-  '@scalar/hono-api-reference@0.12.13':
-    resolution: {integrity: sha512-jpjZWKckchyj1EPghvEgoKvP795q8er8WTU8seckmVSdVNS7CliAYqT29P4TBy4NKHih4O3/M69bxLU3jdgMbQ==}
-    engines: {node: '>=22'}
-    peerDependencies:
-      hono: ^4.12.5
-
-  '@scalar/schemas@0.14.0':
-    resolution: {integrity: sha512-tYNfeIOk/G5o/DiW2Yc2tFlNvE42Ls1aHUOQSSeFugjBgv53p3u3tlu7gA5N4uMaS8mQCumURusc/cb4RmiX2g==}
-    engines: {node: '>=22'}
-
-  '@scalar/types@0.24.0':
-    resolution: {integrity: sha512-x4O8ddCvh+59zwh9Xc+bG2QACxYARcPDfJBYiUzD/hzSxb6vpcms+WKgMksBfYWCZneO6e5Kt6hZFBoE9D9YCg==}
-    engines: {node: '>=22'}
-
-  '@scalar/validation@0.6.7':
-    resolution: {integrity: sha512-xvmeYb0LOg9B598oVA/1fs9MvnMdtWjQYG3v2Wgftewizr7tQjsdDYT1TQahlDzqRG+r+ml6zlSkPrFiCE5jHQ==}
-    engines: {node: '>=20'}
-
   '@stablelib/base64@1.0.1':
     resolution: {integrity: sha512-1bnPQqSxSuc3Ii6MhBysoWCg58j97aUjuCSZrGSmDxNqtytIi0k8utUenAwTZN4V5mXXYGsVUI9zeBqy+jBOSQ==}
 
@@ -2774,11 +2745,6 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
-  nanoid@5.1.16:
-    resolution: {integrity: sha512-kVrnsrJqMR8+oLJnGEmSWw9BivK5mt7H3FZatVRjrc5wGqFYuBxX1yG7+A7Gi5AefkX6t/oCkizcQgpu0cY1dQ==}
-    engines: {node: ^18 || >=20}
-    hasBin: true
-
   natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
 
@@ -3156,10 +3122,6 @@ packages:
     peerDependencies:
       react: ^16.11.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  tagged-tag@1.0.0:
-    resolution: {integrity: sha512-yEFYrVhod+hdNyx7g5Bnkkb0G6si8HJurOoOEgC8B/O0uXLHlaey/65KRv6cuWBNhBgHKAROVpc7QyYqE5gFng==}
-    engines: {node: '>=20'}
-
   tailwindcss@4.3.3:
     resolution: {integrity: sha512-gOhV3P7ufE62QDGg1zVaTgCR+EtPv92k2nIhVcVKcLmxT1sUBsQGhnZj175j+MqRt4zLF7ic+sCYjfhxMxj7YQ==}
 
@@ -3203,10 +3165,6 @@ packages:
   type-check@0.4.0:
     resolution: {integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==}
     engines: {node: '>= 0.8.0'}
-
-  type-fest@5.10.0:
-    resolution: {integrity: sha512-NoSdpq/WEiAg5sjmBkmV/hfxv6HJH4NqPNrqjtSO5CwRmpsDfaf4begxW34KdJykH/l1yHtwBWQkCRdoXO8mPA==}
-    engines: {node: '>=20'}
 
   type-is@2.1.0:
     resolution: {integrity: sha512-faYHw0anBbc/kWF3zFTEnxSFOAGUX9GFbOBthvDdLsIlEoWOFOtS0zgCiQYwIskL9iGXZL3kAXD8OoZ4GmMATA==}
@@ -4445,34 +4403,6 @@ snapshots:
 
   '@rolldown/pluginutils@1.0.1': {}
 
-  '@scalar/client-side-rendering@0.4.12':
-    dependencies:
-      '@scalar/helpers': 0.16.4
-      '@scalar/schemas': 0.14.0
-      '@scalar/types': 0.24.0
-      '@scalar/validation': 0.6.7
-
-  '@scalar/helpers@0.16.4': {}
-
-  '@scalar/hono-api-reference@0.12.13(hono@4.13.13)':
-    dependencies:
-      '@scalar/client-side-rendering': 0.4.12
-      hono: 4.13.13
-
-  '@scalar/schemas@0.14.0':
-    dependencies:
-      '@scalar/helpers': 0.16.4
-      '@scalar/validation': 0.6.7
-
-  '@scalar/types@0.24.0':
-    dependencies:
-      '@scalar/helpers': 0.16.4
-      nanoid: 5.1.16
-      type-fest: 5.10.0
-      zod: 4.6.7
-
-  '@scalar/validation@0.6.7': {}
-
   '@stablelib/base64@1.0.1': {}
 
   '@swc/helpers@0.5.23':
@@ -5493,8 +5423,6 @@ snapshots:
 
   nanoid@3.3.20: {}
 
-  nanoid@5.1.16: {}
-
   natural-compare@1.4.0: {}
 
   negotiator@1.1.0:
@@ -5905,8 +5833,6 @@ snapshots:
       react: 19.3.1
       use-sync-external-store: 1.7.0(react@19.3.1)
 
-  tagged-tag@1.0.0: {}
-
   tailwindcss@4.3.3: {}
 
   tapable@2.3.3: {}
@@ -5939,10 +5865,6 @@ snapshots:
   type-check@0.4.0:
     dependencies:
       prelude-ls: 1.2.1
-
-  type-fest@5.10.0:
-    dependencies:
-      tagged-tag: 1.0.0
 
   type-is@2.1.0:
     dependencies:

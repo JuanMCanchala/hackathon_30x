@@ -6,7 +6,7 @@
 import { and, desc, eq } from 'drizzle-orm';
 import { z } from 'zod';
 import { adaptations, approvals, topics } from '../db/schema';
-import { newId, notFound } from '../lib/common';
+import { iso, newId, notFound } from '../lib/common';
 import type { Deps } from './deps';
 import { topicDetail } from './topic';
 
@@ -62,7 +62,7 @@ const view = (row: typeof adaptations.$inferSelect): AdaptationView => ({
   id: row.id,
   topicId: row.topicId,
   variant: row.variant,
-  createdAt: row.createdAt,
+  createdAt: iso(row.createdAt)!,
 });
 
 export async function listAdaptations(deps: Deps, topicId: string): Promise<AdaptationView[]> {
@@ -205,7 +205,11 @@ export async function calendar(deps: Deps) {
     .from(approvals)
     .innerJoin(topics, eq(topics.id, approvals.topicId))
     .orderBy(approvals.scheduledFor, approvals.approvedAt);
-  return rows.map((r) => ({ ...r.entry, topicName: r.topicName }));
+  return rows.map((r) => ({
+    ...r.entry,
+    approvedAt: iso(r.entry.approvedAt)!,
+    topicName: r.topicName,
+  }));
 }
 
 export async function unschedule(deps: Deps, id: string) {

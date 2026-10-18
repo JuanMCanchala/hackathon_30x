@@ -1,5 +1,6 @@
 import { OpenAPIHono } from '@hono/zod-openapi';
-import { Scalar } from '@scalar/hono-api-reference';
+import { readFile } from 'node:fs/promises';
+import { join } from 'node:path';
 import { cors } from 'hono/cors';
 import { ZodError } from 'zod';
 import { AppError } from '../lib/common';
@@ -80,7 +81,11 @@ export function createApp(deps: Deps, options: AppOptions = {}) {
         'Qué temas de IA están despegando en redes, por qué funcionan y cómo los cuenta 30X. Reto Radar de contenido, Hackathon 30X.',
     },
   });
-  app.get('/docs', Scalar({ url: '/openapi.json', pageTitle: 'Radar 30X API' }));
+  // Routes are plain app.get/app.post, so the spec above lists none: the contract is written.
+  app.get('/docs', async (c) => {
+    const text = await readFile(join(deps.config.repoRoot, 'docs/api.md'), 'utf8');
+    return c.body(text, 200, { 'content-type': 'text/markdown; charset=utf-8' });
+  });
 
   return app;
 }

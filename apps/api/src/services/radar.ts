@@ -635,6 +635,7 @@ export async function radar(deps: Deps, filters: RadarFilters) {
   const creators = new Set(currentPieces.map((p) => `${p.platform}:${p.authorId}`));
   const sources = new Set(currentPieces.map((p) => p.platform));
   const scope = `${SCOPE[filters.platform] ?? filters.platform}${filters.region === 'latam' ? ', solo piezas en español' : ''}`;
+  const coverage = coverageOf(filters.platform, top.length, currentPieces);
 
   return {
     week: { start: current.start, end: current.end },
@@ -649,6 +650,22 @@ export async function radar(deps: Deps, filters: RadarFilters) {
     forming,
     windowsOpen,
     hiddenByAudience,
+    coverage,
     cost: await weekCost(deps, asOf),
   };
+}
+
+/**
+ * Why one platform fills fewer than 10 places: how many of its pieces this week belong to a
+ * topic. Null for every network, or when the top 10 is full.
+ */
+function coverageOf(platform: RadarFilters['platform'], shown: number, current: PieceRow[]) {
+  if (platform === 'all' || shown >= 10) return null;
+  const name = SCOPE[platform] ?? platform;
+  const pieces = new Set(current.filter((p) => p.platform === platform).map((p) => p.id)).size;
+  const reason =
+    pieces === 0
+      ? `Esta semana ninguna pieza de ${name} cae en un tema del radar: lo que capturamos de ${name} es poco frente a Bluesky, noticias y Hacker News.`
+      : `Solo ${pieces} ${pieces === 1 ? 'pieza' : 'piezas'} de ${name} caen esta semana en temas del radar: alcanzan para ${shown} ${shown === 1 ? 'tema' : 'temas'}, no para 10.`;
+  return { platform, pieces, reason };
 }

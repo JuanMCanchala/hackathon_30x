@@ -94,3 +94,13 @@ describe('startup', () => {
     expect(await importSnapshotIfEmpty(deps)).toBe(0);
   });
 });
+
+describe('the written contract', () => {
+  it('serves docs/api.md at /docs', async () => {
+    const { deps } = await testContainer();
+    const res = await createApp(deps).request('/docs');
+    expect(res.status).toBe(200);
+    expect(res.headers.get('content-type')).toContain('text/markdown');
+    expect(await res.text()).toContain('coverage');
+  });
+});

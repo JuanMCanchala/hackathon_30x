@@ -6,7 +6,7 @@
 import { desc, eq } from 'drizzle-orm';
 import { readPublicPost } from '@radar/sources';
 import { enrichments, items, itemTopics, sensorSubmissions, topics } from '../db/schema';
-import { AppError, newId } from '../lib/common';
+import { AppError, iso, newId } from '../lib/common';
 import { clusterLabels } from '../pipeline/cluster';
 import { enrichItems } from '../pipeline/enrich';
 import { saveItems } from '../pipeline/ingest';
@@ -114,7 +114,7 @@ export async function submissions(deps: Deps) {
     submittedBy: s.submittedBy,
     note: s.note,
     status: s.status,
-    createdAt: s.createdAt,
+    createdAt: iso(s.createdAt)!,
     piece: item
       ? {
           id: item.id,

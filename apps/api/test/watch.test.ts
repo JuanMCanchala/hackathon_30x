@@ -13,7 +13,8 @@ import {
   runWatch,
   watchDetail,
 } from '../src/services/watch';
-import { testContainer } from './helpers';
+import { createApp } from '../src/http/app';
+import { nonIsoDates, testContainer } from './helpers';
 
 const NOW = '2026-10-17T18:00:00Z';
 const hoursAgo = (h: number) => new Date(Date.parse(NOW) - h * 3_600_000).toISOString();
@@ -186,6 +187,17 @@ describe('Vigía with JEV', () => {
     expect(hits.find((h) => h.piece.id === 'bluesky:off')!.reasons.join(' ')).toContain(
       'JEV: es del tema',
     );
+  });
+
+  it('serves every Vigía timestamp as ISO 8601, which every browser parses', async () => {
+    const { deps, watch } = await setup(null);
+    await runWatch(deps, watch.id, { fetcher, pauseMs: 0 });
+    const app = createApp(deps);
+    const list = await (await app.request('/api/v1/watches')).json();
+    const detail = await (await app.request(`/api/v1/watches/${watch.id}`)).json();
+    expect((detail as { watch: { lastRunAt: string | null } }).watch.lastRunAt).not.toBeNull();
+    expect(nonIsoDates(list)).toEqual([]);
+    expect(nonIsoDates(detail)).toEqual([]);
   });
 
   it(`asks JEV about ${JEV_MAX_PIECES} pieces at most, the most engaged first`, async () => {

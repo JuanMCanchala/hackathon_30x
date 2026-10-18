@@ -43,7 +43,7 @@ import {
 import type { Config } from '../config';
 import { enrichments, items, llmUsage, watchHits, watchRuns, watches } from '../db/schema';
 import { JEV_USD_PER_MTOK, JevUnavailableError } from '../jev/client';
-import { AppError, conflict, newId, notFound } from '../lib/common';
+import { AppError, conflict, iso, newId, notFound } from '../lib/common';
 import { saveItems } from '../pipeline/ingest';
 import { AdaptationSchema, VOICE, type AdaptationContent } from './adapt';
 import { nowIso, type Deps } from './deps';
@@ -775,7 +775,7 @@ export async function listWatches(deps: Deps) {
     id: w.id,
     term: w.term,
     caught: Number(counts.find((c) => c.watchId === w.id)?.n ?? 0),
-    lastRunAt: w.lastRunAt,
+    lastRunAt: iso(w.lastRunAt),
     running: running.has(w.id),
   }));
 }
@@ -819,14 +819,15 @@ export async function watchDetail(deps: Deps, id: string) {
       windowHours: w.windowHours,
       everyMinutes: w.everyMinutes,
       budget: w.budget,
-      lastRunAt: w.lastRunAt,
+      // Timestamp columns read back as Postgres text, which Safari cannot parse.
+      lastRunAt: iso(w.lastRunAt),
       nextRunAt: next,
       running: running.has(w.id),
     },
     run: lastDone
       ? {
-          startedAt: lastDone.startedAt,
-          finishedAt: lastDone.finishedAt,
+          startedAt: iso(lastDone.startedAt),
+          finishedAt: iso(lastDone.finishedAt),
           report: lastDone.report as WatchReport | null,
           error: lastDone.error,
         }
@@ -836,7 +837,7 @@ export async function watchDetail(deps: Deps, id: string) {
       lang: hit.lang as WatchLang,
       score: hit.score,
       reasons: hit.reasons as string[],
-      foundAt: hit.foundAt,
+      foundAt: iso(hit.foundAt),
       capture: hit.capture as Capture | null,
       adaptation: hit.adaptation as AdaptationContent | null,
     })),

@@ -49,3 +49,16 @@ export async function testContainer(options: { now?: string; llmDir?: string } =
   });
   return createContainer(config, { ephemeral: true, clock, llm, embedder: wordEmbedder });
 }
+
+const DATE_LIKE = /^\d{4}-\d{2}-\d{2}[ T]\d{2}:\d{2}/;
+const ISO = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[+-]\d{2}:\d{2})$/;
+
+/** Every timestamp in a response that Safari's Date cannot read (ISO 8601 with a T only). */
+export function nonIsoDates(value: unknown, path = '$'): string[] {
+  if (typeof value === 'string')
+    return DATE_LIKE.test(value) && !ISO.test(value) ? [`${path}: ${value}`] : [];
+  if (Array.isArray(value)) return value.flatMap((v, i) => nonIsoDates(v, `${path}[${i}]`));
+  if (value && typeof value === 'object')
+    return Object.entries(value).flatMap(([k, v]) => nonIsoDates(v, `${path}.${k}`));
+  return [];
+}
