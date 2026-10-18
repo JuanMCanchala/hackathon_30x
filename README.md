@@ -8,7 +8,7 @@ Reto «Radar de contenido» de 30X, Hackathon 30X (octubre de 2026). Esta rama (
 
 > ¿Cuáles son los 10 temas de IA que más están creciendo esta semana en LinkedIn, por qué y cómo lo adaptamos?
 
-Hoy el equipo de medios de 30X paga servicios de scraping que cuestan miles de dólares al año y solo traen datos: no dicen por qué algo funcionó, si es una tendencia que empieza o una que ya todos copiaron, ni si le sirve a su audiencia. Radar responde las tres cosas en la primera pantalla, por menos de lo que cuesta un café a la semana.
+Hoy el equipo de medios de 30X paga servicios de scraping que cuestan miles de dólares al año y solo traen datos: no dicen por qué algo funcionó, si es una tendencia que empieza o una que ya todos copiaron, ni si le sirve a su audiencia. Radar responde las tres cosas en la primera pantalla, por unos USD 40 a 45 al mes.
 
 ## Lo que hace
 
@@ -122,7 +122,7 @@ LinkedIn, Instagram y TikTok no tienen una búsqueda pública. Radar llega a ell
 | LinkedIn  | reacciones, comentarios y seguidores de la empresa                        | compartidos e impresiones                      |
 | X         | likes y respuestas                                                        | retuits, citas y vistas                        |
 
-**Para buscar por palabra en Instagram, TikTok, LinkedIn y X** hace falta un proveedor de datos públicos. Con [treg.to](https://treg.to/catalog) (se paga por llamada: hashtags de Instagram a USD 0,0015, TikTok a USD 0,001, LinkedIn a USD 0,002) seguir 3 temas cada hora en dos idiomas cuesta unos USD 45 al mes; con Apify, unos USD 490.
+**Para buscar por palabra en Instagram, TikTok, LinkedIn y X** hace falta un proveedor de datos públicos. Con [treg.to](https://treg.to/catalog) (se paga por llamada: hashtags de Instagram a USD 0,0015, TikTok a USD 0,001, LinkedIn a USD 0,002) seguir 3 temas cada hora en dos idiomas suma unos USD 45 al mes al costo base; con Apify, unos USD 490.
 
 ## Quién más lo hace
 
