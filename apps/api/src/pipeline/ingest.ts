@@ -78,7 +78,9 @@ export async function saveItems(deps: Deps, raws: RawItem[], viaSensor = false):
           publishedAt: sql`case when ${items.publishedApprox} and not excluded.published_approx then excluded.published_at else ${items.publishedAt} end`,
           publishedApprox: sql`${items.publishedApprox} and excluded.published_approx`,
           viaSensor: sql`${items.viaSensor} or excluded.via_sensor`,
-          lastSeenAt: sql`greatest(excluded.last_seen_at, ${items.lastSeenAt})`,
+          // Vigía and the sensor read pieces on demand: they must not move the capture's end,
+          // which is where the radar's week ends (asOfOf).
+          lastSeenAt: sql`case when excluded.via_sensor or excluded.query like 'vigia:%' then ${items.lastSeenAt} else greatest(excluded.last_seen_at, ${items.lastSeenAt}) end`,
         },
       });
     await deps.db

@@ -9,6 +9,8 @@ import { clusterLabels, nameTopics } from '../src/pipeline/cluster';
 import { enrichPending } from '../src/pipeline/enrich';
 import { saveItems } from '../src/pipeline/ingest';
 import { radar } from '../src/services/radar';
+import { watchSchedulerEnabled } from '../src/services/watch';
+import { loadConfig } from '../src/config';
 import { topicDetail } from '../src/services/topic';
 import { testContainer } from './helpers';
 
@@ -212,5 +214,39 @@ describe('the radar, from pieces to the calendar', () => {
     expect(detail.why.narrative).toBe('Abren con una cifra.');
     const weeks = await deps.db.select({ week: analyses.week }).from(analyses);
     expect(weeks.some((w) => w.week !== '2026-09-01')).toBe(true);
+  });
+
+  it('keeps the week and its topics when Vigía and the sensor save pieces later', async () => {
+    const deps = await seeded();
+    const filters = { platform: 'all', region: 'global', untouched: false } as const;
+    const before = await radar(deps, filters);
+    const later = '2026-10-19T12:00:00Z';
+    const seen = post('n0', 'creator0', 'Sora 2 genera 3 videos en 1 minuto (0)', 1, 900);
+    const found = post('v1', 'someone', 'Sora 2 is wild', 0, 50);
+    await saveItems(deps, [
+      { ...seen, query: 'vigia:sora', capturedAt: later },
+      { ...found, query: 'vigia:sora', capturedAt: later },
+    ]);
+    await saveItems(
+      deps,
+      [{ ...post('x1', 'fan', 'Sora 2 en mi feed', 0, 5), capturedAt: later }],
+      true,
+    );
+    await saveItems(deps, [{ ...seen, capturedAt: later }], true);
+    const after = await radar(deps, filters);
+    expect(after.week).toEqual(before.week);
+    expect(after.topics.map((t) => t.id)).toEqual(before.topics.map((t) => t.id));
+  });
+
+  it('starts the watch scheduler outside the demo, or when asked for', () => {
+    const config = (env: Record<string, string>) => loadConfig({ ...env });
+    expect(watchSchedulerEnabled(config({ DEMO_MODE: 'true' }))).toBe(false);
+    expect(watchSchedulerEnabled(config({ DEMO_MODE: 'true', WATCH_SCHEDULER: 'true' }))).toBe(
+      true,
+    );
+    expect(watchSchedulerEnabled(config({ DEMO_MODE: 'false' }))).toBe(true);
+    expect(watchSchedulerEnabled(config({ DEMO_MODE: 'false', WATCH_SCHEDULER: 'false' }))).toBe(
+      false,
+    );
   });
 });

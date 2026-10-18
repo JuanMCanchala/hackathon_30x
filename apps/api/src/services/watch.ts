@@ -40,6 +40,7 @@ import {
   sleep,
   type Fetcher,
 } from '@radar/sources';
+import type { Config } from '../config';
 import { enrichments, items, llmUsage, watchHits, watchRuns, watches } from '../db/schema';
 import { JEV_USD_PER_MTOK, JevUnavailableError } from '../jev/client';
 import { AppError, newId, notFound } from '../lib/common';
@@ -712,6 +713,14 @@ export function runWatchInBackground(deps: Deps, id: string) {
 }
 
 /** Searches every followed topic when its turn comes. Returns a function that stops it. */
+/**
+ * The demo week is frozen: a scheduled search would add pieces to it on its own. «Buscar ahora»
+ * still runs a followed topic by hand.
+ */
+export function watchSchedulerEnabled(config: Config): boolean {
+  return config.WATCH_SCHEDULER ?? !config.DEMO_MODE;
+}
+
 export function startWatchScheduler(deps: Deps, everyMs = 60_000): () => void {
   let busy = false;
   const tick = async () => {

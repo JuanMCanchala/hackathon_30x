@@ -36,6 +36,8 @@ const EnvSchema = z.object({
   TYPESAFE_API_KEY: z.string().min(1).optional(),
   /** Seeds the database from SNAPSHOT_DIR when it is empty. */
   DEMO_MODE: bool.default(true),
+  /** Followed topics search on their own while the API runs. Default: on, off in the demo. */
+  WATCH_SCHEDULER: bool.optional(),
   /** Public URL of the web app. */
   PUBLIC_WEB_URL: z.string().url().default('http://localhost:3300'),
   LOG_LEVEL: z.enum(['debug', 'info', 'warn', 'error']).default('info'),

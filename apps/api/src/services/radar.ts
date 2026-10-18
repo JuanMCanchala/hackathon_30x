@@ -126,11 +126,15 @@ export function isUniform(p: Pick<PieceRow, 'platform' | 'approx' | 'query'>): b
   return p.platform === 'github' && (p.query ?? '').startsWith('created:');
 }
 
-/** The end of the newest capture: windows end here, so a frozen demo stays a full week. */
+/**
+ * The end of the newest capture: windows end here, so a frozen demo stays a full week. Pieces
+ * that only Vigía or the sensor brought in arrive on demand and do not move it.
+ */
 export async function asOfOf(deps: Deps): Promise<string> {
   const [row] = await deps.db
     .select({ at: sql<string | null>`max(${items.lastSeenAt})` })
-    .from(items);
+    .from(items)
+    .where(sql`not ${items.viaSensor} and coalesce(${items.query}, '') not like 'vigia:%'`);
   return row?.at ? new Date(row.at).toISOString() : deps.clock.now().toISOString();
 }
 

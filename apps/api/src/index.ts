@@ -3,7 +3,7 @@ import { loadConfig, loadDotEnv } from './config';
 import { createContainer } from './container';
 import { createApp } from './http/app';
 import { importSnapshotIfEmpty } from './services/snapshot';
-import { startWatchScheduler } from './services/watch';
+import { startWatchScheduler, watchSchedulerEnabled } from './services/watch';
 
 // A connection to a provider that times out can surface from undici as an 'error' event nobody
 // listens to («socket idle timeout» on an HTTP/2 stream). The request that used it already
@@ -33,7 +33,7 @@ async function main() {
     );
   });
   // Followed topics search again when their turn comes, while the API runs.
-  const stopWatches = startWatchScheduler(deps);
+  const stopWatches = watchSchedulerEnabled(config) ? startWatchScheduler(deps) : () => undefined;
   const shutdown = async () => {
     stopWatches();
     server.close();
