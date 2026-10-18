@@ -20,17 +20,20 @@
   --lavender: #c1b7ff;
   --lavender-tint: #e6e1ff;
   --on-lavender: #201515;
-  --paper: #fffdf9;
+  /* The app frame of the demo mockup: sand around, a warm-white panel, white cards. */
+  --paper: #f3eee5;
+  --panel: #fcfbf8;
+  --panel-rule: #e6dfd3;
   --sheet: #ffffff;
   --sheet-2: #f6f3ed;
   --fill: #eceae3;
   --ink: #201515;
   --ink-2: #5e5b52;
   --ink-3: #8a847c;
-  --rule: #e2ddd3;
+  --rule: #ece7df;
   --rule-strong: #c5c0b1;
-  --brand: #3b33a8;
-  --brand-strong: #2a2380;
+  --brand: #5a54d6;
+  --brand-strong: #3b33a8;
   --brand-tint: #e6e1ff;
   --on-brand: #ffffff;
   /* Languages: English and Portuguese in their own hues, Spanish in the signal orange. */
@@ -75,6 +78,8 @@
   --lavender-tint: #2e2850;
   --on-lavender: #201515;
   --paper: #140e0d;
+  --panel: #1a1311;
+  --panel-rule: #2e2421;
   --sheet: #201515;
   --sheet-2: #2a1f1d;
   --fill: #342825;
@@ -146,6 +151,8 @@
   --color-marker-strong: var(--marker-strong);
   --color-on-marker: var(--on-marker);
   --color-paper: var(--paper);
+  --color-panel: var(--panel);
+  --color-panel-rule: var(--panel-rule);
   --color-sheet: var(--sheet);
   --color-sheet-2: var(--sheet-2);
   --color-fill: var(--fill);
