@@ -137,18 +137,18 @@ Ninguna usa el idioma como señal (viral en inglés o portugués, ausente en esp
 
 ## Cuánto cuesta al mes
 
-Unos **USD 35 a 40 al mes** con 3 temas en Vigía buscados cada hora. Una suite de social listening cuesta entre USD 19.000 y 50.000 al año (medianas de Brandwatch, Meltwater y Sprout Social según Vendr), y no dice por qué funcionó una pieza.
+Unos **USD 40 a 45 al mes** con 3 temas en Vigía buscados cada hora, y menos desde la segunda semana, cuando la historia ya está leída. Una suite de social listening cuesta entre USD 19.000 y 50.000 al año (medianas de Brandwatch, Meltwater y Sprout Social según Vendr), y no dice por qué funcionó una pieza.
 
-| Concepto                                                                                                     | Supuesto                                                                                                          | USD al mes |
-| ------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- | ---------- |
-| Lectura de la semana (DeepSeek V4.1 Flash en Fireworks: etiquetar, agrupar, explicar y encaje por tema)      | unas 20.000 piezas por semana, unos 150 tokens de entrada y 150 de salida por pieza, a USD 0,22 y 0,66 por millón | ~ 12       |
-| Vigía: leer lo atrapado (láminas, subtítulos, idea en español)                                               | USD 0,006 por búsqueda medidos con «negocios»; 3 temas × 24 búsquedas × 30 días                                   | ~ 13       |
-| JEV en el embudo de Vigía                                                                                    | hasta 120 piezas por búsqueda × 470 tokens a USD 0,042 por millón; 2.160 búsquedas                                | ≤ 5        |
-| Fuentes abiertas (Bluesky, Google Noticias, Hacker News, GitHub, Hugging Face, YouTube público, newsletters) | lectura pública sin llave                                                                                         | 0          |
-| Hosting (API con disco para PGlite + web en Vercel)                                                          | plan de entrada de Railway o Render; Vercel Hobby                                                                 | ~ 5–10     |
-| Opcional: búsqueda por palabra en Instagram, TikTok y LinkedIn (treg.to)                                     | se paga por llamada                                                                                               | según uso  |
+| Concepto                                                                                                     | Supuesto                                                                                                                                           | USD al mes |
+| ------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| Lectura de la semana (DeepSeek V4.1 Flash en Fireworks: etiquetar, agrupar, explicar y encaje por tema)      | medido: USD 4,16 la semana del 10 al 17 de octubre por 71.354 piezas leídas, incluida la lectura liviana de 8 semanas de historia que no se repite | ≤ 18       |
+| Vigía: leer lo atrapado (láminas, subtítulos, idea en español)                                               | USD 0,006 por búsqueda medidos con «negocios»; 3 temas × 24 búsquedas × 30 días                                                                    | ~ 13       |
+| JEV en el embudo de Vigía                                                                                    | hasta 120 piezas por búsqueda × 470 tokens a USD 0,042 por millón; 2.160 búsquedas                                                                 | ≤ 5        |
+| Fuentes abiertas (Bluesky, Google Noticias, Hacker News, GitHub, Hugging Face, YouTube público, newsletters) | lectura pública sin llave                                                                                                                          | 0          |
+| Hosting (API con disco para PGlite + web en Vercel)                                                          | plan de entrada de Railway o Render; Vercel Hobby                                                                                                  | ~ 5–10     |
+| Opcional: búsqueda por palabra en Instagram, TikTok y LinkedIn (treg.to)                                     | se paga por llamada                                                                                                                                | según uso  |
 
-La pantalla Evaluación muestra el costo real de la semana medido en cada llamada al modelo; las cifras de la tabla son la estimación para el piloto.
+La pantalla Evaluación muestra el costo real de la semana medido en cada llamada al modelo. La lectura está medida; el resto de la tabla es la estimación para el piloto.
 
 ## Seguridad y datos
 
