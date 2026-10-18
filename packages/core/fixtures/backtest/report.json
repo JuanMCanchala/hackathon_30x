@@ -7,7 +7,8 @@
     "baselineWeeks": 4,
     "runupWeeks": 12,
     "evaluateFrom": { "wikipedia": "2024-11-04", "hn": "2024-11-04", "bluesky": "2025-01-06" },
-    "confirmWeeks": 4
+    "confirmWeeks": 4,
+    "burstP": 0.0001
   },
   "sources": ["wikipedia", "hn", "bluesky"],
   "waves": [
@@ -1099,6 +1100,18 @@
       }
     }
   ],
+  "withBurst": {
+    "waves": 18,
+    "detected": 18,
+    "early": 13,
+    "detectionRate": 1,
+    "medianLeadDays": 7,
+    "controls": 10,
+    "falseAlarms": 1,
+    "falseAlarmRate": 0.1,
+    "medianHnToWikipediaPeakDays": 0,
+    "medianHnToWikipediaSignalDays": 0
+  },
   "passed": true,
   "languageLag": {
     "fetchedAt": "2026-10-18T03:06:18.460Z",

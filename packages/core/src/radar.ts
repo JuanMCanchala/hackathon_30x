@@ -8,6 +8,7 @@
  */
 import {
   BASELINE_WEEKS,
+  burstAt,
   isSignal,
   liftAt,
   momentum,
@@ -58,6 +59,11 @@ export interface RadarTopic {
   lift: number;
   /** (lift − 1) as a percentage, rounded: «+140 %». */
   growthPct: number;
+  /**
+   * P(this week's creators | Poisson around the lift's baseline): how likely the growth is by
+   * chance. Shown next to the lift; it does not decide `signal` (see BURST_P).
+   */
+  burstP: number;
   momentum: number;
   signal: boolean;
   creators: number;
@@ -149,6 +155,7 @@ export function rankTopics(topics: readonly RadarTopicInput[], options: RankOpti
       stageReason: stage.reason,
       lift: round(stage.lift, 3),
       growthPct: Math.round((stage.lift - 1) * 100),
+      burstP: burstAt(creators),
       momentum: round(momentum(stage.lift, current.creators, current.platforms.length), 6),
       signal: isSignal(stage.lift, current.creators),
       creators: current.creators,

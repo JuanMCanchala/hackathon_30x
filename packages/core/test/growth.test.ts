@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   addWeeks,
+  burstAt,
   daysBetween,
   isSignal,
   liftAt,
@@ -43,6 +44,16 @@ describe('lift and momentum', () => {
     expect(liftAt([2, 2, 2, 2, 9])).toBe(10 / 3);
     expect(liftAt([0, 0, 0, 0, 0])).toBe(1);
     expect(liftAt([5])).toBe(6);
+  });
+
+  it('asks how likely this week is as Poisson noise around the same baseline', () => {
+    // P(X ≥ 9 | mean 2): nine voices where two were usual is a burst, not noise.
+    expect(burstAt([2, 2, 2, 2, 9])).toBeCloseTo(0.0002374473282610312, 12);
+    expect(burstAt([2, 2, 2, 2, 2])).toBeGreaterThan(0.3);
+    expect(burstAt([1, 1, 2, 2, 4, 0], 4)).toBeCloseTo(0.06564245437845018, 12);
+    expect(burstAt([0, 0, 0, 0, 0])).toBe(1);
+    expect(burstAt([5])).toBe(0);
+    expect(burstAt([], 0)).toBe(1);
   });
 
   it('needs 1.8× and three voices to call it a signal', () => {

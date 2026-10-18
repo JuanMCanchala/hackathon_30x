@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { clamp, logistic, mean, median, percentile, round, sum } from '../src';
+import { clamp, logistic, mean, median, percentile, poissonTail, round, sum } from '../src';
 
 describe('stats', () => {
   it('handles empty inputs as quiet, not as errors', () => {
@@ -30,5 +30,20 @@ describe('stats', () => {
     expect(logistic(0)).toBe(0.5);
     expect(logistic(10, 1, 10)).toBe(0.5);
     expect(logistic(100)).toBeCloseTo(1);
+  });
+
+  it('gives the Poisson upper tail, also for large counts', () => {
+    expect(poissonTail(0, 3)).toBe(1);
+    expect(poissonTail(1, 2)).toBeCloseTo(1 - Math.exp(-2), 12);
+    expect(poissonTail(5, 1)).toBeCloseTo(0.00365984682734366, 12);
+    expect(poissonTail(4, 1.5)).toBeCloseTo(0.06564245437845018, 12);
+    expect(poissonTail(3, 0)).toBe(0);
+    expect(poissonTail(0, 0)).toBe(1);
+    // Page views run in the tens of thousands: e^−λ underflows there, the tail must not.
+    expect(poissonTail(10_000, 10_000)).toBeGreaterThan(0.5);
+    expect(poissonTail(10_000, 10_000)).toBeLessThan(0.51);
+    expect(poissonTail(11_000, 10_000)).toBeGreaterThan(0);
+    expect(poissonTail(11_000, 10_000)).toBeLessThan(1e-15);
+    expect(poissonTail(9_000, 10_000)).toBeGreaterThan(1 - 1e-15);
   });
 });

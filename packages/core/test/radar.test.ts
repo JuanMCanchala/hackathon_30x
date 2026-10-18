@@ -72,6 +72,13 @@ describe('rankTopics', () => {
     expect(rising.series).toHaveLength(12);
   });
 
+  it('gives each topic its Poisson burst p next to the lift', () => {
+    const byId = new Map(radar.all.map((t) => [t.id, t]));
+    // 30 voices where 2.25 were usual: far beyond noise. A flat 8 is about a coin flip.
+    expect(byId.get('rising')!.burstP).toBeLessThan(1e-15);
+    expect(byId.get('steady')!.burstP).toBeGreaterThan(0.4);
+  });
+
   it('keeps flat and falling topics out of the top, with their stage', () => {
     const byId = new Map(radar.all.map((t) => [t.id, t]));
     expect(byId.get('steady')!.momentum).toBe(0);

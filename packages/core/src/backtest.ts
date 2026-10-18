@@ -6,11 +6,15 @@
  *
  * History here is volume (Wikipedia page views, Hacker News stories, Bluesky posts), not distinct
  * creators. Volume stands in for creators, with the same lift formula and the same thresholds as
- * the live radar (growth.ts); nothing is tuned to these series.
+ * the live radar (growth.ts); nothing is tuned to these series. The report also gives the same
+ * rule with a Poisson burst check on top of the lift (BURST_P, after Kleinberg 2002), for
+ * comparison only: it does not decide detection.
  */
 import {
   addWeeks,
   BASELINE_WEEKS,
+  BURST_P,
+  burstAt,
   daysBetween,
   liftAt,
   MIN_CREATORS,
@@ -155,6 +159,7 @@ export interface BacktestReport {
     runupWeeks: number;
     evaluateFrom: Record<BacktestSource, string>;
     confirmWeeks: number;
+    burstP: number;
   };
   /** Sources measured on every control, the only ones used, so waves and controls are judged alike. */
   sources: BacktestSource[];
@@ -163,20 +168,28 @@ export interface BacktestReport {
   summary: BacktestSummary;
   /** The same backtest under the other rule, for comparison. */
   alternatives: { rule: DetectionRule; summary: BacktestSummary }[];
+  /** The same rule when each signal must also pass the Poisson burst check (BURST_P). */
+  withBurst: BacktestSummary;
   passed: boolean;
 }
 
 /**
  * The weeks in which a series raises a signal, judged as of each week: only the previous
- * `BASELINE_WEEKS` feed the baseline, so there is no look-ahead.
+ * `BASELINE_WEEKS` feed the baseline, so there is no look-ahead. With `maxBurstP`, a week also
+ * needs its Poisson tail (burstAt) below it; by default that check is off.
  */
-export function signalWeeks(points: readonly Point[], from = ''): string[] {
+export function signalWeeks(points: readonly Point[], from = '', maxBurstP = Infinity): string[] {
   const values = points.map((p) => p.value);
   const weeks: string[] = [];
   for (let i = BASELINE_WEEKS; i < points.length; i += 1) {
     const week = points[i]!.date;
     if (week < from) continue;
-    if (liftAt(values, i) >= SIGNAL_LIFT && values[i]! >= MIN_CREATORS) weeks.push(week);
+    if (
+      liftAt(values, i) >= SIGNAL_LIFT &&
+      values[i]! >= MIN_CREATORS &&
+      burstAt(values, i) < maxBurstP
+    )
+      weeks.push(week);
   }
   return weeks;
 }
@@ -202,7 +215,11 @@ function seriesOf(file: BacktestSeriesFile, source: BacktestSource): Point[] | u
   return file[source]?.weekly;
 }
 
-function trace(file: BacktestSeriesFile, source: BacktestSource): SourceTrace | null {
+function trace(
+  file: BacktestSeriesFile,
+  source: BacktestSource,
+  maxBurstP: number,
+): SourceTrace | null {
   const points = seriesOf(file, source);
   if (!points?.length) return null;
   const event = file.kind === 'wave' && file.event ? weekOf(file.event) : null;
@@ -211,7 +228,7 @@ function trace(file: BacktestSeriesFile, source: BacktestSource): SourceTrace | 
     : peakOf(points);
   return {
     source,
-    signalWeeks: signalWeeks(points, EVALUATE_FROM[source]),
+    signalWeeks: signalWeeks(points, EVALUATE_FROM[source], maxBurstP),
     peakWeek: peak.week,
     peakValue: peak.value,
   };
@@ -247,8 +264,11 @@ export function evaluateWave(
   file: BacktestSeriesFile,
   sources: readonly BacktestSource[],
   rule: DetectionRule = 'confirmed',
+  maxBurstP = Infinity,
 ): WaveResult {
-  const traces = sources.map((s) => trace(file, s)).filter((t): t is SourceTrace => t !== null);
+  const traces = sources
+    .map((s) => trace(file, s, maxBurstP))
+    .filter((t): t is SourceTrace => t !== null);
   const bySource = new Map(traces.map((t) => [t.source, t]));
   const peakSource = PEAK_PREFERENCE.find((s) => bySource.get(s)?.peakWeek) ?? null;
   const peakWeek = peakSource ? bySource.get(peakSource)!.peakWeek : null;
@@ -285,8 +305,11 @@ export function evaluateControl(
   file: BacktestSeriesFile,
   sources: readonly BacktestSource[],
   rule: DetectionRule = 'confirmed',
+  maxBurstP = Infinity,
 ): ControlResult {
-  const traces = sources.map((s) => trace(file, s)).filter((t): t is SourceTrace => t !== null);
+  const traces = sources
+    .map((s) => trace(file, s, maxBurstP))
+    .filter((t): t is SourceTrace => t !== null);
   const alarms = topicSignals(traces, rule);
   return { id: file.id, name: file.name, falseAlarm: alarms.length > 0, alarms, sources: traces };
 }
@@ -333,15 +356,16 @@ function evaluateAll(
   files: readonly BacktestSeriesFile[],
   sources: readonly BacktestSource[],
   rule: DetectionRule,
+  maxBurstP = Infinity,
 ) {
   const sorted = [...files].sort((a, b) => a.id.localeCompare(b.id));
   const waves = sorted
     .filter((f) => f.kind === 'wave')
-    .map((f) => evaluateWave(f, sources, rule))
+    .map((f) => evaluateWave(f, sources, rule, maxBurstP))
     .filter((w) => w.sources.length > 0);
   const controls = sorted
     .filter((f) => f.kind === 'control')
-    .map((f) => evaluateControl(f, sources, rule));
+    .map((f) => evaluateControl(f, sources, rule, maxBurstP));
   return { waves, controls, summary: summarize(waves, controls) };
 }
 
@@ -363,12 +387,14 @@ export function runBacktest(
       runupWeeks: RUNUP_WEEKS,
       evaluateFrom: EVALUATE_FROM,
       confirmWeeks: CONFIRM_WEEKS,
+      burstP: BURST_P,
     },
     sources,
     waves: main.waves,
     controls: main.controls,
     summary: s,
     alternatives: [{ rule: other, summary: evaluateAll(files, sources, other).summary }],
+    withBurst: evaluateAll(files, sources, rule, BURST_P).summary,
     passed:
       s.waves > 0 &&
       s.detectionRate >= GATE.minDetectionRate &&
@@ -408,6 +434,10 @@ export function describeBacktest(report: BacktestReport): string[] {
       `Con ${RULE_NAME[alt.rule]}: ${a.detected} de ${a.waves} olas a tiempo, anticipación mediana de ${a.medianLeadDays === null ? '—' : days(a.medianLeadDays)}, y ${a.falseAlarms} de ${a.controls} temas estables con falsa alarma.`,
     );
   }
+  const wb = report.withBurst;
+  lines.push(
+    `Con la prueba de Poisson además del lift (p < ${String(report.params.burstP).replace('.', ',')}): ${wb.detected} de ${wb.waves} olas a tiempo, anticipación mediana de ${wb.medianLeadDays === null ? '—' : days(wb.medianLeadDays)}, y ${wb.falseAlarms} de ${wb.controls} temas estables con falsa alarma.`,
+  );
   if (s.medianHnToWikipediaSignalDays !== null) {
     lines.push(
       `Hacker News se movió ${days(s.medianHnToWikipediaSignalDays)} antes que Wikipedia (mediana de la primera señal de cada una).`,

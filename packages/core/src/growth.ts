@@ -4,7 +4,7 @@
  * detector counts unique posters for the same reason, and its cutoff of 1.8 times the recent level
  * gave about 92 % precision (LLM-Enhanced Topical Trend Detection, 2026).
  */
-import { median, mean } from './stats';
+import { median, mean, poissonTail } from './stats';
 import type { Platform } from './types';
 
 const DAY_MS = 86_400_000;
@@ -14,6 +14,13 @@ const WEEK_MS = 7 * DAY_MS;
 export const BASELINE_WEEKS = 4;
 /** Current creators ÷ their recent level at or above which a topic is moving. */
 export const SIGNAL_LIFT = 1.8;
+/**
+ * A week is a burst when P(X ≥ this week | Poisson baseline) falls below this: about 1 in 10 000
+ * by chance, so roughly 100 weeks × 3 sources leave a stable topic a 3 % chance of one false
+ * burst. Reported next to the lift, not part of the signal: it only bites on small counts (on page
+ * views any lift of 1.8 has p ≈ 0), and in the backtest it cost lead time for one false alarm.
+ */
+export const BURST_P = 1e-4;
 /** Fewer voices than this is an anecdote, not a trend. */
 export const MIN_CREATORS = 3;
 /** Creators at which the confidence in a lift reaches 63 % (1 − e⁻¹). */
@@ -240,6 +247,22 @@ export function liftAt(
   if (index < 0 || index >= values.length) return 1;
   const previous = values.slice(Math.max(0, index - baselineWeeks), index);
   return (values[index]! + 1) / (mean(previous) + 1);
+}
+
+/**
+ * How surprising a week is as noise: P(X ≥ value) with X ~ Poisson(mean of the same baseline
+ * the lift uses). Small means a burst, the reading of Kleinberg's burst detection (2002, «Bursty
+ * and hierarchical structure in streams»). The lift says how much a topic grew; this says how
+ * unlikely that growth is by chance, which a lift of 3 on 3 voices and on 300 do not share.
+ */
+export function burstAt(
+  values: readonly number[],
+  index = values.length - 1,
+  baselineWeeks = BASELINE_WEEKS,
+): number {
+  if (index < 0 || index >= values.length) return 1;
+  const previous = values.slice(Math.max(0, index - baselineWeeks), index);
+  return poissonTail(values[index]!, mean(previous));
 }
 
 /** A topic is moving when it stands 1.8 times above its recent level with at least 3 voices. */

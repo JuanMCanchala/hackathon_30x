@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   addWeeks,
+  BURST_P,
   describeBacktest,
   topicSignals,
   peakOf,
@@ -55,6 +56,13 @@ describe('signalWeeks', () => {
   it('ignores weeks before the evaluation starts', () => {
     expect(signalWeeks(series(wave(10, 2000)), addWeeks(START, 30))).toEqual([]);
   });
+
+  it('drops a lift that Poisson noise explains only when the burst check is on', () => {
+    // 3, 3, 3, 3 then 7: twice the level (lift 2), but P(X ≥ 7 | 3) is about 3 %.
+    const small = [3, 3, 3, 3, 7].map((value, k) => ({ date: addWeeks(START, k), value }));
+    expect(signalWeeks(small)).toEqual([addWeeks(START, 4)]);
+    expect(signalWeeks(small, '', BURST_P)).toEqual([]);
+  });
 });
 
 describe('topicSignals', () => {
@@ -105,6 +113,15 @@ describe('runBacktest', () => {
   it('measures how far the technical lane runs ahead', () => {
     expect(report.waves[0]!.hnToWikipediaPeakDays).toBe(0);
     expect(report.summary.medianHnToWikipediaSignalDays).toBe(0);
+    // Same shapes, but Hacker News has 100× fewer counts: the burst check waits for more
+    // evidence there, so with it Hacker News never moves first.
+    expect(report.withBurst.medianHnToWikipediaSignalDays).toBeLessThan(0);
+  });
+
+  it('reports the same rule with the Poisson check, for comparison only', () => {
+    expect(report.params.burstP).toBe(BURST_P);
+    expect(report.withBurst).toMatchObject({ waves: 2, detected: 2, falseAlarms: 0 });
+    expect(describeBacktest(report).join('\n')).toContain('Con la prueba de Poisson');
   });
 
   it('only uses sources every control has, so waves and controls are judged alike', () => {
