@@ -193,11 +193,13 @@ Sin llave, `LLM_MODE=replay` reproduce las respuestas grabadas y `data/snapshot`
 
 La API va en Railway y la web en Vercel.
 
+**En vivo:** la web en <https://ondai.vercel.app> (la landing en `/` y la app en `/radar`) y la API en <https://api-production-d4093.up.railway.app/api/v1/health>.
+
 **API (Railway)**
 
 - Al menos 1 GB de memoria: la carga de la semana congelada (388.249 filas) llega a cerca de 1 GB.
 - Un volumen montado en la ruta de `DATA_DIR`, para que la base no se vuelva a cargar en cada despliegue.
-- Build: `pnpm install && pnpm --filter @radar/api build`. Start: `pnpm --filter @radar/api start`.
+- Build y arranque en `railway.json`; Railpack los toma de `RAILPACK_BUILD_CMD=pnpm --filter @radar/api build` y `RAILPACK_START_CMD=pnpm --filter @radar/api start`.
 - Healthcheck en `/api/v1/health` con 120 s de espera. La API escucha de inmediato: el healthcheck responde mientras carga la semana (unos 30 s en frío) y el resto de rutas responde 503 con `{"error":{"code":"loading"}}` hasta que termina. Si un reinicio corta la carga, el siguiente arranque la completa.
 - Variables: `DATA_DIR` igual a la ruta donde se montó el volumen (por ejemplo `/data`; sin ella la base queda en el disco efímero del contenedor), `DEMO_MODE=true`, `LLM_MODE=auto`, `FIREWORKS_API_KEY`, `TYPESAFE_API_KEY`, `ADMIN_TOKEN` (16 caracteres o más, por ejemplo `openssl rand -hex 24`) y `PUBLIC_WEB_URL` (la URL de Vercel). En la demo Vigía no busca solo, para que la semana no se mueva; `WATCH_SCHEDULER=true` lo enciende.
 

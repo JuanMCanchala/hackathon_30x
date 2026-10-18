@@ -37,3 +37,5 @@ data/capture.log
 # recorded model reads of every piece: large, regenerated from the snapshot when needed
 data/llm-cache/enrich/
 data/llm-cache/enrich-light/
+.vercel
+.env*
