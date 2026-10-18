@@ -7,13 +7,14 @@ import { BROWSER_UA, type Fetcher } from './http';
 import { parsers } from './parse';
 import type { CaptureRecord } from './types';
 
-export type SearchLang = 'en' | 'pt' | 'es';
+export type SearchLang = 'en' | 'pt' | 'es' | 'hi';
 export type SearchSource = 'youtube' | 'bluesky' | 'hn';
 
 const ACCEPT: Record<SearchLang, string> = {
   en: 'en-US,en;q=0.9',
   pt: 'pt-BR,pt;q=0.9',
   es: 'es-419,es;q=0.9',
+  hi: 'hi-IN,hi;q=0.9,en;q=0.5',
 };
 /**
  * Where YouTube searches each language. Results change by country, and English also runs from
@@ -26,6 +27,7 @@ const YOUTUBE_REGIONS: Record<SearchLang, { region: string; params: string }[]> 
   ],
   pt: [{ region: 'BR', params: 'hl=pt-BR&gl=BR' }],
   es: [{ region: 'CO', params: 'hl=es-419&gl=CO' }],
+  hi: [{ region: 'IN', params: 'hl=hi&gl=IN' }],
 };
 /** YouTube's upload-date filters: today and this week. */
 const YOUTUBE_TODAY = 'EgIIAg%253D%253D';

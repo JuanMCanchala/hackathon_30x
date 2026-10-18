@@ -1,14 +1,14 @@
 /**
- * English, Portuguese or Spanish for a piece: the platform's own tag first (Bluesky's `langs`),
+ * English, Portuguese, Spanish or Hindi for a piece: the platform's own tag first (Bluesky's `langs`),
  * then ELD's n-gram detector limited to the three, then core's word list. Lives here, not in
  * core, so core stays free of a 1.6 MB model.
  */
 import { eld } from 'eld/small';
 import { guessLang, type ScreenLang } from '@radar/core';
 
-eld.setLanguageSubset(['en', 'es', 'pt']);
+eld.setLanguageSubset(['en', 'es', 'pt', 'hi']);
 
-const LANGS = new Set<string>(['en', 'es', 'pt']);
+const LANGS = new Set<string>(['en', 'es', 'pt', 'hi']);
 
 export function langOf(piece: {
   lang?: string | null;

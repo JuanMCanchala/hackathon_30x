@@ -8,12 +8,13 @@
 import type { Platform } from './types';
 import { percentile } from './stats';
 
-export type ScreenLang = 'en' | 'pt' | 'es';
+export type ScreenLang = 'en' | 'pt' | 'es' | 'hi';
 
 export const SCREEN_LANG_COPY: Record<ScreenLang, string> = {
   en: 'inglés',
   pt: 'portugués',
   es: 'español',
+  hi: 'hindi',
 };
 
 /** In the order they apply: a piece stops at the first one it fails. */
@@ -134,7 +135,7 @@ export function mentions(text: string, terms: readonly string[]): string | null 
   return null;
 }
 
-const WORDS: Record<ScreenLang, ReadonlySet<string>> = {
+const WORDS: Record<Exclude<ScreenLang, 'hi'>, ReadonlySet<string>> = {
   en: new Set(
     'the and of to is are for with that this you your how what it on be will from they we have has why about can'.split(
       ' ',
@@ -157,9 +158,13 @@ const WORDS: Record<ScreenLang, ReadonlySet<string>> = {
  * only one of the three has, plus spelling cues (ção / ción, ñ, ã, ê). Null when it cannot tell.
  */
 export function guessLang(text: string): ScreenLang | null {
+  // Hindi is written in Devanagari: its script says it before any word list.
+  const devanagari = text.match(/[\u0900-\u097f]/g)?.length ?? 0;
+  const letters = text.match(/\p{L}/gu)?.length ?? 0;
+  if (devanagari >= 6 && devanagari >= letters * 0.3) return 'hi';
   const lower = text.toLowerCase();
   const tokens = lower.match(/\p{L}+/gu) ?? [];
-  const score: Record<ScreenLang, number> = { en: 0, pt: 0, es: 0 };
+  const score: Record<Exclude<ScreenLang, 'hi'>, number> = { en: 0, pt: 0, es: 0 };
   for (const token of tokens)
     for (const lang of ['en', 'pt', 'es'] as const) if (WORDS[lang].has(token)) score[lang] += 1;
   score.pt += 2 * (lower.match(/ção|ções|[ãõçêâô]/g)?.length ?? 0);

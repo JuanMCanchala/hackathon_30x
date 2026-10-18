@@ -34,6 +34,10 @@ describe('guessLang', () => {
     expect(guessLang('Cómo la inteligencia artificial cambia los negocios en Colombia')).toBe('es');
   });
 
+  it('recognizes Hindi by its script', () => {
+    expect(guessLang('एआई से छोटे व्यापार कैसे बदल रहे हैं')).toBe('hi');
+  });
+
   it('says it does not know when there is too little to go on', () => {
     expect(guessLang('ChatGPT 6')).toBeNull();
   });

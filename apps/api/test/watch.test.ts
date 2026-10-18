@@ -62,6 +62,7 @@ const llm: Llm = {
         return {
           en: { queries: ['AI business'], match: ['business'] },
           pt: { queries: ['negócios IA'], match: ['negócios'] },
+          hi: { queries: ['व्यापार AI'], match: ['व्यापार'] },
         };
       if (request.name === 'watch-translate')
         return {

@@ -55,7 +55,7 @@ import { pieceView } from './topic';
 import { toSpanish } from './translate';
 
 /** The languages a followed topic catches: where viral content about AI usually starts. */
-export const WATCH_LANGS = ['en', 'pt'] as const;
+export const WATCH_LANGS = ['en', 'pt', 'hi'] as const;
 type WatchLang = (typeof WATCH_LANGS)[number];
 /** Slides read per carousel, at most: the first ten tell the story. */
 const MAX_SLIDES = 10;
@@ -65,12 +65,14 @@ const FEED_RUNS = 30;
 const PlanSchema = z.object({
   en: z.object({ queries: z.array(z.string()), match: z.array(z.string()) }),
   pt: z.object({ queries: z.array(z.string()), match: z.array(z.string()) }),
+  /** Absent in topics followed before Hindi was added. */
+  hi: z.object({ queries: z.array(z.string()), match: z.array(z.string()) }).optional(),
 });
 export type WatchPlan = z.infer<typeof PlanSchema>;
 
-const PLAN_SYSTEM = `Preparas la búsqueda de un tema que el equipo de contenido de 30X (escuela de negocios latinoamericana que enseña IA a ejecutivos) quiere seguir en inglés y en portugués: lo viral suele nacer en esos idiomas y llega días después al español.
+const PLAN_SYSTEM = `Preparas la búsqueda de un tema que el equipo de contenido de 30X (escuela de negocios latinoamericana que enseña IA a ejecutivos) quiere seguir en inglés, en portugués y en hindi: lo viral suele nacer en esos idiomas (India tiene muchos de los creadores de IA y negocios) y llega días después al español.
 
-Para cada idioma (en, pt) devuelve:
+Para cada idioma (en, pt, hi) devuelve:
 - queries: 3 búsquedas cortas (2 a 4 palabras), como las escribiría alguien en YouTube o Bluesky para encontrar lo más reciente y popular del tema. Una de ellas lo cruza con IA si el tema no la menciona.
 - match: de 5 a 10 palabras o frases en minúscula que una pieza tiene que mencionar para ser del tema: el tema traducido, sus plurales y sinónimos cercanos. Nada genérico como "ai", "new" o "2026".`;
 
@@ -252,7 +254,7 @@ async function collect(
   const sources: WatchSource[] = [];
   const raws: RawItem[] = [];
   for (const lang of w.langs as WatchLang[]) {
-    for (const query of plan[lang].queries.slice(0, 3)) {
+    for (const query of (plan[lang]?.queries ?? []).slice(0, 3)) {
       for (const request of searchRequests(query, lang, now, w.windowHours)) {
         const result = await runSearch(fetcher, request, now.toISOString());
         sources.push({
@@ -399,7 +401,7 @@ async function completeYoutube(
       return (
         lang !== null &&
         (langs as ScreenLang[]).includes(lang) &&
-        mentions(hookOf(r), plan[lang as WatchLang].match) !== null
+        mentions(hookOf(r), plan[lang as WatchLang]?.match ?? []) !== null
       );
     })
     .sort((a, b) => (b.metrics.views ?? 0) - (a.metrics.views ?? 0))
@@ -597,7 +599,7 @@ export async function runWatch(
     const result = screen(candidates, {
       now: now.toISOString(),
       langs: w.langs as WatchLang[],
-      match: { en: plan.en.match, pt: plan.pt.match },
+      match: { en: plan.en.match, pt: plan.pt.match, hi: plan.hi?.match ?? [] },
       windowHours: w.windowHours,
       budget: w.budget,
       seen,
@@ -901,7 +903,7 @@ export async function adaptHit(deps: Deps, watchId: string, itemId: string, vari
   const { hit, item } = row;
   const capture = (hit.capture ?? { es: null }) as Capture;
   const user = [
-    `Pieza [${item.id}] en ${hit.lang === 'pt' ? 'portugués' : 'inglés'}, ${item.platform}, formato ${item.format}, de ${item.authorName}.`,
+    `Pieza [${item.id}] en ${({ en: 'inglés', pt: 'portugués', hi: 'hindi' } as Record<string, string>)[hit.lang] ?? hit.lang}, ${item.platform}, formato ${item.format}, de ${item.authorName}.`,
     `Por qué la atrapamos: ${(hit.reasons as string[]).join(' ')}`,
     `Texto: ${(item.title ? `${item.title}\n` : '') + item.text.slice(0, 1500)}`,
     capture.slides?.length
