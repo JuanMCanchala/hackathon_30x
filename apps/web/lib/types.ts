@@ -213,17 +213,86 @@ export interface Adaptation {
   createdAt: string;
 }
 
+/** A piece on the calendar: from a topic's adaptation, a maqueta or a piece Vigía caught. */
 export interface CalendarEntry {
   id: string;
-  adaptationId: string;
-  topicId: string;
+  adaptationId: string | null;
+  topicId: string | null;
+  /** The topic's name; else the Vigía term; else the maqueta's name. */
   topicName: string;
   format: string;
   title: string;
   body: string;
+  /** YYYY-MM-DD. */
   scheduledFor: string;
+  /** 'HH:MM', Bogotá; null when the team did not pick an hour. */
+  scheduledTime: string | null;
   approvedBy: string;
   approvedAt: string;
+  maquetaId: string | null;
+  /** The maqueta's current design, for the thumbnail. */
+  maqueta: Maqueta | null;
+  origin: { kind: 'vigia'; watchId: string; itemId: string; term: string } | null;
+  /** Visitors change what they added; the demo week's own pieces need the admin token. */
+  removable: boolean;
+}
+
+/** What POST /api/v1/calendar schedules: one of the three sources. */
+export type ScheduleSource =
+  | { adaptationId: string; format: PieceFormat }
+  | { maquetaId: string }
+  | { watchId: string; itemId: string; format: PieceFormat };
+
+/** The formats an adaptation is written in (`Format` in components/adaptation-panel). */
+export type PieceFormat = 'linkedin' | 'carousel' | 'reel' | 'youtube';
+
+// ------------------------------------------------------------------ maquetas
+
+/** A maqueta's canvas: Instagram carousel 4:5, square post, story or reel 9:16, YouTube 16:9. */
+export type MaquetaFormat = 'carrusel' | 'post' | 'historia' | 'portada';
+export type MaquetaLayout = 'portada' | 'titular' | 'cifra' | 'cita' | 'lista' | 'cierre';
+
+export interface MaquetaStyle {
+  /** The preset it started from. */
+  preset: string;
+  bg: string;
+  ink: string;
+  accent: string;
+  soft: string;
+  font: 'hanken' | 'mono';
+  headline: 'grueso' | 'fino';
+  align: 'izquierda' | 'centro';
+  texture: 'ninguna' | 'ondas' | 'cuadricula' | 'avion';
+  brand: { name: string; handle: string; logo: boolean };
+}
+
+export interface MaquetaSlide {
+  layout: MaquetaLayout;
+  kicker: string;
+  title: string;
+  body: string;
+}
+
+export type MaquetaOrigin =
+  | { kind: 'topic'; topicId: string; adaptationId: string | null; name: string }
+  | { kind: 'vigia'; watchId: string; itemId: string; name: string };
+
+/** What POST and PUT /api/v1/maquetas take. */
+export interface MaquetaInput {
+  name: string;
+  format: MaquetaFormat;
+  style: MaquetaStyle;
+  slides: MaquetaSlide[];
+  origin: MaquetaOrigin | null;
+  /** The maqueta it was made from, when a designer reused one. */
+  basedOn: string | null;
+}
+
+export interface Maqueta extends MaquetaInput {
+  id: string;
+  createdAt: string;
+  updatedAt: string;
+  removable: boolean;
 }
 
 /** What an adaptation says, without its bookkeeping: also what a caught piece turns into. */
