@@ -109,3 +109,42 @@ describe('screen', () => {
     expect(result.decisions[0]).toMatchObject({ pass: false, failed: 'viral' });
   });
 });
+
+describe('screen with JEV', () => {
+  const offText = piece('yt:off', { text: 'A new way to run your company with AI agents' });
+
+  it('uses JEV for the topic when it judged the piece', () => {
+    const r = screen([offText], opts({ judged: new Map([['yt:off', { onTopic: 0.82, fit: 8 }]]) }));
+    const d = r.decisions[0]!;
+    expect(d.pass).toBe(true);
+    expect(d.reasons).toContain('JEV: es del tema (82 %).');
+    expect(d.reasons).toContain('Encaje con 30X: 8/10 (JEV).');
+    expect(d.fit).toBe(8);
+  });
+
+  it('JEV can reject a piece the keywords would pass', () => {
+    const r = screen(
+      [piece('yt:1')],
+      opts({ judged: new Map([['yt:1', { onTopic: 0.2, fit: 5 }]]) }),
+    );
+    const d = r.decisions[0]!;
+    expect(d.failed).toBe('tema');
+    expect(d.reasons).toEqual(['JEV: solo lo menciona de paso (20 %).']);
+  });
+
+  it('falls back to keywords for pieces JEV did not judge', () => {
+    const judged = new Map([['other', { onTopic: 0.9, fit: 9 }]]);
+    const withJev = screen([offText, piece('yt:1')], opts({ judged }));
+    const without = screen([offText, piece('yt:1')], opts());
+    expect(withJev.decisions).toEqual(without.decisions);
+  });
+
+  it('ranks better fit first among caught', () => {
+    const judged = new Map([
+      ['yt:low', { onTopic: 0.9, fit: 3 }],
+      ['yt:high', { onTopic: 0.9, fit: 9 }],
+    ]);
+    const r = screen([piece('yt:low'), piece('yt:high')], opts({ judged }));
+    expect(r.caught.map((d) => d.key)).toEqual(['yt:high', 'yt:low']);
+  });
+});
