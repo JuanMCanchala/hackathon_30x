@@ -10,6 +10,7 @@ import { z } from 'zod';
 import { median, type Platform } from '@radar/core';
 import { enrichments, items, itemTopics, runs, topics } from '../db/schema';
 import { AppError } from '../lib/common';
+import { UNTRUSTED_DATA } from '../llm/cached';
 import type { Deps } from './deps';
 import { radar, scoreTopics, weekCost, asOfOf } from './radar';
 import { REFERENCES, referenceOf } from './references';
@@ -187,7 +188,9 @@ Reglas:
 - En el texto nombra los temas por su nombre, nunca por su id. Pon el id exacto de cada tema que menciones (empieza con t_) solo en "refs".
 - Si la pregunta es por un uso (ventas, marketing, atención al cliente…), busca también en «Se están formando»: ahí están los temas que todavía no llegan a LinkedIn.
 - Lo viral sobre IA suele nacer en inglés o portugués y llegar después al español. Cuando un tema tiene «ventana abierta», dilo: es la oportunidad de adaptarlo primero.
-- "followUps": dos o tres preguntas útiles que el equipo podría hacer después.`;
+- "followUps": dos o tres preguntas útiles que el equipo podría hacer después.
+
+${UNTRUSTED_DATA}`;
 
 export async function askRadar(
   deps: Deps,

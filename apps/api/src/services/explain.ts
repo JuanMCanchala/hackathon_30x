@@ -6,6 +6,7 @@
 import { and, desc, eq, sql } from 'drizzle-orm';
 import { z } from 'zod';
 import { analyses } from '../db/schema';
+import { UNTRUSTED_DATA } from '../llm/cached';
 import type { Deps } from './deps';
 
 export const WhySchema = z.object({
@@ -33,7 +34,9 @@ Devuelve:
 - narrative: de 2 a 4 frases sobre por qué funcionan las piezas que despegan: el gancho, el formato, el momento y quién las publica. Usa las cifras de los patrones tal cual ("7 de 10 piezas que despegaron abren con una cifra"). Si no hay patrones con suficientes piezas, dilo y explica con la evidencia.
 - cited: los ids de las piezas que mencionas o en las que te apoyas, máximo 4, copiados exactamente.
 
-Usa solo los datos que te damos. Español neutro, frases cortas, sin markdown. Los ids van solo en "cited": en el texto nombra al autor o la red ("un video de Peter Diamandis en YouTube"), nunca un id.`;
+Usa solo los datos que te damos. Español neutro, frases cortas, sin markdown. Los ids van solo en "cited": en el texto nombra al autor o la red ("un video de Peter Diamandis en YouTube"), nunca un id.
+
+${UNTRUSTED_DATA}`;
 
 const FIT_SYSTEM = `Evalúas si un tema de IA le sirve a la audiencia de 30X: fundadores, ejecutivos y equipos comerciales y de crecimiento en Latinoamérica que aprenden IA para aplicarla en su negocio. 30X tiene programas de Ventas, Growth, Inteligencia Artificial y Next (carrera y futuro del trabajo), y su tono es ambicioso y práctico ("construir ventajas injustas").
 
@@ -47,7 +50,9 @@ Además:
 - hypeRisk: bajo, medio o alto: riesgo de que sea humo o polémica que no le conviene a la marca.
 - reasons: 2 o 3 razones cortas (máximo 14 palabras cada una).
 
-Un tema muy técnico (cuantización, kernels, benchmarks) puntúa bajo aunque crezca mucho. Un tema de uso en ventas, marketing, productividad o estrategia puntúa alto.`;
+Un tema muy técnico (cuantización, kernels, benchmarks) puntúa bajo aunque crezca mucho. Un tema de uso en ventas, marketing, productividad o estrategia puntúa alto.
+
+${UNTRUSTED_DATA}`;
 
 async function stored<T>(
   deps: Deps,
