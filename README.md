@@ -155,7 +155,7 @@ La pantalla Evaluación muestra el costo real de la semana medido en cada llamad
 ## Seguridad y datos
 
 - **Solo contenido público, sin iniciar sesión** en ninguna red: ni cuentas propias ni falsas, ni saltarse protecciones (el criterio de Meta contra Bright Data y hiQ contra LinkedIn).
-- **Datos personales (Ley 1581 de 2012):** se guarda el contenido público y el nombre público de su autor; nada de perfiles privados ni los nombres de quienes comentan. Cada pieza nueva se guarda sin los correos de su texto. La semana congelada de la demo es anterior a ese filtro y todavía trae unos 110 correos públicos copiados de descripciones de YouTube. Los teléfonos no se filtran: se confunden con cifras y fechas.
+- **Datos personales (Ley 1581 de 2012):** se guarda el contenido público y el nombre público de su autor; nada de perfiles privados ni los nombres de quienes comentan. Cada pieza se guarda sin los correos de su texto, también las de la semana congelada de la demo, que se limpian al cargarla (el archivo del snapshot es anterior al filtro y trae unos 110 correos públicos copiados de descripciones de YouTube). Los teléfonos no se filtran: se confunden con cifras y fechas.
 - **Secretos fuera del código:** las llaves (`FIREWORKS_API_KEY`, `TYPESAFE_API_KEY`, `APIFY_TOKEN`) solo se leen del entorno; `env.example` lista los nombres sin valores y ningún `.env` está en el repositorio.
 - **Errores sin llaves:** si JEV rechaza una llamada, el mensaje se guarda sin la llave aunque el servidor la repita.
 - **Nada se publica solo:** el radar propone y una persona del equipo aprueba cada pieza al calendario.
@@ -223,7 +223,7 @@ data/             semana congelada de la demo y respuestas grabadas del modelo
 - Instagram y X limitan las consultas por hora; la captura reintenta en la siguiente vuelta.
 - Reddit y el TikTok Creative Center cerraron su acceso público en 2026. Sin sesión, Reddit responde 403 y el Creative Center ya no entrega sus tendencias (probado el 17 de octubre de 2026). Por eso no están entre las fuentes.
 - El modelo puede etiquetar mal una pieza; el radar trabaja con miles, y cada tema muestra su evidencia para revisarla.
-- Solo se guarda contenido público y el nombre público de su autor, nunca perfiles privados. Las piezas nuevas se guardan sin correos; la semana congelada de la demo es anterior a ese filtro, y los teléfonos no se filtran.
+- Solo se guarda contenido público y el nombre público de su autor, nunca perfiles privados. Las piezas se guardan sin correos, también las de la semana congelada al cargarla; los teléfonos no se filtran.
 
 ## Qué sigue
 

@@ -22,7 +22,7 @@ const settled = (run: string, now: Date) => {
 // Personal data stays out of the base: YouTube descriptions often carry a contact email.
 // Phone numbers are not stripped: their patterns collide with counts, prices and dates.
 const EMAIL = /[\w.%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/g;
-const scrub = (text: string) => text.replace(EMAIL, '[email]');
+export const scrub = (text: string) => text.replace(EMAIL, '[email]');
 
 export function itemRow(raw: RawItem, seenAt: string) {
   const engagement = engagementOf(raw.metrics, raw.platform);

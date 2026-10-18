@@ -10,6 +10,7 @@ import { createGunzip, gzipSync } from 'node:zlib';
 import { eq, sql } from 'drizzle-orm';
 import type { PgTable } from 'drizzle-orm/pg-core';
 import * as schema from '../db/schema';
+import { scrub } from '../pipeline/ingest';
 import type { Deps } from './deps';
 
 /** In dependency order: a table only references tables before it. */
@@ -105,6 +106,11 @@ export async function importSnapshotIfEmpty(deps: Deps): Promise<number> {
     for await (const r of jsonLines(path)) {
       // A snapshot exported from an imported database carries the marker: it goes in last.
       if (name === 'runs' && r.id === IMPORTED.id) continue;
+      // Snapshots exported before the email filter still carry contact emails in piece text.
+      if (name === 'items') {
+        if (typeof r.text === 'string') r.text = scrub(r.text);
+        if (typeof r.title === 'string') r.title = scrub(r.title);
+      }
       batch.push(r);
       total += 1;
       if (batch.length === 500) await flush();

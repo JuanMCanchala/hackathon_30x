@@ -1,6 +1,7 @@
-import { mkdtempSync } from 'node:fs';
+import { mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { gunzipSync, gzipSync } from 'node:zlib';
 import { sql } from 'drizzle-orm';
 import { describe, expect, it } from 'vitest';
 import type { RawItem } from '@radar/core';
@@ -75,6 +76,25 @@ describe('startup', () => {
       loading: false,
     });
     expect((await app.request('/api/v1/radar')).status).toBe(200);
+  });
+
+  it('scrubs email addresses from a snapshot exported before the filter', async () => {
+    const dir = await snapshotDir();
+    const path = join(dir, 'items.jsonl.gz');
+    const rows = gunzipSync(readFileSync(path)).toString('utf8').split('\n');
+    const first = JSON.parse(rows[0]!) as { text: string; title: string | null };
+    rows[0] = JSON.stringify({
+      ...first,
+      text: 'Contacto: ana.perez@example.com',
+      title: 'x@y.co',
+    });
+    writeFileSync(path, gzipSync(rows.join('\n')));
+    const { deps } = await testContainer();
+    deps.config = { ...deps.config, SNAPSHOT_DIR: dir };
+    await importSnapshotIfEmpty(deps);
+    const texts = await deps.db.select({ text: items.text, title: items.title }).from(items);
+    expect(texts.some((r) => /@\w+\.\w/.test(`${r.text} ${r.title}`))).toBe(false);
+    expect(texts.some((r) => r.text === 'Contacto: [email]')).toBe(true);
   });
 
   it('finishes a snapshot import that a restart cut short, and loads it only once', async () => {
