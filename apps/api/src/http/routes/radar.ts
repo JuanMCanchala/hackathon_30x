@@ -61,11 +61,16 @@ export function registerRadarRoutes(
     );
   });
 
-  app.get('/api/v1/topics/:id', async (c) => {
-    const region = c.req.query('region') === 'latam' ? 'latam' : 'global';
-    const refresh = c.req.query('refresh') === '1';
-    return c.json(await topicDetail(deps, c.req.param('id'), { region }, { refresh }));
-  });
+  // ?refresh=1 writes the narrative and fit again with the paid model: it counts against the limit.
+  app.get(
+    '/api/v1/topics/:id',
+    (c, next) => (c.req.query('refresh') === '1' ? guards.paid(c, next) : next()),
+    async (c) => {
+      const region = c.req.query('region') === 'latam' ? 'latam' : 'global';
+      const refresh = c.req.query('refresh') === '1';
+      return c.json(await topicDetail(deps, c.req.param('id'), { region }, { refresh }));
+    },
+  );
 
   app.get('/api/v1/topics/:id/adaptations', async (c) =>
     c.json(await listAdaptations(deps, c.req.param('id'))),

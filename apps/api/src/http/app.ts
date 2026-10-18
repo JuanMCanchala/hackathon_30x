@@ -39,6 +39,13 @@ export function createApp(deps: Deps, options: AppOptions = {}) {
     if (error instanceof AppError) {
       return c.json({ error: { code: error.code, message: error.message } }, error.status);
     }
+    // c.req.json() on a body that is not JSON.
+    if (error instanceof SyntaxError) {
+      return c.json(
+        { error: { code: 'bad_request', message: 'El cuerpo de la solicitud no es JSON válido.' } },
+        400,
+      );
+    }
     if (error instanceof ZodError) {
       return c.json(
         {

@@ -110,4 +110,27 @@ describe('destructive and paid endpoints', () => {
     expect(await from('https://evil.example')).not.toBe('https://evil.example');
     expect(await from('http://localhost:3300')).toBe('http://localhost:3300');
   });
+
+  it('count a topic page that asks the model to write again against the same limit', async () => {
+    const { app } = await appWith({ DEMO_MODE: true });
+    const open = (refresh: boolean) =>
+      app.request(`/api/v1/topics/t_none${refresh ? '?refresh=1' : ''}`, {
+        headers: { 'x-forwarded-for': '203.0.113.9' },
+      });
+    for (let i = 0; i < 20; i++) expect((await open(true)).status).toBe(404);
+    expect((await open(true)).status).toBe(429);
+    // Reading the stored page stays free.
+    expect((await open(false)).status).toBe(404);
+  });
+
+  it('answer 400, not 500, to a body that is not JSON', async () => {
+    const { app } = await appWith({ DEMO_MODE: true });
+    const res = await app.request('/api/v1/calendar', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: '{not json',
+    });
+    expect(res.status).toBe(400);
+    expect(((await res.json()) as { error: { code: string } }).error.code).toBe('bad_request');
+  });
 });
