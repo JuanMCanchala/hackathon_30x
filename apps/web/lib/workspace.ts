@@ -41,7 +41,7 @@ export const DEFAULT_PROFILE: CompanyProfile = {
     { handle: '@crece30x', where: 'LinkedIn · cuenta propia' },
     { handle: '@andresbilbao', where: 'Instagram · fundador' },
   ],
-  watchLangs: ['Inglés', 'Portugués'],
+  watchLangs: ['Inglés', 'Portugués', 'Hindi'],
   publishLangs: ['Español'],
   markets: ['Colombia', 'México', 'Chile'],
 };
