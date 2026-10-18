@@ -155,7 +155,7 @@ La pantalla Evaluación muestra el costo real de la semana medido en cada llamad
 ## Seguridad y datos
 
 - **Solo contenido público, sin iniciar sesión** en ninguna red: ni cuentas propias ni falsas, ni saltarse protecciones (el criterio de Meta contra Bright Data y hiQ contra LinkedIn).
-- **Datos personales (Ley 1581 de 2012):** se guarda el contenido público y el nombre público de su autor; nada de correos, teléfonos, perfiles privados ni los nombres de quienes comentan.
+- **Datos personales (Ley 1581 de 2012):** se guarda el contenido público y el nombre público de su autor; nada de perfiles privados ni los nombres de quienes comentan. Cada pieza nueva se guarda sin los correos de su texto. La semana congelada de la demo es anterior a ese filtro y todavía trae unos 110 correos públicos copiados de descripciones de YouTube. Los teléfonos no se filtran: se confunden con cifras y fechas.
 - **Secretos fuera del código:** las llaves (`FIREWORKS_API_KEY`, `TYPESAFE_API_KEY`, `APIFY_TOKEN`) solo se leen del entorno; `env.example` lista los nombres sin valores y ningún `.env` está en el repositorio.
 - **Errores sin llaves:** si JEV rechaza una llamada, el mensaje se guarda sin la llave aunque el servidor la repita.
 - **Nada se publica solo:** el radar propone y una persona del equipo aprueba cada pieza al calendario.
@@ -222,4 +222,4 @@ data/             semana congelada de la demo y respuestas grabadas del modelo
 - Sin JEV, Vigía decide «del tema» por palabras clave en el gancho: rápido y sin costo, pero a veces deja pasar una pieza que solo menciona la palabra. Con JEV ese error baja, aunque JEV también se equivoca: cada decisión muestra su razón y su probabilidad para revisarla.
 - Instagram y X limitan las consultas por hora; la captura reintenta en la siguiente vuelta.
 - El modelo puede etiquetar mal una pieza; el radar trabaja con miles, y cada tema muestra su evidencia para revisarla.
-- Solo se guarda contenido público y el nombre público de su autor: nada de correos, teléfonos ni perfiles privados.
+- Solo se guarda contenido público y el nombre público de su autor, nunca perfiles privados. Las piezas nuevas se guardan sin correos; la semana congelada de la demo es anterior a ese filtro, y los teléfonos no se filtran.

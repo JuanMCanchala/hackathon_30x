@@ -19,6 +19,11 @@ const settled = (run: string, now: Date) => {
   return Number.isFinite(started) && now.getTime() - started > 20 * 60_000;
 };
 
+// Personal data stays out of the base: YouTube descriptions often carry a contact email.
+// Phone numbers are not stripped: their patterns collide with counts, prices and dates.
+const EMAIL = /[\w.%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/g;
+const scrub = (text: string) => text.replace(EMAIL, '[email]');
+
 export function itemRow(raw: RawItem, seenAt: string) {
   const engagement = engagementOf(raw.metrics, raw.platform);
   return {
@@ -33,8 +38,8 @@ export function itemRow(raw: RawItem, seenAt: string) {
     authorFollowers: raw.author.followers ?? null,
     publishedAt: raw.publishedAt,
     publishedApprox: raw.publishedApprox ?? false,
-    title: raw.title ?? null,
-    text: raw.text ?? '',
+    title: raw.title == null ? null : scrub(raw.title),
+    text: scrub(raw.text ?? ''),
     format: raw.format,
     lang: raw.lang ?? null,
     // Instagram reports fractional seconds (384.833); the column is whole seconds.
