@@ -43,7 +43,7 @@ export default function CalendarPage() {
         <Empty
           title="Todavía no hay nada aprobado"
           action={
-            <Link href="/" className="font-[600] text-brand hover:underline">
+            <Link href="/radar" className="font-[600] text-brand hover:underline">
               Elegir un tema del radar
             </Link>
           }

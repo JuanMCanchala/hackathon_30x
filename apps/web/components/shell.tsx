@@ -22,7 +22,7 @@ import { AskPanel, AskTrigger } from './ask-panel';
 import { Logo } from './brand';
 
 const NAV = [
-  { href: '/', label: 'Radar', icon: Waves },
+  { href: '/radar', label: 'Radar', icon: Waves },
   { href: '/vigia', label: 'Vigía', icon: Radar },
   { href: '/referentes', label: 'Referentes', icon: Users },
   { href: '/calendario', label: 'Calendario', icon: CalendarDays },
@@ -105,7 +105,9 @@ function ThemeSwitch() {
 }
 
 const isActive = (pathname: string, href: string) =>
-  href === '/' ? pathname === '/' || pathname.startsWith('/tema') : pathname.startsWith(href);
+  href === '/radar'
+    ? pathname.startsWith('/radar') || pathname.startsWith('/tema')
+    : pathname.startsWith(href);
 
 function NavLinks({ pathname, onNavigate }: { pathname: string; onNavigate?: () => void }) {
   return (
@@ -155,7 +157,7 @@ export function AppShell({ children }: { children: ReactNode }) {
     <div className="min-h-dvh">
       <header className="noche">
         <div className="mx-auto flex h-16 max-w-[1240px] items-center gap-3 px-4 sm:px-6">
-          <Link href="/" className="shrink-0 text-white" aria-label="Radar 30X, inicio">
+          <Link href="/radar" className="shrink-0 text-white" aria-label="Radar 30X, inicio">
             <Logo />
           </Link>
           <nav className="ml-4 hidden items-center gap-1 lg:flex" aria-label="Secciones">

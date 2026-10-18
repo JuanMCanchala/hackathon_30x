@@ -155,7 +155,7 @@ export default function TopicPage() {
         <Empty
           title="No encontramos ese tema"
           action={
-            <Link href="/" className="font-[600] text-brand">
+            <Link href="/radar" className="font-[600] text-brand">
               Volver al radar
             </Link>
           }
@@ -186,7 +186,7 @@ export default function TopicPage() {
     <Page className="grid gap-10">
       <header className="grid gap-4">
         <Link
-          href="/"
+          href="/radar"
           className="inline-flex w-fit items-center gap-1.5 text-[0.92rem] font-[600] text-brand hover:underline"
         >
           <ArrowLeft className="size-4" aria-hidden /> El radar de la semana

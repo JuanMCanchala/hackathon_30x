@@ -7,7 +7,7 @@ export default function NotFound() {
       <p className="text-ink-2">
         Puede que el enlace esté mal escrito o que el tema ya no esté en el radar.
       </p>
-      <Link href="/" className="font-[600] text-brand hover:underline">
+      <Link href="/radar" className="font-[600] text-brand hover:underline">
         Volver al radar de la semana
       </Link>
     </main>

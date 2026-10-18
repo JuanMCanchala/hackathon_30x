@@ -13,11 +13,16 @@ const config: NextConfig = {
   devIndicators: false,
   // The browser only ever talks to this origin; Next proxies the API.
   async rewrites() {
-    return [
-      { source: '/api/:path*', destination: `${API_URL}/api/:path*` },
-      { source: '/openapi.json', destination: `${API_URL}/openapi.json` },
-      { source: '/docs', destination: `${API_URL}/docs` },
-    ];
+    return {
+      // The OndAI landing is the front door; the app lives under /radar.
+      beforeFiles: [{ source: '/', destination: '/ondai.html' }],
+      afterFiles: [
+        { source: '/api/:path*', destination: `${API_URL}/api/:path*` },
+        { source: '/openapi.json', destination: `${API_URL}/openapi.json` },
+        { source: '/docs', destination: `${API_URL}/docs` },
+      ],
+      fallback: [],
+    };
   },
   async headers() {
     return [
