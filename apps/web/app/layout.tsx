@@ -41,7 +41,7 @@ export const viewport: Viewport = {
 };
 
 /** Applies the stored or system theme before the first paint (no flash). */
-const themeScript = `(function(){try{var t=localStorage.getItem('radar:theme')||'system';var d=t==='dark'||(t==='system'&&matchMedia('(prefers-color-scheme: dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light')}catch(e){}})();`;
+const themeScript = `(function(){try{var t=localStorage.getItem('radar:theme')||'light';var d=t==='dark'||(t==='system'&&matchMedia('(prefers-color-scheme: dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light')}catch(e){}})();`;
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (

@@ -5,8 +5,8 @@ import { useLayoutEffect, useRef, useState } from 'react';
 import { fmtInt, waveY } from './ui';
 import { LANGS, LANG_COPY, STAGE_COPY, type Lang, type RadarTopic, type Stage } from '@/lib/types';
 
-/** Language hues on the dark hero (dark in both themes). Spanish is cream: our language. */
-const SEA_LANG: Record<Lang, string> = { en: '#c1b7ff', pt: '#8fd8a3', es: '#fffdf9' };
+/** Language hues from the theme, so the hero reads on OndAI's cream and in dark mode. Spanish is ink: our language. */
+const LANE: Record<Lang, string> = { en: 'var(--lang-en)', pt: 'var(--lang-pt)', es: 'var(--ink)' };
 const STAGES: { stage: Stage; from: number; to: number }[] = [
   { stage: 'emergente', from: 0.04, to: 0.32 },
   { stage: 'crecimiento', from: 0.32, to: 0.56 },
@@ -111,14 +111,14 @@ export function LanguageWaves({
                 <path
                   d={`M${points.join(' L')}`}
                   fill="none"
-                  stroke={SEA_LANG[lang]}
-                  strokeOpacity={lang === 'es' ? 0.85 : 0.6}
+                  style={{ stroke: LANE[lang] }}
+                  strokeOpacity={lang === 'es' ? 0.75 : 0.55}
                   strokeWidth={lang === 'es' ? 2.6 : 2}
                 />
                 <text
                   x={4}
                   y={laneTop(i) + lane - 14}
-                  fill={SEA_LANG[lang]}
+                  style={{ fill: LANE[lang] }}
                   fontSize={narrow ? 11 : 13}
                   fontWeight={700}
                 >
@@ -133,8 +133,7 @@ export function LanguageWaves({
               x={xOf((s.from + s.to) / 2)}
               y={height - 8}
               textAnchor="middle"
-              fill="#ffffff"
-              fillOpacity={0.55}
+              style={{ fill: 'var(--ink-3)' }}
               fontSize={narrow ? 10.5 : 12}
               fontWeight={600}
             >
@@ -149,8 +148,8 @@ export function LanguageWaves({
                 key={`thread-${t.id}`}
                 points={pts.map((p) => `${p.x},${p.y}`).join(' ')}
                 fill="none"
-                stroke={open ? '#ff4f00' : '#ffffff'}
-                strokeOpacity={hover && hover !== t.id ? 0.12 : open ? 0.9 : 0.3}
+                style={{ stroke: open ? 'var(--marker)' : 'var(--ink)' }}
+                strokeOpacity={hover && hover !== t.id ? 0.1 : open ? 0.85 : 0.22}
                 strokeWidth={open ? 2.4 : 1.5}
                 strokeDasharray={open ? undefined : '3 4'}
               />
@@ -177,8 +176,10 @@ export function LanguageWaves({
                 cx={d.x}
                 cy={d.y}
                 r={radius}
-                fill={d.absent ? '#201515' : SEA_LANG[d.lang]}
-                stroke={d.absent ? SEA_LANG[d.lang] : '#201515'}
+                style={{
+                  fill: d.absent ? 'var(--sheet)' : LANE[d.lang],
+                  stroke: d.absent ? LANE[d.lang] : 'var(--sheet)',
+                }}
                 strokeWidth={d.absent ? 1.6 : 2.5}
                 strokeDasharray={d.absent ? '2 2' : undefined}
               />
@@ -186,7 +187,7 @@ export function LanguageWaves({
                 x={d.x}
                 y={d.y + 4}
                 textAnchor="middle"
-                fill={d.absent ? SEA_LANG[d.lang] : '#201515'}
+                style={{ fill: d.absent ? LANE[d.lang] : 'var(--sheet)' }}
                 fontSize={narrow ? 10 : 11.5}
                 fontWeight={800}
               >

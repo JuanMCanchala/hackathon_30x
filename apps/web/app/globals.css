@@ -20,8 +20,8 @@
   --lavender: #c1b7ff;
   --lavender-tint: #e6e1ff;
   --on-lavender: #201515;
-  --paper: #efebe4;
-  --sheet: #fffdf9;
+  --paper: #fffdf9;
+  --sheet: #ffffff;
   --sheet-2: #f6f3ed;
   --fill: #eceae3;
   --ink: #201515;
@@ -59,7 +59,7 @@
   --on-pending: #201515;
   --focus: #ff4f00;
   --material: rgb(255 253 249 / 0.82);
-  --shadow: 0 0 0 1px rgb(32 21 21 / 0.06);
+  --shadow: 0 0 0 1px #ece7df;
   --shadow-float: 0 40px 80px rgb(32 21 21 / 0.28), 0 12px 24px rgb(32 21 21 / 0.18);
 }
 
@@ -285,7 +285,26 @@
     -webkit-backdrop-filter: saturate(160%) blur(20px);
     backdrop-filter: saturate(160%) blur(20px);
   }
-  /* The dark surface: coffee-black with a lavender glow, for the radar's hero and the menu. */
+  /* OndAI's hero: cream with a lavender glow on the right and a faint grid, as on the landing. */
+  .ondai-hero {
+    background-color: var(--paper);
+    background-image:
+      radial-gradient(55% 75% at 92% 18%, rgb(193 183 255 / 0.55), transparent 70%),
+      linear-gradient(rgb(32 21 21 / 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(32 21 21 / 0.035) 1px, transparent 1px);
+    background-size:
+      100% 100%,
+      64px 64px,
+      64px 64px;
+  }
+  :root[data-theme='dark'] .ondai-hero {
+    background-color: var(--sheet);
+    background-image:
+      radial-gradient(55% 75% at 92% 18%, rgb(193 183 255 / 0.18), transparent 70%),
+      linear-gradient(rgb(255 253 249 / 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(255 253 249 / 0.04) 1px, transparent 1px);
+  }
+  /* The dark surface: coffee-black with a lavender glow, for the question panel's header. */
   .noche {
     background-color: var(--noche);
     background-image: radial-gradient(70% 60% at 92% 0%, rgb(193 183 255 / 0.18), transparent 62%);

@@ -46,9 +46,10 @@ function readTheme(): Theme {
   if (chosenTheme) return chosenTheme;
   try {
     const stored = localStorage.getItem(THEME_KEY);
-    return stored === 'light' || stored === 'dark' ? stored : 'system';
+    // OndAI is a light design: light unless someone chose dark or the system's theme.
+    return stored === 'dark' || stored === 'system' ? stored : 'light';
   } catch {
-    return 'system';
+    return 'light';
   }
 }
 
@@ -71,7 +72,7 @@ function chooseTheme(next: Theme) {
 }
 
 function ThemeSwitch() {
-  const theme = useSyncExternalStore(subscribeTheme, readTheme, () => 'system' as Theme);
+  const theme = useSyncExternalStore(subscribeTheme, readTheme, () => 'light' as Theme);
   const options: { value: Theme; label: string; icon: typeof Sun }[] = [
     { value: 'light', label: 'Claro', icon: Sun },
     { value: 'dark', label: 'Oscuro', icon: Moon },

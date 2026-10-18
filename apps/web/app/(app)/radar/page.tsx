@@ -182,14 +182,14 @@ export default function RadarPage() {
   return (
     <>
       <section className="mx-auto max-w-[1376px] px-3 pt-4 sm:px-6">
-        <div className="noche rounded-[28px] px-4 pt-8 pb-8 sm:px-8 sm:pt-10 lg:px-12">
+        <div className="ondai-hero rounded-[28px] border border-rule px-4 pt-8 pb-8 sm:px-8 sm:pt-10 lg:px-12">
           {data ? (
             <>
-              <p className="eyebrow text-lavender">{weekLabel(data.week.start, data.week.end)}</p>
-              <h1 className="t-display mt-2 max-w-5xl text-[clamp(1.85rem,1.1rem+2.4vw,3rem)] text-balance text-white">
+              <p className="eyebrow">{weekLabel(data.week.start, data.week.end)}</p>
+              <h1 className="t-display mt-3 max-w-5xl text-[clamp(2rem,1.1rem+2.8vw,3.4rem)] font-[400] tracking-[-0.04em] text-balance text-ink">
                 {data.headline}
               </h1>
-              <p className="mt-3 max-w-3xl text-[0.98rem] text-white/70">
+              <p className="mt-3 max-w-3xl text-[0.98rem] text-ink-2">
                 Medido en {fmtInt(data.basis.pieces)} piezas públicas de{' '}
                 {fmtInt(data.basis.creators)} creadores, en {data.basis.sources} fuentes y tres
                 idiomas.
@@ -197,8 +197,8 @@ export default function RadarPage() {
               </p>
               <div className="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1fr)_19rem]">
                 <div className="min-w-0">
-                  <h2 className="t-h3 text-white">La ola viaja de idioma en idioma</h2>
-                  <p className="mt-1 max-w-2xl text-[0.92rem] text-white/65">
+                  <h2 className="t-h3 text-ink">La ola viaja de idioma en idioma</h2>
+                  <p className="mt-1 max-w-2xl text-[0.92rem] text-ink-2">
                     Lo viral sobre IA nace en inglés o portugués y llega días después al español.
                     Cada hilo es un tema; en naranja, los que ya despegaron afuera y en español casi
                     nadie cuenta todavía.
@@ -212,15 +212,15 @@ export default function RadarPage() {
                     <li key={t.id}>
                       <Link
                         href={`/tema/${t.id}`}
-                        className="grid grid-cols-[1.6rem_minmax(0,1fr)] items-baseline gap-2 rounded-[12px] px-2 py-1.5 text-white hover:bg-white/10"
+                        className="grid grid-cols-[1.6rem_minmax(0,1fr)] items-baseline gap-2 rounded-[12px] px-2 py-1.5 text-ink hover:bg-sheet"
                       >
-                        <span className="t-figure text-[1.05rem] text-white/60">{i + 1}</span>
+                        <span className="t-figure text-[1.05rem] text-ink-3">{i + 1}</span>
                         <span className="min-w-0">
                           <span className="block truncate text-[0.98rem] font-[680]">{t.name}</span>
                           <span
                             className={clsx(
                               'text-[0.8rem]',
-                              t.spanishWindow.open ? 'font-[650] text-marker' : 'text-white/55',
+                              t.spanishWindow.open ? 'font-[650] text-marker' : 'text-ink-3',
                             )}
                           >
                             {t.spanishWindow.open
@@ -236,9 +236,9 @@ export default function RadarPage() {
             </>
           ) : (
             <div className="grid gap-4 pb-6">
-              <div className="h-5 w-56 animate-pulse rounded-full bg-white/10" />
-              <div className="h-24 max-w-3xl animate-pulse rounded-[18px] bg-white/10" />
-              <div className="h-[320px] animate-pulse rounded-[18px] bg-white/5" />
+              <div className="h-5 w-56 animate-pulse rounded-full bg-fill" />
+              <div className="h-24 max-w-3xl animate-pulse rounded-[18px] bg-fill" />
+              <div className="h-[320px] animate-pulse rounded-[18px] bg-fill" />
             </div>
           )}
         </div>
