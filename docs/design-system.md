@@ -64,6 +64,25 @@ Los titulares de la landing combinan dos pesos: la primera línea fina (300–40
 - **Barra superior:** una píldora flotante crema al 82 % con borde `--rule`, logo a la izquierda, enlaces en tinta y la sección activa en píldora oscura.
 - **Firma:** el avión de papel naranja (`PlaneMark`) y la onda naranja gruesa que cruza las tarjetas oscuras y lavanda.
 
+## Maquetas (los posts que diseña el equipo)
+
+`apps/web/components/maqueta.tsx` dibuja cada lámina con unidades de contenedor (`cqw`): el mismo componente es la miniatura del calendario, el lienzo del editor y el PNG de 1080 px que se descarga.
+
+- **Lienzos:** carrusel 4:5 (1080 × 1350), post 1:1 (1080 × 1080), historia o Reel 9:16 (1080 × 1920) y portada de YouTube 16:9 (1280 × 720).
+- **Láminas:** portada (el gancho grande), titular, cifra (el número protagonista), cita, lista (un punto por línea) y cierre (la acción y la marca).
+- **Estilos de partida**, todos de la paleta de la landing; el equipo cambia cualquier color después:
+
+| Estilo          | Fondo     | Texto     | Acento    | Textura    |
+| --------------- | --------- | --------- | --------- | ---------- |
+| Onda naranja    | `#ff4f00` | `#201515` | `#fffdf9` | ondas      |
+| Crema editorial | `#fffdf9` | `#201515` | `#ff4f00` | cuadrícula |
+| Noche           | `#201515` | `#fffdf9` | `#ff4f00` | ondas      |
+| Lavanda         | `#c1b7ff` | `#201515` | `#ff4f00` | avión      |
+| Arena técnica   | `#efebe4` | `#201515` | `#3b33a8` | cuadrícula |
+| Tinta y lavanda | `#14100f` | `#fffdf9` | `#c1b7ff` | avión      |
+
+La onda gruesa del acento cruza solo la portada y el cierre, siempre por encima del pie con la marca; las láminas de adentro llevan ondas finas.
+
 ## Componentes en la app
 
 | Componente      | Dónde                                      |
