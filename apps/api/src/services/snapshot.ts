@@ -24,6 +24,7 @@ const TABLES: [string, PgTable][] = [
   ['topic_series', schema.topicSeries],
   ['analyses', schema.analyses],
   ['adaptations', schema.adaptations],
+  ['maquetas', schema.maquetas],
   ['approvals', schema.approvals],
   ['sensor_submissions', schema.sensorSubmissions],
   ['runs', schema.runs],
@@ -58,6 +59,22 @@ export async function exportSnapshot(deps: Deps): Promise<Record<string, number>
 
 /** Written last: a database holding pieces but no marker is an import a restart cut short. */
 export const IMPORTED = { id: 'run_snapshot_import', kind: 'snapshot-import' };
+
+/** When the demo week was loaded (ms), or null on a radar that never loaded a snapshot. */
+export async function importedAt(deps: Deps): Promise<number | null> {
+  const [marker] = await deps.db
+    .select({ startedAt: schema.runs.startedAt })
+    .from(schema.runs)
+    .where(eq(schema.runs.id, IMPORTED.id));
+  return marker ? Date.parse(marker.startedAt) : null;
+}
+
+/**
+ * A row written at `at` came with the demo week: visitors change what they added, only an admin
+ * changes these.
+ */
+export const cameWithDemo = (at: string, loadedAt: number | null): boolean =>
+  loadedAt !== null && Date.parse(at) <= loadedAt;
 
 /**
  * A gzipped JSON-lines file, one row at a time, so the whole file never sits in memory. Only a

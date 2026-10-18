@@ -1,5 +1,4 @@
 import type { OpenAPIHono } from '@hono/zod-openapi';
-import type { MiddlewareHandler } from 'hono';
 import { z } from 'zod';
 import type { Deps } from '../../services/deps';
 import {
@@ -12,16 +11,13 @@ import {
   stopWatch,
   watchDetail,
 } from '../../services/watch';
+import type { Guards } from '../guard';
 
 const FollowBody = z.object({ term: z.string().trim().min(2).max(60) });
 const AdaptBody = z.object({ variant: z.number().int().min(0).max(5).default(0) });
 
 /** «Vigía»: follow a topic, see what each search caught and adapt a caught piece. */
-export function registerWatchRoutes(
-  app: OpenAPIHono,
-  deps: Deps,
-  guards: { admin: MiddlewareHandler; paid: MiddlewareHandler },
-) {
+export function registerWatchRoutes(app: OpenAPIHono, deps: Deps, guards: Guards) {
   app.get('/api/v1/watches', async (c) => c.json(await listWatches(deps)));
 
   app.post('/api/v1/watches', guards.paid, async (c) => {

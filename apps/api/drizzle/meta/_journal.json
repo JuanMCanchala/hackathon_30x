@@ -22,6 +22,13 @@
       "when": 1792279793237,
       "tag": "0002_watches",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1792305994037,
+      "tag": "0003_maquetas",
+      "breakpoints": true
     }
   ]
 }

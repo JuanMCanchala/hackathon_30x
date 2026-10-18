@@ -3,11 +3,13 @@
  * its audience, built on the hooks that worked and avoiding the angles everyone already used.
  * A person approves each one before it reaches the calendar; nothing is ever published alone.
  */
-import { and, desc, eq } from 'drizzle-orm';
+import { and, desc, eq, sql } from 'drizzle-orm';
 import { z } from 'zod';
-import { adaptations, approvals, topics } from '../db/schema';
-import { iso, newId, notFound } from '../lib/common';
-import type { Deps } from './deps';
+import { adaptations, approvals, maquetas, topics, watchHits, watches } from '../db/schema';
+import { AppError, badRequest, iso, newId, notFound } from '../lib/common';
+import { nowIso, type Deps } from './deps';
+import { maquetaView, type MaquetaOrigin, type MaquetaSlide, type MaquetaView } from './maquetas';
+import { cameWithDemo, importedAt } from './snapshot';
 import { topicDetail } from './topic';
 
 export const AdaptationSchema = z.object({
@@ -152,6 +154,14 @@ const FORMAT_COPY: Record<string, string> = {
   youtube: 'Video de YouTube',
 };
 
+/** The same words for a maqueta's format. */
+const MAQUETA_FORMAT_COPY: Record<string, string> = {
+  carrusel: 'Carrusel de Instagram',
+  post: 'Post de Instagram',
+  historia: 'Historia o Reel',
+  portada: 'Video de YouTube',
+};
+
 /** The text a format puts on the calendar: what the person will actually publish. */
 function bodyOf(a: AdaptationContent, format: string): { title: string; body: string } {
   if (format === 'carousel')
@@ -173,43 +183,220 @@ function bodyOf(a: AdaptationContent, format: string): { title: string; body: st
   return { title: a.hooks[0] ?? a.angle, body: a.linkedin };
 }
 
-export async function approve(
-  deps: Deps,
-  input: { adaptationId: string; format: string; scheduledFor: string; approvedBy: string },
-) {
-  const [row] = await deps.db
-    .select()
-    .from(adaptations)
-    .where(eq(adaptations.id, input.adaptationId));
-  if (!row) throw notFound('La adaptación');
-  const { title, body } = bodyOf(row.payload as AdaptationContent, input.format);
-  const entry = {
-    id: newId('cal'),
-    adaptationId: row.id,
-    topicId: row.topicId,
-    format: FORMAT_COPY[input.format] ?? input.format,
-    title,
-    body,
-    scheduledFor: input.scheduledFor,
-    approvedBy: input.approvedBy,
-    approvedAt: deps.clock.now().toISOString(),
-  };
-  await deps.db.insert(approvals).values(entry);
-  deps.bus.publish({ type: 'calendar.changed', at: entry.approvedAt, data: { id: entry.id } });
-  return entry;
+/** Where a piece Vigía caught was found, kept on the calendar entry made from it. */
+export interface VigiaOrigin {
+  kind: 'vigia';
+  watchId: string;
+  itemId: string;
+  term: string;
 }
 
-export async function calendar(deps: Deps) {
+export interface CalendarEntry {
+  id: string;
+  adaptationId: string | null;
+  topicId: string | null;
+  /** The topic's name, else the Vigía term, else the maqueta's name, else «Sin tema». */
+  topicName: string;
+  format: string;
+  title: string;
+  body: string;
+  scheduledFor: string;
+  /** 'HH:MM', 24 h, Bogotá time. */
+  scheduledTime: string | null;
+  approvedBy: string;
+  approvedAt: string;
+  maquetaId: string | null;
+  /** The maqueta's current design, for the thumbnail. */
+  maqueta: MaquetaView | null;
+  origin: VigiaOrigin | null;
+  /** False for the demo week's own pieces: only an admin moves or removes those. */
+  removable: boolean;
+}
+
+/** One of three sources: a maqueta wins over an adaptation, an adaptation over a Vigía piece. */
+export interface ApproveInput {
+  adaptationId?: string;
+  maquetaId?: string;
+  watchId?: string;
+  itemId?: string;
+  /** linkedin | carousel | reel | youtube: needed with an adaptation or a Vigía piece. */
+  format?: string;
+  scheduledFor: string;
+  scheduledTime?: string | null;
+  approvedBy: string;
+}
+
+/** What a source puts on the calendar: the text and where it came from. */
+type Draft = Pick<
+  typeof approvals.$inferInsert,
+  'adaptationId' | 'topicId' | 'maquetaId' | 'format' | 'title' | 'body' | 'origin'
+>;
+
+const formatOf = (format: string | undefined): string => {
+  if (!format) throw badRequest('Falta el formato: linkedin, carousel, reel o youtube.');
+  return format;
+};
+
+async function fromAdaptation(deps: Deps, id: string, format: string): Promise<Draft> {
+  const [row] = await deps.db.select().from(adaptations).where(eq(adaptations.id, id));
+  if (!row) throw notFound('La adaptación');
+  return {
+    adaptationId: row.id,
+    topicId: row.topicId,
+    maquetaId: null,
+    format: FORMAT_COPY[format] ?? format,
+    ...bodyOf(row.payload as AdaptationContent, format),
+    origin: null,
+  };
+}
+
+/** The maqueta's slides as text, the way a carousel goes on the calendar. */
+async function fromMaqueta(deps: Deps, id: string): Promise<Draft> {
+  const [row] = await deps.db.select().from(maquetas).where(eq(maquetas.id, id));
+  if (!row) throw notFound('La maqueta');
+  const slides = row.slides as MaquetaSlide[];
+  const origin = row.origin as MaquetaOrigin | null;
+  // The origin came from the designer's browser: only an adaptation that exists is linked.
+  const [adaptation] =
+    origin?.kind === 'topic' && origin.adaptationId
+      ? await deps.db
+          .select({ id: adaptations.id })
+          .from(adaptations)
+          .where(eq(adaptations.id, origin.adaptationId))
+      : [];
+  const caught: VigiaOrigin | null =
+    origin?.kind === 'vigia'
+      ? { kind: 'vigia', watchId: origin.watchId, itemId: origin.itemId, term: origin.name }
+      : null;
+  return {
+    adaptationId: adaptation?.id ?? null,
+    topicId: origin?.kind === 'topic' ? origin.topicId : null,
+    maquetaId: row.id,
+    format: MAQUETA_FORMAT_COPY[row.format] ?? row.format,
+    title: slides[0]?.title ?? row.name,
+    body: slides.map((s, i) => `${i + 1}. ${s.title}\n${s.body}`).join('\n\n'),
+    origin: caught,
+  };
+}
+
+/** A piece Vigía caught, in the Spanish version someone already asked for. */
+async function fromVigia(
+  deps: Deps,
+  watchId: string,
+  itemId: string,
+  format: string,
+): Promise<Draft> {
+  const [row] = await deps.db
+    .select({ adaptation: watchHits.adaptation, term: watches.term })
+    .from(watchHits)
+    .innerJoin(watches, eq(watches.id, watchHits.watchId))
+    .where(and(eq(watchHits.watchId, watchId), eq(watchHits.itemId, itemId)));
+  if (!row) throw notFound('La pieza');
+  if (!row.adaptation) throw new AppError(409, 'not_adapted', 'Primero adapta la pieza.');
+  const origin: VigiaOrigin = { kind: 'vigia', watchId, itemId, term: row.term };
+  return {
+    adaptationId: null,
+    topicId: null,
+    maquetaId: null,
+    format: FORMAT_COPY[format] ?? format,
+    ...bodyOf(row.adaptation as AdaptationContent, format),
+    origin,
+  };
+}
+
+/** Puts an approved piece on the calendar. A day holds as many as the team wants. */
+export async function approve(deps: Deps, input: ApproveInput): Promise<CalendarEntry> {
+  const draft = input.maquetaId
+    ? await fromMaqueta(deps, input.maquetaId)
+    : input.adaptationId
+      ? await fromAdaptation(deps, input.adaptationId, formatOf(input.format))
+      : input.watchId && input.itemId
+        ? await fromVigia(deps, input.watchId, input.itemId, formatOf(input.format))
+        : null;
+  if (!draft)
+    throw badRequest('Falta qué programar: una adaptación, una maqueta o una pieza de Vigía.');
+  const id = newId('cal');
+  const approvedAt = nowIso(deps);
+  await deps.db.insert(approvals).values({
+    id,
+    ...draft,
+    scheduledFor: input.scheduledFor,
+    scheduledTime: input.scheduledTime ?? null,
+    approvedBy: input.approvedBy,
+    approvedAt,
+  });
+  deps.bus.publish({ type: 'calendar.changed', at: approvedAt, data: { id } });
+  return (await entries(deps, id))[0]!;
+}
+
+/** By day, then hour (pieces without one close the day), then approval. */
+async function entries(deps: Deps, id?: string): Promise<CalendarEntry[]> {
   const rows = await deps.db
-    .select({ entry: approvals, topicName: topics.name })
+    .select({ entry: approvals, topicName: topics.name, maqueta: maquetas })
     .from(approvals)
-    .innerJoin(topics, eq(topics.id, approvals.topicId))
-    .orderBy(approvals.scheduledFor, approvals.approvedAt);
-  return rows.map((r) => ({
-    ...r.entry,
-    approvedAt: iso(r.entry.approvedAt)!,
-    topicName: r.topicName,
-  }));
+    .leftJoin(topics, eq(topics.id, approvals.topicId))
+    .leftJoin(maquetas, eq(maquetas.id, approvals.maquetaId))
+    .where(id ? eq(approvals.id, id) : undefined)
+    .orderBy(
+      approvals.scheduledFor,
+      sql`${approvals.scheduledTime} asc nulls last`,
+      approvals.approvedAt,
+    );
+  const loadedAt = await importedAt(deps);
+  return rows.map(({ entry, topicName, maqueta }) => {
+    const origin = (entry.origin ?? null) as VigiaOrigin | null;
+    return {
+      id: entry.id,
+      adaptationId: entry.adaptationId,
+      topicId: entry.topicId,
+      topicName: topicName ?? origin?.term ?? maqueta?.name ?? 'Sin tema',
+      format: entry.format,
+      title: entry.title,
+      body: entry.body,
+      scheduledFor: entry.scheduledFor,
+      scheduledTime: entry.scheduledTime,
+      approvedBy: entry.approvedBy,
+      approvedAt: iso(entry.approvedAt)!,
+      maquetaId: entry.maquetaId,
+      maqueta: maqueta ? maquetaView(maqueta, loadedAt) : null,
+      origin,
+      removable: !cameWithDemo(entry.approvedAt, loadedAt),
+    };
+  });
+}
+
+export async function calendar(deps: Deps): Promise<CalendarEntry[]> {
+  return entries(deps);
+}
+
+/** Moves a piece to another day, another hour, or both. */
+export async function reschedule(
+  deps: Deps,
+  id: string,
+  to: { scheduledFor?: string; scheduledTime?: string | null },
+): Promise<CalendarEntry> {
+  if (to.scheduledFor === undefined && to.scheduledTime === undefined)
+    throw badRequest('Indica el día o la hora nueva.');
+  const moved = await deps.db
+    .update(approvals)
+    .set({ scheduledFor: to.scheduledFor, scheduledTime: to.scheduledTime })
+    .where(eq(approvals.id, id))
+    .returning({ id: approvals.id });
+  if (!moved.length) throw notFound('La publicación');
+  deps.bus.publish({ type: 'calendar.changed', at: nowIso(deps), data: { id } });
+  return (await entries(deps, id))[0]!;
+}
+
+/**
+ * A piece the demo week came with (approved before its snapshot was loaded). Visitors move and
+ * remove the ones they planned; only an admin moves or removes these.
+ */
+export async function isDemoEntry(deps: Deps, id: string): Promise<boolean> {
+  const [row] = await deps.db
+    .select({ approvedAt: approvals.approvedAt })
+    .from(approvals)
+    .where(eq(approvals.id, id));
+  return !!row && cameWithDemo(row.approvedAt, await importedAt(deps));
 }
 
 export async function unschedule(deps: Deps, id: string) {

@@ -28,7 +28,6 @@ describe('destructive and paid endpoints', () => {
     const routes: [string, string][] = [
       ['POST', '/api/v1/pipeline/run'],
       ['POST', '/api/v1/snapshot'],
-      ['DELETE', '/api/v1/calendar/apr_x'],
     ];
     for (const [method, path] of routes) {
       expect((await app.request(path, { method })).status, path).toBe(401);
@@ -55,7 +54,7 @@ describe('destructive and paid endpoints', () => {
 
   it('stay closed in the demo when no admin token is configured', async () => {
     const { app } = await appWith({ DEMO_MODE: true });
-    const res = await app.request('/api/v1/calendar/apr_x', { method: 'DELETE', headers: admin });
+    const res = await app.request('/api/v1/snapshot', { method: 'POST', headers: admin });
     expect(res.status).toBe(403);
   });
 

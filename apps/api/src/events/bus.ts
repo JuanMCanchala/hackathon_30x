@@ -1,7 +1,12 @@
 import { EventEmitter } from 'node:events';
 
 export type DomainEventType =
-  'pipeline.progress' | 'pipeline.done' | 'sensor.received' | 'calendar.changed' | 'watch.changed';
+  | 'pipeline.progress'
+  | 'pipeline.done'
+  | 'sensor.received'
+  | 'calendar.changed'
+  | 'watch.changed'
+  | 'maqueta.changed';
 
 export interface DomainEvent {
   type: DomainEventType;

@@ -1,10 +1,22 @@
-/** Guards for the public API: an admin token for what destroys data, a rate for what costs money. */
+/**
+ * Guards for the public API: an admin token for what destroys data, a rate for what costs money
+ * and a wider one for writes that cost nothing.
+ */
 import { createHash, timingSafeEqual } from 'node:crypto';
 import type { Context, MiddlewareHandler } from 'hono';
 import { AppError } from '../lib/common';
 import type { Deps } from '../services/deps';
 
 const digest = (value: string) => createHash('sha256').update(value).digest();
+
+/** Built once per app, so every route a guard protects shares its budget. */
+export interface Guards {
+  admin: MiddlewareHandler;
+  /** What calls a paid model. */
+  paid: MiddlewareHandler;
+  /** Writes that cost nothing (maquetas, the calendar): a bound on abuse, not on spend. */
+  writes: MiddlewareHandler;
+}
 
 /**
  * Requires `Authorization: Bearer <ADMIN_TOKEN>`. Without a configured token the route is closed

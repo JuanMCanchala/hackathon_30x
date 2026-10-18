@@ -184,17 +184,42 @@ export const adaptations = pgTable('adaptations', {
   createdAt: ts('created_at').notNull(),
 });
 
-/** The content calendar: an adaptation a person approved, with its format and day. */
+/**
+ * «Maquetas»: post designs the team's designers build once and reuse, like a Canva template:
+ * colors, type, texture and brand, and the text of every slide.
+ */
+export const maquetas = pgTable('maquetas', {
+  id: text('id').primaryKey(),
+  name: text('name').notNull(),
+  /** carrusel | post | historia | portada. */
+  format: text('format').notNull(),
+  style: jsonb('style').notNull(),
+  slides: jsonb('slides').notNull(),
+  /** The topic or the Vigía piece it was drafted from. */
+  origin: jsonb('origin'),
+  /** The maqueta it started as a copy of. */
+  basedOn: text('based_on'),
+  createdAt: ts('created_at').notNull(),
+  updatedAt: ts('updated_at').notNull(),
+});
+
+/**
+ * The content calendar: a piece a person approved, with its format, day and hour. It comes from
+ * a topic's adaptation, a maqueta or a piece Vigía caught, and keeps its text if they go.
+ */
 export const approvals = pgTable('approvals', {
   id: text('id').primaryKey(),
-  adaptationId: text('adaptation_id')
-    .notNull()
-    .references(() => adaptations.id, { onDelete: 'cascade' }),
-  topicId: text('topic_id').notNull(),
+  adaptationId: text('adaptation_id').references(() => adaptations.id, { onDelete: 'cascade' }),
+  topicId: text('topic_id'),
+  maquetaId: text('maqueta_id').references(() => maquetas.id, { onDelete: 'set null' }),
   format: text('format').notNull(),
   title: text('title').notNull(),
   body: text('body').notNull(),
   scheduledFor: date('scheduled_for', { mode: 'string' }).notNull(),
+  /** 'HH:MM', 24 h, Bogotá time; null when only the day is set. */
+  scheduledTime: text('scheduled_time'),
+  /** A piece scheduled from Vigía: { kind: 'vigia', watchId, itemId, term }. */
+  origin: jsonb('origin'),
   approvedBy: text('approved_by').notNull(),
   approvedAt: ts('approved_at').notNull(),
 });

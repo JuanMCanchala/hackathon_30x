@@ -5,8 +5,9 @@ import { cors } from 'hono/cors';
 import { ZodError } from 'zod';
 import { AppError } from '../lib/common';
 import type { Deps } from '../services/deps';
-import { rateLimit, requireAdmin } from './guard';
+import { rateLimit, requireAdmin, type Guards } from './guard';
 import { registerEventRoutes } from './routes/events';
+import { registerMaquetaRoutes } from './routes/maquetas';
 import { registerRadarRoutes } from './routes/radar';
 import { registerWatchRoutes } from './routes/watch';
 
@@ -31,7 +32,7 @@ export function createApp(deps: Deps, options: AppOptions = {}) {
       // The browser reaches the API through the web app's proxy; only that origin may call it.
       origin: (origin) => (origin === webOrigin ? origin : null),
       allowHeaders: ['content-type', 'authorization'],
-      allowMethods: ['GET', 'POST', 'DELETE', 'OPTIONS'],
+      allowMethods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     }),
   );
 
@@ -74,10 +75,16 @@ export function createApp(deps: Deps, options: AppOptions = {}) {
     return next();
   });
   registerEventRoutes(app, deps);
-  // One budget per visitor across every route that calls a paid model.
-  const guards = { admin: requireAdmin(deps), paid: rateLimit(deps) };
+  // One budget per visitor across every route that calls a paid model, and a wider one for
+  // writes that call none.
+  const guards: Guards = {
+    admin: requireAdmin(deps),
+    paid: rateLimit(deps),
+    writes: rateLimit(deps, 120, 3_600_000, 3000),
+  };
   registerRadarRoutes(app, deps, guards);
   registerWatchRoutes(app, deps, guards);
+  registerMaquetaRoutes(app, deps, guards);
 
   app.doc31('/openapi.json', {
     openapi: '3.1.0',
