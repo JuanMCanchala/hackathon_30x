@@ -1,4 +1,5 @@
 import type { OpenAPIHono } from '@hono/zod-openapi';
+import type { MiddlewareHandler } from 'hono';
 import { z } from 'zod';
 import { adaptTopic, approve, calendar, listAdaptations, unschedule } from '../../services/adapt';
 import { submissions, submitPost } from '../../services/community';
@@ -43,7 +44,11 @@ const AskBody = z.object({
 });
 
 /** The radar's HTTP surface: read the week, open a topic, adapt it, plan it, feed it. */
-export function registerRadarRoutes(app: OpenAPIHono, deps: Deps) {
+export function registerRadarRoutes(
+  app: OpenAPIHono,
+  deps: Deps,
+  guards: { admin: MiddlewareHandler; paid: MiddlewareHandler },
+) {
   app.get('/api/v1/radar', async (c) => {
     const q = RadarQuery.parse(c.req.query());
     return c.json(
@@ -66,7 +71,7 @@ export function registerRadarRoutes(app: OpenAPIHono, deps: Deps) {
     c.json(await listAdaptations(deps, c.req.param('id'))),
   );
 
-  app.post('/api/v1/topics/:id/adaptations', async (c) => {
+  app.post('/api/v1/topics/:id/adaptations', guards.paid, async (c) => {
     const body = AdaptBody.parse(await c.req.json().catch(() => ({})));
     return c.json(await adaptTopic(deps, c.req.param('id'), body.variant, body.refresh));
   });
@@ -75,12 +80,12 @@ export function registerRadarRoutes(app: OpenAPIHono, deps: Deps) {
   app.post('/api/v1/calendar', async (c) =>
     c.json(await approve(deps, ApproveBody.parse(await c.req.json()))),
   );
-  app.delete('/api/v1/calendar/:id', async (c) =>
+  app.delete('/api/v1/calendar/:id', guards.admin, async (c) =>
     c.json(await unschedule(deps, c.req.param('id'))),
   );
 
   app.get('/api/v1/sensor', async (c) => c.json(await submissions(deps)));
-  app.post('/api/v1/sensor', async (c) =>
+  app.post('/api/v1/sensor', guards.paid, async (c) =>
     c.json(await submitPost(deps, SensorBody.parse(await c.req.json()))),
   );
 
@@ -88,7 +93,7 @@ export function registerRadarRoutes(app: OpenAPIHono, deps: Deps) {
   app.get('/api/v1/evaluation', async (c) => c.json(await evaluationView(deps)));
 
   app.get('/api/v1/pipeline', (c) => c.json(pipelineStatus()));
-  app.post('/api/v1/pipeline/run', async (c) => {
+  app.post('/api/v1/pipeline/run', guards.admin, async (c) => {
     const body = z
       .object({
         enrich: z.boolean().default(true),
@@ -102,9 +107,9 @@ export function registerRadarRoutes(app: OpenAPIHono, deps: Deps) {
   });
 
   // Freezes the current week into SNAPSHOT_DIR, the database the demo starts from.
-  app.post('/api/v1/snapshot', async (c) => c.json(await exportSnapshot(deps)));
+  app.post('/api/v1/snapshot', guards.admin, async (c) => c.json(await exportSnapshot(deps)));
 
-  app.post('/api/v1/ask', async (c) => {
+  app.post('/api/v1/ask', guards.paid, async (c) => {
     const body = AskBody.parse(await c.req.json());
     return c.json(await askRadar(deps, body.question, body.history ?? []));
   });

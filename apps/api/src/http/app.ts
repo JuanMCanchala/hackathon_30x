@@ -4,17 +4,20 @@ import { cors } from 'hono/cors';
 import { ZodError } from 'zod';
 import { AppError } from '../lib/common';
 import type { Deps } from '../services/deps';
+import { rateLimit, requireAdmin } from './guard';
 import { registerEventRoutes } from './routes/events';
 import { registerRadarRoutes } from './routes/radar';
 import { registerWatchRoutes } from './routes/watch';
 
 export function createApp(deps: Deps) {
   const app = new OpenAPIHono();
+  const webOrigin = new URL(deps.config.PUBLIC_WEB_URL).origin;
 
   app.use(
     '*',
     cors({
-      origin: (origin) => origin ?? '*',
+      // The browser reaches the API through the web app's proxy; only that origin may call it.
+      origin: (origin) => (origin === webOrigin ? origin : null),
       allowHeaders: ['content-type', 'authorization'],
       allowMethods: ['GET', 'POST', 'DELETE', 'OPTIONS'],
     }),
@@ -42,8 +45,10 @@ export function createApp(deps: Deps) {
 
   app.get('/api/v1/health', (c) => c.json({ ok: true }));
   registerEventRoutes(app, deps);
-  registerRadarRoutes(app, deps);
-  registerWatchRoutes(app, deps);
+  // One budget per visitor across every route that calls a paid model.
+  const guards = { admin: requireAdmin(deps), paid: rateLimit(deps) };
+  registerRadarRoutes(app, deps, guards);
+  registerWatchRoutes(app, deps, guards);
 
   app.doc31('/openapi.json', {
     openapi: '3.1.0',

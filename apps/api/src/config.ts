@@ -38,7 +38,12 @@ const EnvSchema = z.object({
   DEMO_MODE: bool.default(true),
   /** Followed topics search on their own while the API runs. Default: on, off in the demo. */
   WATCH_SCHEDULER: bool.optional(),
-  /** Public URL of the web app. */
+  /**
+   * Bearer token for what destroys data or writes to disk (pipeline runs, snapshot, deletes).
+   * Without it those routes are closed when DEMO_MODE is on.
+   */
+  ADMIN_TOKEN: z.string().min(16).optional(),
+  /** Public URL of the web app: the only origin CORS answers. */
   PUBLIC_WEB_URL: z.string().url().default('http://localhost:3300'),
   LOG_LEVEL: z.enum(['debug', 'info', 'warn', 'error']).default('info'),
 });

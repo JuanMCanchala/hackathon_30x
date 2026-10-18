@@ -43,7 +43,7 @@ import {
 import type { Config } from '../config';
 import { enrichments, items, llmUsage, watchHits, watchRuns, watches } from '../db/schema';
 import { JEV_USD_PER_MTOK, JevUnavailableError } from '../jev/client';
-import { AppError, newId, notFound } from '../lib/common';
+import { AppError, conflict, newId, notFound } from '../lib/common';
 import { saveItems } from '../pipeline/ingest';
 import { AdaptationSchema, VOICE, type AdaptationContent } from './adapt';
 import { nowIso, type Deps } from './deps';
@@ -147,8 +147,19 @@ export interface Capture {
 
 const TermBody = z.string().trim().min(2).max(60);
 
+/** Each followed topic searches every hour and spends model and JEV calls: a few are enough. */
+export const MAX_ACTIVE_WATCHES = 5;
+
 export async function createWatch(deps: Deps, term: string) {
   const clean = TermBody.parse(term);
+  const [active] = await deps.db
+    .select({ n: sql<number>`count(*)::int` })
+    .from(watches)
+    .where(eq(watches.active, true));
+  if ((active?.n ?? 0) >= MAX_ACTIVE_WATCHES)
+    throw conflict(
+      `Ya sigues ${MAX_ACTIVE_WATCHES} temas, el máximo. Deja de seguir uno para agregar otro.`,
+    );
   const plan = await deps.llm.complete({
     name: 'watch-plan',
     system: PLAN_SYSTEM,
