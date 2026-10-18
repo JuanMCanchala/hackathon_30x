@@ -36,13 +36,28 @@ function clientIp(c: Context): string {
 }
 
 /**
- * At most `limit` requests per visitor in a sliding window, shared by every route it guards.
+ * At most `limit` requests per visitor in a sliding window, shared by every route it guards, and
+ * `total` for all visitors together: the visitor's address comes from a header a caller who
+ * skips the proxy can forge, so only the total bounds what the paid models can cost.
  * ponytail: in-memory and per process; a store shared across instances if the API scales out.
  */
-export function rateLimit(deps: Deps, limit = 20, windowMs = 3_600_000): MiddlewareHandler {
+export function rateLimit(
+  deps: Deps,
+  limit = 20,
+  windowMs = 3_600_000,
+  total = 300,
+): MiddlewareHandler {
   const hits = new Map<string, number[]>();
+  let everyone: number[] = [];
   return async (c, next) => {
     const now = deps.clock.now().getTime();
+    everyone = everyone.filter((t) => now - t < windowMs);
+    if (everyone.length >= total)
+      throw new AppError(
+        429,
+        'rate_limited',
+        'La demo llegó a su límite de consultas por hora. Intenta más tarde.',
+      );
     const ip = clientIp(c);
     const recent = (hits.get(ip) ?? []).filter((t) => now - t < windowMs);
     if (recent.length >= limit) {
@@ -55,6 +70,7 @@ export function rateLimit(deps: Deps, limit = 20, windowMs = 3_600_000): Middlew
     }
     recent.push(now);
     hits.set(ip, recent);
+    everyone.push(now);
     // Forget visitors whose window is over, so the map does not grow without bound.
     if (hits.size > 10_000)
       for (const [key, times] of hits)

@@ -43,13 +43,14 @@ import {
   type Fetcher,
 } from '@radar/sources';
 import type { Config } from '../config';
-import { enrichments, items, llmUsage, watchHits, watchRuns, watches } from '../db/schema';
+import { enrichments, items, llmUsage, runs, watchHits, watchRuns, watches } from '../db/schema';
 import { JEV_USD_PER_MTOK, JevUnavailableError } from '../jev/client';
 import { AppError, conflict, iso, newId, notFound } from '../lib/common';
 import { langOf } from '../lib/lang';
 import { saveItems } from '../pipeline/ingest';
 import { AdaptationSchema, VOICE, type AdaptationContent } from './adapt';
 import { nowIso, type Deps } from './deps';
+import { IMPORTED } from './snapshot';
 import { pieceView } from './topic';
 import { toSpanish } from './translate';
 
@@ -185,6 +186,19 @@ export async function createWatch(deps: Deps, term: string) {
   };
   await deps.db.insert(watches).values(row);
   return row;
+}
+
+/**
+ * A topic the demo week came with (followed before its snapshot was loaded). Visitors stop the
+ * ones they followed; only an admin stops these.
+ */
+export async function isDemoWatch(deps: Deps, id: string): Promise<boolean> {
+  const [row] = await deps.db
+    .select({ createdAt: watches.createdAt, loadedAt: runs.startedAt })
+    .from(watches)
+    .innerJoin(runs, eq(runs.id, IMPORTED.id))
+    .where(eq(watches.id, id));
+  return !!row && Date.parse(row.createdAt) <= Date.parse(row.loadedAt);
 }
 
 export async function stopWatch(deps: Deps, id: string) {

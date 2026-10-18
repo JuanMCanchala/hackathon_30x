@@ -5,6 +5,7 @@ import type { Deps } from '../../services/deps';
 import {
   adaptHit,
   createWatch,
+  isDemoWatch,
   listWatches,
   mediaFile,
   runWatchInBackground,
@@ -38,8 +39,13 @@ export function registerWatchRoutes(
     return c.json({ started: runWatchInBackground(deps, id) });
   });
 
-  app.delete('/api/v1/watches/:id', guards.admin, async (c) =>
-    c.json(await stopWatch(deps, c.req.param('id'))),
+  // With 5 topics at most, visitors must be able to stop what they followed; the demo's own
+  // topics need the admin token.
+  app.delete(
+    '/api/v1/watches/:id',
+    async (c, next) =>
+      (await isDemoWatch(deps, c.req.param('id'))) ? guards.admin(c, next) : guards.paid(c, next),
+    async (c) => c.json(await stopWatch(deps, c.req.param('id'))),
   );
 
   app.post('/api/v1/watches/:id/hits/:item/adapt', guards.paid, async (c) => {

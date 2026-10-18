@@ -2,7 +2,9 @@ import { mkdtempSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { watches } from '../src/db/schema';
+import { Hono } from 'hono';
+import { runs, watches } from '../src/db/schema';
+import { rateLimit } from '../src/http/guard';
 import { createApp } from '../src/http/app';
 import { testContainer } from './helpers';
 
@@ -26,7 +28,6 @@ describe('destructive and paid endpoints', () => {
     const routes: [string, string][] = [
       ['POST', '/api/v1/pipeline/run'],
       ['POST', '/api/v1/snapshot'],
-      ['DELETE', '/api/v1/watches/wch_x'],
       ['DELETE', '/api/v1/calendar/apr_x'],
     ];
     for (const [method, path] of routes) {
@@ -54,7 +55,7 @@ describe('destructive and paid endpoints', () => {
 
   it('stay closed in the demo when no admin token is configured', async () => {
     const { app } = await appWith({ DEMO_MODE: true });
-    const res = await app.request('/api/v1/watches/wch_x', { method: 'DELETE', headers: admin });
+    const res = await app.request('/api/v1/calendar/apr_x', { method: 'DELETE', headers: admin });
     expect(res.status).toBe(403);
   });
 
@@ -132,5 +133,54 @@ describe('destructive and paid endpoints', () => {
     });
     expect(res.status).toBe(400);
     expect(((await res.json()) as { error: { code: string } }).error.code).toBe('bad_request');
+  });
+
+  it('cap the paid routes for everyone together, so forged addresses cannot run up the bill', async () => {
+    const { deps } = await testContainer();
+    const app = new Hono();
+    app.onError((e, c) => c.json({ code: (e as { code?: string }).code }, 429));
+    app.post('/paid', rateLimit(deps, 2, 3_600_000, 5), (c) => c.json({ ok: true }));
+    const from = (ip: string) =>
+      app.request('/paid', { method: 'POST', headers: { 'x-forwarded-for': ip } });
+    for (let i = 0; i < 5; i++) expect((await from(`198.51.100.${i}`)).status).toBe(200);
+    expect((await from('198.51.100.99')).status).toBe(429);
+  });
+
+  it('let visitors stop the topics they followed, but not the demo’s own', async () => {
+    const { deps, app } = await appWith({ ADMIN_TOKEN: TOKEN, DEMO_MODE: true });
+    const watch = (id: string, createdAt: string) => ({
+      id,
+      term: id,
+      plan: {},
+      langs: ['en', 'pt'],
+      windowHours: 72,
+      everyMinutes: 60,
+      budget: 12,
+      active: true,
+      createdAt,
+      lastRunAt: null,
+    });
+    await deps.db
+      .insert(watches)
+      .values([
+        watch('wch_demo', '2026-10-17T12:00:00Z'),
+        watch('wch_visitor', '2026-10-18T15:00:00Z'),
+      ]);
+    // The snapshot import finished between the two.
+    await deps.db.insert(runs).values({
+      id: 'run_snapshot_import',
+      kind: 'snapshot-import',
+      startedAt: '2026-10-18T14:00:00Z',
+      finishedAt: '2026-10-18T14:00:30Z',
+    });
+    expect((await app.request('/api/v1/watches/wch_visitor', { method: 'DELETE' })).status).toBe(
+      200,
+    );
+    expect((await app.request('/api/v1/watches/wch_demo', { method: 'DELETE' })).status).toBe(401);
+    const asAdmin = await app.request('/api/v1/watches/wch_demo', {
+      method: 'DELETE',
+      headers: admin,
+    });
+    expect(asAdmin.status).toBe(200);
   });
 });

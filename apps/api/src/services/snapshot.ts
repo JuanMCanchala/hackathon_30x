@@ -57,7 +57,7 @@ export async function exportSnapshot(deps: Deps): Promise<Record<string, number>
 }
 
 /** Written last: a database holding pieces but no marker is an import a restart cut short. */
-const IMPORTED = { id: 'run_snapshot_import', kind: 'snapshot-import' };
+export const IMPORTED = { id: 'run_snapshot_import', kind: 'snapshot-import' };
 
 /**
  * A gzipped JSON-lines file, one row at a time, so the whole file never sits in memory. Only a
