@@ -83,6 +83,9 @@ Escribes un tema y el radar lo convierte, una sola vez, en búsquedas y palabras
 
 1. **Encontrar** (sin tokens): YouTube (lo de hoy o de esta semana), Bluesky, Hacker News y los perfiles de Instagram que sigue el radar, cuyos feeds públicos traen cada lámina de los carruseles. Los videos que podrían pasar se abren uno por uno para leer su fecha exacta, su canal y sus métricas.
 2. **Decidir con reglas** (sin tokens, `packages/core/src/screen.ts`), en orden y cada una con su razón escrita: que esté en inglés o portugués, que el tema aparezca en el gancho (no en un enlace ni en el nombre del autor), que sea de las últimas 72 horas, que sea viral (2× o más la mediana de su autor, o entre el 25 % más rápido de su red en esa búsqueda), que no la hayamos atrapado antes y que quepa en el presupuesto de 12 por búsqueda. Las reglas están detrás de una sola función: un motor de decisiones como JEV puede tomar su lugar.
+
+   **Con JEV** (si hay `TYPESAFE_API_KEY`): antes de las reglas, JEV, el modelo de decisiones de TypeSafe, responde dos preguntas cerradas por cada pieza en el idioma y la ventana correctos (hasta 120, las de más interacción): si el tema es de verdad el centro de la pieza (no una mención de paso, un enlace o el nombre del autor) y qué tanto le sirve a la audiencia de 30X, de 1 a 10. Desde 0,6 de probabilidad es del tema, diga lo que diga la palabra clave, y el encaje entra al ranking y a las razones («JEV: es del tema (93 %). Encaje con 30X: 8/10»). Tres piezas reales tardaron 282 ms en total y unos 470 tokens cada una: USD 0,00002 por pieza. Si JEV no responde, la búsqueda sigue con palabras clave y el reporte lo dice.
+
 3. **Leer lo atrapado** (con tokens, solo esas 12): la idea en español, el texto de cada lámina (el modelo lee las imágenes), y el gancho y las ideas clave de cada video a partir de sus subtítulos.
 4. **Adaptar**: cada pieza atrapada se convierte en post de LinkedIn, carrusel, guion de Reel y video de YouTube con la voz de 30X.
 
@@ -132,9 +135,29 @@ LinkedIn, Instagram y TikTok no tienen una búsqueda pública. Radar llega a ell
 
 Ninguna usa el idioma como señal (viral en inglés o portugués, ausente en español), ninguna rankea carruseles de Instagram junto con video, LinkedIn y X, y todas explican el porqué para creadores individuales, no para la voz de una escuela de negocios y su audiencia en Latinoamérica.
 
-## Cuánto cuesta
+## Cuánto cuesta al mes
 
-La lectura de una semana completa (decenas de miles de piezas) cuesta unos pocos dólares de modelo; la pantalla Evaluación muestra el costo real de la semana. Las fuentes abiertas no cuestan nada. Una suite de social listening cuesta entre USD 19.000 y 50.000 al año (medianas de Brandwatch, Meltwater y Sprout Social según Vendr).
+Unos **USD 35 a 40 al mes** con 3 temas en Vigía buscados cada hora. Una suite de social listening cuesta entre USD 19.000 y 50.000 al año (medianas de Brandwatch, Meltwater y Sprout Social según Vendr), y no dice por qué funcionó una pieza.
+
+| Concepto                                                                                                     | Supuesto                                                                                                          | USD al mes |
+| ------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- | ---------- |
+| Lectura de la semana (DeepSeek V4.1 Flash en Fireworks: etiquetar, agrupar, explicar y encaje por tema)      | unas 20.000 piezas por semana, unos 150 tokens de entrada y 150 de salida por pieza, a USD 0,22 y 0,66 por millón | ~ 12       |
+| Vigía: leer lo atrapado (láminas, subtítulos, idea en español)                                               | USD 0,006 por búsqueda medidos con «negocios»; 3 temas × 24 búsquedas × 30 días                                   | ~ 13       |
+| JEV en el embudo de Vigía                                                                                    | hasta 120 piezas por búsqueda × 470 tokens a USD 0,042 por millón; 2.160 búsquedas                                | ≤ 5        |
+| Fuentes abiertas (Bluesky, Google Noticias, Hacker News, GitHub, Hugging Face, YouTube público, newsletters) | lectura pública sin llave                                                                                         | 0          |
+| Hosting (API con disco para PGlite + web en Vercel)                                                          | plan de entrada de Railway o Render; Vercel Hobby                                                                 | ~ 5–10     |
+| Opcional: búsqueda por palabra en Instagram, TikTok y LinkedIn (treg.to)                                     | se paga por llamada                                                                                               | según uso  |
+
+La pantalla Evaluación muestra el costo real de la semana medido en cada llamada al modelo; las cifras de la tabla son la estimación para el piloto.
+
+## Seguridad y datos
+
+- **Solo contenido público, sin iniciar sesión** en ninguna red: ni cuentas propias ni falsas, ni saltarse protecciones (el criterio de Meta contra Bright Data y hiQ contra LinkedIn).
+- **Datos personales (Ley 1581 de 2012):** se guarda el contenido público y el nombre público de su autor; nada de correos, teléfonos, perfiles privados ni los nombres de quienes comentan.
+- **Secretos fuera del código:** las llaves (`FIREWORKS_API_KEY`, `TYPESAFE_API_KEY`, `APIFY_TOKEN`) solo se leen del entorno; `env.example` lista los nombres sin valores y ningún `.env` está en el repositorio.
+- **Errores sin llaves:** si JEV rechaza una llamada, el mensaje se guarda sin la llave aunque el servidor la repita.
+- **Nada se publica solo:** el radar propone y una persona del equipo aprueba cada pieza al calendario.
+- **Sin red en pruebas y CI:** las respuestas del modelo quedan grabadas y JEV se prueba con respuestas simuladas.
 
 ## Correrlo
 
@@ -142,7 +165,7 @@ Requisitos: Node 22 o más y pnpm.
 
 ```bash
 pnpm install
-cp env.example .env              # y pon FIREWORKS_API_KEY
+cp env.example .env              # y pon FIREWORKS_API_KEY (y TYPESAFE_API_KEY para JEV, opcional)
 
 # 1. Datos: una captura ahora (o cada 2 horas con --every 120) y las 8 semanas anteriores
 node packages/sources/scripts/capture.mjs
@@ -177,7 +200,7 @@ data/             semana congelada de la demo y respuestas grabadas del modelo
 
 - El crecimiento se mide en fuentes con historia pareja (Bluesky, noticias, Hacker News, GitHub); LinkedIn e Instagram aportan presencia y evidencia, no la curva.
 - La búsqueda de YouTube da fechas aproximadas («hace 2 días») y ninguna para los shorts; esas piezas no cuentan para el crecimiento, y Vigía abre cada video candidato para leer su fecha exacta o lo descarta.
-- Vigía decide «del tema» por palabras clave en el gancho: rápido y sin costo, pero a veces deja pasar una pieza que solo menciona la palabra. Cada decisión muestra su razón para revisarla.
+- Sin JEV, Vigía decide «del tema» por palabras clave en el gancho: rápido y sin costo, pero a veces deja pasar una pieza que solo menciona la palabra. Con JEV ese error baja, aunque JEV también se equivoca: cada decisión muestra su razón y su probabilidad para revisarla.
 - Instagram y X limitan las consultas por hora; la captura reintenta en la siguiente vuelta.
 - El modelo puede etiquetar mal una pieza; el radar trabaja con miles, y cada tema muestra su evidencia para revisarla.
 - Solo se guarda contenido público y el nombre público de su autor: nada de correos, teléfonos ni perfiles privados.
