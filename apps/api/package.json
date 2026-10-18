@@ -23,6 +23,7 @@
     "@typesafe-ai/sdk": "0.7.0",
     "cheerio": "^1.2.0",
     "drizzle-orm": "^0.45.4",
+    "eld": "2.1.0",
     "fast-xml-parser": "^5.11.2",
     "hono": "^4.13.13",
     "pg": "^8.23.1",

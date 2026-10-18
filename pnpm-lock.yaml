@@ -229,6 +229,9 @@ importers:
       drizzle-orm:
         specifier: ^0.45.4
         version: 0.45.4(@electric-sql/pglite@0.5.10)(@opentelemetry/api@1.9.1)(@types/pg@8.23.1)(pg@8.23.1)
+      eld:
+        specifier: 2.1.0
+        version: 2.1.0
       fast-xml-parser:
         specifier: ^5.11.2
         version: 5.11.2
@@ -2168,6 +2171,10 @@ packages:
 
   ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
+
+  eld@2.1.0:
+    resolution: {integrity: sha512-hDQ9FX17th7NDNMO8/St6m3ADQVqjF0sQoOHI6NUAxC7yDaPmZ9wC9d8zau/9FIqOV7KtNwrPKRt6fkkrzZj0g==}
+    engines: {node: '>=14.17.0'}
 
   electron-to-chromium@1.5.457:
     resolution: {integrity: sha512-RNKsgErRmkzRgC8nOV1wzFhSbfGlYJ6k4LT/aE7oFrDYaQgHhTh5oTp0ZgSbRRybKR8HlZIdCWc38Y+CDTk1Jw==}
@@ -4823,6 +4830,8 @@ snapshots:
       gopd: 1.2.0
 
   ee-first@1.1.1: {}
+
+  eld@2.1.0: {}
 
   electron-to-chromium@1.5.457: {}
 

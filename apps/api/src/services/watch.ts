@@ -17,7 +17,6 @@ import { z } from 'zod';
 import {
   SCREEN_RULES,
   engagementOf,
-  guessLang,
   median,
   mentions,
   screen,
@@ -44,6 +43,7 @@ import type { Config } from '../config';
 import { enrichments, items, llmUsage, watchHits, watchRuns, watches } from '../db/schema';
 import { JEV_USD_PER_MTOK, JevUnavailableError } from '../jev/client';
 import { AppError, conflict, iso, newId, notFound } from '../lib/common';
+import { langOf } from '../lib/lang';
 import { saveItems } from '../pipeline/ingest';
 import { AdaptationSchema, VOICE, type AdaptationContent } from './adapt';
 import { nowIso, type Deps } from './deps';
@@ -314,12 +314,6 @@ async function authorMedians(deps: Deps, raws: RawItem[]) {
     return others.length >= 3 ? median(others.map((x) => x.engagement)) : null;
   };
 }
-
-const langOf = (r: RawItem): ScreenLang | null => {
-  const given = r.lang?.slice(0, 2);
-  if (given === 'en' || given === 'pt' || given === 'es') return given;
-  return guessLang([r.title, r.text].filter(Boolean).join('\n'));
-};
 
 const escapeRe = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
