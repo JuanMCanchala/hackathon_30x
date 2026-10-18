@@ -12,3 +12,4 @@ docs/EVALUATION.md
 packages/sources/test/fixtures
 data/
 apps/web/public/ondai.html
+docs/design/*.html

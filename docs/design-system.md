@@ -1,5 +1,7 @@
 # OndAI: design system
 
+La maqueta de la app está en [docs/design/ondai-demo-app.html](design/ondai-demo-app.html) (ábrela en el navegador); la app sigue su marco y sus pantallas.
+
 Sacado de la landing del equipo (`apps/web/public/ondai.html`, servida en `/`) midiendo el DOM renderizado. La app (`/radar` y el resto) usa estos mismos valores: viven como variables en `apps/web/app/globals.css` y como clases de Tailwind (`bg-paper`, `text-ink-2`, `bg-lavender`…).
 
 ## Color
