@@ -1,4 +1,5 @@
 import type { NextConfig } from 'next';
+import { fileURLToPath } from 'node:url';
 
 const API_URL = process.env.API_URL ?? 'http://localhost:4100';
 
@@ -6,7 +7,8 @@ const config: NextConfig = {
   output: 'standalone',
   // Workspace packages are consumed as TypeScript source.
   transpilePackages: ['@radar/core'],
-  outputFileTracingRoot: new URL('../../', import.meta.url).pathname,
+  // fileURLToPath, not .pathname: on Windows the pathname reads /C:/… and the build fails.
+  outputFileTracingRoot: fileURLToPath(new URL('../../', import.meta.url)),
   poweredByHeader: false,
   devIndicators: false,
   // The browser only ever talks to this origin; Next proxies the API.
