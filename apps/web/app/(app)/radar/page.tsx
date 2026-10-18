@@ -15,8 +15,8 @@ import {
   Waves,
 } from 'lucide-react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import { useState, type ReactNode } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { Suspense, useState, type ReactNode } from 'react';
 import { toast } from 'sonner';
 import { Card, Kpi, LangBoxes, Pill, StageChip, table, type Tone } from '@/components/kit';
 import { LanguageWaves } from '@/components/language-waves';
@@ -267,10 +267,21 @@ const ICON_TONE: Record<string, Tone> = {
   approved: 'green',
 };
 
-export default function RadarPage() {
+/** The query string is read on the client only, so the page waits for it in a Suspense boundary. */
+export default function RadarRoute() {
+  return (
+    <Suspense>
+      <RadarPage />
+    </Suspense>
+  );
+}
+
+function RadarPage() {
+  const params = useSearchParams();
   const [platform, setPlatform] = useState<(typeof PLATFORMS)[number]['value']>('all');
   const [region, setRegion] = useState<(typeof REGIONS)[number]['value']>('global');
-  const [untouched, setUntouched] = useState(false);
+  // Referentes links here with ?untouched=1: «temas que crecen y 30X no ha tocado».
+  const [untouched, setUntouched] = useState(() => params.get('untouched') === '1');
   // The brief asks to filter by audience: on by default, one click to see everything.
   const [forAudience, setForAudience] = useState(true);
   const [view, setView] = useState<'ciclo' | 'idioma'>('ciclo');
