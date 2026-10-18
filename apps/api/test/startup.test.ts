@@ -18,8 +18,7 @@ const piece = (n: number): RawItem => ({
   author: { id: `a${n}`, name: `Autor ${n}`, handle: `a${n}` },
   publishedAt: '2026-10-16T12:00:00.000Z',
   // Line breaks and characters beyond ASCII must survive the line-by-line read.
-  text: `Pieza ${n}
-IA en español 🤖   fin`,
+  text: `Pieza ${n}\r\nIA en español 🤖 \u2028 fin`,
   format: 'post',
   lang: 'es',
   metrics: { likes: n },
