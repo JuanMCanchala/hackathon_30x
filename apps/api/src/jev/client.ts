@@ -101,6 +101,9 @@ export function createJevJudge(cfg: {
       const verdicts = new Map<string, PieceVerdict>();
       let inputTokens = 0;
       let lastError: unknown = null;
+      // A run of failures means JEV is down: stop asking, so keywords take over in seconds, not minutes.
+      const giveUpAfter = Math.max(3, concurrency);
+      let failedInARow = 0;
 
       const ask = async (p: JudgedPiece) => {
         try {
@@ -122,15 +125,17 @@ export function createJevJudge(cfg: {
             throw new Error('JEV answered without on_topic or audience_fit');
           verdicts.set(p.key, { onTopic, fit: toFit(level) });
           inputTokens += res.usage?.input_tokens ?? 0;
+          failedInARow = 0;
         } catch (error) {
           lastError = error;
+          failedInARow++;
         }
       };
 
       // A fixed pool of workers: one JEV call per piece, at most `concurrency` at a time.
       let next = 0;
       const worker = async () => {
-        while (next < pieces.length) await ask(pieces[next++]!);
+        while (next < pieces.length && failedInARow < giveUpAfter) await ask(pieces[next++]!);
       };
       await Promise.all(Array.from({ length: Math.min(concurrency, pieces.length) }, worker));
 

@@ -13,6 +13,7 @@ Regla: el demo aparece antes del minuto 1, y lo que no sale en el demo no existe
 ## Antes de grabar
 
 - Demo desplegado con la semana congelada (`DEMO_MODE=true`) y las llaves cargadas en el hosting, nunca en el repo.
+- En el hosting, `LLM_MODE=auto` con `FIREWORKS_API_KEY` y `TYPESAFE_API_KEY`: en `replay` JEV no se llama y crear un tema necesita el modelo. Hacer una búsqueda en vivo con las dos llaves antes de grabar y confirmar que Vigía muestra «JEV decidió el tema…».
 - Vigía con «negocios» ya corrido una vez, para que la búsqueda en vivo tenga con qué compararse.
 - Video de respaldo grabado del demo desplegado (Cap o Loom) antes del domingo a las 10:00.
 - Entrega en HackRadar antes del domingo a las 11:30: video, URL del demo, repo público y README.

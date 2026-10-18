@@ -72,7 +72,7 @@ export async function createContainer(
     overrides.jev !== undefined
       ? overrides.jev
       : config.TYPESAFE_API_KEY && config.LLM_MODE !== 'replay'
-        ? createJevJudge({ apiKey: config.TYPESAFE_API_KEY })
+        ? createJevJudge({ apiKey: config.TYPESAFE_API_KEY, retries: 1 })
         : null;
   const deps: Deps = { db, bus: new EventBus(), clock, config, llm, embedder, jev };
   return { deps, database };

@@ -66,6 +66,22 @@ describe('createJevJudge', () => {
     expect((error as Error).message).not.toContain(KEY);
   });
 
+  it('stops asking after a run of failures instead of waiting on every piece', async () => {
+    let calls = 0;
+    const judge = createJevJudge({
+      apiKey: KEY,
+      retries: 0,
+      concurrency: 1,
+      fetch: async () => {
+        calls++;
+        return json({ error: 'down' }, 503);
+      },
+    });
+    const pieces = Array.from({ length: 20 }, (_, i) => piece(`yt:${i}`));
+    await expect(judge.judge('negocios', pieces)).rejects.toBeInstanceOf(JevUnavailableError);
+    expect(calls).toBe(3);
+  });
+
   it('asks nothing when there are no pieces', async () => {
     const judge = createJevJudge({
       apiKey: KEY,

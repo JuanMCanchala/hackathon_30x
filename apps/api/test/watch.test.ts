@@ -176,6 +176,9 @@ describe('Vigía with JEV', () => {
       ].sort(),
     );
     expect(report.jev).toMatchObject({ judged: 6, inputTokens: 6 * 470 });
+    // JEV's cost is its own line; the reading cost stays the model's only.
+    expect(report.costUsd).toBe(0);
+    expect((report.jev as { costUsd: number }).costUsd).toBeCloseTo((6 * 470 * 0.042) / 1e6, 10);
     const hits = (await watchDetail(deps, watch.id)).hits;
     const caught = hits.map((h) => h.piece.id);
     expect(caught).toContain('bluesky:off');
@@ -199,6 +202,24 @@ describe('Vigía with JEV', () => {
     await runWatch(deps, watch.id, { fetcher: many, pauseMs: 0 });
     expect(asked).toHaveLength(JEV_MAX_PIECES);
     expect(asked.map((p) => p.key)).not.toContain('bluesky:p0');
+  });
+
+  it('does not spend JEV on pieces already caught or without any interaction', async () => {
+    const quiet: Fetcher = async (url, ...rest) => {
+      const res = await fetcher(url, ...rest);
+      if (!url.includes('bsky.app') || url.includes('lang=pt')) return res;
+      const body = JSON.parse(res.body) as { posts: unknown[] };
+      body.posts.push(bsky('zero', 'en', 'A business idea nobody liked yet', hoursAgo(1), 0));
+      return { ...res, body: JSON.stringify(body) };
+    };
+    const { judge, asked } = fakeJudge({});
+    const { deps, watch } = await setup(judge);
+    await runWatch(deps, watch.id, { fetcher: quiet, pauseMs: 0 });
+    expect(asked.map((p) => p.key)).not.toContain('bluesky:zero');
+    const caughtFirst = (await watchDetail(deps, watch.id)).hits.map((h) => h.piece.id);
+    asked.length = 0;
+    await runWatch(deps, watch.id, { fetcher: quiet, pauseMs: 0 });
+    for (const key of caughtFirst) expect(asked.map((p) => p.key)).not.toContain(key);
   });
 
   it('keeps running on keywords when JEV is unavailable', async () => {

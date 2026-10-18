@@ -544,6 +544,7 @@ export async function runWatch(
     const plan = w.plan as WatchPlan;
     const { judged, jev } = await judgeWithJev(deps, w.term, candidates, byKey, {
       now: now.getTime(),
+      seen,
       langs: w.langs as WatchLang[],
       windowHours: w.windowHours,
     });
@@ -619,7 +620,7 @@ export async function runWatch(
         };
       }),
       caught: caught.length,
-      costUsd: Number(usage[0]?.cost ?? 0) + ('costUsd' in jev ? jev.costUsd : 0),
+      costUsd: Number(usage[0]?.cost ?? 0),
       tokens: { input: Number(usage[0]?.input ?? 0), output: Number(usage[0]?.output ?? 0) },
       jev,
     };
@@ -654,7 +655,12 @@ async function judgeWithJev(
   term: string,
   candidates: readonly ScreenCandidate[],
   byKey: ReadonlyMap<string, RawItem>,
-  opts: { now: number; langs: readonly WatchLang[]; windowHours: number },
+  opts: {
+    now: number;
+    seen: ReadonlySet<string>;
+    langs: readonly WatchLang[];
+    windowHours: number;
+  },
 ): Promise<{
   judged: Map<string, ScreenVerdict> | undefined;
   jev: NonNullable<WatchReport['jev']>;
@@ -666,6 +672,9 @@ async function judgeWithJev(
         c.lang !== null &&
         (opts.langs as readonly string[]).includes(c.lang) &&
         c.dateKnown !== false &&
+        // Already caught, or without a single interaction: the screen stops them anyway.
+        !opts.seen.has(c.key) &&
+        c.engagement > 0 &&
         opts.now - new Date(c.publishedAt).getTime() <= opts.windowHours * 3_600_000,
     )
     .sort((a, b) => b.engagement - a.engagement)

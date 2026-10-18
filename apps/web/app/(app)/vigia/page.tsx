@@ -521,6 +521,23 @@ function WatchView({ id, onStopped }: { id: string; onStopped: () => void }) {
                 <span className="font-[720]">{usd(report.costUsd)}</span> (
                 {fmtInt(report.tokens.input + report.tokens.output)} tokens).
               </p>
+              {report.jev &&
+                ('skipped' in report.jev ? (
+                  <p className="text-[0.82rem] text-ink-3">
+                    Sin JEV en esta búsqueda ({report.jev.skipped}): el tema se decidió por palabras
+                    clave.
+                  </p>
+                ) : (
+                  <p className="text-[0.9rem] text-ink">
+                    JEV decidió el tema y el encaje de {fmtInt(report.jev.judged)} piezas en{' '}
+                    {fmtInt(report.jev.ms)} ms por{' '}
+                    <span className="font-[720]">
+                      USD{' '}
+                      {report.jev.costUsd.toLocaleString('es-CO', { maximumSignificantDigits: 2 })}
+                    </span>
+                    .
+                  </p>
+                ))}
               {searched && (
                 <p className="text-[0.82rem] text-ink-3">
                   Buscó en{' '}
