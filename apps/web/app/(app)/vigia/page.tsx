@@ -152,7 +152,13 @@ function WatchView({
             <>
               <ol className="grid gap-4">
                 {shown.map((h) => (
-                  <HitCard key={h.piece.id} hit={h} watchId={watch.id} onAdapted={onChanged} />
+                  <HitCard
+                    key={h.piece.id}
+                    hit={h}
+                    watchId={watch.id}
+                    term={watch.term}
+                    onAdapted={onChanged}
+                  />
                 ))}
               </ol>
               {best.length > FIRST && (
