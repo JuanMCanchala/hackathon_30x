@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { and, eq } from 'drizzle-orm';
 import { analyses } from '../src/db/schema';
 import { createApp } from '../src/http/app';
 import { approve, adaptTopic, calendar } from '../src/services/adapt';
@@ -161,5 +162,26 @@ describe('the radar, from pieces to the calendar', () => {
     expect(instagram.coverage?.reason).toContain('Instagram');
     const all = (await (await app.request('/api/v1/radar?audience=all')).json()) as Week;
     expect(all.coverage).toBeNull();
+  });
+
+  it('blames the 30X fit filter, not the platform, when that filter hid the topics', async () => {
+    const deps = await seeded();
+    const week = await radar(deps, { platform: 'all', region: 'global', untouched: false });
+    for (const t of week.topics) await topicDetail(deps, t.id);
+    // Every topic now scores below the audience threshold.
+    const rows = await deps.db.select().from(analyses);
+    for (const r of rows.filter((r) => r.kind === 'fit'))
+      await deps.db
+        .update(analyses)
+        .set({ payload: { ...(r.payload as object), score: 3 } })
+        .where(and(eq(analyses.topicId, r.topicId), eq(analyses.kind, 'fit')));
+    const res = await createApp(deps).request('/api/v1/radar?platform=bluesky&audience=30x');
+    const body = (await res.json()) as {
+      topics: unknown[];
+      coverage: { reason: string } | null;
+    };
+    expect(body.topics).toHaveLength(0);
+    expect(body.coverage?.reason).toContain('encaje con 30X');
+    expect(body.coverage?.reason).toContain('Bluesky');
   });
 });

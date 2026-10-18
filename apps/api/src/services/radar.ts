@@ -600,6 +600,7 @@ export async function radar(deps: Deps, filters: RadarFilters) {
     candidates = candidates.filter((s) => (s.presence[platform] ?? 0) >= 1);
   }
   if (filters.untouched) candidates = candidates.filter((s) => s.untouched);
+  const beforeAudience = Math.min(10, candidates.length);
   // How many of the unfiltered top 10 the audience filter leaves out, to say so on screen.
   const fits = (s: ScoredTopic) => (s.meta.fit ?? 0) >= AUDIENCE_FIT;
   const hiddenByAudience =
@@ -638,7 +639,7 @@ export async function radar(deps: Deps, filters: RadarFilters) {
   const creators = new Set(currentPieces.map((p) => `${p.platform}:${p.authorId}`));
   const sources = new Set(currentPieces.map((p) => p.platform));
   const scope = `${SCOPE[filters.platform] ?? filters.platform}${filters.region === 'latam' ? ', solo piezas en español' : ''}`;
-  const coverage = coverageOf(filters.platform, top.length, currentPieces);
+  const coverage = coverageOf(filters.platform, top.length, beforeAudience, currentPieces);
 
   return {
     week: { start: current.start, end: current.end },
@@ -662,13 +663,27 @@ export async function radar(deps: Deps, filters: RadarFilters) {
  * Why one platform fills fewer than 10 places: how many of its pieces this week belong to a
  * topic. Null for every network, or when the top 10 is full.
  */
-function coverageOf(platform: RadarFilters['platform'], shown: number, current: PieceRow[]) {
+function coverageOf(
+  platform: RadarFilters['platform'],
+  shown: number,
+  /** Topics the platform filter left, up to 10, before the 30X fit filter. */
+  beforeAudience: number,
+  current: PieceRow[],
+) {
   if (platform === 'all' || shown >= 10) return null;
-  const name = SCOPE[platform] ?? platform;
+  const name = SCOPE[platform] ?? (platform === 'bluesky' ? 'Bluesky' : platform);
   const pieces = new Set(current.filter((p) => p.platform === platform).map((p) => p.id)).size;
-  const reason =
-    pieces === 0
-      ? `Esta semana ninguna pieza de ${name} cae en un tema del radar: lo que capturamos de ${name} es poco frente a Bluesky, noticias y Hacker News.`
-      : `Solo ${pieces} ${pieces === 1 ? 'pieza' : 'piezas'} de ${name} caen esta semana en temas del radar: alcanzan para ${shown} ${shown === 1 ? 'tema' : 'temas'}, no para 10.`;
-  return { platform, pieces, reason };
+  const topics = (n: number) => `${n} ${n === 1 ? 'tema' : 'temas'}`;
+  const reasons: string[] = [];
+  if (beforeAudience > shown)
+    reasons.push(
+      `El filtro de encaje con 30X deja fuera ${beforeAudience - shown} de los ${topics(beforeAudience)} de ${name}; con todas las audiencias aparecen.`,
+    );
+  if (beforeAudience < 10)
+    reasons.push(
+      pieces === 0
+        ? `Esta semana ninguna pieza de ${name} cae en un tema del radar: lo que capturamos de ${name} es poco frente a Bluesky, noticias y Hacker News.`
+        : `Solo ${pieces} ${pieces === 1 ? 'pieza' : 'piezas'} de ${name} ${pieces === 1 ? 'cae' : 'caen'} esta semana en temas del radar: alcanzan para ${topics(beforeAudience)}, no para 10.`,
+    );
+  return { platform, pieces, reason: reasons.join(' ') };
 }
