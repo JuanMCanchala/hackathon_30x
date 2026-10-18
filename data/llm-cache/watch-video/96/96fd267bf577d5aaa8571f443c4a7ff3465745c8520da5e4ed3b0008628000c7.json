@@ -1,0 +1,22 @@
+{
+ "key": "96fd267bf577d5aaa8571f443c4a7ff3465745c8520da5e4ed3b0008628000c7",
+ "name": "watch-video",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T02:12:19.153Z",
+ "latencyMs": 2538,
+ "usage": {
+  "inputTokens": 387,
+  "outputTokens": 262
+ },
+ "output": {
+  "hook": "Ahora mismo hay una oportunidad enorme para algo llamado segundos cerebros.",
+  "points": [
+   "Se les llama cerebros de empresa o paquetes de contexto.",
+   "Si tienes una solución técnica como clawed code que se conecta a una base de datos grande con tu organigrama, quién gestiona qué y los SOPs, cualquiera en la empresa puede preguntar qué hacer.",
+   "Ya no necesitas un montón de gente ayudando con la gestión porque el sistema mismo te dice la gestión y te navega por ella.",
+   "Veo un mundo donde este tipo de consultorías no vienen a gestionar, sino que construyen los sistemas que te gestionarán y te permitirán trabajar de ida y vuelta.",
+   "Tengo muchos otros videos sobre segundos cerebros o arquitecturas de grafos, así que ve a verlos."
+  ],
+  "idea": "Explica que los cerebros de empresa, sistemas técnicos conectados a bases de datos organizacionales, permiten que cualquiera consulte qué hacer y reemplazan la necesidad de mucha gente gestionando, y funciona porque presenta una oportunidad concreta y un cambio de rol para las consultorías."
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "key": "bdbf6ec45328ecddb45b84cd171a4439d86ce70ba3be077e29858d5876d63137",
+ "name": "watch-translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T02:12:12.417Z",
+ "latencyMs": 1301,
+ "usage": {
+  "inputTokens": 235,
+  "outputTokens": 98
+ },
+ "output": {
+  "items": [
+   {
+    "id": "youtube:D1ds32wBoDk",
+    "es": "La mayor oportunidad de IA para las empresas ahora: un cerebro corporativo"
+   },
+   {
+    "id": "youtube:Y4DNF6RPgfY",
+    "es": "Positive K - Mind Ya Business"
+   },
+   {
+    "id": "youtube:s6cgMtfPVVE",
+    "es": "Escuchar al cliente puede transformar un negocio"
+   }
+  ]
+ }
+}

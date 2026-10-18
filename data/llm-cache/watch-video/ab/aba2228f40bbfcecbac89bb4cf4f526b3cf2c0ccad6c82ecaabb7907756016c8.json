@@ -1,0 +1,23 @@
+{
+ "key": "aba2228f40bbfcecbac89bb4cf4f526b3cf2c0ccad6c82ecaabb7907756016c8",
+ "name": "watch-video",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T02:12:32.454Z",
+ "latencyMs": 5647,
+ "usage": {
+  "inputTokens": 776,
+  "outputTokens": 565
+ },
+ "output": {
+  "hook": "Tenía que pasar. ¿Qué tal? ¿Qué hay? ¿Qué está pasando? ¿Qué se dice? Es el final del noveno. Ollas y sartenes en cubierta. Estoy a punto de destrozarlo.",
+  "points": [
+   "He estado moviéndome por ahí, haciendo lo mío, sin meterme con nadie. Sí, gracias por preguntar. Sigo siendo un dolor de cabeza para estos falsos y tipas. Mejor que se apuren a correr y a buscar aspirinas.",
+   "Porque soy Tyson en la oreja. Una vida en la cola. Realmente estoy con saltar, esperando oír. Un OG en el juego que todavía tiene esa hambre. Así que para mí, solo eres un bistec y una pera. Nada que temer.",
+   "Veo a través de todas tus groupies y falsos como si no tuvieras nada que ponerte. Por eso ustedes se pierden lo que hago. Más que una cárcel tú que no has visto a una tipa en un año. Ahora, ¿qué me importa?",
+   "Ya te dije que no soy un OG. Nada es justo. Dos cosas que puedes hacer por mí: mantén mi nombre fuera de tu boca y dile a una tipa mala que venga aquí. Métete en tus asuntos.",
+   "Si mi nombre está en tu boca, no estoy contigo. Lanzallamas. Puro wasabi. Este es el calentador. El calentador para la fiesta. Solo para hacerlo tan caliente. Hacerlo tan caliente aquí. Quemaré la ropa de tu espalda. Haz la llamada.",
+   "Nunca he estado abajo, pero si resbalo, tengo una tipa mala para amortiguar la caída. No soy el mejor de todos. Solo el mejor en lo que hago y lo que mejor hago es NO ME METO CON USTEDES. MÉTETE EN TUS ASUNTOS. MANTÉN MI NOMBRE FUERA DE TU BOCA, TRAPO."
+  ],
+  "idea": "La canción trata sobre alguien que se enorgullece de hacer lo suyo sin meterse con nadie, pero que es un dolor de cabeza para los falsos, y pide que no hablen de él y se metan en sus asuntos; funciona porque usa un tono desafiante y seguro con metáforas como Tyson en la oreja y wasabi para transmitir poder y advertencia."
+ }
+}
