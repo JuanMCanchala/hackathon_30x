@@ -45,6 +45,13 @@ export type Lane = 'mainstream' | 'technical' | 'media';
 
 /** The languages the radar follows: viral AI content usually starts in English or Portuguese. */
 export type Lang = 'en' | 'pt' | 'es';
+/** The languages Vigía catches in: where viral content about AI starts. */
+export type WatchLang = 'en' | 'pt' | 'hi';
+export const WATCH_LANG_COPY: Record<WatchLang, string> = {
+  en: 'Inglés',
+  pt: 'Portugués',
+  hi: 'Hindi',
+};
 export const LANGS: readonly Lang[] = ['en', 'pt', 'es'];
 export const LANG_COPY: Record<Lang, string> = { en: 'Inglés', pt: 'Portugués', es: 'Español' };
 export const LANG_SHORT: Record<Lang, string> = { en: 'EN', pt: 'PT', es: 'ES' };
@@ -238,7 +245,7 @@ export interface WatchReport {
   steps: { step: WatchStep; left: number }[];
   sources: {
     source: string;
-    lang: 'en' | 'pt' | null;
+    lang: WatchLang | null;
     query: string;
     status: number;
     found: number;
@@ -253,7 +260,7 @@ export interface WatchReport {
 
 export interface WatchHit {
   piece: Piece;
-  lang: 'en' | 'pt';
+  lang: WatchLang;
   score: number;
   reasons: string[];
   foundAt: string;
@@ -270,8 +277,8 @@ export interface WatchDetail {
   watch: {
     id: string;
     term: string;
-    plan: Record<'en' | 'pt', { queries: string[]; match: string[] }>;
-    langs: ('en' | 'pt')[];
+    plan: Partial<Record<WatchLang, { queries: string[]; match: string[] }>>;
+    langs: WatchLang[];
     windowHours: number;
     everyMinutes: number;
     budget: number;
