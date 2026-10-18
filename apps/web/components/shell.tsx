@@ -220,7 +220,9 @@ function Sidebar({ pathname, onNavigate }: { pathname: string; onNavigate?: () =
       {radar && (
         <div className="mt-auto rounded-[12px] border border-[#fbd9c6] bg-[#fff4ee] px-3.5 py-3 dark:border-panel-rule dark:bg-panel">
           <p className="text-[0.86rem] font-[700] text-ink">
-            {next !== null && next > 0 ? `Próxima búsqueda en ${next} min` : 'Búsqueda en curso'}
+            {next !== null && next > 0
+              ? `Próxima búsqueda en ${next} min`
+              : `Última captura ${radar.basis.updatedAt ? ago(radar.basis.updatedAt, now) : 'sin fecha'}`}
           </p>
           <p className="mt-1 text-[0.76rem] leading-snug text-ink-2">
             {radar.basis.sources} fuentes · cada 2 horas · costo de la semana USD{' '}
