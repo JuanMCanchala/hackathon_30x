@@ -4,6 +4,7 @@
  */
 import clsx from 'clsx';
 import { FileText, Image as ImageIcon, LayoutGrid, Play, Video } from 'lucide-react';
+import type { MaquetaFormat, PieceFormat } from '@/lib/types';
 
 export type FormatKind = 'carrusel' | 'reel' | 'post' | 'video' | 'imagen' | 'pendiente';
 
@@ -16,6 +17,22 @@ export function formatKind(format: string): FormatKind {
   if (f.includes('image') || f.includes('imagen')) return 'imagen';
   return 'post';
 }
+
+/** The maqueta canvas that fits a piece of this kind: a reel becomes a story, a video a cover. */
+export function maquetaFormatOf(kind: FormatKind): MaquetaFormat {
+  if (kind === 'carrusel') return 'carrusel';
+  if (kind === 'reel') return 'historia';
+  if (kind === 'video') return 'portada';
+  return 'post';
+}
+
+/** The maqueta canvas for an adaptation's format (carousel, linkedin, reel, youtube). */
+export const MAQUETA_FOR_PIECE: Record<PieceFormat, MaquetaFormat> = {
+  carousel: 'carrusel',
+  linkedin: 'post',
+  reel: 'historia',
+  youtube: 'portada',
+};
 
 const LABEL: Record<FormatKind, string> = {
   carrusel: 'Carrusel',
@@ -53,12 +70,23 @@ const ICON: Record<FormatKind, typeof FileText> = {
   pendiente: FileText,
 };
 
-/** «Carrusel» on its tint. */
-export function FormatChip({ kind, className }: { kind: FormatKind; className?: string }) {
+/** «Carrusel» on its tint; `size="sm"` for the calendar's compact cards. */
+export function FormatChip({
+  kind,
+  size = 'md',
+  className,
+}: {
+  kind: FormatKind;
+  size?: 'sm' | 'md';
+  className?: string;
+}) {
   return (
     <span
       className={clsx(
-        'inline-flex w-fit items-center rounded-[6px] px-2 py-[3px] text-[0.75rem] font-[700] whitespace-nowrap',
+        'inline-flex w-fit items-center font-[700] whitespace-nowrap',
+        size === 'sm'
+          ? 'rounded-[5px] px-1.5 py-px text-[0.68rem]'
+          : 'rounded-[6px] px-2 py-[3px] text-[0.75rem]',
         CHIP[kind],
         className,
       )}

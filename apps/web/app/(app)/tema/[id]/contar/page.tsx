@@ -7,6 +7,7 @@ import {
   Globe,
   Link2,
   MessageSquare,
+  Palette,
   PenLine,
   Repeat2,
   RotateCw,
@@ -17,24 +18,20 @@ import {
   TriangleAlert,
 } from 'lucide-react';
 import Link from 'next/link';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { toast } from 'sonner';
-import { useSWRConfig } from 'swr';
 import { FORMATS, FormatBody, textOf, type Format } from '@/components/adaptation-panel';
+import { MAQUETA_FOR_PIECE } from '@/components/calendario-format';
 import { Card, DarkNote, MonoLabel, PageHead, Pill } from '@/components/kit';
+import { ScheduleDialog } from '@/components/schedule-dialog';
 import { Page } from '@/components/shell';
 import { fmtRatio, pieceMetrics } from '@/components/tema-kit';
 import { Button, Empty, Skeleton } from '@/components/ui';
 import { ApiError, post } from '@/lib/api';
+import { todayIso } from '@/lib/dates';
 import { useApi } from '@/lib/hooks';
-import {
-  LANG_SHORT,
-  PLATFORM_COPY,
-  type Adaptation,
-  type CalendarEntry,
-  type TopicDetail,
-} from '@/lib/types';
+import { LANG_SHORT, PLATFORM_COPY, type Adaptation, type TopicDetail } from '@/lib/types';
 
 /** The API writes variants 0 to 5. */
 const MAX_VARIANT = 5;
@@ -46,11 +43,18 @@ const TAB_LABEL: Record<Format, string> = {
   youtube: 'YouTube',
 };
 
-/** The next weekday from tomorrow, as YYYY-MM-DD in Bogotá. */
-function nextWeekday(): string {
-  const d = new Date(Date.now() + 86_400_000);
-  while (d.getDay() === 0 || d.getDay() === 6) d.setDate(d.getDate() + 1);
-  return d.toLocaleDateString('en-CA', { timeZone: 'America/Bogota' });
+/** How the calendar names each format («Programar» shows it with the topic). */
+const SCHEDULE_LABEL: Record<Format, string> = {
+  linkedin: 'Post de LinkedIn',
+  carousel: 'Carrusel de Instagram',
+  reel: 'Reel o TikTok',
+  youtube: 'Video de YouTube',
+};
+
+/** The day Calendario's «Agregar» asked for (`?dia=YYYY-MM-DD`), when it is still ahead. */
+function askedDay(): string | undefined {
+  const day = new URLSearchParams(window.location.search).get('dia');
+  return day && /^\d{4}-\d{2}-\d{2}$/.test(day) && day >= todayIso() ? day : undefined;
 }
 
 /** Seconds since `on` turned true, for the «writing» copy. */
@@ -186,8 +190,6 @@ function WriteFirst({
 
 export default function ContarPage() {
   const { id } = useParams<{ id: string }>();
-  const router = useRouter();
-  const { mutate: mutateGlobal } = useSWRConfig();
   const { data: detail } = useApi<TopicDetail>(`/api/v1/topics/${id}`);
   const { data: list, error, mutate } = useApi<Adaptation[]>(`/api/v1/topics/${id}/adaptations`);
 
@@ -195,7 +197,8 @@ export default function ContarPage() {
   const [hook, setHook] = useState(0);
   const [format, setFormat] = useState<Format>('linkedin');
   const [writing, setWriting] = useState(false);
-  const [approving, setApproving] = useState(false);
+  /** Open with the day to suggest, while the team picks the day and hour. */
+  const [scheduling, setScheduling] = useState<{ day: string | undefined } | null>(null);
   const elapsed = useElapsed(writing);
 
   const versions = [...(list ?? [])].sort((a, b) => a.variant - b.variant);
@@ -215,32 +218,6 @@ export default function ContarPage() {
       toast.error(e instanceof ApiError ? e.message : 'No se pudo escribir ahora.');
     } finally {
       setWriting(false);
-    }
-  };
-
-  const approve = async () => {
-    if (!current) return;
-    setApproving(true);
-    try {
-      const entry = await post<CalendarEntry>('/api/v1/calendar', {
-        adaptationId: current.id,
-        format,
-        scheduledFor: nextWeekday(),
-      });
-      const day = new Date(`${entry.scheduledFor}T12:00:00`).toLocaleDateString('es-CO', {
-        weekday: 'long',
-        day: 'numeric',
-        month: 'long',
-      });
-      toast('Quedó en el calendario', {
-        description: `${entry.format}, ${day}.`,
-        action: { label: 'Ver calendario', onClick: () => router.push('/calendario') },
-      });
-      void mutateGlobal('/api/v1/calendar');
-    } catch (e) {
-      toast.error(e instanceof ApiError ? e.message : 'No se pudo aprobar.');
-    } finally {
-      setApproving(false);
     }
   };
 
@@ -265,15 +242,28 @@ export default function ContarPage() {
               <RotateCw className={clsx('size-4', writing && 'animate-spin')} aria-hidden />
               {writing ? `Escribiendo… ${elapsed} s` : 'Otra variante'}
             </button>
+            <Link
+              href={`/maquetas/nueva?tema=${id}&formato=${MAQUETA_FOR_PIECE[format]}`}
+              className="inline-flex h-10 items-center gap-2 rounded-[10px] border border-rule-strong bg-sheet px-4 text-[0.9rem] font-[650] text-ink transition hover:border-ink"
+            >
+              <Palette className="size-4" aria-hidden />
+              Armar maqueta
+            </Link>
             <Button
               variant="primary"
-              loading={approving}
-              onClick={approve}
+              onClick={() => setScheduling({ day: askedDay() })}
               icon={<Check className="size-4" aria-hidden />}
               className="rounded-[10px]!"
             >
               Aprobar al calendario
             </Button>
+            <ScheduleDialog
+              open={scheduling !== null}
+              onOpenChange={(open) => !open && setScheduling(null)}
+              source={{ adaptationId: current.id, format }}
+              what={`${SCHEDULE_LABEL[format]} · ${name}`}
+              defaultDate={scheduling?.day}
+            />
           </>
         )
       }
