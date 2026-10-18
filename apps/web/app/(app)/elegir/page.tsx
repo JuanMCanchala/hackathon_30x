@@ -11,6 +11,7 @@ import {
   Check,
   FileText,
   HardDrive,
+  LayoutTemplate,
   RotateCcw,
   ShieldCheck,
   Undo2,
@@ -98,6 +99,8 @@ export default function ElegirPage() {
   const [decisions, decide] = useDecisions();
   const [leaving, setLeaving] = useState<Decision | null>(null);
   const [drag, setDrag] = useState<{ x: number; dx: number } | null>(null);
+  // The topic just marked «Sirve»: its «Armar maqueta» prompt stays until the next decision.
+  const [servedId, setServedId] = useState<string | null>(null);
 
   const week = useMemo(
     () =>
@@ -115,6 +118,10 @@ export default function ElegirPage() {
   useApi<TopicDetail>(next ? `/api/v1/topics/${next.id}` : null);
   const fresh = detail && current && detail.topic.id === current.id ? detail : null;
   const piece = fresh ? (fresh.inspiration[0] ?? fresh.evidence[0] ?? null) : null;
+  const served =
+    servedId && decisions[servedId] === 'sirve'
+      ? (week.find((t) => t.id === servedId) ?? null)
+      : null;
 
   function choose(d: Decision) {
     if (!current || leaving) return;
@@ -126,6 +133,7 @@ export default function ElegirPage() {
     window.setTimeout(() => {
       decide(id, d);
       setLeaving(null);
+      setServedId(d === 'sirve' ? id : null);
     }, 280);
   }
 
@@ -387,6 +395,55 @@ export default function ElegirPage() {
 
           {/* ------------------------------------------------ approved */}
           <div className="flex min-w-0 flex-col gap-4">
+            {served && (
+              <section
+                key={served.id}
+                aria-live="polite"
+                aria-label={`${served.name} sirve`}
+                className="pass-in rounded-[14px] border border-[#fbd9c6] bg-[#fff4ee] p-4 dark:border-panel-rule dark:bg-panel"
+              >
+                <div className="flex items-start gap-3">
+                  <span
+                    className="grid size-9 shrink-0 place-items-center rounded-full bg-marker text-on-marker"
+                    aria-hidden
+                  >
+                    <Check className="size-5" strokeWidth={2.8} />
+                  </span>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-[1rem] leading-snug font-[700] text-ink">
+                      {served.name} sirve
+                    </p>
+                    <p className="mt-0.5 text-[0.86rem] leading-snug text-ink-2">
+                      Arma una maqueta con su texto; el equipo de diseño la reúsa para los próximos
+                      posts.
+                    </p>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      <Link
+                        href={`/maquetas/nueva?tema=${served.id}&escribiendo=1`}
+                        className="inline-flex h-9 items-center gap-1.5 rounded-[9px] bg-marker px-3.5 text-[0.88rem] font-[650] text-on-marker transition hover:bg-marker-strong"
+                      >
+                        <LayoutTemplate className="size-4" aria-hidden />
+                        Armar maqueta
+                      </Link>
+                      <Link
+                        href={`/tema/${served.id}/contar`}
+                        className="inline-flex h-9 items-center rounded-[9px] border border-rule-strong bg-sheet px-3.5 text-[0.88rem] font-[650] text-ink transition hover:border-ink"
+                      >
+                        Ver borrador
+                      </Link>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setServedId(null)}
+                    className="-mt-1 -mr-1 grid size-8 shrink-0 place-items-center rounded-full text-ink-3 transition hover:bg-sheet hover:text-ink"
+                    aria-label="Cerrar este aviso"
+                  >
+                    <X className="size-4" aria-hidden />
+                  </button>
+                </div>
+              </section>
+            )}
             <section className="flex-1 rounded-[14px] border border-rule bg-sheet p-5">
               <div className="flex items-center gap-3">
                 <IconTile tone="orange" className="size-12 rounded-[12px] [&_svg]:size-5">
@@ -425,9 +482,16 @@ export default function ElegirPage() {
                           {t.fit !== null && <>{t.fit}/10 encaje · </>}
                           <Link
                             href={`/tema/${t.id}/contar`}
-                            className="font-[600] text-brand hover:underline"
+                            className="font-[600] whitespace-nowrap text-brand hover:underline"
                           >
                             Ver borrador
+                          </Link>
+                          {' · '}
+                          <Link
+                            href={`/maquetas/nueva?tema=${t.id}`}
+                            className="font-[600] whitespace-nowrap text-brand hover:underline"
+                          >
+                            Armar maqueta
                           </Link>
                         </p>
                       </div>

@@ -8,6 +8,7 @@ import {
   CircleHelp,
   Eye,
   Gauge,
+  LayoutTemplate,
   Link2,
   LineChart,
   ListChecks,
@@ -48,6 +49,7 @@ const GROUPS = [
     label: 'Planear',
     items: [
       { href: '/calendario', label: 'Calendario', icon: CalendarDays },
+      { href: '/maquetas', label: 'Maquetas', icon: LayoutTemplate },
       { href: '/referentes', label: 'Referentes', icon: Star },
     ],
   },
