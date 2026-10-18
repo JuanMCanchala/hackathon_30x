@@ -1,16 +1,39 @@
 'use client';
 
 import clsx from 'clsx';
-import { ChevronRight } from 'lucide-react';
+import {
+  ArrowRight,
+  CalendarDays,
+  DoorOpen,
+  Download,
+  Globe,
+  ListChecks,
+  Loader,
+  Share,
+  SquareCheck,
+  TrendingUp,
+  Waves,
+} from 'lucide-react';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { useState, type ReactNode } from 'react';
+import { toast } from 'sonner';
+import { Card, Kpi, LangBoxes, Pill, StageChip, table, type Tone } from '@/components/kit';
 import { LanguageWaves } from '@/components/language-waves';
-import { FitMeter, LangTrio, Sparkline, TimingChip, UnconfirmedChip } from '@/components/marks';
+import { Sparkline, UnconfirmedChip } from '@/components/marks';
+import { RadarOnda } from '@/components/radar-onda';
 import { Page } from '@/components/shell';
-import { Empty, Skeleton, StageTag, fmtDateTime, fmtGrowth, fmtInt } from '@/components/ui';
+import { Empty, Skeleton, fmtGrowth, fmtInt } from '@/components/ui';
 import { useApi } from '@/lib/hooks';
-import { windowLine } from '@/lib/language';
-import { PLATFORM_COPY, type Radar, type RadarTopic } from '@/lib/types';
+import {
+  LANG_SHORT,
+  PLATFORM_COPY,
+  type CalendarEntry,
+  type Platform,
+  type Radar,
+  type RadarTopic,
+} from '@/lib/types';
+import { useDecisions } from '@/lib/workspace';
 
 const PLATFORMS = [
   { value: 'all', label: 'Todas las redes' },
@@ -26,32 +49,114 @@ const REGIONS = [
   { value: 'latam', label: 'Solo español' },
 ] as const;
 
+/** The radar as the API sends it: `coverage` explains why one network fills fewer than 10. */
+type RadarData = Radar & {
+  coverage?: { platform: Platform; pieces: number; reason: string } | null;
+};
+
+const MONTHS = [
+  'ene',
+  'feb',
+  'mar',
+  'abr',
+  'may',
+  'jun',
+  'jul',
+  'ago',
+  'sept',
+  'oct',
+  'nov',
+  'dic',
+];
+
 const usd = (n: number) =>
   `USD ${n.toLocaleString('es-CO', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
 const list = (items: string[]) => new Intl.ListFormat('es', { type: 'conjunction' }).format(items);
 
+/** «Semana 11–18 oct», or «Semana 28 sept–4 oct» across months. */
 function weekLabel(start: string, end: string) {
-  const f = new Intl.DateTimeFormat('es-CO', { day: 'numeric', month: 'long', timeZone: 'UTC' });
-  return `Semana del ${f.format(new Date(start))} al ${f.format(new Date(end))}`;
+  const a = new Date(start);
+  const b = new Date(end);
+  const [da, ma, db, mb] = [a.getUTCDate(), a.getUTCMonth(), b.getUTCDate(), b.getUTCMonth()];
+  return ma === mb
+    ? `Semana ${da}–${db} ${MONTHS[mb]}`
+    : `Semana ${da} ${MONTHS[ma]}–${db} ${MONTHS[mb]}`;
 }
 
-function Segmented<T extends string>({
-  options,
+/** «23 días de ventaja», or «más de 49» while Spanish has not stood out yet. */
+function leadDays(t: RadarTopic): string | null {
+  const w = t.spanishWindow;
+  if (!w.lagDays) return null;
+  return `${w.reached === false ? 'más de ' : ''}${fmtInt(w.lagDays)} días de ventaja`;
+}
+
+const TILE_TONES = [
+  'bg-[color-mix(in_oklab,var(--marker)_14%,var(--sheet))] text-marker-strong',
+  'bg-lavender-tint text-brand-strong',
+  'bg-st-emergente-tint text-st-emergente',
+  'bg-st-saturado-tint text-st-saturado',
+  'bg-fill text-ink',
+];
+const SMALL_WORDS = new Set(['y', 'de', 'del', 'en', 'la', 'el', 'las', 'los', 'con', 'para', 'a']);
+
+/** Two letters for a topic's tile: «Android y IA» → «AI». */
+function initials(name: string) {
+  const words = name.split(/\s+/).filter((w) => w && !SMALL_WORDS.has(w.toLowerCase()));
+  return (words.length > 1 ? words[0]![0]! + words[1]![0]! : name.slice(0, 2)).toUpperCase();
+}
+
+/** The same topic always gets the same tint. */
+function toneOf(id: string) {
+  let h = 0;
+  for (const c of id) h = (h * 31 + c.charCodeAt(0)) >>> 0;
+  return TILE_TONES[h % TILE_TONES.length]!;
+}
+
+/** A small tinted square with the topic's initials, in place of a photo. */
+function TopicTile({ topic }: { topic: RadarTopic }) {
+  return (
+    <span
+      className={clsx(
+        'grid size-10 shrink-0 place-items-center rounded-[9px] text-[0.82rem] font-[750] tracking-[0.02em]',
+        toneOf(topic.id),
+      )}
+      aria-hidden
+    >
+      {initials(topic.name)}
+    </span>
+  );
+}
+
+/** An outlined chip that leads to a topic. */
+function TopicChip({ href, children }: { href: string; children: ReactNode }) {
+  return (
+    <Link
+      href={href}
+      className="inline-flex max-w-full items-center rounded-[8px] border border-rule-strong bg-sheet px-3 py-1.5 text-[0.88rem] text-ink transition hover:border-ink hover:bg-sheet-2"
+    >
+      <span className="truncate">{children}</span>
+    </Link>
+  );
+}
+
+/** «Ciclo de vida / Por idioma»: which view of the week's wave to draw. */
+function ViewToggle({
   value,
   onChange,
-  label,
 }: {
-  options: readonly { value: T; label: string }[];
-  value: T;
-  onChange: (v: T) => void;
-  label: string;
+  value: 'ciclo' | 'idioma';
+  onChange: (v: 'ciclo' | 'idioma') => void;
 }) {
+  const options = [
+    { value: 'ciclo', label: 'Ciclo de vida', short: 'Ciclo' },
+    { value: 'idioma', label: 'Por idioma', short: 'Idioma' },
+  ] as const;
   return (
     <div
       role="radiogroup"
-      aria-label={label}
-      className="flex max-w-full min-w-0 gap-1 overflow-x-auto rounded-full bg-fill p-1"
+      aria-label="Vista"
+      className="flex shrink-0 gap-0.5 rounded-[10px] border border-rule bg-sheet-2 p-0.5"
     >
       {options.map((o) => (
         <button
@@ -61,103 +166,106 @@ function Segmented<T extends string>({
           aria-checked={value === o.value}
           onClick={() => onChange(o.value)}
           className={clsx(
-            'rounded-full px-3.5 py-1.5 text-[0.88rem] font-[620] whitespace-nowrap transition',
-            value === o.value ? 'bg-sheet text-ink shadow-sheet' : 'text-ink-2 hover:text-ink',
+            'rounded-[8px] px-2.5 py-1 text-[0.78rem] whitespace-nowrap transition sm:px-3',
+            value === o.value
+              ? 'bg-sheet font-[700] text-ink shadow-[0_1px_2px_rgb(32_21_21/0.08)]'
+              : 'font-[600] text-ink-2 hover:text-ink',
           )}
         >
-          {o.label}
+          <span className="hidden sm:inline">{o.label}</span>
+          <span className="sm:hidden">{o.short}</span>
         </button>
       ))}
     </div>
   );
 }
 
-function WindowRow({ topic, n }: { topic: RadarTopic; n: number }) {
+/** One row of «Los temas que más crecen»: the whole row opens the topic. */
+function TopicRow({ topic, markUntouched }: { topic: RadarTopic; markUntouched: boolean }) {
+  const router = useRouter();
+  const where = topic.platforms.slice(0, 2).map((p) => PLATFORM_COPY[p]);
+  const now = topic.timing === 'Entra ya';
   return (
-    <li className="grid gap-x-6 gap-y-3 py-5 md:grid-cols-[2.5rem_minmax(0,1fr)_auto_auto] md:items-center">
-      <span className="t-figure text-[2rem] leading-none text-marker">{n}</span>
-      <div className="min-w-0">
-        <Link
-          href={`/tema/${topic.id}`}
-          className="t-h3 block text-[1.3rem] text-ink hover:text-brand"
+    <tr
+      className="group cursor-pointer transition hover:bg-sheet-2"
+      onClick={() => router.push(`/tema/${topic.id}`)}
+    >
+      <td className={clsx(table.td, 'w-10 text-ink-2 tabular-nums')}>{topic.rank}</td>
+      <td className={clsx(table.td, 'min-w-[300px]')}>
+        <div className="flex items-center gap-3">
+          <TopicTile topic={topic} />
+          <div className="min-w-0">
+            <p className="flex flex-wrap items-center gap-x-2 gap-y-1">
+              <Link
+                href={`/tema/${topic.id}`}
+                className="font-[700] text-ink group-hover:text-brand"
+                onClick={(e) => e.stopPropagation()}
+              >
+                {topic.name}
+              </Link>
+              {!topic.confirmed && <UnconfirmedChip growingIn={topic.growingIn} />}
+              {markUntouched && topic.untouched && (topic.fit ?? 0) >= 7 && (
+                <span className="rounded-full bg-brand-tint px-2 py-0.5 text-[0.72rem] font-[680] text-brand">
+                  30X no lo ha tocado
+                </span>
+              )}
+            </p>
+            {topic.why && (
+              <p className="mt-0.5 line-clamp-1 max-w-[340px] text-[0.8rem] text-ink-2">
+                {topic.why}
+              </p>
+            )}
+          </div>
+        </div>
+      </td>
+      <td className={table.td}>
+        <p
+          className={clsx(
+            'font-[650] tabular-nums',
+            topic.fresh || topic.growthPct >= 0 ? 'text-st-emergente' : 'text-held',
+          )}
         >
-          {topic.name}
-        </Link>
-        <p className="mt-1 text-[0.95rem] text-ink-2">{windowLine(topic)}</p>
-        {topic.why && (
-          <p className="mt-1 line-clamp-2 text-[0.9rem] leading-snug text-ink-3">{topic.why}</p>
-        )}
-      </div>
-      <LangTrio languages={topic.languages} />
-      <Link
-        href={`/tema/${topic.id}#contar`}
-        className="inline-flex h-10 w-fit items-center rounded-full bg-marker px-4 text-[0.92rem] font-[700] whitespace-nowrap text-on-marker hover:bg-marker-strong"
-      >
-        Adáptalo al español
-      </Link>
-    </li>
+          {topic.fresh ? 'Nuevo' : fmtGrowth(topic.growthPct)}
+        </p>
+        <p className="text-[0.84rem] whitespace-nowrap text-ink-2">
+          {fmtInt(topic.creators)} creadores
+        </p>
+      </td>
+      <td className={table.td}>
+        <Sparkline
+          values={topic.sparkline}
+          width={100}
+          className={topic.growthPct >= 0 ? 'text-st-emergente' : 'text-held'}
+        />
+      </td>
+      <td className={clsx(table.td, 'whitespace-nowrap')}>{list(where)}</td>
+      <td className={table.td}>
+        <StageChip stage={topic.stage} />
+        <p
+          className={clsx(
+            'mt-1 text-[0.86rem] font-[650] whitespace-nowrap',
+            now ? 'text-marker-strong' : 'text-ink',
+          )}
+        >
+          {topic.timing}
+        </p>
+      </td>
+      <td className={clsx(table.td, 'text-[1.05rem] font-[700] whitespace-nowrap tabular-nums')}>
+        {topic.fit != null ? `${topic.fit}/10` : '—'}
+      </td>
+      <td className={table.td}>
+        <LangBoxes languages={topic.languages} />
+      </td>
+    </tr>
   );
 }
 
-function TopicRow({ topic, markUntouched }: { topic: RadarTopic; markUntouched: boolean }) {
-  const where = topic.platforms.slice(0, 3).map((p) => PLATFORM_COPY[p]);
-  return (
-    <li>
-      <Link
-        href={`/tema/${topic.id}`}
-        className="group grid grid-cols-[2rem_minmax(0,1fr)_auto] items-start gap-x-3 gap-y-2 px-4 py-4 transition hover:bg-sheet-2 sm:px-5 lg:grid-cols-[2.25rem_minmax(0,2.4fr)_9rem_7rem_6.5rem_8.5rem_11rem_1rem] lg:items-center"
-      >
-        <span className="t-figure pt-0.5 text-[1.35rem] leading-none text-ink-3 lg:pt-0">
-          {topic.rank}
-        </span>
-        <div className="min-w-0">
-          <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[1.04rem] leading-snug font-[700] text-ink">
-            {topic.name}
-            {!topic.confirmed && <UnconfirmedChip growingIn={topic.growingIn} />}
-            {markUntouched && topic.untouched && (topic.fit ?? 0) >= 7 && (
-              <span className="rounded-full bg-brand-tint px-2 py-0.5 text-[0.72rem] font-[680] text-brand">
-                30X no lo ha tocado
-              </span>
-            )}
-          </p>
-          {topic.why && (
-            <p className="mt-1 line-clamp-2 text-[0.9rem] leading-snug text-ink-2">{topic.why}</p>
-          )}
-          {where.length > 0 && (
-            <p className="mt-1 text-[0.8rem] text-ink-3">Se mueve en {list(where)}.</p>
-          )}
-          <div className="mt-2 flex flex-wrap items-center gap-2 lg:hidden">
-            <StageTag stage={topic.stage} />
-            <span className="t-figure text-[1rem] text-ink">
-              {topic.fresh ? 'Nuevo esta semana' : fmtGrowth(topic.growthPct)}
-            </span>
-            <LangTrio languages={topic.languages} />
-          </div>
-        </div>
-        <ChevronRight className="size-4 text-ink-3 lg:hidden" aria-hidden />
-        <div className="hidden lg:block">
-          <StageTag stage={topic.stage} />
-        </div>
-        <div className="hidden lg:block">
-          <p className="t-figure text-[1.35rem] leading-none text-ink">
-            {topic.fresh ? 'Nuevo' : fmtGrowth(topic.growthPct)}
-          </p>
-          <p className="mt-1 text-[0.76rem] text-ink-3">{fmtInt(topic.creators)} creadores</p>
-        </div>
-        <Sparkline values={topic.sparkline} className="hidden lg:block" />
-        <LangTrio languages={topic.languages} className="hidden lg:inline-flex" />
-        <div className="hidden flex-col items-start gap-1.5 lg:flex">
-          <TimingChip timing={topic.timing} />
-          <FitMeter fit={topic.fit} />
-        </div>
-        <ChevronRight
-          className="hidden size-4 text-ink-3 transition group-hover:translate-x-0.5 group-hover:text-ink lg:block"
-          aria-hidden
-        />
-      </Link>
-    </li>
-  );
-}
+const ICON_TONE: Record<string, Tone> = {
+  signal: 'orange',
+  window: 'lavender',
+  pending: 'sand',
+  approved: 'green',
+};
 
 export default function RadarPage() {
   const [platform, setPlatform] = useState<(typeof PLATFORMS)[number]['value']>('all');
@@ -165,155 +273,323 @@ export default function RadarPage() {
   const [untouched, setUntouched] = useState(false);
   // The brief asks to filter by audience: on by default, one click to see everything.
   const [forAudience, setForAudience] = useState(true);
+  const [view, setView] = useState<'ciclo' | 'idioma'>('ciclo');
+  const [decisions] = useDecisions();
+
+  // The week as a whole (headline, figures, the wave) reads the radar unfiltered, like the sidebar;
+  // the filters only narrow the table.
+  const base = useApi<RadarData>('/api/v1/radar');
+  const filtered = platform !== 'all' || region !== 'global' || untouched || !forAudience;
   const query = new URLSearchParams({
     platform,
     region,
     audience: forAudience ? '30x' : 'all',
     ...(untouched ? { untouched: '1' } : {}),
   });
-  const { data, isLoading, error } = useApi<Radar>(`/api/v1/radar?${query}`);
+  const ranked = useApi<RadarData>(filtered ? `/api/v1/radar?${query}` : '/api/v1/radar');
+  const { data: calendar } = useApi<CalendarEntry[]>('/api/v1/calendar');
 
-  // The waves show the open windows first, then the fastest topics, six at most.
+  const data = base.data;
+  const rows = ranked.data;
+  const pending = data ? data.topics.filter((t) => !decisions[t.id]).length : 0;
+  const widest = data?.windowsOpen.reduce<RadarTopic | null>(
+    (best, t) => ((t.spanishWindow.lagDays ?? 0) > (best?.spanishWindow.lagDays ?? 0) ? t : best),
+    null,
+  );
+
+  // The language view draws the open windows first, then the fastest topics, six at most.
   const onWaves = data
     ? [...new Map([...data.windowsOpen, ...data.topics].map((t) => [t.id, t])).values()].slice(0, 6)
     : [];
   const numbered = new Map(onWaves.map((t, i) => [t.id, i + 1]));
+  const formingWhere = data
+    ? [...new Set(data.forming.flatMap((t) => t.growingIn))].map((p) => PLATFORM_COPY[p])
+    : [];
+
+  async function share() {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      toast('Enlace copiado', { description: 'Pégalo donde quieras compartir el radar.' });
+    } catch {
+      toast.error('No se pudo copiar el enlace.');
+    }
+  }
+
+  if (base.error) {
+    return (
+      <Page>
+        <Empty title="No pudimos leer el radar">
+          {base.error instanceof Error ? base.error.message : 'Intenta de nuevo en unos segundos.'}
+        </Empty>
+      </Page>
+    );
+  }
 
   return (
-    <>
-      <section className="mx-auto max-w-[1376px] px-3 pt-4 sm:px-6">
-        <div className="ondai-hero rounded-[28px] border border-rule px-4 pt-8 pb-8 sm:px-8 sm:pt-10 lg:px-12">
+    <Page className="grid grid-cols-[minmax(0,1fr)] gap-5">
+      {/* 1. head */}
+      <header className="flex flex-wrap items-start justify-between gap-4 lg:flex-nowrap">
+        <div className="max-w-4xl min-w-0 flex-1">
+          <nav aria-label="Ruta" className="flex flex-wrap items-center gap-1.5 text-[0.84rem]">
+            <Link href="/radar" className="text-brand hover:underline">
+              Radar
+            </Link>
+            <span className="text-ink-3" aria-hidden>
+              ›
+            </span>
+            {data ? (
+              <span className="text-ink-2">
+                {weekLabel(data.week.start, data.week.end)} · {fmtInt(data.basis.pieces)} piezas ·{' '}
+                {fmtInt(data.basis.creators)} creadores · {data.basis.sources} fuentes
+              </span>
+            ) : (
+              <span className="h-4 w-64 animate-pulse rounded-full bg-fill" />
+            )}
+          </nav>
+          <p className="mt-2 text-[0.84rem] font-[650] text-marker-strong">Titular de la semana</p>
           {data ? (
-            <>
-              <p className="eyebrow">{weekLabel(data.week.start, data.week.end)}</p>
-              <h1 className="t-display mt-3 max-w-5xl text-[clamp(2rem,1.1rem+2.8vw,3.4rem)] font-[400] tracking-[-0.04em] text-balance text-ink">
-                {data.headline}
-              </h1>
-              <p className="mt-3 max-w-3xl text-[0.98rem] text-ink-2">
-                Medido en {fmtInt(data.basis.pieces)} piezas públicas de{' '}
-                {fmtInt(data.basis.creators)} creadores, en {data.basis.sources} fuentes y tres
-                idiomas.
-                {data.basis.updatedAt && ` Última captura el ${fmtDateTime(data.basis.updatedAt)}`}
-              </p>
-              <div className="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1fr)_19rem]">
-                <div className="min-w-0">
-                  <h2 className="t-h3 text-ink">La ola viaja de idioma en idioma</h2>
-                  <p className="mt-1 max-w-2xl text-[0.92rem] text-ink-2">
-                    Lo viral sobre IA nace en inglés o portugués y llega días después al español.
-                    Cada hilo es un tema; en naranja, los que ya despegaron afuera y en español casi
-                    nadie cuenta todavía.
-                  </p>
-                  <div className="mt-4">
-                    <LanguageWaves topics={onWaves} numbered={numbered} />
-                  </div>
-                </div>
-                <ol className="grid content-start gap-1 lg:pt-14">
-                  {onWaves.map((t, i) => (
-                    <li key={t.id}>
-                      <Link
-                        href={`/tema/${t.id}`}
-                        className="grid grid-cols-[1.6rem_minmax(0,1fr)] items-baseline gap-2 rounded-[12px] px-2 py-1.5 text-ink hover:bg-sheet"
-                      >
-                        <span className="t-figure text-[1.05rem] text-ink-3">{i + 1}</span>
-                        <span className="min-w-0">
-                          <span className="block truncate text-[0.98rem] font-[680]">{t.name}</span>
-                          <span
-                            className={clsx(
-                              'text-[0.8rem]',
-                              t.spanishWindow.open ? 'font-[650] text-marker' : 'text-ink-3',
-                            )}
-                          >
-                            {t.spanishWindow.open
-                              ? 'Ventana abierta en español'
-                              : `${fmtGrowth(t.growthPct)} esta semana`}
-                          </span>
-                        </span>
-                      </Link>
-                    </li>
-                  ))}
-                </ol>
-              </div>
-            </>
+            <h1 className="mt-0.5 text-[1.625rem] leading-tight font-[700] tracking-[-0.02em] text-ink">
+              {data.headline}
+            </h1>
           ) : (
-            <div className="grid gap-4 pb-6">
-              <div className="h-5 w-56 animate-pulse rounded-full bg-fill" />
-              <div className="h-24 max-w-3xl animate-pulse rounded-[18px] bg-fill" />
-              <div className="h-[320px] animate-pulse rounded-[18px] bg-fill" />
-            </div>
+            <div className="mt-1 h-8 w-[min(36rem,100%)] animate-pulse rounded-[10px] bg-fill" />
           )}
+        </div>
+        <div className="flex shrink-0 flex-wrap items-center gap-2 print:hidden">
+          <button
+            type="button"
+            onClick={share}
+            className="inline-flex h-10 items-center gap-2 rounded-[10px] border border-rule-strong bg-sheet px-4 text-[0.9rem] font-[600] text-ink transition hover:bg-sheet-2"
+          >
+            <Share className="size-4" aria-hidden />
+            Compartir
+          </button>
+          <button
+            type="button"
+            onClick={() => window.print()}
+            className="inline-flex h-10 items-center gap-2 rounded-[10px] bg-ink px-4 text-[0.9rem] font-[600] text-sheet transition hover:opacity-90"
+          >
+            <Download className="size-4" aria-hidden />
+            Exportar informe
+          </button>
+        </div>
+      </header>
+
+      {/* 2. figures */}
+      {data ? (
+        <div className="grid grid-cols-2 gap-3 lg:grid-cols-4 lg:gap-4">
+          <Kpi
+            label="Temas con señal"
+            value={fmtInt(data.topics.length)}
+            note={data.forming.length > 0 ? `+${data.forming.length} formándose` : undefined}
+            noteTone="good"
+            icon={<TrendingUp />}
+            tone={ICON_TONE.signal}
+          />
+          <Kpi
+            label="Ventana abierta en ES"
+            value={fmtInt(data.windowsOpen.length)}
+            note={
+              widest?.spanishWindow.leader && widest.spanishWindow.lagDays
+                ? `${LANG_SHORT[widest.spanishWindow.leader]} lleva ${leadDays(widest)}`
+                : undefined
+            }
+            icon={<Globe />}
+            tone={ICON_TONE.window}
+          />
+          <Kpi
+            label="Por revisar"
+            value={fmtInt(pending)}
+            note="en Elegir"
+            icon={<SquareCheck />}
+            tone={ICON_TONE.pending}
+            href="/elegir"
+          />
+          <Kpi
+            label="Aprobados"
+            value={calendar ? fmtInt(calendar.length) : '—'}
+            note="en el calendario"
+            icon={<CalendarDays />}
+            tone={ICON_TONE.approved}
+            href="/calendario"
+          />
+        </div>
+      ) : (
+        <div className="grid grid-cols-2 gap-3 lg:grid-cols-4 lg:gap-4">
+          {[0, 1, 2, 3].map((i) => (
+            <Skeleton key={i} className="h-[112px]" />
+          ))}
+        </div>
+      )}
+
+      {/* 3. Elegir */}
+      <section className="rounded-[16px] border border-[color-mix(in_oklab,var(--marker)_24%,var(--rule))] bg-[linear-gradient(100deg,color-mix(in_oklab,var(--marker)_4%,var(--sheet))_15%,color-mix(in_oklab,var(--marker)_34%,var(--sheet)))] px-5 py-6 sm:px-7 sm:py-8 print:hidden">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-5">
+          <span
+            className="grid size-11 shrink-0 place-items-center rounded-[11px] bg-marker text-on-marker"
+            aria-hidden
+          >
+            <ListChecks className="size-5" />
+          </span>
+          <div className="min-w-0 flex-1">
+            <p className="font-mono text-[0.72rem] tracking-[0.14em] text-marker-strong uppercase">
+              Elegir · {pending > 0 ? `${pending} por revisar` : 'todo revisado'}
+            </p>
+            <h2 className="mt-1 text-[1.45rem] leading-tight font-[700] tracking-[-0.02em] text-ink sm:text-[1.6rem]">
+              Desliza las ondas de la semana
+            </h2>
+            <p className="mt-1 text-[0.95rem] text-ink-2">
+              Desliza los que le sirven a tu equipo. Lo que apruebas pasa a borrador.
+            </p>
+          </div>
+          <Link
+            href="/elegir"
+            className="inline-flex h-11 w-fit shrink-0 items-center gap-2 rounded-[10px] bg-marker px-4 text-[0.95rem] font-[700] text-on-marker transition hover:bg-marker-strong"
+          >
+            Empezar a elegir <ArrowRight className="size-4" aria-hidden />
+          </Link>
         </div>
       </section>
 
-      <Page className="grid gap-12">
-        {error && (
-          <Empty title="No pudimos leer el radar">
-            {error instanceof Error ? error.message : 'Intenta de nuevo en unos segundos.'}
-          </Empty>
-        )}
-
-        {data && data.windowsOpen.length > 0 && (
-          <section className="grid gap-2">
-            <h2 className="t-h2 text-ink">
-              Ya es viral en inglés o portugués, todavía no en español
-            </h2>
-            <p className="max-w-3xl text-ink-2">
-              La ventana para adaptarlo primero: temas con una conversación grande afuera y casi
-              nadie contándolos en español esta semana.
-            </p>
-            <ol className="mt-2 divide-y divide-rule border-y border-rule">
-              {data.windowsOpen.map((t, i) => (
-                <WindowRow key={t.id} topic={t} n={i + 1} />
+      {/* 4. La onda */}
+      <Card
+        icon={<Waves />}
+        tone="orange"
+        title="La onda"
+        action={<ViewToggle value={view} onChange={setView} />}
+      >
+        <p className="-mt-2 mb-4 text-[0.88rem] text-ink-2 sm:pl-[42px]">
+          {view === 'ciclo'
+            ? 'Dónde está cada tema en su ciclo de vida · los 6 que más crecen'
+            : 'Cómo viaja cada tema del inglés y el portugués al español'}
+        </p>
+        {!data ? (
+          <Skeleton className="h-[300px]" />
+        ) : data.topics.length === 0 ? (
+          <p className="py-10 text-center text-ink-2">Esta semana no hay temas con señal.</p>
+        ) : view === 'ciclo' ? (
+          <RadarOnda topics={data.topics.slice(0, 6)} />
+        ) : (
+          <>
+            <LanguageWaves topics={onWaves} numbered={numbered} />
+            <ol className="mt-4 grid gap-x-6 gap-y-1 sm:grid-cols-2 lg:grid-cols-3">
+              {onWaves.map((t, i) => (
+                <li key={t.id}>
+                  <Link
+                    href={`/tema/${t.id}`}
+                    className="grid grid-cols-[1.4rem_minmax(0,1fr)] items-baseline gap-2 rounded-[8px] px-2 py-1 hover:bg-sheet-2"
+                  >
+                    <span className="text-[0.85rem] font-[700] text-ink-3 tabular-nums">
+                      {i + 1}
+                    </span>
+                    <span className="min-w-0">
+                      <span className="block truncate text-[0.9rem] font-[650] text-ink">
+                        {t.name}
+                      </span>
+                      <span
+                        className={clsx(
+                          'text-[0.78rem]',
+                          t.spanishWindow.open ? 'font-[650] text-marker-strong' : 'text-ink-3',
+                        )}
+                      >
+                        {t.spanishWindow.open
+                          ? 'Ventana abierta en español'
+                          : `${fmtGrowth(t.growthPct)} esta semana`}
+                      </span>
+                    </span>
+                  </Link>
+                </li>
               ))}
             </ol>
-          </section>
+          </>
         )}
+      </Card>
 
-        <section className="grid gap-4">
-          <div>
-            <h2 className="t-h2 text-ink">Los 10 temas de IA que más crecen</h2>
-            <p className="mt-1 text-ink-2">
-              Creadores distintos que hablan del tema esta semana, frente a su promedio de las
-              cuatro anteriores.
+      {/* 5. windows and what is forming */}
+      {data && (data.windowsOpen.length > 0 || data.forming.length > 0) && (
+        <div className="grid grid-cols-[minmax(0,1fr)] gap-5 lg:grid-cols-2">
+          <Card icon={<DoorOpen />} tone="orange" title="Ventana abierta en español">
+            <p className="text-[0.95rem] text-ink-2">
+              Ya despegaron en inglés o portugués y casi nadie lo cuenta en español.
             </p>
-          </div>
-          <div className="flex min-w-0 flex-wrap items-center gap-2">
-            <Segmented label="Red" options={PLATFORMS} value={platform} onChange={setPlatform} />
-            <Segmented label="Idioma" options={REGIONS} value={region} onChange={setRegion} />
-            <button
-              type="button"
-              aria-pressed={forAudience}
-              onClick={() => setForAudience((v) => !v)}
-              className={clsx(
-                'rounded-full px-3.5 py-2 text-[0.88rem] font-[620] transition',
-                forAudience ? 'bg-ink font-[700] text-sheet' : 'bg-fill text-ink-2 hover:text-ink',
-              )}
-            >
-              Le sirve a 30X
-            </button>
-            <button
-              type="button"
-              aria-pressed={untouched}
-              onClick={() => setUntouched((v) => !v)}
-              className={clsx(
-                'rounded-full px-3.5 py-2 text-[0.88rem] font-[620] transition',
-                untouched ? 'bg-ink font-[700] text-sheet' : 'bg-fill text-ink-2 hover:text-ink',
-              )}
-            >
-              Sin explotar por 30X
-            </button>
-          </div>
+            {data.windowsOpen.length > 0 ? (
+              <div className="mt-4 flex flex-wrap gap-2">
+                {data.windowsOpen.map((t) => {
+                  const w = t.spanishWindow;
+                  const days = leadDays(t);
+                  return (
+                    <TopicChip key={t.id} href={`/tema/${t.id}/contar`}>
+                      {t.name}
+                      {w.leader && ` · ${LANG_SHORT[w.leader]} lidera`}
+                      {days && ` · ${days}`}
+                    </TopicChip>
+                  );
+                })}
+              </div>
+            ) : (
+              <p className="mt-4 text-[0.9rem] text-ink-3">Esta semana no hay ventanas abiertas.</p>
+            )}
+          </Card>
+          <Card icon={<Loader />} tone="lavender" title="Se está formando">
+            <p className="text-[0.95rem] text-ink-2">
+              {formingWhere.length > 0
+                ? `Suben en ${list(formingWhere)}; aún no llegan a LinkedIn ni Instagram.`
+                : 'Suben donde las olas de IA nacen y aún no llegan a LinkedIn ni Instagram.'}
+            </p>
+            {data.forming.length > 0 ? (
+              <div className="mt-4 flex flex-wrap gap-2">
+                {data.forming.map((t) => {
+                  const where = (t.growingIn.length ? t.growingIn : t.platforms).slice(0, 2);
+                  return (
+                    <TopicChip key={t.id} href={`/tema/${t.id}`}>
+                      {t.name}
+                      {where.length > 0 && ` · ${where.map((p) => PLATFORM_COPY[p]).join(', ')}`}
+                    </TopicChip>
+                  );
+                })}
+              </div>
+            ) : (
+              <p className="mt-4 text-[0.9rem] text-ink-3">Nada se está formando esta semana.</p>
+            )}
+          </Card>
+        </div>
+      )}
 
-          {data && data.topics.length > 0 && data.topics.every((t) => t.untouched) && (
-            <p className="text-[0.9rem] text-ink-2">
+      {/* 6. the table */}
+      <Card icon={<TrendingUp />} tone="sand" title="Los temas que más crecen">
+        <div className="flex flex-wrap items-center gap-1.5 print:hidden">
+          {PLATFORMS.map((p) => (
+            <Pill key={p.value} on={platform === p.value} onClick={() => setPlatform(p.value)}>
+              {p.label}
+            </Pill>
+          ))}
+          <span className="mx-1 hidden h-5 w-px bg-rule sm:block" aria-hidden />
+          {REGIONS.map((r) => (
+            <Pill key={r.value} on={region === r.value} onClick={() => setRegion(r.value)}>
+              {r.label}
+            </Pill>
+          ))}
+          <span className="mx-1 hidden h-5 w-px bg-rule sm:block" aria-hidden />
+          <Pill on={forAudience} onClick={() => setForAudience((v) => !v)}>
+            Le sirve a 30X
+          </Pill>
+          <Pill on={untouched} onClick={() => setUntouched((v) => !v)}>
+            Sin explotar por 30X
+          </Pill>
+        </div>
+
+        <div className="mt-3 grid gap-1 text-[0.86rem] text-ink-2 empty:hidden">
+          {rows && rows.topics.length > 0 && rows.topics.every((t) => t.untouched) && (
+            <p>
               30X y Andrés Bilbao todavía no han publicado sobre ninguno de estos temas: todos son
               una oportunidad de llegar primero.
             </p>
           )}
-          {data && forAudience && data.hiddenByAudience > 0 && (
-            <p className="text-[0.9rem] text-ink-2">
-              {data.hiddenByAudience === 1
+          {rows && forAudience && rows.hiddenByAudience > 0 && (
+            <p>
+              {rows.hiddenByAudience === 1
                 ? 'Un tema que crece no le sirve a la audiencia de 30X y quedó fuera.'
-                : `${data.hiddenByAudience} temas que crecen no le sirven a la audiencia de 30X y quedaron fuera.`}{' '}
+                : `${rows.hiddenByAudience} temas que crecen no le sirven a la audiencia de 30X y quedaron fuera.`}{' '}
               <button
                 type="button"
                 onClick={() => setForAudience(false)}
@@ -323,74 +599,68 @@ export default function RadarPage() {
               </button>
             </p>
           )}
-          {isLoading && !data && <Skeleton className="h-[560px]" />}
-          {data && data.topics.length === 0 && (
+          {rows?.coverage && <p>{rows.coverage.reason}</p>}
+        </div>
+
+        <div className="mt-3">
+          {ranked.error && (
+            <Empty title="No pudimos leer este filtro">
+              {ranked.error instanceof Error ? ranked.error.message : 'Intenta de nuevo.'}
+            </Empty>
+          )}
+          {!rows && !ranked.error && <Skeleton className="h-[480px]" />}
+          {rows && rows.topics.length === 0 && (
             <Empty title="Nada crece con este filtro">
               Prueba con todas las redes, o quita «Le sirve a 30X» o «Sin explotar por 30X».
             </Empty>
           )}
-          {data && data.topics.length > 0 && (
-            <div className="sheet overflow-hidden">
-              <div className="hidden grid-cols-[2.25rem_minmax(0,2.4fr)_9rem_7rem_6.5rem_8.5rem_11rem_1rem] gap-x-3 border-b border-rule px-5 py-2.5 text-[0.8rem] font-[600] text-ink-3 lg:grid">
-                <span />
-                <span>Tema y por qué crece</span>
-                <span>Etapa</span>
-                <span>Crecimiento</span>
-                <span>8 semanas</span>
-                <span>Inglés, portugués, español</span>
-                <span>Momento y encaje</span>
-                <span />
-              </div>
-              <ol className="divide-y divide-rule">
-                {data.topics.map((t) => (
-                  <TopicRow
-                    key={t.id}
-                    topic={t}
-                    markUntouched={data.topics.some((x) => !x.untouched)}
-                  />
-                ))}
-              </ol>
+          {rows && rows.topics.length > 0 && (
+            <div className={clsx(table.wrap, ranked.isLoading && 'opacity-60')}>
+              <table className={clsx(table.table, 'min-w-[1040px]')}>
+                <thead>
+                  <tr>
+                    <th className={clsx(table.th, 'whitespace-nowrap')}>#</th>
+                    <th className={clsx(table.th, 'whitespace-nowrap')}>Tema</th>
+                    <th className={clsx(table.th, 'whitespace-nowrap')}>Crecimiento</th>
+                    <th className={clsx(table.th, 'whitespace-nowrap')}>Curva 8 sem.</th>
+                    <th className={clsx(table.th, 'whitespace-nowrap')}>Dónde se mueve</th>
+                    <th className={clsx(table.th, 'whitespace-nowrap')}>Etapa · momento</th>
+                    <th className={clsx(table.th, 'whitespace-nowrap')}>Encaje</th>
+                    <th className={clsx(table.th, 'whitespace-nowrap')}>EN · PT · ES</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {rows.topics.map((t) => (
+                    <TopicRow
+                      key={t.id}
+                      topic={t}
+                      markUntouched={rows.topics.some((x) => !x.untouched)}
+                    />
+                  ))}
+                </tbody>
+              </table>
             </div>
           )}
-        </section>
-
-        {data && data.forming.length > 0 && (
-          <section className="grid gap-2">
-            <h2 className="t-h2 text-ink">Se está formando</h2>
-            <p className="max-w-3xl text-ink-2">
-              Suben donde las olas de IA nacen (GitHub, Hacker News, Hugging Face, X) y todavía no
-              llegan a LinkedIn ni a Instagram.
+          {rows && rows.topics.length > 0 && (
+            <p className="px-3 pt-4 text-[0.86rem] text-ink-2">
+              Mostrando {rows.topics.length === 1 ? 'un tema' : `${rows.topics.length} temas`}
             </p>
-            <ul className="mt-2 grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3">
-              {data.forming.map((t) => (
-                <li key={t.id} className="border-t border-rule py-3">
-                  <Link href={`/tema/${t.id}`} className="group block">
-                    <p className="font-[700] text-ink group-hover:text-brand">{t.name}</p>
-                    <p className="mt-0.5 text-sm text-ink-2">
-                      {t.fresh
-                        ? 'Apareció esta semana'
-                        : `${fmtGrowth(t.growthPct)} frente a su promedio`}
-                      , {fmtInt(t.creators)} creadores.
-                    </p>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </section>
-        )}
+          )}
+        </div>
+      </Card>
 
-        {data && (
-          <p className="border-t border-rule pt-5 text-[0.92rem] text-ink-2">
-            Esta semana el radar costó{' '}
-            <span className="font-[700] text-ink">{usd(data.cost.weekUsd)}</span>:{' '}
-            {usd(data.cost.llmUsd)} de modelo y {usd(data.cost.dataUsd)} de datos. Una suite de
-            social listening cuesta entre USD 19.000 y 50.000 al año.{' '}
-            <Link href="/evaluacion" className="font-[600] text-brand hover:underline">
-              Cómo lo medimos
-            </Link>
-          </p>
-        )}
-      </Page>
-    </>
+      {/* 7. what the week cost */}
+      {data && (
+        <p className="pt-1 text-[0.8rem] text-ink-3">
+          Esta semana el radar costó{' '}
+          <span className="font-[650] text-ink-2">{usd(data.cost.weekUsd)}</span>:{' '}
+          {usd(data.cost.llmUsd)} de modelo y {usd(data.cost.dataUsd)} de datos. Una suite de social
+          listening cuesta entre USD 19.000 y 50.000 al año.{' '}
+          <Link href="/evaluacion" className="font-[600] text-brand hover:underline">
+            Cómo lo medimos
+          </Link>
+        </p>
+      )}
+    </Page>
   );
 }
