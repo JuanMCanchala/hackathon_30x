@@ -1,0 +1,31 @@
+{
+ "key": "60858c31f866a6e9e619b583ba1ffeb3df72e0d6c134ad28df3ed64eecef53fa",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:46:11.273Z",
+ "latencyMs": 1765,
+ "usage": {
+  "inputTokens": 298,
+  "outputTokens": 179
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxzn453k4s2y",
+    "es": "El CEO de la ADL, Jonathan Greenblatt, revela en Israel que ha trabajado con los principales laboratorios de IA para que supriman el \"antisemitismo\"."
+   },
+   {
+    "id": "hn:49997161",
+    "es": "Meta y Microsoft toman medidas para reducir el uso de Claude AI entre sus empleados"
+   },
+   {
+    "id": "bluesky:3mxhsozwrsk2c",
+    "es": "Ya pasó. Mataron a Google Assistant y me instalaron Gemini AI a la fuerza en mi maldito teléfono."
+   },
+   {
+    "id": "youtube:4B1m1MWI2PY",
+    "es": "Por qué los agentes de IA podrían desatar un segundo boom de inversión en IA, aún mayor"
+   }
+  ]
+ }
+}

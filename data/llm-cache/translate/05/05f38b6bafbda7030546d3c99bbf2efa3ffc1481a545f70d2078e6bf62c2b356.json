@@ -1,0 +1,31 @@
+{
+ "key": "05f38b6bafbda7030546d3c99bbf2efa3ffc1481a545f70d2078e6bf62c2b356",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:35:24.625Z",
+ "latencyMs": 9097,
+ "usage": {
+  "inputTokens": 1026,
+  "outputTokens": 925
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxvj33npjk2n",
+    "es": "La startup de IA Apate lanza bots encubiertos para burlar a estafadores globales"
+   },
+   {
+    "id": "news:CBMixgFBVV95cUxPR1o3TnI5QU9jc05mWE5CVjA2NHBfb3NPZ3RKZDJMT0tKNV96b3FQVVA5RFhXN0RiMWR3VXQzOVFuZThScnRUcEs2WFFTeXlHQXBRWnR6MVRTcGFoTkVzU0k3OXZyZXE1OXRvVHdiZkwzUU9pTF8wcExaSDF3WmhMbjU1NEZEaV9EWnA5ZURnbzNwZ1haMjdrMFp1QmlhQVFLZUQ2NkhoZWhtVzlGNy1GSVRGdXM0T2hxcTJlbFZBTVlMYjdkaWc",
+    "es": "Waters se asocia con Anthropic para impulsar flujos de laboratorio autónomos con IA"
+   },
+   {
+    "id": "news:CBMivAFBVV95cUxPQ3ZfOTlzd0hScy1veGFtbnFkNDFrRWc3Q29Lb0lyb05PelpoNWpyMkF0bk1FOGR0OHJKYlJzWGo0S2ZjODJhLXBhS2MtS1hHVm1RNUJmeVpnb1hJRFg1NEtYTWdUSnVISGduVFBja0NzeGhRSHM5YngyWUdQcjQ1enM1cW5OWHI4WGpzbW9qb2Itek5WQ25iblBOeFYzNE92NExrTEV6RWk5NXhKTGdEMERLNjBVTUNyR1dQeA",
+    "es": "Apate envía agentes de IA encubiertos a que los estafen y así recopilar inteligencia sobre fraudes"
+   },
+   {
+    "id": "news:CBMi0wFBVV95cUxNbEJ4eHBiTVZEMG5zWjY1aWwtTFdNT2pxdnVraUhCdnBHV2dmZWh2OVl1ak1PMkdlS09ualI5NW1CRkZXWEJQQnNnRERVTmtIcUpjdXZyVWZjMnNuckxqaUtYY0g5Uk5MN2tFSUM3MVFCODNTUV9PUTh1a3pTNnJVV2lmSFVELXREaEpvVnlCN082TWVBNjR5M3RxYnhZTnhwUmdybTQ4N0tVNG85SldydDFYT3hRXzdWSmVldHV0aFFndW9mZE9TVHphQXJ3eld5SE9z0gHYAUFVX3lxTFA1YTE2WFk1MmN5XzBFcjNST0Z2YXY5WDJEM3VzWDdlYy0wYktHaDFELTBLLTN1c0h1YlZpQklZR05Xdld6NzgweHE2TVVlX1FqSEIzT3gwUWdrZVJScm1MZjBaeXFtOHVrdDZxUGxHc0tvZzBfd3hCRERkT2JvckNBN0ZwOGxWUVNOQUthVjJDclM2RjU2bHZDRkx2VnlOUFAtZjV3LURfWElXNWhlS1NXWFlzMzJwRnAtb0ZQanVnZEx0a2ZHd2d2YVZ5R0lwbDZ3Z2wxRHdwNQ",
+    "es": "Cómo reaccionan los inversores al lanzamiento de automatización de laboratorio con IA de Waters (WAT)"
+   }
+  ]
+ }
+}

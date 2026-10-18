@@ -1,0 +1,24 @@
+{
+ "key": "e527b1f0f21fb614569bddf52196fc0a758873fee8b2b017465b99d8da04fce7",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:50:18.062Z",
+ "latencyMs": 8215,
+ "usage": {
+  "inputTokens": 761,
+  "outputTokens": 807
+ },
+ "output": {
+  "score": 6,
+  "executive": 7,
+  "noCode": 7,
+  "latam": 8,
+  "pillar": "Next",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Relevante para retención, productividad y cultura en equipos que adoptan IA.",
+   "No es táctica comercial directa; encaja más en futuro del trabajo.",
+   "Casos en español y sector público dan ángulo LatAm claro."
+  ]
+ }
+}

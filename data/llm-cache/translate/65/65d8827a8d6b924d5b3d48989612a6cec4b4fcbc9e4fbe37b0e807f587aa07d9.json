@@ -1,0 +1,31 @@
+{
+ "key": "65d8827a8d6b924d5b3d48989612a6cec4b4fcbc9e4fbe37b0e807f587aa07d9",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:51:10.952Z",
+ "latencyMs": 2230,
+ "usage": {
+  "inputTokens": 319,
+  "outputTokens": 179
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxrx33uk7k2v",
+    "es": "¿Qué dicen los Tech Bros que obtenemos por la enorme inversión en IA? \"Nada claro, nada pronto y quizá nada en absoluto\"."
+   },
+   {
+    "id": "bluesky:3mxjui7oakc2l",
+    "es": "Quizá valga la pena notar, en este contexto, que Bezos fue a Fox News a decirle a su audiencia"
+   },
+   {
+    "id": "youtube:RckI7mBhZvY",
+    "es": "La IA mató el mejor empleo del siglo XXI"
+   },
+   {
+    "id": "bluesky:3mxhzss5zec2x",
+    "es": "Han ganado tanto con la automatización que al menos deberíamos trabajar 3 o 4 días a la semana."
+   }
+  ]
+ }
+}

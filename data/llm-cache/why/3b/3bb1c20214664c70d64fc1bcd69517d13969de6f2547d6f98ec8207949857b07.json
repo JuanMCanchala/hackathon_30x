@@ -1,0 +1,21 @@
+{
+ "key": "3bb1c20214664c70d64fc1bcd69517d13969de6f2547d6f98ec8207949857b07",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:48:23.576Z",
+ "latencyMs": 13749,
+ "usage": {
+  "inputTokens": 1316,
+  "outputTokens": 1772
+ },
+ "output": {
+  "oneLiner": "El fracaso financiero de OpenAI y la burbuja de la IA mueven posts en Bluesky y Hacker News.",
+  "narrative": "El tema está saturado: 29 creadores y -2 % frente a las cuatro semanas previas. Aun así, 7 de 8 piezas que despegaron son posts de texto, frente a 8 de 71 del resto, y 4 de 8 las publicó un creador de contenido, frente a 1 de 71. El gancho es la urgencia de no quedarse atrás: 5 de 8 la usan, frente a 10 de 71, y 6 de 8 salieron un sábado. Los posts de Charlie Stross y Ben Templesmith sobre el fracaso financiero de OpenAI y la burbuja de la IA, y el envío de mfiguiere en Hacker News sobre los ingresos anualizados, concentran el mayor engagement.",
+  "cited": [
+   "bluesky:3mxjoscpphrwo",
+   "bluesky:3mxh73ukb622e",
+   "hn:50008187",
+   "bluesky:3mxjtyjkmic2y"
+  ]
+ }
+}

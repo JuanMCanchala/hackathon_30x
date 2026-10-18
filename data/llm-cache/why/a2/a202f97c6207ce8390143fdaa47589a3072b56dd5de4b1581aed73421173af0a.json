@@ -1,0 +1,21 @@
+{
+ "key": "a202f97c6207ce8390143fdaa47589a3072b56dd5de4b1581aed73421173af0a",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:50:09.844Z",
+ "latencyMs": 11196,
+ "usage": {
+  "inputTokens": 1701,
+  "outputTokens": 1199
+ },
+ "output": {
+  "oneLiner": "Crece IA y salud mental: 7 creadores, +191%, con hilos en Bluesky sobre pérdida de interés profesional.",
+  "narrative": "No hay patrones con al menos 3 piezas, así que no se puede generalizar el formato. Las dos piezas que despegaron son posts de Bluesky: uno de Silver abre con una queja personal sobre hilos de gente que pierde interés en su especialidad por la IA, con 40,3 veces la mediana de su autor, y otro de Mark Histed conecta la IA con funciones degradadas y enfermedades, con 20 veces. El resto son notas de prensa sin métricas públicas y un video de PSYCA Psicología con engagement 2. El crecimiento se apoya en conversación espontánea en Bluesky, no en medios ni en video.",
+  "cited": [
+   "bluesky:3mxqrcqjum222",
+   "bluesky:3mxpvag7yus2i",
+   "youtube:HZyhA4mUeUg",
+   "news:CBMi4AFBVV95cUxOcFNLWXJhYjN5aHJUZkRzTkpBWmpGS25IYnJteUVLLWFBUlQtM09uSVRaT1VBNy01X0lqTEczV2J1QTRQdDBLQlF0NkY3N3RnY2htWUpEZEZKX1VZOHloUF8tM2ZPZUxDNEc3MHo3aGRSNkFvX2ZWSjRDenFobnNkSnhHLVBjcjlZcXlYQUhra2tiREppcmVYeUxValdBYWtZV2lGemowRE4xbFJsN2t2ZkNpVjRFbV9lTTd4bW9ONDVNZVVDNlpYc2NCc18tZUs4S3NVVTEyelJhY2UzaFYxaQ"
+  ]
+ }
+}

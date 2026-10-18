@@ -1,0 +1,21 @@
+{
+ "key": "2ebac520acdcc23573b638f17a0f710a48dca7d7584bd1bc3aee36ddf8b03889",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:50:33.659Z",
+ "latencyMs": 9508,
+ "usage": {
+  "inputTokens": 1511,
+  "outputTokens": 1121
+ },
+ "output": {
+  "oneLiner": "GEO crece: 7 creadores nuevos y medios que miden cómo la IA recomienda marcas.",
+  "narrative": "Esta semana no hay patrones con al menos 3 piezas, así que el crecimiento se explica con evidencia suelta. El gancho que mejor rinde es el desplazamiento del comprador: un short de Vilma OS abre con que la IA evalúa la página antes que el cliente y llega a 1.8× la mediana de su autor. Los medios empujan el mismo marco con titulares sobre estar en la respuesta de ChatGPT y las reglas de recomendación, y un paper de Shiqi Zhang mide visibilidad en motores generativos. En Bluesky, Hex-ko aporta la cita sobre el relato del cliente y Bison Agents la cifra del 44% de citas que sale del primer 30% de la página.",
+  "cited": [
+   "youtube:wLyZqbv96O4",
+   "news:CBMijgFBVV95cUxON0ZtVGZUNlR5aXFOWWRqRVpvUk5NUVRXZW1ibVBrYXNrdjJ5REF1ZUVFYmJpVEwwYkJHVnRJN0RpQUhyNTFXZENyb0lZb25jeHk1cmpFSHFqbW1mNlFmU090Nm1aNTk3RUJKVXZueTEzM1pKVHRoVnBOQjl6WjVwTzNTcGtIbXdodzR4SVBB",
+   "arxiv:2610.21330",
+   "bluesky:3mx7p3vifoo26"
+  ]
+ }
+}

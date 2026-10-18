@@ -1,0 +1,31 @@
+{
+ "key": "0826e8f8f83cb9d912cbed65f03b651ae31552762b885dd1c84d5e052f2657bf",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:43:25.729Z",
+ "latencyMs": 5059,
+ "usage": {
+  "inputTokens": 603,
+  "outputTokens": 494
+ },
+ "output": {
+  "items": [
+   {
+    "id": "hn:50067356",
+    "es": "El FMI advierte que el riesgo de un colapso en las acciones de IA pone en peligro la estabilidad financiera mundial"
+   },
+   {
+    "id": "bluesky:3mxsraw4enc2p",
+    "es": "\"Si no vemos las enormes ganancias de productividad que prometen los entusiastas de la IA, casi con certeza veremos un colapso en la bolsa\""
+   },
+   {
+    "id": "news:CBMiowFBVV95cUxQSGpMbWo4VE5DTkpHWEMxUlZOY0lXd0ZCSHRLUjdxX2NtYlhOTjlqOG40X3lvenNQVXRwbnFqSEFOQndTaEZhMG5kNXZiRllheHNZSTZUcjROeWt0NFZrUE1qRmIxZHRQN1FBcXlOekN3QnZrZ05sSVhjdVI0RVVqMVlybFl5bzVsQ0luQ3JYZmdQNUVGYnJHc3dkSUVxVHltenNn",
+    "es": "La FSB publica prácticas sólidas para la adopción responsable de la IA"
+   },
+   {
+    "id": "news:CBMivgFBVV95cUxNVzRRMTZQR1dzRzF1WlhGckptQ3RaUVRhdVBBLWM3Y251MlhIdzlBRW9JMGYtWEpyTFpYTU1wU3cxcmIzaGVXT0NFdEpobFFZTE5yUm8tdzVDeWR3elY0cXRwMVJsT1p0bXhhSkJFVFpFV3FrbG5Od0hWSzdkZ3ZHS1c2LWUyNkV3Y25hdzhSWXlLbWNRN2F5TXF1bHhLVFMwdXNMNWEtcmJhYno5b2h3VjNjTlQzSlpfS3Z5TXd3",
+    "es": "Un mayor uso de la IA podría impulsar la productividad y el crecimiento de Filipinas, según el Banco Mundial"
+   }
+  ]
+ }
+}

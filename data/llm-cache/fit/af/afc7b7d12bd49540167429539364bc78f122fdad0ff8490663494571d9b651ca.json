@@ -1,0 +1,24 @@
+{
+ "key": "afc7b7d12bd49540167429539364bc78f122fdad0ff8490663494571d9b651ca",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:51:26.089Z",
+ "latencyMs": 8425,
+ "usage": {
+  "inputTokens": 758,
+  "outputTokens": 803
+ },
+ "output": {
+  "score": 6,
+  "executive": 7,
+  "noCode": 8,
+  "latam": 2,
+  "pillar": "Next",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Tema clave para planificar equipos y roles en la era IA.",
+   "Aplicable sin código, pero macro y especulativo.",
+   "Poco ángulo LatAm; piezas en inglés y genéricas."
+  ]
+ }
+}

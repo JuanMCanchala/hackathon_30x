@@ -1,0 +1,31 @@
+{
+ "key": "adad786d020953b4becade0d269fdb4ecf81f9efe77ee5da0cf9961f42223258",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:42:45.290Z",
+ "latencyMs": 1899,
+ "usage": {
+  "inputTokens": 346,
+  "outputTokens": 213
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxz7adqjek25",
+    "es": "Tres cofundadores de CoreWeave Inc. vendieron 3.300 millones de dólares en acciones desde la salida a bolsa del año pasado"
+   },
+   {
+    "id": "huggingface:model:LiquidAI/LFM2.5-24B-A2B",
+    "es": "LiquidAI/LFM2.5-24B-A2B"
+   },
+   {
+    "id": "huggingface:model:nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-NVFP4",
+    "es": "nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-NVFP4"
+   },
+   {
+    "id": "bluesky:3mxtqm55x422b",
+    "es": "Linagora y otros defensores europeos del #OpenSource #AI consideran a Nvidia Nemo lo bastante open source para hacer negocio con él."
+   }
+  ]
+ }
+}

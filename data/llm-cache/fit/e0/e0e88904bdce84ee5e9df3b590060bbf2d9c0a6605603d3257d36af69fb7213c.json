@@ -1,0 +1,24 @@
+{
+ "key": "e0e88904bdce84ee5e9df3b590060bbf2d9c0a6605603d3257d36af69fb7213c",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:48:35.989Z",
+ "latencyMs": 12410,
+ "usage": {
+  "inputTokens": 767,
+  "outputTokens": 936
+ },
+ "output": {
+  "score": 7,
+  "executive": 8,
+  "noCode": 6,
+  "latam": 5,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Finanzas es prioridad ejecutiva; IA aplicable a análisis y atención.",
+   "Piezas sensacionalistas sobre burbuja elevan riesgo de humo.",
+   "Ángulo LatAm débil: solo un caso en español."
+  ]
+ }
+}

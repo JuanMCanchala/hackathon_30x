@@ -1,0 +1,20 @@
+{
+ "key": "c4c53b5ca3ece4b89d3af9d22c4fafd1d43ea02720ce4f54cf5ec53074962e69",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:41:07.746Z",
+ "latencyMs": 9090,
+ "usage": {
+  "inputTokens": 1590,
+  "outputTokens": 1102
+ },
+ "output": {
+  "oneLiner": "Anthropic abre revisión de código para Claude Code y Bluesky debate la calidad del código generado por IA.",
+  "narrative": "13 de 23 piezas que despegaron abren con una opinión fuerte, frente a 3 de 38 del resto, y 14 de 23 las publicó un creador de contenido. El gancho es la crítica directa: un post de Bluesky sobre ingenieros que producen código malo más rápido llegó a 194,4 veces la mediana de su autor. El momento lo marcan el anuncio de Anthropic sobre revisión de código en Claude Code y un paper sobre el coste de revisar pull requests escritos por agentes. 7 de 23 piezas que despegaron salieron un miércoles, frente a 3 de 38 del resto.",
+  "cited": [
+   "bluesky:3mxdc2n5u5s25",
+   "news:CBMijgFBVV95cUxQb3FMQ1VwU3JveHMtSHFpaDdSUlRGX19Hc20ybW1pYUdtcFktWXFXeUdnY0tnenNackdGVC1uOWJzQ1FVSkd0NVpsMTBNcDl4VlhrUUstTUZwLVBnRWZrTG52TDhCWm9zVTJCRS1GZkdIUFJrbGVPVXB6dExMb1dYMlRxZDdSNF9GdWt3MDVR",
+   "arxiv:2610.21914"
+  ]
+ }
+}

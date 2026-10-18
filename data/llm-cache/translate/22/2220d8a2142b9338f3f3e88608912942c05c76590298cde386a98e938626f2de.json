@@ -1,0 +1,31 @@
+{
+ "key": "2220d8a2142b9338f3f3e88608912942c05c76590298cde386a98e938626f2de",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:37:54.972Z",
+ "latencyMs": 2250,
+ "usage": {
+  "inputTokens": 271,
+  "outputTokens": 156
+ },
+ "output": {
+  "items": [
+   {
+    "id": "youtube:IQaF5gr0HM8",
+    "es": "Crea videos largos con IA gratis e ilimitados en 2026"
+   },
+   {
+    "id": "youtube:ZZmhkPa2YG8",
+    "es": "Este generador de video con IA es gratis e ilimitado (sin créditos)"
+   },
+   {
+    "id": "youtube:4DLsGjDsERc",
+    "es": "¡Encontré un generador de video con IA gratis y videos ilimitados!"
+   },
+   {
+    "id": "youtube:LPu5I9p8mkg",
+    "es": "Cómo hacer videos virales de timelapse de construcción con IA"
+   }
+  ]
+ }
+}

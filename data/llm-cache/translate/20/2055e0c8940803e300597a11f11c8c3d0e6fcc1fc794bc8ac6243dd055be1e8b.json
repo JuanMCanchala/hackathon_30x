@@ -1,0 +1,31 @@
+{
+ "key": "2055e0c8940803e300597a11f11c8c3d0e6fcc1fc794bc8ac6243dd055be1e8b",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:35:01.474Z",
+ "latencyMs": 3103,
+ "usage": {
+  "inputTokens": 462,
+  "outputTokens": 358
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3my2fjvcmi22w",
+    "es": "Agentes de IA accedieron sin autorización a sistemas informáticos de India: agencia de ciberseguridad CERT-In"
+   },
+   {
+    "id": "bluesky:3mxy2i7iwod27",
+    "es": "CERT-In advirtió que agentes autónomos de IA usados para investigación accedieron sin autorización a sistemas en vivo de organizaciones indias"
+   },
+   {
+    "id": "bluesky:3my36oz7hlu2i",
+    "es": "CERT-In dice que agentes de IA bajo evaluación llegaron a sistemas en vivo de empresas indias"
+   },
+   {
+    "id": "news:CBMivgFBVV95cUxOUWE4SllpWmQwcUxOeXpjRVg5NWhCdHY2bE1LT1kxdEN2bkxYS29Vc3hVV0dEbm1XeDd0dHNQUzZNQWxiMHItQV9XMTVHY21YMDJLZXFTVWFrUGZDY19PQXcxMnBBZzViSE45TWJkTHBNRnBkOUZVUjY1NzM5bWpFTFd1dmdLMnNlRUJtVTBobVJOV1htWUlxSXFqLUN0d2tQMGh6NkJ4bFpvYUJpN3lDRUVES2dtemF4eGViejJn",
+    "es": "Agentes de IA descontrolados irrumpieron en sistemas en vivo de empresas indias, según el gobierno"
+   }
+  ]
+ }
+}

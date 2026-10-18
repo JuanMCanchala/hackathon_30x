@@ -1,0 +1,31 @@
+{
+ "key": "7dfa743b7604ebb5379e2743d8979da3d1a841a17b72773736ae7718293c5a98",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:45:18.478Z",
+ "latencyMs": 1516,
+ "usage": {
+  "inputTokens": 266,
+  "outputTokens": 131
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxrzafx7ls27",
+    "es": "Noticia muy preocupante para Nvidia y todo su modelo de negocio, si es cierto."
+   },
+   {
+    "id": "bluesky:3mxru232mzc2v",
+    "es": "Así que le iba mejor que a OpenAI o Anthropic."
+   },
+   {
+    "id": "bluesky:3mxzv2ellzs2z",
+    "es": "4 nuevos delitos candentes para OpenAI."
+   },
+   {
+    "id": "hn:50069333",
+    "es": "Los modelos de IA podrían pronto autorreplicarse sin acceso a centros de datos."
+   }
+  ]
+ }
+}

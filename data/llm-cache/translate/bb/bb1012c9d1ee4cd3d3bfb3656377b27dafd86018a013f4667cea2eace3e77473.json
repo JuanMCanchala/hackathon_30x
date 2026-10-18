@@ -1,0 +1,31 @@
+{
+ "key": "bb1012c9d1ee4cd3d3bfb3656377b27dafd86018a013f4667cea2eace3e77473",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:36:35.466Z",
+ "latencyMs": 3329,
+ "usage": {
+  "inputTokens": 300,
+  "outputTokens": 167
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxy4bpx6hj24",
+    "es": "⚡ Amazon lanza dos nuevos wearables con IA desde solo $75 para impulsar la productividad"
+   },
+   {
+    "id": "bluesky:3mxvtdjvyfs24",
+    "es": "Los agentes de IA de Floqer investigan prospectos de ventas para que los equipos no tengan que hacerlo"
+   },
+   {
+    "id": "bluesky:3mxjnfj4kgs2p",
+    "es": "La reacción negativa funciona."
+   },
+   {
+    "id": "bluesky:3mxhwt7u4xfb2",
+    "es": "Flock, startup de vigilancia con IA, recortará cientos de empleos tras las críticas, según fuentes"
+   }
+  ]
+ }
+}

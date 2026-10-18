@@ -1,0 +1,31 @@
+{
+ "key": "fe834815eca49d547165107e062a3a11247ec90dd5f0e6494294ec66bfc20130",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:38:48.464Z",
+ "latencyMs": 1997,
+ "usage": {
+  "inputTokens": 295,
+  "outputTokens": 176
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxx7fafk422e",
+    "es": "Linus Torvalds, creador de Linux, sobre la \"programación con IA\""
+   },
+   {
+    "id": "bluesky:3mxx7onigj22r",
+    "es": "cansado: la \"IA\" está matando el código abierto / despierto: tipos abusivos y sedientos de poder como Linus Torvalds están matando el código abierto"
+   },
+   {
+    "id": "hn:50090842",
+    "es": "La primera serie de parches de Linus Torvalds asistida por un LLM"
+   },
+   {
+    "id": "youtube:dyCCpBb3Pvg",
+    "es": "Torvalds apuesta todo a la IA: los parches de LLM para Linux alcanzan un récord"
+   }
+  ]
+ }
+}

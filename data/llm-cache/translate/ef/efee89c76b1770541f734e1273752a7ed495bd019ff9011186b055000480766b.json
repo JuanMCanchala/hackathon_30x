@@ -1,0 +1,23 @@
+{
+ "key": "efee89c76b1770541f734e1273752a7ed495bd019ff9011186b055000480766b",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:37:31.846Z",
+ "latencyMs": 4549,
+ "usage": {
+  "inputTokens": 524,
+  "outputTokens": 377
+ },
+ "output": {
+  "items": [
+   {
+    "id": "CBMiZkFVX3lxTE5XWktKRmU0bnRhVC1LejhhZTFxbjNKS1NkcTBPeDM2dUFKQm1SVXFlWnBJRGUydWFtMUMxRjRZelI0TU9kc2xKQWJhYktVb1BzNTg5ZmZyY293M2pCZ2NoTmQyX0dYUQ",
+    "es": "Stack Overflow for Agents triplica sus registros con el plugin de ChatGPT"
+   },
+   {
+    "id": "CBMi3wFBVV95cUxOTHBmU3ozUFUxTkJSaFZ0SDJoU1hac2JiLWczQXUyc3lvcHl5RHRVZXhpdzVIUmpWZzB4bHZobkRsdXFiaVJCcmhUWTRoV0tqajQtbWdTa0VfMGtBaUM2UmVuZW9RZWc3NU95LWZ1WWVtMEZQQlQ5eFJKQUl0aW54d0xweFQ5TXFBUjNINVZQNjlIZkNNXzAweDFRVnU2VERwb21FZVUxLXBXTHU5aDBLN2VscmQ5ajR2NWlRbjZSSkFLV0EtSE96RU9SNWVmUXdXaERfX3FnUXJwdmp1d2JN",
+    "es": "Le pedí a ChatGPT que hiciera mis tareas más divertidas y estos 5 plugins las volvieron aún más gratificantes"
+   }
+  ]
+ }
+}

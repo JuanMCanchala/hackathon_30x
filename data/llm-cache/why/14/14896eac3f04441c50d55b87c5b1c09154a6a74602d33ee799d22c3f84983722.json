@@ -1,0 +1,21 @@
+{
+ "key": "14896eac3f04441c50d55b87c5b1c09154a6a74602d33ee799d22c3f84983722",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:47:53.213Z",
+ "latencyMs": 34269,
+ "usage": {
+  "inputTokens": 1530,
+  "outputTokens": 4032
+ },
+ "output": {
+  "oneLiner": "Salarios en IA crecen 14% esta semana; Expansión publica dos notas sobre habilidades híbridas y puestos mejor pagados.",
+  "narrative": "No hay patrones con al menos 3 piezas, así que no se puede generalizar un formato ganador. La única pieza que despega con fuerza es un post de Sara Linsley en Bluesky: abre con una cifra salarial concreta y alcanza 24 veces la mediana de su autor. Expansión publica dos notas sobre salarios en IA, pero no tienen métricas públicas. Un post de Crehana en LinkedIn sobre nómina se queda en 0.5 veces su mediana.",
+  "cited": [
+   "bluesky:3mxjfwnmcc224",
+   "news:CBMitwFBVV95cUxPTzdFZDREMEV1UjJqSEEwR2tNNFB5ZFl1Ry0wSlUxc2t3clYzWnZUU1RkbjBZODE4WTZfcUpOWkhFSFZUdkFBeGxUWEFFMUpjYWRDb2JCLVNONEpRRGJNbkh2QUhoWlVHV3ZlckVmQVJlUmN5czYyQ3BfLXZEQmJvbHNpRTA0bFQzRXR2bTFzcV9XSlY1ZzNkTU5sWWQ2WTFyR1IxN0w5U1dNY2VfdHJKTXhPTGdMYknSAbcBQVVfeXFMT083RWQ0RDBFdVIyakhBMEdrTTRQeWRZdUctMEpVMXNrd3JWM1p2VFNUZG4wWTgxOFk2X3FKTlpIRUhWVHZBQXhsVFhBRTFKY2FkQ29iQi1TTjRKUURiTW5IdkFIaFpVR1d2ZXJFZkFSZVJjeXM2MkNwXy12REJib2xzaUUwNGxUM0V0dm0xc3FfV0pWNWczZE1ObFlkNlkxckdSMTdMOVNXTWNlX3RySk14T0xnTGJJ",
+   "news:CBMimwFBVV95cUxORkJyZDcwbmxIZ2lJbUhZamgxUlhWYUdkMFFURmNSWHV2M2pMQzBqckMwZnV3QmgzSVdoTXhxN1NFNkc5V21jWGZmNk9NWXVYVnFWLVRTUHVIbmJreXBPTlpEdnI5YzJFMXRxYlVIQ0RZc3REY3lKeXJZYUpJYWhOSnB5cUJDX2htOTV4empkUmNvTUhtVER6TVNjUdIBmwFBVV95cUxNbVNNd0p3Rk5jZ2twRFJ0RVk2N1lvbDVkcmxrd2M2OERkaHI3T09UdDJUNG56UEY5amlYb0lZN0NVUW5FdTRobUtPRWZNY3VIb3J5Sk9BeGktdUR6bGdQOW1wMGJtMEtXcjFGUmk4U2hacndGUklmY0F4RVVZVUkzRncyUEJOMlFMNndVQU5qaFZQd2lncUJYSUFEdw",
+   "linkedin:7514463640973053952"
+  ]
+ }
+}

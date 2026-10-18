@@ -1,0 +1,31 @@
+{
+ "key": "811c3c74af38db3e1e00aa1c6f1ca43c9e9a67ac1d12f480ab269a860e1dceb7",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:42:13.453Z",
+ "latencyMs": 17834,
+ "usage": {
+  "inputTokens": 310,
+  "outputTokens": 178
+ },
+ "output": {
+  "items": [
+   {
+    "id": "youtube:rpLrkJ5NNEI",
+    "es": "Meta acaba de lanzar algo demencial... (Muse Wonder)"
+   },
+   {
+    "id": "bluesky:3mxry4drhii2q",
+    "es": "Muse Wonder describe a los agentes rebeldes de OpenAI como 'dentro del universo'"
+   },
+   {
+    "id": "bluesky:3mxhvwkt2f22q",
+    "es": "Sí, eso es todo. Además: es la primera vez que el público general tiene acceso fácil a agentes de IA. Muse es básicamente Claude Code para el público general."
+   },
+   {
+    "id": "bluesky:3mxtqak2hi22r",
+    "es": "Muse aún no está disponible en el Reino Unido, pero él y sus competidores sin duda llegarán... y pronto."
+   }
+  ]
+ }
+}

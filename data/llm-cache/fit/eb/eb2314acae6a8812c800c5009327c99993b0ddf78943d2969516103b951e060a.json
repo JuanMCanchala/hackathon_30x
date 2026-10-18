@@ -1,0 +1,24 @@
+{
+ "key": "eb2314acae6a8812c800c5009327c99993b0ddf78943d2969516103b951e060a",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:50:39.785Z",
+ "latencyMs": 6121,
+ "usage": {
+  "inputTokens": 749,
+  "outputTokens": 596
+ },
+ "output": {
+  "score": 9,
+  "executive": 9,
+  "noCode": 9,
+  "latam": 7,
+  "pillar": "Growth",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Impacta descubrimiento, demanda y ventas B2B en canales IA.",
+   "Se implementa con contenido, PR y SEO, sin programar.",
+   "Ángulo LatAm: marcas hispanas ya experimentan con GEO."
+  ]
+ }
+}

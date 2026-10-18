@@ -1,0 +1,31 @@
+{
+ "key": "5d8dd46d7f7240c745631b103cff501b6d654524dbcb24f5986d6bdea2416559",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:48:43.140Z",
+ "latencyMs": 3389,
+ "usage": {
+  "inputTokens": 292,
+  "outputTokens": 161
+ },
+ "output": {
+  "items": [
+   {
+    "id": "youtube:NA9D49kQFuU",
+    "es": "Todas las formas de conseguir 128GB de VRAM para IA local a contexto completo cuestan entre $3099 y $6950"
+   },
+   {
+    "id": "bluesky:3mxvtkfp6vs2e",
+    "es": "La broma es para ti, Nvidia. No corro agentes de IA en mi laptop y nunca lo haré."
+   },
+   {
+    "id": "youtube:dFTXOt0GBx4",
+    "es": "¿Puede una Mac Mini correr IA local? (impactante)"
+   },
+   {
+    "id": "hn:50012199",
+    "es": "Show HN: Alternativa gratuita y open source a Adobe Lightroom, totalmente local con IA"
+   }
+  ]
+ }
+}

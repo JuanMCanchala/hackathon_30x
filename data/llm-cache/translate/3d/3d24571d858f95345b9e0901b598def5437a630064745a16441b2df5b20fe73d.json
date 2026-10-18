@@ -1,0 +1,31 @@
+{
+ "key": "3d24571d858f95345b9e0901b598def5437a630064745a16441b2df5b20fe73d",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:38:15.101Z",
+ "latencyMs": 2129,
+ "usage": {
+  "inputTokens": 269,
+  "outputTokens": 185
+ },
+ "output": {
+  "items": [
+   {
+    "id": "youtube:QZVzuq28eFw",
+    "es": "El ingeniero principal de OpenAI era en secreto un espía..."
+   },
+   {
+    "id": "bluesky:3mxrzhc63jw2j",
+    "es": "Detienen a un ingeniero saudí de OpenAI por presuntamente colocar micrófonos en la sala de juntas ejecutiva de su empleador."
+   },
+   {
+    "id": "hn:50078141",
+    "es": "Ingeniero de OpenAI arrestado por colocar micrófonos en la sala de juntas ejecutiva"
+   },
+   {
+    "id": "bluesky:3mxsa5cfb3b2x",
+    "es": "Empleado saudí detenido por presuntamente colocar micrófonos en la oficina de OpenAI"
+   }
+  ]
+ }
+}

@@ -1,0 +1,31 @@
+{
+ "key": "c99c6b5b7e5c6e86e5ae83a95c9bf4ce674b615a9239998c37e1e56cf12cd4d4",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:41:44.169Z",
+ "latencyMs": 18015,
+ "usage": {
+  "inputTokens": 716,
+  "outputTokens": 603
+ },
+ "output": {
+  "items": [
+   {
+    "id": "linkedin:7515803191012298754",
+    "es": "Hoy, la baronesa Campbell de Surbiton pronunció un discurso en la Cámara de los Lores del Reino Unido usando una recreación de su voz con IA, creada por ElevenLabs."
+   },
+   {
+    "id": "news:CBMilAFBVV95cUxONDE2Si1mNXJMaVV4cHRXa2F5U1c4MEw0OEdkbVZhVkczUmxRSkpTdzlfUVFubWFEX2NPY1VEVE5OYW9SenJRU1lkM3I1Q2RyT1dabURhSzVxd1ZURVAyZFlzQnN5MEZ1SHdwZG1NVHlFYkxXbjZZc2lPOWZMUVY1QlZYRml5c0VwX1d3ajRqTlhLR3dn",
+    "es": "Estudio: las herramientas de IA para programar no generan código accesible"
+   },
+   {
+    "id": "news:CBMingFBVV95cUxNbU5KZTRJU0YtSk5MMkdxYVhQRDBmNWtmTXdTVVZ6Zlh1Qldvb1I3aUw2RFRwSHYxLXY4Mi1ha3J0T3JqTmxXZDFDMV9LTXg4VmZCV3daTnFYenFFdnhXNHZfc1JWMGt1V0l1RURXN2hhU1RPbzdheDNvSG5nU2VnREtoM3NZSmZnQ2VYQzQxVGMxUXpFaG9qZHFaRkw3dw",
+    "es": "Estudio: las herramientas de IA para programar no generan código accesible"
+   },
+   {
+    "id": "news:CBMiogFBVV95cUxNV054aktaVGhXU3VkM3o1Q3FzOXJkVjl2Rk1ja0pyY3N1UGFQT2RxSFR2bVV6RWFmejdxR05JLVFHLUtqVngtTmtrVVAwdWE2VDhQNTF1MG5GckMzX3l2YmVZVlIwZ29obmZyLVJqb3R0VTh4STN3aWotYWlJcmVRWnE4U1hIM1daVVR4ZUZuYzRmMExMY3lBcWtvS3V2R25QWEE",
+    "es": "Estudio: las herramientas de IA para programar no generan código accesible"
+   }
+  ]
+ }
+}

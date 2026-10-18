@@ -1,0 +1,24 @@
+{
+ "key": "8ba3794bb4df05480732f90b320355fa7a404eb399c76813a25a127c7f6cfe2b",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:46:33.351Z",
+ "latencyMs": 6060,
+ "usage": {
+  "inputTokens": 758,
+  "outputTokens": 498
+ },
+ "output": {
+  "score": 9,
+  "executive": 9,
+  "noCode": 8,
+  "latam": 5,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Adopción interna de IA es prioridad ejecutiva y de productividad.",
+   "Aplicable sin código en procesos, decisiones y equipos comerciales.",
+   "Piezas dispersas y algunas polémicas elevan ruido; falta ángulo Latam."
+  ]
+ }
+}

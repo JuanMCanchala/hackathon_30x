@@ -1,0 +1,31 @@
+{
+ "key": "c01888d23940657de17dd712d848f2ab850cf48721097b3457e730c17a8781f2",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:36:26.713Z",
+ "latencyMs": 2170,
+ "usage": {
+  "inputTokens": 300,
+  "outputTokens": 192
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxx55475gc22",
+    "es": "Me pregunto qué tan aislados están los ejecutivos, por lo desconectados que parecen ante el rechazo a la IA."
+   },
+   {
+    "id": "youtube:ysW0ffMrEqc",
+    "es": "Los empleos de ventas que la IA eliminará (y los que no)"
+   },
+   {
+    "id": "linkedin:7517193147773243392",
+    "es": "La mayoría de las empresas B2B ya adoptó la IA. Los líderes la usan para repensar cómo se hacen las ventas."
+   },
+   {
+    "id": "bluesky:3mxiffxtqnw2v",
+    "es": "¿Qué herramienta de IA para marketing o ventas ha marcado más diferencia en tu flujo de trabajo?"
+   }
+  ]
+ }
+}

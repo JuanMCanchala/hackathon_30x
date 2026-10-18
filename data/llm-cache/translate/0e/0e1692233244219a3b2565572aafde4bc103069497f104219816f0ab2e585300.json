@@ -1,0 +1,31 @@
+{
+ "key": "0e1692233244219a3b2565572aafde4bc103069497f104219816f0ab2e585300",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:39:38.304Z",
+ "latencyMs": 1527,
+ "usage": {
+  "inputTokens": 285,
+  "outputTokens": 167
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxtd6kixvs2k",
+    "es": "Y ni siquiera es un BUEN modelo de negocio."
+   },
+   {
+    "id": "bluesky:3mxqbfoowqs2l",
+    "es": "Y con eso tenemos nuestra primera startup de IA muerta."
+   },
+   {
+    "id": "bluesky:3mxz4c3tyme2w",
+    "es": "Character.ai, startup de IA que llegó a 28 millones de usuarios mensuales, se declara en bancarrota."
+   },
+   {
+    "id": "bluesky:3mxyhiqwvmu2d",
+    "es": "#IA #bancarrota #Google #licencias #startup"
+   }
+  ]
+ }
+}

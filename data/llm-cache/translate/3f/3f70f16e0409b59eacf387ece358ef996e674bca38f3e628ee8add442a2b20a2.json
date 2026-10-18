@@ -1,0 +1,31 @@
+{
+ "key": "3f70f16e0409b59eacf387ece358ef996e674bca38f3e628ee8add442a2b20a2",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:36:58.808Z",
+ "latencyMs": 7930,
+ "usage": {
+  "inputTokens": 610,
+  "outputTokens": 505
+ },
+ "output": {
+  "items": [
+   {
+    "id": "x:2110190101707858039",
+    "es": "Más de la mitad de los delitos reportados en Singapur usan ingeniería social sofisticada."
+   },
+   {
+    "id": "bluesky:3my37twbmw224",
+    "es": "El detector automático de spam, phishing y fraude en tu correo y tarjeta, y las sugerencias molestas en YouTube/Netflix/Amazon... todo usa IA."
+   },
+   {
+    "id": "bluesky:3mxvdx7rvts2y",
+    "es": "Descubre cómo la automatización con IA mejora los servicios financieros con detección de fraude, procesamiento de facturas y flujos más inteligentes."
+   },
+   {
+    "id": "news:CBMiowFBVV95cUxPMGkzY2hGN0FnSlVBM1RBTGlTZGZzN2NIWW5MQWE1OWVQemszZFFGRGp2YjVfWjFVNlFkOU5JMWNoWWNUbWdMUFJfdVF1VDFuZzI2bGEtcEhHNFY1azFnOElwaFNRNmw5Yzd5aDkwbENtN0VXWVpxMkt6RnFEVDVMQXE4QjlGQjlBcjlYWU5DM0RZbWJDSW1oYkNaU0Y5ZVRkOVVF0gGoAUFVX3lxTFBSSFRzXzdJVkNqb01zemY2NmRONVJPMnJrbHhhZDQ2dW1FZ2k0Q2hBc2dTdi1DMXAzZHByaVAybjNNOUNIRTVoblRTNnF2cWRHYl9vcHhoSTFZVm1XdVoyY2t0dDdHVTk2MHl0ZFlTQkl5THZIUi14eS0xUWEzTlhmWDJzWi1OSHV0bU5FVVY5dWswamtUNWMyUURTX19xLVN0R25uZzJuQw",
+    "es": "La NBA endurece las reglas de apuestas y desarrolla IA para detectar apuestas sospechosas."
+   }
+  ]
+ }
+}

@@ -1,0 +1,14 @@
+{
+ "key": "8b6e452ef70c42db3618efcba7547097bcdedd0b6327e57afd61ab5adf208c97",
+ "name": "headline",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:34:25.379Z",
+ "latencyMs": 795,
+ "usage": {
+  "inputTokens": 328,
+  "outputTokens": 25
+ },
+ "output": {
+  "headline": "Esta semana la IA en YouTube gira hacia ventas con IA, Brad Smith y regulación"
+ }
+}

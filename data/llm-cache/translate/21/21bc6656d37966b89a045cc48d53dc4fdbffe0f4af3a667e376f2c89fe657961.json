@@ -1,0 +1,31 @@
+{
+ "key": "21bc6656d37966b89a045cc48d53dc4fdbffe0f4af3a667e376f2c89fe657961",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:50:47.148Z",
+ "latencyMs": 2097,
+ "usage": {
+  "inputTokens": 309,
+  "outputTokens": 192
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxp5oaoto22h",
+    "es": "¡Venceremos a Steam con acuerdos de exclusividad! ¡Venceremos a Steam con NFTs y cripto!"
+   },
+   {
+    "id": "bluesky:3mxudb7nyps22",
+    "es": "No tienen obligación legal de decírtelo, y hay juegos que usan IA generativa para programar o marketing sin revelarlo."
+   },
+   {
+    "id": "bluesky:3mxr37okdhc2m",
+    "es": "Me asombra que, por otro lado, siga escuchando \"los jugadores odian la IA\"."
+   },
+   {
+    "id": "bluesky:3mxju4vcbb22f",
+    "es": "Qué mató a Rachel Team Miji. Divulgación en Steam."
+   }
+  ]
+ }
+}

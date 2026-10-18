@@ -1,0 +1,31 @@
+{
+ "key": "a0f0c8042fca9ee75427f772a3273713abd9de837f276346a22f84140900f011",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:39:59.489Z",
+ "latencyMs": 3026,
+ "usage": {
+  "inputTokens": 317,
+  "outputTokens": 192
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxhkcrr2lk24",
+    "es": "Básicamente, el software de código cerrado se acabó para siempre y pasó de la noche a la mañana"
+   },
+   {
+    "id": "bluesky:3my3gju67as2e",
+    "es": "el daño que la IA ha causado a las comunidades de código abierto por gente que solo busca resultados y no calidad"
+   },
+   {
+    "id": "bluesky:3mxhhkydf322s",
+    "es": "Entiendo que Anthropic cree que ayuda a los proyectos de código abierto, pero en realidad está generando un montón de trabajo"
+   },
+   {
+    "id": "bluesky:3mxosidu6ik2p",
+    "es": "Los pedófilos aman la IA por la misma razón que los criminales aman las cripto: porque oculta sus crímenes."
+   }
+  ]
+ }
+}

@@ -1,0 +1,31 @@
+{
+ "key": "0b99282e3f66ce440e3c6cb8cf2096e4dcdd58784b21e47b0cbff66db411112d",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:37:39.513Z",
+ "latencyMs": 1680,
+ "usage": {
+  "inputTokens": 280,
+  "outputTokens": 147
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxqsax5d2g26",
+    "es": "¿Haiku barato o solo un Claude más económico?"
+   },
+   {
+    "id": "bluesky:3mxzyvzem6c24",
+    "es": "Lanzan Gemini 4 Argon: programación, ciencia, precios y seguridad"
+   },
+   {
+    "id": "youtube:xF7fISoiTrI",
+    "es": "ChatGPT destruyó a Claude: ¡deja de gastar en la IA equivocada!"
+   },
+   {
+    "id": "youtube:swm8KeXAuc0",
+    "es": "Google ya tiene su modelo frontera: Gemini 4 Argon vs. GPT-6 Astra"
+   }
+  ]
+ }
+}

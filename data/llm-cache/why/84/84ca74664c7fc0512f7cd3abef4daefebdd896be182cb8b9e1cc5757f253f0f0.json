@@ -1,0 +1,21 @@
+{
+ "key": "84ca74664c7fc0512f7cd3abef4daefebdd896be182cb8b9e1cc5757f253f0f0",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:44:10.397Z",
+ "latencyMs": 8777,
+ "usage": {
+  "inputTokens": 1280,
+  "outputTokens": 943
+ },
+ "output": {
+  "oneLiner": "Epic lanzó un launcher con IA 1,8x más rápido que Steam y medios y usuarios lo debaten esta semana.",
+  "narrative": "No hay patrones con al menos 3 piezas, así que no se puede hablar de un gancho o formato repetido. La evidencia son cuatro piezas del 14 de octubre: tres medios (El Ecosistema Startup, Reporte Indigo y GamerFocus) cubren el anuncio y un post de soysaiks en Bluesky valora el rendimiento del launcher. El tema crece +600 % en creadores distintos frente a las 4 semanas previas, con 6 creadores esta semana, y el eje es la comparación con Steam y la polémica por el uso de IA. El momento lo mueven medios de tecnología y gaming, no creadores individuales.",
+  "cited": [
+   "news:CBMikwFBVV95cUxNY3JGeF9UN1lVSlpwRzBSZU9IVVB4S0ZfdlZoVXZFaFdXRFJNd19BMGZGSEVZWFpKaHI1X0NFamRGS3lZQUpDT2lET2xqYWZGR2pWTTdCZUZ4YzJYQVZiQWxCbmsyaXFzdWdUYUZwengwbWJoWEdZRDk5TWV3T3EyUjItSmlxUUhoSTV2Q1k0Y1Rtcms",
+   "news:CBMiwAFBVV95cUxQZm1QZkxDZkItWllSLURPb0JlM1BVT21oYWk3QmJ1R002bVlJWUNmZFVOSFhFMWpPLXpzREpaTVh4T1lhRFJwdUhseUhMRDhYelk3OExyS0RnQTR1R0xnWEI4Y01qQUtOMEV6QlQ2X2J5a3NJWjh2YWpzZmFCeXhZNWZaUlZudVhqMjFQcURVUDRFOEM2ZllQeExtT2JhanM5cTY4T2h4SV9BMnQtMnlhNi00Tld5eWNveEdNWHhtVkc",
+   "bluesky:3mxubxenje22f",
+   "news:CBMitgFBVV95cUxOeXZ3eDRXTFo3bXNIT0JaMU92NjJEczJUTldEUnFQbHpvbDR6VUswWGVhOGxneU1uV2pqVHk5R21nY1BSNkltclIwZDl3ajFQdWl3c1QxSzhWNEpOSTZGcUNfTUE1UlI4aW5oQ2Y0U2RkS2QwWVY1NWlFd3hzcldVUTFaTkRmekZJcjlydkZkTGFzeEdMUGlXZF80STJDVFVwTzVGZVp5RTBsYk5YV3lXNHBXamJ4dw"
+  ]
+ }
+}

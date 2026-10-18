@@ -1,0 +1,31 @@
+{
+ "key": "20d516c50aae60258ad7375b5e1d3d2152a5518e33ecb59dd8a3b42328deeac2",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:41:21.553Z",
+ "latencyMs": 2644,
+ "usage": {
+  "inputTokens": 274,
+  "outputTokens": 172
+ },
+ "output": {
+  "items": [
+   {
+    "id": "x:2110421861435879476",
+    "es": "Gemini 4 Argon ya impulsa nuevos avances científicos en computación cuántica, fusión nuclear, diseño de proteínas y más."
+   },
+   {
+    "id": "bluesky:3my35rqlcpv2z",
+    "es": "Claude trabajó solo durante 53 horas y superó los mejores circuitos cuánticos publicados."
+   },
+   {
+    "id": "x:2111152183240511640",
+    "es": "Novedad de nuestro STEM Fellows Program: diseñar circuitos cuánticos más eficientes con Claude."
+   },
+   {
+    "id": "hn:50121939",
+    "es": "Diseñar circuitos cuánticos más eficientes con Claude."
+   }
+  ]
+ }
+}

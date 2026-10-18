@@ -1,0 +1,31 @@
+{
+ "key": "b3f50d08efd57206c4c56b63f17fec96be40ec09880d3dce93fd84c57bfcea2e",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:37:21.298Z",
+ "latencyMs": 2885,
+ "usage": {
+  "inputTokens": 320,
+  "outputTokens": 199
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxzl7mq4zk2q",
+    "es": "\"Uso\" IA en el sentido de que fui a Nelnet por mis préstamos estudiantiles tras la muerte del plan SAVE por el gobierno de Trump"
+   },
+   {
+    "id": "bluesky:3mxp5qtwf2s2z",
+    "es": "Agentes de IA: ¡haciendo que la atención al cliente sea menos \"atención\" que nunca!"
+   },
+   {
+    "id": "bluesky:3mxa62vksyk2u",
+    "es": "Eso, pero con IA agéntica reemplazando a ambos. Y al cliente."
+   },
+   {
+    "id": "linkedin:7516211460226699264",
+    "es": "Mucho pasa entre las baldosas 💠 Para The Grout Guy, su agente de IA \"Groutie\" gestiona más de 3,000 correos semanales"
+   }
+  ]
+ }
+}

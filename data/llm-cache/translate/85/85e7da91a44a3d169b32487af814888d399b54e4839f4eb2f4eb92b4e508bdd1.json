@@ -1,0 +1,31 @@
+{
+ "key": "85e7da91a44a3d169b32487af814888d399b54e4839f4eb2f4eb92b4e508bdd1",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:37:06.816Z",
+ "latencyMs": 2180,
+ "usage": {
+  "inputTokens": 308,
+  "outputTokens": 175
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxmegrhjc22l",
+    "es": "me molesta que desde que la IA hace webs, toda web de 'pequeña app indie de código abierto' se vea así"
+   },
+   {
+    "id": "bluesky:3mxwmjefyf22h",
+    "es": "volví a descargar el launcher de Epic Games ayer para sacar imágenes para un artículo."
+   },
+   {
+    "id": "bluesky:3mxzs5e7pmeow",
+    "es": "sinceramente, así deberíamos llamarlo en vez de eso."
+   },
+   {
+    "id": "bluesky:3mxy4umpm3k2f",
+    "es": "Muy interesante que digan abiertamente 'vibe-coding', es casi como si hubieran visto a Epic hacer lo mismo"
+   }
+  ]
+ }
+}

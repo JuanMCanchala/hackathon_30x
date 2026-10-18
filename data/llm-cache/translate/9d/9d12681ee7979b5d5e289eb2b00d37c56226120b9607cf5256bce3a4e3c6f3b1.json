@@ -1,0 +1,31 @@
+{
+ "key": "9d12681ee7979b5d5e289eb2b00d37c56226120b9607cf5256bce3a4e3c6f3b1",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:40:29.628Z",
+ "latencyMs": 2220,
+ "usage": {
+  "inputTokens": 307,
+  "outputTokens": 164
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxvcsmtwrs2e",
+    "es": "Todo esto es repugnante."
+   },
+   {
+    "id": "bluesky:3mxqokylyf22x",
+    "es": "K-bank hizo varios comerciales con IA, y resulta que la IA no puede crear ni poseer derechos de autor."
+   },
+   {
+    "id": "bluesky:3mxucccfkuc2g",
+    "es": "Me decepcionan algunos autores que distorsionan los hechos sobre la IA generativa para ser conciliadores de forma poco útil."
+   },
+   {
+    "id": "bluesky:3mxtakaiq5c24",
+    "es": "La IA generativa se basa en el robo, incluido el trabajo de cientos de miles de autores."
+   }
+  ]
+ }
+}

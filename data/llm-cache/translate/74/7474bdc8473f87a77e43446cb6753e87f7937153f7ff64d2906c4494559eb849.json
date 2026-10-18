@@ -1,0 +1,31 @@
+{
+ "key": "7474bdc8473f87a77e43446cb6753e87f7937153f7ff64d2906c4494559eb849",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:39:14.538Z",
+ "latencyMs": 5780,
+ "usage": {
+  "inputTokens": 680,
+  "outputTokens": 564
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxts2wzycc2n",
+    "es": "Work Intelligence divide los roles definidos por RR. HH. de un cliente en tareas y usa IA agéntica para planificar puestos"
+   },
+   {
+    "id": "news:CBMikAFBVV95cUxOdzFYVzRNa3BSdnVRcEMwMEN1SUZ4Y05ObURpVGFiYV9pVXRuWTJFQXItd2pIdmlob1ctRTBxSjB5UC15YjlyX1dkaDlWdzVSYnpObnRtcFJnX2x0WG9mMGZudk04RVJEOGpsQlNHMzlHNVBVUWpEcHUwQ240WHIzbHNjSjk1ZFJYQjVTeEEwNmc",
+    "es": "Workday lleva la IA agéntica a todo el ciclo de vida de los contratos"
+   },
+   {
+    "id": "news:CBMikAFBVV95cUxPeUUtUFZDMG82c0s1eTZQelBpdUxyZjBaVUM2aEZVNVBJcmpjTnc4VXNUSFNKMVpSSUpyRDlYYXk3Vm1SVTlqY0w1V2FtTUtYTzNKZ1N2Sm1rQ1lDX2JMa2hlWGlRWHpsUy11SlNSLUkwQlQ5cGJkZWRabGk2QVBlVHVaeFN4cUx0UmpHMTZOVXg",
+    "es": "Workday lleva la IA agéntica a todo el ciclo de vida de los contratos"
+   },
+   {
+    "id": "news:CBMikgFBVV95cUxNNmJQYzFqVHdRWVFTVE5Ob2I5X3Z6WTQ3TVplQW1aRzhUbGRpZm5yQk1aUXpESUgwR2MwbmE2bGZ0aWg4NlZJY29VWnhrSUVzbklpWHJCZWQ4MmptX3FrbUcxaElYR2hTUkcxQ1JjSEQ5VkJ4d1IyYTVMZml4NHQ0R1ZQaWlfUDdTUDFLc2tTWjlGdw",
+    "es": "Workday Rising: cómo los líderes de RR. HH. convierten la exploración de IA en valor de negocio"
+   }
+  ]
+ }
+}

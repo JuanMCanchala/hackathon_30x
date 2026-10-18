@@ -1,0 +1,24 @@
+{
+ "key": "588abf39aaa0d2a79c49cbb0c4759dbf6abaa3bd5e36abc6c7e31e9fc4421228",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:40:49.105Z",
+ "latencyMs": 9804,
+ "usage": {
+  "inputTokens": 741,
+  "outputTokens": 950
+ },
+ "output": {
+  "score": 6,
+  "executive": 8,
+  "noCode": 5,
+  "latam": 2,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Riesgo legal directo para contenido y productos con IA.",
+   "Clave para CEOs, pero poco accionable para equipos comerciales.",
+   "Sin ángulo Latam ni casos locales en las piezas."
+  ]
+ }
+}

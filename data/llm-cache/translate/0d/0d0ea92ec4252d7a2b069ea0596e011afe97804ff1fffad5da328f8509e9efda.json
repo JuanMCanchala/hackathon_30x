@@ -1,0 +1,31 @@
+{
+ "key": "0d0ea92ec4252d7a2b069ea0596e011afe97804ff1fffad5da328f8509e9efda",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:45:37.496Z",
+ "latencyMs": 2284,
+ "usage": {
+  "inputTokens": 286,
+  "outputTokens": 183
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxheupz2r22a",
+    "es": "La productividad laboral se disparó en mi vida, pero eso nunca se traduce en mejor paga ni menos horas"
+   },
+   {
+    "id": "bluesky:3my3fs3g2kk2t",
+    "es": "Se va a poner feo cuando explote la burbuja de la IA"
+   },
+   {
+    "id": "hn:50004396",
+    "es": "Ask HN: ¿Por qué la IA aún no reemplaza al software de declaración de impuestos?"
+   },
+   {
+    "id": "bluesky:3mxhmq5asv22a",
+    "es": "ÚLTIMA HORA: Bill Gates impulsa un \"impuesto a los robots\" ante la aceleración de la automatización con IA."
+   }
+  ]
+ }
+}

@@ -1,0 +1,31 @@
+{
+ "key": "1a46d575ffe39821819e666a461431781d6ff5da834e6195e6ac1490c7b80978",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:35:42.380Z",
+ "latencyMs": 4318,
+ "usage": {
+  "inputTokens": 591,
+  "outputTokens": 460
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxygk5qrvk24",
+    "es": "La herramienta de compras Universal Cart de Google llega a EE. UU."
+   },
+   {
+    "id": "bluesky:3mxy7w6lqrg2v",
+    "es": "El nuevo Universal Cart de Google permite a usuarios de Search y Gemini en EE. UU. guardar productos de varios minoristas"
+   },
+   {
+    "id": "news:CBMifkFVX3lxTE4xdER5UlpjUHoxbDR3T3dXZWtGYVVwVGhRYm1NdjVuZ2dZRU9NOTUwZkwxVlQtbE9FZUNIMnFWb192U2M5VVdfTXRTLW5BQU1WeFMyT3BwOUJ3T3VYcVhSQjB6aHpFN0tibFBhS1J1RTk4VGV6YnJrSnVudU9kZw",
+    "es": "Google lanza Universal Cart en EE. UU. para Search y Gemini"
+   },
+   {
+    "id": "news:CBMiyAFBVV95cUxQdElEVHkweDAzYy1SZlNoRUhUUUl3a0QyUmpXYXIyNXFKcktrT2ZVX2xqTVUySjVMX3V6bTU5V3BPOEs4MWdXYzJBa2IxdU1Ed3p6NkZrTE9USldjWWZKdlFrTmpFLXlxMURLcmJqUXhoZXMyX1FSSzJJSk9wWHlkZGNCNjFic0hYQ3I2Zmg5MUc3S0dOUHV0NEJXYTZGclA1ZEJNOG5ZZG9rQTUxeENjdmFMcjR6bkdrM0s2N2o1dzM3QmpEdzUtVA",
+    "es": "Google despliega Universal Cart para comprar en la web y hallar ofertas con Gemini y Search"
+   }
+  ]
+ }
+}

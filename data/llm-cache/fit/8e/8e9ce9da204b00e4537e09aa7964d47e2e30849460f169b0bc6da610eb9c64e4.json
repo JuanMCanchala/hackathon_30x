@@ -1,0 +1,24 @@
+{
+ "key": "8e9ce9da204b00e4537e09aa7964d47e2e30849460f169b0bc6da610eb9c64e4",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:47:08.445Z",
+ "latencyMs": 8578,
+ "usage": {
+  "inputTokens": 719,
+  "outputTokens": 770
+ },
+ "output": {
+  "score": 7,
+  "executive": 8,
+  "noCode": 4,
+  "latam": 8,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Muestra adopción empresarial de IA y brecha LATAM en marketing.",
+   "Relevante para CEOs: talento y transformación con consultoras.",
+   "Poco accionable sin código; depende de servicios externos."
+  ]
+ }
+}

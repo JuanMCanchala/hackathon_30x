@@ -1,0 +1,20 @@
+{
+ "key": "c2f5c71e258f4bb43654b88a46a493d620759919232cf897e32e74b0f582a9cc",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:43:56.827Z",
+ "latencyMs": 21193,
+ "usage": {
+  "inputTokens": 1434,
+  "outputTokens": 2565
+ },
+ "output": {
+  "oneLiner": "Trump compartió un video con IA de ataque de tigre; Diario Libre, Vietnam.vn y N+ cubren la polémica.",
+  "narrative": "No hay patrones con al menos 3 piezas, así que no se puede afirmar un gancho recurrente. La evidencia son tres piezas de medios (Diario Libre, Vietnam.vn y N+) publicadas el 15 de octubre de 2026, todas sin métricas públicas. El crecimiento de +800 % en creadores distintos y 8 creadores esta semana coincide con la polémica por el video generado con IA que Trump compartió. El tema avanza por la cobertura noticiosa, no por un formato o gancho medido.",
+  "cited": [
+   "news:CBMiwAFBVV95cUxNeC1KbG5YM2I0V2d6ZV9fUDRGdUUzWEF2TXZRZlV1ZmZHTjVobUpsaXdjeVdiQ1ZsTXVibkxXclVoVGhQWXJxbDF1T0o3TmJCWjI2MWVrTWRvX0ZRY1YweDY4UmdCLVRXekxyV2pMZEZuM29oVF9hSWZMNHpmRG9WU2lBSGpLQTJSM203V1JSZGlIQ3NBOGZyMGVWOWVMa281RE1jOWJwN2J3eTFLNVd5d1gxY0JwbDRXb1N1UTZIV3rSAcYBQVVfeXFMTnNMUjlzQTRVRmZpX0tNN3JHQ0ZCZFNXWlEtZWZ4LXhvdF9tc2NVVGZIX1lFbWsyVGF1VVRJUXR3LUVOOUFCUXlEaHVBNUpjc21EZHdmQklNRVpFaWdNdGRzeEJUR0hWWF9GVHZCU1dfV2FhWTRDTVVBOUxxVTlaakN3ZEdaNmNWbGhSdUFpVHVOY3hjVzBXVGdhVkRySlVyNGpfWkVWRm9keWtac1B4Mzl4Q2dIVnBTSXdsVE1aTm5oUG5Db3ZB",
+   "news:CBMiggFBVV95cUxNSVRNS2JFYXJXaVZrSzZVMlNUcENfdFgtOHlJZl9sVWtlcXB4ajRZdW9sRExhcGFXUVd5ZmdOT0hUbkxlRUNXQ0NHeGc1WmNYem4wSHBhOGUtcFozUDZYNVJ4bkM0VnIxQXhmdmlSWkZlTmhPdjRLeGRXcGtBTnQ1emRB",
+   "news:CBMiyAFBVV95cUxOOU9xazZKbm9nVnpXcXc1MFpXYl9tcm5ZUUEwR0hWSWc3Ty1EczFiUVc4eGpwQ1IwRHZPVDRQczhyXy1paFg1Rm1TV0R2WDZFWksyakxjY01HSEQzTDdLdFFnQ09aUklZeFdZb3JXSmhMYlI4S09TWWpRMFpaWEppcGh1WlYtclBOM0VsSGV4Ynl2RTBMUEhZVjFpd0k5WjU1bVA4RUdManZTVzU5TF9Kdlc3eXptbnNUekN5bVZDc094NnZUdk5vRg"
+  ]
+ }
+}

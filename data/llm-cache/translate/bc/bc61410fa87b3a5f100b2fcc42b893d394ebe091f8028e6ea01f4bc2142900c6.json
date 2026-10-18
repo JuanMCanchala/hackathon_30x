@@ -1,0 +1,31 @@
+{
+ "key": "bc61410fa87b3a5f100b2fcc42b893d394ebe091f8028e6ea01f4bc2142900c6",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:45:12.740Z",
+ "latencyMs": 2372,
+ "usage": {
+  "inputTokens": 295,
+  "outputTokens": 167
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxqvu6hfs22z",
+    "es": "Un consejo pro para todos: entren a SteamDB e inicien sesión."
+   },
+   {
+    "id": "bluesky:3my3gs6vqx22p",
+    "es": "¿Futuro? ¡No, gracias! no está 100% libre de IA."
+   },
+   {
+    "id": "bluesky:3mxu6bdt6kk2u",
+    "es": "Impulsar la regulación sí. Promover el \"uso ético de la IA generativa\", para nada."
+   },
+   {
+    "id": "bluesky:3mxefq52te22o",
+    "es": "La IA generativa, quizá inevitablemente, empieza a aparecer en algunos envíos a la revista."
+   }
+  ]
+ }
+}

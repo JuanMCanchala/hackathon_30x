@@ -1,0 +1,24 @@
+{
+ "key": "87cc46f4adad9e8c9c379a5f41bb0ea4b7ce291254b6e675112349d335396252",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:46:05.207Z",
+ "latencyMs": 11433,
+ "usage": {
+  "inputTokens": 756,
+  "outputTokens": 994
+ },
+ "output": {
+  "score": 5,
+  "executive": 7,
+  "noCode": 2,
+  "latam": 4,
+  "pillar": "Next",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Tema macro/político, poco accionable para ventas o growth.",
+   "Alta relevancia para CEOs por regulación, impuestos y futuro del trabajo.",
+   "Sin ángulo LatAm específico; solo idioma y alertas FMI."
+  ]
+ }
+}

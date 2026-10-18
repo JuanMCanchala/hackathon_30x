@@ -1,0 +1,31 @@
+{
+ "key": "7e1d3ba187c948777935a8e3ec7629858fc4a741eed18dda49c933e32f1db726",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:38:41.644Z",
+ "latencyMs": 3558,
+ "usage": {
+  "inputTokens": 281,
+  "outputTokens": 166
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxto2nxjo22h",
+    "es": "Terriblemente insensible y completamente desquiciado."
+   },
+   {
+    "id": "bluesky:3mxt57wjcb22s",
+    "es": "Trump publica video de tigre con IA tras ataque fatal en Yorkshire"
+   },
+   {
+    "id": "bluesky:3mxtow35unc2b",
+    "es": "¿En serio? ¿El presidente de Estados Unidos?"
+   },
+   {
+    "id": "bluesky:3mxtoss2gr22r",
+    "es": "Simon Marks y Lewis Goodall reaccionan al extraño video con IA que Donald Trump publicó tras la muerte de un británico"
+   }
+  ]
+ }
+}

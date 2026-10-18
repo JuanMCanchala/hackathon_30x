@@ -1,0 +1,31 @@
+{
+ "key": "01bb62a225171736b8663ff774f6e54340981fcc83588251aa5a4f32e85ea9a3",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:38:55.865Z",
+ "latencyMs": 2760,
+ "usage": {
+  "inputTokens": 291,
+  "outputTokens": 199
+ },
+ "output": {
+  "items": [
+   {
+    "id": "hn:50088430",
+    "es": "Los fuertes pedidos de ASML calman el temor de que el auge del gasto en IA se esté agotando"
+   },
+   {
+    "id": "bluesky:3mxss2xxucw2w",
+    "es": "ASML pronostica ventas del Q4 por encima de lo esperado gracias a la demanda de chips de IA"
+   },
+   {
+    "id": "bluesky:3mxegn5sybk2w",
+    "es": "Bloomberg: Samsung reportó un alza de casi nueve veces en su utilidad trimestral y las ventas de TSMC subieron 51%"
+   },
+   {
+    "id": "bluesky:3mxth3pkpxv2t",
+    "es": "El auge de la IA impulsa ventas récord en la tecnológica neerlandesa ASML"
+   }
+  ]
+ }
+}

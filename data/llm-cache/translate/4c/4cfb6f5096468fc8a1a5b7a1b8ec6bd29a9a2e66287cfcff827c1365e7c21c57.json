@@ -1,0 +1,31 @@
+{
+ "key": "4cfb6f5096468fc8a1a5b7a1b8ec6bd29a9a2e66287cfcff827c1365e7c21c57",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:39:45.674Z",
+ "latencyMs": 2665,
+ "usage": {
+  "inputTokens": 312,
+  "outputTokens": 203
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxyswv7o5k22",
+    "es": "Para quienes creen que esto es una victoria de Konami: en realidad no lo es."
+   },
+   {
+    "id": "bluesky:3mxzb5s4rk22v",
+    "es": "Llevamos todo el día molestos porque interpretaron este titular como \"Konami, el bueno, le dice no a la IA\"."
+   },
+   {
+    "id": "bluesky:3mxwkkadzg22d",
+    "es": "Ojalá esto haga que SEGA entienda que apostar por la IA generativa fue un completo error."
+   },
+   {
+    "id": "bluesky:3mxz3cma75k2u",
+    "es": "Konami le pasa por encima a Capcom y Square en el uso de IA generativa en el desarrollo de juegos. Absurdo."
+   }
+  ]
+ }
+}

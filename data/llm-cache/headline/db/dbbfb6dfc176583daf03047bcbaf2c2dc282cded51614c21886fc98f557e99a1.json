@@ -1,0 +1,14 @@
+{
+ "key": "dbbfb6dfc176583daf03047bcbaf2c2dc282cded51614c21886fc98f557e99a1",
+ "name": "headline",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:34:24.472Z",
+ "latencyMs": 927,
+ "usage": {
+  "inputTokens": 277,
+  "outputTokens": 29
+ },
+ "output": {
+  "headline": "Esta semana la conversación de IA gira hacia consultoras, salarios en IA y su impacto en finanzas"
+ }
+}

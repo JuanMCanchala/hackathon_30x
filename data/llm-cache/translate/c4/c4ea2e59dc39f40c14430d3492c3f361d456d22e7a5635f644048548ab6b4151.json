@@ -1,0 +1,31 @@
+{
+ "key": "c4ea2e59dc39f40c14430d3492c3f361d456d22e7a5635f644048548ab6b4151",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:48:09.824Z",
+ "latencyMs": 2425,
+ "usage": {
+  "inputTokens": 303,
+  "outputTokens": 194
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxjoscpphrwo",
+    "es": "La burbuja de la IA tambalea al borde del colapso: OpenAI admite un fracaso financiero masivo en documentos filtrados"
+   },
+   {
+    "id": "bluesky:3mxh73ukb622e",
+    "es": "La burbuja de la IA tambalea al borde del colapso: OpenAI admite un fracaso financiero masivo en documentos filtrados"
+   },
+   {
+    "id": "bluesky:3mxjtyjkmic2y",
+    "es": "Debería fundar una startup fintech de recuperaciones. Los docs dirán que usamos IA para disrumpir el viejo mundo de los embargos y cobros de deudas"
+   },
+   {
+    "id": "hn:50008187",
+    "es": "Los ingresos anualizados de OpenAI son $20B menos de lo señalado antes"
+   }
+  ]
+ }
+}

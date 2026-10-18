@@ -1,0 +1,31 @@
+{
+ "key": "76e877152d0720539a28a30e591cc657d4819d893b6516d65bc9cd000dcc0261",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:42:19.646Z",
+ "latencyMs": 1656,
+ "usage": {
+  "inputTokens": 287,
+  "outputTokens": 152
+ },
+ "output": {
+  "items": [
+   {
+    "id": "hn:50073879",
+    "es": "Gemini 4 Argon"
+   },
+   {
+    "id": "youtube:Gzys8aXT8rs",
+    "es": "Muse Wonder de Meta queda cerca de lo más alto en los benchmarks, pero las pruebas reales de desarrolladores cuentan una historia más mixta."
+   },
+   {
+    "id": "bluesky:3mxxmcxvzrk26",
+    "es": "¡Te dejan usar la API del último modelo de IA de Google! 🤖EN"
+   },
+   {
+    "id": "x:2110039277442682916",
+    "es": "Así puedes probarlo: 🔵 Usuarios comunes: en @GeminiApp y el Modo IA en Búsqueda"
+   }
+  ]
+ }
+}

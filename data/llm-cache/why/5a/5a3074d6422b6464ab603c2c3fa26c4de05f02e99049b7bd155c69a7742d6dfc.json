@@ -1,0 +1,21 @@
+{
+ "key": "5a3074d6422b6464ab603c2c3fa26c4de05f02e99049b7bd155c69a7742d6dfc",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:45:53.770Z",
+ "latencyMs": 16272,
+ "usage": {
+  "inputTokens": 1376,
+  "outputTokens": 1771
+ },
+ "output": {
+  "oneLiner": "El FMI alerta de que la IA amenaza empleos e impuestos mientras crece el temor por la deuda.",
+  "narrative": "No hay patrones con al menos 3 piezas, así que no se puede hablar de un formato dominante esta semana. Las piezas que despegan comparten un marco de alerta: el aviso del FMI sobre empleos e impuestos, la productividad que no se traduce en salarios y el temor a la burbuja y la deuda de la IA. El post de Sanho Tree en Bluesky multiplica por 22,7 la mediana de su autor, muy por encima del resto. Lo mueven cuentas críticas en Bluesky y medios que cubren la deuda de la IA.",
+  "cited": [
+   "bluesky:3mxheupz2r22a",
+   "bluesky:3mxsyzkvmkd2i",
+   "news:CBMingFBVV95cUxOVjJZcWZSQVpsa2JzU2tjX2JycHNGTXRJQVpQbS0wNVFEVUpLckY0amlmSWtYTDNvUjZTeER6ckVENmlzR2pYZWJNUTVYZ24ycjFFNVpBOXNEWTVidzNXUTE4T0JxSVBCYkw3X3JVTDBkM3lzR1ZaSW11Mkc2SkRiTURNMVk4UUJBVm1JTTdHa2RXdDJ5QnZzMTBkYW1rZw",
+   "news:CBMilAFBVV95cUxQdHpvMk4wUEJ5aTZMNjFneFVDdDdMWGFxSVp6T25BeG1HMVNtQUVBa0hIR0RIVTNibVVuS0lQZ0l0cW5JRzI0X1JGd2loLUdKMVRvNGZaRjdnWGdSRXhGVElkbHJ3TjlUeXBBLXVSTjlnNU9ocDljbzJBNVZWWkV1b3M2THYxOWhGSVpqVDNuSC1tNUdZ"
+  ]
+ }
+}

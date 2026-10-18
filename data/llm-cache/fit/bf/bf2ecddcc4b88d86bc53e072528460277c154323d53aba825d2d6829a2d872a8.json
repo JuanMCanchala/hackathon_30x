@@ -1,0 +1,24 @@
+{
+ "key": "bf2ecddcc4b88d86bc53e072528460277c154323d53aba825d2d6829a2d872a8",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:45:05.501Z",
+ "latencyMs": 6969,
+ "usage": {
+  "inputTokens": 735,
+  "outputTokens": 654
+ },
+ "output": {
+  "score": 9,
+  "executive": 8,
+  "noCode": 8,
+  "latam": 4,
+  "pillar": "Ventas",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Tema central para equipos comerciales que buscan ventajas injustas con IA.",
+   "Aplicable sin código con herramientas de prospección, CRM y agentes.",
+   "LatAm aparece poco; falta casos locales y regulación en español."
+  ]
+ }
+}

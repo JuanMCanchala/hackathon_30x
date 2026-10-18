@@ -1,0 +1,24 @@
+{
+ "key": "3e1d0fb4da79ccce4a14b435a98ea20fc4c0c4b8feee0c7b14c2453ff6783b09",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:49:02.944Z",
+ "latencyMs": 8916,
+ "usage": {
+  "inputTokens": 758,
+  "outputTokens": 707
+ },
+ "output": {
+  "score": 6,
+  "executive": 7,
+  "noCode": 4,
+  "latam": 3,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Coste y privacidad importan a empresas, pero ejecución local aún es técnica.",
+   "Poca aplicación directa para ventas o growth sin soporte técnico.",
+   "Ángulo LatAm débil; solo un título en español."
+  ]
+ }
+}

@@ -1,0 +1,31 @@
+{
+ "key": "22472884bc7bce809e40d0c26fef908d19f549d2f4abbd9ad5c9a151891300c1",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:36:10.509Z",
+ "latencyMs": 5255,
+ "usage": {
+  "inputTokens": 637,
+  "outputTokens": 539
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxwt5tophk2a",
+    "es": "Si alguien con una operación tan básica que, trabajando para una empresa de IA, le pedía ayuda a su chatbot, logró operar semanas sin ser detectado"
+   },
+   {
+    "id": "bluesky:3mxoqv56yb22x",
+    "es": "La IA agéntica transforma la ciberseguridad rápido, pero agentes descontrolados, IA en la sombra y riesgos de terceros exigen barreras reales."
+   },
+   {
+    "id": "news:CBMiuAFBVV95cUxPYzFEN0ZPYWllLVE5UThwZ3RhbkhwN2c2b28teUl2T0d1RVR0QnFNc1pGVGpwQmE1akR0NEpYM3BLdEdQV3VTeng5bjdjeTlraWtvREt3ZENYX25mTEZ2Q1hxeTBpZFdRRVBhWlQ0T0M5VGNUSlUtTm0zS1BscFhNNDNZSktCaUJBeUk4Rm4tV3ZLTExMYVpheUZGVlkweGVTSkRWZ0NMRWFoU1dQVVlKeEg3MlpwMElR",
+    "es": "Descope lanza Agentic Identity Hub 3.0 para atacar a los agentes de IA en la sombra dentro de las empresas"
+   },
+   {
+    "id": "news:CBMirAFBVV95cUxNQUVxWDZaT3hSeVk5bzlBejZ0QU8xNG5JX1RxZTNId3RLR2FlTl9nXzZUenVzdGJ2RnJJeC1DQnYza2ZKUGlLUDhzSkRMUHJsS1hkNjczQnJXenZCaVZBNkZUMWpRSy1fdlUtUVZOQTI4am04RDd3azYtMWJuQW5hekVPa3ROOU5TWXMtY0JDY3lXaHJxQmcwRm5oRXpaSzlBank1dVZhbll3TklS",
+    "es": "Tus empleados están creando agentes de IA. ¿Sabes qué están haciendo?"
+   }
+  ]
+ }
+}

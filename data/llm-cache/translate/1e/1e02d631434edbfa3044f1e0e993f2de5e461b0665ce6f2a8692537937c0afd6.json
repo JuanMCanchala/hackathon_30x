@@ -1,0 +1,31 @@
+{
+ "key": "1e02d631434edbfa3044f1e0e993f2de5e461b0665ce6f2a8692537937c0afd6",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:35:50.707Z",
+ "latencyMs": 2616,
+ "usage": {
+  "inputTokens": 289,
+  "outputTokens": 175
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxx36ohbzc25",
+    "es": "Esa es una imagen generada por IA. El video sí existe."
+   },
+   {
+    "id": "bluesky:3mxtk7xukdc2g",
+    "es": "Un anuncio de TV de Google Gemini tiene un aviso de texto abajo que dice 'Verifica las respuestas'."
+   },
+   {
+    "id": "bluesky:3mxuyl5dq522z",
+    "es": "Verificación: ¿qué mierda de LLM te dijo eso?"
+   },
+   {
+    "id": "bluesky:3mxjttxh2d22p",
+    "es": "Verificación: la imagen viral de Trump y la niña proviene de un video generado por IA"
+   }
+  ]
+ }
+}

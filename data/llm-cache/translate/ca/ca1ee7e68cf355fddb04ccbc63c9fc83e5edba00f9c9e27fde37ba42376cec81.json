@@ -1,0 +1,19 @@
+{
+ "key": "ca1ee7e68cf355fddb04ccbc63c9fc83e5edba00f9c9e27fde37ba42376cec81",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:46:40.454Z",
+ "latencyMs": 2189,
+ "usage": {
+  "inputTokens": 313,
+  "outputTokens": 159
+ },
+ "output": {
+  "items": [
+   {
+    "id": "news:CBMigwFBVV95cUxNSGJseEdsbTMzQkVSWE0tTnIwSnF4ZDhHcUF5alRJZzJYX3hpUFg0WHVoYlFESlhSbFdlNHczVmRCaTc5S0s1Zmtyb2JCeWZ1bmNxQmJ5eDNtT0tPVVVVR0ZKaFlkNmVGNGprbzQtQ3pneTVhNm1sZlU3NUJ0UTBURWoxMA",
+    "es": "Ventas de IA de TCS se disparan, pero la demanda de TI central sigue débil"
+   }
+  ]
+ }
+}

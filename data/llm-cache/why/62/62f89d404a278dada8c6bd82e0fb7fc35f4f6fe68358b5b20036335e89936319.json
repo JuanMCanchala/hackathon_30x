@@ -1,0 +1,21 @@
+{
+ "key": "62f89d404a278dada8c6bd82e0fb7fc35f4f6fe68358b5b20036335e89936319",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:51:04.197Z",
+ "latencyMs": 17046,
+ "usage": {
+  "inputTokens": 1612,
+  "outputTokens": 2190
+ },
+ "output": {
+  "oneLiner": "Epic usa IA en su launcher, Valve responde y el debate sobre divulgación de IA en Steam crece.",
+  "narrative": "No hay patrones con al menos 3 piezas, así que el crecimiento se lee en la evidencia suelta. Lo que despega es la pelea Epic contra Valve: dos noticias cubren el launcher con IA de Epic y la respuesta de Valve con un arranque de Steam de 5,23 segundos. En Bluesky, el post más fuerte es una burla a las promesas de exclusividad y cripto frente a Steam, con 256 veces la mediana de su autor, y otro usuario recuerda que las desarrolladoras no tienen obligación legal de divulgar el uso de IA. El momento lo mueven cuentas personales de Bluesky y medios especializados, no las propias plataformas.",
+  "cited": [
+   "bluesky:3mxp5oaoto22h",
+   "bluesky:3mxudb7nyps22",
+   "news:CBMi1AFBVV95cUxNeGh0TnN6STMxc2ZrUk9fRUtjWGRZLVF1SnhRcmN6d1piRkxqenhER2lpNHRkX1VfbGUzQU9oVmVoTjhLM1p6SVR4eWdqZjZmckx5MFE1N3M4UWxaMmtJMWlpcXpqdDNEYVpTMzNEbFFZOEtfbjFzOEQ0aXUtcW44cGNmWURDaEJVS2h6azZQUldzc3MwYldxQ0xUd2Q2X3I5OWFSX2pRcEthYXV5Skh5V0puOGtxMEJsRFpacXdLdDFKVU9aZTBDNjk3VnNjWlllWmE4btIB2gFBVV95cUxQcmZmc1Jna3laNU9uUGhSWmtUSloxQW9LZVRmcUxnV3doRmlzWFcxZzNpTUx4amxmTjJmMkRib25wcVFCQkFjU0FmeDNjbWtRTm02OUNvRHVPTXRZcTgteE9CelV1WmtRZnhGMzR3M3dMNFJRSE1CZVRCQ19TUU1iWXNjZmpUV3ZuM3lPXzVhck50Y3hVRE1XOEtmdnFwLXVUOVdwYV81WU5WX0hWQnB3Qzk2TURJSXNpaUszajRqMDkyMDg2ZFhDWEpwUV9BZm5CUDJJZ3VqLUhyQQ",
+   "news:CBMidkFVX3lxTE5Ea0pJaGNNcnNOZzRWV285enQyN090UURLZDdSVkcycGl6ak41R3VCcnFqOHc4dkw4OE9qbC1iMWViVDV4YV92OXNudUF3UUg3VmJtXzd1RW5fVzZSMDlhdGJmVkhsZm8wV19tLWxfbVgxR1Rpcnc"
+  ]
+ }
+}

@@ -1,0 +1,31 @@
+{
+ "key": "99a44c04e5e3c790da7052ccea52f8c8eaa8d92d4aec41688e73cd5d52fde5d1",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:38:08.029Z",
+ "latencyMs": 2209,
+ "usage": {
+  "inputTokens": 314,
+  "outputTokens": 179
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxwmjefyf22h",
+    "es": "Ayer volví a descargar el launcher de Epic Games para conseguir imágenes para un artículo."
+   },
+   {
+    "id": "bluesky:3mxy4umpm3k2f",
+    "es": "Es muy interesante que digan abiertamente 'vibe-coding', casi como si hubieran visto a Epic hacer lo mismo."
+   },
+   {
+    "id": "bluesky:3mxp6vmgwxs7a",
+    "es": "Epic Games retrasó el lanzamiento de un nuevo shooter con personajes de Star Wars y Marvel."
+   },
+   {
+    "id": "bluesky:3mxp5j4mlu22c",
+    "es": "La IA generativa no es nueva para Epic Games, que ha impulsado fuerte esta tecnología en los últimos años."
+   }
+  ]
+ }
+}

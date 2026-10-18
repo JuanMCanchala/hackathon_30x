@@ -1,0 +1,24 @@
+{
+ "key": "dfbcc8cc1631eaf261086e3407a8301e17e52264e3890f99e11ce3c9c2895c56",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:48:01.543Z",
+ "latencyMs": 8327,
+ "usage": {
+  "inputTokens": 742,
+  "outputTokens": 792
+ },
+ "output": {
+  "score": 6,
+  "executive": 7,
+  "noCode": 2,
+  "latam": 2,
+  "pillar": "Next",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Relevante para contratar y retener talento de IA.",
+   "Poco aplicable a ventas, growth o ejecución diaria.",
+   "Sin ángulo LatAm; datos de NYC y nómina genérica."
+  ]
+ }
+}

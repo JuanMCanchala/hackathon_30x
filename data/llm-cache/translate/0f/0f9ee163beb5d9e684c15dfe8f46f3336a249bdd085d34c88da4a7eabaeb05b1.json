@@ -1,0 +1,31 @@
+{
+ "key": "0f9ee163beb5d9e684c15dfe8f46f3336a249bdd085d34c88da4a7eabaeb05b1",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:38:01.195Z",
+ "latencyMs": 1639,
+ "usage": {
+  "inputTokens": 269,
+  "outputTokens": 148
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxswpyp2k225",
+    "es": "Character AI se declara en bancarrota"
+   },
+   {
+    "id": "hn:50068036",
+    "es": "Character.ai inició un proceso voluntario de bancarrota bajo el Capítulo 11"
+   },
+   {
+    "id": "bluesky:3mxrnyi4yjk2a",
+    "es": "Un montón de tipos solitarios están a punto de perder a sus novias de IA."
+   },
+   {
+    "id": "bluesky:3mxrhhx36ks2e",
+    "es": "La startup de compañeros de IA Character.ai se acoge al Capítulo 11 por costos y litigios"
+   }
+  ]
+ }
+}

@@ -1,0 +1,31 @@
+{
+ "key": "d7af9fbf7921e8c4c5fe41bdf8f29adcad2cdcf20c61062b1d3f6b3da0538fe1",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:42:38.851Z",
+ "latencyMs": 2008,
+ "usage": {
+  "inputTokens": 319,
+  "outputTokens": 198
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxtxufoqes2n",
+    "es": "Un empleado de OpenAI que se fue a Apple envió más de 100 archivos sobre un producto no lanzado a una cuenta personal"
+   },
+   {
+    "id": "bluesky:3mxttyu7lan2f",
+    "es": "OpenAI: los archivos filtrados por el empleado también incluyen datos de fabricación de dispositivos, según escrito en el caso Apple vs OpenAI"
+   },
+   {
+    "id": "bluesky:3mxs2mp4pkw2s",
+    "es": "En un nuevo fallo del juicio de Apple contra OpenAI por secretos comerciales, Apple podrá acceder a los testimonios de empleados de OpenAI"
+   },
+   {
+    "id": "bluesky:3mxj5ricv5k2j",
+    "es": "USA Today demanda a OpenAI por infracción de derechos de autor en el entrenamiento de IA"
+   }
+  ]
+ }
+}

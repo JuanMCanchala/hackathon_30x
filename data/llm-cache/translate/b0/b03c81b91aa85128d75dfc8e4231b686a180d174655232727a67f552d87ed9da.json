@@ -1,0 +1,31 @@
+{
+ "key": "b03c81b91aa85128d75dfc8e4231b686a180d174655232727a67f552d87ed9da",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:41:51.071Z",
+ "latencyMs": 2156,
+ "usage": {
+  "inputTokens": 275,
+  "outputTokens": 153
+ },
+ "output": {
+  "items": [
+   {
+    "id": "youtube:jwmfyguADXc",
+    "es": "Empieza a construir con Gemini 4 Argon"
+   },
+   {
+    "id": "youtube:T2Wfds62ZjM",
+    "es": "Creando animación en tiempo real con Gemini 4 Argon"
+   },
+   {
+    "id": "youtube:3MMbWDF4xYI",
+    "es": "Gemini 4 Argon ya está aquí (probado a fondo)"
+   },
+   {
+    "id": "youtube:gRhM1h10T3U",
+    "es": "Más de 1000 horas probando a fondo el nuevo modelo frontera de Google: Gemini 4 Argon."
+   }
+  ]
+ }
+}

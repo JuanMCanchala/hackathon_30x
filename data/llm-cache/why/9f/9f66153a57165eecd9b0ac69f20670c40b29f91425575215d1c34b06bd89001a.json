@@ -1,0 +1,21 @@
+{
+ "key": "9f66153a57165eecd9b0ac69f20670c40b29f91425575215d1c34b06bd89001a",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:49:16.518Z",
+ "latencyMs": 9856,
+ "usage": {
+  "inputTokens": 1400,
+  "outputTokens": 1101
+ },
+ "output": {
+  "oneLiner": "REA, ingeniería inversa open source con agentes de IA, bate récords en GitHub y midudev la empuja.",
+  "narrative": "No hay patrones con al menos 3 piezas, así que el crecimiento se lee en la evidencia suelta: 5 creadores distintos y +200 % frente a las 4 semanas previas. El empujón lo da midudev con un short de YouTube que abre con \"Todo el mundo está haciendo Ingeniería Inversa de programas y videojuegos con Inteligencia Artificial\" y llega a 5,1× la mediana de su autor, mientras el mismo texto en Bluesky se queda en 0,8×. El resto es cobertura de prensa sobre REA, la herramienta open source que enseña a agentes de IA a desarmar binarios, con titulares que mezclan récord en GitHub y verificación de qué es cierto. El gancho que funciona es la novedad de la herramienta más la promesa de hacerlo uno mismo, no el análisis técnico.",
+  "cited": [
+   "youtube:yVCsfwd0kO0",
+   "bluesky:3mxc4g6vtrw23",
+   "news:CBMimAFBVV95cUxNSzVjLTkzQ2xrWkZWMnI0MGpJZVdlelhQM0NsRzljZmNJRkNJT0tRcVd1VDhFSmV2cUM2Q2JDcmowdlJjM20xT1g0UmRjMVlhRFRSSWJKRGhKZm1zZzUyZDRoSl9ScExmM2xJSHpqeFRLQ0RMYXBpS21TMkEyRFg2ZTBNVzdraHNYdnh1WWNtZURnUlJ3N0tOSw",
+   "news:CBMidEFVX3lxTFBqczVEQ2xxSkhTQjNQdk9tYlNLd1A4UGp4OGFIQlhuRTdNV1BTSWh1UEJHTng1MTVrUy16clN6SmtfNjJvLWllWWQ3d0FMeEZEUVNwTWlLc3hqNkllRnZxTVppd24yQW5jWGNRWXp0VU9pMzRn"
+  ]
+ }
+}

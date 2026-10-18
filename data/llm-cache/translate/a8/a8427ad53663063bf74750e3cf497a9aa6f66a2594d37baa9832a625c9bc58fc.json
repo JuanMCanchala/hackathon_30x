@@ -1,0 +1,31 @@
+{
+ "key": "a8427ad53663063bf74750e3cf497a9aa6f66a2594d37baa9832a625c9bc58fc",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:38:33.476Z",
+ "latencyMs": 5164,
+ "usage": {
+  "inputTokens": 665,
+  "outputTokens": 545
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxnanjp4xc2c",
+    "es": "Amazon negocia comprar la startup de IA Decart por unos $7 mil millones"
+   },
+   {
+    "id": "news:CBMimAFBVV95cUxQZ0wxYzdQZkVsbFZaSHJMaGpYUEhBdXNCazJkMnFTMG0tN0RGbzVSb0kzdnVJSVpEc0NNekNPeWtfV0s1cTdLNThFNk9DZmpMRFNDMnp3YllueVRPUzcweUFUTmJ1NlQzV1IxOEp0Zmt6TUJXcmN4X3FDSEpQS3VDNm1VLXdsZ1BDcjdOemt4djZKdHlYZjBkQQ",
+    "es": "Amazon estaría interesada en adquirir una startup de San Francisco"
+   },
+   {
+    "id": "news:CBMiZ0FVX3lxTE9NN1FuaVRxX09XNVg2NE1CcDdCdnZVcE1mbGppeEhBeTFZM3FQeTU5WXpyRkREZWRIQ0M1ZnItaTlxWVlyWm54cy1QY2ZqSklhcHBNV0dJUnNnRHJ2QjNDQjByWGU5c2M",
+    "es": "Amazon podría quedarse con Decart por $5.5 mil millones tras la salida de Anthropic"
+   },
+   {
+    "id": "news:CBMirAFBVV95cUxQdW1CQU9IV0JNVE5jRE9oVUpfQ2ZCNE1waUx6WW5ua25wbDJBZ1EyY1Y4S09Nakk1NG4ySUdrMlRTTVNDM3ZmYjBucms4UWFtckN4M2twdlBIUzVSVXZUTkY2SnBwam1COWRZVTNVVDE4NnE1V2h3RG0tanNkQmtzR3hSSm1JUzdTZEVXelJkWVhpSngxdlNJOUcydDJwWVhWWHZUb00wTFlrNl9K",
+    "es": "Amazon estaría evaluando una gran adquisición"
+   }
+  ]
+ }
+}

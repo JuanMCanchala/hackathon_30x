@@ -1,0 +1,14 @@
+{
+ "key": "b37f000dd6ca935ccce5cc8d0144115a47af007844489ab3e07cc584f43fbba3",
+ "name": "headline",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:34:11.439Z",
+ "latencyMs": 1706,
+ "usage": {
+  "inputTokens": 330,
+  "outputTokens": 31
+ },
+ "output": {
+  "headline": "Esta semana la IA en Bluesky crece con CERT-In y agentes, Android e IA, y Google Universal Cart"
+ }
+}

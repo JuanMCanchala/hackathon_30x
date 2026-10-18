@@ -1,0 +1,19 @@
+{
+ "key": "f4f36d88e71bfd6ae8d6fd4c65621bf57c24a2be2d3d870effd885b42f691287",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:43:35.632Z",
+ "latencyMs": 5169,
+ "usage": {
+  "inputTokens": 679,
+  "outputTokens": 541
+ },
+ "output": {
+  "items": [
+   {
+    "id": "news:CBMiggJBVV95cUxPUnFhR2N6bmcyWl9uN0pfOHdEdDZNVDE0OWY0NXFGVFBHcnphenNTZDM3UEhNOXpRbVNmLWpZWlo5dkw1cllTQVhCZkgyUXZvY045UjZMd3JocVVmLUVuVVRBN1BJVjVTZjRGSjliM3dNQWYxdzhvR0tvMjNIdmdqNjJnZTl4SzNydms0SjFSaVdZRTdKaWhoSkx2dzZoSUlpRTgyYW9rUkpzS0FTWm1VVXhwTDVwNHNMaDd3RV9TMzMwX3BLQ3huQXczYjVnQnMteThvdDhIYVhITXVHbk9hcDUtVFowVXd1QlZ3aXN4OWF6RC0xR3dfamI0b2pUcmVvWnfSAYcCQVVfeXFMTUgyYWxxQjRVNUVNN1lnUDRKeUNVdF93RmpSU1NSLUx1S1RoT2xsNy1JUjlrUHk5cGNKaGVHTUZHWVQwZTFKNGRySS1Gc0FYVkRmVkpFd0l1NXliZjhKZVJSbHo2U3dHN1JFdkVwcFZIM1hNbTVmRlZIVkVJa084clpzQlVvWThPeExUeERTNjZackQ3cThCTkM0RFY3UTEwUGJmN3ZGRG9ITDNiNFQ5YzZ0SlhhejhSeTlHclZPdDl1NGRPekxvcm5ZU2JXcm84RzFmcEFIYWJ0akY4cVZ2U2xwNi1BVjNRZnBvakhuOTFHYmZ0azJZNmFlaDRvWXFxczk0QXZSdjg",
+    "es": "Trump comparte un video extraño hecho con IA mientras la familia de la víctima del ataque de un tigre en Reino Unido pide que dejen de difundir las imágenes"
+   }
+  ]
+ }
+}

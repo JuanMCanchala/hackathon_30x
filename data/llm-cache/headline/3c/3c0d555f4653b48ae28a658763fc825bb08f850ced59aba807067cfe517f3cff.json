@@ -1,0 +1,14 @@
+{
+ "key": "3c0d555f4653b48ae28a658763fc825bb08f850ced59aba807067cfe517f3cff",
+ "name": "headline",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:34:15.959Z",
+ "latencyMs": 806,
+ "usage": {
+  "inputTokens": 336,
+  "outputTokens": 31
+ },
+ "output": {
+  "headline": "Esta semana la conversación de IA gira hacia agentes de navegador, estafas con IA y vibe coding"
+ }
+}

@@ -1,0 +1,24 @@
+{
+ "key": "12b1ac9b62bdc156ae3a9f498bf5492ce2955307b99fe2d9a3176206a6b9a557",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:40:15.051Z",
+ "latencyMs": 7190,
+ "usage": {
+  "inputTokens": 741,
+  "outputTokens": 684
+ },
+ "output": {
+  "score": 6,
+  "executive": 6,
+  "noCode": 3,
+  "latam": 2,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Impacta costos, dependencia de proveedores y estrategia de IA.",
+   "Muy técnico y en inglés; poco accionable para equipos comerciales.",
+   "Titulares exagerados elevan riesgo de humo."
+  ]
+ }
+}

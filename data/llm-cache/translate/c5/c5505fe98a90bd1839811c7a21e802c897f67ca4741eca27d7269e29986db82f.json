@@ -1,0 +1,19 @@
+{
+ "key": "c5505fe98a90bd1839811c7a21e802c897f67ca4741eca27d7269e29986db82f",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:50:24.147Z",
+ "latencyMs": 1688,
+ "usage": {
+  "inputTokens": 197,
+  "outputTokens": 48
+ },
+ "output": {
+  "items": [
+   {
+    "id": "arxiv:2610.21330",
+    "es": "VoteGEO-Bench: mide cómo la optimización para motores generativos afecta la visibilidad electoral"
+   }
+  ]
+ }
+}

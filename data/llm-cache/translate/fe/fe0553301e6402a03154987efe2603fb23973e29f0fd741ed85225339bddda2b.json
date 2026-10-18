@@ -1,0 +1,31 @@
+{
+ "key": "fe0553301e6402a03154987efe2603fb23973e29f0fd741ed85225339bddda2b",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:43:15.804Z",
+ "latencyMs": 2037,
+ "usage": {
+  "inputTokens": 310,
+  "outputTokens": 191
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxpor26yy22g",
+    "es": "Epic ya había pasado su pipeline de arte a la IA, y destaca sobre todo porque todo lo que hace se ve como basura"
+   },
+   {
+    "id": "bluesky:3mxfcigndjc2s",
+    "es": "Hay algo realmente mágico en que Epic abrace abiertamente la IA generativa en Fortnite"
+   },
+   {
+    "id": "bluesky:3mxtt3znpqc2g",
+    "es": "Epic Games retrasa un shooter de Marvel/Star Wars para mejorar su desarrollo interno de IA"
+   },
+   {
+    "id": "bluesky:3mxrcc2rckk2c",
+    "es": "Epic Games, de Fortnite, apuesta todo a la IA y dice en voz alta lo que muchos callan"
+   }
+  ]
+ }
+}

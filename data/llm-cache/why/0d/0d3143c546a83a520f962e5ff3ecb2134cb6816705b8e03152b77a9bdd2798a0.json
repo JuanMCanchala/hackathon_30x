@@ -1,0 +1,21 @@
+{
+ "key": "0d3143c546a83a520f962e5ff3ecb2134cb6816705b8e03152b77a9bdd2798a0",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:45:31.499Z",
+ "latencyMs": 13018,
+ "usage": {
+  "inputTokens": 1429,
+  "outputTokens": 1294
+ },
+ "output": {
+  "oneLiner": "Anthropic advierte que los modelos podrían autorreplicarse; creadores en Bluesky y Reuters amplifican la noticia.",
+  "narrative": "El patrón disponible es débil: 3 de 3 piezas que despegaron las publicó un creador de contenido, frente a 2 de 10 del resto, sobre una base de solo tres piezas. Los ganchos que rinden combinan alarma y sátira: el post con imagen \"4 hot new felonies for OpenAI\" llega a 3,9 veces la mediana de su autor. En Bluesky, posts cortos de Tim Maughan y Dennis Detwiller sobre el modelo de negocio de Nvidia y OpenAI rinden 8× y 6× su mediana. La advertencia de Reuters sobre autorreplicación marca el momento de la semana.",
+  "cited": [
+   "bluesky:3mxzv2ellzs2z",
+   "bluesky:3mxrzafx7ls27",
+   "bluesky:3mxru232mzc2v",
+   "news:CBMivwFBVV95cUxNVFZnZHFlY0QxWV9XbURPeDVpQnlMcWFqaTlDMHRjcWhhLXRhR1hfbTdNeVl3c3dyR3V6V211Wmp5aXNZT1VpN1kwdUs3ZFdBTXB5Z2tEN1JfV2FnUk5FRHpVa2lfRWxENndHaDdNWmRZVUJfQkFody00VG1BNk8wb29Sel9Wd011ampEWXlOQk9xM2x0bkVwTXBib0hEMndtOWNuZXdDWFlEcTRuZzVLRDYxUDFfek9XRTNna3dhZw"
+  ]
+ }
+}

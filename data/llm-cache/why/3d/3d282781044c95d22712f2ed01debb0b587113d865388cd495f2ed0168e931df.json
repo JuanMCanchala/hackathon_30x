@@ -1,0 +1,21 @@
+{
+ "key": "3d282781044c95d22712f2ed01debb0b587113d865388cd495f2ed0168e931df",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:40:07.856Z",
+ "latencyMs": 8363,
+ "usage": {
+  "inputTokens": 1269,
+  "outputTokens": 967
+ },
+ "output": {
+  "oneLiner": "Anthropic y Perplexity abren código y desatan debate: creadores y comunidades open source responden con polémica.",
+  "narrative": "23 de 63 piezas que despegaron abren con una opinión fuerte, frente a 11 de 137 del resto. 49 de 63 son posts de texto, frente a 37 de 137 del resto, y 31 de 63 apelan a la polémica. El momento lo marcan Anthropic y Perplexity al liberar código, y lo amplifican creadores de contenido: 28 de 63 piezas que despegaron las publicó uno, frente a 20 de 137 del resto. En Bluesky, Seth Abramson y may llevan la discusión al terreno del cierre del código y el daño a las comunidades.",
+  "cited": [
+   "bluesky:3mxhhkydf322s",
+   "linkedin:7516557998547210240",
+   "bluesky:3mxhkcrr2lk24",
+   "bluesky:3my3gju67as2e"
+  ]
+ }
+}

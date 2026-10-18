@@ -1,0 +1,21 @@
+{
+ "key": "4482fb23bb9d3015fd903d1b28a708a359170c053fefe2bd6778c59a9c8fb9b7",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:48:54.025Z",
+ "latencyMs": 10882,
+ "usage": {
+  "inputTokens": 1740,
+  "outputTokens": 962
+ },
+ "output": {
+  "oneLiner": "Creadores empujan la IA local con comparativas de VRAM y Mac Mini para correr modelos sin nube.",
+  "narrative": "3 de 4 piezas que despegaron las publicó un creador de contenido, frente a 3 de 29 del resto. El gancho es concreto y cuantificado: un video de Kai en YouTube abre con el coste de 128GB de VRAM para IA local, de 3099 a 6950 dólares, y Alex Finn pregunta si un Mac Mini puede correr IA local. En Bluesky, alyson “october” greaves y Tukaram enganchan con posturas y pruebas caseras sobre no depender de la nube. El tema suma 13 creadores esta semana, +24 % frente a las cuatro anteriores.",
+  "cited": [
+   "NA9D49kQFuU",
+   "dFTXOt0GBx4",
+   "3mxvtkfp6vs2e",
+   "3mxhav6gycc2m"
+  ]
+ }
+}

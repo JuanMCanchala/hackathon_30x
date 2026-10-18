@@ -1,0 +1,31 @@
+{
+ "key": "7120639e09646705cfb7d83cbdb9b9df01bb8fb394e03304130379f4bcffb9ea",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:43:09.265Z",
+ "latencyMs": 2337,
+ "usage": {
+  "inputTokens": 298,
+  "outputTokens": 202
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxrwlkmrhc2z",
+    "es": "Nuevo, mío: el FBI arrestó a un empleado de OpenAI del equipo de producto y lo acusó de colocar un dispositivo de grabación secreto en una sala de conferencias."
+   },
+   {
+    "id": "youtube:B3D5nViNT6A",
+    "es": "Empleado de OpenAI acusado de espiar una sala de conferencias ejecutiva"
+   },
+   {
+    "id": "bluesky:3mxtykwdddx2a",
+    "es": "El FBI arresta a un ingeniero de OpenAI sospechoso de colocar un micrófono oculto en una sala de conferencias"
+   },
+   {
+    "id": "bluesky:3mxrydv646s2b",
+    "es": "Tiempos locos. El FBI arresta a un empleado de OpenAI tras hallar un dispositivo de escucha en su oficina"
+   }
+  ]
+ }
+}

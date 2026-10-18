@@ -1,0 +1,19 @@
+{
+ "key": "86f7aeb60f9845b738ce26d6dc03f3f6da96af48611bb1cd916be911b1f72bd3",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:35:32.579Z",
+ "latencyMs": 2612,
+ "usage": {
+  "inputTokens": 327,
+  "outputTokens": 171
+ },
+ "output": {
+  "items": [
+   {
+    "id": "news:CBMilAFBVV95cUxNb09TejFTcEtjeElGdHJ4bE01c1hDYnJkQnkyR2lCRnJmZ05uUXcyOVM0eW5OOHJab0ZicktTT0JPM2hWanVFUlBZYjhuYm53R0tKZmxEazdRNURfYkt5Ql9Ed29zeml0MWkwY1IzbnhIMmpzYkxjek9QdTkxQjlVUVY3QzJEc292dDdxQXJIS1RYSzc5",
+    "es": "Google lanza Gemini 4 Argon para tareas de IA más largas"
+   }
+  ]
+ }
+}

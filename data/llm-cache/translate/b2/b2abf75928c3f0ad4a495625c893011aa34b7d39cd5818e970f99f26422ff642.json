@@ -1,0 +1,31 @@
+{
+ "key": "b2abf75928c3f0ad4a495625c893011aa34b7d39cd5818e970f99f26422ff642",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:38:23.890Z",
+ "latencyMs": 4019,
+ "usage": {
+  "inputTokens": 338,
+  "outputTokens": 211
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxxhumvcys2p",
+    "es": "Los devs de Bluesky están metiéndose más en porquería de IA y curiosamente no lo publicaron aquí"
+   },
+   {
+    "id": "bluesky:3mxxb6ygdzs2j",
+    "es": "¿La última vez que Bluesky intentó programar por vibra, no hizo que todo el sitio colapsara y quedara casi inutilizable?"
+   },
+   {
+    "id": "bluesky:3mxzse45yas2g",
+    "es": "Me confunde que sorprenda que Bluesky sea vibecodeado, si culpan al vibe coding cada vez que el sitio falla, con o sin razón"
+   },
+   {
+    "id": "bluesky:3mxz5iw2uas2y",
+    "es": "Bluesky: promueve porquería de IA vibecodeada en Twitter, cuando antes dijeron allí que estaban 'en contra de las herramientas de IA'"
+   }
+  ]
+ }
+}

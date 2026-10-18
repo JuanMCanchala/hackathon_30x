@@ -1,0 +1,20 @@
+{
+ "key": "343eb2f85e08637fc3f72df360d91c397c47b884ec30e2969a5af1c27414e870",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:44:58.529Z",
+ "latencyMs": 38346,
+ "usage": {
+  "inputTokens": 1457,
+  "outputTokens": 4280
+ },
+ "output": {
+  "oneLiner": "OpenAI ficha al líder de ventas de SpaceX y creadores en Bluesky empujan la IA para vender",
+  "narrative": "No hay patrones con al menos 3 piezas, así que ningún formato o gancho explica por sí solo el salto de la semana. La evidencia muestra que las piezas que despegaron son posts de autor individual en Bluesky con ganchos de beneficio directo: un post de MADHUKUMAR C sobre generar leads B2B con IA multiplicó por 10 la mediana de su autor, y uno de Marko Mladenovic sobre hacerse oír lo hizo por 5. El crecimiento de +92 % en creadores distintos y 22 creadores esta semana coincide con la noticia de que OpenAI ficha a un líder de ventas de SpaceX, cubierta por Yahoo Finance UK y Bloomberg.",
+  "cited": [
+   "bluesky:3mxjaffbwdc2e",
+   "bluesky:3mxrmbtdzkc2x",
+   "news:CBMijAFBVV95cUxNWWg4MlppTnE2UDhVMVhUOHA1VzAwOXduRklFS205TnExVDNKLUZwNU5DcHhOMHBtUDBQNE8zOWU2bDYzUmdOYWEtT1gwUnphRzBaYzFILWxUcG9BZVVzcm8tVXA4Q3hiWUZHeGtFQUNoNS0ydmw0UFBEMzlmX0pqWkxKVGRzWmVyeHc3RA"
+  ]
+ }
+}

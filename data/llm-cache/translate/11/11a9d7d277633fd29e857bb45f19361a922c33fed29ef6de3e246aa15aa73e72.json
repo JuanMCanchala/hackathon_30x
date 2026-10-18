@@ -1,0 +1,31 @@
+{
+ "key": "11a9d7d277633fd29e857bb45f19361a922c33fed29ef6de3e246aa15aa73e72",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:40:58.654Z",
+ "latencyMs": 4609,
+ "usage": {
+  "inputTokens": 331,
+  "outputTokens": 206
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxdc2n5u5s25",
+    "es": "Básicamente, la IA permite a los ingenieros producir código malo *más rápido* y en mayor volumen, lo que aumenta el tiempo dedicado a revisar código."
+   },
+   {
+    "id": "bluesky:3mxuaps33ps2m",
+    "es": "Lo que me gusta de \"vibe coding\" es que deja claro a todo desarrollador de verdad que esa app será un desastre total."
+   },
+   {
+    "id": "bluesky:3mxdctpggmk27",
+    "es": "El aumento promedio en volumen de código tras adoptar IA agéntica, según un estudio de 700 empresas, es de 4,000 líneas extra por programador."
+   },
+   {
+    "id": "bluesky:3mxiwxjiz2c2h",
+    "es": "Esta tontería de los LLM es un agujero negro para la productividad."
+   }
+  ]
+ }
+}

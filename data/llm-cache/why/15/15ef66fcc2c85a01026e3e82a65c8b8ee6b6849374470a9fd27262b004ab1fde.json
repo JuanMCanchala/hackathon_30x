@@ -1,0 +1,20 @@
+{
+ "key": "15ef66fcc2c85a01026e3e82a65c8b8ee6b6849374470a9fd27262b004ab1fde",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:40:39.298Z",
+ "latencyMs": 9668,
+ "usage": {
+  "inputTokens": 2320,
+  "outputTokens": 1314
+ },
+ "output": {
+  "oneLiner": "Derechos de autor e IA crecen con artistas y creadores denunciando uso no autorizado de sus obras.",
+  "narrative": "20 de 39 piezas que despegaron abren con una opinión fuerte, frente a 5 de 37 del resto. 31 de 39 las publicó un creador de contenido, frente a 10 de 37 del resto. El momento pesa: 15 de 39 salieron un miércoles y 9 de 39 un viernes. Publicaciones de Robert Evans y Jeff VanderMeer en Bluesky, y un artículo en Hacker News sobre firmas falsas de caricaturistas, marcan el tono.",
+  "cited": [
+   "bluesky:3mxvcsmtwrs2e",
+   "bluesky:3mxucccfkuc2g",
+   "hn:49971846"
+  ]
+ }
+}

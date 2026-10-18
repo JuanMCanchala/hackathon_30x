@@ -1,0 +1,31 @@
+{
+ "key": "e6cd2c2bcc7a34af548fa639e9fee57cbe9b2f7926a5264ec58c0f41ec48eb24",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:36:45.160Z",
+ "latencyMs": 3608,
+ "usage": {
+  "inputTokens": 510,
+  "outputTokens": 387
+ },
+ "output": {
+  "items": [
+   {
+    "id": "hn:50052217",
+    "es": "Sitio de torrents creado con IA revisa dentro de las descargas para detectar falsificaciones y malware"
+   },
+   {
+    "id": "bluesky:3mxw6kecj5s2j",
+    "es": "Las herramientas de IA facilitan que las pequeñas empresas creen sitios web, contenido y campañas de marketing, ¡y eso es bueno!"
+   },
+   {
+    "id": "bluesky:3mxywgwez7xf2",
+    "es": "Matomo funciona dentro de la IA que elijas. Nuestro MCP es la vía agnóstica para consultar tu analítica web con tu propia IA segura."
+   },
+   {
+    "id": "news:CBMi1gFBVV95cUxPVW1tc284T3FDaXB2QTREeTBobTRNeG0wUjBDNF9ac3JvRGVzdFBQVVdZOTlUMUhOTnJPZGMyemp0OVJxQnBHS2FtT3dSUlBsanhJS3ZyN0x3SEV2QmZnT1p5WldSck1LRUVuTmpMc0FlM0pfZGFEQTR2QnpQam4tQVFDd19XVjk1TzJZNXJteWlzcHRzYVRVS0NoaGlQeWg2OFAzWUZyUkJXTVBpcVRBNjMySEE5aVBidlU4UGNJeUZwOGs5QTVvXzVwZzN0SkpRS1pjQnBn",
+    "es": "TruLata lanza plataforma de marketing con IA para empresas de servicios, con creador de sitios web gratis"
+   }
+  ]
+ }
+}

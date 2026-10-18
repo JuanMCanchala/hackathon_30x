@@ -1,0 +1,31 @@
+{
+ "key": "cf2b24402d5a803309c723c625c68b7468aaee9edb3e3f6ad80cf4085c8fd812",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:41:14.095Z",
+ "latencyMs": 1718,
+ "usage": {
+  "inputTokens": 294,
+  "outputTokens": 164
+ },
+ "output": {
+  "items": [
+   {
+    "id": "x:2110039860077527293",
+    "es": "Gemini 4️⃣ Argon ✨ ya se está lanzando a nivel global."
+   },
+   {
+    "id": "linkedin:7516887481598914561",
+    "es": "A principios de esta semana, pusimos Gemini 4 Argon disponible a nivel global."
+   },
+   {
+    "id": "x:2109691148943999167",
+    "es": "Nos emociona presentar la serie Muse Wonder con Muse Wonder y Muse Wonder Full, nuestros modelos más capaces hasta ahora."
+   },
+   {
+    "id": "linkedin:7516843464114946048",
+    "es": "Esta semana comenzamos a dar acceso a Gemini 4 Argon, nuestro modelo de frontera más reciente, creado para resolver tus problemas más difíciles."
+   }
+  ]
+ }
+}

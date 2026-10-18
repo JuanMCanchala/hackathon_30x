@@ -1,0 +1,14 @@
+{
+ "key": "a40a73e5b325e11816d3746e37d0639ac51011c70a809ebfdebc697bd60c0292",
+ "name": "headline",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:34:15.040Z",
+ "latencyMs": 925,
+ "usage": {
+  "inputTokens": 332,
+  "outputTokens": 27
+ },
+ "output": {
+  "headline": "Esta semana la IA en YouTube gira hacia vibe coding, extensiones de ChatGPT y precios de modelos"
+ }
+}

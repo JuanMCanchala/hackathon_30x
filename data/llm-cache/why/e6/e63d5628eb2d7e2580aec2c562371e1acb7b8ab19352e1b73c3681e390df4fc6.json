@@ -1,0 +1,20 @@
+{
+ "key": "e63d5628eb2d7e2580aec2c562371e1acb7b8ab19352e1b73c3681e390df4fc6",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:51:17.660Z",
+ "latencyMs": 6705,
+ "usage": {
+  "inputTokens": 1287,
+  "outputTokens": 764
+ },
+ "output": {
+  "oneLiner": "Crece debate IA y empleo con videos y posts sobre destrucción de puestos, movido por creadores de contenido.",
+  "narrative": "30 de 38 piezas que despegaron son posts de texto, frente a 36 de 213 del resto, y 25 de 38 las publicó un creador de contenido. 23 de 38 apelan a la polémica y 9 de 38 abren con una opinión fuerte. En Bluesky, un post de Michael West ironiza sobre lo que promete la inversión en IA; en YouTube, Bag of Milk afirma que la IA mató el mejor empleo del siglo XXI y NDTV Profit pregunta si el miedo a perder el trabajo está exagerado.",
+  "cited": [
+   "bluesky:3mxrx33uk7k2v",
+   "youtube:RckI7mBhZvY",
+   "youtube:OVpvgjRbNCQ"
+  ]
+ }
+}

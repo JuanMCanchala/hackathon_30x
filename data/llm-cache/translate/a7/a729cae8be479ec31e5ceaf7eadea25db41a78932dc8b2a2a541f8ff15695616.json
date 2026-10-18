@@ -1,0 +1,31 @@
+{
+ "key": "a729cae8be479ec31e5ceaf7eadea25db41a78932dc8b2a2a541f8ff15695616",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:42:25.837Z",
+ "latencyMs": 1395,
+ "usage": {
+  "inputTokens": 292,
+  "outputTokens": 153
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxsjbdf32s26",
+    "es": "Metieron Google Gemini en mi CarPlay, hermano"
+   },
+   {
+    "id": "bluesky:3mxtimhfrw22o",
+    "es": "Esperando el primer botnet de IA agéntica corriendo en una flota de BMW Serie 5"
+   },
+   {
+    "id": "linkedin:7516770896230010881",
+    "es": "La próxima década de conducción, construida juntos."
+   },
+   {
+    "id": "linkedin:7516573728458199042",
+    "es": "Cuando la marca sinónimo de seguridad automotriz por casi 100 años se une a NVIDIA AI, pasan cosas increíbles."
+   }
+  ]
+ }
+}

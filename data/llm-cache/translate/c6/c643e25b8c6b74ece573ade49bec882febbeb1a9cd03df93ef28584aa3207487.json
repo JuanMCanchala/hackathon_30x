@@ -1,0 +1,31 @@
+{
+ "key": "c643e25b8c6b74ece573ade49bec882febbeb1a9cd03df93ef28584aa3207487",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:44:20.181Z",
+ "latencyMs": 4801,
+ "usage": {
+  "inputTokens": 304,
+  "outputTokens": 184
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxjaffbwdc2e",
+    "es": "¿Cómo puede la IA ayudar a generar prospectos de ventas B2B?"
+   },
+   {
+    "id": "bluesky:3mxrmbtdzkc2x",
+    "es": "Aprende a hacerte escuchar, o mira cómo alguien con la mitad de tu talento vende tu idea mejor de lo que tú podrías."
+   },
+   {
+    "id": "bluesky:3mxux2xloa22z",
+    "es": "Qué hacen diferente los de alto rendimiento con la IA y por qué obtienen los mayores beneficios"
+   },
+   {
+    "id": "bluesky:3mxcmaaoosf2n",
+    "es": "Una startup de IA llamó a su ventaja competitiva 'datos propietarios', pero el 80% venía de una API pública"
+   }
+  ]
+ }
+}

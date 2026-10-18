@@ -1,0 +1,20 @@
+{
+ "key": "86681d7c3a2304190d1862ad2895dac3c8bb21a7b77d50077ce63d1e3d0d09e6",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:46:27.284Z",
+ "latencyMs": 16008,
+ "usage": {
+  "inputTokens": 1336,
+  "outputTokens": 1758
+ },
+ "output": {
+  "oneLiner": "Meta y Microsoft recortan uso interno de Claude; supply chain debate si la IA mejora decisiones.",
+  "narrative": "No hay patrones con al menos 3 piezas, así que no hay un gancho recurrente entre las que despegaron. La señal más fuerte es un artículo en Hacker News sobre Meta y Microsoft reduciendo el uso interno de Claude, con 9.2 veces la mediana de su autor. También aparece un video de 30X by Andrés Bilbao sobre un segundo cerebro con IA, 1.8 veces su mediana, y una noticia de THE LOGISTICS WORLD sobre IA y decisiones de supply chain. El +43 % en creadores distintos sugiere interés disperso, no un formato único.",
+  "cited": [
+   "hn:49997161",
+   "youtube:q46h5zggpsU",
+   "news:CBMipgFBVV95cUxQWWRNX1dtTGdIQms5ZGI2WXNUTm5YSEhUSVdfZEFsTVRmWmw1WTA3VVpzUExOc0hRSXRhc0ZkMERvb0hBYXdPQnhFNEpaZy1FNDIycTc4NndFYXZyRl9YZHBhWFNRcERlZlh5c3JZUEtURzZJZ1JJa1lvT183UlVVc3d6bWh6ai1waEtrS3ZEcXhBVWxFMjRWdktjWFlYVzVXc2Z1Z3R3"
+  ]
+ }
+}

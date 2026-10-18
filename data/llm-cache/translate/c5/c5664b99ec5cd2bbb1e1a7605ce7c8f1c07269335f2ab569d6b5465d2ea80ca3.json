@@ -1,0 +1,31 @@
+{
+ "key": "c5664b99ec5cd2bbb1e1a7605ce7c8f1c07269335f2ab569d6b5465d2ea80ca3",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:37:47.258Z",
+ "latencyMs": 1868,
+ "usage": {
+  "inputTokens": 309,
+  "outputTokens": 184
+ },
+ "output": {
+  "items": [
+   {
+    "id": "youtube:G-9Y2xNiDKQ",
+    "es": "Trabaja con tu equipo en ChatGPT Space"
+   },
+   {
+    "id": "bluesky:3mxvd543zmd24",
+    "es": "\"...cuando podría avanzar mejor con un programa para impulsar la colaboración humano-IA y aumentar nuestro poder productivo real en el mundo.\""
+   },
+   {
+    "id": "bluesky:3mxwbsqjhxs2q",
+    "es": "Desde 2024, usamos The AI Scientist para probar hasta dónde puede llegar la IA sola en la investigación científica"
+   },
+   {
+    "id": "x:2110421873242861711",
+    "es": "Para impulsar más investigación con Gemini 4 Argon, damos acceso a 10,000 científicos a nuestro nivel de uso más alto"
+   }
+  ]
+ }
+}

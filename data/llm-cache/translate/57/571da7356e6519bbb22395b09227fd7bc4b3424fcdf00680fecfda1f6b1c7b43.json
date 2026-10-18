@@ -1,0 +1,31 @@
+{
+ "key": "571da7356e6519bbb22395b09227fd7bc4b3424fcdf00680fecfda1f6b1c7b43",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:43:02.146Z",
+ "latencyMs": 3825,
+ "usage": {
+  "inputTokens": 325,
+  "outputTokens": 199
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxubhz4wvk2l",
+    "es": "Ojo: esta descompilación probablemente también la hizo una IA."
+   },
+   {
+    "id": "bluesky:3mxwybyrhmk2u",
+    "es": "Sin mala intención del autor, pero creo que el titular de este artículo cuenta la historia un poco mal."
+   },
+   {
+    "id": "bluesky:3mxuclg2l4c22",
+    "es": "Al parecer, un nuevo uso de la IA es usar agentes para descompilar videojuegos, la seguridad de la app de PlayStation y apps como toda la suite de Adobe."
+   },
+   {
+    "id": "bluesky:3mxtudvh6rk2g",
+    "es": "La programación con IA está llegando a un punto en que cualquiera puede hacer fusiones de juegos, hackear la PS5 e incluso descompilar cosas de Adobe."
+   }
+  ]
+ }
+}

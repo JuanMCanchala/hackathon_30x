@@ -1,0 +1,14 @@
+{
+ "key": "de62cb7cda33dc0123a521ed1b8fc364895c735ce4775b80c4a96bbe19254488",
+ "name": "headline",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:34:20.245Z",
+ "latencyMs": 806,
+ "usage": {
+  "inputTokens": 340,
+  "outputTokens": 32
+ },
+ "output": {
+  "headline": "Esta semana la IA en Bluesky gira hacia quiebras de startups, videojuegos y espionaje corporativo"
+ }
+}

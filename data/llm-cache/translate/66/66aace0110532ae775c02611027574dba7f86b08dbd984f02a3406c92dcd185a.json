@@ -1,0 +1,31 @@
+{
+ "key": "66aace0110532ae775c02611027574dba7f86b08dbd984f02a3406c92dcd185a",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:34:52.847Z",
+ "latencyMs": 5625,
+ "usage": {
+  "inputTokens": 655,
+  "outputTokens": 530
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxievnxq522c",
+    "es": "Google amplía el despliegue de la nueva interfaz de ajustes de Gemini con selección de tema independiente"
+   },
+   {
+    "id": "news:CBMidEFVX3lxTE9OcXU0R09ma2ZIcWcxdzRVcGttbGtMbWM0akdfVUxJQUViSUFuTXhpZ0ExdFNJQ0YwNlBVZVNaNS1rUjhXYXllWWpxVGx3NDhvTWNZYXlFLS1Xa09EMFhoMFpYLWxzajd6OVF4aFdidkFCQ1JE",
+    "es": "Google añade a Mensajes y llamadas de Android verificaciones antirrobo impulsadas por Gemini"
+   },
+   {
+    "id": "news:CBMioAFBVV95cUxNRjNCV21kSWhDUFRaeGJEbGJvcVRLaHFJcG1Tc3B5SzA2bjQ1cVB0Slh4UWlYQWg1QjA3M1lnR2lSVmR4SzJEU1I5a055V1BCdjRoMGxNZWhxZjhGa0tac2dZM1NtZ0tjaTRBN3NFaFFOM19OQkRNbG5oQ1dTZEtzNVl1Z3hBcGNRV0ZoVlBjTWdTNU1kck9MRUdodmJRMjVH",
+    "es": "Google Play permite ejecutar apps privadas creadas con vibe coding en Android"
+   },
+   {
+    "id": "news:CBMijwFBVV95cUxObzNMalhnY2c3QmExTnBVYjExVDNWQ21lVHhpVU9zTUxFS2NSdGtybDY0aFJ3WEpqa1VTd1MzeW9kd0FrcGc0YXJYRVVpUDhQSXRTWmJKODB6ejBSN0Vtd0pCYXhhU09VYlFxN01zZGNvY05hOHRXQVhTVnlscm1tNFhkQmpXRjF6dG01WjRXVQ",
+    "es": "Google ya te deja crear apps personales para Android con vibe coding"
+   }
+  ]
+ }
+}

@@ -1,0 +1,31 @@
+{
+ "key": "7e1fdab37335af8ad6da5cb7f39a2c5ba2d1e1a7fd80d72ad7a4c44d150a8c9f",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:42:32.273Z",
+ "latencyMs": 1988,
+ "usage": {
+  "inputTokens": 307,
+  "outputTokens": 174
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxu4ibvwa22i",
+    "es": "Los fanáticos de la IA son de verdad los imbéciles más descarados que existen"
+   },
+   {
+    "id": "bluesky:3mxh7tvkycj2p",
+    "es": "¡El nuevo Playground de Google te deja crear juegos usando solo texto!"
+   },
+   {
+    "id": "bluesky:3mxzr37qd5k2o",
+    "es": "MAGES parece tener una nueva división llamada 'The Future Gadget Laboratory' que solo parece producir basura de IA en masa"
+   },
+   {
+    "id": "bluesky:3mxzevrtyh22n",
+    "es": "Estoy a punto de salirme de muchos grupos geniales de gamedev por las incesantes discusiones sobre IA"
+   }
+  ]
+ }
+}

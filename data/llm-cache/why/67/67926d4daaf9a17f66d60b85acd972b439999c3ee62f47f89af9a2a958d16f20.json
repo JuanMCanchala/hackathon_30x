@@ -1,0 +1,21 @@
+{
+ "key": "67926d4daaf9a17f66d60b85acd972b439999c3ee62f47f89af9a2a958d16f20",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:46:59.864Z",
+ "latencyMs": 19407,
+ "usage": {
+  "inputTokens": 1729,
+  "outputTokens": 1847
+ },
+ "output": {
+  "oneLiner": "NTT Data, Aditi y Sonata mueven la conversación de consultoras e IA con premios y alianzas esta semana.",
+  "narrative": "No hay patrones con al menos 3 piezas, así que no se puede hablar de un formato ganador. La semana la mueven 4 creadores distintos, +11 % frente a las 4 semanas previas, con anuncios de alianzas y premios. NTT Data aparece dos veces en medios, con su directivo Víctor López-Barrantes y un dato de adopción de IA en marketing LATAM. El único post social, de Contxto sobre el premio de Microsoft a Sonata Software, se quedó en 1× la mediana de su autor.",
+  "cited": [
+   "linkedin:7516165937587281921",
+   "news:CBMitgJBVV95cUxPdnZrX3EtX3hGNFQ5eGQ4Tmp6OGhReG1XbFV4NDZmdEl1QmNRTVF2RTdUOVExM0xCUXRTcmxmWDN1QlVleEd1U2tyUzF3eVk5YTdlWndRWG5ia1c0ZmNPYWhXeHh4UDVQdzZYN0JON2J6dWJ4dDVfaWtjeWw2WEItdlAzaGUyOW1kcUJYNFZadVpNTHlVRmxRTGt1NTFwZ2lQN19MWnVjUGluOEN4S3loR283Vy04YWMySE92b3BRa2FYbG5FMXJoeHdBcmY1X1JFTVdiU21GODBWc1BrbVJmbDZJSk1sdWdBdmhldDBaRHdGNUxGTkY0X3dxR20tZWlocWsyMWZBaUJEeE1jZEtJbmNTbC1lNlBuZlQweXFjRHpiaGNSY0hXTlZZZkZLNkE2VWtzWE1n0gHKAkFVX3lxTE5JNUVfZkR4VDZTLWdQZFc2OS00OEtVQnM3Y0VmRkYxdDVWYmFPMTUzRGwzNWNqMUxUaC1mY1hBRmVnbFF1Q002TTBhYUZCNWNTa2V1T0I1ajFjQmw3OE54bURJbXp5VjZXeDhmb2VibmZzbkpDdE1palFqb3E0alJVbXJ6Qlg4SFZOSU82eDV4TEswc01XMUVIUkxZdkg0ZTAzT1otR2tDM3luRnNsbXNxYVE5LXJFNWlRVlc3NDdhU29NTF9MZUo5OWNqQmZEZUhxTTE1TXVSXzdRN1E5Tk5qQ3ZkUEdaTXhXQ0hJSGtld0FNWEFhMHhvemtwVzdJMFdjeU04ZW93V1lSUXFrXzU1dzdDMHY3ZmRzZUxseUEzQnpzRUNwM1FfYTkwMG8wVThMS2h4ZnNNZG44VU5kLW04NlhGUkF1QlZXZw",
+   "news:CBMitgFBVV95cUxNS1lDLWdaRXQxVmo3ZUJObUNIQTFwaU9meV9Tenk0OUxrQ2pfVHNQY0tPTngxM2NYM09LcWRoc0I2N0QwWlRzYmdFMlRDNVlQOEFVM1kySHZEYmZ0VXVfVXpfMGNiZUVhX09EQzJ5bDBPOWVwUTJSOFYzdWdCOXYyTzFmUzZqNURrdWR1OWV4bW5laE1hNUFTMXNfY0ctQ1VCRFZQV0JFNy1MNzFpQU5CLVZzRTB5Zw",
+   "news:CBMikgFBVV95cUxNOUNIcXNEX01mV08yem9XcWFMcFdxbVMwZHo0ZXZJVlNmZ0ZvV2N1aUg0cC02OWFXazBzeWtLMXI1TnUzdFFDMTNTUmdXbGFsY0lIcmRJN0tlczVtelltbmFpMll4Wjd1OElLUHRPWWxPY3N1dHpKV1YxUHR2VTVKaDRMOXJCRnRoVGNOYkNvbGZVdw"
+  ]
+ }
+}

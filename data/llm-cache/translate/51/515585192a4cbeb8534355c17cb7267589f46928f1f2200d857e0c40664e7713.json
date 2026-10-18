@@ -1,0 +1,31 @@
+{
+ "key": "515585192a4cbeb8534355c17cb7267589f46928f1f2200d857e0c40664e7713",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:35:09.990Z",
+ "latencyMs": 3020,
+ "usage": {
+  "inputTokens": 330,
+  "outputTokens": 218
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxuclg2l4c22",
+    "es": "Al parecer, un nuevo uso de la IA es emplear agentes para descompilar videojuegos, la seguridad de la app de PlayStation y apps como toda la suite de Adobe."
+   },
+   {
+    "id": "bluesky:3mxqpsnz4ec2x",
+    "es": "¿La gente celebra un clon de Adobe hecho con IA cuando siempre hemos tenido alternativas gratuitas y de código abierto?"
+   },
+   {
+    "id": "bluesky:3mxvbqenb7c2j",
+    "es": "Quizá el mayor mal que ha hecho la IA (en realidad, las tecnológicas multimillonarias detrás de ella) fue convencer a los desarrolladores de que el código abierto es peligroso."
+   },
+   {
+    "id": "bluesky:3mxuxlbvc6223",
+    "es": "De las empresas que usan IA, el 89% depende de software de código abierto para su infraestructura de IA."
+   }
+  ]
+ }
+}

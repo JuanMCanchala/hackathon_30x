@@ -1,0 +1,31 @@
+{
+ "key": "11f9795fdc287083d571244c0f154a01bd356252c85fff825e0a5b4bd67ceb87",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:40:22.450Z",
+ "latencyMs": 2590,
+ "usage": {
+  "inputTokens": 285,
+  "outputTokens": 165
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxubhz4wvk2l",
+    "es": "Aviso: esta descompilación probablemente también la hizo una IA."
+   },
+   {
+    "id": "bluesky:3mxunjlaods26",
+    "es": "No caigas en basura programada por vibes."
+   },
+   {
+    "id": "bluesky:3mxyuqd5i5c2l",
+    "es": "Literalmente me dijeron por teléfono que saben que la info está mal."
+   },
+   {
+    "id": "bluesky:3mxx7fafk422e",
+    "es": "Linus Torvalds, creador de Linux, sobre el \"código con IA\""
+   }
+  ]
+ }
+}

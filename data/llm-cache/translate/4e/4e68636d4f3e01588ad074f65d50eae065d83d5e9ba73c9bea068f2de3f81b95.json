@@ -1,0 +1,31 @@
+{
+ "key": "4e68636d4f3e01588ad074f65d50eae065d83d5e9ba73c9bea068f2de3f81b95",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:39:25.595Z",
+ "latencyMs": 6552,
+ "usage": {
+  "inputTokens": 292,
+  "outputTokens": 181
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxrvvu7w322g",
+    "es": "“OpenAI describió el dispositivo como sofisticado y diseñado para evadir la detección”; estaba envuelto en papel higiénico blanco detrás de un televisor negro"
+   },
+   {
+    "id": "bluesky:3mxruozx66k2l",
+    "es": "OpenAI dice que un empleado fue arrestado por un dispositivo de grabación oculto"
+   },
+   {
+    "id": "bluesky:3mxrsnyfobk2k",
+    "es": "* OPENAI: DISPOSITIVO DE GRABACIÓN SOFISTICADO ESCONDIDO EN NUESTRAS OFICINAS"
+   },
+   {
+    "id": "hn:50077703",
+    "es": "OpenAI encuentra un dispositivo de grabación en una de sus oficinas"
+   }
+  ]
+ }
+}

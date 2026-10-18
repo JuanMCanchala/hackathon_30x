@@ -1,0 +1,31 @@
+{
+ "key": "0d185b34a6a9872cfca38ab052f45a689d04fb1dfb83d4df8b383f75901691f6",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:36:19.506Z",
+ "latencyMs": 3127,
+ "usage": {
+  "inputTokens": 316,
+  "outputTokens": 186
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxrjxkeq5s2x",
+    "es": "Hace rato que cruzamos el punto de no retorno: los intereses de Meta (vender más herramientas de IA, fomentar más IA en la app)"
+   },
+   {
+    "id": "bluesky:3mxxj27c7qk2r",
+    "es": "O sea, han estado programando esto con IA desde el principio."
+   },
+   {
+    "id": "bluesky:3mxuefahailey",
+    "es": "Muy emocionado de ver a dónde va esto, y feliz de que el protocolo permita este tipo de experimentos a escala."
+   },
+   {
+    "id": "youtube:5GWTDRrwynY",
+    "es": "Crea un equipo de agentes de IA para redes sociales con Claude Code y Next.js | Curso completo 2026"
+   }
+  ]
+ }
+}

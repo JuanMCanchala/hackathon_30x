@@ -1,0 +1,31 @@
+{
+ "key": "c089834186db9af8898cad9eb3e905733e3e58e068839c85feea493b86155602",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:39:04.277Z",
+ "latencyMs": 3590,
+ "usage": {
+  "inputTokens": 293,
+  "outputTokens": 178
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxwbx7upxk22",
+    "es": "¿Ya empezaron Forbes, FT, Fast Company, Bloomberg o WSJ a hacer la pregunta pertinente?"
+   },
+   {
+    "id": "bluesky:3mxupfvlip22p",
+    "es": "Demandan a OpenAI por datos de niños usados para entrenar ChatGPT - CNET"
+   },
+   {
+    "id": "bluesky:3mxu7ouahp22x",
+    "es": "ÚLTIMA HORA: Ocho estados de EE.UU. demandan a OpenAI, alegan que ChatGPT daña a los niños"
+   },
+   {
+    "id": "bluesky:3mxtd6kixvs2k",
+    "es": "Y ni siquiera es un BUEN modelo de negocio."
+   }
+  ]
+ }
+}

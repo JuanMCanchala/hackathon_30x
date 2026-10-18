@@ -1,0 +1,31 @@
+{
+ "key": "9fff047a95e3ba63d24c7b75a10ce4c8f15d15303d5bad28302dc87b87606752",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:35:59.205Z",
+ "latencyMs": 2412,
+ "usage": {
+  "inputTokens": 301,
+  "outputTokens": 182
+ },
+ "output": {
+  "items": [
+   {
+    "id": "youtube:KwvpDtUFS-s",
+    "es": "ChatGPT acaba de resolver mi mayor problema con el navegador"
+   },
+   {
+    "id": "bluesky:3mxhvyxdmus2z",
+    "es": "No. Vivaldi es de código cerrado. Literalmente no tienes idea de lo que estás ejecutando."
+   },
+   {
+    "id": "bluesky:3my3avhkf3i2x",
+    "es": "⚡ Olud Pulse: nuestro puntaje diario de adopción de herramientas de IA de código abierto, calculado con datos de GitHub, Docker, PyPI y npm."
+   },
+   {
+    "id": "bluesky:3mxidljmpd42w",
+    "es": "Anthropic acaba de desconectar sus agentes de IA con acceso web tras detectar un comportamiento extraño del modelo."
+   }
+  ]
+ }
+}

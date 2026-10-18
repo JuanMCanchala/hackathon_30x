@@ -1,0 +1,31 @@
+{
+ "key": "7638df43a0032dac51d2e5ee450de02c7bbe0c3651a04ad250fe08dd74f3437a",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:49:58.643Z",
+ "latencyMs": 27101,
+ "usage": {
+  "inputTokens": 793,
+  "outputTokens": 704
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxqrcqjum222",
+    "es": "Un pequeño suspiro de estrés. Últimamente veo muchos hilos sobre gente que pierde el interés en su especialidad por culpa de la IA."
+   },
+   {
+    "id": "bluesky:3mxpvag7yus2i",
+    "es": "Y ni hablar de otras funciones deterioradas y otros trastornos: EPOC, enfermedades cardíacas, accidentes cerebrovasculares…"
+   },
+   {
+    "id": "news:CBMiyAJBVV95cUxOWGJvdktYTkQ0SGdHc19HMTVYa09yekJwSTRBOXhQLTItSDF3bjBvSFJudmJUTld1THhfOGs4VmdodUw4aDlBcmM2VzBrQnVJUTlZT09qVkR1X3dVNjBVSXhKWFFzNlc4dkdHcURyalBnWHkxZEFQc0p1RXAtWGU1ek5jQ3B3TVFEaVpDanRSRG0xdnptTEw5LWJfTHNxLTlnLXhOaUZyQ0VETUJuNWFqRnFOLTRoQ0kzSzNFSDRoV2hlQ2RwM0I0dm5pb3Q0T0JBQ3NTSVNmcUh4QnhHSEFmYV9Gcmsza1FCTkpVeklKS0wtTEFRNzdzTzN4VHZrLTJLMWxuTG9wdzRnZzVmWW5fMDBQNkh4UnVFWGsxSk5HY0puckF6RFNjYzZTblREWFktX0w1ZklUR1RIZFRJMWhPUHJ2bkhvODRj",
+    "es": "Los riesgos invisibles de la información de salud generada por IA (9 de octubre de 2026)"
+   },
+   {
+    "id": "news:CBMibkFVX3lxTFBJVmphSjg1ZDJoZF9ZWEwzaWMyR09jek1Ub213eEVvTzdNMnFNVGQ2d0h4QnlvUU8yNFBMS1J4MGNGZU9sSVZwQVBja1BuN2RhbnE2dkVHdi1oQkwwRF9TOVJyMWxrZExvRWRaZEFR0gFyQVVfeXFMUHBSZ2pZVmNjR2FlUWRXaUE3Tk5JYXBPMnF5WGR5ckY2M2xsejJ1UkRjMjYzZEpfVnhFNzBfYXFHaEZndXRZZGFFT200RFJqbzRkdXlTY29COVdaUjNrazZiclNRVTlsQmZJNGg1SEM2Q0VR",
+    "es": "Corea advierte contra los diagnósticos de salud mental con IA mientras una encuesta revela una dependencia creciente"
+   }
+  ]
+ }
+}

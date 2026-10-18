@@ -1,0 +1,31 @@
+{
+ "key": "c862e5c0b67ecfdf575faee0eb9bda92fc65b9b89193f7d9301722a7606133d8",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:39:32.221Z",
+ "latencyMs": 1852,
+ "usage": {
+  "inputTokens": 296,
+  "outputTokens": 190
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxoyxe3hxv2f",
+    "es": "#IA #BBC #Brad Smith #gobierno #Machin #Microsoft #Presidente #Regulación"
+   },
+   {
+    "id": "bluesky:3mxr7edfico2m",
+    "es": "El presidente de Microsoft, Brad Smith, dijo que el Reino Unido está mejor posicionado que EE. UU. o la UE para liderar las normas globales de seguridad de la IA."
+   },
+   {
+    "id": "bluesky:3mxpwhw677224",
+    "es": "El presidente de Microsoft dice que el Reino Unido es el mejor posicionado para impulsar la regulación de la IA"
+   },
+   {
+    "id": "youtube:6GnvuaBucFk",
+    "es": "Superen la alergia a la regulación, les dice el presidente de Microsoft a la industria de la IA"
+   }
+  ]
+ }
+}

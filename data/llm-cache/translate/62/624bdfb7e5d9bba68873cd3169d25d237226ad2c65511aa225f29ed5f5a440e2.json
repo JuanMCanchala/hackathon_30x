@@ -1,0 +1,31 @@
+{
+ "key": "624bdfb7e5d9bba68873cd3169d25d237226ad2c65511aa225f29ed5f5a440e2",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:39:51.820Z",
+ "latencyMs": 1400,
+ "usage": {
+  "inputTokens": 265,
+  "outputTokens": 123
+ },
+ "output": {
+  "items": [
+   {
+    "id": "hn:50073633",
+    "es": "Rediseñando el control de código fuente en Anthropic"
+   },
+   {
+    "id": "x:2110047081414987957",
+    "es": "En mayo fusionábamos unas 2.500 cambios de código al día. En septiembre, más de 30.000 al día."
+   },
+   {
+    "id": "hn:50106738",
+    "es": "Más sobre cómo Scion de Anthropic copia a Mononoke"
+   },
+   {
+    "id": "github:feder-cr/git-ai",
+    "es": "Git diseñado para agentes de IA."
+   }
+  ]
+ }
+}

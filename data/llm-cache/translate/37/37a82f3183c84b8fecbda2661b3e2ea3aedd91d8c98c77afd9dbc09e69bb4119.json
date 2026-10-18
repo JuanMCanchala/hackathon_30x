@@ -1,0 +1,19 @@
+{
+ "key": "37a82f3183c84b8fecbda2661b3e2ea3aedd91d8c98c77afd9dbc09e69bb4119",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:47:18.941Z",
+ "latencyMs": 5511,
+ "usage": {
+  "inputTokens": 215,
+  "outputTokens": 59
+ },
+ "output": {
+  "items": [
+   {
+    "id": "bluesky:3mxjfwnmcc224",
+    "es": "El salario inicial promedio de empleados editoriales en Nueva York en las Big Five y Scholastic fue de $47,583 en 2023."
+   }
+  ]
+ }
+}

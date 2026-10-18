@@ -1,0 +1,31 @@
+{
+ "key": "33d8dfbe7a1cf53ce0eb3f727402360dd4b165b9514f658eb41c84420a505f49",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T04:42:53.764Z",
+ "latencyMs": 3953,
+ "usage": {
+  "inputTokens": 480,
+  "outputTokens": 360
+ },
+ "output": {
+  "items": [
+   {
+    "id": "github:iamlukethedev/herald-os",
+    "es": "Un sistema operativo nativo para agentes, con Hermes Agent como interfaz."
+   },
+   {
+    "id": "hn:50050367",
+    "es": "Linus Torvalds trabaja en una gran mejora del kernel de Linux con Claude Code."
+   },
+   {
+    "id": "bluesky:3mxedz5vudt25",
+    "es": "La IA Sashiko de Google completó 191k revisiones de parches y fue citada en casi 500 CVE del kernel."
+   },
+   {
+    "id": "news:CBMi0AFBVV95cUxOVVItMmNSQnNGRC1MN1N1YmM0RUFYOVRVMWRjYkJrMmtIX2M0XzFQZkhfbFVvakU1U1c5WEFobUsydHZzUzBsSEFiUkRIWjNyQVBpcHRTNnZsQWpyZ3NpQnlJUEl3cmw0bTZGTHppMDd4a3BKNTNMZEhjZnBNX1pkLU5oZTlpVjFmQVBCdlAxa1p0b3lad0V3Vl9iblozRU1OTk1telRUOG56ZmFYRzBQUlgwZXdaZHlvNHdJUDd6SngxN1ktVjBwZEcxU3E2YkRX",
+    "es": "Linus llama \"completamente estúpido\" prohibir código generado por IA; los envíos a Linux ya no requieren declarar uso de LLM."
+   }
+  ]
+ }
+}
