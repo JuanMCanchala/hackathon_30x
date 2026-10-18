@@ -1,0 +1,24 @@
+{
+ "key": "37dec5ecc122a27fc6b63d6eb1c3e09078ee1634dae37b23130beecdadaf97a5",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:17:11.417Z",
+ "latencyMs": 8866,
+ "usage": {
+  "inputTokens": 740,
+  "outputTokens": 860
+ },
+ "output": {
+  "score": 6,
+  "executive": 8,
+  "noCode": 5,
+  "latam": 3,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Relevante para CEOs y founders expuestos a financiamiento e IA.",
+   "Poco directo para equipos de ventas o growth.",
+   "Ángulo LatAm limitado; foco en banca y reguladores globales."
+  ]
+ }
+}

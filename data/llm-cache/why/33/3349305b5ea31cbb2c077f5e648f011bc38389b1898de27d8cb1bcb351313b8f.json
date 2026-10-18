@@ -1,0 +1,21 @@
+{
+ "key": "3349305b5ea31cbb2c077f5e648f011bc38389b1898de27d8cb1bcb351313b8f",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:19:16.616Z",
+ "latencyMs": 6403,
+ "usage": {
+  "inputTokens": 1366,
+  "outputTokens": 962
+ },
+ "output": {
+  "oneLiner": "RTX Spark llega a portátiles con IA local; crece el rumor del fin de la RTX 5090.",
+  "narrative": "No hay patrones con al menos 3 piezas, así que no hay formato dominante: el tema crece con 6 creadores distintos, +600 % frente a las 4 semanas anteriores. Las piezas que despegan mezclan el anuncio de portátiles RTX Spark con agentes de IA en local, como el post de Jump Daily en Bluesky, y el rumor de que Nvidia retira la RTX 5090, con una imagen de Planeta Gamers en Bluesky y un artículo en Hacker News. El gancho es el titular de bomba y la escasez, no la prueba técnica: el artículo sobre Qwen3.8 a 255 tok/s en una sola 5090 logra 41 de engagement pero queda en 0.4× la mediana de su autor.",
+  "cited": [
+   "bluesky:3mxzdjrknal2q",
+   "bluesky:3mxp4qwxjc22p",
+   "hn:50081435",
+   "hn:50079842"
+  ]
+ }
+}

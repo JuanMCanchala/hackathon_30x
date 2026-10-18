@@ -1,0 +1,24 @@
+{
+ "key": "070d8e65162cad110eb99ea255b48e31c0d149c0eb4ad413eb8f1146a742c21f",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:29:16.746Z",
+ "latencyMs": 9455,
+ "usage": {
+  "inputTokens": 697,
+  "outputTokens": 1296
+ },
+ "output": {
+  "score": 5,
+  "executive": 6,
+  "noCode": 4,
+  "latam": 2,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Piezas citadas no corresponden: hablan de Stagwell/ServiceNow, no Waystar.",
+   "Automatiza reclamos médicos, no ventas ni growth LatAm.",
+   "Agentes IA útiles, pero requieren integración técnica y contexto US healthcare."
+  ]
+ }
+}

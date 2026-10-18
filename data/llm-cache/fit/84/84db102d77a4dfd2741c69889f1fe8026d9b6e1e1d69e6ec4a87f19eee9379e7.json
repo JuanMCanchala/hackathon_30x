@@ -1,0 +1,24 @@
+{
+ "key": "84db102d77a4dfd2741c69889f1fe8026d9b6e1e1d69e6ec4a87f19eee9379e7",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:17:09.143Z",
+ "latencyMs": 5620,
+ "usage": {
+  "inputTokens": 725,
+  "outputTokens": 538
+ },
+ "output": {
+  "score": 8,
+  "executive": 7,
+  "noCode": 9,
+  "latam": 4,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Automatiza tareas diarias sin código, aplicable a ventas y growth.",
+   "Integra IA en navegador, flujo común de equipos comerciales.",
+   "Riesgo de privacidad por leer pestañas; requiere políticas claras."
+  ]
+ }
+}

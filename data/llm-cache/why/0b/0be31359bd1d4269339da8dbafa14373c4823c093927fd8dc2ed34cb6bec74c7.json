@@ -1,0 +1,21 @@
+{
+ "key": "0be31359bd1d4269339da8dbafa14373c4823c093927fd8dc2ed34cb6bec74c7",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:19:25.268Z",
+ "latencyMs": 10584,
+ "usage": {
+  "inputTokens": 2104,
+  "outputTokens": 1421
+ },
+ "output": {
+  "oneLiner": "El etiquetado de IA en juegos y medios moviliza a 24 creadores en Bluesky y YouTube.",
+  "narrative": "Las piezas que despegan combinan formato visual y opinión: 4 de 10 son imágenes frente a 1 de 31 del resto, y 5 de 10 abren con una opinión fuerte. El momento importa: 9 de 10 salieron en la mañana. Casi todas las publica un creador de contenido (9 de 10), no un medio. Un post de Eternal Skies TCG RPG en Bluesky sobre SteamDB multiplica por 267,3 la mediana de su autor, Molleindustria aclara en una imagen que su juego no es 100% libre de IA y Gary Panton rechaza promover el uso ético de la IA generativa.",
+  "cited": [
+   "bluesky:3mxqvu6hfs22z",
+   "bluesky:3my3gs6vqx22p",
+   "bluesky:3mxu6bdt6kk2u",
+   "youtube:o6XKVqnxQVk"
+  ]
+ }
+}

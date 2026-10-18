@@ -1,0 +1,47 @@
+{
+ "key": "49d8827fe16e4baa971a0fe0c7206fb3b5fedd59f1bd6ddd39e02e21199c9360",
+ "name": "watch-translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T00:15:27.829Z",
+ "latencyMs": 4990,
+ "usage": {
+  "inputTokens": 496,
+  "outputTokens": 445
+ },
+ "output": {
+  "items": [
+   {
+    "id": "youtube:lJGRgKpR3oQ",
+    "es": "¿POR QUÉ MUKESH AMBANI ENTRÓ AL NEGOCIO DE LA LECHE? #información"
+   },
+   {
+    "id": "youtube:btMTjKpWfTY",
+    "es": "El nuevo #Roadster volador de Tesla dio de qué hablar. Pero ¿qué dice la letra pequeña? #vehículoselectricos"
+   },
+   {
+    "id": "youtube:t8J_FEkLLcM",
+    "es": "Business Breakfast | Noticias del mercado de valores | 15 de octubre de 2026 || TV5 News"
+   },
+   {
+    "id": "bluesky:3mxyk5t5iek2u",
+    "es": "Podría ser una relación y estrategia conflictiva. Si SpaceX, Tesla, Starlink, la IA y más terminan liderando el sector, tendrás un Gobierno que ataca a Musk en lo personal/político, mientras se beneficia cada vez más de él en lo empresarial."
+   },
+   {
+    "id": "youtube:AqH2BGOcIBg",
+    "es": "EN VIVO | PrimeCast en Expo Negocios 2026 - Participa: Trip Viagens"
+   },
+   {
+    "id": "youtube:BhXWBLGDuyU",
+    "es": "¿Tenía razón Lisandro Martínez al criticar los fichajes de verano del Manchester United?"
+   },
+   {
+    "id": "bluesky:3mxyiz24nxc2u",
+    "es": "Décadas de ciencia ficción no me prepararon para que tratar a la IA como humana pudiera ser una estrategia de negocio ilusoria y no un acto empático. Es como si Musk fundara una empresa llamada Xavier para dar garras de metal a agentes de ICE."
+   },
+   {
+    "id": "youtube:nDf8U_xDJsY",
+    "es": "Russell Brunson: Reemplacé a 250 empleados con una sola IA"
+   }
+  ]
+ }
+}

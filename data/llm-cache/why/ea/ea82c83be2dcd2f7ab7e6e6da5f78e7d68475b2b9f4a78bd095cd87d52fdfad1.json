@@ -1,0 +1,21 @@
+{
+ "key": "ea82c83be2dcd2f7ab7e6e6da5f78e7d68475b2b9f4a78bd095cd87d52fdfad1",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:18:06.761Z",
+ "latencyMs": 14056,
+ "usage": {
+  "inputTokens": 1863,
+  "outputTokens": 2188
+ },
+ "output": {
+  "oneLiner": "Brad Smith, de Microsoft, pidió reglas globales para la IA y destacó al Reino Unido.",
+  "narrative": "No hay patrones con al menos 3 piezas; el crecimiento de +237 % en creadores distintos y 15 creadores esta semana se explica por cobertura dispersa. En Bluesky, Technopolis y Jump Daily difunden que Brad Smith ve al Reino Unido mejor situado para liderar reglas globales de seguridad de IA. En YouTube, Reuters publica el video donde pide a la industria superar la alergia a la regulación. MLex recoge su llamado a un 'middle ground' global.",
+  "cited": [
+   "bluesky:3mxr7edfico2m",
+   "bluesky:3mxqh7qbxd72c",
+   "youtube:6GnvuaBucFk",
+   "news:CBMi0wFBVV95cUxPRnJURjkycVVJcVRLUDMtOVREczJpSmVDUVpCaWVhM25pNUxxa3o2WnFQaUJDSmZLdkM2aEEyX1JudFR6Ym1NRmJqem1rOFFnb1RDUWE2Q2d1aDdGZXpIcFh3WXNQaG00R2dwSF9WTjJwWjREVDBvdnR1anEwVmZnRERYWTB3RElHN3pmNTZlQmxwMThaVllmcWVTRkFQMGpTYy1WbVYzSTdiSnp5ajk0Ul9LeTRHTlFKS0FBSzdrY3hfQnNRdS1pQnAzcjRPOEY2WHlZ0gFaQVVfeXFMTUhobmU3dHZ5Z0d1ckQzd3p4T3ZIazJJMEZQNGRweTFoY0ZjdlIzUGl1dGRhbjA1emJuQkp5LTI5NkdBMVYwN1lXblBad0lWQXpDRG5OUml3TEl3"
+  ]
+ }
+}

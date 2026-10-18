@@ -1,0 +1,255 @@
+{
+ "key": "a17d4f80caf2104c2d5e0b9be4d1d2b35dbe777d6e283b3afd2457d86520b4be",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:28:35.469Z",
+ "latencyMs": 9467,
+ "usage": {
+  "inputTokens": 3066,
+  "outputTokens": 1822
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_7598eb7f",
+    "name": "IA en automotrices",
+    "definition": "Uso de inteligencia artificial por fabricantes como Toyota, Ford y Hyundai en manufactura, agentes y operaciones.",
+    "wikipedia": "Artificial intelligence in the automotive industry",
+    "queries": [
+     "Toyota AI manufacturing",
+     "Ford AI",
+     "Hyundai inteligencia artificial"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_cc5dd082",
+    "name": "IA en atención al paciente",
+    "definition": "Agentes de IA que gestionan llamadas y consultas de pacientes en clínicas y sistemas de salud.",
+    "wikipedia": "Artificial intelligence in healthcare",
+    "queries": [
+     "AI patient calls",
+     "IA atención paciente",
+     "AI receptionist healthcare"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_dd17e6bc",
+    "name": "EdTech y soberanía digital",
+    "definition": "Debate sobre capitalismo digital y soberanía educativa frente a la expansión de empresas EdTech con IA.",
+    "wikipedia": "Educational technology",
+    "queries": [
+     "EdTech IA",
+     "soberanía digital educativa",
+     "AI education venture"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_db1c6ecf",
+    "name": "Email marketing con IA",
+    "definition": "Herramientas de IA y protocolos como MCP aplicados a campañas de email marketing y outreach automatizado.",
+    "wikipedia": "Email marketing",
+    "queries": [
+     "AI email marketing",
+     "email outreach IA",
+     "MCP email marketing"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_729d5f6a",
+    "name": "IA en el deporte",
+    "definition": "Aplicación de inteligencia artificial al análisis, rendimiento y negocio del deporte, especialmente el fútbol.",
+    "wikipedia": "Artificial intelligence in sports",
+    "queries": [
+     "IA en fútbol",
+     "AI sports analytics",
+     "inteligencia artificial deporte"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_bf548d6f",
+    "name": "Competencia con Anthropic",
+    "definition": "Presión competitiva y de precios sobre Anthropic por parte de modelos de IA más baratos y rivales.",
+    "wikipedia": "Anthropic",
+    "queries": [
+     "Anthropic competition",
+     "Claude vs cheaper models",
+     "competencia modelos IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d9331c5b",
+    "name": "Ahorro de tiempo con IA",
+    "definition": "Uso de automatización e IA para reducir tareas repetitivas y ganar productividad en pymes y autónomos.",
+    "wikipedia": "Automation",
+    "queries": [
+     "IA ahorrar tiempo",
+     "AI productivity automation",
+     "automatización pymes IA"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_18fe9245",
+    "name": "Fluidstack",
+    "definition": "Startup de nube de IA en conversaciones para recibir un préstamo de 5.000 millones del Pentágono.",
+    "wikipedia": "Fluidstack",
+    "queries": [
+     "Fluidstack Pentagon",
+     "Fluidstack AI cloud",
+     "Fluidstack loan"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a2cbb5c9",
+    "name": "Gemini en Google Assistant",
+    "definition": "Reemplazo de Google Assistant por Gemini en Android Auto, Drive y Messages, con quejas de usuarios.",
+    "wikipedia": "Gemini (chatbot)",
+    "queries": [
+     "Gemini Android Auto",
+     "Google Assistant Gemini",
+     "Gemini Google Messages"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_59792b9c",
+    "name": "IA resuelve problemas matemáticos",
+    "definition": "Modelos como Claude y OpenAI que resuelven problemas matemáticos y criptográficos abiertos durante décadas.",
+    "wikipedia": "Automated theorem proving",
+    "queries": [
+     "Claude math problem",
+     "OpenAI matemáticas",
+     "AI solves cryptography"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b4c91048",
+    "name": "IA en industria creativa",
+    "definition": "Impacto de la IA generativa en producción audiovisual, ilustración y rechazo de gremios creativos.",
+    "wikipedia": "Artificial intelligence art",
+    "queries": [
+     "IA producción audiovisual",
+     "AI creative industry",
+     "generative AI art backlash"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_211388bf",
+    "name": "Tecnofeudalismo",
+    "definition": "Crítica al poder de tecnooligarcas y al riesgo de tecnofeudalismo y tecnofascismo por la adopción de IA.",
+    "wikipedia": "Technofeudalism",
+    "queries": [
+     "tecnofeudalismo IA",
+     "technofeudalism",
+     "tecnofascismo tecnología"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_dc65d104",
+    "name": "Documentación clínica con IA",
+    "definition": "IA que automatiza notas clínicas, codificación médica y flujos de trabajo sobre historias clínicas electrónicas.",
+    "wikipedia": "Electronic health record",
+    "queries": [
+     "AI clinical documentation",
+     "historia clínica electrónica IA",
+     "EHR AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2b1e1113",
+    "name": "Errores y engaños de modelos",
+    "definition": "Casos de modelos de IA que inventan lenguajes, cometen errores o generan resultados engañosos.",
+    "wikipedia": "Hallucination (artificial intelligence)",
+    "queries": [
+     "AI model errors",
+     "modelos IA engaño",
+     "AI hallucination"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_94fe6d41",
+    "name": "METR",
+    "definition": "Organización de evaluación de seguridad de IA involucrada en incidentes y auditorías a laboratorios como OpenAI.",
+    "wikipedia": "METR",
+    "queries": [
+     "METR AI safety",
+     "METR OpenAI",
+     "METR evaluation"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a7f820b4",
+    "name": "Concentración de poder tecnológico",
+    "definition": "Preocupación por la concentración de poder corporativo en grandes empresas de IA y tecnología.",
+    "wikipedia": "Big Tech",
+    "queries": [
+     "AI corporate power",
+     "concentración poder IA",
+     "Big Tech regulation"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_a9acc75f",
+    "name": "Reservas con agentes de IA",
+    "definition": "Agentes de IA que reservan vuelos, gestionan viajes y automatizan tareas del sector turístico.",
+    "wikipedia": "Travel technology",
+    "queries": [
+     "AI booking agents",
+     "reservas IA viajes",
+     "agentic travel booking"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_4e96586e",
+    "name": "Búsqueda de empleo con IA",
+    "definition": "Uso de IA para adaptar currículums, evaluar ofertas y automatizar la búsqueda de trabajo.",
+    "wikipedia": "Applicant tracking system",
+    "queries": [
+     "AI CV job search",
+     "curriculum con IA",
+     "Claude Code job search"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2cdb7b91",
+    "name": "DocuSign",
+    "definition": "DocuSign eleva previsiones de ventas por demanda de sus herramientas de contratos con IA.",
+    "wikipedia": "DocuSign",
+    "queries": [
+     "DocuSign AI",
+     "DocuSign earnings",
+     "DocuSign contract AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_0fc7a3c2",
+    "name": "NVIDIA Nemotron 3.5",
+    "definition": "Nueva familia de modelos abiertos Nemotron 3.5 de NVIDIA, incluyendo variantes Bolt y Super VL.",
+    "wikipedia": "Nvidia",
+    "queries": [
+     "NVIDIA Nemotron 3.5",
+     "Nemotron Bolt",
+     "Nemotron Super VL"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

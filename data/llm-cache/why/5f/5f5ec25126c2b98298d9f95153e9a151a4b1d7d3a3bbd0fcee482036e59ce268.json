@@ -1,0 +1,21 @@
+{
+ "key": "5f5ec25126c2b98298d9f95153e9a151a4b1d7d3a3bbd0fcee482036e59ce268",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:18:52.207Z",
+ "latencyMs": 13827,
+ "usage": {
+  "inputTokens": 1369,
+  "outputTokens": 2237
+ },
+ "output": {
+  "oneLiner": "Bancos descargan riesgo de IA y Nadella pide tratar agentes como riesgo interno; lo mueven Ballecer y OWASP.",
+  "narrative": "El tema crece +129 % en creadores distintos, con 11 esta semana, pero no hay patrones con al menos 3 piezas. Las piezas que despegan son posts de Bluesky: Fr. Robert Ballecer, SJ, dice que bancos que prestaron a empresas de IA descargan sus apuestas en pares, con 50.3× la mediana de su autor; darthazius reporta un resumen de IA que inventó una referencia, con 17.3×. En noticias, Satya Nadella pide tratar los agentes de IA como riesgo interno y OWASP pone el foco en permisos y riesgo operativo.",
+  "cited": [
+   "bluesky:3mxvchcilys23",
+   "bluesky:3mxxz4okbuc2i",
+   "news:CBMirgFBVV95cUxObmlNMnJVd2otdVNQcU1kcGlBWFZjVU1CYzUyOEdPeWMtMnBRdV9ES3dMQzJIQzhWMk9vSEFxd254QXRMNTRxdDJwRU11TzRwTEZJUE9OdFJVUEZqSHJsRzRSM09mVU9weHFOSGdYVUNZem1HOFVXZmpxcmozZ0JUbEhkbXVIemFMS04wQkdhRmkwWk1FNy11SFMtekJyWFBpMjE2OTB0LUtSeFh5X1E",
+   "news:CBMijgFBVV95cUxNVWxoUFFMNFlhcU84R19sdHZKc2hBcFJzaTJSUFV0aDZzdERTSENyVFBLMl9vQjVtNXZVWFVRMk9udmtwXzg2cTAxV2lIa280WU1IdzU2U2N2Qm5PZ2dHNVRKV1lEdk4wYzBpekpIclpOQTdlZWF6NlB3MUJlNmVjVDFjRVE1OHdlbVFhSFV3"
+  ]
+ }
+}

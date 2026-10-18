@@ -1,0 +1,255 @@
+{
+ "key": "8e19d25868370e12335350767b35a9ed056a0f49afc9743c7769d2da265d0f06",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:11:08.776Z",
+ "latencyMs": 202311,
+ "usage": {
+  "inputTokens": 3211,
+  "outputTokens": 1473
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_42eda3f6",
+    "name": "Meta Muse",
+    "definition": "Asistente y agente de IA de Meta que compite con Copilot y ChatGPT en el uso cotidiano.",
+    "wikipedia": "Meta AI",
+    "queries": [
+     "Meta Muse AI",
+     "Meta Muse agent",
+     "Meta AI assistant"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f7acc6e2",
+    "name": "Pentágono y Anthropic",
+    "definition": "El Departamento de Defensa de EE. UU. bloquea o restringe a Anthropic en contratos y usos militares.",
+    "wikipedia": "United States Department of Defense",
+    "queries": [
+     "Pentagon Anthropic blacklist",
+     "Pentagon AI contracts",
+     "Anthropic defense department"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a5b80fa4",
+    "name": "Responsabilidad legal de agentes",
+    "definition": "Debate sobre quién responde legalmente cuando un agente de IA comete delitos o causa daños.",
+    "wikipedia": "Legal liability",
+    "queries": [
+     "AI agent liability",
+     "responsabilidad legal IA",
+     "AI liability rules"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_4f449ecf",
+    "name": "IA en Asia",
+    "definition": "Movimientos estratégicos de Alibaba, Tencent, Baidu, ByteDance y SoftBank en inteligencia artificial.",
+    "wikipedia": "Artificial intelligence industry in China",
+    "queries": [
+     "Alibaba AI model",
+     "Tencent AI",
+     "Asia AI companies"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_3001533d",
+    "name": "Humor sobre IA",
+    "definition": "Chistes, sátira y memes que circulan sobre LLM, agentes y la cultura de la inteligencia artificial.",
+    "wikipedia": null,
+    "queries": [
+     "AI humor memes",
+     "LLM jokes",
+     "sátira IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b7b5967d",
+    "name": "Mal uso y divulgación de IA",
+    "definition": "Fraudes, abusos y etiquetado obligatorio del uso de IA en juegos, medios y contenidos.",
+    "wikipedia": "Artificial intelligence content detection",
+    "queries": [
+     "AI disclosure rules",
+     "AI misuse fraud",
+     "Steam AI disclosure"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_dee6a629",
+    "name": "Conciencia de los LLM",
+    "definition": "Debate sobre si los modelos de lenguaje podrían tener conciencia y cómo se antropomorfizan.",
+    "wikipedia": "Artificial consciousness",
+    "queries": [
+     "LLM consciousness",
+     "AI sentience debate",
+     "machine consciousness"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_60198c06",
+    "name": "Desaceleración de la IA",
+    "definition": "Voces que piden frenar el desarrollo de IA ante riesgos, fatiga y desalineación.",
+    "wikipedia": "AI safety",
+    "queries": [
+     "slow down AI",
+     "AI development pause",
+     "AI fatigue"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_4b962a95",
+    "name": "IA en países emergentes",
+    "definition": "Adopción, riesgos y propaganda con IA en India, Israel, Irán, Indonesia y otros mercados.",
+    "wikipedia": null,
+    "queries": [
+     "India AI adoption",
+     "Israel AI propaganda",
+     "Iran AI China"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_de2a4c1c",
+    "name": "Fugas de datos con IA",
+    "definition": "Filtraciones de información sensible a través de chatbots, agentes y modelos de IA.",
+    "wikipedia": "Data breach",
+    "queries": [
+     "AI data leak",
+     "chatbot data breach",
+     "fuga datos IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ce23ae35",
+    "name": "Políticas de uso de Claude",
+    "definition": "Reglas de Anthropic sobre uso aceptable, límites y comportamiento hacia Claude en empresas y gobierno.",
+    "wikipedia": "Anthropic",
+    "queries": [
+     "Anthropic usage policy",
+     "Claude policy update",
+     "Claude enterprise limits"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ac8c0137",
+    "name": "Regulación estatal de IA en EE. UU.",
+    "definition": "Leyes y batallas regulatorias sobre IA en California, Texas, Massachusetts y otros estados.",
+    "wikipedia": "Regulation of artificial intelligence",
+    "queries": [
+     "California AI law",
+     "state AI regulation",
+     "AI bill Massachusetts"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c112ecfc",
+    "name": "IPO de OpenAI y Anthropic",
+    "definition": "Salidas a bolsa y valoraciones de las principales startups de IA ante los mercados.",
+    "wikipedia": "OpenAI",
+    "queries": [
+     "OpenAI IPO",
+     "Anthropic IPO",
+     "AI startup valuation"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_078cfb10",
+    "name": "Adobe y la IA",
+    "definition": "Impacto de la IA generativa en Photoshop, Acrobat y el modelo de negocio de Adobe.",
+    "wikipedia": "Adobe Inc.",
+    "queries": [
+     "Adobe AI Photoshop",
+     "Adobe AI strategy",
+     "Photoshop clone AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_7653ab03",
+    "name": "Generadores de video IA",
+    "definition": "Herramientas como Higgsfield que crean videos con IA de forma gratuita o ilimitada.",
+    "wikipedia": "Text-to-video model",
+    "queries": [
+     "AI video generator",
+     "Higgsfield AI",
+     "free AI video"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_03b9b943",
+    "name": "IA militar",
+    "definition": "Uso de IA en defensa, inteligencia, armamento y operaciones militares de distintos países.",
+    "wikipedia": "Military artificial intelligence",
+    "queries": [
+     "military AI",
+     "AI weapons defense",
+     "IA militar"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_73c3083e",
+    "name": "IA en salud",
+    "definition": "Aplicaciones de IA en diagnóstico, salud mental, prevención y startups del sector salud.",
+    "wikipedia": "Artificial intelligence in healthcare",
+    "queries": [
+     "AI healthcare",
+     "AI diagnosis",
+     "salud IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_28aee727",
+    "name": "Dispositivos con IA",
+    "definition": "Cámaras, auriculares, portátiles y navegadores que integran funciones de inteligencia artificial.",
+    "wikipedia": null,
+    "queries": [
+     "AI devices",
+     "AI camera detection",
+     "AI browser"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_533719bb",
+    "name": "Riesgo existencial de la IA",
+    "definition": "Advertencias sobre riesgos catastróficos y su uso como argumento comercial o político.",
+    "wikipedia": "Existential risk from artificial general intelligence",
+    "queries": [
+     "AI existential risk",
+     "AI extinction risk",
+     "riesgo existencial IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c1224b2c",
+    "name": "Gobierno de EE. UU. y IA",
+    "definition": "Congreso, Senado y agencias federales de EE. UU. frente a la regulación y el uso de IA.",
+    "wikipedia": "Federal government of the United States",
+    "queries": [
+     "US Congress AI",
+     "US government AI policy",
+     "Senate AI regulation"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

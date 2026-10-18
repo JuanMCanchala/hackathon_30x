@@ -1,0 +1,275 @@
+{
+ "key": "1cffa4e2bef2579aca293f262003d235d531bf43a20a4310ea7cb1f8364e68f5",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:16:03.160Z",
+ "latencyMs": 13081,
+ "usage": {
+  "inputTokens": 3306,
+  "outputTokens": 1718
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_f098b608",
+    "name": "Robo de ideas por IA",
+    "definition": "Casos y sospechas de que modelos de IA reproducen o se apropian de ideas, investigaciones y propiedad intelectual de sus usuarios.",
+    "wikipedia": "Intellectual property",
+    "queries": [
+     "IA robo ideas",
+     "AI stole ideas",
+     "plagio propiedad intelectual",
+     "AI intellectual property theft"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_05919316",
+    "name": "IA en gestión patrimonial",
+    "definition": "Startups y herramientas de IA que automatizan planificación financiera, gestión de activos y flujos de wealth management.",
+    "wikipedia": "Wealth management",
+    "queries": [
+     "IA wealth management",
+     "gestión patrimonial IA",
+     "AI asset management",
+     "gestión activos inteligencia artificial"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_0054373a",
+    "name": "Estudiantes y ChatGPT",
+    "definition": "Debate sobre cómo alumnos de secundaria y universidad usan IA generativa para estudiar, hacer tareas y aprender.",
+    "wikipedia": "ChatGPT in education",
+    "queries": [
+     "estudiantes ChatGPT",
+     "students using AI",
+     "IA en aulas",
+     "AI cheating students"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c68fe619",
+    "name": "JetBrains e IDEs con IA",
+    "definition": "Nuevos entornos de desarrollo y modelos de JetBrains, como Air y Mellum, orientados a programación agéntica.",
+    "wikipedia": "JetBrains",
+    "queries": [
+     "JetBrains Air",
+     "JetBrains Mellum",
+     "IDE agéntico",
+     "agentic software development"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_54141c33",
+    "name": "Agentes IA descontrolados",
+    "definition": "Incidentes donde agentes autónomos de IA hackean webs, burlan restricciones o actúan fuera de lo previsto.",
+    "wikipedia": "AI agent",
+    "queries": [
+     "rogue AI agents",
+     "agentes IA hackean",
+     "AI agents hijack",
+     "agentes autónomos incidente"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_005e923c",
+    "name": "Avatares en vivo con IA",
+    "definition": "Avatares generados por IA que aparecen en videollamadas, presentaciones y productos como Gemini Live.",
+    "wikipedia": "Avatar (computing)",
+    "queries": [
+     "live avatar AI",
+     "avatares IA video",
+     "Gemini Live Avatar",
+     "AI video avatars"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2a4ff42c",
+    "name": "Diseño de producto con IA",
+    "definition": "Cómo equipos de producto y diseño integran IA generativa en flujos de diseño, prototipado y desarrollo de software.",
+    "wikipedia": "Product design",
+    "queries": [
+     "AI product design",
+     "diseño producto IA",
+     "prompts diseño",
+     "AI design workflow"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_86216bbc",
+    "name": "Libertad de expresión e IA",
+    "definition": "Tensiones entre regulación, vigilancia y crítica pública a la IA, incluyendo libertad de expresión y derechos digitales.",
+    "wikipedia": "Freedom of speech",
+    "queries": [
+     "AI free speech",
+     "libertad expresión IA",
+     "AI critics government",
+     "vigilancia IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_304e2929",
+    "name": "Startups LatAm y Colombia Tech Fest",
+    "definition": "Ecosistema emprendedor latinoamericano, con foco en startups de Colombia, Chile, México y Uruguay y eventos como Colombia Tech Fest.",
+    "wikipedia": "Startup ecosystem",
+    "queries": [
+     "Colombia Tech Fest",
+     "startups LatAm",
+     "startup colombiana IA",
+     "Latin America startups"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_3c7d335e",
+    "name": "Burbuja IA y deuda",
+    "definition": "Debate sobre si la inversión en IA es una burbuja y cómo afecta a deuda pública, bonos y mercados financieros.",
+    "wikipedia": "AI bubble",
+    "queries": [
+     "AI bubble debt",
+     "burbuja IA deuda",
+     "AI bonds treasury",
+     "deuda soberana IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9b942048",
+    "name": "Nano Banana",
+    "definition": "Modelos de generación y edición de imágenes de Google conocidos como Nano Banana, integrados en Gemini y otras herramientas.",
+    "wikipedia": "Google Gemini",
+    "queries": [
+     "Nano Banana",
+     "Nano Banana 2",
+     "Google image AI",
+     "Gemini image model"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_909554eb",
+    "name": "Asistentes personales con IA",
+    "definition": "Asistentes virtuales y agentes móviles que gestionan tareas, compras y acciones cotidianas desde el teléfono.",
+    "wikipedia": "Virtual assistant",
+    "queries": [
+     "AI personal assistant",
+     "asistentes IA móviles",
+     "agentic assistant",
+     "asistentes virtuales IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_25614d85",
+    "name": "Discovery Loop",
+    "definition": "Startup de IA que busca financiación a una valoración cercana a los 50.000 millones de dólares.",
+    "wikipedia": null,
+    "queries": [
+     "Discovery Loop funding",
+     "Discovery Loop startup",
+     "AI startup valuation",
+     "Discovery Loop $50 billion"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_842f68c3",
+    "name": "Edición de video con IA",
+    "definition": "Integración de asistentes de IA en Adobe Premiere, DaVinci Resolve y otras herramientas para automatizar edición de video.",
+    "wikipedia": "Video editing software",
+    "queries": [
+     "AI video editing",
+     "DaVinci Resolve AI",
+     "edición video IA",
+     "Premiere AI editing"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_bdc03d3c",
+    "name": "Biotech e IA",
+    "definition": "Aplicación de IA a biología sintética, diseño de proteínas y nuevas startups biotech con agentes autónomos.",
+    "wikipedia": "Biotechnology",
+    "queries": [
+     "AI biotech",
+     "biotecnología IA",
+     "protein design AI",
+     "synthetic biology AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e217c2af",
+    "name": "Nikon Small World y IA",
+    "definition": "Descalificación de un ganador del certamen Nikon Small World in Motion por usar IA generativa, reabriendo el debate sobre reglas.",
+    "wikipedia": "Nikon Small World",
+    "queries": [
+     "Nikon Small World AI",
+     "Nikon Small World disqualification",
+     "SWiM AI rules",
+     "Nikon microscopy contest"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_4e2989f1",
+    "name": "Niños y IA",
+    "definition": "Uso de IA por menores, juguetes inteligentes, amigos digitales y nuevas exigencias de control parental en Europa.",
+    "wikipedia": "Children and artificial intelligence",
+    "queries": [
+     "kids AI use",
+     "niños IA",
+     "AI toys children",
+     "menores inteligencia artificial"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_fea86444",
+    "name": "IA y problemas matemáticos",
+    "definition": "Avances de modelos de IA resolviendo o atacando problemas abiertos de matemáticas, incluidos los del Milenio.",
+    "wikipedia": "Millennium Prize Problems",
+    "queries": [
+     "AI math problems",
+     "IA problemas milenio",
+     "OpenAI math proofs",
+     "AI solving mathematics"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_20b5cee3",
+    "name": "Regulación digital de plataformas",
+    "definition": "Normativas como el Reglamento de Servicios Digitales y leyes de administración digital que regulan plataformas e IA.",
+    "wikipedia": "Digital Services Act",
+    "queries": [
+     "Digital Services Act",
+     "regulación plataformas",
+     "AI platform regulation",
+     "reglamento servicios digitales"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_6df758bf",
+    "name": "Llamadas de ventas con IA",
+    "definition": "Plataformas de voz con IA que automatizan cold calling, generación de leads y agendamiento de citas comerciales.",
+    "wikipedia": "Cold calling",
+    "queries": [
+     "AI cold calling",
+     "llamadas ventas IA",
+     "AI voice sales",
+     "automatización llamadas ventas"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

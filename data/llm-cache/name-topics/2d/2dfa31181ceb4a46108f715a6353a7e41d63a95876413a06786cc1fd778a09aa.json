@@ -1,0 +1,255 @@
+{
+ "key": "2dfa31181ceb4a46108f715a6353a7e41d63a95876413a06786cc1fd778a09aa",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T21:53:34.473Z",
+ "latencyMs": 13219,
+ "usage": {
+  "inputTokens": 2697,
+  "outputTokens": 1869
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_18e0f50d",
+    "name": "Clasificadores NSFW con IA",
+    "definition": "Modelos de IA que detectan y filtran contenido para adultos, con Falcon AI de Emiratos entre los líderes open source.",
+    "wikipedia": "Not safe for work",
+    "queries": [
+     "NSFW classifier AI",
+     "Falcon AI NSFW",
+     "clasificador NSFW IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_66827f59",
+    "name": "Modelos de difusión de lenguaje",
+    "definition": "Nueva generación de modelos de lenguaje que generan texto mediante difusión continua en lugar de predicción token a token.",
+    "wikipedia": "Diffusion model",
+    "queries": [
+     "diffusion language models",
+     "DiffusionGemma",
+     "CDLM diffusion"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d24cc710",
+    "name": "IA agéntica en banca",
+    "definition": "Bancos como DBS y Sber despliegan agentes de IA para crédito, análisis financiero y automatización de tareas internas.",
+    "wikipedia": "Agentic AI",
+    "queries": [
+     "agentic AI banking",
+     "DBS agentic AI",
+     "Sber GigaChat agentic"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_dc73f3e1",
+    "name": "Spider-Man: Brand New Day",
+    "definition": "Película de Marvel señalada por usar IA generativa en arte conceptual, generando polémica entre fans y gremios creativos.",
+    "wikipedia": "Spider-Man: Brand New Day",
+    "queries": [
+     "Spider-Man Brand New Day",
+     "Marvel IA generativa",
+     "Spider-Man AI art"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b6a03945",
+    "name": "Diagramas de arquitectura con IA",
+    "definition": "Herramientas que usan IA para generar y mantener diagramas de arquitectura empresarial y de software automáticamente.",
+    "wikipedia": "Enterprise architecture",
+    "queries": [
+     "AI architecture diagrams",
+     "diagramas arquitectura IA",
+     "AI diagram tools"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1c2917d5",
+    "name": "Verificación de outputs de IA",
+    "definition": "Reto de demostrar que los resultados generados por IA son correctos y atribuir responsabilidad sobre ellos.",
+    "wikipedia": "AI alignment",
+    "queries": [
+     "AI output verification",
+     "verificar resultados IA",
+     "AI attribution accountability"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_23fd08d5",
+    "name": "Cuantización de modelos",
+    "definition": "Técnicas para comprimir modelos de IA reduciendo precisión numérica, permitiendo ejecutarlos con menos recursos.",
+    "wikipedia": "Quantization (machine learning)",
+    "queries": [
+     "model quantization",
+     "cuantización modelos IA",
+     "GGUF quantization benchmark"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_33f868d8",
+    "name": "Quiebras de startups IA",
+    "definition": "Startups de IA como Character.AI enfrentan bancarrota por costos elevados, litigios y modelos de negocio insostenibles.",
+    "wikipedia": "Character.ai",
+    "queries": [
+     "AI startup bankruptcy",
+     "quiebra startup IA",
+     "Character AI bankruptcy"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_fd0c5087",
+    "name": "X y publicidad con IA",
+    "definition": "X (antes Twitter) abre su algoritmo y lanza herramientas publicitarias integradas con ChatGPT, Claude y MCP.",
+    "wikipedia": "Twitter",
+    "queries": [
+     "X Ads MCP",
+     "X advertising AI",
+     "X algoritmo abierto"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_bb26f5b2",
+    "name": "SEC y IA",
+    "definition": "La SEC sanciona startups por exagerar capacidades de IA y regula el 'AI washing' ante inversores.",
+    "wikipedia": "U.S. Securities and Exchange Commission",
+    "queries": [
+     "SEC AI enforcement",
+     "AI washing SEC",
+     "SEC startup IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_46756f90",
+    "name": "Medallistas Fields contra OpenAI",
+    "definition": "Matemáticos galardonados con la Medalla Fields publican manifiestos criticando los objetivos y prácticas de OpenAI.",
+    "wikipedia": "Fields Medal",
+    "queries": [
+     "Fields medalists OpenAI",
+     "medallistas Fields IA",
+     "matemáticos OpenAI crítica"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ec1a47fe",
+    "name": "Colaboraciones y partners IA",
+    "definition": "Alianzas entre empresas tecnológicas y marcas para lanzar productos, marketplaces y experiencias conjuntas de IA.",
+    "wikipedia": null,
+    "queries": [
+     "AI partnerships",
+     "colaboraciones IA",
+     "AI marketplace partners"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_c9ce3fe9",
+    "name": "America.gov",
+    "definition": "Chatbot federal de IA lanzado por Trump para navegar 29.000 páginas del gobierno de EE.UU. usando Gemini y Grok.",
+    "wikipedia": null,
+    "queries": [
+     "America.gov chatbot",
+     "Trump AI chatbot",
+     "gobierno EEUU IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d7d7a1ec",
+    "name": "Bases de datos vectoriales",
+    "definition": "Sistemas como pgvector y AlloyDB que almacenan embeddings para búsqueda semántica y aplicaciones de IA agéntica.",
+    "wikipedia": "Vector database",
+    "queries": [
+     "vector database",
+     "pgvector búsqueda",
+     "AlloyDB vector index"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_963d7103",
+    "name": "Decodificación especulativa",
+    "definition": "Técnicas como EAGLE y MTP que aceleran la generación de texto de modelos de lenguaje prediciendo tokens en paralelo.",
+    "wikipedia": "Speculative decoding",
+    "queries": [
+     "speculative decoding",
+     "decodificación especulativa",
+     "EAGLE MTP llama.cpp"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_37ac7bd2",
+    "name": "IA y política monetaria",
+    "definition": "Bancos centrales evalúan cómo la inversión en IA afecta productividad, inflación y decisiones de tasas de interés.",
+    "wikipedia": "Monetary policy",
+    "queries": [
+     "AI monetary policy",
+     "IA política monetaria",
+     "AI productivity inflation"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_09eb73a2",
+    "name": "Humanoides y rol humano",
+    "definition": "Empresas como HUMXN pagan a trabajadores manuales por datos para entrenar robots humanoides, redefiniendo el rol humano.",
+    "wikipedia": "Humanoid robot",
+    "queries": [
+     "humanoid robots training",
+     "HUMXN robots",
+     "robots humanoides datos"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d9cd205a",
+    "name": "Caché semántica",
+    "definition": "Técnica que reutiliza respuestas de LLM comparando embeddings de prompts similares para reducir costos y latencia.",
+    "wikipedia": "Semantic caching",
+    "queries": [
+     "semantic caching LLM",
+     "caché semántica IA",
+     "semantic search cache"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8f7239b6",
+    "name": "Atira y Luna",
+    "definition": "Startups de IA como Atira (orquestación para ventas industriales) y Luna (gestión para pymes) levantan capital.",
+    "wikipedia": null,
+    "queries": [
+     "Atira AI funding",
+     "Luna IA pymes",
+     "AI orchestration sales"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_237e2f64",
+    "name": "Hackers rusos con Claude",
+    "definition": "Grupos vinculados a Rusia usan agentes de Claude de Anthropic para atacar Ucrania y robar tecnología militar.",
+    "wikipedia": "Anthropic",
+    "queries": [
+     "Russian hackers Claude",
+     "hackers rusos IA",
+     "Anthropic Claude malware"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

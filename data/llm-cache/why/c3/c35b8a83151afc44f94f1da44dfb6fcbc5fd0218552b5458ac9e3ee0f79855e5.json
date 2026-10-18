@@ -1,0 +1,21 @@
+{
+ "key": "c35b8a83151afc44f94f1da44dfb6fcbc5fd0218552b5458ac9e3ee0f79855e5",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:13:51.141Z",
+ "latencyMs": 8045,
+ "usage": {
+  "inputTokens": 1629,
+  "outputTokens": 975
+ },
+ "output": {
+  "oneLiner": "Epic reescribió su launcher con IA generativa y los creadores lo llevaron a Bluesky y YouTube.",
+  "narrative": "11 de 19 piezas que despegaron son posts de texto, frente a 8 de 64 del resto, y 11 de 19 las publicó un creador de contenido, frente a 6 de 64. 8 de 19 abren con una opinión fuerte, frente a 5 de 64. El gancho es la opinión sobre el launcher vibe-codeado de Epic, no el anuncio: la noticia de The Next Web quedó en engagement 0 mientras un post de Jason Schreier en Bluesky multiplicó por 380 la mediana de su autor. El momento es el mismo día del anuncio y lo mueven creadores y periodistas de videojuegos, no las cuentas corporativas.",
+  "cited": [
+   "bluesky:3mxp5j4mlu22c",
+   "youtube:Z_PQAdbCyIs",
+   "bluesky:3mxy4umpm3k2f",
+   "news:CBMiigFBVV95cUxOS09pSGtmMmpjQm9GOWliWHpXZXFVWFFPNzZtOHlBNEVCTTV4dXN2ZWpYRFdNWlFkNmxOMVdBNkVnS0dBdmJFOGNSdjVQNjViRjVMYlQ2a3BsNDd3UEFyNWplS05YUWVVSlhHSzRUdGladGluOEpqM2JHVlctOHhlQlhQa3hxSWx6RlE"
+  ]
+ }
+}

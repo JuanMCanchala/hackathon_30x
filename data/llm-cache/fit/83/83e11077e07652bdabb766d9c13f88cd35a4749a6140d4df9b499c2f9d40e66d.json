@@ -1,0 +1,24 @@
+{
+ "key": "83e11077e07652bdabb766d9c13f88cd35a4749a6140d4df9b499c2f9d40e66d",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:17:15.479Z",
+ "latencyMs": 9467,
+ "usage": {
+  "inputTokens": 711,
+  "outputTokens": 1225
+ },
+ "output": {
+  "score": 4,
+  "executive": 4,
+  "noCode": 2,
+  "latam": 1,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Más industria gaming que negocio; poca aplicación directa para ventas o growth.",
+   "Agentes que juegan muestran autonomía, pero sin caso LatAm claro.",
+   "Epic y RuneScape dan señales estratégicas, no tácticas para equipos."
+  ]
+ }
+}

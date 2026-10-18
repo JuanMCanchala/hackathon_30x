@@ -1,0 +1,21 @@
+{
+ "key": "702a564aa5379052fd44948b0f398d402a540a4b3443f9521de18825c6d58aa9",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:18:36.341Z",
+ "latencyMs": 14456,
+ "usage": {
+  "inputTokens": 1191,
+  "outputTokens": 2507
+ },
+ "output": {
+  "oneLiner": "Google lanzó Gemini 4 Argon y canales oficiales, desarrolladores y foros publican demos y pruebas.",
+  "narrative": "Despegan los videos: 18 de 31 piezas que despegaron son videos, frente a 6 de 171 del resto. También pesan las demostraciones: 7 de 31 abren con una demostración, frente a 3 de 171. Los artículos solo aparecen entre las que despegaron: 3 de 31, frente a 0 de 171. Los publican canales de Google, Google Cloud Tech y desarrolladores; 3 de 31 piezas que despegaron las publicó un desarrollador o investigador, frente a 1 de 171, y un video de Google Gemini y otro de Google Antigravity y Google for Developers lideran el engagement, y en Hacker News 737max publica un artículo.",
+  "cited": [
+   "youtube:jwmfyguADXc",
+   "youtube:T2Wfds62ZjM",
+   "youtube:gRhM1h10T3U",
+   "hn:50073879"
+  ]
+ }
+}

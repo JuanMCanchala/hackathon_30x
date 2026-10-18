@@ -1,0 +1,24 @@
+{
+ "key": "89c77bf725506dcc7f6bc22a0defd11ae12513f574176f571900be5942ed9377",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T21:54:35.866Z",
+ "latencyMs": 8791,
+ "usage": {
+  "inputTokens": 690,
+  "outputTokens": 763
+ },
+ "output": {
+  "score": 5,
+  "executive": 7,
+  "noCode": 2,
+  "latam": 2,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "alto",
+  "reasons": [
+   "Tema estratégico para fundadores, pero no acción comercial directa.",
+   "Riesgo de desinformación: Character.AI no quebró, hizo acuerdo con Google.",
+   "Sin ángulo LatAm ni aplicación sin código inmediata."
+  ]
+ }
+}

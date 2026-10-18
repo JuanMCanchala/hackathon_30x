@@ -1,0 +1,255 @@
+{
+ "key": "db3cabc1eda72e2d7b2dcfd9ec7276a9a2a6b09b46b82401450fd9aa42b18a21",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T17:39:35.415Z",
+ "latencyMs": 11827,
+ "usage": {
+  "inputTokens": 2877,
+  "outputTokens": 1733
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_1521a584",
+    "name": "Límites de uso de IA",
+    "definition": "Restricciones que empresas y plataformas imponen al uso abusivo o no autorizado de sistemas de IA.",
+    "wikipedia": "Acceptable use policy",
+    "queries": [
+     "AI usage limits",
+     "límites de IA",
+     "AI abuse policy"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_0fab3345",
+    "name": "Incidentes de seguridad en IA",
+    "definition": "Fallos o brechas de seguridad en sistemas de IA que generan riesgos y respuestas regulatorias.",
+    "wikipedia": "AI safety",
+    "queries": [
+     "AI security incidents",
+     "incidentes seguridad IA",
+     "FTC AI probe"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a30ebb96",
+    "name": "Chain of Thought",
+    "definition": "Técnica de razonamiento de modelos de lenguaje que expone pasos intermedios y ahora enfrenta límites en agentes.",
+    "wikipedia": "Prompt engineering",
+    "queries": [
+     "chain of thought",
+     "CoT reasoning",
+     "cadena de pensamiento"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2056686f",
+    "name": "Software libre sin IA",
+    "definition": "Movimiento que promueve software libre y gratuito sin integración de inteligencia artificial.",
+    "wikipedia": "Free software movement",
+    "queries": [
+     "AI-free software",
+     "software libre sin IA",
+     "FOSS sin IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_db2e70cc",
+    "name": "Periodismo e IA",
+    "definition": "Impacto de la IA en la práctica periodística, desde la investigación hasta la cobertura local.",
+    "wikipedia": "Journalism",
+    "queries": [
+     "AI journalism",
+     "periodismo IA",
+     "investigative journalism AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d621a309",
+    "name": "IA en producción",
+    "definition": "Uso de IA en producción audiovisual, musical y de TV, incluyendo fallos y retos de implementación.",
+    "wikipedia": "Artificial intelligence in media",
+    "queries": [
+     "AI production",
+     "IA producción",
+     "AI TV production"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_99fd2401",
+    "name": "Errores plausibles de IA",
+    "definition": "Tendencia de la IA a generar resultados creíbles pero erróneos, y métodos para predecir fallos.",
+    "wikipedia": "Hallucination (artificial intelligence)",
+    "queries": [
+     "AI plausible errors",
+     "errores IA",
+     "AI failure prediction"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f3bc7812",
+    "name": "Deuda de data centers IA",
+    "definition": "Endeudamiento bancario para financiar centros de datos de IA y su posible riesgo financiero.",
+    "wikipedia": "Data center",
+    "queries": [
+     "AI data center debt",
+     "deuda data centers",
+     "AI infrastructure debt"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2be526f1",
+    "name": "Resúmenes automáticos con IA",
+    "definition": "Herramientas de IA que resumen reuniones, conversaciones y documentos, con riesgos de inexactitud.",
+    "wikipedia": "Automatic summarization",
+    "queries": [
+     "AI summarization",
+     "resúmenes IA",
+     "meeting recap AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1c22cea9",
+    "name": "Estudios sobre gobernanza de IA",
+    "definition": "Investigaciones de centros como Harvard, RAND o Brookings sobre gobernanza y productividad de la IA.",
+    "wikipedia": "AI governance",
+    "queries": [
+     "AI governance study",
+     "estudio gobernanza IA",
+     "Harvard AI study"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2a41631f",
+    "name": "Replit y Lovable",
+    "definition": "Startups de coding con IA que exploran modelos de empresa autónoma y cambios en el trabajo.",
+    "wikipedia": "Replit",
+    "queries": [
+     "Replit AI",
+     "Lovable AI",
+     "Replit autonomous company"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_7ed5792c",
+    "name": "Roblox Studio y Luau",
+    "definition": "Herramientas de desarrollo en Roblox, incluyendo Luau y agentes de IA para creación de juegos.",
+    "wikipedia": "Roblox Studio",
+    "queries": [
+     "Roblox Luau",
+     "Roblox Studio AI",
+     "Roblox agent bridge"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f886a509",
+    "name": "Geopolítica de chips IA",
+    "definition": "Tensiones entre EE.UU., China y Taiwán por el control de chips y tecnología de IA.",
+    "wikipedia": "Semiconductor industry",
+    "queries": [
+     "AI chip geopolitics",
+     "geopolítica chips",
+     "US China AI chips"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_833a2b45",
+    "name": "HuelvaLAB",
+    "definition": "Programa de formación en IA y automatización impulsado por la Diputación de Huelva.",
+    "wikipedia": null,
+    "queries": [
+     "HuelvaLAB IA",
+     "formación HuelvaLAB",
+     "HuelvaLAB automatización"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c4ef9a88",
+    "name": "Derechos de actores e IA",
+    "definition": "Debate sobre derechos de actores y artistas frente al uso de IA en voz e imagen.",
+    "wikipedia": "Artificial intelligence and copyright",
+    "queries": [
+     "actors AI rights",
+     "derechos actores IA",
+     "AI voice actors"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_89bbd8f4",
+    "name": "Semana laboral de 3 días",
+    "definition": "Predicciones sobre reducción de la jornada laboral gracias a la productividad de la IA.",
+    "wikipedia": "Three-day week",
+    "queries": [
+     "three-day workweek",
+     "semana laboral 3 días",
+     "AI workweek"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9c6bb83f",
+    "name": "Puente OS y Windows",
+    "definition": "Proyectos de sistemas operativos con IA y experimentos para ejecutar software moderno en Windows antiguo.",
+    "wikipedia": "Windows XP",
+    "queries": [
+     "Puente OS",
+     "AI operating system",
+     "Windows XP mod"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_95991fdc",
+    "name": "Algoritmo de Facebook",
+    "definition": "Cambios en el algoritmo de Facebook, incluyendo personalización con lenguaje natural y uso de IA.",
+    "wikipedia": "Facebook",
+    "queries": [
+     "Facebook algorithm",
+     "algoritmo Facebook",
+     "Facebook AI algorithm"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_abcb0dc4",
+    "name": "IA y datos sensibles",
+    "definition": "Uso de IA con datos sensibles y los debates sobre protección, regulación y seguridad de la información.",
+    "wikipedia": "Data protection",
+    "queries": [
+     "AI sensitive data",
+     "IA datos sensibles",
+     "AI data regulation"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_97d295ae",
+    "name": "Startups de tierras raras",
+    "definition": "Empresas emergentes que usan IA para explorar o explotar tierras raras, con atención mediática.",
+    "wikipedia": "Rare-earth element",
+    "queries": [
+     "rare earth startup",
+     "startup tierras raras",
+     "AI mining company"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

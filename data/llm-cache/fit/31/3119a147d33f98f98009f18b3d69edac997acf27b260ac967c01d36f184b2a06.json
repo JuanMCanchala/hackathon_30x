@@ -1,0 +1,24 @@
+{
+ "key": "3119a147d33f98f98009f18b3d69edac997acf27b260ac967c01d36f184b2a06",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:19:51.082Z",
+ "latencyMs": 10129,
+ "usage": {
+  "inputTokens": 677,
+  "outputTokens": 1287
+ },
+ "output": {
+  "score": 5,
+  "executive": 4,
+  "noCode": 6,
+  "latam": 2,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "IA generativa en videojuegos es vertical creativa, no prioridad comercial general.",
+   "Herramientas texto-a-juego son no-code, pero producción real sigue siendo técnica.",
+   "Falta ángulo LatAm; debate gamedev está polarizado y puede distraer."
+  ]
+ }
+}

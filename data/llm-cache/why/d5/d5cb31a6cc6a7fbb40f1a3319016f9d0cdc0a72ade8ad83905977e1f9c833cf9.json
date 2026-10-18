@@ -1,0 +1,21 @@
+{
+ "key": "d5cb31a6cc6a7fbb40f1a3319016f9d0cdc0a72ade8ad83905977e1f9c833cf9",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:18:47.022Z",
+ "latencyMs": 4528,
+ "usage": {
+  "inputTokens": 1209,
+  "outputTokens": 732
+ },
+ "output": {
+  "oneLiner": "MCP sube 87 % en creadores: Fireship y repos abiertos empujan el estándar para conectar modelos con herramientas.",
+  "narrative": "9 de 14 piezas que despegaron son posts de texto, frente a 27 de 110 del resto: el tema avanza en explicación escrita, no en video. 3 de 14 abren con una demostración y 4 de 14 las publica un creador de contenido, frente a 13 de 110 del resto. El video de Fireship sobre apps open source y el repo de optimización de contexto de mksglu marcan el pico, con 1145.5× y 31.7× la mediana de su autor. En español, Universo Ari traduce el tema a creación de contenido con OpenArt MCP.",
+  "cited": [
+   "youtube:wajoP_5Cpw8",
+   "github:mksglu/context-mode",
+   "youtube:suS5KGof5lU",
+   "bluesky:3mxvyazwrr22p"
+  ]
+ }
+}

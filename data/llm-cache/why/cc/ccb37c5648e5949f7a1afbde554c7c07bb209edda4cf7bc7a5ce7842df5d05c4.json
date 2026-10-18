@@ -1,0 +1,21 @@
+{
+ "key": "ccb37c5648e5949f7a1afbde554c7c07bb209edda4cf7bc7a5ce7842df5d05c4",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:20:31.121Z",
+ "latencyMs": 10586,
+ "usage": {
+  "inputTokens": 1413,
+  "outputTokens": 1386
+ },
+ "output": {
+  "oneLiner": "OpenAI acusa a ex empleado de filtrar datos a Apple; Google lanza Gemini 4 Argon y creadores amplifican.",
+  "narrative": "Las piezas que despegan esta semana se apoyan en el litigio Apple vs OpenAI: la acusación de OpenAI contra un ex empleado que se fue a Apple y la filtración de datos de un dispositivo no lanzado. El patrón es claro: 4 de 5 piezas que despegaron son posts de texto, frente a 3 de 16 del resto. Ese formato breve y noticioso funciona en Bluesky con Reuters, FinTwitter y AppleInsider, mientras que en YouTube Raúl Ordóñez capitaliza el lanzamiento de Gemini 4 Argon.",
+  "cited": [
+   "bluesky:3mxtxufoqes2n",
+   "bluesky:3mxttyu7lan2f",
+   "bluesky:3mxs2mp4pkw2s",
+   "youtube:LJhpYvYZ7wY"
+  ]
+ }
+}

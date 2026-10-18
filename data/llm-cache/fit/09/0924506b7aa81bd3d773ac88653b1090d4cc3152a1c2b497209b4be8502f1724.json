@@ -1,0 +1,24 @@
+{
+ "key": "0924506b7aa81bd3d773ac88653b1090d4cc3152a1c2b497209b4be8502f1724",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:16:18.807Z",
+ "latencyMs": 8322,
+ "usage": {
+  "inputTokens": 723,
+  "outputTokens": 896
+ },
+ "output": {
+  "score": 7,
+  "executive": 6,
+  "noCode": 9,
+  "latam": 4,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Permite crear apps sin código y lanzarlas en Google Play.",
+   "Útil para founders que quieren prototipar productos con IA rápido.",
+   "Poco ángulo LatAm; tema global de Google y Android."
+  ]
+ }
+}

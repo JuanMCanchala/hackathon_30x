@@ -1,0 +1,255 @@
+{
+ "key": "95e4c7f0cfd1bce100b9032633a221ea64a99062d44a0fc623fabf02790866e2",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:07:29.164Z",
+ "latencyMs": 112245,
+ "usage": {
+  "inputTokens": 3388,
+  "outputTokens": 1523
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_c392ebb9",
+    "name": "Gemini de Google",
+    "definition": "Familia de asistentes y modelos de IA de Google, con agentes, apps y APIs para uso personal y empresarial.",
+    "wikipedia": "Gemini (chatbot)",
+    "queries": [
+     "Gemini Google",
+     "Gemini agentes",
+     "Gemini API"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_7881bafe",
+    "name": "Nvidia y GPUs",
+    "definition": "Chips, GPUs y plataformas de Nvidia que sostienen la infraestructura de cómputo para entrenar y ejecutar IA.",
+    "wikipedia": "Nvidia",
+    "queries": [
+     "Nvidia GPU",
+     "Nvidia AI",
+     "chips Nvidia"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_471f25d8",
+    "name": "Modelos frontera 2026",
+    "definition": "Nuevos modelos de lenguaje de OpenAI, Google, Mistral y otros que compiten en capacidad y precio.",
+    "wikipedia": "Large language model",
+    "queries": [
+     "GPT-6 Astra",
+     "Gemini 3.5 Pro",
+     "Mistral Large"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_65005fe8",
+    "name": "IA en la empresa",
+    "definition": "Adopción, gobernanza y estrategia de IA en corporaciones, incluyendo agentes autónomos y su integración operativa.",
+    "wikipedia": "Artificial intelligence in business",
+    "queries": [
+     "IA empresarial",
+     "gobernanza IA",
+     "IA corporativa"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_ef4b1016",
+    "name": "Arquitectura de LLMs",
+    "definition": "Diseño, capacidades y comportamiento de los grandes modelos de lenguaje, incluyendo embeddings y dialectos internos.",
+    "wikipedia": "Large language model",
+    "queries": [
+     "LLM architecture",
+     "model behavior",
+     "embedding models"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1203fe8e",
+    "name": "Adopción corporativa de IA",
+    "definition": "Cómo las empresas integran IA: agentes, automatización, adquisiciones y errores operativos en su despliegue.",
+    "wikipedia": "Artificial intelligence in business",
+    "queries": [
+     "AI adoption",
+     "enterprise AI",
+     "agentic AI"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_b79eaf49",
+    "name": "IA agéntica",
+    "definition": "Sistemas de IA autónomos que actúan por sí mismos, con implicaciones éticas, clínicas y de control.",
+    "wikipedia": "Intelligent agent",
+    "queries": [
+     "IA agéntica",
+     "autonomous AI",
+     "agentic era"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1467b50d",
+    "name": "Seguridad de agentes IA",
+    "definition": "Identidad, autenticación, contención y control de agentes autónomos para evitar riesgos y abusos.",
+    "wikipedia": "AI safety",
+    "queries": [
+     "agent security",
+     "AI agent control",
+     "agent identity"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_35599058",
+    "name": "LLMs en el trabajo",
+    "definition": "Uso de grandes modelos de lenguaje en educación, medicina, producción y revisión académica, y su economía.",
+    "wikipedia": "Large language model",
+    "queries": [
+     "LLM work",
+     "LLM education",
+     "LLM medicine"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_331fbc83",
+    "name": "Centros de datos IA",
+    "definition": "Infraestructura física que aloja el cómputo de IA, con impacto en energía, agua e incentivos fiscales.",
+    "wikipedia": "Data center",
+    "queries": [
+     "data centers",
+     "centros datos IA",
+     "AI data center"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ee5ac528",
+    "name": "Programación con IA",
+    "definition": "Herramientas y agentes que asisten o automatizan la escritura de código, transformando el trabajo de desarrollo.",
+    "wikipedia": "AI-assisted coding",
+    "queries": [
+     "AI coding",
+     "coding agents",
+     "asistente código"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_531ca96f",
+    "name": "IA en Latinoamérica",
+    "definition": "Adopción y debate sobre IA en educación y sociedad en Argentina, Colombia, Brasil, Chile y la región.",
+    "wikipedia": "Artificial intelligence in Latin America",
+    "queries": [
+     "IA Latinoamérica",
+     "IA Argentina",
+     "IA educación"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8a6557c7",
+    "name": "Gemini 4 Argon",
+    "definition": "Nueva generación de modelos Gemini de Google con capacidades avanzadas de generación y razonamiento.",
+    "wikipedia": "Gemini (chatbot)",
+    "queries": [
+     "Gemini 4",
+     "Gemini Argon",
+     "Gemini demos"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9ca250e0",
+    "name": "Alucinaciones de IA",
+    "definition": "Errores y fabricaciones de los modelos de lenguaje, y los riesgos de antropomorfizarlos o confiar en ellos.",
+    "wikipedia": "Hallucination (artificial intelligence)",
+    "queries": [
+     "AI hallucinations",
+     "alucinaciones IA",
+     "LLM hallucination"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_cba8e063",
+    "name": "Model Context Protocol",
+    "definition": "Estándar abierto MCP para conectar modelos de IA con herramientas, datos y aplicaciones externas.",
+    "wikipedia": "Model Context Protocol",
+    "queries": [
+     "MCP protocol",
+     "MCP gateway",
+     "MCP explicado"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c615bb47",
+    "name": "Microsoft y OpenAI",
+    "definition": "Alianza, tensiones y estrategias de Microsoft con OpenAI, Meta, IBM y Apple en el mercado de IA.",
+    "wikipedia": "Microsoft",
+    "queries": [
+     "Microsoft OpenAI",
+     "Microsoft AI",
+     "Microsoft Foundry"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_669bf278",
+    "name": "Privacidad y datos",
+    "definition": "Riesgos de privacidad, consentimiento y filtración de datos personales en aplicaciones y agentes de IA.",
+    "wikipedia": "Information privacy",
+    "queries": [
+     "AI privacy",
+     "datos personales",
+     "privacy AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a56a9e58",
+    "name": "Herramientas de coding IA",
+    "definition": "Plataformas y asistentes que usan IA para programar, desde autocompletado hasta agentes de desarrollo completos.",
+    "wikipedia": "AI-assisted coding",
+    "queries": [
+     "AI coding tools",
+     "coding IA",
+     "vibe coding"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_3982a3a9",
+    "name": "Líderes de IA",
+    "definition": "Ejecutivos y figuras como Altman, Musk, Karp y otros que marcan el rumbo y el discurso del sector.",
+    "wikipedia": "Sam Altman",
+    "queries": [
+     "AI executives",
+     "Sam Altman",
+     "Elon Musk AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_0d387957",
+    "name": "Deepfakes",
+    "definition": "Videos y audios falsos generados con IA que suplantan personas, con usos políticos, sexuales y delictivos.",
+    "wikipedia": "Deepfake",
+    "queries": [
+     "deepfakes",
+     "deepfake político",
+     "AI deepfake"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

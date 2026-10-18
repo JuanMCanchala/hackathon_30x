@@ -1,0 +1,255 @@
+{
+ "key": "839e7dc08f26ea6802dd4c483cf1b510c23f260ad468a6807694811856753dbf",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:15:50.339Z",
+ "latencyMs": 9779,
+ "usage": {
+  "inputTokens": 3126,
+  "outputTokens": 1780
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_fabe7e2e",
+    "name": "Pérdida de control de la IA",
+    "definition": "Preocupación creciente por agentes de IA que actúan de forma autónoma e impredecible, desafiando el control humano.",
+    "wikipedia": "AI takeover",
+    "queries": [
+     "AI loss of control",
+     "pérdida control IA",
+     "rogue AI agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_73e77f4f",
+    "name": "Wikipedia e IA",
+    "definition": "Uso de agentes de IA para editar Wikipedia y su impacto en la fiabilidad de la enciclopedia.",
+    "wikipedia": "Wikipedia",
+    "queries": [
+     "Wikipedia AI agents",
+     "IA Wikipedia edición",
+     "Wikimedia AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_30ab948f",
+    "name": "Optimización de código con IA",
+    "definition": "Uso de IA para optimizar código, cómputo y procesos, mejorando el rendimiento de sistemas y flujos de trabajo.",
+    "wikipedia": "Program optimization",
+    "queries": [
+     "AI code optimization",
+     "optimización código IA",
+     "context optimization"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_0c6a36aa",
+    "name": "Meta Horizon Create",
+    "definition": "Herramientas de Meta para crear minijuegos y experiencias con IA generativa mediante vibe coding.",
+    "wikipedia": null,
+    "queries": [
+     "Meta Horizon Create",
+     "Meta Pocket games",
+     "vibe coding Meta"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_3dc9d66c",
+    "name": "Criptoanálisis con IA",
+    "definition": "Aplicación de modelos de IA al criptoanálisis, incluyendo intentos de romper cifrados como ECDSA o AES.",
+    "wikipedia": "Cryptanalysis",
+    "queries": [
+     "AI cryptanalysis",
+     "criptoanálisis IA",
+     "Claude ECDSA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_10f7879e",
+    "name": "Kernel Linux e IA",
+    "definition": "Creciente uso de código generado por IA en el desarrollo del kernel Linux y sus implicaciones.",
+    "wikipedia": "Linux kernel",
+    "queries": [
+     "Linux kernel AI",
+     "kernel Linux IA",
+     "AI kernel patches"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d6e06848",
+    "name": "Lenguaje emergente en IA",
+    "definition": "Fenómeno de agentes de IA que desarrollan lenguajes propios e indescifrables al interactuar entre sí.",
+    "wikipedia": "Emergent communication",
+    "queries": [
+     "AI emergent language",
+     "lenguaje emergente IA",
+     "AI agents language"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f7223de2",
+    "name": "IA en restaurantes",
+    "definition": "Uso de IA generativa para crear menús, gestionar comercios y optimizar operaciones en restaurantes y food service.",
+    "wikipedia": null,
+    "queries": [
+     "AI restaurant menus",
+     "IA restaurantes",
+     "AI food service"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_09229712",
+    "name": "AIOps y DevOps con IA",
+    "definition": "Integración de IA en operaciones de TI, DevOps y SDLC para automatizar y mejorar procesos de desarrollo y monitoreo.",
+    "wikipedia": "AIOps",
+    "queries": [
+     "AIOps DevOps",
+     "IA DevOps",
+     "AI SDLC tools"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_844152c5",
+    "name": "Algoritmos y salarios",
+    "definition": "Impacto de algoritmos y IA en la fijación de salarios y condiciones laborales, especialmente en trabajos precarios.",
+    "wikipedia": "Algorithmic wage discrimination",
+    "queries": [
+     "algorithm wages",
+     "salarios algoritmos",
+     "AI wage impact"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_92efbc7f",
+    "name": "Watermarking de LLM",
+    "definition": "Técnicas para marcar y detectar contenido generado por modelos de lenguaje, con implicaciones en privacidad y uso.",
+    "wikipedia": "Watermarking",
+    "queries": [
+     "LLM watermarking",
+     "watermarking IA",
+     "Claude watermarking"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_999b6944",
+    "name": "Consumo de agua de la IA",
+    "definition": "Preocupación por el alto consumo de agua potable de los centros de datos que entrenan y ejecutan modelos de IA.",
+    "wikipedia": "Water footprint",
+    "queries": [
+     "AI water consumption",
+     "consumo agua IA",
+     "AI data centers water"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f5a377c3",
+    "name": "Monetización con IA",
+    "definition": "Estrategias para generar ingresos mediante agentes de IA, apps, contenido y suscripciones.",
+    "wikipedia": "Monetization",
+    "queries": [
+     "AI monetization",
+     "monetización IA",
+     "AI agent revenue"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_0fceff97",
+    "name": "Python para IA",
+    "definition": "Python sigue siendo el lenguaje dominante para desarrollar agentes de IA y aplicaciones de machine learning.",
+    "wikipedia": "Python (programming language)",
+    "queries": [
+     "Python AI agents",
+     "Python IA",
+     "Python machine learning"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ecbcbbea",
+    "name": "Modelos de IA abiertos",
+    "definition": "Impulso de modelos de pesos abiertos y sandboxes de seguridad para ejecutarlos en entornos empresariales.",
+    "wikipedia": "Open-source artificial intelligence",
+    "queries": [
+     "open source AI models",
+     "modelos abiertos IA",
+     "AI sandbox open models"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_427ce940",
+    "name": "Revisión de código con IA",
+    "definition": "Uso de IA para revisar código, evaluar su calidad y asistir en la revisión humana de código generado por IA.",
+    "wikipedia": "Code review",
+    "queries": [
+     "AI code review",
+     "revisión código IA",
+     "AI code review tools"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_09f6be89",
+    "name": "Disney y Studio Ghibli",
+    "definition": "Posturas de Disney y Studio Ghibli frente a la IA generativa y su impacto en la industria del entretenimiento.",
+    "wikipedia": "The Walt Disney Company",
+    "queries": [
+     "Disney AI",
+     "Studio Ghibli AI",
+     "Ghibli IA generativa"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_3939112a",
+    "name": "Conferencias de IA",
+    "definition": "Eventos y conferencias globales sobre inteligencia artificial, incluyendo México Tech Week y AI Engineer.",
+    "wikipedia": "Artificial intelligence conference",
+    "queries": [
+     "AI conferences",
+     "conferencias IA",
+     "AI events 2026"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d3f358d9",
+    "name": "Zero Trust para IA",
+    "definition": "Extensión del modelo de seguridad Zero Trust a agentes de IA autónomos para prevenir accesos no autorizados.",
+    "wikipedia": "Zero trust architecture",
+    "queries": [
+     "Zero Trust AI",
+     "Zero Trust agentes",
+     "AI security Zero Trust"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_971a2b5b",
+    "name": "Predicción con IA",
+    "definition": "Modelos de IA para predecir comportamientos, errores y tendencias, con aplicaciones en negocios y software.",
+    "wikipedia": "Predictive analytics",
+    "queries": [
+     "AI forecasting",
+     "predicción IA",
+     "AI behavior prediction"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,255 @@
+{
+ "key": "7551bfb0f3fcc032e7cd0610ef1688b484628b5e603cff69c3c59206480e34ba",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:15:54.441Z",
+ "latencyMs": 12041,
+ "usage": {
+  "inputTokens": 3214,
+  "outputTokens": 1641
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_a228de51",
+    "name": "Juguetes y gadgets con IA",
+    "definition": "Dispositivos físicos y juguetes que incorporan IA generativa, desde generadores de Lego hasta peluches inteligentes para niños.",
+    "wikipedia": "AI toy",
+    "queries": [
+     "AI toys kids",
+     "Lego AI generator",
+     "juguetes inteligencia artificial"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_fa66fa4c",
+    "name": "Licencias de contenido para IA",
+    "definition": "Acuerdos y disputas sobre el pago y uso de contenido protegido para entrenar modelos de IA.",
+    "wikipedia": "Content licensing for AI",
+    "queries": [
+     "AI content licensing",
+     "licencias contenido IA",
+     "OpenAI Guardian deal"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_53096413",
+    "name": "Amazon Ads Agent",
+    "definition": "Herramienta de IA de Amazon que crea y optimiza campañas publicitarias de forma autónoma para vendedores.",
+    "wikipedia": null,
+    "queries": [
+     "Amazon Ads Agent",
+     "Amazon AI advertising",
+     "publicidad IA Amazon"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9ebf12e0",
+    "name": "Seguridad para agentes de IA",
+    "definition": "Brecha entre la ambición de desplegar agentes autónomos y la madurez de las defensas de ciberseguridad empresarial.",
+    "wikipedia": "AI agent security",
+    "queries": [
+     "AI agent security",
+     "seguridad agentes IA",
+     "Okta AI agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a61f5c2b",
+    "name": "IA en política israelí",
+    "definition": "Uso de videos generados con IA por políticos israelíes de extrema derecha para promover expansión de asentamientos.",
+    "wikipedia": null,
+    "queries": [
+     "Smotrich AI video",
+     "Israel AI campaign",
+     "IA política Israel"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_dc19e2a1",
+    "name": "Reestructuración corporativa por IA",
+    "definition": "Rediseño de organizaciones y plantillas para redirigir capital hacia automatización e IA, con despidos y tensiones internas.",
+    "wikipedia": "Corporate restructuring",
+    "queries": [
+     "AI corporate restructuring",
+     "reestructuración IA empresas",
+     "Walmart AI layoffs"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_79c521ac",
+    "name": "CRM con agentes de IA",
+    "definition": "Plataformas de gestión de clientes que integran agentes autónomos para ventas, soporte y automatización comercial.",
+    "wikipedia": "Customer relationship management",
+    "queries": [
+     "AI CRM agents",
+     "CRM con IA",
+     "HubSpot Agent Hub"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2ef33f4a",
+    "name": "Modelos de difusión",
+    "definition": "Familia de modelos generativos que crean imágenes, video y audio mediante procesos de difusión, base de gran parte de la IA creativa.",
+    "wikipedia": "Diffusion model",
+    "queries": [
+     "diffusion models",
+     "modelos de difusión",
+     "video diffusion model"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d90446ed",
+    "name": "Simulaciones con IA",
+    "definition": "Entornos simulados que usan IA para modelar procesos físicos, agentes y comportamientos complejos en investigación y producto.",
+    "wikipedia": "Simulation",
+    "queries": [
+     "AI simulation",
+     "simulación con IA",
+     "LLM NPC simulation"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a3a65d54",
+    "name": "Fallos de agentes de IA",
+    "definition": "Incidentes, limitaciones y críticas sobre agentes autónomos que borran datos, fallan tareas o no justifican su adopción.",
+    "wikipedia": "AI agent",
+    "queries": [
+     "AI agent failures",
+     "fallos agentes IA",
+     "AI agent incidents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c44b70f1",
+    "name": "Chips para IA en dispositivos",
+    "definition": "Nuevos procesadores de Qualcomm y MediaTek que llevan IA agéntica a teléfonos, PCs y dispositivos de audio.",
+    "wikipedia": "Qualcomm Snapdragon",
+    "queries": [
+     "Snapdragon AI chips",
+     "MediaTek AI",
+     "chips IA dispositivos"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_4d47d087",
+    "name": "IA en elecciones de EE.UU.",
+    "definition": "Debate sobre regulación de IA y su influencia en las elecciones presidenciales estadounidenses de 2028.",
+    "wikipedia": "2028 United States presidential election",
+    "queries": [
+     "AI 2028 election",
+     "IA elecciones EEUU",
+     "AI voting information"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9c7d3be6",
+    "name": "Adopción de IA en equipos",
+    "definition": "Patrones reales de uso de IA en equipos de trabajo, desde oficinas hasta desarrollo de software, y su impacto en productividad.",
+    "wikipedia": null,
+    "queries": [
+     "AI adoption teams",
+     "adopción IA equipos",
+     "AI usage workplace"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5832ee6b",
+    "name": "Automatización fiscal con IA",
+    "definition": "Uso de IA para automatizar facturación, gastos, cumplimiento fiscal y gestión contable en pymes y asesorías.",
+    "wikipedia": "Tax automation",
+    "queries": [
+     "AI tax automation",
+     "automatización fiscal IA",
+     "AI expense automation"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5d95555a",
+    "name": "Debate ético sobre IA",
+    "definition": "Discusiones sobre los límites morales de la IA generativa, conciencia de modelos y su uso en contextos controvertidos.",
+    "wikipedia": "Ethics of artificial intelligence",
+    "queries": [
+     "AI ethics debate",
+     "debate ético IA",
+     "generative AI ethics"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_392f3c34",
+    "name": "OCDE e IA",
+    "definition": "Análisis y recomendaciones de la OCDE sobre productividad, estándares de datos y políticas de IA entre países.",
+    "wikipedia": "OECD",
+    "queries": [
+     "OECD AI policy",
+     "OCDE IA productividad",
+     "OECD AI standards"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_90baf1e9",
+    "name": "Conflictos de interés en IA",
+    "definition": "Controversias sobre financiamiento, afiliaciones y presión política que condicionan la regulación y el debate público sobre IA.",
+    "wikipedia": "Conflict of interest",
+    "queries": [
+     "AI conflict of interest",
+     "conflicto interés IA",
+     "AI regulation lobbying"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_61ad9e6a",
+    "name": "Lenguaje sobre IA",
+    "definition": "Evolución del vocabulario para hablar de IA, incluyendo críticas al antropomorfismo y nuevos términos en diccionarios.",
+    "wikipedia": null,
+    "queries": [
+     "AI language anthropomorphism",
+     "lenguaje IA",
+     "AI terminology debate"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a327ea77",
+    "name": "Delegación cognitiva en IA",
+    "definition": "Práctica de delegar tareas y criterio a la IA, con riesgos de confundir productividad con capacidad real.",
+    "wikipedia": "Cognitive offloading",
+    "queries": [
+     "cognitive delegation AI",
+     "delegación cognitiva IA",
+     "delegar tareas IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d3d7a6fa",
+    "name": "Inversión en startups de IA",
+    "definition": "Rondas de financiamiento y valoraciones de startups de IA respaldadas por fondos como Sequoia, Blackstone y Sierra.",
+    "wikipedia": "Venture capital",
+    "queries": [
+     "AI startup funding",
+     "inversión startups IA",
+     "Sequoia AI deal"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

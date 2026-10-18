@@ -1,0 +1,24 @@
+{
+ "key": "6f1593af0d23fd3eb41d2be3495f9fff7ff48ba3a4e78bf54454450be6537d91",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T21:54:57.801Z",
+ "latencyMs": 24835,
+ "usage": {
+  "inputTokens": 669,
+  "outputTokens": 856
+ },
+ "output": {
+  "score": 6,
+  "executive": 8,
+  "noCode": 4,
+  "latam": 2,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Agentes de IA redefinen banca y procesos, relevante para estrategia ejecutiva.",
+   "Casos DBS/Sber, no LatAm; poca aplicación directa sin código.",
+   "Riesgo de hype: promesas de automatización total y financiamiento IA."
+  ]
+ }
+}

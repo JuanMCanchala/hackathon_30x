@@ -1,0 +1,24 @@
+{
+ "key": "6c250fede1d328bb42eecce654e6f6f04a0ca9325453ec4a374fae6098f8f8d7",
+ "name": "ask",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T22:02:21.267Z",
+ "latencyMs": 5035,
+ "usage": {
+  "inputTokens": 4576,
+  "outputTokens": 418
+ },
+ "output": {
+  "answer": "El tema de ventas que está creciendo es IA en ventas B2B: etapa crecimiento, +100 %, 10 creadores, con presencia en Bluesky, YouTube, news y LinkedIn, y encaje 30X de 9, el más alto de la lista. Crece por el debate sobre los empleos de ventas que la IA elimina y por la apuesta de Koch por Emanate. Ojo: aparece en «Se están formando» del carril técnico, así que todavía no llega a LinkedIn ni a Instagram, y 30X no lo ha tocado. Si buscas ángulos cercanos para una audiencia ejecutiva, también se están formando Verificación con IA (+224 %, encaje 8) y Detección de fraude con IA (+112 %, encaje 8), ambos con aplicaciones comerciales directas.",
+  "refs": [
+   "t_53644edf",
+   "t_31df93f2",
+   "t_31ae998c"
+  ],
+  "followUps": [
+   "¿Qué gancho usar para contar IA en ventas B2B a ejecutivos si el tema aún no está en LinkedIn?",
+   "¿Cómo se relaciona IA en ventas B2B con Verificación con IA y Detección de fraude con IA en un mismo módulo?",
+   "¿Qué otros temas de «Se están formando» con encaje 30X alto podríamos adelantar antes de que lleguen a LinkedIn?"
+  ]
+ }
+}

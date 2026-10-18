@@ -1,0 +1,275 @@
+{
+ "key": "17c13af1f7fc62310edeb9b1406661c247be5df72edb6ea5bbe387013a39830f",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:12:39.547Z",
+ "latencyMs": 13349,
+ "usage": {
+  "inputTokens": 2945,
+  "outputTokens": 1616
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_e88f98f3",
+    "name": "Brecha de habilidades IA",
+    "definition": "Falta de competencias digitales y blandas que la IA exige a los profesionales y que las empresas deben cerrar.",
+    "wikipedia": "Skill gap",
+    "queries": [
+     "brecha habilidades IA",
+     "AI skills gap",
+     "habilidades demandadas IA",
+     "upskilling AI workforce"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_47b529f2",
+    "name": "Caídas de servicio IA",
+    "definition": "Interrupciones temporales de plataformas como ChatGPT o Claude que afectan la operación de empresas que dependen de ellas.",
+    "wikipedia": "Downtime",
+    "queries": [
+     "ChatGPT outage",
+     "Claude outage",
+     "caída servicio IA",
+     "AI service status"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d38f5515",
+    "name": "Estudios IA universidades",
+    "definition": "Investigaciones de Harvard, Stanford y MIT sobre el impacto laboral, educativo y ético de la inteligencia artificial.",
+    "wikipedia": null,
+    "queries": [
+     "Stanford AI study",
+     "MIT AI research",
+     "estudio Harvard IA",
+     "AI labor research"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_418d6eb6",
+    "name": "Escritura con IA",
+    "definition": "Uso de modelos de lenguaje para generar, editar y estilizar contenido, desde copywriting hasta artículos SEO.",
+    "wikipedia": "AI writing",
+    "queries": [
+     "escritura con IA",
+     "AI copywriting",
+     "LLM writing",
+     "generación texto IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_cbef372f",
+    "name": "IA y estabilidad financiera",
+    "definition": "Advertencias del FMI, Banco Mundial y reguladores sobre riesgos de burbuja y concentración en torno a la IA.",
+    "wikipedia": null,
+    "queries": [
+     "IMF AI report",
+     "FMI IA empleo",
+     "AI financial stability",
+     "riesgo burbuja IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_cbfdc92f",
+    "name": "Atlassian MCP",
+    "definition": "Integración de Atlassian y Jira con agentes de IA mediante el protocolo MCP para automatizar flujos de trabajo.",
+    "wikipedia": "Atlassian",
+    "queries": [
+     "Atlassian MCP",
+     "Jira AI agent",
+     "MCP Atlassian",
+     "Jira automation AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_fca58124",
+    "name": "ASML y TSMC",
+    "definition": "Resultados y pedidos de los fabricantes de chips clave para la infraestructura de IA, indicadores del ciclo de inversión.",
+    "wikipedia": "ASML",
+    "queries": [
+     "ASML AI chips",
+     "TSMC AI demand",
+     "ASML resultados",
+     "semiconductor AI boom"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8d9e8b6a",
+    "name": "Agentes de IA personales",
+    "definition": "Asistentes autónomos que ejecutan tareas del usuario y protocolos para que distintos agentes colaboren entre sí.",
+    "wikipedia": "Intelligent agent",
+    "queries": [
+     "personal AI agent",
+     "agente IA personal",
+     "agent2agent protocol",
+     "AI agent studio"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2ea961a7",
+    "name": "Orquestación de agentes",
+    "definition": "Coordinación de múltiples agentes y modelos de IA para ejecutar procesos empresariales complejos de forma automatizada.",
+    "wikipedia": "Orchestration (computing)",
+    "queries": [
+     "agent orchestration",
+     "orquestación agentes IA",
+     "AI orchestration",
+     "watsonx orchestrate"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_09f6a79b",
+    "name": "Redes sociales y IA",
+    "definition": "Impacto de la IA en plataformas sociales: bots, regulación, moderación y estrategias de marketing digital.",
+    "wikipedia": "Social media",
+    "queries": [
+     "social media AI",
+     "redes sociales IA",
+     "AI bots social",
+     "regulación redes sociales"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_53ff2c21",
+    "name": "RAG",
+    "definition": "Técnica que combina modelos de lenguaje con bases de conocimiento para respuestas más precisas y actualizadas.",
+    "wikipedia": "Retrieval-augmented generation",
+    "queries": [
+     "RAG LLM",
+     "retrieval augmented generation",
+     "RAG local",
+     "RAG enterprise"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a187f48e",
+    "name": "Cloudflare y edge AI",
+    "definition": "Plataformas de infraestructura como Cloudflare o Fastly que habilitan cómputo y agentes de IA en el borde.",
+    "wikipedia": "Cloudflare",
+    "queries": [
+     "Cloudflare Workers AI",
+     "Cloudflare MCP",
+     "edge AI infrastructure",
+     "Fastly AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9b173d59",
+    "name": "Valuación de IA",
+    "definition": "Debate sobre las valoraciones bursátiles de empresas de IA y el riesgo de burbuja especulativa.",
+    "wikipedia": "AI bubble",
+    "queries": [
+     "AI valuation",
+     "valuación OpenAI",
+     "AI bubble",
+     "valoración startups IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c8da1235",
+    "name": "Transcripción con IA",
+    "definition": "Herramientas de speech-to-text y texto a voz que automatizan notas, reuniones y accesibilidad.",
+    "wikipedia": "Speech recognition",
+    "queries": [
+     "AI transcription",
+     "transcripción IA",
+     "speech to text",
+     "Otter.ai"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1176774b",
+    "name": "Lanzamientos de modelos IA",
+    "definition": "Nuevos modelos y productos de IA que marcan el ritmo competitivo entre OpenAI, Google, Anthropic y otros.",
+    "wikipedia": null,
+    "queries": [
+     "new AI model",
+     "lanzamiento modelo IA",
+     "Gemini launch",
+     "AI model release"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_4867d81b",
+    "name": "Poder de Big Tech",
+    "definition": "Concentración de poder económico y político en las grandes tecnológicas y su influencia sobre la regulación de IA.",
+    "wikipedia": "Big Tech",
+    "queries": [
+     "Big Tech power",
+     "poder big tech",
+     "AI regulation big tech",
+     "tech monopolies"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_fa1b0b2c",
+    "name": "Android y IA",
+    "definition": "Integración de IA en el ecosistema Android, apps móviles y políticas de Google Play.",
+    "wikipedia": "Android (operating system)",
+    "queries": [
+     "Android AI",
+     "Android development",
+     "Google Play AI",
+     "apps Android IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ea9b2927",
+    "name": "Agentes en Slack",
+    "definition": "Integración de agentes de IA en herramientas de trabajo colaborativo como Slack, Discord o Asana.",
+    "wikipedia": "Slack (software)",
+    "queries": [
+     "Slack AI agent",
+     "agentes Slack",
+     "Slack Code",
+     "AI workplace tools"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_03b53507",
+    "name": "IA y bioterrorismo",
+    "definition": "Debate sobre si los modelos de IA pueden facilitar la creación de armas biológicas y cómo regularlo.",
+    "wikipedia": "Biosecurity",
+    "queries": [
+     "AI bioweapons",
+     "Anthropic bioweapons",
+     "bioterrorismo IA",
+     "AI biosecurity risk"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_35600d04",
+    "name": "IA y arte",
+    "definition": "Tensión entre creatividad humana y generación por IA en fotografía, cine, museos y derechos de autor.",
+    "wikipedia": "Artificial intelligence art",
+    "queries": [
+     "AI art",
+     "IA y arte",
+     "AI photography",
+     "artistas IA"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

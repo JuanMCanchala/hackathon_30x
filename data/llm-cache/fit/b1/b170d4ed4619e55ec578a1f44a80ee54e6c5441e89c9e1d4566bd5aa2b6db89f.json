@@ -1,0 +1,24 @@
+{
+ "key": "b170d4ed4619e55ec578a1f44a80ee54e6c5441e89c9e1d4566bd5aa2b6db89f",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:29:07.194Z",
+ "latencyMs": 6244,
+ "usage": {
+  "inputTokens": 725,
+  "outputTokens": 876
+ },
+ "output": {
+  "score": 5,
+  "executive": 7,
+  "noCode": 2,
+  "latam": 4,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Riesgo legal y reputacional para empresas que usan IA con datos.",
+   "Clave para gobernanza de datos, no para tácticas comerciales.",
+   "Casos son de EE.UU.; falta ángulo LatAm concreto."
+  ]
+ }
+}

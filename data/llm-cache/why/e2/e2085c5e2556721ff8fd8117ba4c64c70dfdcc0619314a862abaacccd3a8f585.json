@@ -1,0 +1,21 @@
+{
+ "key": "e2085c5e2556721ff8fd8117ba4c64c70dfdcc0619314a862abaacccd3a8f585",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:14:02.439Z",
+ "latencyMs": 4103,
+ "usage": {
+  "inputTokens": 1309,
+  "outputTokens": 649
+ },
+ "output": {
+  "oneLiner": "Un ingeniero saudí de OpenAI fue arrestado por espiar salas de ejecutivos; Fireship y medios globales lo amplifican.",
+  "narrative": "El caso despega en video: 3 de 8 piezas que despegaron son videos, frente a 0 de 14 del resto. El texto también rinde: 4 de 8 despegadas son posts de texto, frente a 2 de 14 del resto. La sorpresa no discrimina: 3 de 8 frente a 3 de 14. Lo mueven creadores técnicos como Fireship en YouTube y medios como Le Monde in English en Bluesky, con el arresto del ingeniero saudí como gancho.",
+  "cited": [
+   "youtube:QZVzuq28eFw",
+   "bluesky:3mxrzhc63jw2j",
+   "youtube:KLmmsjaXtdY",
+   "bluesky:3mxsa5cfb3b2x"
+  ]
+ }
+}

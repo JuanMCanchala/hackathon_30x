@@ -1,0 +1,24 @@
+{
+ "key": "bd88d20c4a199c1b5c04c9d26fbcd1953d30c6d00e1b429878d7e4e6350d0608",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:29:10.726Z",
+ "latencyMs": 3451,
+ "usage": {
+  "inputTokens": 670,
+  "outputTokens": 404
+ },
+ "output": {
+  "score": 5,
+  "executive": 7,
+  "noCode": 2,
+  "latam": 1,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Señal de consolidación IA relevante para estrategia y fundraising.",
+   "Poco aplicable sin código ni ángulo latinoamericano claro.",
+   "Rumor de adquisición puede ser más ruido que aprendizaje práctico."
+  ]
+ }
+}

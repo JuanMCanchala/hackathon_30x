@@ -1,0 +1,21 @@
+{
+ "key": "fef10e68a63fb27bf0d4ef280ac1565389639100c564ac831e2835a50d2729e8",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:20:57.929Z",
+ "latencyMs": 22748,
+ "usage": {
+  "inputTokens": 1533,
+  "outputTokens": 3605
+ },
+ "output": {
+  "oneLiner": "Justin Mikulka y Pollo Vigorexico avivan el debate por ventas de cofundadores de CoreWeave y deuda al 15%.",
+  "narrative": "No hay patrones con al menos 3 piezas. Lo que despega son posts de Bluesky sobre CoreWeave: Justin Mikulka con 28.7× la mediana de su autor y Pollo Vigorexico con 13.6×. En Hugging Face, LiquidAI logra 443 de engagement y 2.3× su mediana. El post en Bluesky sobre Cerebras y velocidad de inferencia solo alcanza 1.1×.",
+  "cited": [
+   "bluesky:3mxz7adqjek25",
+   "bluesky:3my2pj56fck2i",
+   "huggingface:model:LiquidAI/LFM2.5-24B-A2B",
+   "bluesky:3mxxogt7k2624"
+  ]
+ }
+}

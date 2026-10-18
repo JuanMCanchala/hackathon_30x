@@ -1,0 +1,255 @@
+{
+ "key": "f18a1aae96fd00d555aee6322d232c107564bc8dac2944d8c87df8db980b429f",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:15:21.218Z",
+ "latencyMs": 10017,
+ "usage": {
+  "inputTokens": 3126,
+  "outputTokens": 1503
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_74afb95d",
+    "name": "Docker y Kubernetes con IA",
+    "definition": "Infraestructura de contenedores y orquestación que se adapta para ejecutar cargas de trabajo y agentes de IA.",
+    "wikipedia": "Kubernetes",
+    "queries": [
+     "Docker AI agents",
+     "Kubernetes AI workloads",
+     "contenedores agentes IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a4855af1",
+    "name": "IA en campañas electorales",
+    "definition": "Uso de video, publicidad y contenido generado con IA en campañas políticas y electorales.",
+    "wikipedia": "Artificial intelligence in political campaigns",
+    "queries": [
+     "AI political ads",
+     "IA campaña electoral",
+     "deepfakes elecciones"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1623e0b8",
+    "name": "Marcas e IA",
+    "definition": "Cómo las marcas construyen identidad, preferencia y políticas de uso frente a la inteligencia artificial.",
+    "wikipedia": "Brand management",
+    "queries": [
+     "AI branding strategy",
+     "marcas IA marketing",
+     "brand AI policy"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_758292e7",
+    "name": "IA en el Sudeste Asiático",
+    "definition": "Adopción y desarrollo de IA en Filipinas, Malasia, Tailandia, Nepal y Bangladesh.",
+    "wikipedia": null,
+    "queries": [
+     "AI Southeast Asia",
+     "IA Filipinas Malasia",
+     "AI adoption Asia"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_93838b2b",
+    "name": "IA en dispositivos médicos",
+    "definition": "Regulación y validación de dispositivos médicos que incorporan inteligencia artificial generativa.",
+    "wikipedia": "Medical device",
+    "queries": [
+     "FDA AI medical devices",
+     "IA dispositivos médicos",
+     "generative AI regulation FDA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_251ef0ca",
+    "name": "Muse Spark",
+    "definition": "Familia de modelos y herramientas de IA de código abierto denominada Muse Spark.",
+    "wikipedia": null,
+    "queries": [
+     "Muse Spark AI",
+     "Muse Spark Open",
+     "nanoMuse model"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_820f4c46",
+    "name": "Doomerismo de IA",
+    "definition": "Corriente que anticipa escenarios catastróficos por la IA y el debate sobre su base científica.",
+    "wikipedia": "AI safety",
+    "queries": [
+     "AI doomerism",
+     "p(doom) AI",
+     "doomerismo IA crítica"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_823e200d",
+    "name": "Startups de IA contable",
+    "definition": "Empresas nativas de IA que automatizan contabilidad y finanzas, como Rillet o Yoodli.",
+    "wikipedia": null,
+    "queries": [
+     "Rillet AI accounting",
+     "AI accounting startups",
+     "startups contabilidad IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5f1284bf",
+    "name": "IA y abogados",
+    "definition": "Uso de IA en departamentos legales y casos de citas falsas generadas por modelos.",
+    "wikipedia": "Legal technology",
+    "queries": [
+     "AI legal departments",
+     "abogados IA citas",
+     "AI hallucination lawyers"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f5f206a1",
+    "name": "Gestión de equipos con IA",
+    "definition": "Cómo la IA transforma la gestión de personas, proyectos y productividad de equipos.",
+    "wikipedia": "Project management",
+    "queries": [
+     "AI team management",
+     "gestión equipos IA",
+     "AI project management"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_dd277aee",
+    "name": "Paradoja de productividad IA",
+    "definition": "El desfase entre la adopción de IA y las mejoras medibles en productividad y calidad.",
+    "wikipedia": "Productivity paradox",
+    "queries": [
+     "AI productivity paradox",
+     "paradoja productividad IA",
+     "AI productivity trap"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2ecd9207",
+    "name": "Reconocimiento facial policial",
+    "definition": "Vigilancia con reconocimiento facial e IA por fuerzas de seguridad y sus cuestionamientos legales.",
+    "wikipedia": "Facial recognition system",
+    "queries": [
+     "facial recognition police",
+     "reconocimiento facial policía",
+     "BriefCam surveillance"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b5633f77",
+    "name": "IA generativa en Latinoamérica",
+    "definition": "Adopción, regulación y debate sobre IA generativa en México, Perú y la región.",
+    "wikipedia": null,
+    "queries": [
+     "IA generativa Latinoamérica",
+     "ley IA México",
+     "generative AI Latin America"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_275be7a6",
+    "name": "RRHH e IA",
+    "definition": "Impacto de la IA en gestión de talento, liderazgo de recursos humanos y relación con empleados.",
+    "wikipedia": "Human resource management",
+    "queries": [
+     "HR AI talent",
+     "RRHH IA talento",
+     "AI human resources"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_eee5a3ec",
+    "name": "Fuerza de IA y defensa",
+    "definition": "Iniciativas gubernamentales y startups de defensa que aplican IA, como Shield AI.",
+    "wikipedia": "Shield AI",
+    "queries": [
+     "Shield AI defense",
+     "AI task force",
+     "defensa IA startups"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_57d8622d",
+    "name": "Agentes de Salesforce y Strands",
+    "definition": "Plataformas de agentes de IA empresariales como Agentforce y Strands Agents.",
+    "wikipedia": null,
+    "queries": [
+     "Salesforce Agentforce",
+     "Strands Agents",
+     "agentes IA empresariales"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c02dabad",
+    "name": "Críticos de la IA",
+    "definition": "Voces como Lina Khan, Carissa Véliz o Frances Haugen que cuestionan el excepcionalismo y poder de la IA.",
+    "wikipedia": "Lina Khan",
+    "queries": [
+     "Lina Khan AI",
+     "Carissa Véliz IA",
+     "AI exceptionalism critique"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2f674367",
+    "name": "Xi Jinping e IA",
+    "definition": "La visión de China y Xi Jinping sobre gobernanza global de IA y cooperación con BRICS.",
+    "wikipedia": "Xi Jinping",
+    "queries": [
+     "Xi Jinping AI",
+     "China AI governance",
+     "IA China BRICS"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5fd7ac90",
+    "name": "BTS y Gemini",
+    "definition": "Colaboración entre BTS y Google Gemini y el debate sobre artistas que promueven IA generativa.",
+    "wikipedia": "BTS",
+    "queries": [
+     "BTS Gemini",
+     "BTS Google AI",
+     "K-pop AI collaboration"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1d919955",
+    "name": "Flujos de trabajo agénticos",
+    "definition": "Evolución de chatbots hacia cadenas de agentes de IA que ejecutan tareas complejas de forma autónoma.",
+    "wikipedia": "Intelligent agent",
+    "queries": [
+     "agentic workflows",
+     "flujos agénticos IA",
+     "LLM agent chains"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

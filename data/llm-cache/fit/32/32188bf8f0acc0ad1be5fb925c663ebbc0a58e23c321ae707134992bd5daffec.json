@@ -1,0 +1,24 @@
+{
+ "key": "32188bf8f0acc0ad1be5fb925c663ebbc0a58e23c321ae707134992bd5daffec",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:16:26.473Z",
+ "latencyMs": 7888,
+ "usage": {
+  "inputTokens": 734,
+  "outputTokens": 915
+ },
+ "output": {
+  "score": 4,
+  "executive": 5,
+  "noCode": 1,
+  "latam": 1,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "alto",
+  "reasons": [
+   "Tema técnico y legal, poco aplicable a ventas o growth.",
+   "Requiere programar; equipos comerciales no lo usarán mañana.",
+   "Riesgo de polémica por clonar software propietario."
+  ]
+ }
+}

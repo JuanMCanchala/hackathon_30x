@@ -1,0 +1,21 @@
+{
+ "key": "ca9d1d8109211a9bb7f990a7e18f6d787f560235a5e1cd0312e067cb19f43c9d",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:19:22.029Z",
+ "latencyMs": 9801,
+ "usage": {
+  "inputTokens": 1343,
+  "outputTokens": 1673
+ },
+ "output": {
+  "oneLiner": "FBI arresta a empleado de OpenAI por dispositivo de escucha; Zack Whittaker y NBC News lo amplifican.",
+  "narrative": "No hay patrones con al menos 3 piezas. Las que despegan son un post de Zack Whittaker en Bluesky, 17.3 veces la mediana de su autor, y un video de NBC News en YouTube, 3.6 veces. El gancho es la acusación del FBI contra un empleado de OpenAI por un dispositivo de escucha en una sala de conferencias. Otras coberturas de Ars Technica y Wajahat Ali en Bluesky no superan su mediana.",
+  "cited": [
+   "bluesky:3mxrwlkmrhc2z",
+   "youtube:B3D5nViNT6A",
+   "bluesky:3mxtykwdddx2a",
+   "bluesky:3mxrydv646s2b"
+  ]
+ }
+}

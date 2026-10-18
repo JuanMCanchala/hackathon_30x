@@ -1,0 +1,51 @@
+{
+ "key": "01d78c04b62913783bddac702eafd9cdaeae8e946348bc423b5353623331bdfe",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T17:18:45.211Z",
+ "latencyMs": 10734,
+ "usage": {
+  "inputTokens": 706,
+  "outputTokens": 1537
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_ee5ac528",
+    "name": "Revisión de código con IA",
+    "definition": "Uso de IA para generar código y para revisarlo, con equipos que debaten cuánta automatización aceptar en sus repositorios.",
+    "wikipedia": "Code review",
+    "queries": [
+     "AI code review",
+     "revisión código IA",
+     "Claude Code review"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_64c63e54",
+    "name": "GLM-5.3",
+    "definition": "Nueva familia de modelos abiertos de Zhipu AI, GLM-5.3 y su versión Flash, que compite por costo y rendimiento.",
+    "wikipedia": "Zhipu AI",
+    "queries": [
+     "GLM-5.3",
+     "GLM-5.3 Flash",
+     "Zhipu AI modelos"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_52d2b2cc",
+    "name": "Laya y Unsloth",
+    "definition": "Modelos de pesos abiertos publicados en Hugging Face, como Laya y las versiones GGUF optimizadas con Unsloth.",
+    "wikipedia": null,
+    "queries": [
+     "Laya modelo",
+     "Unsloth GGUF",
+     "modelos open source"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

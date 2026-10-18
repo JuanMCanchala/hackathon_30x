@@ -1,0 +1,79 @@
+{
+ "key": "39ac853ed3d4b423ab936a61a5047e5ed5fd9f270e389398c2b655542efe92c4",
+ "name": "adapt",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T21:58:49.490Z",
+ "latencyMs": 26141,
+ "usage": {
+  "inputTokens": 1346,
+  "outputTokens": 3256
+ },
+ "output": {
+  "angle": "Mientras todos hablan del riesgo de Shadow AI, en 30X lo vemos como la señal de que tus equipos ya usan IA: la ventaja está en gobernar ese uso antes que tu competencia.",
+  "hooks": [
+   "12 creadores esta semana y +247%: el Shadow AI ya es tendencia en LatAm.",
+   "¿Sabes cuántos de tus empleados usan IA sin permiso ahora mismo?",
+   "Prohibir la IA en tu empresa es la peor estrategia de seguridad."
+  ],
+  "linkedin": "Hace unos años, en Rappi, descubrimos que un equipo usaba una herramienta no autorizada para automatizar reportes. No era malicia, era velocidad. Hoy veo lo mismo con la IA: tus empleados la usan sin permiso porque necesitan resolver problemas ya.\n\nEl Shadow AI creció +247% en creadores esta semana. No es una moda. Es una señal. En LatAm, donde las regulaciones son incipientes, el riesgo es mayor: datos expuestos, cumplimiento en duda. Pero también es una oportunidad.\n\nEn 30X creemos que la ventaja injusta está en gobernar la IA, no en prohibirla. Implementa políticas claras, capacita a tu equipo y mide el uso. Convierte el Shadow AI en IA gobernada.\n\nLa acción concreta: esta semana, haz un inventario de herramientas de IA que usa tu equipo. Luego define un marco de uso. No esperes a que sea un problema de seguridad.\n\n#IA #Gobernanza #LatAm",
+  "carousel": [
+   {
+    "title": "Shadow AI: el riesgo invisible",
+    "body": "Tus empleados usan IA sin permiso. +247% de crecimiento en creadores. ¿Estás listo?"
+   },
+   {
+    "title": "Datos expuestos sin control",
+    "body": "Herramientas no autorizadas pueden filtrar información confidencial. El uso no autorizado expone datos de tu empresa."
+   },
+   {
+    "title": "LatAm: regulación incipiente",
+    "body": "Mientras las leyes de IA avanzan lento, tus equipos ya la usan. La gobernanza es tu responsabilidad."
+   },
+   {
+    "title": "Prohibir no funciona",
+    "body": "Bloquear la IA solo empuja el uso a escondidas. Mejor gobernar y canalizar."
+   },
+   {
+    "title": "Convierte riesgo en ventaja",
+    "body": "Políticas claras + capacitación = equipos más rápidos y seguros. La ventaja injusta."
+   },
+   {
+    "title": "3 pasos para gobernar",
+    "body": "1. Inventario de herramientas. 2. Política de uso. 3. Capacitación continua."
+   },
+   {
+    "title": "Actúa esta semana",
+    "body": "Haz un inventario de IA en tu equipo. Define reglas claras. No esperes a la crisis."
+   }
+  ],
+  "reel": {
+   "hook": "¿Sabías que tus empleados usan IA sin permiso? Esto es Shadow AI.",
+   "beats": [
+    "Crecimiento +247% en creadores esta semana.",
+    "TN y DiarioBitcoin ya cubren el uso no autorizado.",
+    "Riesgo: datos expuestos y cumplimiento.",
+    "LatAm: regulación lenta, uso rápido.",
+    "Solución: gobernar, no prohibir.",
+    "Convierte Shadow AI en ventaja."
+   ],
+   "onScreen": [
+    "+247% en creadores",
+    "Medios alertan",
+    "Datos en riesgo",
+    "Regulación lenta",
+    "Gobierna la IA",
+    "Ventaja injusta"
+   ],
+   "cta": "Haz un inventario de IA en tu equipo esta semana. Sígueme para más."
+  },
+  "youtube": {
+   "title": "Shadow AI: el riesgo oculto que crece +247% en LatAm",
+   "thumbnail": "Ejecutivo preocupado mirando laptop con símbolos de IA. Texto grande: 'Shadow AI'."
+  },
+  "avoid": [
+   "No uses el ángulo de 'la IA nos va a quitar el trabajo' porque no es el foco y ya está gastado.",
+   "Evita el sensacionalismo tipo 'el fin del mundo por la IA'.",
+   "No ataques a los empleados; el problema es la falta de gobernanza, no la curiosidad."
+  ]
+ }
+}

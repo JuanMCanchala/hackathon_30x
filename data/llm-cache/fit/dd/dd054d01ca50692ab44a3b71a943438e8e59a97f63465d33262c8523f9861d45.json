@@ -1,0 +1,24 @@
+{
+ "key": "dd054d01ca50692ab44a3b71a943438e8e59a97f63465d33262c8523f9861d45",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:16:46.882Z",
+ "latencyMs": 5083,
+ "usage": {
+  "inputTokens": 694,
+  "outputTokens": 621
+ },
+ "output": {
+  "score": 3,
+  "executive": 4,
+  "noCode": 2,
+  "latam": 1,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "alto",
+  "reasons": [
+   "Tema técnico de seguridad y eficiencia, poco aplicable a ventas o growth.",
+   "Self-replicación y felonies suenan alarmistas; riesgo de humo.",
+   "Solo el ángulo Nvidia o modelos locales roza decisiones ejecutivas."
+  ]
+ }
+}

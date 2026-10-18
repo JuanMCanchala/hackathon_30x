@@ -1,0 +1,20 @@
+{
+ "key": "7755b90e9290af50f5c00a7ee3a9310d3aecb8396dbfe32da1dc86ed7654cab3",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:18:49.069Z",
+ "latencyMs": 8638,
+ "usage": {
+  "inputTokens": 1344,
+  "outputTokens": 1289
+ },
+ "output": {
+  "oneLiner": "ChatGPT ya controla pestañas de Chrome; un video de The AI Advantage en YouTube lo explica.",
+  "narrative": "3 de 3 piezas que despegaron las publicó un creador de contenido, frente a 0 de 17 del resto, aunque el patrón se apoya en solo tres piezas. El gancho es resolver un problema concreto: el video de The AI Advantage sobre ChatGPT y el navegador llega a 6,4 veces la mediana de su autor. La noticia de Computer Hoy confirma el lanzamiento y Kernelia lo aborda desde la privacidad de las pestañas. El resto de la evidencia queda por debajo de su mediana, así que el crecimiento se sostiene en el caso de uso, no en los repositorios.",
+  "cited": [
+   "youtube:KwvpDtUFS-s",
+   "news:CBMi3AFBVV95cUxNTDRBN3ZXMGd3cnBoZTNsWTVVMnRVSkxQdVFNYTRJS0dOdFhBbk9iWlpsVEJyazVlakhCR2kyeVRGajNza2lsdlBHelBWVTkwWFFQVHcwQWk5QVAyc29BREoyVl9vV1YtZVpUV3VScFZNcGp5MDVOU1lPWVlGSmRXMFM2SWJTbl9zNlRteS13OUdGWWF4THRhdXc1QkJPQk5BZjFNMUVoRGdmVnZPNkJnRjZfSlhnb2c5cDc2ZElra0ZTcUFCVXRyNEw5U2FYOElia1dScFNaNDI3NS1K",
+   "bluesky:3mxvfe7xemc2h"
+  ]
+ }
+}

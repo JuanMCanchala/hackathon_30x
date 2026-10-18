@@ -1,0 +1,48 @@
+{
+ "key": "9dc5b48c1055511160e5460593ea93786d9cd4579bb79c0b08383bb014bf9cdc",
+ "name": "watch-slides",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T23:47:15.728Z",
+ "latencyMs": 22836,
+ "usage": {
+  "inputTokens": 7467,
+  "outputTokens": 1125
+ },
+ "output": {
+  "slides": [
+   {
+    "text": "SHE TURNED FRENCH ONION SOUP INTO BUTTER AND BUILT A WAITLIST OF 10,000 PEOPLE",
+    "es": "Convirtió la sopa de cebolla francesa en mantequilla y armó una lista de espera de 10.000 personas"
+   },
+   {
+    "text": "THE SPARK\nAfter years of cooking for fun and making butter on her own, Greer Hiltabidle wondered what would happen if she put everything she loved about French onion soup into butter.",
+    "es": "LA CHISPA\nDespués de años de cocinar por gusto y hacer mantequilla por su cuenta, Greer Hiltabidle se preguntó qué pasaría si metía todo lo que le encantaba de la sopa de cebolla francesa en la mantequilla."
+   },
+   {
+    "text": "THE IDEA\nThat became French Onion Soup Butter, followed by Caesar Salad Butter and Grilled Cheese Butter. Greer posted the idea online, thousands of people showed up almost immediately and a business took shape.",
+    "es": "LA IDEA\nAsí nació la mantequilla de sopa de cebolla francesa, y después la de ensalada César y la de sándwich de queso a la plancha. Greer publicó la idea en redes, miles de personas aparecieron casi de inmediato y el negocio empezó a tomar forma."
+   },
+   {
+    "text": "THE GRIND\nGreer kept her full-time job as a social content director, building Butter Girl on nights and weekends and funding it with her salary and savings. She made butter in her apartment and hand-delivered orders.",
+    "es": "EL ESFUERZO\nGreer mantuvo su trabajo de tiempo completo como directora de contenido en redes, y construyó Butter Girl de noche y los fines de semana, financiándolo con su sueldo y sus ahorros. Hacía la mantequilla en su departamento y entregaba los pedidos en persona."
+   },
+   {
+    "text": "THE COMMUNITY\nEventually, she was going into debt and didn't know how long she could keep going. So she asked her followers what to do, and they said Kickstarter. She set a $20,000 goal, and 232 backers raised $23,948.",
+    "es": "LA COMUNIDAD\nCon el tiempo empezó a endeudarse y no sabía cuánto más podría aguantar. Así que les preguntó a sus seguidores qué hacer, y ellos le dijeron Kickstarter. Puso una meta de 20.000 dólares y 232 personas aportaron 23.948."
+   },
+   {
+    "text": "THE LEAP\nThen La Peetch, a cooking school at Julia Child's former summer home in Provence, invited her to visit. It forced Greer to admit she was holding onto her job out of fear. She quit and went all in.",
+    "es": "EL SALTO\nEntonces La Peetch, una escuela de cocina en la que fue la casa de verano de Julia Child en Provenza, la invitó a visitarla. Eso la obligó a admitir que se aferraba a su trabajo por miedo. Renunció y se lanzó por completo."
+   },
+   {
+    "text": "THE DEMAND\nSince going full time, Greer has gained 80,000 followers in one week and has 10,000 people on the waitlist. The challenge now isn't demand. It's building the infrastructure.",
+    "es": "LA DEMANDA\nDesde que se dedicó de lleno, Greer sumó 80.000 seguidores en una semana y tiene 10.000 personas en la lista de espera. Ahora el desafío no es la demanda, sino construir la infraestructura."
+   },
+   {
+    "text": "THE LESSON: MAKE IT REAL, THEN MAKE IT GOOD\nGreer borrows the line from psychologist Adam Grant. She launched before she knew how to run a butter company and is now learning the boring stuff: permits, food safety and shelf life.\nHer take: start before you're ready, but don't scale before you're ready.",
+    "es": "LA LECCIÓN: HAZLO REAL Y DESPUÉS HAZLO BIEN\nGreer toma la frase del psicólogo Adam Grant. Lanzó antes de saber cómo dirigir una empresa de mantequilla y ahora está aprendiendo lo aburrido: permisos, inocuidad alimentaria y vida útil del producto.\nSu conclusión: empieza antes de estar listo, pero no escales antes de estar listo."
+   }
+  ],
+  "idea": "El carrusel cuenta cómo Greer Hiltabidle convirtió su idea de una mantequilla con sabor a sopa de cebolla francesa en un negocio real, pasando por el esfuerzo de compaginar su empleo, una comunidad que la rescató con un Kickstarter y el salto a dedicarse por completo; engancha porque muestra un camino emprendedor honesto, con deudas y miedos, y cierra con una lección práctica sobre lanzarse antes de sentirse listo."
+ }
+}

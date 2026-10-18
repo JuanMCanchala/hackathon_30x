@@ -1,0 +1,255 @@
+{
+ "key": "f01ea2047bd9a913fc62edc77428f1fc652c0b618e180aab7df5e509900e43c5",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T17:35:41.837Z",
+ "latencyMs": 12600,
+ "usage": {
+  "inputTokens": 3525,
+  "outputTokens": 1696
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_331fbc83",
+    "name": "Data centers de IA",
+    "definition": "Infraestructura masiva de cómputo que sostiene el entrenamiento y despliegue de modelos de IA a escala global.",
+    "wikipedia": "AI data center",
+    "queries": [
+     "AI data centers",
+     "data centers IA",
+     "centros datos IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_08b6dbef",
+    "name": "Startups de IA",
+    "definition": "Empresas emergentes que desarrollan productos o servicios basados en inteligencia artificial en distintos mercados.",
+    "wikipedia": "Artificial intelligence startup",
+    "queries": [
+     "AI startups",
+     "startups IA",
+     "startup inteligencia artificial"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ea4d9444",
+    "name": "Bots de IA",
+    "definition": "Agentes automatizados que interactúan con usuarios, generan tráfico o ejecutan tareas en plataformas digitales.",
+    "wikipedia": "Internet bot",
+    "queries": [
+     "AI bots",
+     "bots IA",
+     "chatbots adicción"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9ab7f60c",
+    "name": "Ingeniería de prompts",
+    "definition": "Disciplina para diseñar instrucciones efectivas que maximicen el rendimiento de modelos generativos en tareas concretas.",
+    "wikipedia": "Prompt engineering",
+    "queries": [
+     "prompt engineering",
+     "ingeniería prompts",
+     "prompting técnicas"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_19455273",
+    "name": "Robótica con IA",
+    "definition": "Integración de modelos de IA en robots para mejorar manipulación, aprendizaje y colaboración en entornos físicos.",
+    "wikipedia": "Robotics",
+    "queries": [
+     "AI robotics",
+     "robótica IA",
+     "robot training"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d6a3d946",
+    "name": "IA en Latinoamérica",
+    "definition": "Adopción, talento y regulación de inteligencia artificial en mercados de América Latina y España.",
+    "wikipedia": "Artificial intelligence in Latin America",
+    "queries": [
+     "IA Latinoamérica",
+     "AI Latin America",
+     "IA Colombia"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5d992301",
+    "name": "Desarrolladores e IA",
+    "definition": "Impacto de la IA en el trabajo, productividad y perspectivas laborales de programadores y equipos de desarrollo.",
+    "wikipedia": "Software developer",
+    "queries": [
+     "AI developers",
+     "desarrolladores IA",
+     "AI coding jobs"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8e366e48",
+    "name": "Publicidad con IA",
+    "definition": "Uso de inteligencia artificial para crear, segmentar y automatizar anuncios en plataformas digitales y medios.",
+    "wikipedia": "Advertising",
+    "queries": [
+     "AI advertising",
+     "anuncios IA",
+     "ChatGPT ads"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_4e8b2059",
+    "name": "Ciberseguridad e IA",
+    "definition": "Nuevas amenazas y defensas cibernéticas potenciadas por inteligencia artificial en empresas e infraestructura crítica.",
+    "wikipedia": "Computer security",
+    "queries": [
+     "AI cybersecurity",
+     "ciberseguridad IA",
+     "AI cyberattacks"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b90ded3e",
+    "name": "Derechos de autor e IA",
+    "definition": "Conflictos legales y debates sobre propiedad intelectual cuando modelos generativos usan obras protegidas.",
+    "wikipedia": "Copyright",
+    "queries": [
+     "AI copyright",
+     "derechos autor IA",
+     "copyright lawsuits"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_05ebbe9e",
+    "name": "Servidores MCP",
+    "definition": "Infraestructura que conecta modelos de IA con herramientas y datos externos mediante el protocolo MCP.",
+    "wikipedia": "Model Context Protocol",
+    "queries": [
+     "MCP server",
+     "servidores MCP",
+     "MCP protocol"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_746b86ca",
+    "name": "Claude Code",
+    "definition": "Herramienta de Anthropic para programar y automatizar tareas de desarrollo mediante agentes de IA en terminal.",
+    "wikipedia": "Claude (language model)",
+    "queries": [
+     "Claude Code",
+     "Anthropic Claude",
+     "Claude skills"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_238df318",
+    "name": "IA aplicada",
+    "definition": "Integración de inteligencia artificial en procesos de negocio específicos para mejorar eficiencia y toma de decisiones.",
+    "wikipedia": "Artificial intelligence",
+    "queries": [
+     "applied AI",
+     "IA aplicada",
+     "enterprise AI"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_79d54f81",
+    "name": "ChatGPT en el trabajo",
+    "definition": "Uso de ChatGPT por profesionales y empresas para tareas de productividad, análisis y comunicación diaria.",
+    "wikipedia": "ChatGPT",
+    "queries": [
+     "ChatGPT work",
+     "ChatGPT empresas",
+     "ChatGPT productivity"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_dcdd7f0f",
+    "name": "IA en educación",
+    "definition": "Aplicación de inteligencia artificial en enseñanza, evaluación y personalización del aprendizaje en distintos niveles.",
+    "wikipedia": "Artificial intelligence in education",
+    "queries": [
+     "AI education",
+     "IA educación",
+     "AI in classroom"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a0b8505b",
+    "name": "Consultoras e IA",
+    "definition": "Grandes firmas de servicios profesionales que integran IA en sus ofertas y transforman sus modelos de negocio.",
+    "wikipedia": "Consulting firm",
+    "queries": [
+     "Accenture AI",
+     "consultoras IA",
+     "IBM AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e257b45e",
+    "name": "Costos de IA",
+    "definition": "Economía de entrenar, desplegar y operar modelos de IA, incluyendo inferencia, tokens y escalabilidad.",
+    "wikipedia": "Computational cost of artificial intelligence",
+    "queries": [
+     "AI costs",
+     "costos IA",
+     "inference cost"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_0b23b167",
+    "name": "Big Tech y sociedad",
+    "definition": "Debate sobre poder, autonomía y brecha digital frente al dominio de las grandes tecnológicas en la economía.",
+    "wikipedia": "Big Tech",
+    "queries": [
+     "Big Tech",
+     "tecnológicas sociedad",
+     "digital divide"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_3b2aee08",
+    "name": "OpenAI en problemas legales",
+    "definition": "Demandas, investigaciones y escrutinio regulatorio que enfrenta OpenAI por prácticas comerciales y de datos.",
+    "wikipedia": "OpenAI",
+    "queries": [
+     "OpenAI lawsuit",
+     "demandas OpenAI",
+     "OpenAI investigation"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e8fcdaeb",
+    "name": "Regulación de IA en Europa",
+    "definition": "Marco normativo europeo que clasifica y regula sistemas de IA según su nivel de riesgo para derechos y seguridad.",
+    "wikipedia": "Artificial Intelligence Act",
+    "queries": [
+     "EU AI Act",
+     "regulación IA UE",
+     "AI regulation Europe"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

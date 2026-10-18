@@ -1,0 +1,24 @@
+{
+ "key": "63506cfaa5d489c310670f94ad03d0de5dc23bd1590653da084a034c88ca211a",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:30:52.746Z",
+ "latencyMs": 4645,
+ "usage": {
+  "inputTokens": 725,
+  "outputTokens": 540
+ },
+ "output": {
+  "score": 8,
+  "executive": 9,
+  "noCode": 5,
+  "latam": 8,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Fraude es riesgo directo para fintechs y ecommerce en LatAm.",
+   "Herramientas no-code ya permiten monitoreo y alertas antifraude.",
+   "Tema práctico para proteger ingresos y confianza del cliente."
+  ]
+ }
+}

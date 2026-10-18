@@ -1,0 +1,21 @@
+{
+ "key": "9ea05ab036402bc640bb50f2d4d4c07a7a6933f80aca71bc963e93de34402234",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:18:19.791Z",
+ "latencyMs": 5444,
+ "usage": {
+  "inputTokens": 1619,
+  "outputTokens": 742
+ },
+ "output": {
+  "oneLiner": "La verificación con IA crece 224 % en creadores por videos virales dudosos y el disclaimer de Gemini.",
+  "narrative": "3 de 7 piezas que despegaron abren con una pregunta, frente a 2 de 17 del resto: el gancho es la duda directa sobre si algo es real. 5 de 7 son posts de texto, formato barato que responde rápido a un video viral, como el de gacyclist en Bluesky que afirma que una imagen es generada por IA. El momento lo marcan casos concretos: el avión saudí que AFP Fact Check desmiente y el video del 'Pibe', mientras Jane Duke señala el aviso 'Check responses' del anuncio de Google Gemini. Publican sobre todo creadores de contenido, no medios: 4 de 7 frente a 5 de 17 del resto.",
+  "cited": [
+   "bluesky:3mxx36ohbzc25",
+   "bluesky:3mxtk7xukdc2g",
+   "news:CBMiWEFVX3lxTFBDUVZfQVRxVlY4elNKdWc3b0czbThIa2k3bC01bDVuXy1nUnNmai1OdHdtaDA2dUxienRPODF5TEdJc0ZtTmExeno3eTVOWVBDdlFibGFZMEs",
+   "news:CBMilwFBVV95cUxNVXVzaFM0MzdQYnoyZVVmRnUwUXZWd09sVUd0ZElJZVozTXhaWVQwV3hMOFVhTE9nS3RGemNrR0cxY2s0dUZhaGRsZXplZzNvVjZpamFGWF9ucW9DVFpjb0FqWGFyLWphSmd2VV9DdGh4RzR5ZDVoQUVWVHdGbWwwQ0VOcE1RZXljSGRTV0ViOTlLaDdoNS1V0gGXAUFVX3lxTE5IajZkaWE5cXV1SnJqV2gzMnJLVmJISnNvWnBVd0VUR0VZY3I1dUl4WVhQTU1uMEpBYlVzclM1b1A1dXNaa1kzaV9BeV9uTG1CeE5UcUpUaWF4UU8ycHhHSFhVanZkU3daZjFDM0Q0R0k1OWtfWk8xZHpTVmRJaXhjank0N1dnY3JlNGs1ZzFoZGFmR3BmcE0"
+  ]
+ }
+}

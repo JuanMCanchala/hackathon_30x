@@ -1,0 +1,24 @@
+{
+ "key": "cc863484c955a3398a39ff4ef781d057598adf4014dcdd192ea7cc57f970f353",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:16:18.575Z",
+ "latencyMs": 13220,
+ "usage": {
+  "inputTokens": 751,
+  "outputTokens": 1830
+ },
+ "output": {
+  "score": 6,
+  "executive": 8,
+  "noCode": 5,
+  "latam": 4,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Agentes de IA en RR.HH. y finanzas son relevantes para ejecutivos.",
+   "Workday es enterprise; poca aplicación directa para equipos LatAm.",
+   "Precio atado a ahorros en nómina marca tendencia de negocio."
+  ]
+ }
+}

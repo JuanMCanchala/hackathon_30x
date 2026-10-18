@@ -1,0 +1,21 @@
+{
+ "key": "8b70279598e9a3f5ea3cecdbcb3710e81f07776322f6100f2a95182b6fbf7866",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T21:55:30.596Z",
+ "latencyMs": 13305,
+ "usage": {
+  "inputTokens": 1185,
+  "outputTokens": 1044
+ },
+ "output": {
+  "oneLiner": "Character.AI se declara en bancarrota y Ed Zitron y Dan Whitehead lo viralizan en Bluesky.",
+  "narrative": "No hay patrones con al menos 3 piezas, así que la lectura se apoya solo en la evidencia. Las dos piezas que despegaron son posts de Bluesky: el de Ed Zitron llega a 20.1× la mediana de su autor y el de Dan Whitehead a 30.3×. Ambos son comentarios breves y con ironía sobre el modelo de negocio, no análisis largos. La noticia la cubren CNBC y SFGATE, pero esas piezas no registran engagement.",
+  "cited": [
+   "bluesky:3mxqbfoowqs2l",
+   "bluesky:3mxtd6kixvs2k",
+   "news:CBMie0FVX3lxTE10SzFvaUxUVzZnT3dxYTBPaV9JNWszSEpleWNqMHdRM0hIUEZQZDc0VHFpY2lPakJSMkNDYnB1OFVMZXF2RlJLaFpleHl2cHhJM05nUkVhQ1Y2dklTME1TWFJzR01DU3Z2TU9pWEVQOGJFMWZBVGJJbTBNUdIBgAFBVV95cUxOTXJYM3lZcDd0NmJZU0FtcHFBNV9ZNElVU0lMRVZXRDdSTjVUc1VNQkl2eU40enpvSko3RmZuNXhUMWk2QnRwRlNfcDN1REM4ZDAzcjl4a3Y0RDk1S19lNTdnNlRaQzcydlQ5a1gxdzJEa2JadWZjZ2JEX1piZVltdA",
+   "news:CBMigAFBVV95cUxQSF9PQXZLX1VOcUY4dm9VVGd1VWs0aXpYaVVNUUNHclVhQkdycU40X0xnTXFtRmJBa0luVk92QUgyTV9hOGJmanlsU2o3WWVQU21JZTIwVUtCYVktbmNtTkFxS3JpOFI0azdOQS16VU9wY29jbGc2NDdGd1J3anh0QQ"
+  ]
+ }
+}

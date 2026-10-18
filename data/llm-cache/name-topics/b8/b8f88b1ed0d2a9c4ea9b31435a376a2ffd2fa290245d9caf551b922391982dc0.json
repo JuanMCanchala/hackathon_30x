@@ -1,0 +1,255 @@
+{
+ "key": "b8f88b1ed0d2a9c4ea9b31435a376a2ffd2fa290245d9caf551b922391982dc0",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:13:00.969Z",
+ "latencyMs": 10055,
+ "usage": {
+  "inputTokens": 3040,
+  "outputTokens": 1796
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_4ac8a67e",
+    "name": "Modelos de código IA",
+    "definition": "Modelos de lenguaje especializados en programar, comparados por su capacidad de resolver tareas de ingeniería de software.",
+    "wikipedia": "Code generation (AI)",
+    "queries": [
+     "AI coding models",
+     "modelos de código",
+     "SWE-bench leaderboard"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5b27e971",
+    "name": "Pornografía con IA",
+    "definition": "Contenido sexual generado por IA, incluido material de abuso infantil, y los debates legales y éticos que genera.",
+    "wikipedia": "AI-generated pornography",
+    "queries": [
+     "AI CSAM",
+     "pornografía con IA",
+     "NSFW AI regulation"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f8300ba3",
+    "name": "Embeddings multimodales",
+    "definition": "Modelos que convierten texto, imagen y audio en vectores para búsqueda y recuperación entre modalidades.",
+    "wikipedia": "Multimodal learning",
+    "queries": [
+     "multimodal embeddings",
+     "embeddings multimodales",
+     "multimodal retrieval"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_25a7e35c",
+    "name": "Stripe e IA",
+    "definition": "Movimientos de Stripe en infraestructura de IA, pagos agénticos y adquisiciones como OpenRouter.",
+    "wikipedia": "Stripe (company)",
+    "queries": [
+     "Stripe AI",
+     "Stripe OpenRouter",
+     "agentic payments"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9bed3e53",
+    "name": "Riesgo en cadena de suministro",
+    "definition": "Vulnerabilidades y ataques en la cadena de suministro de software y modelos de IA, y su gestión de riesgos.",
+    "wikipedia": "Supply chain risk management",
+    "queries": [
+     "supply chain risk",
+     "riesgo cadena suministro",
+     "AI supply chain attack"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f8746c31",
+    "name": "Shopify e IA",
+    "definition": "Estrategia de Shopify para comercio agéntico, adopción interna de IA y su plataforma para desarrolladores.",
+    "wikipedia": "Shopify",
+    "queries": [
+     "Shopify AI",
+     "agentic commerce",
+     "Shopify Canvas"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_aa020c32",
+    "name": "Transparencia de IA",
+    "definition": "Exigencias de rendición de cuentas, marcas de agua y divulgación sobre cómo se generan y usan los modelos.",
+    "wikipedia": "AI transparency",
+    "queries": [
+     "AI transparency",
+     "transparencia IA",
+     "AI watermarking"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_4231bda2",
+    "name": "Inversión en IA",
+    "definition": "Ciclo de financiamiento, promesas a inversores y retornos esperados en el sector de inteligencia artificial.",
+    "wikipedia": "Venture capital financing",
+    "queries": [
+     "AI investment",
+     "inversión IA",
+     "AI funding cycle"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_feaae723",
+    "name": "Pedro Sánchez e IA",
+    "definition": "Declaraciones y propuestas de Pedro Sánchez sobre regular la IA, enmarcadas en la política española.",
+    "wikipedia": "Pedro Sánchez",
+    "queries": [
+     "Pedro Sánchez IA",
+     "Sánchez Harvard IA",
+     "regulación IA España"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_82856a32",
+    "name": "IA en el edge",
+    "definition": "Ejecución de modelos de IA en dispositivos locales, satélites y hardware sin depender de la nube.",
+    "wikipedia": "Edge computing",
+    "queries": [
+     "edge AI",
+     "IA en el edge",
+     "on-device AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1e65c50c",
+    "name": "Nvidia DLSS 5",
+    "definition": "Tecnología de escalado de imagen por IA de Nvidia para videojuegos, y sus versiones y mods.",
+    "wikipedia": "Deep Learning Super Sampling",
+    "queries": [
+     "Nvidia DLSS 5",
+     "DLSS 5",
+     "DLSS mods"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8cc245c9",
+    "name": "IA y cognición humana",
+    "definition": "Efectos de la IA en el pensamiento, la ética, la conciencia y la ciencia, desde una perspectiva filosófica.",
+    "wikipedia": "Philosophy of artificial intelligence",
+    "queries": [
+     "IA y cognición",
+     "AI and consciousness",
+     "AI ethics cognition"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_96b77faf",
+    "name": "Compañeros de IA",
+    "definition": "Asistentes y avatares conversacionales con IA para acompañamiento, visibilidad y videollamadas.",
+    "wikipedia": "AI companion",
+    "queries": [
+     "AI companion",
+     "compañero IA",
+     "AI avatar calls"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1a042126",
+    "name": "A16z y Y Combinator",
+    "definition": "Actividad de fondos de venture capital como a16z, Menlo Ventures y Y Combinator en el ecosistema de IA.",
+    "wikipedia": "Andreessen Horowitz",
+    "queries": [
+     "a16z AI",
+     "Y Combinator AI",
+     "Menlo Ventures"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d97c6fee",
+    "name": "Observabilidad de IA",
+    "definition": "Herramientas y prácticas para monitorear, depurar y entender el comportamiento de sistemas de IA y LLM.",
+    "wikipedia": "Observability",
+    "queries": [
+     "AI observability",
+     "observabilidad IA",
+     "LLM observability"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b1328679",
+    "name": "Superinteligencia y Anthropic",
+    "definition": "Debate sobre superinteligencia, IA sentiente y proyectos como Scion de Anthropic, con críticas a su narrativa.",
+    "wikipedia": "Superintelligence",
+    "queries": [
+     "superintelligence",
+     "Anthropic Scion",
+     "IA sentiente"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_33ee0b2a",
+    "name": "IA en videojuegos",
+    "definition": "Uso de IA generativa en juegos como Fortnite, Minecraft y Roblox, y agentes que aprenden a jugarlos.",
+    "wikipedia": "Artificial intelligence in video games",
+    "queries": [
+     "AI in games",
+     "IA videojuegos",
+     "Minecraft AI agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_25dbe428",
+    "name": "Derechos de artistas e IA",
+    "definition": "Conflictos legales y laborales entre artistas y la IA generativa que usa sus obras sin consentimiento.",
+    "wikipedia": "Artists' rights",
+    "queries": [
+     "artists rights AI",
+     "derechos artistas IA",
+     "AI art copyright"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_54673961",
+    "name": "Seguridad MCP",
+    "definition": "Vulnerabilidades y políticas de seguridad en el Model Context Protocol para conectar agentes con herramientas.",
+    "wikipedia": "Model Context Protocol",
+    "queries": [
+     "MCP security",
+     "seguridad MCP",
+     "MCP vulnerabilities"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_32787ff2",
+    "name": "Harness de agentes",
+    "definition": "Infraestructura y frameworks que orquestan agentes de IA, como AgentGateway o Hermes Agent.",
+    "wikipedia": "Software agent",
+    "queries": [
+     "agent harness",
+     "harness de agentes",
+     "AgentGateway"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

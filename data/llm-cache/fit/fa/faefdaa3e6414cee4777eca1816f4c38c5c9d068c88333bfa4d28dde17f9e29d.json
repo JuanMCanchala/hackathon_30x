@@ -1,0 +1,24 @@
+{
+ "key": "faefdaa3e6414cee4777eca1816f4c38c5c9d068c88333bfa4d28dde17f9e29d",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:13:56.280Z",
+ "latencyMs": 5136,
+ "usage": {
+  "inputTokens": 711,
+  "outputTokens": 621
+ },
+ "output": {
+  "score": 5,
+  "executive": 6,
+  "noCode": 4,
+  "latam": 2,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Nicho de videojuegos; baja aplicación directa a ventas o growth.",
+   "Vibe coding y adopción forzada de IA sí importan a ejecutivos.",
+   "Sin ángulo LatAm ni casos locales; todo es Epic, Ubisoft, Capcom."
+  ]
+ }
+}

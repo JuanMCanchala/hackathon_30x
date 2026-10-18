@@ -1,0 +1,24 @@
+{
+ "key": "2c8f93950de008a031b8940be47377bcc93da35ef6d1514b147fee20a69186af",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T21:54:43.350Z",
+ "latencyMs": 9677,
+ "usage": {
+  "inputTokens": 745,
+  "outputTokens": 955
+ },
+ "output": {
+  "score": 5,
+  "executive": 5,
+  "noCode": 3,
+  "latam": 4,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Modelo técnico con ángulo de agentes locales, privacidad y costos.",
+   "Poco aplicable sin código; requiere configuración para equipos no técnicos.",
+   "Cobertura en español, pero sin casos o regulación LatAm específica."
+  ]
+ }
+}

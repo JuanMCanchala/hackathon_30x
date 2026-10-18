@@ -1,0 +1,255 @@
+{
+ "key": "c28bc9e304c5438ca5234ec0164e4e388c08387a49d6c8fe8272039a73415b1c",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:12:52.007Z",
+ "latencyMs": 10147,
+ "usage": {
+  "inputTokens": 3372,
+  "outputTokens": 1737
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_c13954c7",
+    "name": "Litigios contra OpenAI",
+    "definition": "Demandas y casos judiciales que enfrentan OpenAI y otras empresas de IA por derechos de autor, seguridad y conducta corporativa.",
+    "wikipedia": "OpenAI",
+    "queries": [
+     "OpenAI lawsuit",
+     "demandas OpenAI",
+     "AI copyright litigation"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c1065124",
+    "name": "Mamdani y la IA",
+    "definition": "Posturas y políticas del alcalde de Nueva York Zohran Mamdani sobre el uso de IA en escuelas y gobierno.",
+    "wikipedia": "Zohran Mamdani",
+    "queries": [
+     "Mamdani AI schools",
+     "Mamdani inteligencia artificial",
+     "NYC AI ban"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_addbb60d",
+    "name": "Shadow AI",
+    "definition": "Uso no autorizado de herramientas de IA por empleados dentro de las empresas, con riesgos de seguridad y gobernanza.",
+    "wikipedia": "Shadow IT",
+    "queries": [
+     "shadow AI",
+     "IA no autorizada",
+     "shadow AI risks"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c298a846",
+    "name": "Medios y cobertura IA",
+    "definition": "Cómo los grandes medios como NYT, FT y Guardian cubren y negocian la irrupción de la IA en sus redacciones.",
+    "wikipedia": null,
+    "queries": [
+     "NYT AI coverage",
+     "medios IA sindicatos",
+     "FT OpenAI revenues"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f3b36545",
+    "name": "IA en ingeniería de software",
+    "definition": "Uso de modelos y agentes de IA para escribir, revisar y desplegar código en equipos de desarrollo.",
+    "wikipedia": "AI-assisted software development",
+    "queries": [
+     "AI software engineering",
+     "IA desarrollo software",
+     "vibe coding"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_0e0aa0f3",
+    "name": "Steam y la IA",
+    "definition": "Debate sobre la presencia de contenido generado con IA y las políticas de divulgación en la plataforma Steam.",
+    "wikipedia": "Steam (service)",
+    "queries": [
+     "Steam AI disclosure",
+     "Steam IA juegos",
+     "Steam AI policy"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5973dedd",
+    "name": "Expectativas vs realidad IA",
+    "definition": "Contraste entre el entusiasmo y las promesas sobre la IA frente a sus resultados reales y predicciones fallidas.",
+    "wikipedia": "AI hype",
+    "queries": [
+     "AI hype reality",
+     "expectativas IA",
+     "AI skeptic predictions"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e8315d9d",
+    "name": "IA y computación cuántica",
+    "definition": "Aplicación de modelos de IA para diseñar circuitos cuánticos y acelerar experimentos de computación cuántica.",
+    "wikipedia": "Quantum computing",
+    "queries": [
+     "quantum computing AI",
+     "IA cuántica",
+     "quantum circuits AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_7ee6811c",
+    "name": "Liderazgo e IA",
+    "definition": "Cómo los líderes empresariales abordan la transformación cultural y de talento que trae la IA.",
+    "wikipedia": "Leadership",
+    "queries": [
+     "AI leadership",
+     "liderazgo IA",
+     "AI HR transformation"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_437b64a0",
+    "name": "Qué es la IA",
+    "definition": "Definiciones, terminología y conceptos básicos para entender qué abarca realmente el término inteligencia artificial.",
+    "wikipedia": "Artificial intelligence",
+    "queries": [
+     "what is AI",
+     "qué es IA",
+     "AI terminology"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_4625dd4a",
+    "name": "IA en TikTok y Twitch",
+    "definition": "Contenido generado con IA y regulación de datos en plataformas de streaming y video corto como TikTok y Twitch.",
+    "wikipedia": "TikTok",
+    "queries": [
+     "TikTok AI content",
+     "Twitch AI privacy",
+     "IA TikTok Twitch"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ec1a7092",
+    "name": "Legal tech e IA",
+    "definition": "Herramientas de IA aplicadas a investigación legal, redacción de contratos y workflows de despachos de abogados.",
+    "wikipedia": "Legal technology",
+    "queries": [
+     "legal tech AI",
+     "IA sector legal",
+     "AI lawyers research"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_28f660f9",
+    "name": "Agentes IA en trading",
+    "definition": "Plataformas como Robinhood, Binance y Coinbase que permiten a agentes de IA operar con criptomonedas y activos.",
+    "wikipedia": "AI trading",
+    "queries": [
+     "AI agents trading",
+     "agentes IA cripto",
+     "Binance AI agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_61c0360e",
+    "name": "Subvenciones y becas IA",
+    "definition": "Programas públicos y privados de financiamiento, becas y subsidios para adoptar o desarrollar inteligencia artificial.",
+    "wikipedia": null,
+    "queries": [
+     "AI grants",
+     "subvenciones IA",
+     "AI scholarships"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a07a9b4c",
+    "name": "IA y energía",
+    "definition": "Impacto del consumo eléctrico de los data centers de IA en la política energética y las renovables.",
+    "wikipedia": "Energy and artificial intelligence",
+    "queries": [
+     "AI data center energy",
+     "IA consumo energía",
+     "AI nuclear power"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_4a7e59b1",
+    "name": "IA en hipotecas y vivienda",
+    "definition": "Uso de IA para originar hipotecas, tasar viviendas y transformar el mercado inmobiliario.",
+    "wikipedia": "Mortgage",
+    "queries": [
+     "AI mortgage",
+     "IA hipotecas",
+     "AI real estate"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e2a39251",
+    "name": "Modelos frontera",
+    "definition": "Carrera entre laboratorios por lanzar los modelos de IA más avanzados y sus implicaciones de seguridad.",
+    "wikipedia": "Frontier model",
+    "queries": [
+     "frontier models",
+     "modelos frontera",
+     "frontier AI race"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_aabf687f",
+    "name": "Ventaja competitiva con IA",
+    "definition": "Cómo las empresas buscan diferenciarse y ganar eficiencia adoptando IA frente a sus competidores.",
+    "wikipedia": "Competitive advantage",
+    "queries": [
+     "AI competitive advantage",
+     "ventaja competitiva IA",
+     "Nvidia AI advantage"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_468f6973",
+    "name": "Divulgadores de IA en español",
+    "definition": "Figuras hispanohablantes como Jon Hernández o Andrés Pedreño que divulgan y a veces exageran sobre IA.",
+    "wikipedia": null,
+    "queries": [
+     "divulgadores IA español",
+     "Jon Hernández IA",
+     "expertos IA España"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_202d8784",
+    "name": "Automatización con IA",
+    "definition": "Herramientas como Zapier, Make y Airtable que conectan flujos de trabajo y agentes de IA en las empresas.",
+    "wikipedia": "Zapier",
+    "queries": [
+     "Zapier AI automation",
+     "Make.com IA",
+     "AI workflow tools"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

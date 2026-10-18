@@ -1,0 +1,255 @@
+{
+ "key": "d9ec704c7f23a4b41b8adc74bfc7185cff41e80381dd486b7c8f356be2694260",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T21:53:34.103Z",
+ "latencyMs": 12917,
+ "usage": {
+  "inputTokens": 2890,
+  "outputTokens": 1846
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_adb70d18",
+    "name": "IA como copiloto",
+    "definition": "Uso de la IA para potenciar el trabajo humano sin reemplazarlo, manteniendo el control y criterio profesional.",
+    "wikipedia": "Human-in-the-loop",
+    "queries": [
+     "IA copiloto",
+     "human AI collaboration",
+     "IA asistente trabajo"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_6185ff0f",
+    "name": "Descubrimiento de marcas en IA",
+    "definition": "Cómo los modelos de lenguaje y agentes de IA recomiendan marcas y productos, cambiando la visibilidad comercial.",
+    "wikipedia": "Generative engine optimization",
+    "queries": [
+     "brand discovery AI",
+     "descubrimiento marcas IA",
+     "LLM brand visibility"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_006c99c4",
+    "name": "Copyright y entrenamiento de IA",
+    "definition": "Debate legal sobre el uso de obras protegidas para entrenar modelos de IA sin compensación a los autores.",
+    "wikipedia": "Copyright and artificial intelligence",
+    "queries": [
+     "copyright AI training",
+     "entrenamiento obras protegidas",
+     "fair use LLM"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_50179b98",
+    "name": "Modelos Mixture-of-Experts",
+    "definition": "Arquitectura de IA que activa solo partes del modelo por consulta, reduciendo costo y aumentando eficiencia.",
+    "wikipedia": "Mixture of experts",
+    "queries": [
+     "mixture of experts",
+     "modelo MoE",
+     "sparse MoE LLM"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f1324c41",
+    "name": "LoRA sin censura",
+    "definition": "Adaptaciones de modelos generativos con LoRA que eliminan filtros de seguridad para crear contenido sin restricciones.",
+    "wikipedia": "Low-rank adaptation",
+    "queries": [
+     "LoRA uncensored",
+     "LoRA sin censura",
+     "uncensored image model"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_eaed13ab",
+    "name": "APIs en tiempo real",
+    "definition": "Interfaces que permiten a agentes de IA procesar audio, video y datos en vivo para tareas autónomas inmediatas.",
+    "wikipedia": "Real-time computing",
+    "queries": [
+     "realtime API",
+     "IA tiempo real",
+     "real-time AI agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a5196fed",
+    "name": "Claude en ciberespionaje",
+    "definition": "Uso malicioso de Claude por grupos estatales para hackeo, vigilancia y desarrollo de drones kamikaze autónomos.",
+    "wikipedia": "Claude (language model)",
+    "queries": [
+     "Claude cyberespionage",
+     "Claude hacking",
+     "Claude drones"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ef2cb9c1",
+    "name": "Test de Turing",
+    "definition": "Prueba clásica para evaluar si una máquina puede exhibir comportamiento inteligente indistinguible del humano.",
+    "wikipedia": "Turing test",
+    "queries": [
+     "Turing test",
+     "test de Turing",
+     "AI Turing test"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d3299156",
+    "name": "LFM2.5-24B-A2B",
+    "definition": "Modelo de lenguaje compacto de LiquidAI optimizado para agentes rápidos que corren en dispositivos locales.",
+    "wikipedia": null,
+    "queries": [
+     "LFM2.5-24B-A2B",
+     "LiquidAI LFM2.5",
+     "on-device agents model"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_af0b489b",
+    "name": "Bloomberg y Reuters en IA",
+    "definition": "Cobertura de medios financieros sobre IA, incluyendo su adopción de herramientas conversacionales y análisis de tendencias.",
+    "wikipedia": "Bloomberg L.P.",
+    "queries": [
+     "Bloomberg AI",
+     "Reuters AI",
+     "medios IA finanzas"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1ca47e14",
+    "name": "Claude Sonnet 5.5",
+    "definition": "Nueva versión del modelo Sonnet de Anthropic, con mejoras en razonamiento y eficiencia para tareas empresariales.",
+    "wikipedia": "Claude (language model)",
+    "queries": [
+     "Claude Sonnet 5.5",
+     "Sonnet 5.5",
+     "Anthropic Sonnet"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1f02b38e",
+    "name": "IA en India y Vietnam",
+    "definition": "Adopción de inteligencia artificial en India y Vietnam, con brechas de habilidades y cambios en productividad laboral.",
+    "wikipedia": "Artificial intelligence in India",
+    "queries": [
+     "IA India",
+     "AI Vietnam",
+     "AI skills gap Asia"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_7fa81ad7",
+    "name": "Build in public",
+    "definition": "Práctica de desarrollar productos o proyectos de IA compartiendo avances, errores y decisiones en tiempo real.",
+    "wikipedia": "Build in public",
+    "queries": [
+     "build in public",
+     "vibe coding",
+     "desarrollo abierto IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_6476f9f0",
+    "name": "Biolevate",
+    "definition": "Startup de IA para ciencias de la vida que recaudó €30M Serie A y expande su plataforma a Boston.",
+    "wikipedia": null,
+    "queries": [
+     "Biolevate",
+     "Biolevate funding",
+     "life sciences AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_abb8d53e",
+    "name": "FLUX.2 Klein",
+    "definition": "Modelo de generación y edición de imágenes de Black Forest Labs, con variantes LoRA para personalización precisa.",
+    "wikipedia": "Flux (text-to-image model)",
+    "queries": [
+     "FLUX.2 Klein",
+     "FLUX image model",
+     "edición imágenes IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_db37bbbe",
+    "name": "Documentación técnica con IA",
+    "definition": "Uso de IA para generar y consumir documentación técnica, y la resistencia humana a leerla en profundidad.",
+    "wikipedia": "Technical documentation",
+    "queries": [
+     "documentación técnica IA",
+     "AI technical docs",
+     "formación técnica IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_cbfbf969",
+    "name": "Daños al consumidor por IA",
+    "definition": "Demandas y regulaciones contra empresas de IA por daños a consumidores, incluyendo muertes y prácticas engañosas.",
+    "wikipedia": "Consumer protection",
+    "queries": [
+     "consumer harm AI",
+     "daños consumidor IA",
+     "FTC AI probe"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_56ed8561",
+    "name": "Apple y acceso total al disco",
+    "definition": "Restricciones de Apple a permisos de disco completo en macOS ante apps de IA agéntica que acceden a datos personales.",
+    "wikipedia": "Full disk access",
+    "queries": [
+     "Apple full disk access",
+     "macOS AI permissions",
+     "acceso disco Apple"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_05c1750d",
+    "name": "Project Suncatcher y Glasswing",
+    "definition": "Iniciativas de Google y Anthropic para infraestructura de IA en el espacio y seguridad open source automatizada.",
+    "wikipedia": "Project Suncatcher",
+    "queries": [
+     "Project Suncatcher",
+     "Project Glasswing",
+     "AI space infrastructure"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_707f01e0",
+    "name": "IA para marketing y ventas",
+    "definition": "Plataformas como Braze, Klaviyo y SalesFuel que integran IA para personalización, soporte y coaching de ventas.",
+    "wikipedia": "Marketing automation",
+    "queries": [
+     "AI marketing tools",
+     "IA ventas marketing",
+     "Braze Klaviyo AI"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

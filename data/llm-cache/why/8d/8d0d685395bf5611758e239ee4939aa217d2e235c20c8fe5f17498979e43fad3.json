@@ -1,0 +1,20 @@
+{
+ "key": "8d0d685395bf5611758e239ee4939aa217d2e235c20c8fe5f17498979e43fad3",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:19:08.168Z",
+ "latencyMs": 11553,
+ "usage": {
+  "inputTokens": 1744,
+  "outputTokens": 1974
+ },
+ "output": {
+  "oneLiner": "Primer parche con IA de Torvalds en Linux y su rechazo a prohibir código IA mueven a creadores.",
+  "narrative": "3 de 4 piezas que despegaron las publicó un creador de contenido, frente a 1 de 21 del resto, y 3 de 4 son posts de texto, frente a 6 de 21. El gancho es el primer parche asistido por IA de Torvalds en el kernel y su frase de que prohibir código generado por IA es \"utterly stupid\". Un post de Paul Frazee en Bluesky llegó a 84.7 veces la mediana de su autor y un artículo de janvdberg en Hacker News a 3.5 veces. Las noticias de medios como XDA y Tom's Hardware no registran engagement.",
+  "cited": [
+   "bluesky:3mxx7fafk422e",
+   "hn:50090842",
+   "news:CBMi0AFBVV95cUxOVVItMmNSQnNGRC1MN1N1YmM0RUFYOVRVMWRjYkJrMmtIX2M0XzFQZkhfbFVvakU1U1c5WEFobUsydHZzUzBsSEFiUkRIWjNyQVBpcHRTNnZsQWpyZ3NpQnlJUEl3cmw0bTZGTHppMDd4a3BKNTNMZEhjZnBNX1pkLU5oZTlpVjFmQVBCdlAxa1p0b3lad0V3Vl9iblozRU1OTk1telRUOG56ZmFYRzBQUlgwZXdaZHlvNHdJUDd6SngxN1ktVjBwZEcxU3E2YkRX"
+  ]
+ }
+}

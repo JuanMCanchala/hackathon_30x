@@ -1,0 +1,21 @@
+{
+ "key": "cb77df28b88cbcdbb8c0f0d89a93c3b143e8c95d03202ae990dfc2d5b01cad2c",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T17:45:18.321Z",
+ "latencyMs": 7816,
+ "usage": {
+  "inputTokens": 1223,
+  "outputTokens": 1054
+ },
+ "output": {
+  "oneLiner": "Anthropic lanza Scion, control de versiones inspirado en Mononoke de Meta, y 194 creadores lo discuten.",
+  "narrative": "Las piezas que despegan no comparten un formato dominante: 14 de 69 son videos frente a 4 de 196 del resto, y 7 de 69 son artículos frente a 5 de 196. El gancho más nítido es la comparación: 3 de 69 piezas que despegaron abren con una comparación, frente a 0 de 196 del resto. 45 de 69 las publicó un creador de contenido, frente a 33 de 196, así que el empuje viene de cuentas generalistas y no de especialistas en infraestructura. La evidencia se dispersa: solo hn:50073633 trata el control de versiones, mientras el resto cubre IPO, política de uso y rating de Anthropic.",
+  "cited": [
+   "hn:50073633",
+   "youtube:VxGIopUQVKo",
+   "hn:50051583",
+   "youtube:2oH1NACBgS4"
+  ]
+ }
+}

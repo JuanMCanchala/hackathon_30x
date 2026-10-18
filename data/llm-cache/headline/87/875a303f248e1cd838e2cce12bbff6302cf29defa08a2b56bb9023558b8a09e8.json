@@ -1,0 +1,14 @@
+{
+ "key": "875a303f248e1cd838e2cce12bbff6302cf29defa08a2b56bb9023558b8a09e8",
+ "name": "headline",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T21:56:18.129Z",
+ "latencyMs": 1777,
+ "usage": {
+  "inputTokens": 331,
+  "outputTokens": 25
+ },
+ "output": {
+  "headline": "La IA esta semana se concentra en agentes de IA, Android e IA open source"
+ }
+}

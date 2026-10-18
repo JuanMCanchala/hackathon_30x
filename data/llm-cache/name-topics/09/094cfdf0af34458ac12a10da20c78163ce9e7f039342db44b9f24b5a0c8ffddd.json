@@ -1,0 +1,255 @@
+{
+ "key": "094cfdf0af34458ac12a10da20c78163ce9e7f039342db44b9f24b5a0c8ffddd",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:28:40.607Z",
+ "latencyMs": 10288,
+ "usage": {
+  "inputTokens": 3154,
+  "outputTokens": 1853
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_dc26071f",
+    "name": "Cartel de IA y cortos generados",
+    "definition": "Debate sobre supuestos carteles de IA para bloquear modelos abiertos y el auge de cortos y series creadas con IA.",
+    "wikipedia": "Cartel (economía)",
+    "queries": [
+     "cartel IA open source",
+     "cortos con IA",
+     "AI short films"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_bfb5bba0",
+    "name": "IA en industria automotriz",
+    "definition": "Impacto de la inteligencia artificial y la descarbonización en la gestión de riesgos y autopartes de la industria automotriz.",
+    "wikipedia": "Automotive industry",
+    "queries": [
+     "IA industria automotriz",
+     "AI automotive manufacturing",
+     "autopartes IA descarbonización"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_386f27b5",
+    "name": "Arm y chips para IA",
+    "definition": "Rol de Arm en el diseño de chips para IA, incluyendo ventas, escasez y demanda de CPUs para agentes de IA.",
+    "wikipedia": "Arm Holdings",
+    "queries": [
+     "Arm AI chips",
+     "Arm CPU royalties",
+     "Arm inteligencia artificial"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ef8ca7ad",
+    "name": "PCs con IA",
+    "definition": "Nuevos portátiles y PCs con inteligencia artificial integrada, como los modelos de Microsoft, Lenovo y Google.",
+    "wikipedia": "AI PC",
+    "queries": [
+     "AI PCs",
+     "portátil con IA",
+     "PC con IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_14d92ee1",
+    "name": "IA en el Pentágono y FBI",
+    "definition": "Uso de inteligencia artificial por agencias como el Pentágono y el FBI, incluyendo controversias y aplicaciones militares.",
+    "wikipedia": "Artificial intelligence in government",
+    "queries": [
+     "Pentagon AI",
+     "FBI AI",
+     "IA militar Pentágono"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_57391d27",
+    "name": "Editores de código con IA",
+    "definition": "Integración de agentes de IA en editores como Visual Studio Code, con extensiones y herramientas para desarrolladores.",
+    "wikipedia": "Visual Studio Code",
+    "queries": [
+     "VS Code AI",
+     "editores código IA",
+     "AI code editors"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1579b965",
+    "name": "Automatización de laboratorios",
+    "definition": "Laboratorios autónomos que usan IA y robótica para realizar experimentos científicos sin intervención humana.",
+    "wikipedia": "Laboratory automation",
+    "queries": [
+     "autonomous labs",
+     "automatización laboratorios",
+     "AI lab automation"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_95aba087",
+    "name": "Atrofia de habilidades por IA",
+    "definition": "Erosión cognitiva y pérdida de habilidades profesionales causada por la dependencia excesiva de herramientas de IA.",
+    "wikipedia": "Deskilling",
+    "queries": [
+     "skill atrophy AI",
+     "atrofia habilidades IA",
+     "deskilling AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_faa4b1e7",
+    "name": "Datos de Spirit Airlines",
+    "definition": "Puja entre Google y startups de IA por los datos internos de Spirit Airlines para entrenar modelos de inteligencia artificial.",
+    "wikipedia": "Spirit Airlines",
+    "queries": [
+     "Spirit Airlines data",
+     "AI training data",
+     "datos Spirit Airlines"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1ba809e9",
+    "name": "Calibre y Kindle con IA",
+    "definition": "Nuevas funciones de IA en el gestor de ebooks Calibre y en dispositivos Kindle, como portadas generadas o juegos interactivos.",
+    "wikipedia": "Calibre (software)",
+    "queries": [
+     "Calibre AI",
+     "Kindle AI",
+     "Calibre ebook manager"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c81d3263",
+    "name": "Meta Business y Bizlance",
+    "definition": "Herramientas de IA para empresas como Meta Business Agent y plataformas como Bizlance para conectar negocios con soluciones de IA.",
+    "wikipedia": "Meta Platforms",
+    "queries": [
+     "Meta Business AI",
+     "Bizlance AI",
+     "Meta Connect 2026"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d2ce5186",
+    "name": "Horizon Studio y creatividad",
+    "definition": "Herramientas de IA para estudios creativos y desarrollo de juegos, como Horizon Create y Horizon Studio de Meta.",
+    "wikipedia": "Meta Horizon",
+    "queries": [
+     "Horizon Studio",
+     "AI creative studio",
+     "estudio creativo IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a5a04376",
+    "name": "Automatización editorial con IA",
+    "definition": "Uso de IA para automatizar contenidos y procesos editoriales, incluyendo políticas y herramientas para editores.",
+    "wikipedia": "Automated content creation",
+    "queries": [
+     "editorial AI policies",
+     "automatización editorial",
+     "AI content automation"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_4ed7aacc",
+    "name": "Agentes de IA para WhatsApp",
+    "definition": "Agentes de inteligencia artificial que automatizan la atención al cliente y ventas en WhatsApp Business y otros canales.",
+    "wikipedia": "WhatsApp Business",
+    "queries": [
+     "WhatsApp AI agent",
+     "agentes IA WhatsApp",
+     "WhatsApp automation"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5f318981",
+    "name": "GTM.AI y ventas",
+    "definition": "Plataformas como GTM.AI que integran IA en estrategias de go-to-market, ventas y automatización comercial.",
+    "wikipedia": "Go-to-market strategy",
+    "queries": [
+     "GTM.AI",
+     "AI go-to-market",
+     "ventas IA GTM"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8e180e86",
+    "name": "Líderes y deepfakes",
+    "definition": "Iniciativas de líderes mundiales como Meloni y Von der Leyen para protegerse de deepfakes, y movimientos en startups de IA.",
+    "wikipedia": "Deepfake",
+    "queries": [
+     "deepfakes líderes",
+     "Meloni deepfake",
+     "Mira Murati startup"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_16ca6d86",
+    "name": "IA en investigación matemática",
+    "definition": "Impacto de la inteligencia artificial en la investigación matemática, incluyendo demostraciones automáticas y comprensión profunda.",
+    "wikipedia": "Automated theorem proving",
+    "queries": [
+     "AI mathematics research",
+     "IA investigación matemática",
+     "LLM math proofs"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_3719ce23",
+    "name": "Videollamadas con IA",
+    "definition": "Integración de agentes de IA y funciones inteligentes en plataformas de videollamadas como Zoom, Google Meet y Webex.",
+    "wikipedia": "Videotelephony",
+    "queries": [
+     "Zoom AI features",
+     "Google Meet AI",
+     "Webex AI agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2204a069",
+    "name": "Comportamiento no intencionado de IA",
+    "definition": "Acciones inesperadas o no alineadas de modelos de IA, como los incidentes reportados con Claude de Anthropic.",
+    "wikipedia": "AI alignment",
+    "queries": [
+     "unintended AI actions",
+     "comportamiento no alineado",
+     "Claude unintended actions"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d741d2fc",
+    "name": "Divulgación de riesgos de IA",
+    "definition": "Debate sobre la obligación de divulgar riesgos de IA y las políticas de mitigación en empresas y gobiernos.",
+    "wikipedia": "AI safety",
+    "queries": [
+     "AI risk disclosure",
+     "divulgación riesgos IA",
+     "AI risk mitigation"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,22 @@
+{
+ "key": "bce545eb781978c7cca78c4764b119992846a067dcdaaedf663f44b0871d46b4",
+ "name": "watch-video",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T23:53:08.845Z",
+ "latencyMs": 4542,
+ "usage": {
+  "inputTokens": 4122,
+  "outputTokens": 341
+ },
+ "output": {
+  "hook": "Boa noite para você que se liga no nosso podcast, o podcast especial da Expo Negócios 2026. Estamos ao vivo aqui direto do nosso Glass Studio montado na Expo Negócios 2026.",
+  "points": [
+   "O Grupo Essencial é um grupo multifranqueado há 19 anos no Boticário, com oito unidades em Goiás e Mato Grosso, atuando em canais como loja, venda direta e digital.",
+   "O consumidor de beleza hoje é 'figital', ou seja, quer estar no físico e no digital ao mesmo tempo, e é mais exigente e informado.",
+   "O desafio do varejo é a adaptação contínua às mudanças, como a transição da revistinha de papel para o digital e o atendimento multicanal.",
+   "A beleza evoluiu para valorizar a diversidade e a individualidade, sem um padrão único, com linhas específicas para cabelos lisos, cacheados, homens e crianças.",
+   "O Brasil é o terceiro maior mercado consumidor de beleza do mundo, com faturamento de 200 bilhões de reais em 2025, e líder em perfumaria."
+  ],
+  "idea": "El video muestra una entrevista con una empresaria de O Boticário en la Expo Negócios 2026, donde se discute la evolución del mercado de belleza, la adaptación del varejo a los canales digitales y la importancia de la diversidad y la experiencia del consumidor."
+ }
+}

@@ -1,0 +1,255 @@
+{
+ "key": "08516930b564a484e63724ca9ba19065fefdd0ea65172c6d93511ec160d4aec4",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:15:40.511Z",
+ "latencyMs": 10307,
+ "usage": {
+  "inputTokens": 2955,
+  "outputTokens": 1852
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_3ee17322",
+    "name": "Líderes tecnológicos y ética de IA",
+    "definition": "Debate sobre la responsabilidad ética y legal de los líderes de las grandes tecnológicas en el desarrollo de la IA.",
+    "wikipedia": "Ethics of artificial intelligence",
+    "queries": [
+     "tech leaders AI ethics",
+     "lideres tecnologicos IA",
+     "AI regulation leaders"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_538ce564",
+    "name": "Sindicatos y protección frente a la IA",
+    "definition": "Acuerdos sindicales que incluyen cláusulas para proteger a los trabajadores frente a la automatización y la IA.",
+    "wikipedia": "Trade union",
+    "queries": [
+     "union contract AI",
+     "sindicatos IA",
+     "AI worker protections"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d784a1bf",
+    "name": "Asistentes personales con IA",
+    "definition": "Aplicaciones de IA que actúan como asistentes personales, desde citas hasta productividad, en el móvil y ordenador.",
+    "wikipedia": "Virtual assistant",
+    "queries": [
+     "AI personal assistant",
+     "asistente personal IA",
+     "AI companion apps"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_202b4aed",
+    "name": "Plataformas de educación con IA",
+    "definition": "Empresas como Coursera, Khan Academy o Platzi que integran IA en sus programas de formación para ejecutivos.",
+    "wikipedia": "Educational technology",
+    "queries": [
+     "AI education platforms",
+     "plataformas educativas IA",
+     "Coursera Khan Academy AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_02245786",
+    "name": "Agentes de IA autónomos",
+    "definition": "Startups como iLands que despliegan agentes de IA que actúan de forma autónoma, a veces generando spam o problemas.",
+    "wikipedia": "Intelligent agent",
+    "queries": [
+     "autonomous AI agents",
+     "agentes IA autonomos",
+     "iLands AI agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_bcb6801e",
+    "name": "IA generativa en videojuegos",
+    "definition": "Uso de IA generativa en el desarrollo de videojuegos como Profesor Layton, generando debate entre los fans.",
+    "wikipedia": "Generative artificial intelligence",
+    "queries": [
+     "generative AI games",
+     "IA generativa videojuegos",
+     "Professor Layton AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_6c54d414",
+    "name": "Tasas de interés e IA",
+    "definition": "Impacto de las tasas de interés de la Fed en la inversión en centros de datos e IA, y su relación con la deuda.",
+    "wikipedia": "Interest rate",
+    "queries": [
+     "Fed interest rates AI",
+     "tasas interes IA",
+     "AI data centers rates"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_575458c5",
+    "name": "Recortes de empleo por IA",
+    "definition": "Despidos y reducción de plantillas en empresas que aceleran la automatización con IA, como BMW o Soriana.",
+    "wikipedia": "Technological unemployment",
+    "queries": [
+     "AI job cuts",
+     "recortes empleo IA",
+     "AI layoffs automation"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_be7a52ed",
+    "name": "Automatización de redes con IA",
+    "definition": "Estrategias como la de Telefónica para construir redes autónomas mediante IA y automatización avanzada.",
+    "wikipedia": "Network automation",
+    "queries": [
+     "AI network automation",
+     "redes autonomas IA",
+     "Telefonica AI networks"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_35230798",
+    "name": "Generación de video con IA",
+    "definition": "Herramientas como HeyGen y prompts para crear videos cortos y mantener consistencia de personajes con IA.",
+    "wikipedia": "Artificial intelligence art",
+    "queries": [
+     "AI video generation",
+     "generacion video IA",
+     "HeyGen video prompts"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5e943de4",
+    "name": "Stablecoins y pagos con IA",
+    "definition": "Uso de stablecoins para pagos automatizados por agentes de IA, con ejemplos como el sistema x402 de Coinbase.",
+    "wikipedia": "Stablecoin",
+    "queries": [
+     "stablecoin AI payments",
+     "stablecoins pagos IA",
+     "agentic commerce stablecoins"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_36fb782f",
+    "name": "Agencias de rating y IA",
+    "definition": "Cómo Moody's, S&P y Morningstar evalúan el impacto de la IA en la deuda y las inversiones.",
+    "wikipedia": "Credit rating agency",
+    "queries": [
+     "Moody's AI debt",
+     "S&P AI investment",
+     "agencias rating IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e88db17b",
+    "name": "Instagram y contenido con IA",
+    "definition": "Nuevas políticas de Instagram para etiquetar contenido generado por IA y herramientas de video para creadores.",
+    "wikipedia": "Instagram",
+    "queries": [
+     "Instagram AI content",
+     "Instagram IA creadores",
+     "AI generated Instagram"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a9a509b3",
+    "name": "Modelos de lenguaje locales",
+    "definition": "Uso de LLM ejecutados localmente en hardware propio, como alternativa a los modelos corporativos en la nube.",
+    "wikipedia": "Large language model",
+    "queries": [
+     "local LLM models",
+     "LLM locales",
+     "local AI hardware"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_7e7bb917",
+    "name": "IA en CarPlay y Android Auto",
+    "definition": "Integración de asistentes de IA como Claude o Gemini en sistemas de infoentretenimiento para automóviles.",
+    "wikipedia": "CarPlay",
+    "queries": [
+     "CarPlay AI assistant",
+     "Android Auto IA",
+     "Claude CarPlay"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a5609fcc",
+    "name": "IA en elecciones de medio término",
+    "definition": "Uso de anuncios y desinformación generados por IA en las elecciones de medio término de EE. UU.",
+    "wikipedia": "2022 United States elections",
+    "queries": [
+     "AI midterm ads",
+     "IA elecciones EEUU",
+     "AI political disinformation"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_3638c0ef",
+    "name": "Rastreo web y tráfico de bots",
+    "definition": "Aumento del tráfico de bots de IA que rastrean sitios web, afectando el rendimiento y la privacidad.",
+    "wikipedia": "Web scraping",
+    "queries": [
+     "AI bot traffic",
+     "rastreo web IA",
+     "LLM bots websites"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c047fe86",
+    "name": "Gestión documental con IA",
+    "definition": "Herramientas de IA para procesar, generar y exportar documentos, incluyendo chat con documentos.",
+    "wikipedia": "Document management system",
+    "queries": [
+     "AI document processing",
+     "gestion documental IA",
+     "chat with documents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_3e002b5f",
+    "name": "Planificación de viajes con IA",
+    "definition": "Uso de IA para planificar rutas, viajes y actividades, con ejemplos como Gemini o JourniOne.",
+    "wikipedia": "Travel technology",
+    "queries": [
+     "AI travel planning",
+     "planificacion viajes IA",
+     "Gemini travel route"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9b4e1f96",
+    "name": "Costos ocultos de la IA",
+    "definition": "Gastos no previstos y trabajo adicional generado por la implementación de IA en las empresas.",
+    "wikipedia": "Cost",
+    "queries": [
+     "hidden AI costs",
+     "costos ocultos IA",
+     "AI budget control"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,24 @@
+{
+ "key": "155f1d5688691edd6e4dfcc0ebc56c5c6572a3f3cd73b7c994dc1fa33219ca39",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T21:54:36.062Z",
+ "latencyMs": 8945,
+ "usage": {
+  "inputTokens": 722,
+  "outputTokens": 908
+ },
+ "output": {
+  "score": 6,
+  "executive": 6,
+  "noCode": 5,
+  "latam": 2,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Muestra IA acelerando software, pero es caso gaming nicho.",
+   "Vibe coding genera polémica por calidad y deuda técnica.",
+   "Poco aplicable a ventas, growth o equipos no técnicos."
+  ]
+ }
+}

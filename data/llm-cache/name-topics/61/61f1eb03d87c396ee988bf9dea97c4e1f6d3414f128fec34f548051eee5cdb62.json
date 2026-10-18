@@ -1,0 +1,255 @@
+{
+ "key": "61f1eb03d87c396ee988bf9dea97c4e1f6d3414f128fec34f548051eee5cdb62",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:28:25.871Z",
+ "latencyMs": 9943,
+ "usage": {
+  "inputTokens": 3086,
+  "outputTokens": 1756
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_c253321d",
+    "name": "Aprendizaje continuo con IA",
+    "definition": "Técnicas para que los modelos de IA sigan aprendiendo sin olvidar lo anterior, clave en educación y empresa.",
+    "wikipedia": "Continual learning",
+    "queries": [
+     "continual learning IA",
+     "aprendizaje adaptativo IA",
+     "AI lifelong learning"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_20d06994",
+    "name": "Eficiencia operativa con IA",
+    "definition": "Uso de IA para reducir costes, automatizar tareas y mejorar la productividad en las empresas.",
+    "wikipedia": "Operational efficiency",
+    "queries": [
+     "eficiencia operativa IA",
+     "AI operational efficiency",
+     "automatización empresarial IA"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_b11bf60f",
+    "name": "Model Hardware Standard",
+    "definition": "Estándar de Anthropic para que agentes de IA operen equipos físicos como microscopios o robots.",
+    "wikipedia": null,
+    "queries": [
+     "Model Hardware Standard",
+     "AI physical equipment",
+     "Anthropic hardware standard"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_cdafd0f6",
+    "name": "Literatura e IA",
+    "definition": "Autores como Fernández Mallo o Volpi exploran el impacto de la IA en la cultura y la democracia.",
+    "wikipedia": "Artificial intelligence in literature",
+    "queries": [
+     "literatura inteligencia artificial",
+     "escritores IA",
+     "AI literature"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_3df47c23",
+    "name": "Ingeniería inversa con IA",
+    "definition": "Uso de IA para desensamblar y analizar software, videojuegos o protocolos como MCP.",
+    "wikipedia": "Reverse engineering",
+    "queries": [
+     "ingeniería inversa IA",
+     "AI reverse engineering",
+     "MCP server tools"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e797135a",
+    "name": "IA nativa y creatividad",
+    "definition": "Debate sobre si la IA generativa realmente potencia la creatividad humana o solo la simula.",
+    "wikipedia": "Artificial creativity",
+    "queries": [
+     "IA nativa creatividad",
+     "AI-native creativity",
+     "inteligencia natural IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_4ff6a211",
+    "name": "Pilotos de IA y regulación",
+    "definition": "Cómo escalar proyectos piloto de IA y la creciente demanda de salvaguardas regulatorias.",
+    "wikipedia": "Regulation of artificial intelligence",
+    "queries": [
+     "escalar pilotos IA",
+     "AI guardrails",
+     "regulación IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_126012e4",
+    "name": "Crisis en OpenAI",
+    "definition": "Despidos, espionaje y tensiones internas en OpenAI tras acusaciones de investigadores de seguridad.",
+    "wikipedia": "OpenAI",
+    "queries": [
+     "crisis OpenAI",
+     "OpenAI espionaje",
+     "OpenAI despidos seguridad"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_7320fa6c",
+    "name": "Estándares de agentes IA",
+    "definition": "Iniciativas como AGENTS.md buscan estandarizar y auditar el comportamiento de agentes autónomos.",
+    "wikipedia": null,
+    "queries": [
+     "estándares agentes IA",
+     "AGENTS.md",
+     "auditoría agentes IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9f9446a6",
+    "name": "Grok 4.7",
+    "definition": "Nueva versión del modelo de xAI que mejora en tareas complejas y agentes autónomos.",
+    "wikipedia": "Grok (chatbot)",
+    "queries": [
+     "Grok 4.7",
+     "GrokBot",
+     "xAI Grok"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_471d3a72",
+    "name": "Crítica cultural de la IA",
+    "definition": "Debate sobre el culto a la IA, su impacto en el arte y la percepción pública de la tecnología.",
+    "wikipedia": "Criticism of artificial intelligence",
+    "queries": [
+     "crítica cultural IA",
+     "AI culture criticism",
+     "culto a la IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_666d0d83",
+    "name": "Fotografía e IA",
+    "definition": "La IA generativa transforma la fotografía, desde concursos hasta la creación de imágenes sintéticas.",
+    "wikipedia": "Artificial intelligence in photography",
+    "queries": [
+     "fotografía IA",
+     "AI photography",
+     "concursos fotografía IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_355a8315",
+    "name": "Apple Intelligence iOS 27",
+    "definition": "Integración de IA en iPhone con iOS 27, incluyendo Siri mejorada y nuevas funciones.",
+    "wikipedia": "Apple Intelligence",
+    "queries": [
+     "Apple Intelligence iOS 27",
+     "Siri AI",
+     "iPhone IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_111853fc",
+    "name": "Economía de agentes",
+    "definition": "Nuevo paradigma económico donde agentes de IA realizan transacciones y colaboran con humanos.",
+    "wikipedia": "Agent-based computational economics",
+    "queries": [
+     "economía de agentes",
+     "agentic economy",
+     "agentes IA economía"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b20c46b3",
+    "name": "Trend foto años 80",
+    "definition": "Moda viral en redes de usar IA para transformar fotos al estilo retro de los años 80.",
+    "wikipedia": null,
+    "queries": [
+     "trend años 80 IA",
+     "foto retro IA",
+     "80s AI trend"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_abadd8a9",
+    "name": "Animación de logos con IA",
+    "definition": "Herramientas de IA para motion graphics y animación de logos de forma automatizada.",
+    "wikipedia": "Motion graphics",
+    "queries": [
+     "animación logos IA",
+     "motion graphics IA",
+     "AI logo animation"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_df9507e1",
+    "name": "IA gratuita sin límites",
+    "definition": "Servicios que ofrecen acceso gratuito e ilimitado a modelos de IA de alto rendimiento.",
+    "wikipedia": null,
+    "queries": [
+     "IA gratis ilimitada",
+     "free AI unlimited",
+     "acceso gratuito IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_27cd9bcf",
+    "name": "Micron y chips de IA",
+    "definition": "Micron reporta ingresos récord por la demanda de memoria para IA, con disputas de patentes.",
+    "wikipedia": "Micron Technology",
+    "queries": [
+     "Micron IA",
+     "Micron AI memory",
+     "chips memoria IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e33a0a0c",
+    "name": "Inferencia local de LLM",
+    "definition": "Herramientas como vLLM o llama.cpp permiten ejecutar modelos de lenguaje en hardware local.",
+    "wikipedia": "Large language model",
+    "queries": [
+     "inferencia local LLM",
+     "vLLM llama.cpp",
+     "local LLM inference"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c2022417",
+    "name": "Regulación estatal de IA",
+    "definition": "Estados de EE.UU. como Ohio o Maryland avanzan en normativas y gasto público en IA.",
+    "wikipedia": "Regulation of artificial intelligence",
+    "queries": [
+     "regulación estatal IA",
+     "state AI regulation",
+     "Ohio IA regulación"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

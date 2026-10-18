@@ -1,0 +1,21 @@
+{
+ "key": "723c905c74609b1945f5185ac9290c54120ccd7880a720c769e42cf5db8adf4e",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:18:22.568Z",
+ "latencyMs": 11195,
+ "usage": {
+  "inputTokens": 1595,
+  "outputTokens": 1713
+ },
+ "output": {
+  "oneLiner": "Chistes sobre entrevistadores de IA disparan el tema en Bluesky; los medios publican casos sin engagement.",
+  "narrative": "No hay patrones con al menos 3 piezas, así que la señal está en la evidencia suelta. Las piezas que despegan son chistes en Bluesky sobre entrevistadores de IA: el post de Sohan Dsouza llega a 15,7 veces la mediana de su autor y el de El Aterrador Dr. Mañanas a 4 veces. El gancho es el chiste corto sobre la IA que entrevista y el momento es el crecimiento de la categoría, con 12 creadores esta semana. Las noticias sobre casos reales, como la de Computer Hoy, se quedan sin engagement.",
+  "cited": [
+   "bluesky:3mxlzyui7d22y",
+   "bluesky:3mxbt3v5vsk2u",
+   "bluesky:3mxwzpiemt22s",
+   "news:CBMirwJBVV95cUxQanAySGp0VnFmbC1MMWRSVU5CMXp2b0taUVdKc2gwbzk5LWlMbW9GdUo3RHVfZTBlQ2pJSkNvNG50bTlJRWhzZVQ2STd6Z3ZnMDczUnp6bXIxMTVFS0R3R3B3bXZkb25UVy1yT3VFOFpkVlFzakhxYXFZQ2ZkN241Y2FldmxoNlc2VF9YSFlqM1pTSnpfMnRyeEQ3NmpUTVZldHVHM3hjQ3RKWUY2WF82N3ZGSlJVa0hwOEpVSUVwTXMxQU5lMFZCb0ZLNUtkUEd0Zl81MktsLW9TSHBYOXk1RTgybkJxR3ZRdUpZS2laYVhjX0tJOGlmZVNkdnFaeG5SNElueHdvWll4dDNaNUN1SG11d3NnazAzanVBbW5yaTloZzlOUnczdG9ReDU1Y3c"
+  ]
+ }
+}

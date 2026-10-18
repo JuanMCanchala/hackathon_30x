@@ -1,0 +1,24 @@
+{
+ "key": "88c07b2cd28cf32bb2067ddb68fe7bd9862bce18347561031fd6a3e7dc81ab18",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:16:56.718Z",
+ "latencyMs": 4891,
+ "usage": {
+  "inputTokens": 702,
+  "outputTokens": 686
+ },
+ "output": {
+  "score": 3,
+  "executive": 4,
+  "noCode": 1,
+  "latam": 1,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Infraestructura de datacenter, no aplicación comercial directa para equipos LatAm.",
+   "Sin ángulo latinoamericano ni casos locales; anuncio técnico en inglés.",
+   "Relevante para CTOs, no para ventas, growth o fundadores no técnicos."
+  ]
+ }
+}

@@ -1,0 +1,24 @@
+{
+ "key": "524d3da74164c5d6eb41f1c6db98b45f6c5c0ca8e96c60d6dad5aedc8eb0d291",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:16:36.238Z",
+ "latencyMs": 17423,
+ "usage": {
+  "inputTokens": 697,
+  "outputTokens": 843
+ },
+ "output": {
+  "score": 3,
+  "executive": 4,
+  "noCode": 1,
+  "latam": 1,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "alto",
+  "reasons": [
+   "Noticia sensacionalista de OpenAI; poca aplicación práctica para negocios.",
+   "Sin ángulo LatAm ni uso sin código para equipos comerciales.",
+   "Solo relevante para seguridad corporativa, no ventas ni growth."
+  ]
+ }
+}

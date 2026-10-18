@@ -1,0 +1,14 @@
+{
+ "key": "5a800c6c15d1d59f85439f466389d7ce82851678a9c7859f3bfe5f9cc9a7a708",
+ "name": "headline",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:29:23.630Z",
+ "latencyMs": 737,
+ "usage": {
+  "inputTokens": 327,
+  "outputTokens": 30
+ },
+ "output": {
+  "headline": "Esta semana la IA open source, la IA en redes sociales y las extensiones de ChatGPT marcan el ritmo"
+ }
+}

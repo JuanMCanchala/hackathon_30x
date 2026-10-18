@@ -1,0 +1,24 @@
+{
+ "key": "7110eb06b418db12ae83ff69dc850fbfc1a51148d43e02e010c2229ae4b20523",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:16:51.818Z",
+ "latencyMs": 6180,
+ "usage": {
+  "inputTokens": 695,
+  "outputTokens": 657
+ },
+ "output": {
+  "score": 7,
+  "executive": 7,
+  "noCode": 6,
+  "latam": 2,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Automatiza tareas web repetitivas para ventas, growth y productividad.",
+   "Aún experimental: riesgos de seguridad, privacidad y hype.",
+   "Poco ángulo LatAm; piezas en inglés y algunas muy técnicas."
+  ]
+ }
+}

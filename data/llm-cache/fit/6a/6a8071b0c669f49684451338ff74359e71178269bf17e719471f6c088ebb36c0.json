@@ -1,0 +1,24 @@
+{
+ "key": "6a8071b0c669f49684451338ff74359e71178269bf17e719471f6c088ebb36c0",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:20:29.070Z",
+ "latencyMs": 6243,
+ "usage": {
+  "inputTokens": 730,
+  "outputTokens": 697
+ },
+ "output": {
+  "score": 6,
+  "executive": 8,
+  "noCode": 2,
+  "latam": 2,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Clave para founders: afecta fundraising, costos y estrategia de IA.",
+   "Poco accionable para equipos comerciales o growth sin contexto financiero.",
+   "Sin ángulo LatAm explícito; requiere adaptación local para resonar."
+  ]
+ }
+}

@@ -1,0 +1,24 @@
+{
+ "key": "75d26607ffe9e7c483b8ba69034cfb1ae49401ce267c72666aff25c84820cc7f",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:30:37.103Z",
+ "latencyMs": 6212,
+ "usage": {
+  "inputTokens": 751,
+  "outputTokens": 748
+ },
+ "output": {
+  "score": 8,
+  "executive": 8,
+  "noCode": 8,
+  "latam": 5,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Clave para adoptar agentes sin perder criterio de negocio.",
+   "Aplicable a ventas, growth y productividad sin código.",
+   "Casos LatAm limitados; Brasil ilustra riesgos de confianza."
+  ]
+ }
+}

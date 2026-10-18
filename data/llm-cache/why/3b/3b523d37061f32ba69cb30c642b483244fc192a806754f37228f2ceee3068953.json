@@ -1,0 +1,21 @@
+{
+ "key": "3b523d37061f32ba69cb30c642b483244fc192a806754f37228f2ceee3068953",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:20:35.533Z",
+ "latencyMs": 4414,
+ "usage": {
+  "inputTokens": 1255,
+  "outputTokens": 767
+ },
+ "output": {
+  "oneLiner": "Agentes de IA descompilan videojuegos y apps; creadores de YouTube y Bluesky lo viralizan esta semana.",
+  "narrative": "El video es el formato que separa: 3 de 11 piezas que despegaron son videos, frente a 0 de 14 del resto. También pesa quién publica: 6 de 11 las firmó un creador de contenido, frente a 3 de 14. Los ganchos de opinión fuerte y de idea contraintuitiva aparecen casi iguales en ambos grupos (3 de 11 frente a 2 de 14), así que el empuje viene del formato y del autor, no del ángulo. Un video de Juan Pe Navarro sobre clonar software con REA e ingeniería inversa y otro de Nate B Jones sobre apps que se caen tras el lanzamiento concentran el interés, junto al caso de agentes que descompilan un shooter y al aviso de TimBagels sobre un decompilado hecho con IA.",
+  "cited": [
+   "youtube:4YkdCVzHpbc",
+   "youtube:PseF3LyXQ04",
+   "hn:50039092",
+   "bluesky:3mxubhz4wvk2l"
+  ]
+ }
+}

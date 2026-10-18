@@ -1,0 +1,24 @@
+{
+ "key": "c426d69467d30de4dfeb6cfde13a7f5948a4e9437f03acfe6db8cc6faf8d0bcb",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:29:11.438Z",
+ "latencyMs": 5377,
+ "usage": {
+  "inputTokens": 665,
+  "outputTokens": 700
+ },
+ "output": {
+  "score": 4,
+  "executive": 5,
+  "noCode": 2,
+  "latam": 1,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Tema científico y de robótica, lejos de ventas y growth.",
+   "Poca aplicación sin código para equipos comerciales latinoamericanos.",
+   "Casos globales, sin ángulo LatAm ni español claro."
+  ]
+ }
+}

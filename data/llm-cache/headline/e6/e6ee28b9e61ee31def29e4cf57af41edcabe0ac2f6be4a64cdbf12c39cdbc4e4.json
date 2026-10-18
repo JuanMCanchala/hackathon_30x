@@ -1,0 +1,14 @@
+{
+ "key": "e6ee28b9e61ee31def29e4cf57af41edcabe0ac2f6be4a64cdbf12c39cdbc4e4",
+ "name": "headline",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:13:21.477Z",
+ "latencyMs": 764,
+ "usage": {
+  "inputTokens": 337,
+  "outputTokens": 33
+ },
+ "output": {
+  "headline": "Esta semana la IA en ventas B2B, la IA en el espacio y la robótica marcan la conversación"
+ }
+}

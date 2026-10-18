@@ -1,0 +1,255 @@
+{
+ "key": "3b692122535669b94631571f53f820e84d2ce17cd1c4be8e398cea80e9e8107f",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:15:50.029Z",
+ "latencyMs": 8558,
+ "usage": {
+  "inputTokens": 2987,
+  "outputTokens": 1708
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_9c6c6a0f",
+    "name": "Controles parentales en IA",
+    "definition": "Herramientas y políticas para que padres supervisen y limiten el uso de asistentes de IA por menores.",
+    "wikipedia": "Parental controls",
+    "queries": [
+     "controles parentales IA",
+     "parental controls ChatGPT",
+     "ChatGPT for Teens"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a44b4f4f",
+    "name": "Diseño de proteínas con IA",
+    "definition": "Uso de modelos generativos para diseñar nuevas proteínas con aplicaciones en medicina y biotecnología.",
+    "wikipedia": "Protein design",
+    "queries": [
+     "diseño proteínas IA",
+     "AI protein design",
+     "generative protein design"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_cdb54c21",
+    "name": "Datos sintéticos",
+    "definition": "Datos generados artificialmente para entrenar modelos de IA, con riesgos de colapso y sesgos.",
+    "wikipedia": "Synthetic data",
+    "queries": [
+     "datos sintéticos IA",
+     "synthetic data AI",
+     "model collapse"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ccb6d971",
+    "name": "Check Point Software",
+    "definition": "Empresa de ciberseguridad que analiza riesgos y vulnerabilidades en herramientas de IA.",
+    "wikipedia": "Check Point Software Technologies",
+    "queries": [
+     "Check Point IA",
+     "Check Point Software",
+     "Check Point vulnerabilidades"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9fe021f6",
+    "name": "IA integrada en productos",
+    "definition": "Incorporación de inteligencia artificial directamente en dispositivos y aplicaciones de consumo masivo.",
+    "wikipedia": "Embedded intelligence",
+    "queries": [
+     "IA embebida",
+     "embedded AI",
+     "consumer AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_67d18116",
+    "name": "Llamadas fraudulentas con IA",
+    "definition": "Estafas telefónicas que utilizan voces clonadas o bots de IA para engañar a víctimas.",
+    "wikipedia": "Vishing",
+    "queries": [
+     "llamadas fraudulentas IA",
+     "AI scam calls",
+     "vishing AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_fa44af50",
+    "name": "IA en misiles balísticos",
+    "definition": "Uso de modelos de IA para el desarrollo de sistemas de guiado y control de misiles.",
+    "wikipedia": "Ballistic missile",
+    "queries": [
+     "IA misiles balísticos",
+     "AI ballistic missiles",
+     "Houthis AI missiles"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_aa07a18b",
+    "name": "Agentes de IA en Microsoft",
+    "definition": "Integración de agentes autónomos en Dynamics 365, Power Platform y el ecosistema Microsoft.",
+    "wikipedia": "Microsoft Dynamics 365",
+    "queries": [
+     "agentes IA Microsoft",
+     "Dynamics 365 AI",
+     "Power Platform agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d20dd5b5",
+    "name": "Medición de productividad con IA",
+    "definition": "Métricas y métodos para evaluar el impacto real de la IA en la productividad empresarial.",
+    "wikipedia": "Productivity",
+    "queries": [
+     "productividad IA",
+     "AI productivity gains",
+     "medir productividad IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_413c41b4",
+    "name": "IA en ilustración",
+    "definition": "Debate sobre el uso de IA generativa en ilustración y su impacto en artistas profesionales.",
+    "wikipedia": "Illustration",
+    "queries": [
+     "IA ilustración",
+     "AI illustration",
+     "ilustradores contra IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d138f79a",
+    "name": "Moderación de contenido con IA",
+    "definition": "Sistemas automáticos para filtrar y moderar contenido en plataformas digitales.",
+    "wikipedia": "Content moderation",
+    "queries": [
+     "moderación contenido IA",
+     "AI content moderation",
+     "moderación automática"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_6b0e0b21",
+    "name": "IA en concesionarios",
+    "definition": "Aplicación de IA en ventas, atención al cliente y gestión de concesionarios de autos.",
+    "wikipedia": "Car dealership",
+    "queries": [
+     "IA concesionarios",
+     "AI dealerships",
+     "IA venta autos"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_3aac93a8",
+    "name": "Dashboards con IA",
+    "definition": "Herramientas que generan paneles de control y visualizaciones de datos mediante IA.",
+    "wikipedia": "Dashboard (business)",
+    "queries": [
+     "dashboards IA",
+     "AI dashboards",
+     "Claude dashboards"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_dacddb9b",
+    "name": "Regulación publicitaria con IA",
+    "definition": "Normativas y estándares para regular el uso de IA en publicidad y marketing.",
+    "wikipedia": "Advertising regulation",
+    "queries": [
+     "regulación publicidad IA",
+     "AI advertising regulation",
+     "DSA AI marketing"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_6dd2d2ce",
+    "name": "Comportamiento emergente en IA",
+    "definition": "Comportamientos colectivos o inesperados que surgen en sistemas de agentes de IA.",
+    "wikipedia": "Emergence",
+    "queries": [
+     "comportamiento emergente IA",
+     "AI emergent behavior",
+     "agentes IA rogue"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_7b1c2e27",
+    "name": "Rentabilidad de startups de IA",
+    "definition": "Análisis de ingresos, pérdidas y sostenibilidad financiera de las empresas de IA.",
+    "wikipedia": "Artificial intelligence industry",
+    "queries": [
+     "rentabilidad IA",
+     "AI startup revenue",
+     "pérdidas OpenAI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9e502358",
+    "name": "Permisos de macOS para IA",
+    "definition": "Cambios en los permisos de seguridad de macOS ante riesgos de agentes de IA.",
+    "wikipedia": "macOS",
+    "queries": [
+     "permisos macOS IA",
+     "macOS AI permissions",
+     "Full Disk Access AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_3aec4019",
+    "name": "Innovación empresarial con IA",
+    "definition": "Uso de IA para impulsar innovación y desarrollo de nuevos productos en empresas.",
+    "wikipedia": "Innovation",
+    "queries": [
+     "innovación empresarial IA",
+     "AI business innovation",
+     "I+D IA"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_fd325c2c",
+    "name": "Profound",
+    "definition": "Startup de marketing con IA que alcanzó una valoración de 1.800 millones de dólares.",
+    "wikipedia": null,
+    "queries": [
+     "Profound AI",
+     "Profound funding",
+     "Profound marketing"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_14832945",
+    "name": "Identidad del programador",
+    "definition": "Crisis de identidad profesional ante la automatización de la programación con agentes de IA.",
+    "wikipedia": "Programmer",
+    "queries": [
+     "identidad programador IA",
+     "AI coding identity",
+     "vibe coding"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

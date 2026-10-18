@@ -1,0 +1,255 @@
+{
+ "key": "e2c9e5f1de568a4c11a448f8975fd0ebf7a27786f82a5bd4662de5b94d17beac",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:12:41.805Z",
+ "latencyMs": 15564,
+ "usage": {
+  "inputTokens": 3262,
+  "outputTokens": 1665
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_08a8e44e",
+    "name": "Prompt injection",
+    "definition": "Ataque que manipula instrucciones de IA para que ignore restricciones o filtre datos.",
+    "wikipedia": "Prompt injection",
+    "queries": [
+     "prompt injection",
+     "inyección de prompt",
+     "prompt injection ataques"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_208a8367",
+    "name": "Seguridad en OpenAI",
+    "definition": "Incidentes, filtraciones y políticas de seguridad de los modelos y servicios de OpenAI.",
+    "wikipedia": "OpenAI",
+    "queries": [
+     "OpenAI seguridad",
+     "OpenAI safety",
+     "seguridad ChatGPT"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a744b316",
+    "name": "Límites de uso de IA",
+    "definition": "Restricciones de tokens, créditos y acceso que aplican los proveedores de IA a sus usuarios.",
+    "wikipedia": null,
+    "queries": [
+     "límites de uso IA",
+     "API rate limits",
+     "créditos API IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_36f7c386",
+    "name": "Protección infantil en IA",
+    "definition": "Riesgos y regulación del uso de IA por menores, con foco en seguridad y salud mental.",
+    "wikipedia": "Children's Online Privacy Protection Act",
+    "queries": [
+     "seguridad infantil IA",
+     "AI child safety",
+     "protección menores ChatGPT"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_147dbd00",
+    "name": "Consultoras e IA",
+    "definition": "Grandes consultoras tecnológicas que implementan IA para empresas y transforman su negocio.",
+    "wikipedia": null,
+    "queries": [
+     "consultoras IA",
+     "IT services AI",
+     "consultoras inteligencia artificial"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2bc3666a",
+    "name": "Críticos de la IA",
+    "definition": "Voces escépticas que cuestionan promesas, riesgos y estabilidad de la industria de IA.",
+    "wikipedia": "AI skepticism",
+    "queries": [
+     "críticos IA",
+     "AI skeptics",
+     "Ed Zitron IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_99b719ee",
+    "name": "IA física",
+    "definition": "Integración de IA en robots y sistemas que interactúan con el mundo físico.",
+    "wikipedia": "Embodied AI",
+    "queries": [
+     "IA física",
+     "physical AI",
+     "embodied AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d21c8c8b",
+    "name": "SAP e IA",
+    "definition": "Aplicación de IA generativa y agentes en plataformas empresariales SAP para automatizar procesos.",
+    "wikipedia": "SAP",
+    "queries": [
+     "SAP IA",
+     "SAP Business AI",
+     "SAP Joule"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5aaf7db9",
+    "name": "Flujos de trabajo con IA",
+    "definition": "Diseño de procesos y automatizaciones que integran IA, a menudo con múltiples agentes.",
+    "wikipedia": "Workflow automation",
+    "queries": [
+     "workflows IA",
+     "AI workflows",
+     "flujos trabajo IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a0fc44c4",
+    "name": "Agentes de navegador",
+    "definition": "Herramientas de IA que controlan el navegador para automatizar tareas web.",
+    "wikipedia": "Browser automation",
+    "queries": [
+     "agentes navegador",
+     "browser agents",
+     "automatización navegador IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1617e923",
+    "name": "ChatGPT vs Claude vs Gemini",
+    "definition": "Comparativas de rendimiento, capacidades y costos entre los principales asistentes de IA.",
+    "wikipedia": null,
+    "queries": [
+     "ChatGPT vs Claude",
+     "Claude vs Gemini",
+     "comparativa asistentes IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_dd9a39e3",
+    "name": "IA responsable",
+    "definition": "Enfoques éticos y de rendición de cuentas en el desarrollo y uso de sistemas de IA.",
+    "wikipedia": "Responsible AI",
+    "queries": [
+     "IA responsable",
+     "responsible AI",
+     "ética IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_260eef52",
+    "name": "Sesgo algorítmico",
+    "definition": "Discriminación o manipulación producida por algoritmos y modelos de IA opacos.",
+    "wikipedia": "Algorithmic bias",
+    "queries": [
+     "sesgo algorítmico",
+     "algorithmic bias",
+     "caja negra algoritmos"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b33a7f39",
+    "name": "Caídas de servicios de IA",
+    "definition": "Interrupciones simultáneas o recurrentes en plataformas como ChatGPT, Claude o Gemini.",
+    "wikipedia": null,
+    "queries": [
+     "caída ChatGPT",
+     "AI outage",
+     "caída servicios IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_38d545a0",
+    "name": "Empleo junior y IA",
+    "definition": "Impacto de la IA en la contratación y el trabajo de perfiles junior y entry-level.",
+    "wikipedia": "Youth unemployment",
+    "queries": [
+     "empleo junior IA",
+     "entry-level jobs AI",
+     "empleo juvenil IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_380ff815",
+    "name": "Entrevistas con IA",
+    "definition": "Uso de IA para realizar entrevistas de trabajo, llamadas o presentaciones interactivas.",
+    "wikipedia": "Interview",
+    "queries": [
+     "entrevistas IA",
+     "AI interviews",
+     "entrevistas trabajo IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_cc8fff6f",
+    "name": "Desarrolladores e IA",
+    "definition": "Cambios en el trabajo, herramientas y cultura de los desarrolladores de software por la IA.",
+    "wikipedia": "Software developer",
+    "queries": [
+     "desarrolladores IA",
+     "AI developers",
+     "herramientas developers IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_64cbf86a",
+    "name": "Finanzas de OpenAI",
+    "definition": "Ingresos, costos, financiamiento y sostenibilidad económica de OpenAI y rivales.",
+    "wikipedia": "OpenAI",
+    "queries": [
+     "finanzas OpenAI",
+     "OpenAI revenue",
+     "ingresos OpenAI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_68ece862",
+    "name": "Resúmenes con IA",
+    "definition": "Herramientas que generan resúmenes de reuniones, documentos o informes automáticamente.",
+    "wikipedia": "Automatic summarization",
+    "queries": [
+     "resúmenes IA",
+     "AI summarization",
+     "notas reunión IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1fbd3f06",
+    "name": "IA en logística",
+    "definition": "Automatización de envíos, excepciones y flujos logísticos mediante agentes de IA.",
+    "wikipedia": "Logistics automation",
+    "queries": [
+     "IA logística",
+     "AI logistics",
+     "automatización logística IA"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

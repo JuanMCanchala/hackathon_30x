@@ -1,0 +1,24 @@
+{
+ "key": "f0f157a8892a91c7cab1cab1962a57bdc59457147e48c7d6ccb55a9f67a648d1",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:29:07.277Z",
+ "latencyMs": 6400,
+ "usage": {
+  "inputTokens": 694,
+  "outputTokens": 611
+ },
+ "output": {
+  "score": 6,
+  "executive": 7,
+  "noCode": 6,
+  "latam": 2,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Caso real de IA generativa en producción de contenido a escala.",
+   "Relevante para marketing y medios; menos para ventas o growth.",
+   "Sin ángulo LatAm ni aplicación directa para pymes."
+  ]
+ }
+}

@@ -1,0 +1,21 @@
+{
+ "key": "15eb0fb385a15bb265f8cd9bee400d50c9cb1d8bd38211eb25ae75db32064a95",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:30:00.692Z",
+ "latencyMs": 8545,
+ "usage": {
+  "inputTokens": 1402,
+  "outputTokens": 1036
+ },
+ "output": {
+  "oneLiner": "Anthropic rediseña su control de código tras multiplicar por 12 sus cambios diarios; medios y devs lo debaten.",
+  "narrative": "No hay patrones con al menos 3 piezas, así que el crecimiento se explica con evidencia suelta. El post de Anthropic en X abre con cifras, de 2.500 a más de 30.000 cambios fusionados por día, y logra 7,3 veces la mediana de su autor. En Hacker News, el artículo sobre el rediseño de control de código llega a 13,1 veces la mediana, y el repo de Git para agentes de IA suma 1.468 de engagement. La réplica crítica sobre Scion también despega, con 4,5 veces la mediana: el tema genera adopción y disputa a la vez.",
+  "cited": [
+   "x:2110047081414987957",
+   "hn:50073633",
+   "github:feder-cr/git-ai",
+   "hn:50106738"
+  ]
+ }
+}

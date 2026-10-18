@@ -1,0 +1,21 @@
+{
+ "key": "f8d1a53b43dbd3aef6d8ba9bbbfd19e9706091472e315553b62cb7bbfabc5621",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:30:17.499Z",
+ "latencyMs": 7389,
+ "usage": {
+  "inputTokens": 1128,
+  "outputTokens": 1065
+ },
+ "output": {
+  "oneLiner": "Google lanza Gemini 4 Argon y Brin habla de automejora recursiva; terceros mueven la conversación.",
+  "narrative": "No hay patrones con al menos 3 piezas, así que la lectura es pieza por pieza. La única que despegó con fuerza es un artículo en Hacker News sobre Gemini 4 Argon, con 36.9 veces la mediana de su autor. Los canales oficiales quedan por debajo de su propia mediana: el video de Google DeepMind en X llega a 0.8 y el post de Google en LinkedIn a 0.6. El empuje viene de terceros: un video de Santi Chávez probando el modelo y la declaración de Sergey Brin sobre automejora recursiva.",
+  "cited": [
+   "hn:50073879",
+   "x:2110039277442682916",
+   "linkedin:7516253761166815232",
+   "youtube:hEK52zk3uD4"
+  ]
+ }
+}

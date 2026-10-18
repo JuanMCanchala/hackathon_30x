@@ -1,0 +1,24 @@
+{
+ "key": "1154e06f516e6ab2231555dfbf3907ee1f40c0b4dfafc32860ab5b3aa53876f4",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:17:00.696Z",
+ "latencyMs": 6304,
+ "usage": {
+  "inputTokens": 725,
+  "outputTokens": 859
+ },
+ "output": {
+  "score": 6,
+  "executive": 6,
+  "noCode": 9,
+  "latam": 4,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Toca autoría, IP y confianza en contenido generado por IA.",
+   "Aplicable a marketing, thought leadership y creación de contenido.",
+   "Ángulo LatAm débil; caso español y debate global."
+  ]
+ }
+}

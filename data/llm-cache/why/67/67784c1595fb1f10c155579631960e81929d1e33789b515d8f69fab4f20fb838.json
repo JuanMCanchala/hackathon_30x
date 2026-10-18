@@ -1,0 +1,21 @@
+{
+ "key": "67784c1595fb1f10c155579631960e81929d1e33789b515d8f69fab4f20fb838",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:30:48.093Z",
+ "latencyMs": 23017,
+ "usage": {
+  "inputTokens": 1625,
+  "outputTokens": 3793
+ },
+ "output": {
+  "oneLiner": "Google DeepMind, Google, la NBA y Apate.ai empujan la detección de fraude con IA.",
+  "narrative": "No hay patrones con al menos 3 piezas, así que no se puede afirmar un gancho recurrente. El tema crece +112 % en creadores distintos, con 8 creadores esta semana. La pieza que más despega es un video de Google DeepMind en X sobre ingeniería social en Singapur, con 3.2× la mediana de su autor. También aparecen noticias de The Next Web sobre Google, de CNBC sobre la NBA y de KuCoin sobre Apate.ai.",
+  "cited": [
+   "x:2110190101707858039",
+   "news:CBMidEFVX3lxTE9OcXU0R09ma2ZIcWcxdzRVcGttbGtMbWM0akdfVUxJQUViSUFuTXhpZ0ExdFNJQ0YwNlBVZVNaNS1rUjhXYXllWWpxVGx3NDhvTWNZYXlFLS1Xa09EMFhoMFpYLWxzajd6OVF4aFdidkFCQ1JE",
+   "news:CBMiowFBVV95cUxPMGkzY2hGN0FnSlVBM1RBTGlTZGZzN2NIWW5MQWE1OWVQemszZFFGRGp2YjVfWjFVNlFkOU5JMWNoWWNUbWdMUFJfdVF1VDFuZzI2bGEtcEhHNFY1azFnOElwaFNRNmw5Yzd5aDkwbENtN0VXWVpxMkt6RnFEVDVMQXE4QjlGQjlBcjlYWU5DM0RZbWJDSW1oYkNaU0Y5ZVRkOVVF0gGoAUFVX3lxTFBSSFRzXzdJVkNqb01zemY2NmRONVJPMnJrbHhhZDQ2dW1FZ2k0Q2hBc2dTdi1DMXAzZHByaVAybjNNOUNIRTVoblRTNnF2cWRHYl9vcHhoSTFZVm1XdVoyY2t0dDdHVTk2MHl0ZFlTQkl5THZIUi14eS0xUWEzTlhmWDJzWi1OSHV0bU5FVVY5dWswamtUNWMyUURTX19xLVN0R25uZzJuQw",
+   "news:CBMiuAFBVV95cUxPaDZBTkg0QThOY3dPbzZGRUtSWF9BekZsVC1mYVdmbWhZSWgyYkN6aEtiT3NsTFpfelloYkx5U1hsbEVpT0M3SFZUUEZsN0llZEhUNVpCRHZHT1VXNGVwa3hGR3VYdGN1SmdZSHhnaTg0ekRJYzJST2ZnOXFFUlNuUDc2LW8wX3M3aWpvelZnNkxCWF8wcXdIa1Y0ajREN2V0WDJvSWRwMkhpaVBBWjBMVkZuVWk3dVV5"
+  ]
+ }
+}

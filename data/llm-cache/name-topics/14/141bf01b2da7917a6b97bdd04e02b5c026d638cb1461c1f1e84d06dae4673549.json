@@ -1,0 +1,255 @@
+{
+ "key": "141bf01b2da7917a6b97bdd04e02b5c026d638cb1461c1f1e84d06dae4673549",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T17:36:37.162Z",
+ "latencyMs": 13060,
+ "usage": {
+  "inputTokens": 3431,
+  "outputTokens": 1744
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_ade47a99",
+    "name": "FMI y riesgo IA",
+    "definition": "El FMI advierte que una corrección en las acciones de IA podría desestabilizar la economía global.",
+    "wikipedia": "International Monetary Fund",
+    "queries": [
+     "FMI IA riesgo",
+     "IMF AI financial stability",
+     "FMI advertencia IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_93c6192f",
+    "name": "IA en manufactura",
+    "definition": "Aplicación de IA en procesos industriales, desde ensamblaje y maquiladoras hasta oil & gas y construcción.",
+    "wikipedia": "Artificial intelligence in industry",
+    "queries": [
+     "IA manufactura industrial",
+     "AI manufacturing automation",
+     "IA en fábricas"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c6e27e25",
+    "name": "Gobierno y alianzas IA",
+    "definition": "Acuerdos y coordinación entre gobiernos para regular y adoptar IA en servicios públicos.",
+    "wikipedia": "Government by algorithm",
+    "queries": [
+     "gobierno IA alianza",
+     "government AI policy",
+     "IA en el estado"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_fa1b0b2c",
+    "name": "Apple y IA",
+    "definition": "Movimientos de Apple en inteligencia artificial, incluyendo asistentes, investigación y competencia con Meta.",
+    "wikipedia": "Apple Inc.",
+    "queries": [
+     "Apple IA estrategia",
+     "Apple AI research",
+     "Apple vs Meta IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a429594e",
+    "name": "IA local y legal",
+    "definition": "Uso de IA local sin conexión y aspectos legales, incluyendo leyes estatales y carve-outs.",
+    "wikipedia": "Local AI",
+    "queries": [
+     "IA local offline",
+     "local AI legal",
+     "ley IA Virginia"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c04d9bc8",
+    "name": "Acciones de chips",
+    "definition": "Comportamiento bursátil de empresas de semiconductores y demanda de chips avanzados para IA.",
+    "wikipedia": "Semiconductor industry",
+    "queries": [
+     "acciones chips IA",
+     "chip stocks AI",
+     "demanda chips avanzados"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_3208c134",
+    "name": "Ciberseguridad e IA",
+    "definition": "Empresas de ciberseguridad que integran IA para protección, detección de amenazas y automatización.",
+    "wikipedia": "Computer security",
+    "queries": [
+     "ciberseguridad IA empresas",
+     "AI cybersecurity startups",
+     "seguridad automatizada IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_4ca754b9",
+    "name": "Wall Street e IA",
+    "definition": "Reacciones del mercado financiero estadounidense ante el impacto y las expectativas de la IA.",
+    "wikipedia": "Wall Street",
+    "queries": [
+     "Wall Street IA",
+     "Nasdaq IA mercado",
+     "bolsa IA temores"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_fee2d950",
+    "name": "Agentes de ventas",
+    "definition": "Agentes de IA aplicados a ventas, comercio electrónico y procesos empresariales, incluyendo comercio agéntico.",
+    "wikipedia": "Intelligent agent",
+    "queries": [
+     "agentes ventas IA",
+     "AI sales agents",
+     "comercio agéntico"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c417a82a",
+    "name": "Investigación con IA",
+    "definition": "Uso de IA en investigación académica, científica y aplicada, incluyendo investigación autónoma.",
+    "wikipedia": "Artificial intelligence in research",
+    "queries": [
+     "IA investigación científica",
+     "AI research tools",
+     "investigación autónoma IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ec2c2a3e",
+    "name": "Capacitación y IA",
+    "definition": "Formación de habilidades en IA para trabajadores, docentes y pymes, y costes de entrenamiento de modelos.",
+    "wikipedia": "AI training",
+    "queries": [
+     "capacitación IA empresas",
+     "AI training costs",
+     "formación en IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_507ef201",
+    "name": "IA y política",
+    "definition": "Intersección de IA con política, democracia, justicia y responsabilidad en el sector público.",
+    "wikipedia": "Artificial intelligence in politics",
+    "queries": [
+     "IA y política",
+     "AI in government",
+     "IA y democracia"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b58e3fb6",
+    "name": "Linux e IA",
+    "definition": "Integración de IA en el kernel de Linux y debates sobre su uso en el desarrollo del sistema operativo.",
+    "wikipedia": "Linux kernel",
+    "queries": [
+     "Linux kernel IA",
+     "AI in Linux",
+     "Linus Torvalds IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1136b2d5",
+    "name": "Herramientas IA gratuitas",
+    "definition": "Herramientas de IA gratuitas o no-code para creadores, oficina y automatización de tareas.",
+    "wikipedia": "No-code development platform",
+    "queries": [
+     "herramientas IA gratis",
+     "free AI tools",
+     "IA no-code"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b07bde6d",
+    "name": "Filtraciones de IA",
+    "definition": "Brechas de seguridad y filtraciones de datos en empresas de IA, con posibles multas regulatorias.",
+    "wikipedia": "Data breach",
+    "queries": [
+     "filtración datos IA",
+     "AI data leak",
+     "brecha seguridad IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_6b88d34e",
+    "name": "IA y opinión pública",
+    "definition": "Reacciones y opiniones de figuras públicas y medios sobre el impacto y los peligros de la IA.",
+    "wikipedia": "Artificial intelligence in society",
+    "queries": [
+     "opinión IA expertos",
+     "AI public debate",
+     "peligros IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1cd93fd7",
+    "name": "Google DeepMind",
+    "definition": "Avances y proyectos de Google DeepMind, incluyendo modelos Gemini y investigación en IA.",
+    "wikipedia": "Google DeepMind",
+    "queries": [
+     "Google DeepMind",
+     "Gemini Google AI",
+     "DeepMind research"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2bf0becd",
+    "name": "Habilidades en IA",
+    "definition": "Habilidades digitales y de IA demandadas en el mercado laboral, incluyendo habilidades híbridas e irremplazables.",
+    "wikipedia": "Skills gap",
+    "queries": [
+     "habilidades IA trabajo",
+     "AI skills demand",
+     "habilidades digitales"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_beadf019",
+    "name": "Regulación IA en EE.UU.",
+    "definition": "Leyes y debates regulatorios sobre IA a nivel estatal y local en Estados Unidos.",
+    "wikipedia": "Regulation of artificial intelligence",
+    "queries": [
+     "regulación IA California",
+     "US AI regulation",
+     "leyes IA estados"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_3ab402a0",
+    "name": "Modelos open weight",
+    "definition": "Modelos de IA con pesos abiertos que permiten su uso y modificación libre, como los de Mistral o Meta.",
+    "wikipedia": "Open-weight model",
+    "queries": [
+     "modelos open weight",
+     "open weight AI",
+     "Mistral open model"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

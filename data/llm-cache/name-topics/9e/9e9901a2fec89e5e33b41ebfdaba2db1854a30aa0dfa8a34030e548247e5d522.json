@@ -1,0 +1,255 @@
+{
+ "key": "9e9901a2fec89e5e33b41ebfdaba2db1854a30aa0dfa8a34030e548247e5d522",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:15:31.765Z",
+ "latencyMs": 10627,
+ "usage": {
+  "inputTokens": 3233,
+  "outputTokens": 1873
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_64804b83",
+    "name": "Ingeniería de IA",
+    "definition": "Disciplina emergente que combina desarrollo de software y modelos para construir y desplegar aplicaciones de IA en empresas.",
+    "wikipedia": "Prompt engineering",
+    "queries": [
+     "AI engineering skills",
+     "ingeniería de IA",
+     "AI implementation specialist"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_20c7a613",
+    "name": "Razonamiento matemático de IA",
+    "definition": "Capacidad de los modelos de IA para resolver problemas matemáticos complejos y demostrar teoremas, con avances recientes de OpenAI.",
+    "wikipedia": "Automated theorem proving",
+    "queries": [
+     "mathematical reasoning AI",
+     "OpenAI math problems",
+     "razonamiento matemático IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_173dc8eb",
+    "name": "IA legal",
+    "definition": "Herramientas de IA aplicadas al sector jurídico, desde investigación legal hasta startups que prometen revolucionar los tribunales.",
+    "wikipedia": "Legal informatics",
+    "queries": [
+     "legal AI tools",
+     "IA para abogados",
+     "Westlaw AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_96408dcf",
+    "name": "Abuso a modelos de IA",
+    "definition": "Debate sobre políticas que prohíben maltratar o insultar a modelos de IA, y las implicaciones éticas de la crueldad hacia sistemas artificiales.",
+    "wikipedia": "AI ethics",
+    "queries": [
+     "AI abuse policy",
+     "maltrato a IA",
+     "Anthropic Claude abuse"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_4d3080b7",
+    "name": "ChatGPT en educación",
+    "definition": "Uso de asistentes de IA como ChatGPT en aulas y universidades, con alianzas institucionales y herramientas para docentes.",
+    "wikipedia": "ChatGPT in education",
+    "queries": [
+     "ChatGPT for teachers",
+     "IA en el aula",
+     "OpenAI university partnership"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ce46b9da",
+    "name": "Gestión del conocimiento con IA",
+    "definition": "Herramientas y prácticas para capturar, organizar y compartir conocimiento empresarial usando modelos de lenguaje y agentes.",
+    "wikipedia": "Knowledge management",
+    "queries": [
+     "AI knowledge management",
+     "gestión conocimiento IA",
+     "LLM domain knowledge"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_4043d521",
+    "name": "MrBeast y Gemini",
+    "definition": "Alianza entre MrBeast y Google para integrar Gemini en videos de retos y promover el uso de IA en situaciones extremas.",
+    "wikipedia": "MrBeast",
+    "queries": [
+     "MrBeast Gemini",
+     "MrBeast Google AI",
+     "MrBeast IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a4004158",
+    "name": "OpenAI y FBI",
+    "definition": "Arresto de un empleado de OpenAI por el FBI tras hallar un dispositivo de escucha en una sala de conferencias.",
+    "wikipedia": "OpenAI",
+    "queries": [
+     "OpenAI FBI arrest",
+     "OpenAI bugging",
+     "OpenAI engineer arrested"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c83a27f8",
+    "name": "Startups fundadas por agentes de IA",
+    "definition": "Empresas creadas, financiadas y vendidas enteramente por agentes de IA, un fenómeno emergente en el ecosistema emprendedor.",
+    "wikipedia": "Artificial intelligence startup",
+    "queries": [
+     "AI agents startup",
+     "startup fundada por IA",
+     "agent-founded company"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_40b581e9",
+    "name": "Reemplazo laboral por IA",
+    "definition": "Debate sobre cómo la IA sustituye puestos de trabajo y las tensiones entre productividad, inversión y empleo humano.",
+    "wikipedia": "Technological unemployment",
+    "queries": [
+     "AI job replacement",
+     "reemplazo laboral IA",
+     "AI workforce displacement"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a0c723b5",
+    "name": "Modelos de IA sin censura",
+    "definition": "Versiones modificadas de modelos como Qwen que eliminan restricciones de contenido, populares en comunidades de código abierto.",
+    "wikipedia": "Uncensored AI model",
+    "queries": [
+     "uncensored AI model",
+     "Qwen uncensored",
+     "modelo sin censura"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_efd5a57f",
+    "name": "Ética y filosofía de la IA",
+    "definition": "Reflexiones sobre conciencia, razonamiento y control en sistemas de IA, desde la metacognición hasta dilemas morales.",
+    "wikipedia": "Philosophy of artificial intelligence",
+    "queries": [
+     "AI philosophy ethics",
+     "filosofía IA",
+     "AI metacognition"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8b3b28b5",
+    "name": "Escaneo de libros con IA",
+    "definition": "Digitalización masiva de libros mediante OCR e IA, con controversia por la destrucción de ejemplares físicos tras el escaneo.",
+    "wikipedia": "Book scanning",
+    "queries": [
+     "AI book scanning",
+     "escaneo libros IA",
+     "OCR book destruction"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9113a9b9",
+    "name": "IA y sostenibilidad",
+    "definition": "Impacto ambiental de la IA generativa y su uso paradójico por empresas de combustibles fósiles para encontrar más petróleo.",
+    "wikipedia": "Environmental impact of artificial intelligence",
+    "queries": [
+     "AI sustainability",
+     "IA medio ambiente",
+     "AI fossil fuels"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_015c2e77",
+    "name": "Comercio conversacional con IA",
+    "definition": "Uso de chatbots y asistentes de IA para ventas, atención al cliente y captura de datos en interacciones comerciales.",
+    "wikipedia": "Conversational commerce",
+    "queries": [
+     "conversational commerce AI",
+     "chatbot ventas",
+     "AI sales chatbot"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_fe0fedd2",
+    "name": "Empleo y habilidades en IA",
+    "definition": "Nuevas profesiones, habilidades demandadas y vacantes emergentes en el mercado laboral impulsado por la IA y la automatización.",
+    "wikipedia": "Artificial intelligence in the workplace",
+    "queries": [
+     "AI jobs skills",
+     "empleo IA",
+     "AI workplace skills"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_db36329c",
+    "name": "SOC agéntico",
+    "definition": "Centros de operaciones de seguridad que integran agentes de IA para investigaciones y respuestas automatizadas ante amenazas.",
+    "wikipedia": "Security operations center",
+    "queries": [
+     "agentic SOC",
+     "SOC agéntico",
+     "AI security operations"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c97c93ee",
+    "name": "Marketing con influencers e IA",
+    "definition": "Estrategias de marketing que combinan influencers, afiliados y herramientas de IA para amplificar alcance y conversión.",
+    "wikipedia": "Influencer marketing",
+    "queries": [
+     "influencer marketing AI",
+     "marketing influencers IA",
+     "AI affiliate marketing"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_055eb51f",
+    "name": "IA en retail",
+    "definition": "Implementación de IA en grandes cadenas como Walmart y Costco, con problemas de expectativas, errores y alertas falsas.",
+    "wikipedia": "Artificial intelligence in retail",
+    "queries": [
+     "AI retail Walmart",
+     "IA en retail",
+     "Walmart AI restructure"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_bde3ea65",
+    "name": "Falsos positivos de IA",
+    "definition": "Errores de sistemas de IA que generan acusaciones falsas, datos incorrectos o perfiles fraudulentos, con consecuencias legales.",
+    "wikipedia": "False positives and false negatives",
+    "queries": [
+     "AI false positives",
+     "falsos positivos IA",
+     "AI wrongful accusation"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

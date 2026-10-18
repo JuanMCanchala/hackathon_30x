@@ -1,0 +1,20 @@
+{
+ "key": "e452436d47a1e0306e33a7163f3c8fbb1b1df9fdad4b71d9c07e0c969ce4b464",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:19:33.259Z",
+ "latencyMs": 9165,
+ "usage": {
+  "inputTokens": 1451,
+  "outputTokens": 1558
+ },
+ "output": {
+  "oneLiner": "Crece por debate sobre empleos de ventas que la IA elimina y apuesta de Koch por Emanate.",
+  "narrative": "No hay patrones con al menos 3 piezas, así que no se puede generalizar. La pieza que más despega es un post de Christian Simmers en Bluesky (21× la mediana de su autor) que abre con una pregunta incómoda sobre ejecutivos y la reacción contra la IA. Un video de Tech Sales With Higher Levels (1.8×) usa el gancho de qué empleos de ventas matará la IA. En noticias, Fortune reporta que la rama de riesgo de Koch respalda a Emanate para llevar IA a ventas industriales.",
+  "cited": [
+   "bluesky:3mxx55475gc22",
+   "youtube:ysW0ffMrEqc",
+   "news:CBMiiAFBVV95cUxOMkw5UkR0dTI1TkZjaDVnZFVqN2VSR0ZTdlFxMTlNcmJXVmNSeWJjN2RwakFUU0RSSzZ4U3Z1X1dYeFVPNXhXVGlCY3dubkRsYzJmdlhCcVN3b1ZYbmd2SGtXQ1lCWTNfOU0wNjIxcExieHdYbzBpSzNBZEdvc2dJQlZQdm1LZUdY"
+  ]
+ }
+}

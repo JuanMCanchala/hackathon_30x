@@ -1,0 +1,24 @@
+{
+ "key": "f561fcd3ff4548e0f2134fca71bc31d01e2b8e73804959b3ebd40a8c19461c5c",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:16:11.537Z",
+ "latencyMs": 6181,
+ "usage": {
+  "inputTokens": 707,
+  "outputTokens": 776
+ },
+ "output": {
+  "score": 5,
+  "executive": 5,
+  "noCode": 8,
+  "latam": 2,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Caso de divulgación de IA y confianza del cliente en plataformas.",
+   "Foco en gaming y Steam, poco directo para ventas B2B LatAm.",
+   "Útil para gobernanza de IA, pero sin ángulo latinoamericano claro."
+  ]
+ }
+}

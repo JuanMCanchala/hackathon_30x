@@ -1,0 +1,275 @@
+{
+ "key": "fca9f148aa251a622e9130bdaac5cf5a7adae02d7ba77b91e64f8a26a802da69",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:13:00.673Z",
+ "latencyMs": 11808,
+ "usage": {
+  "inputTokens": 3362,
+  "outputTokens": 1678
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_ef87bf8a",
+    "name": "Rol del CIO en la era IA",
+    "definition": "Cómo cambian las responsabilidades de CIOs, CTOs y CISOs ante la adopción de IA generativa y agentes autónomos.",
+    "wikipedia": "Chief information officer",
+    "queries": [
+     "rol del CIO IA",
+     "CIO AI strategy",
+     "CISO agentic AI",
+     "CTO inteligencia artificial"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5077e11d",
+    "name": "Soberanía digital",
+    "definition": "Control de datos, infraestructura e identidad digital por parte de Estados y regiones frente a dependencia tecnológica externa.",
+    "wikipedia": "Digital sovereignty",
+    "queries": [
+     "soberanía digital Europa",
+     "digital sovereignty AI",
+     "derechos digitales",
+     "identidad digital"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d922b400",
+    "name": "IA física y robótica",
+    "definition": "Aplicación de IA en robots y sistemas físicos para automatizar manufactura, logística e infraestructura industrial.",
+    "wikipedia": "Physical AI",
+    "queries": [
+     "physical AI robotics",
+     "IA física empresas",
+     "robots IA industrial",
+     "embodied AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f6a2e2a0",
+    "name": "Economistas frente a la IA",
+    "definition": "Debate de economistas e intelectuales como Acemoglu, Coyle o Harari sobre impactos laborales, poder y riesgos de la IA.",
+    "wikipedia": "Daron Acemoglu",
+    "queries": [
+     "Acemoglu IA",
+     "Harari inteligencia artificial",
+     "Diane Coyle AI",
+     "economistas IA empleo"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_7eafe118",
+    "name": "IA en comunidades de España",
+    "definition": "Iniciativas y polémicas sobre IA, centros de datos y servicios públicos en comunidades autónomas españolas.",
+    "wikipedia": null,
+    "queries": [
+     "IA Cataluña",
+     "centros datos España",
+     "IA Galicia empleo",
+     "IA comunidades autónomas"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5baaf23f",
+    "name": "TIME 100 IA",
+    "definition": "Lista anual de TIME con las 100 personas más influyentes en inteligencia artificial.",
+    "wikipedia": "Time 100",
+    "queries": [
+     "TIME 100 AI",
+     "most influential AI",
+     "TIME IA 2026",
+     "TIME100 artificial intelligence"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_0876fa3f",
+    "name": "IA en editorial legal",
+    "definition": "Aplicación de IA generativa y agentes en editoriales jurídicas como Thomson Reuters, LexisNexis o Wolters Kluwer.",
+    "wikipedia": "Thomson Reuters",
+    "queries": [
+     "Thomson Reuters AI",
+     "LexisNexis IA",
+     "Wolters Kluwer AI",
+     "legal AI copyright"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_0faa4b2a",
+    "name": "Automatización de compliance",
+    "definition": "Uso de IA para automatizar cumplimiento normativo, auditorías, formación obligatoria y gestión de riesgos regulatorios.",
+    "wikipedia": "Regulatory compliance",
+    "queries": [
+     "compliance automation AI",
+     "automatización compliance",
+     "AI compliance tools",
+     "cumplimiento normativo IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a9333790",
+    "name": "Asistentes IA en pagos",
+    "definition": "Integración de asistentes conversacionales con IA en apps de pagos como Bizum, Mercado Pago, Nubank o Revolut.",
+    "wikipedia": "Mercado Pago",
+    "queries": [
+     "Bizum IA asistente",
+     "Mercado Pago Mago",
+     "Nubank AI",
+     "Revolut AI assistant"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_38b5a55e",
+    "name": "IA y vigilancia en Gaza",
+    "definition": "Uso de sistemas de IA para vigilancia, targeting militar y control educativo en Gaza y Oriente Medio.",
+    "wikipedia": "AI-assisted targeting in the Gaza Strip",
+    "queries": [
+     "AI Gaza surveillance",
+     "IA Gaza targeting",
+     "Israel AI warfare",
+     "Gaza AI education"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_694879f8",
+    "name": "LLMs para programar",
+    "definition": "Uso de modelos de lenguaje para generar, revisar y personalizar código, y su impacto en la práctica de la programación.",
+    "wikipedia": "Large language model",
+    "queries": [
+     "LLM coding",
+     "LLM para código",
+     "AI code generation",
+     "programar con IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_39c3e5f5",
+    "name": "Ataques a RubyGems",
+    "definition": "Incidentes de seguridad donde agentes de IA de OpenAI explotaron vulnerabilidades en el registro de paquetes RubyGems.",
+    "wikipedia": "RubyGems",
+    "queries": [
+     "RubyGems security breach",
+     "OpenAI agents RubyGems",
+     "supply chain attack",
+     "RubyGems OpenAI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c56c7478",
+    "name": "Rondas de financiación IA",
+    "definition": "Rondas Serie A a E y grandes inversiones en startups de inteligencia artificial a nivel global.",
+    "wikipedia": "Venture round",
+    "queries": [
+     "AI Series A",
+     "ronda serie B IA",
+     "AI funding round",
+     "Mistral Series D"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_0c83c2eb",
+    "name": "Google Flow y Gemini",
+    "definition": "Herramientas de Google como Flow y Gemini para generar vídeo, gestionar fotos y automatizar flujos con IA.",
+    "wikipedia": "Google Gemini",
+    "queries": [
+     "Google Flow AI",
+     "Gemini Google Photos",
+     "Google AI video",
+     "Gemini workflows"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b03f62bf",
+    "name": "Formación ejecutiva en IA",
+    "definition": "Programas, cursos y másters para ejecutivos y profesionales sobre inteligencia artificial y transformación digital.",
+    "wikipedia": null,
+    "queries": [
+     "formación ejecutiva IA",
+     "AI executive education",
+     "curso IA directivos",
+     "formación IA empresas"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2f3eec26",
+    "name": "IA y fuerza laboral",
+    "definition": "Adopción de IA por empleados y estudiantes, reemplazo de puestos y vigilancia laboral con algoritmos.",
+    "wikipedia": "AI and the future of work",
+    "queries": [
+     "AI workforce",
+     "IA empleados",
+     "AI replacing jobs",
+     "vigilancia empleados IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_fabdafdd",
+    "name": "Ingresos de Anthropic",
+    "definition": "Proyecciones de ingresos y potencial de mercado de Anthropic y otras empresas de IA generativa.",
+    "wikipedia": "Anthropic",
+    "queries": [
+     "Anthropic revenue",
+     "Anthropic ingresos",
+     "AI revenue projections",
+     "Anthropic valuation"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1d3fbde7",
+    "name": "Rust y código abierto",
+    "definition": "Proyectos open source en Rust, incluyendo reimplementaciones de software creativo asistidas por IA.",
+    "wikipedia": "Rust (programming language)",
+    "queries": [
+     "Rust open source",
+     "Rust AI project",
+     "Rust GPUI",
+     "Rust reimplementation"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ae96fa78",
+    "name": "Demandas contra OpenAI",
+    "definition": "Litigios, investigaciones y responsabilidad legal de OpenAI por daños al consumidor, seguridad y uso de datos.",
+    "wikipedia": "OpenAI",
+    "queries": [
+     "OpenAI lawsuit",
+     "demanda OpenAI",
+     "OpenAI FTC investigation",
+     "NYT vs OpenAI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c80f3f64",
+    "name": "IA y propiedad intelectual",
+    "definition": "Conflictos legales sobre copyright, patentes y derechos de imagen en el entrenamiento y uso de modelos de IA.",
+    "wikipedia": "Artificial intelligence and copyright",
+    "queries": [
+     "AI copyright",
+     "IA propiedad intelectual",
+     "AI patents",
+     "copyright training data"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

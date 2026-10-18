@@ -1,0 +1,21 @@
+{
+ "key": "cc85a93ce598349491214f50770ec806ba7ef31f30271284315a3dab894a0d9e",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:18:38.382Z",
+ "latencyMs": 5179,
+ "usage": {
+  "inputTokens": 1576,
+  "outputTokens": 528
+ },
+ "output": {
+  "oneLiner": "Bluesky anuncia su propia IA, Attie, y los creadores responden con posts críticos que multiplican su engagement.",
+  "narrative": "El tema crece porque el anuncio de la IA de Bluesky, Attie, abrió una conversación crítica entre creadores. 3 de 5 piezas que despegaron abren con una opinión fuerte, frente a 1 de 9 del resto, y 4 de 5 son posts de texto, frente a 2 de 9. 4 de 5 las publicó un creador de contenido, frente a 4 de 9, y 3 de 5 apelan a la polémica. El post de Mitch Goldstein en Bluesky llega a 71,3 veces la mediana de su autor y el de Origami Arturo a 21 veces, mientras el video tutorial de TubeGuruji se queda en 3,4 veces.",
+  "cited": [
+   "bluesky:3mxrjxkeq5s2x",
+   "bluesky:3mxybjk3las2g",
+   "bluesky:3mxxj27c7qk2r",
+   "youtube:5GWTDRrwynY"
+  ]
+ }
+}

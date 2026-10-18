@@ -1,0 +1,255 @@
+{
+ "key": "bb7fc4c6bba2f20c9f98efbfc71a3b566963756a87c9956db22d194d77262b7e",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:16:00.521Z",
+ "latencyMs": 10134,
+ "usage": {
+  "inputTokens": 3002,
+  "outputTokens": 1826
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_2d150d34",
+    "name": "Agentes de IA para pagos",
+    "definition": "Sistemas autónomos que ejecutan pagos y compras en nombre de usuarios, transformando el comercio digital.",
+    "wikipedia": "AI agent",
+    "queries": [
+     "AI agents payments",
+     "agentes IA pagos",
+     "stablecoin AI payments"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b6a9d667",
+    "name": "Renta básica universal",
+    "definition": "Propuesta de ingreso garantizado ante la automatización y el desplazamiento laboral por inteligencia artificial.",
+    "wikipedia": "Universal basic income",
+    "queries": [
+     "universal basic income",
+     "renta básica universal",
+     "UBI AI automation"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_386aaa87",
+    "name": "APIs e IA",
+    "definition": "Interfaces de programación que conectan modelos de IA con aplicaciones empresariales y flujos de trabajo.",
+    "wikipedia": "API",
+    "queries": [
+     "API AI integration",
+     "API gateway IA",
+     "APIs inteligencia artificial"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_dd46556d",
+    "name": "Productividad en ingeniería con IA",
+    "definition": "Uso de IA generativa y agentes para acelerar el desarrollo de software y la productividad técnica.",
+    "wikipedia": "Productivity",
+    "queries": [
+     "AI engineering productivity",
+     "productividad ingeniería IA",
+     "AI coding productivity"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_20109671",
+    "name": "Impacto económico de la IA",
+    "definition": "Efecto de la inversión y adopción de IA en el crecimiento económico de países como EE.UU., Reino Unido y Australia.",
+    "wikipedia": "Economic impact of artificial intelligence",
+    "queries": [
+     "AI economic impact",
+     "economía IA crecimiento",
+     "AI investment economy"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_0f99735f",
+    "name": "Videojuegos indie y IA",
+    "definition": "Debate sobre el uso de IA generativa en el desarrollo de videojuegos independientes y su impacto creativo.",
+    "wikipedia": "Indie game",
+    "queries": [
+     "indie games AI",
+     "videojuegos indie IA",
+     "AI in indie games"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c5df926f",
+    "name": "Responsabilidad corporativa en IA",
+    "definition": "Exigencia de rendición de cuentas a empresas tecnológicas por los daños y sesgos de sus sistemas de IA.",
+    "wikipedia": "Corporate social responsibility",
+    "queries": [
+     "corporate AI responsibility",
+     "responsabilidad corporativa IA",
+     "AI accountability"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_bd300ce5",
+    "name": "Reddit y citas de IA",
+    "definition": "Cambios en la forma en que ChatGPT y otros modelos citan contenido de Reddit, afectando su visibilidad.",
+    "wikipedia": "Reddit",
+    "queries": [
+     "Reddit ChatGPT citations",
+     "Reddit IA citas",
+     "Reddit AI training data"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ab996ade",
+    "name": "IA en ofertas de empleo",
+    "definition": "Cómo la IA transforma los requisitos y expectativas en las ofertas de trabajo y la búsqueda de empleo.",
+    "wikipedia": "Job hunting",
+    "queries": [
+     "AI job listings",
+     "IA ofertas empleo",
+     "AI hiring trends"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_74aa5b95",
+    "name": "Inversores y burbuja IA",
+    "definition": "Preocupación de inversores por la sobrevaloración de empresas de IA y el riesgo de una burbuja financiera.",
+    "wikipedia": "AI bubble",
+    "queries": [
+     "AI investors bubble",
+     "inversores IA burbuja",
+     "AI investment risk"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a6c1baf0",
+    "name": "Celebridades y empresas de IA",
+    "definition": "Figuras como Ben Affleck y George Clooney invierten o critican empresas de IA, generando debate público.",
+    "wikipedia": "Ben Affleck",
+    "queries": [
+     "Ben Affleck AI company",
+     "celebrity AI investment",
+     "Clooney AI criticism"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_959ce80d",
+    "name": "Factory y agentes de código",
+    "definition": "Startup Factory automatiza ingeniería de software con IA y alcanza una valoración de 5.000 millones de dólares.",
+    "wikipedia": "Factory.ai",
+    "queries": [
+     "Factory AI startup",
+     "Factory coding agents",
+     "Factory valuation"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ea0bbbab",
+    "name": "Chip Jalapeño de OpenAI",
+    "definition": "Chip de inferencia desarrollado por OpenAI con Broadcom que supera en eficiencia a Nvidia.",
+    "wikipedia": "OpenAI",
+    "queries": [
+     "OpenAI Jalapeño chip",
+     "OpenAI inference chip",
+     "Jalapeño Broadcom"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_3cd343c8",
+    "name": "Políticas de IA en Linux",
+    "definition": "Disputas en comunidades de código abierto como Void Linux y GrapheneOS sobre el uso de IA en sus proyectos.",
+    "wikipedia": "Void Linux",
+    "queries": [
+     "Void Linux AI policy",
+     "GrapheneOS AI",
+     "open source AI policy"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_98ab0190",
+    "name": "Regulación de IA y política",
+    "definition": "Debate político sobre regular la IA, con partidos como BC Greens pidiendo moratorias a centros de datos.",
+    "wikipedia": "Regulation of artificial intelligence",
+    "queries": [
+     "AI regulation politics",
+     "regulación IA política",
+     "BC Greens AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d18143f7",
+    "name": "Supabase adquiere Turso",
+    "definition": "Supabase recauda 150 millones y compra Turso para infraestructura de bases de datos creadas por agentes de IA.",
+    "wikipedia": "Supabase",
+    "queries": [
+     "Supabase acquires Turso",
+     "Supabase funding",
+     "Turso database AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_75ea8bd7",
+    "name": "Coaching de ventas con IA",
+    "definition": "Herramientas como Solera AI Sales Coach usan IA para mejorar el rendimiento y la formación de equipos de ventas.",
+    "wikipedia": "Sales coaching",
+    "queries": [
+     "AI sales coaching",
+     "coaching ventas IA",
+     "Solera AI Sales Coach"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_bae83328",
+    "name": "Enrutamiento de modelos de IA",
+    "definition": "Técnicas para dirigir consultas al modelo de IA más adecuado según costo, velocidad o precisión.",
+    "wikipedia": "Model routing",
+    "queries": [
+     "model routing AI",
+     "enrutamiento modelos IA",
+     "AI model routing"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_fbf281ca",
+    "name": "Diseño de sistemas de IA",
+    "definition": "Arquitectura y diseño de sistemas que integran modelos de IA, incluyendo streaming y buffering de LLM.",
+    "wikipedia": "Systems design",
+    "queries": [
+     "AI system design",
+     "diseño sistemas IA",
+     "LLM streaming design"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_192ba79b",
+    "name": "Merriam-Webster y nuevas palabras",
+    "definition": "Diccionario Merriam-Webster añade 1.400 términos, incluyendo 'vibe coding' y 'meme coin', reflejando tendencias tecnológicas.",
+    "wikipedia": "Merriam-Webster",
+    "queries": [
+     "Merriam-Webster new words",
+     "Merriam-Webster vibe coding",
+     "nuevas palabras diccionario"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

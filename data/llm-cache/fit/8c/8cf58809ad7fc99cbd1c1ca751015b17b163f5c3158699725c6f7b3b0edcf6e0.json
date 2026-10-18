@@ -1,0 +1,24 @@
+{
+ "key": "8cf58809ad7fc99cbd1c1ca751015b17b163f5c3158699725c6f7b3b0edcf6e0",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:16:26.013Z",
+ "latencyMs": 7368,
+ "usage": {
+  "inputTokens": 728,
+  "outputTokens": 877
+ },
+ "output": {
+  "score": 4,
+  "executive": 4,
+  "noCode": 2,
+  "latam": 1,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Tema de industria gaming, poco aplicable a ventas y growth LatAm.",
+   "Sin ángulo latinoamericano ni herramientas no-code para equipos comerciales.",
+   "Sirve como caso de backlash por adopción de IA generativa."
+  ]
+ }
+}

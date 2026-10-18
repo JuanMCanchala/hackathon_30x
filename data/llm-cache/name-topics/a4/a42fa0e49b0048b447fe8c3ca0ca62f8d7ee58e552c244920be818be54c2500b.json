@@ -1,0 +1,255 @@
+{
+ "key": "a42fa0e49b0048b447fe8c3ca0ca62f8d7ee58e552c244920be818be54c2500b",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T21:54:24.538Z",
+ "latencyMs": 15975,
+ "usage": {
+  "inputTokens": 2665,
+  "outputTokens": 1828
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_e7d55925",
+    "name": "Dropbox y Google Drive",
+    "definition": "Integración de almacenamiento en la nube con asistentes de IA y nuevos permisos de acceso para agentes.",
+    "wikipedia": "Cloud storage",
+    "queries": [
+     "Dropbox Google Drive IA",
+     "Dropbox ChatGPT integración",
+     "Google Drive AI agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b85dc0f1",
+    "name": "macOS 27 y agentes IA",
+    "definition": "Apple refuerza la seguridad de macOS restringiendo el acceso total al disco ante riesgos de agentes de IA.",
+    "wikipedia": "macOS",
+    "queries": [
+     "macOS 27 AI",
+     "Apple full disk access",
+     "macOS agentes IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_331d5678",
+    "name": "Singularidad lingüística e IA",
+    "definition": "Investigación sobre cómo el uso de IA como asistente de redacción reduce la diversidad y singularidad del lenguaje.",
+    "wikipedia": "Linguistic diversity",
+    "queries": [
+     "singularidad lingüística IA",
+     "AI writing homogenization",
+     "lingüística modelos lenguaje"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_0cd050b6",
+    "name": "Flow Engineering",
+    "definition": "Startup de hardware que aplica agentes de IA al diseño de chips y recaudó 50 millones de dólares.",
+    "wikipedia": null,
+    "queries": [
+     "Flow Engineering AI",
+     "Flow Engineering funding",
+     "AI hardware design startup"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d4424bf6",
+    "name": "Ciudades inteligentes con IA",
+    "definition": "Uso de datos e inteligencia artificial para mejorar tráfico, operaciones urbanas y servicios en ciudades.",
+    "wikipedia": "Smart city",
+    "queries": [
+     "ciudades inteligentes IA",
+     "smart city AI",
+     "AI urban operations"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d7f04288",
+    "name": "Gen 7 y Gennial",
+    "definition": "Nueva plataforma de automatización industrial con IA física de Universal Robots y modelo generativo audiovisual de Gennial.",
+    "wikipedia": null,
+    "queries": [
+     "Universal Robots Gen 7",
+     "Gennial IA audiovisual",
+     "Gen 7 physical AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e5c9b1d2",
+    "name": "Renderizado neuronal DLSS 5",
+    "definition": "Tecnología de renderizado neuronal de NVIDIA que mejora gráficos en tiempo real mediante IA.",
+    "wikipedia": "Deep Learning Super Sampling",
+    "queries": [
+     "DLSS 5 neural rendering",
+     "NVIDIA DLSS 5",
+     "renderizado neuronal"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_08690020",
+    "name": "Duolingo e IA",
+    "definition": "Debate sobre el uso de IA en Duolingo para reemplazar traductores y medir el valor del trabajo asistido.",
+    "wikipedia": "Duolingo",
+    "queries": [
+     "Duolingo AI translators",
+     "Duolingo IA",
+     "Duolingo AI strategy"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b73acb2a",
+    "name": "Marketplace de agentes IA",
+    "definition": "Plataformas y gateways que permiten descubrir, integrar y asegurar agentes de IA de distintos proveedores.",
+    "wikipedia": null,
+    "queries": [
+     "AI agent marketplace",
+     "gateway agentes IA",
+     "agent skills marketplace"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ab11c8f5",
+    "name": "Gmail y correo con IA",
+    "definition": "Integración de asistentes de IA en Gmail, Docs y calendario para gestionar correo y productividad.",
+    "wikipedia": "Gmail",
+    "queries": [
+     "Gmail IA control voz",
+     "ChatGPT email calendar",
+     "AI email productivity"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e9c6cbf9",
+    "name": "WebGPU para IA",
+    "definition": "Uso de WebGPU para ejecutar modelos de IA directamente en el navegador sin servidores externos.",
+    "wikipedia": "WebGPU",
+    "queries": [
+     "WebGPU AI browser",
+     "WebGPU modelos lenguaje",
+     "browser AI tools WebGPU"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_807efd68",
+    "name": "Epic y IA clínica",
+    "definition": "Epic desarrolla IA clínica nativa, compitiendo con startups de health tech y atrayendo escrutinio regulatorio.",
+    "wikipedia": "Epic Systems",
+    "queries": [
+     "Epic clinical AI",
+     "Epic AI hospital",
+     "Epic agentic AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_12b401ab",
+    "name": "GPT 6.1 Sol",
+    "definition": "Nuevo modelo de OpenAI con inteligencia cercana a Astra a menor precio, tras recortes y ajustes.",
+    "wikipedia": "GPT-4",
+    "queries": [
+     "GPT 6.1 Sol",
+     "OpenAI GPT 6.1",
+     "GPT 5.6 Sol price"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8ef15dbc",
+    "name": "Chain-of-Thought",
+    "definition": "Técnica de razonamiento de modelos de lenguaje cuyo valor colapsa en la era de los agentes autónomos.",
+    "wikipedia": "Prompt engineering",
+    "queries": [
+     "chain-of-thought collapse",
+     "CoT agentic era",
+     "chain of thought reasoning"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a090fc4f",
+    "name": "MLPerf y AIPerf",
+    "definition": "Benchmarks de rendimiento para inferencia y entrenamiento de IA, incluyendo nuevas métricas de NVIDIA.",
+    "wikipedia": "MLPerf",
+    "queries": [
+     "MLPerf AI benchmark",
+     "NVIDIA AIPerf",
+     "LLM inference benchmark"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c789edc9",
+    "name": "Fusiones y adquisiciones IA",
+    "definition": "Operaciones corporativas y acuerdos estratégicos que consolidan el sector de inteligencia artificial.",
+    "wikipedia": "Mergers and acquisitions",
+    "queries": [
+     "AI mergers acquisitions",
+     "fusiones IA empresas",
+     "Nvidia Groq deal"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_95de067d",
+    "name": "IA en aulas",
+    "definition": "Impacto de la inteligencia artificial en la educación, el rol docente y la alfabetización en IA.",
+    "wikipedia": "Artificial intelligence in education",
+    "queries": [
+     "IA en aulas",
+     "AI education classrooms",
+     "alfabetización IA escuelas"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5a7cfa69",
+    "name": "Axios y OpenAI",
+    "definition": "Axios amplía su alianza con OpenAI para escalar noticias locales y mejorar citas de LLM.",
+    "wikipedia": "Axios (website)",
+    "queries": [
+     "Axios OpenAI partnership",
+     "Axios local news AI",
+     "LLM citation Axios"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f0e0a4dd",
+    "name": "Búsqueda descentralizada IA",
+    "definition": "Impulso de estrategias europeas de IA basadas en código abierto y búsqueda descentralizada frente a grandes corporaciones.",
+    "wikipedia": "Decentralized computing",
+    "queries": [
+     "decentralized AI search",
+     "búsqueda descentralizada IA",
+     "Europe open source AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2e1a3c4f",
+    "name": "Gemini Flash-Lite",
+    "definition": "Google limita el acceso gratuito a Gemini, dejando solo Flash-Lite disponible sin costo desde octubre.",
+    "wikipedia": "Gemini (chatbot)",
+    "queries": [
+     "Gemini Flash-Lite gratis",
+     "Google Gemini free tier",
+     "Gemini Flash Pro limit"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

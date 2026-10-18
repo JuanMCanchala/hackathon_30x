@@ -1,0 +1,20 @@
+{
+ "key": "b7404526ea2cf7cb9f61e58ae03c4f40c9107bc49be1928153a5365c0cd73a6c",
+ "name": "watch-video",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T23:47:23.963Z",
+ "latencyMs": 2676,
+ "usage": {
+  "inputTokens": 238,
+  "outputTokens": 94
+ },
+ "output": {
+  "hook": "La luz de la mañana se está filtrando. La sensación es extraña. La noche casi termina.",
+  "points": [
+   "La luz de la mañana se está filtrando",
+   "La sensación es extraña",
+   "La noche casi termina"
+  ],
+  "idea": "El video describe el amanecer y una sensación extraña mientras la noche termina, pero no presenta ningún negocio ni idea de crecimiento."
+ }
+}

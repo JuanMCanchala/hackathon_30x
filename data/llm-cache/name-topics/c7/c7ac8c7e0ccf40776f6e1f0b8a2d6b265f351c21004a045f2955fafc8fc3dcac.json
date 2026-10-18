@@ -1,0 +1,255 @@
+{
+ "key": "c7ac8c7e0ccf40776f6e1f0b8a2d6b265f351c21004a045f2955fafc8fc3dcac",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T21:53:48.502Z",
+ "latencyMs": 14070,
+ "usage": {
+  "inputTokens": 2835,
+  "outputTokens": 1832
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_9f9a2649",
+    "name": "MinTIC e IA en Colombia",
+    "definition": "El Ministerio TIC de Colombia impulsa la adopción de IA y datos abiertos para la competitividad del país.",
+    "wikipedia": "Ministry of Information Technologies and Communications (Colombia)",
+    "queries": [
+     "MinTIC inteligencia artificial",
+     "Colombia adopción IA",
+     "MinTIC datos abiertos"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a296383c",
+    "name": "Descargas de modelos de IA",
+    "definition": "Ranking de descargas de modelos de IA que mide la adopción de ChatGPT, Meta, Alibaba y otros.",
+    "wikipedia": null,
+    "queries": [
+     "AI model downloads",
+     "descargas modelos IA",
+     "Alibaba AI downloads"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_be2653f2",
+    "name": "Plataformas AI-native",
+    "definition": "Empresas y software que se construyen desde cero con IA como núcleo, no como añadido.",
+    "wikipedia": "AI-native",
+    "queries": [
+     "AI-native platform",
+     "plataforma AI-native",
+     "AI-native enterprise"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_79770a02",
+    "name": "Explotación de vulnerabilidades con IA",
+    "definition": "La IA acelera el descubrimiento y explotación de brechas de seguridad en sistemas y modelos.",
+    "wikipedia": "Exploit (computer security)",
+    "queries": [
+     "AI exploit timeline",
+     "explotación vulnerabilidades IA",
+     "AI cybersecurity exploits"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_dc8784c5",
+    "name": "IA en sales enablement",
+    "definition": "La IA transforma el software de ventas, con movimientos como la fusión Seismic-Highspot y HubSpot.",
+    "wikipedia": "Sales enablement",
+    "queries": [
+     "AI sales enablement",
+     "Seismic Highspot merger",
+     "HubSpot AI sales"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_360bbfdd",
+    "name": "Gemini en Windows",
+    "definition": "Google lanza una app de Gemini para Windows con atajo Alt + Space para acceso rápido.",
+    "wikipedia": "Gemini (chatbot)",
+    "queries": [
+     "Gemini Windows app",
+     "Gemini Alt Space",
+     "Google Gemini Windows"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_7cb5cf19",
+    "name": "Posedición y traducción con IA",
+    "definition": "Traductores profesionales adoptan la posedición de IA, con tensiones sobre empleo y calidad.",
+    "wikipedia": "Postediting",
+    "queries": [
+     "posedición traducción IA",
+     "AI post-editing",
+     "traducción posedición"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_142cd13f",
+    "name": "IA agéntica en tesorería",
+    "definition": "Agentes de IA aplicados a tesorería mejoran previsiones y automatizan operaciones financieras.",
+    "wikipedia": "Treasury management",
+    "queries": [
+     "agentic AI treasury",
+     "IA tesorería",
+     "AI treasury operations"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ddf61009",
+    "name": "Summits de IA en España",
+    "definition": "Eventos como Huelva Summit o Summit Alcobendas 2026 debaten IA, productividad y empleo.",
+    "wikipedia": null,
+    "queries": [
+     "Huelva Summit 2026",
+     "Summit Alcobendas IA",
+     "summit IA productividad"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_bb17669c",
+    "name": "Debate AI doom",
+    "definition": "El debate sobre si la IA podría destruir la humanidad, cuestionado como marketing o exageración.",
+    "wikipedia": "AI safety",
+    "queries": [
+     "AI doomsday debate",
+     "AI doom hype",
+     "riesgo existencial IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_035a2ccf",
+    "name": "NIST y NSA sobre IA",
+    "definition": "Agencias como NIST y NSA publican marcos de seguridad e identidad para sistemas de IA agéntica.",
+    "wikipedia": "National Institute of Standards and Technology",
+    "queries": [
+     "NIST AI security",
+     "NSA AI guidance",
+     "NIST agentic AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_18443038",
+    "name": "BootLoops para ciencia",
+    "definition": "Herramienta open source de un físico de Harvard que guía modelos de IA en cálculos científicos exactos.",
+    "wikipedia": null,
+    "queries": [
+     "BootLoops AI science",
+     "BootLoops Schwartz",
+     "open-source AI science"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9135d745",
+    "name": "Founders solitarios con IA",
+    "definition": "Emprendedores individuales usan IA para automatizar operaciones y levantar capital para startups.",
+    "wikipedia": "Solo founder",
+    "queries": [
+     "solo founder AI",
+     "founders solitarios IA",
+     "AI startup solo founder"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2288a28a",
+    "name": "ONU y regulación de IA",
+    "definition": "Guterres y Türk piden coordinación global y medidas urgentes ante los riesgos de la IA.",
+    "wikipedia": "Regulation of artificial intelligence",
+    "queries": [
+     "Guterres regulación IA",
+     "ONU IA riesgos",
+     "UN AI regulation"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_4003020e",
+    "name": "Nvidia y seguridad de agentes",
+    "definition": "Nvidia lanza plataforma abierta de seguridad para agentes de IA; Tesla pivota hacia robots y Dojo.",
+    "wikipedia": "Nvidia",
+    "queries": [
+     "Nvidia agent safety",
+     "Tesla Dojo Optimus",
+     "Nvidia AI agents security"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_4e24ffc7",
+    "name": "Hutíes y Claude de Anthropic",
+    "definition": "Anthropic bloquea el uso de Claude por hutíes que lo empleaban para desarrollar misiles guiados.",
+    "wikipedia": "Houthi movement",
+    "queries": [
+     "Houthis Claude AI",
+     "hutíes IA misiles",
+     "Anthropic Houthis"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_95991fdc",
+    "name": "Algoritmos de redes sociales",
+    "definition": "Debate sobre cómo los algoritmos de Facebook y otras redes amplifican contenido generado por IA.",
+    "wikipedia": "Algorithmic radicalization",
+    "queries": [
+     "Facebook algorithm AI",
+     "algoritmo redes sociales",
+     "social media algorithm"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_22c3c969",
+    "name": "Startups de datos para IA",
+    "definition": "Empresas como Snorkel AI, Skywork o Scout AI escalan datos y flujos de trabajo para IA.",
+    "wikipedia": "Snorkel AI",
+    "queries": [
+     "Snorkel AI valuation",
+     "Skywork AI review",
+     "Scout AI MedTech"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1a4a8348",
+    "name": "Privacidad en navegadores con IA",
+    "definition": "Riesgos de privacidad y seguridad cuando la IA de Chrome o agentes del navegador acceden a datos.",
+    "wikipedia": "Browser privacy",
+    "queries": [
+     "browser AI privacy",
+     "Gemini Chrome privacidad",
+     "BragJack attack browser"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e841a831",
+    "name": "Infostealers y asistentes de IA",
+    "definition": "Malware como Vidar o Aoki roba credenciales de asistentes de IA y navegadores mediante instaladores falsos.",
+    "wikipedia": "Infostealer",
+    "queries": [
+     "Aoki infostealer",
+     "Vidar stealer Gemini",
+     "infostealer AI credentials"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

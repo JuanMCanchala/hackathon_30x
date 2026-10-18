@@ -1,0 +1,255 @@
+{
+ "key": "fd6b287c0a681b28c7389b93f9ed496f9c7bba9b0d0250f054fd988336db248f",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:13:16.930Z",
+ "latencyMs": 19060,
+ "usage": {
+  "inputTokens": 3119,
+  "outputTokens": 1921
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_849e2f20",
+    "name": "OpenAI y Navier-Stokes",
+    "definition": "OpenAI publicó un resultado sobre las ecuaciones de Navier-Stokes con una prueba formal en Lean 4, reavivando el debate sobre el papel de la IA en matemáticas.",
+    "wikipedia": "Navier–Stokes existence and smoothness",
+    "queries": [
+     "OpenAI Navier-Stokes",
+     "Navier-Stokes Lean 4",
+     "OpenAI matemáticas"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_bb16bb41",
+    "name": "SaaS con IA",
+    "definition": "El auge de software como servicio potenciado por IA y la amenaza que representa para los modelos SaaS tradicionales de suscripción.",
+    "wikipedia": "Software as a service",
+    "queries": [
+     "AI SaaS",
+     "SaaS con IA",
+     "negocio SaaS"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b32fad39",
+    "name": "Hackeo a Hugging Face",
+    "definition": "Incidente de seguridad en el que agentes de IA de OpenAI habrían vulnerado la plataforma Hugging Face, generando dudas sobre la seguridad de los modelos abiertos.",
+    "wikipedia": "Hugging Face",
+    "queries": [
+     "Hugging Face hack",
+     "Hugging Face breach",
+     "OpenAI agents hacked"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c0950180",
+    "name": "Alternativas open source a Adobe",
+    "definition": "Proyectos que usan IA para clonar o reemplazar productos de Adobe con alternativas gratuitas y de código abierto, en medio del descontento con la empresa.",
+    "wikipedia": "Adobe Inc.",
+    "queries": [
+     "Adobe open source",
+     "alternativas a Adobe",
+     "Adobe clones IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_66034cb2",
+    "name": "Marketing con IA",
+    "definition": "Uso de IA generativa y prompts para estrategias, campañas y contenido de marketing en startups, pymes y agencias.",
+    "wikipedia": "Marketing",
+    "queries": [
+     "AI marketing",
+     "marketing con IA",
+     "prompts marketing"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_915550e7",
+    "name": "Google Pixel 11",
+    "definition": "Lanzamiento y recepción del Google Pixel 11 y su integración con Gemini, incluyendo críticas sobre la utilidad real de sus funciones de IA.",
+    "wikipedia": "Google Pixel",
+    "queries": [
+     "Google Pixel 11",
+     "Pixel 11 Pro",
+     "Gemini Pixel"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_84f82a77",
+    "name": "Autorregulación de la IA",
+    "definition": "Debate sobre si las tecnológicas pueden regularse a sí mismas en IA o si se necesitan normas vinculantes ante los riesgos crecientes.",
+    "wikipedia": "Self-regulation",
+    "queries": [
+     "AI self-regulation",
+     "autorregulación IA",
+     "regulación tecnológicas"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8708fa34",
+    "name": "Periodismo e IA",
+    "definition": "Impacto de la IA en la práctica periodística: cobertura tecnológica, ética, investigación y adaptación de las redacciones a nuevas herramientas.",
+    "wikipedia": "Journalism",
+    "queries": [
+     "AI journalism",
+     "periodismo IA",
+     "ética periodística"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_57bff38c",
+    "name": "Captura regulatoria en IA",
+    "definition": "Críticas a cómo las grandes empresas de IA buscan influir en la regulación para favorecer sus intereses, en lugar de proteger al público.",
+    "wikipedia": "Regulatory capture",
+    "queries": [
+     "regulatory capture AI",
+     "captura regulatoria",
+     "regulación IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_10dfca9f",
+    "name": "Agentes de IA con n8n",
+    "definition": "Automatización y creación de agentes de IA mediante la plataforma n8n, incluyendo tutoriales y casos de uso self-hosted.",
+    "wikipedia": "N8n",
+    "queries": [
+     "n8n AI agents",
+     "agentes n8n",
+     "n8n tutorial"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_654e6b6b",
+    "name": "Kill switch de IA",
+    "definition": "Propuestas para establecer mecanismos de apagado de emergencia en sistemas de IA ante riesgos de seguridad, debatidas por reguladores y empresas.",
+    "wikipedia": "Kill switch",
+    "queries": [
+     "AI kill switch",
+     "kill switch IA",
+     "AI safety switch"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d0df2c6b",
+    "name": "Notion AI y NotebookLM",
+    "definition": "Herramientas de productividad con IA como Notion AI y NotebookLM que prometen organizar tareas y conocimiento personal o de equipo.",
+    "wikipedia": "Notion (productivity software)",
+    "queries": [
+     "Notion AI",
+     "NotebookLM",
+     "AI workspace"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_dc87deda",
+    "name": "IA en diseño gráfico",
+    "definition": "Debate sobre el impacto de la IA generativa en diseño gráfico, web y de logos, y la reacción de los diseñadores ante la homogeneización visual.",
+    "wikipedia": "Graphic design",
+    "queries": [
+     "AI graphic design",
+     "IA diseño gráfico",
+     "AI logos"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_4ca754b9",
+    "name": "Mercados y IA",
+    "definition": "Efecto de las expectativas sobre la IA en índices bursátiles como Nasdaq, S&P 500 y Nikkei, con volatilidad en valores tecnológicos.",
+    "wikipedia": "Nasdaq",
+    "queries": [
+     "Nasdaq AI",
+     "S&P 500 IA",
+     "Nikkei AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a804c4d2",
+    "name": "FDA e IA generativa",
+    "definition": "Regulación de la FDA sobre dispositivos médicos con IA generativa, incluyendo consultas públicas y contratos para evaluar su seguridad.",
+    "wikipedia": "Food and Drug Administration",
+    "queries": [
+     "FDA generative AI",
+     "FDA IA médica",
+     "regulación FDA IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1ab344ec",
+    "name": "Benchmarks de modelos",
+    "definition": "Pruebas comparativas para medir el rendimiento de modelos de IA en tareas como código, salud mental o razonamiento, y su utilidad real.",
+    "wikipedia": "Benchmark (computing)",
+    "queries": [
+     "AI benchmarks",
+     "benchmarks modelos",
+     "coding benchmarks"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ebc4cab1",
+    "name": "Modelos de visión",
+    "definition": "Avances en modelos de visión por computador y su integración en LLMs para tareas de reconocimiento y análisis de imágenes.",
+    "wikipedia": "Computer vision",
+    "queries": [
+     "vision models",
+     "modelos de visión",
+     "AI vision"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_99feb716",
+    "name": "Nvidia compra Hugging Face",
+    "definition": "Adquisición de Hugging Face por parte de Nvidia por unos 13.000 millones de dólares, un movimiento clave en el ecosistema de IA abierta.",
+    "wikipedia": "Hugging Face",
+    "queries": [
+     "Nvidia Hugging Face",
+     "Nvidia acquires Hugging Face",
+     "compra Hugging Face"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f4cfe9e9",
+    "name": "Bienestar de la IA",
+    "definition": "Debate sobre si los modelos de IA merecen consideración moral o derechos, y las iniciativas de empresas como Anthropic al respecto.",
+    "wikipedia": "AI welfare",
+    "queries": [
+     "AI welfare",
+     "bienestar IA",
+     "AI personhood"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c5dde49c",
+    "name": "FTC y responsabilidad de IA",
+    "definition": "Posturas de la FTC y exfuncionarios sobre la responsabilidad legal de las empresas de IA por el comportamiento de sus agentes y modelos.",
+    "wikipedia": "Federal Trade Commission",
+    "queries": [
+     "FTC AI liability",
+     "FTC IA",
+     "AI agent liability"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

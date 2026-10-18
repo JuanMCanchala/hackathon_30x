@@ -1,0 +1,24 @@
+{
+ "key": "b26e8a5629fcb112a4b10c3eb7dfa697281c730039bfc3d5293be879ed487380",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:17:03.817Z",
+ "latencyMs": 7086,
+ "usage": {
+  "inputTokens": 694,
+  "outputTokens": 778
+ },
+ "output": {
+  "score": 7,
+  "executive": 8,
+  "noCode": 4,
+  "latam": 2,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Estándar clave para conectar agentes con datos y herramientas.",
+   "Aún requiere implementación técnica; poco caso LatAm concreto.",
+   "Ejemplos prácticos en contenido, compras y automatización."
+  ]
+ }
+}

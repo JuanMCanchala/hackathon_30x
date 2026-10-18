@@ -1,0 +1,21 @@
+{
+ "key": "65e495f91b81c51835dfcbb5aeaf0b03030b5cce5e4c9a380ea8c18ca1e6df5d",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:18:40.434Z",
+ "latencyMs": 15832,
+ "usage": {
+  "inputTokens": 1309,
+  "outputTokens": 2383
+ },
+ "output": {
+  "oneLiner": "Floqer planea abrir su plataforma de agentes de IA y Amazon lanza wearables; lo mueven TechCrunch y Bluesky.",
+  "narrative": "No hay patrones con al menos 3 piezas, así que no hay una fórmula común entre las que despegaron. En Bluesky, una imagen de Karan Luthra sobre wearables de Amazon logra 3× la mediana de su autor y un post de AI & ML News sobre agentes de Floqer logra 2×. En noticias, TechCrunch y Traders Union cubren a Floqer y su plan de código abierto, pero con engagement 0. El crecimiento de creadores (+186 %, 9 esta semana) apunta a agentes de ventas y wearables, no a robots domésticos con personalidad.",
+  "cited": [
+   "bluesky:3mxy4bpx6hj24",
+   "bluesky:3mxvtdjvyfs24",
+   "news:CBMimgFBVV95cUxNMW82T015bnVvejNOcnJud25INXM4TVlYVVg0ZGRfUExOV29mTGtWdUJ6clNPSGJmLXc2Y3VvcXhaY2NMcUZTRGMyRnJrWUJPUXlNN3h3UXBBT0FYTVJWb2l0T0cyX3FzaDhITWdtVnd4dXVkaFlILWlPX0xnZnk0OVhLTDJOYVQ5LW9qck1SOUNveWlMazdSSS1B",
+   "news:CBMimwFBVV95cUxQWmtVVVNUMU1feFBfeVNQWEJ4aGpLRE90MjRQeW45WkgwZ3d1ZTBvSmQwbjhtdHVKaGpnTzU5a241UWdOSzk2OG83SkZJcy0wOWtKenhYMktwLVhERmN2bUNrN0ZUM0o4WDBUWTlYU3NmT3k1b19uZWxpMldtX0J0N0lGTlR4WmRYRWZkcTV2Z0Z4NG8yV3FubU1Xcw"
+  ]
+ }
+}

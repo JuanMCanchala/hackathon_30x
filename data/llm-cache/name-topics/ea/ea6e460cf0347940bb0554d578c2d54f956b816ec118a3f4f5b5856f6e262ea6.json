@@ -1,0 +1,255 @@
+{
+ "key": "ea6e460cf0347940bb0554d578c2d54f956b816ec118a3f4f5b5856f6e262ea6",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T17:35:29.220Z",
+ "latencyMs": 14921,
+ "usage": {
+  "inputTokens": 3536,
+  "outputTokens": 1506
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_d9e983c0",
+    "name": "IA en marketing",
+    "definition": "Uso de IA generativa en campañas, contenidos y publicidad, con debate sobre calidad y el 'AI slop'.",
+    "wikipedia": "Marketing and artificial intelligence",
+    "queries": [
+     "IA en marketing",
+     "AI slop marketing",
+     "IA publicidad 2027"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_dbd3f602",
+    "name": "IA en salud",
+    "definition": "Aplicaciones de IA en diagnóstico, ensayos clínicos, atención primaria y flujo clínico hospitalario.",
+    "wikipedia": "Artificial intelligence in healthcare",
+    "queries": [
+     "IA en salud",
+     "AI clinical trials",
+     "IA atención médica"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_0144947b",
+    "name": "Epic Games e IA",
+    "definition": "Epic Games integra IA generativa en Fortnite, su launcher y el desarrollo de videojuegos.",
+    "wikipedia": "Epic Games",
+    "queries": [
+     "Epic Games IA",
+     "Epic Games Store AI",
+     "Fortnite AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9da4e586",
+    "name": "Google y Gemini",
+    "definition": "Estrategia de Google y Alphabet en IA con Gemini, Google Cloud y su competencia con AWS y Azure.",
+    "wikipedia": "Google Gemini",
+    "queries": [
+     "Google Gemini",
+     "Google Cloud IA",
+     "Alphabet AI strategy"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e9f1161e",
+    "name": "IA en videojuegos",
+    "definition": "Uso de IA generativa en gamedev, arte, clones y generación de videojuegos por parte de estudios.",
+    "wikipedia": "Artificial intelligence in video games",
+    "queries": [
+     "IA videojuegos",
+     "AI game development",
+     "gen AI gamedev"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b2aae520",
+    "name": "IA en ciencia",
+    "definition": "IA aplicada a biología, física, matemáticas y descubrimientos científicos en laboratorios y universidades.",
+    "wikipedia": "Artificial intelligence in science",
+    "queries": [
+     "IA en ciencia",
+     "AI scientific research",
+     "IA biotecnología"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_fbce9b8b",
+    "name": "Gemini de Google",
+    "definition": "Asistente y modelos Gemini de Google: API, agentes, búsqueda y su integración en productos.",
+    "wikipedia": "Gemini (chatbot)",
+    "queries": [
+     "Gemini Google",
+     "Gemini API",
+     "Gemini agentes"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1d26ddcf",
+    "name": "Privacidad y datos",
+    "definition": "Acceso no autorizado a datos, credenciales y grabaciones, y control de acceso en plataformas de IA.",
+    "wikipedia": "Data privacy",
+    "queries": [
+     "privacidad datos IA",
+     "AI data access",
+     "control de acceso"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_8ffac5d2",
+    "name": "Microsoft y Copilot",
+    "definition": "Estrategia de Microsoft en IA con Copilot, su relación con Intel, Dell y la regulación del sector.",
+    "wikipedia": "Microsoft Copilot",
+    "queries": [
+     "Microsoft Copilot",
+     "Microsoft AI",
+     "Copilot super app"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5f38ffb2",
+    "name": "IA y desempleo",
+    "definition": "Impacto de la automatización y la IA generativa en despidos, empleo y desigualdad laboral.",
+    "wikipedia": "Technological unemployment",
+    "queries": [
+     "IA despidos",
+     "AI job displacement",
+     "futuro del trabajo"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_90e14d8e",
+    "name": "Gemini",
+    "definition": "Modelo y asistente Gemini de Google, su rendimiento, agentes y comparación con rivales.",
+    "wikipedia": "Gemini (language model)",
+    "queries": [
+     "Gemini Google",
+     "Gemini 4",
+     "Gemini agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_26c7836e",
+    "name": "IA y dinero",
+    "definition": "Formas de ganar dinero con IA, cripto, ETFs y su relación con la Fed y los mercados.",
+    "wikipedia": "Artificial intelligence and finance",
+    "queries": [
+     "ganar dinero IA",
+     "AI crypto",
+     "IA inversión"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_8fedd7be",
+    "name": "Geopolítica de la IA",
+    "definition": "Carrera entre EEUU y China por el liderazgo en IA, exportación de tecnología y regulación global.",
+    "wikipedia": "Geopolitics of artificial intelligence",
+    "queries": [
+     "geopolítica IA",
+     "US China AI race",
+     "IA EEUU China"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9754427d",
+    "name": "Figuras de la IA",
+    "definition": "Voces influyentes como Karpathy, Andrew Ng o Demis Hassabis y sus opiniones sobre IA.",
+    "wikipedia": "Andrej Karpathy",
+    "queries": [
+     "Andrej Karpathy",
+     "Demis Hassabis",
+     "AI thought leaders"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_81fe4f58",
+    "name": "Meta y gaming",
+    "definition": "Movimientos de Meta en IA y gaming, su competencia con Steam y modelos abiertos como Muse.",
+    "wikipedia": "Meta Platforms",
+    "queries": [
+     "Meta AI",
+     "Meta gaming",
+     "Muse Spark"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_7e2d181d",
+    "name": "IA en finanzas",
+    "definition": "Aplicaciones de IA en banca, asesoría financiera, auditoría y chatbots para servicios financieros.",
+    "wikipedia": "Artificial intelligence in finance",
+    "queries": [
+     "IA finanzas",
+     "AI banking",
+     "IA asesor financiero"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_f57093de",
+    "name": "Deepfakes",
+    "definition": "Videos y audios falsos creados con IA, su uso en política, tribunales y casos de acoso.",
+    "wikipedia": "Deepfake",
+    "queries": [
+     "deepfakes IA",
+     "AI deepfake",
+     "deepfakes política"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_57f98011",
+    "name": "NVIDIA",
+    "definition": "Estrategia de NVIDIA en IA, chips, alianzas con automoción y su ecosistema de modelos abiertos.",
+    "wikipedia": "Nvidia",
+    "queries": [
+     "NVIDIA AI",
+     "NVIDIA chips",
+     "NVIDIA Mercedes"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_18a7b1a9",
+    "name": "Agentes con n8n",
+    "definition": "Construcción de agentes y flujos de trabajo de IA con herramientas como n8n para negocios.",
+    "wikipedia": "Workflow automation",
+    "queries": [
+     "n8n agentes IA",
+     "AI workflow",
+     "n8n automation"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1b3ecfe6",
+    "name": "Desinformación con IA",
+    "definition": "Contenido falso y campañas de desinformación generadas con IA en política y redes.",
+    "wikipedia": "Disinformation",
+    "queries": [
+     "desinformación IA",
+     "AI disinformation",
+     "fake news IA"
+    ],
+    "generic": true
+   }
+  ]
+ }
+}

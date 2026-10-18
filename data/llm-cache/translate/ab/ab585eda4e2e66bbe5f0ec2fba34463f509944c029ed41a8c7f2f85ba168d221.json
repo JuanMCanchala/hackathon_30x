@@ -1,0 +1,31 @@
+{
+ "key": "ab585eda4e2e66bbe5f0ec2fba34463f509944c029ed41a8c7f2f85ba168d221",
+ "name": "translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T23:50:12.412Z",
+ "latencyMs": 3124,
+ "usage": {
+  "inputTokens": 276,
+  "outputTokens": 156
+ },
+ "output": {
+  "items": [
+   {
+    "id": "youtube:wajoP_5Cpw8",
+    "es": "Todas las apps del mundo ahora son open source... les guste o no"
+   },
+   {
+    "id": "github:mksglu/context-mode",
+    "es": "Optimización de la ventana de contexto para agentes de IA que programan."
+   },
+   {
+    "id": "bluesky:3mxvyazwrr22p",
+    "es": "Tu flujo de desarrollo merece algo mejor que decenas de pestañas del navegador."
+   },
+   {
+    "id": "bluesky:3mxtqn4smes2k",
+    "es": "Crear servidores MCP en producción: seguridad de API, autenticación y escalabilidad para agentes autónomos"
+   }
+  ]
+ }
+}

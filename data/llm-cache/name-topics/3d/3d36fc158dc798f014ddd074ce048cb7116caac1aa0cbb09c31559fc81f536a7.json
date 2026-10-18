@@ -1,0 +1,255 @@
+{
+ "key": "3d36fc158dc798f014ddd074ce048cb7116caac1aa0cbb09c31559fc81f536a7",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T17:18:34.441Z",
+ "latencyMs": 24759,
+ "usage": {
+  "inputTokens": 1962,
+  "outputTokens": 4490
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_67721685",
+    "name": "Qwen 3.8",
+    "definition": "Nueva familia de modelos de lenguaje abiertos de Alibaba Qwen, con variantes Flash Next y 27B.",
+    "wikipedia": "Qwen",
+    "queries": [
+     "Qwen 3.8",
+     "Qwen3.8 Flash Next",
+     "Qwen modelos abiertos"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b89c6907",
+    "name": "Embeddings multimodales",
+    "definition": "Modelos que representan texto, imagen y audio en un mismo espacio vectorial para búsqueda y recuperación.",
+    "wikipedia": "Multimodal learning",
+    "queries": [
+     "multimodal embeddings",
+     "embeddings multimodales",
+     "vision language models"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_38b54fdb",
+    "name": "Modelos abiertos chinos",
+    "definition": "Lanzamientos de pesos abiertos de laboratorios chinos como DeepSeek, GLM, MiniMax y Z.ai.",
+    "wikipedia": null,
+    "queries": [
+     "DeepSeek V4.1 Flash",
+     "GLM-5.3",
+     "modelos chinos abiertos"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ab94f573",
+    "name": "Decisiones calibradas",
+    "definition": "Modelos que estiman su propia confianza para decidir cuándo responder y cuándo abstenerse.",
+    "wikipedia": null,
+    "queries": [
+     "calibrated decision models",
+     "decisiones calibradas IA",
+     "modelos de razonamiento"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_10238e18",
+    "name": "Modelos sin censura",
+    "definition": "Variantes de modelos abiertos con los filtros de seguridad removidos, populares en comunidades de fine-tuning.",
+    "wikipedia": null,
+    "queries": [
+     "uncensored LLM",
+     "modelos abliterated",
+     "Qwen sin censura"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_4e43672b",
+    "name": "Economía de la IA",
+    "definition": "Financiamiento, deuda de centros de datos y sostenibilidad económica del auge de la inteligencia artificial.",
+    "wikipedia": "AI bubble",
+    "queries": [
+     "AI data center debt",
+     "financiamiento IA",
+     "AI capex bubble"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_933332b0",
+    "name": "Qwen-Image 2.1",
+    "definition": "Modelo abierto de generación y edición de imágenes de Alibaba, con variante Turbo más rápida.",
+    "wikipedia": null,
+    "queries": [
+     "Qwen-Image 2.1",
+     "Qwen Image Turbo",
+     "generación de imágenes abierta"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_edaf0113",
+    "name": "IA en dispositivo",
+    "definition": "Modelos que corren localmente en teléfonos y laptops, sin depender de la nube.",
+    "wikipedia": null,
+    "queries": [
+     "on-device AI",
+     "IA en dispositivo",
+     "modelos locales GGUF"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_52c9e6e5",
+    "name": "Modelos abiertos y abliterated",
+    "definition": "Lanzamientos de pesos abiertos, incluidos los de Google, y sus variantes sin filtros de seguridad.",
+    "wikipedia": null,
+    "queries": [
+     "Gemini 4 Argon",
+     "open weights models",
+     "modelos abliterated"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_da7611d8",
+    "name": "Seguridad y regulación de IA",
+    "definition": "Guardrails, fallos de contención y responsabilidad legal cuando los modelos causan daño o hackeos.",
+    "wikipedia": "AI safety",
+    "queries": [
+     "AI guardrails",
+     "regulación IA",
+     "AI hacking liability"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_dcb9392f",
+    "name": "Productividad con IA",
+    "definition": "Cuánto mejora realmente la IA la productividad de desarrolladores y profesionales del conocimiento.",
+    "wikipedia": null,
+    "queries": [
+     "AI productivity",
+     "productividad desarrolladores IA",
+     "AI coding productivity"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d6ad992c",
+    "name": "Arquitectura MoE",
+    "definition": "Modelos que activan solo una fracción de sus parámetros por token para reducir costo de cómputo.",
+    "wikipedia": "Mixture of experts",
+    "queries": [
+     "mixture of experts",
+     "arquitectura MoE",
+     "sparse MoE models"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b0d11833",
+    "name": "Anthropic Scion",
+    "definition": "Nuevo sistema de control de versiones de Anthropic, inspirado en Mononoke de Meta.",
+    "wikipedia": null,
+    "queries": [
+     "Anthropic Scion",
+     "Anthropic source control",
+     "Mononoke version control"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e5429c2a",
+    "name": "Cuantización GGUF",
+    "definition": "Formato y técnicas para comprimir modelos abiertos y ejecutarlos en hardware de consumo.",
+    "wikipedia": null,
+    "queries": [
+     "GGUF quantization",
+     "cuantización GGUF",
+     "GGUF modelos locales"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a03ebf90",
+    "name": "Cuantización mixta",
+    "definition": "Asignar distinta precisión a cada capa del modelo para preservar calidad usando menos memoria.",
+    "wikipedia": null,
+    "queries": [
+     "mixed precision quantization",
+     "cuantización mixta",
+     "GSQ quantization"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b3d56c86",
+    "name": "Salidas estructuradas",
+    "definition": "Modelos que devuelven JSON u otros formatos rígidos, clave para integrarlos en sistemas empresariales.",
+    "wikipedia": null,
+    "queries": [
+     "structured outputs LLM",
+     "salidas estructuradas",
+     "JSON mode LLM"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_054fe638",
+    "name": "Agentes de código",
+    "definition": "Herramientas autónomas que escriben, revisan y despliegan código con mínima supervisión humana.",
+    "wikipedia": null,
+    "queries": [
+     "AI coding agents",
+     "agentes de código",
+     "code review agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_24139299",
+    "name": "JEV-27B-VL",
+    "definition": "Familia de modelos abiertos de autotrust, en variantes de 27B y 35B parámetros.",
+    "wikipedia": null,
+    "queries": [
+     "JEV-27B-VL",
+     "autotrust JEV",
+     "JEV-35B model"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_99091a72",
+    "name": "Cloudflare Clef",
+    "definition": "Modelos de Cloudflare orientados a decisiones y salidas estructuradas, con versión Flash.",
+    "wikipedia": null,
+    "queries": [
+     "Cloudflare clef",
+     "clef-flash model",
+     "Cloudflare AI models"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e1fc8517",
+    "name": "Claude Code",
+    "definition": "Agente de programación de Anthropic que opera en la terminal y automatiza tareas de desarrollo.",
+    "wikipedia": "Claude (language model)",
+    "queries": [
+     "Claude Code",
+     "Anthropic Claude",
+     "Claude code review"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

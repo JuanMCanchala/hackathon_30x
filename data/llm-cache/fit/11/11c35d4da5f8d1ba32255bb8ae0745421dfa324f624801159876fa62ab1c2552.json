@@ -1,0 +1,24 @@
+{
+ "key": "11c35d4da5f8d1ba32255bb8ae0745421dfa324f624801159876fa62ab1c2552",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:16:30.489Z",
+ "latencyMs": 5004,
+ "usage": {
+  "inputTokens": 693,
+  "outputTokens": 564
+ },
+ "output": {
+  "score": 3,
+  "executive": 4,
+  "noCode": 1,
+  "latam": 2,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "alto",
+  "reasons": [
+   "Tema cuántico muy técnico, lejos de ventas, growth y operación diaria.",
+   "Sin casos LatAm ni aplicación no-code para equipos comerciales.",
+   "Promesas de IA cuántica suenan a humo y distraen."
+  ]
+ }
+}

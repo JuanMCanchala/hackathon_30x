@@ -1,0 +1,24 @@
+{
+ "key": "3d019392dce1bb96a4323d79738b54ac4c114031ecc05a30e5f10bce76e35c0f",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:20:02.989Z",
+ "latencyMs": 5173,
+ "usage": {
+  "inputTokens": 679,
+  "outputTokens": 687
+ },
+ "output": {
+  "score": 4,
+  "executive": 5,
+  "noCode": 2,
+  "latam": 2,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "alto",
+  "reasons": [
+   "Robótica humanoide es técnica y lejos del día a día comercial.",
+   "Poco aplicable sin código para equipos de ventas o growth.",
+   "Ángulo LatAm casi nulo; casos y avances son de EE.UU."
+  ]
+ }
+}

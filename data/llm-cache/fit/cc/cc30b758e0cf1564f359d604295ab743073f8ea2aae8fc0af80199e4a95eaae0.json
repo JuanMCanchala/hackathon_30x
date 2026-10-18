@@ -1,0 +1,24 @@
+{
+ "key": "cc30b758e0cf1564f359d604295ab743073f8ea2aae8fc0af80199e4a95eaae0",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:17:16.714Z",
+ "latencyMs": 6561,
+ "usage": {
+  "inputTokens": 728,
+  "outputTokens": 745
+ },
+ "output": {
+  "score": 8,
+  "executive": 7,
+  "noCode": 8,
+  "latam": 5,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Permite prototipar productos y webs sin equipo técnico.",
+   "Interesa a fundadores por velocidad y costos.",
+   "Riesgo de hype, seguridad y calidad exige criterio."
+  ]
+ }
+}

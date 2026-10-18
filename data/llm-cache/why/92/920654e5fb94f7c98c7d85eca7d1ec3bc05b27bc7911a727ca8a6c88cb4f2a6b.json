@@ -1,0 +1,21 @@
+{
+ "key": "920654e5fb94f7c98c7d85eca7d1ec3bc05b27bc7911a727ca8a6c88cb4f2a6b",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:30:04.739Z",
+ "latencyMs": 16552,
+ "usage": {
+  "inputTokens": 1304,
+  "outputTokens": 2869
+ },
+ "output": {
+  "oneLiner": "ChatGPT en Chrome ya opera pestañas y Stack Overflow for Agents triplica registros; lo mueven medios y YouTube.",
+  "narrative": "No hay patrones con al menos 3 piezas. La evidencia muestra tres shorts de Inteligencia Artificial en YouTube con el mismo gancho: una Guía Pro de ChatGPT fijada en comentarios, con engagement de 1.2 a 1.6 veces la mediana de su autor. Las noticias de WWWhat's new y OpenAI cubren la extensión de ChatGPT para Chrome operando pestañas y el plugin que triplica registros de Stack Overflow for Agents. Un post de Kernelia en Bluesky sobre una falla en la app de Mac para ChatGPT no registra engagement.",
+  "cited": [
+   "youtube:kNoj0Mk_rA0",
+   "news:CBMihwFBVV95cUxOT0JwazdoNmZTdVVaaXBfWEFacTNVSzRScE9kQWdEcHBMdEptMHZiQkxnT0duc1RKdlpteDV1R09OY2NVdEJqUW1OV1hUMGJ3dGtRUWQyWTRXV1RKLWtQUUt4TFdLMnFQQVk2bjhmX0l2cndvNUotSmNiaHdHODRibE9ZWHRyOFk",
+   "news:CBMiZkFVX3lxTE5XWktKRmU0bnRhVC1LejhhZTFxbjNKS1NkcTBPeDM2dUFKQm1SVXFlWnBJRGUydWFtMUMxRjRZelI0TU9kc2xKQWJhYktVb1BzNTg5ZmZyY293M2pCZ2NoTmQyX0dYUQ",
+   "bluesky:3mxbey3jkji2r"
+  ]
+ }
+}

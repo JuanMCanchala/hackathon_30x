@@ -1,0 +1,255 @@
+{
+ "key": "9ff0b26218bec3e659307fb6425eb59bf5f3a29bd33e6fe8e687c97af93ef976",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:28:35.299Z",
+ "latencyMs": 10074,
+ "usage": {
+  "inputTokens": 3009,
+  "outputTokens": 1793
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_acfeaced",
+    "name": "IA local y privada",
+    "definition": "Tendencia a ejecutar modelos de IA en dispositivos locales para proteger la privacidad y reducir la dependencia de la nube.",
+    "wikipedia": "Local AI",
+    "queries": [
+     "IA local privada",
+     "Ollama Docker tutorial",
+     "local AI privacy"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_987afccb",
+    "name": "Entrevistas de trabajo con IA",
+    "definition": "Uso de IA en entrevistas laborales, tanto por reclutadores como por candidatos, y su impacto en la selección.",
+    "wikipedia": "AI interview",
+    "queries": [
+     "entrevista trabajo IA",
+     "AI job interview",
+     "entrevistas laborales inteligencia artificial"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_de8bd06c",
+    "name": "IA en hojas de cálculo",
+    "definition": "Integración de asistentes de IA como Copilot o Gemini en Excel y Google Sheets para automatizar tareas.",
+    "wikipedia": "Microsoft Copilot",
+    "queries": [
+     "Copilot Excel",
+     "Gemini Google Sheets",
+     "IA hojas de cálculo"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_18044753",
+    "name": "IA en Medicare",
+    "definition": "Aplicación de IA en la gestión de Medicare, incluyendo autorizaciones previas y posibles riesgos de seguridad.",
+    "wikipedia": "Medicare (United States)",
+    "queries": [
+     "Medicare AI prior authorization",
+     "OpenAI Medicare hack",
+     "IA Medicare Australia"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_23bfe61f",
+    "name": "Robots protestan en Polonia",
+    "definition": "Protesta simbólica de robots en Polonia para exigir regulación de la IA y proteger empleos.",
+    "wikipedia": null,
+    "queries": [
+     "robots protesta Polonia",
+     "robots march Poland",
+     "regulación IA Polonia"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b51a41eb",
+    "name": "Harness engineering",
+    "definition": "Prácticas y herramientas para integrar agentes de IA en el desarrollo de software, incluyendo revisión de código.",
+    "wikipedia": "Harness (software)",
+    "queries": [
+     "Harness AI code review",
+     "harness engineering",
+     "agent-ready development"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8ac4b3e3",
+    "name": "Automatización de prospección",
+    "definition": "Uso de IA para automatizar la prospección de clientes, el outreach y el seguimiento en ventas.",
+    "wikipedia": "Sales automation",
+    "queries": [
+     "automatización prospección",
+     "AI outreach automation",
+     "prospección automatizada"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_97083123",
+    "name": "Escritura académica con IA",
+    "definition": "Uso de IA generativa en la redacción de artículos académicos y su impacto en el flujo de trabajo científico.",
+    "wikipedia": "Academic writing",
+    "queries": [
+     "escritura académica IA",
+     "AI academic writing",
+     "flujo trabajo académico"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1db5e120",
+    "name": "Virus cognitivos",
+    "definition": "Concepto que compara los modelos de lenguaje con virus que pueden propagar ideas dañinas o desinformación.",
+    "wikipedia": "Cognitive virus",
+    "queries": [
+     "virus cognitivo IA",
+     "cognitive virus AI",
+     "mind viruses LLM"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_aeacc340",
+    "name": "Empleados digitales",
+    "definition": "Agentes de IA que actúan como empleados digitales autónomos en organizaciones, realizando tareas de forma independiente.",
+    "wikipedia": "Digital employee",
+    "queries": [
+     "empleados digitales IA",
+     "digital employees AI",
+     "talento digital agentes"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_487cdab2",
+    "name": "IA en mapas",
+    "definition": "Aplicación de IA en la creación y uso de mapas, incluyendo herramientas como ChatGPT Maps o AMap de Alibaba.",
+    "wikipedia": "ChatGPT",
+    "queries": [
+     "IA mapas",
+     "ChatGPT Maps",
+     "AMap Alibaba IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_0dc48ea7",
+    "name": "Baseten y Backbase",
+    "definition": "Empresas de infraestructura de IA como Baseten y Backbase que desarrollan agentes y aprendizaje continuo.",
+    "wikipedia": "Baseten",
+    "queries": [
+     "Baseten AI",
+     "Backbase AI agents",
+     "continual learning Baseten"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_637527e0",
+    "name": "JEV modelo generalista",
+    "definition": "Nuevo modelo de IA generalista llamado JEV, desarrollado por TypeSafe, que está generando expectación.",
+    "wikipedia": null,
+    "queries": [
+     "JEV TypeSafe",
+     "modelo JEV IA",
+     "JEV generalist model"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2fba286c",
+    "name": "IA en universidades",
+    "definition": "Iniciativas de universidades como UCM, UOC o UNIR para regular y contratar servicios de IA generativa.",
+    "wikipedia": "University",
+    "queries": [
+     "IA universidades",
+     "UCM IA generativa",
+     "UOC inteligencia artificial"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_36d7c500",
+    "name": "IA en publicaciones académicas",
+    "definition": "Uso de agentes de IA en la edición y revisión de publicaciones científicas, y sus implicaciones éticas.",
+    "wikipedia": "Academic publishing",
+    "queries": [
+     "IA publicaciones académicas",
+     "AI academic publishing",
+     "agentes revisión científica"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_72b7b0fc",
+    "name": "Propaganda con IA",
+    "definition": "Uso de IA para generar propaganda política y desinformación, a menudo denominada 'slopaganda'.",
+    "wikipedia": "Propaganda",
+    "queries": [
+     "propaganda IA",
+     "AI propaganda",
+     "slopaganda política"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_35ed74e3",
+    "name": "Emails generados con IA",
+    "definition": "Práctica de usar IA para redactar correos electrónicos, especialmente en ventas, y su detección.",
+    "wikipedia": "Email",
+    "queries": [
+     "emails IA",
+     "AI generated emails",
+     "cold email IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8f32e48e",
+    "name": "Operaciones de influencia con IA",
+    "definition": "Campañas de influencia y desinformación impulsadas por IA, a menudo vinculadas a actores estatales.",
+    "wikipedia": "Influence operation",
+    "queries": [
+     "operaciones influencia IA",
+     "AI influence operations",
+     "campañas desinformación IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2156e0c5",
+    "name": "Procurement con IA",
+    "definition": "Automatización de procesos de compras y adquisiciones mediante IA, incluyendo flujos de trabajo y gobernanza.",
+    "wikipedia": "Procurement",
+    "queries": [
+     "procurement IA",
+     "AI procurement",
+     "compras automatizadas IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_59e416ad",
+    "name": "IA en meteorología",
+    "definition": "Uso de IA para mejorar la predicción meteorológica y climática, con modelos como WeatherNext.",
+    "wikipedia": "Weather forecasting",
+    "queries": [
+     "IA meteorología",
+     "AI weather prediction",
+     "WeatherNext modelo"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

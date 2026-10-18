@@ -1,0 +1,24 @@
+{
+ "key": "dee95de67c76fcd7f943e9a321a64ca78a18ccc0b05b69e228d6552933092b67",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:16:38.884Z",
+ "latencyMs": 5932,
+ "usage": {
+  "inputTokens": 732,
+  "outputTokens": 736
+ },
+ "output": {
+  "score": 8,
+  "executive": 9,
+  "noCode": 8,
+  "latam": 6,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Riesgo real de seguridad y gobernanza para toda empresa.",
+   "Se aborda sin código con políticas, controles y capacitación.",
+   "Contenido en español, pero sin ángulo LatAm específico."
+  ]
+ }
+}

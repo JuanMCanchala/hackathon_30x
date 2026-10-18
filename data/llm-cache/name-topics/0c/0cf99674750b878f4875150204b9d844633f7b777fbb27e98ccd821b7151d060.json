@@ -1,0 +1,255 @@
+{
+ "key": "0cf99674750b878f4875150204b9d844633f7b777fbb27e98ccd821b7151d060",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:07:48.267Z",
+ "latencyMs": 19040,
+ "usage": {
+  "inputTokens": 3141,
+  "outputTokens": 1761
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_9474b786",
+    "name": "Agentes de workflow",
+    "definition": "Automatización de flujos de trabajo empresariales mediante agentes de IA que ejecutan tareas y aprobaciones de forma autónoma.",
+    "wikipedia": "Workflow automation",
+    "queries": [
+     "agentes workflow",
+     "agentic workflows",
+     "flujos trabajo IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_15db1565",
+    "name": "Calidad del código IA",
+    "definition": "Impacto de la IA generativa en la calidad, revisión y depuración del código producido por equipos de desarrollo.",
+    "wikipedia": "Software quality",
+    "queries": [
+     "calidad código IA",
+     "AI code quality",
+     "code review AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_df2b43fa",
+    "name": "Ventas con IA",
+    "definition": "Uso de agentes y software de IA para optimizar prospección, cierre y previsión de ventas B2B y B2C.",
+    "wikipedia": "Sales management",
+    "queries": [
+     "ventas IA",
+     "AI sales agents",
+     "software ventas IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_56c12fc4",
+    "name": "Ciberseguridad empresarial",
+    "definition": "Estrategias y productos de ciberseguridad de grandes proveedores como CrowdStrike, Palo Alto y Fortinet ante amenazas con IA.",
+    "wikipedia": "Computer security",
+    "queries": [
+     "ciberseguridad IA",
+     "cybersecurity vendors",
+     "CrowdStrike Palo Alto"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e336320f",
+    "name": "Cursor",
+    "definition": "Editor de código con IA que permite a desarrolladores escribir y depurar software mediante instrucciones en lenguaje natural.",
+    "wikipedia": "Cursor (code editor)",
+    "queries": [
+     "Cursor editor",
+     "Cursor AI",
+     "Cursor engineer"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_aa2700bf",
+    "name": "ONU e IA",
+    "definition": "Debates y regulaciones sobre inteligencia artificial impulsados por Naciones Unidas y sus organismos internacionales.",
+    "wikipedia": "United Nations",
+    "queries": [
+     "ONU IA",
+     "UN AI regulation",
+     "UN Security Council AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ef594a23",
+    "name": "Microsoft Copilot",
+    "definition": "Asistente de IA de Microsoft integrado en Windows, Office y herramientas empresariales para productividad y automatización.",
+    "wikipedia": "Microsoft Copilot",
+    "queries": [
+     "Microsoft Copilot",
+     "Copilot Studio",
+     "Copilot 365"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f00e5447",
+    "name": "SpaceX y Musk",
+    "definition": "Actividad de SpaceX, Starlink y Tesla bajo Elon Musk, incluyendo su influencia en la NASA y la industria espacial.",
+    "wikipedia": "SpaceX",
+    "queries": [
+     "SpaceX Musk",
+     "Starlink Starship",
+     "Tesla Musk"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_22dc7932",
+    "name": "GitHub y GitLab",
+    "definition": "Plataformas de desarrollo colaborativo y sus herramientas de IA como Copilot, Actions y repositorios de código.",
+    "wikipedia": "GitHub",
+    "queries": [
+     "GitHub Copilot",
+     "GitLab IA",
+     "GitHub Actions"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d4cde064",
+    "name": "Claude Code y Codex",
+    "definition": "Herramientas de IA para programación como Claude Code y Codex que asisten en la escritura y revisión de código.",
+    "wikipedia": "Claude (language model)",
+    "queries": [
+     "Claude Code",
+     "OpenAI Codex",
+     "codex harness"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b2d6440c",
+    "name": "Transformación empresarial con IA",
+    "definition": "Procesos de cambio organizacional y digital que adoptan IA para redefinir modelos de negocio y operaciones.",
+    "wikipedia": "Digital transformation",
+    "queries": [
+     "transformación IA",
+     "AI transformation",
+     "transformación digital"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_0144947b",
+    "name": "Videojuegos y IA",
+    "definition": "Uso de IA generativa en el desarrollo de videojuegos por estudios como Epic Games, Ubisoft y Capcom.",
+    "wikipedia": "Video game development",
+    "queries": [
+     "Epic Games IA",
+     "Ubisoft IA",
+     "videojuegos IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_0b35170c",
+    "name": "Fallos de IA",
+    "definition": "Errores, comportamientos erráticos e incidentes de seguridad causados por sistemas de inteligencia artificial.",
+    "wikipedia": "AI safety",
+    "queries": [
+     "fallos IA",
+     "AI incidents",
+     "errores IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9c415d3f",
+    "name": "Samsung y electrónica",
+    "definition": "Estrategias de IA de fabricantes de electrónica como Samsung, Nokia y Philips en dispositivos y redes.",
+    "wikipedia": "Samsung Electronics",
+    "queries": [
+     "Samsung IA",
+     "Nokia IA",
+     "Samsung AI assistant"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1a683cb6",
+    "name": "AWS y Azure",
+    "definition": "Servicios de nube de Amazon y Microsoft que integran IA para agentes, DevOps y computación empresarial.",
+    "wikipedia": "Amazon Web Services",
+    "queries": [
+     "AWS IA",
+     "Azure IA",
+     "AWS agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_90d7c08f",
+    "name": "Modelos de IA locales",
+    "definition": "Modelos de lenguaje ejecutados en hardware local o dispositivos, priorizando eficiencia y privacidad sobre la nube.",
+    "wikipedia": "Large language model",
+    "queries": [
+     "modelos locales IA",
+     "local LLM",
+     "modelos on-device"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f8a29bb3",
+    "name": "Selección de modelos IA",
+    "definition": "Criterios para elegir entre modelos de IA según razonamiento, coste y adecuación a decisiones de negocio.",
+    "wikipedia": "Model selection",
+    "queries": [
+     "selección modelos IA",
+     "AI model choice",
+     "modelos razonamiento"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_013f7aab",
+    "name": "Banca y IA",
+    "definition": "Adopción de inteligencia artificial por bancos globales como BBVA, HSBC y Citi para servicios financieros.",
+    "wikipedia": "Bank",
+    "queries": [
+     "banca IA",
+     "banking AI",
+     "BBVA IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ccb634d4",
+    "name": "Comercio agéntico",
+    "definition": "Uso de agentes de IA autónomos para compras, ventas y publicidad en transacciones comerciales digitales.",
+    "wikipedia": "Agentic commerce",
+    "queries": [
+     "comercio agéntico",
+     "agentic commerce",
+     "agentes compra"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_eb818cc1",
+    "name": "Atención al cliente con IA",
+    "definition": "Implementación de agentes de IA en servicio al cliente para gestionar consultas y mejorar la experiencia.",
+    "wikipedia": "Customer service",
+    "queries": [
+     "atención cliente IA",
+     "AI customer service",
+     "soporte IA"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

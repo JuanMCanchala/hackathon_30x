@@ -1,0 +1,24 @@
+{
+ "key": "38703be86b0b283e94cb5809f298bfc79c018be7ff377a3525b8a73b1870a748",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T21:54:33.651Z",
+ "latencyMs": 6578,
+ "usage": {
+  "inputTokens": 697,
+  "outputTokens": 509
+ },
+ "output": {
+  "score": 2,
+  "executive": 2,
+  "noCode": 1,
+  "latam": 1,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "alto",
+  "reasons": [
+   "Chisme corporativo, no enseña IA aplicable al negocio.",
+   "Cero ángulo LatAm o uso comercial para equipos.",
+   "Riesgo de polémica y morbo; no conviene a marca 30X."
+  ]
+ }
+}

@@ -1,0 +1,20 @@
+{
+ "key": "d59900018508907ee8bf9b708ecb42a5302852ed8f9527702a3d06f00ac5e7de",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:30:20.188Z",
+ "latencyMs": 17213,
+ "usage": {
+  "inputTokens": 1267,
+  "outputTokens": 3020
+ },
+ "output": {
+  "oneLiner": "IA accesible crece +247% en creadores: ElevenLabs lleva voz IA a los Lores y CERMI publica DiscapacIA.",
+  "narrative": "No hay patrones con al menos 3 piezas, así que no hay una fórmula común. La pieza que más despega es un post de ElevenLabs en LinkedIn: 11.2× la mediana de su autor, con el gancho de un discurso en la Cámara de los Lores usando una voz recreada por IA. CERMI Estatal en Bluesky alcanza 2× su mediana con el Informe DiscapacIA. En cambio, una noticia de KRDO sobre herramientas de IA que no escriben código accesible registra engagement 0.",
+  "cited": [
+   "linkedin:7515803191012298754",
+   "bluesky:3mxvvprs3xc2z",
+   "news:CBMilAFBVV95cUxONDE2Si1mNXJMaVV4cHRXa2F5U1c4MEw0OEdkbVZhVkczUmxRSkpTdzlfUVFubWFEX2NPY1VEVE5OYW9SenJRU1lkM3I1Q2RyT1dabURhSzVxd1ZURVAyZFlzQnN5MEZ1SHdwZG1NVHlFYkxXbjZZY2lPOWZMUVY1QlZYRml5c0VwX1d3ajRqTlhLR3dn"
+  ]
+ }
+}

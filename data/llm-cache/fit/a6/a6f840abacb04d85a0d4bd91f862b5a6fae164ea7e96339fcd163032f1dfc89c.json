@@ -1,0 +1,24 @@
+{
+ "key": "a6f840abacb04d85a0d4bd91f862b5a6fae164ea7e96339fcd163032f1dfc89c",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:16:18.636Z",
+ "latencyMs": 4950,
+ "usage": {
+  "inputTokens": 698,
+  "outputTokens": 401
+ },
+ "output": {
+  "score": 2,
+  "executive": 3,
+  "noCode": 1,
+  "latam": 1,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "alto",
+  "reasons": [
+   "Tema técnico de criptografía, poco aplicable a ventas o growth.",
+   "Riesgo de exagerar capacidades de IA y generar polémica.",
+   "Sin ángulo LatAm ni uso no-code para equipos comerciales."
+  ]
+ }
+}

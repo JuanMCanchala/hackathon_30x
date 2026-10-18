@@ -1,0 +1,24 @@
+{
+ "key": "ab616f962bca905f92cc5950bd2d8804b884c83ed1d859fee0b4e509bf9d247d",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:17:09.175Z",
+ "latencyMs": 5349,
+ "usage": {
+  "inputTokens": 709,
+  "outputTokens": 739
+ },
+ "output": {
+  "score": 7,
+  "executive": 8,
+  "noCode": 5,
+  "latam": 4,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Decisiones de costo de IA importan a fundadores y equipos.",
+   "Comparativas de precios ayudan a elegir proveedor sin sobrepagar.",
+   "Poco ángulo LatAm y requiere contexto técnico de APIs."
+  ]
+ }
+}

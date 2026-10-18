@@ -1,0 +1,275 @@
+{
+ "key": "1d4fc0729cbea15dc07914f93060713ac21b93be8e7c6fcb24361f7f7b49edaa",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:12:57.820Z",
+ "latencyMs": 10492,
+ "usage": {
+  "inputTokens": 3205,
+  "outputTokens": 1893
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_62d805c6",
+    "name": "Ingeniería inversa con IA",
+    "definition": "Uso de modelos de IA para descompilar y analizar software, videojuegos y sistemas propietarios.",
+    "wikipedia": "Reverse engineering",
+    "queries": [
+     "reverse engineering AI",
+     "decompilación con IA",
+     "AI decompiler",
+     "ingeniería inversa software"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b2aae520",
+    "name": "IA en biología",
+    "definition": "Aplicación de IA en investigación biológica, genómica y biotecnología para acelerar descubrimientos.",
+    "wikipedia": "Artificial intelligence in biology",
+    "queries": [
+     "AI in biology",
+     "IA en genómica",
+     "AI drug discovery",
+     "IA biotecnología"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2edc649c",
+    "name": "Gartner",
+    "definition": "Firma de investigación que publica pronósticos y cuadrantes mágicos sobre tecnología empresarial e IA.",
+    "wikipedia": "Gartner",
+    "queries": [
+     "Gartner AI predictions",
+     "Gartner Magic Quadrant",
+     "Gartner agentic AI",
+     "Gartner informe IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_cfc6f81c",
+    "name": "SynthID",
+    "definition": "Herramienta de Google que marca y detecta contenido generado por IA mediante marcas de agua digitales.",
+    "wikipedia": "SynthID",
+    "queries": [
+     "SynthID detector",
+     "Google SynthID",
+     "watermark AI content",
+     "SynthID verificación"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b1f9e71c",
+    "name": "Generación de leads con IA",
+    "definition": "Automatización con IA de la captación, cualificación y prospección de clientes potenciales B2B.",
+    "wikipedia": "Lead generation",
+    "queries": [
+     "AI lead generation",
+     "generación de leads IA",
+     "automatización leads",
+     "prospección con IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_7f8f2a0d",
+    "name": "Demandas legales contra IA",
+    "definition": "Litigios y acciones legales contra empresas de IA por daños, privacidad, competencia o responsabilidad.",
+    "wikipedia": "Artificial intelligence litigation",
+    "queries": [
+     "AI lawsuits",
+     "demandas contra IA",
+     "OpenAI lawsuit",
+     "litigios inteligencia artificial"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_7b8c666a",
+    "name": "IA en salud",
+    "definition": "Uso de IA generativa y chatbots en documentación clínica, investigación médica y salud mental.",
+    "wikipedia": "Artificial intelligence in healthcare",
+    "queries": [
+     "AI in healthcare",
+     "IA en salud",
+     "ChatGPT health",
+     "IA salud mental"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_dcc2ab4f",
+    "name": "Espionaje corporativo en IA",
+    "definition": "Casos de robo de secretos comerciales y espionaje industrial entre empresas líderes de inteligencia artificial.",
+    "wikipedia": "Industrial espionage",
+    "queries": [
+     "AI corporate espionage",
+     "espionaje industrial IA",
+     "trade secrets AI",
+     "robo secretos OpenAI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_31ae998c",
+    "name": "Detección de fraude con IA",
+    "definition": "Sistemas de IA para detectar fraudes financieros, digitales y estafas en transacciones y comunicaciones.",
+    "wikipedia": "Fraud detection",
+    "queries": [
+     "AI fraud detection",
+     "detección fraude IA",
+     "AI scam detection",
+     "fraude digital IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_67305ef8",
+    "name": "IA en construcción y desarrollo",
+    "definition": "Aplicaciones prácticas de IA en construcción, desarrollo de software y experiencia de cliente.",
+    "wikipedia": "Artificial intelligence in construction",
+    "queries": [
+     "AI in construction",
+     "IA en construcción",
+     "AI coding cost",
+     "IA desarrollo software"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_4d07f31d",
+    "name": "Estudiantes universitarios y IA",
+    "definition": "Impacto de la IA en estudiantes universitarios, recién graduados y el entorno académico.",
+    "wikipedia": "Artificial intelligence in education",
+    "queries": [
+     "AI university students",
+     "estudiantes IA",
+     "AI in college",
+     "universitarios inteligencia artificial"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a27c0ac3",
+    "name": "Streaming y IA",
+    "definition": "Movimientos estratégicos de plataformas como Netflix y Prime Video en torno a la IA generativa.",
+    "wikipedia": "Streaming media",
+    "queries": [
+     "Netflix AI",
+     "streaming IA",
+     "Prime Video AI",
+     "Netflix inteligencia artificial"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5b62269d",
+    "name": "Gestión de agentes de IA",
+    "definition": "Herramientas y prácticas para desplegar, monitorear y supervisar agentes de IA en producción.",
+    "wikipedia": "Multi-agent system",
+    "queries": [
+     "AI agent management",
+     "gestión agentes IA",
+     "agent monitoring",
+     "supervisión agentes IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_044d13ce",
+    "name": "Infraestructura empresarial para IA",
+    "definition": "Proveedores de infraestructura como HPE, VMware y Nutanix que adaptan sus plataformas para cargas de IA.",
+    "wikipedia": "IT infrastructure",
+    "queries": [
+     "AI infrastructure",
+     "infraestructura IA",
+     "HPE AI",
+     "VMware AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_76000652",
+    "name": "IA en Latinoamérica",
+    "definition": "Adopción y debate sobre inteligencia artificial en países de América Latina y Centroamérica.",
+    "wikipedia": "Artificial intelligence in Latin America",
+    "queries": [
+     "IA Latinoamérica",
+     "AI in Latin America",
+     "inteligencia artificial Latam",
+     "IA Sudamérica"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d5f35983",
+    "name": "Kimi K3",
+    "definition": "Modelo de lenguaje de Moonshot AI que compite con otros LLM y genera debate sobre su rendimiento.",
+    "wikipedia": "Kimi (chatbot)",
+    "queries": [
+     "Kimi K3",
+     "Moonshot AI Kimi",
+     "Kimi model",
+     "Kimi K3 benchmark"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_af88a27f",
+    "name": "Level-5 y IA generativa",
+    "definition": "Estudio japonés de videojuegos criticado por usar IA generativa en sus títulos como Layton o Yokai Watch.",
+    "wikipedia": "Level-5 (company)",
+    "queries": [
+     "Level-5 AI",
+     "Level-5 IA generativa",
+     "Level-5 games AI",
+     "Level-5 Layton AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d621a309",
+    "name": "Agentes de IA en producción",
+    "definition": "Despliegue de agentes de IA en entornos de producción empresarial, audiovisual y de fabricación.",
+    "wikipedia": "Software agent",
+    "queries": [
+     "AI agents production",
+     "agentes IA producción",
+     "agentic AI workflow",
+     "producción con IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_44dd858c",
+    "name": "Inversión en infraestructura de IA",
+    "definition": "Rondas de capital y proyectos regionales para centros de datos e infraestructura de inteligencia artificial.",
+    "wikipedia": "Data center",
+    "queries": [
+     "AI infrastructure investment",
+     "inversión infraestructura IA",
+     "data center AI",
+     "IA inversión Latam"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d59726ea",
+    "name": "Windows e IA",
+    "definition": "Integración de asistentes y funciones de IA en Windows 10 y 11, incluyendo Gemini y Copilot.",
+    "wikipedia": "Microsoft Windows",
+    "queries": [
+     "Windows AI",
+     "Windows 11 IA",
+     "Gemini Windows",
+     "Copilot Windows"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

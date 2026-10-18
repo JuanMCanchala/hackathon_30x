@@ -1,0 +1,24 @@
+{
+ "key": "6f8d290e7a73214b75164925d0ace6051fc718fe1229c658622c951f92fd4630",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:16:30.731Z",
+ "latencyMs": 4249,
+ "usage": {
+  "inputTokens": 730,
+  "outputTokens": 460
+ },
+ "output": {
+  "score": 5,
+  "executive": 7,
+  "noCode": 2,
+  "latam": 3,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Macro incierto, poco accionable para equipos comerciales.",
+   "Relevante para CEOs por costos, deuda y valuaciones.",
+   "Sin ángulo LatAm claro; foco en Fed y mercados EE.UU."
+  ]
+ }
+}

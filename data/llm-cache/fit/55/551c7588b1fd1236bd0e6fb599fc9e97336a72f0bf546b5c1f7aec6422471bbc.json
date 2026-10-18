@@ -1,0 +1,24 @@
+{
+ "key": "551c7588b1fd1236bd0e6fb599fc9e97336a72f0bf546b5c1f7aec6422471bbc",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:16:23.583Z",
+ "latencyMs": 5280,
+ "usage": {
+  "inputTokens": 717,
+  "outputTokens": 654
+ },
+ "output": {
+  "score": 6,
+  "executive": 8,
+  "noCode": 4,
+  "latam": 2,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Define qué modelos elegir, costos y riesgos de seguridad.",
+   "Poco accionable para ventas o growth sin casos concretos.",
+   "Carrera y benchmarks pueden ser humo; falta ángulo LatAm."
+  ]
+ }
+}

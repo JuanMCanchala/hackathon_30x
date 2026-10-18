@@ -1,0 +1,20 @@
+{
+ "key": "3cc29cb9ace69c10117b611c3bebc0b5ceb750d09d82455e9cac2c88b464aefb",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:20:05.032Z",
+ "latencyMs": 20735,
+ "usage": {
+  "inputTokens": 1584,
+  "outputTokens": 3272
+ },
+ "output": {
+  "oneLiner": "Perplexity libera SPACE, su sandbox de agentes, y medios lo amplifican; Starship de Musk sigue en la conversación.",
+  "narrative": "No hay patrones con al menos 3 piezas que despegaran, así que la señal es dispersa. La pieza con más engagement es un post de Perplexity en LinkedIn sobre open sourcing SPACE, con 434 interacciones y 1.2 veces la mediana de su autor. Varios medios cubren el mismo lanzamiento, pero con engagement 0, y las piezas sobre Starship de Musk y la NASA quedan por debajo de la mediana de sus autores. El crecimiento de creadores distintos (+85 %) no se explica por un formato repetido, sino por la coincidencia de un anuncio de Perplexity y la conversación sobre Starship.",
+  "cited": [
+   "linkedin:7516557998547210240",
+   "news:CBMirAFBVV95cUxPSEVvUWZ1cGs2d3ZBT2N6c0Nfb0hSMVQ5N053cThOZTI1Y2p1Q29LVzBsSmxHZGNxZEowMndUV0l5NHU0NFJvUnV2eEhUQTVWb01NWWJ6akt1UUxOcHJPWTZBQmIwajd5UFE0dGdqb1kxSF9NQzhLLVFGeDJXcmdHcm9jMFhsWHh6cU5MdG1YQ2xJMDl3aWxiM1dTUnE5N29mT3FzUWpnbG1Ba1FV0gGsAUFVX3lxTE9IRW9RZnVwazZ3dkFPY3pzQ19vSFIxVDk3TndxOE5lMjVjanVDb0tXMGxKbEdkY3FkSjAyd1RXSXk0dTQ0Um9SdXZ4SFRBNVZvTU1ZYnpqS3VRTE5wck9ZNkFCYjBqN3lQUTR0Z2pvWTFIX01DOEstUUZ4MldyZ0dyb2MwWGxYeHpxTkx0bVhDbEkwOXdpbGIzV1NScTk3b2ZPcXNRamdsbUFrUVU",
+   "bluesky:3mx2ddfzc4s2v"
+  ]
+ }
+}

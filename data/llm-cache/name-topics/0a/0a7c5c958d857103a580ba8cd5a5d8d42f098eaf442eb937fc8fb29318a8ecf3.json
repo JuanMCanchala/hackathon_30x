@@ -1,0 +1,275 @@
+{
+ "key": "0a7c5c958d857103a580ba8cd5a5d8d42f098eaf442eb937fc8fb29318a8ecf3",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:13:12.230Z",
+ "latencyMs": 11211,
+ "usage": {
+  "inputTokens": 3047,
+  "outputTokens": 1694
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_11870e85",
+    "name": "Interruptor de emergencia para IA",
+    "definition": "Propuestas de gobernadores como Newsom y Hochul para exigir un botón de apagado obligatorio en modelos de IA.",
+    "wikipedia": "AI safety",
+    "queries": [
+     "AI kill switch",
+     "regulación IA estados",
+     "Newsom AI order",
+     "Hochul AI regulation"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a4cff7db",
+    "name": "IA en cadenas de comida rápida",
+    "definition": "Uso de IA y MCP por McDonald's, PepsiCo y Yum! Brands para precios, cupones y operaciones.",
+    "wikipedia": "McDonald's",
+    "queries": [
+     "McDonald's AI MCP",
+     "fast food AI",
+     "PepsiCo AI",
+     "Yum Brands AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_46fba4ee",
+    "name": "Claude descubre sistema CRISPR",
+    "definition": "Anthropic afirma que Claude identificó en 21 horas un sistema enzimático con características similares a CRISPR.",
+    "wikipedia": "CRISPR",
+    "queries": [
+     "Claude CRISPR discovery",
+     "Anthropic enzyme system",
+     "IA descubrimiento CRISPR",
+     "Claude novel enzyme"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_619e333b",
+    "name": "Mods de videojuegos con IA",
+    "definition": "Herramientas y mods que usan IA para mejorar gráficos, rendimiento y jugabilidad en videojuegos.",
+    "wikipedia": "Mod (video games)",
+    "queries": [
+     "AI game mods",
+     "modding IA videojuegos",
+     "DLSS mod",
+     "universal modder"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_cae3d60f",
+    "name": "Crítica a la burbuja de IA",
+    "definition": "Voces como Cory Doctorow y Simon Willison advierten que el discurso apocalíptico oculta una burbuja financiera.",
+    "wikipedia": "AI bubble",
+    "queries": [
+     "AI bubble burst",
+     "crítica IA Doctorow",
+     "AI critic journalism",
+     "burbuja IA economía"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_18c72b95",
+    "name": "IA y derechos humanos",
+    "definition": "Debate sobre cómo la IA generativa y agéntica vulnera derechos fundamentales y dignidad humana, con casos en Latinoamérica.",
+    "wikipedia": "Human rights",
+    "queries": [
+     "IA derechos humanos",
+     "AI human rights",
+     "ONU IA derechos",
+     "IA dignidad humana"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_909f9b1c",
+    "name": "Percepción del consumidor sobre IA",
+    "definition": "Cómo los consumidores reaccionan ante productos con IA, incluyendo rechazo cuando se revela su uso.",
+    "wikipedia": "Consumer behaviour",
+    "queries": [
+     "consumer AI perception",
+     "consumidores IA rechazo",
+     "AI music consumers",
+     "comportamiento consumidor IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_009c4424",
+    "name": "Quiebras de startups de IA",
+    "definition": "Casos como Character.ai que se declaran en bancarrota por costos altos y crecimiento insostenible.",
+    "wikipedia": "Character.ai",
+    "queries": [
+     "Character.ai bankruptcy",
+     "AI startup bankruptcy",
+     "quiebra startups IA",
+     "AI project failure"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_eb6e32d9",
+    "name": "IA en telecomunicaciones",
+    "definition": "Transformación de telcos hacia plataformas inteligentes con agentes de IA para operaciones de red.",
+    "wikipedia": "Telecommunications",
+    "queries": [
+     "AI telecom operations",
+     "telco AI agents",
+     "IA telecomunicaciones",
+     "telco transformation AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5c6671f9",
+    "name": "Ferias tecnológicas 2026",
+    "definition": "Presencia de IA en eventos como IFA, IBC y AI Forum 2026, con soluciones para medios y dispositivos.",
+    "wikipedia": "IFA Berlin",
+    "queries": [
+     "IFA 2026 AI",
+     "IBC 2026 AI",
+     "AI Forum 2026",
+     "ferias IA 2026"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_6f8f8c82",
+    "name": "Extensiones de ChatGPT",
+    "definition": "Plugins y extensiones de ChatGPT para Chrome, Mac y otros navegadores que integran IA en el flujo de trabajo.",
+    "wikipedia": "ChatGPT",
+    "queries": [
+     "ChatGPT extensions",
+     "ChatGPT Chrome plugin",
+     "extensiones ChatGPT",
+     "ChatGPT Mac app"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_70a6ba06",
+    "name": "Riesgos de agentes de IA",
+    "definition": "Advertencias de Jamie Dimon y otros sobre agentes autónomos que acceden a sistemas financieros sin control.",
+    "wikipedia": "Jamie Dimon",
+    "queries": [
+     "rogue AI agents",
+     "Dimon AI warning",
+     "agentes IA riesgo",
+     "JPMorgan AI agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9fa60812",
+    "name": "IA como compañero de trabajo",
+    "definition": "Herramientas como Copilot Cowork y WorkBuddy que posicionan a la IA como colaborador en equipos.",
+    "wikipedia": "Microsoft Copilot",
+    "queries": [
+     "AI coworker",
+     "Copilot Cowork",
+     "IA colega trabajo",
+     "workbuddy AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a3359844",
+    "name": "Apps de escritorio con IA",
+    "definition": "Aplicaciones para Windows y Mac que integran modelos como DeepSeek o Claude para tareas locales.",
+    "wikipedia": "Desktop app",
+    "queries": [
+     "DeepSeek desktop app",
+     "AI desktop app",
+     "app IA Windows",
+     "Claude Codex desktop"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_6ffdae3b",
+    "name": "Precios por resultados de IA",
+    "definition": "Modelos de negocio que cobran por resultados verificables de IA, como ingresos de Nvidia o agentes financieros.",
+    "wikipedia": "Outcome-based pricing",
+    "queries": [
+     "AI outcome pricing",
+     "resultados IA negocio",
+     "Nvidia AI earnings",
+     "agent financial results"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e6eed3ba",
+    "name": "Plataformas de despliegue de IA",
+    "definition": "Herramientas como Vercel, Gradio y Vertex AI para construir y desplegar aplicaciones con agentes.",
+    "wikipedia": "Vercel",
+    "queries": [
+     "Vercel AI gateway",
+     "Gradio AI apps",
+     "Langflow deployment",
+     "Vertex AI platform"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8f90c996",
+    "name": "IA en aviación y transporte",
+    "definition": "Aplicaciones de IA en control de tráfico aéreo, aerolíneas, flotas y logística de carga.",
+    "wikipedia": "Air traffic control",
+    "queries": [
+     "AI air traffic",
+     "IA aviación",
+     "AI aviation fleet",
+     "IA transporte carga"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_31a36434",
+    "name": "IA en software financiero",
+    "definition": "Integración de IA en plataformas como Intuit, Avalara y Workiva para contabilidad, impuestos y cumplimiento.",
+    "wikipedia": "Intuit",
+    "queries": [
+     "Intuit AI tax",
+     "AI financial software",
+     "IA software fiscal",
+     "Avalara AI compliance"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_db9d5bd9",
+    "name": "Venta de acciones de IA",
+    "definition": "Movimientos de venta de acciones y activos de empresas de IA por parte de fondos e insiders.",
+    "wikipedia": "Insider trading",
+    "queries": [
+     "AI stock selloff",
+     "venta acciones IA",
+     "hedge funds AI stocks",
+     "AI token sales"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_4e47385b",
+    "name": "Brecha de género en IA",
+    "definition": "Exclusión de mujeres en decisiones sobre IA y sesgos de género en modelos y datos de entrenamiento.",
+    "wikipedia": "Gender bias in artificial intelligence",
+    "queries": [
+     "gender bias AI",
+     "mujeres en IA",
+     "AI gender gap",
+     "sesgo género IA"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,255 @@
+{
+ "key": "2e20ef8f8cd35ef6e03a451f9e5356ccf60e6a4b3b1b41845d7c87b94544e9d4",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:15:41.422Z",
+ "latencyMs": 9659,
+ "usage": {
+  "inputTokens": 2941,
+  "outputTokens": 1784
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_929a15ab",
+    "name": "Guardrails para agentes",
+    "definition": "Mecanismos de control y seguridad que limitan y guían el comportamiento de agentes de IA autónomos.",
+    "wikipedia": "AI safety",
+    "queries": [
+     "guardrails agentes IA",
+     "AI agent guardrails",
+     "prompt guardrails"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8f12f261",
+    "name": "Negocio unipersonal con IA",
+    "definition": "Modelos de negocio de una sola persona que usan IA para escalar ventas, operaciones y productividad.",
+    "wikipedia": "Solopreneur",
+    "queries": [
+     "negocio unipersonal IA",
+     "one-person business AI",
+     "freelance con IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f792d88d",
+    "name": "GPT-6 Astra",
+    "definition": "Nuevo modelo de OpenAI, GPT-6 Astra, evaluado en razonamiento avanzado y benchmarks como ARC-AGI-3.",
+    "wikipedia": "GPT-6",
+    "queries": [
+     "GPT-6 Astra",
+     "OpenAI GPT-6",
+     "ARC-AGI-3"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a0058c9c",
+    "name": "IA en CMS web",
+    "definition": "Integración de IA en plataformas de gestión de contenidos como WordPress, Drupal y Wix.",
+    "wikipedia": "Content management system",
+    "queries": [
+     "IA WordPress",
+     "Drupal AI",
+     "Wix AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2e90d7ba",
+    "name": "IA y salud mental",
+    "definition": "Impacto de la IA en la salud mental, relaciones humanas y bienestar emocional de las personas.",
+    "wikipedia": "Artificial intelligence and mental health",
+    "queries": [
+     "IA salud mental",
+     "AI mental health",
+     "IA relaciones humanas"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_40136873",
+    "name": "Robótica industrial",
+    "definition": "Avances en robots industriales y de almacén de empresas como Universal Robots, Neura Robotics y Vecna.",
+    "wikipedia": "Industrial robot",
+    "queries": [
+     "robótica industrial",
+     "industrial robotics",
+     "Universal Robots"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e43b2b20",
+    "name": "Grafos de conocimiento",
+    "definition": "Estructuras de datos que representan conocimiento y relaciones, usadas para potenciar sistemas de IA.",
+    "wikipedia": "Knowledge graph",
+    "queries": [
+     "grafos de conocimiento",
+     "knowledge graph",
+     "representación conocimiento"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9d124c13",
+    "name": "Reskilling con IA",
+    "definition": "Reconversión y reinvención profesional de trabajadores para adaptarse a la automatización con IA.",
+    "wikipedia": "Reskilling",
+    "queries": [
+     "reskilling IA",
+     "reconversión laboral",
+     "AI upskilling"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_3afd1af9",
+    "name": "Fine-tuning de LLM",
+    "definition": "Ajuste fino de modelos de lenguaje grandes con datos específicos para mejorar su rendimiento en tareas concretas.",
+    "wikipedia": "Fine-tuning (machine learning)",
+    "queries": [
+     "fine-tuning LLM",
+     "RL fine-tuning",
+     "ajuste fino IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_302a9b89",
+    "name": "Reducción de costes con IA",
+    "definition": "Uso de IA para reducir costes operativos y mejorar la eficiencia en procesos de negocio.",
+    "wikipedia": "Cost reduction",
+    "queries": [
+     "reducción costes IA",
+     "AI cost reduction",
+     "automatización costes"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_170cc72d",
+    "name": "IA en universidades LatAm",
+    "definition": "Adopción de IA en universidades de Latinoamérica como UNAM, UDLAP, BUAP y UASD.",
+    "wikipedia": "Artificial intelligence in education",
+    "queries": [
+     "IA universidades",
+     "AI higher education",
+     "IA educación LatAm"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_06bc16af",
+    "name": "Dreamforce 2026",
+    "definition": "Evento anual de Salesforce donde se anuncian novedades en IA, Agentforce, datos y CRM.",
+    "wikipedia": "Dreamforce",
+    "queries": [
+     "Dreamforce 2026",
+     "Salesforce Dreamforce",
+     "TechCrunch Disrupt"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_7af00c07",
+    "name": "Logitech MX Keypad",
+    "definition": "Teclado de Logitech para desarrolladores con teclas LCD para controlar código, prompts y herramientas de IA.",
+    "wikipedia": "Logitech",
+    "queries": [
+     "Logitech MX Keypad",
+     "Logitech AI keyboard",
+     "MX Keypad developers"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_848b4caf",
+    "name": "IA en diseño 3D",
+    "definition": "Uso de IA generativa en herramientas de diseño 3D como Blender, Cinema 4D y Apertus.",
+    "wikipedia": "3D modeling",
+    "queries": [
+     "IA diseño 3D",
+     "AI 3D design",
+     "Blender AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1326801c",
+    "name": "Datos públicos y IA",
+    "definition": "Debate sobre el acceso de grandes empresas de IA a datos de ciudadanos y datos públicos en Europa.",
+    "wikipedia": "Data privacy",
+    "queries": [
+     "datos públicos IA",
+     "AI data access",
+     "privacidad datos Europa"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a75bc4fc",
+    "name": "Sátira política e IA",
+    "definition": "Uso de IA generativa para crear humor, parodia y sátira política, y su impacto en el discurso público.",
+    "wikipedia": "Political satire",
+    "queries": [
+     "sátira política IA",
+     "AI political satire",
+     "parodia IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_6193fd07",
+    "name": "Emily Bender",
+    "definition": "Investigadora y crítica destacada de la IA, conocida por sus análisis sobre los límites de los modelos de lenguaje.",
+    "wikipedia": "Emily M. Bender",
+    "queries": [
+     "Emily Bender",
+     "Emily M. Bender",
+     "Tilly Norwood"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_dbf70ff8",
+    "name": "Celebridades y deepfakes",
+    "definition": "Casos de celebridades como Shakira y Adamari López afectadas por videos deepfake generados con IA.",
+    "wikipedia": "Deepfake",
+    "queries": [
+     "celebridades deepfakes",
+     "Shakira IA",
+     "Adamari López IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_11cb9cce",
+    "name": "CFOs y agentes IA",
+    "definition": "Rol de los directores financieros en la adopción, gobernanza y presupuesto de agentes de IA en empresas.",
+    "wikipedia": "Chief financial officer",
+    "queries": [
+     "CFO agentes IA",
+     "CFO AI agents",
+     "finanzas IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_029cfb97",
+    "name": "IA en ensayos clínicos",
+    "definition": "Aplicación de IA agéntica para optimizar reclutamiento, flujos y gobernanza en ensayos clínicos.",
+    "wikipedia": "Clinical trial",
+    "queries": [
+     "IA ensayos clínicos",
+     "AI clinical trials",
+     "agentic AI healthcare"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

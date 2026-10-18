@@ -1,0 +1,21 @@
+{
+ "key": "690347325420d18adc2dd21d08ba7d6364c31b2499fe2476cf9e5670f5ddad42",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:17:47.092Z",
+ "latencyMs": 12123,
+ "usage": {
+  "inputTokens": 1155,
+  "outputTokens": 1789
+ },
+ "output": {
+  "oneLiner": "Google mueve Android e IA: Gemini revisa estafas en llamadas y Play abre apps personales creadas con IA.",
+  "narrative": "No hay patrones con al menos 3 piezas, así que no hay un gancho recurrente que explique los despegues. La evidencia apunta a Google: The Next Web reporta verificación de estafas con Gemini en Mensajes y llamadas Android, y WWWhat's new y El Ecosistema Startup cubren que Google Play abre apps personales creadas con IA. AssembleDebug documenta en Bluesky el despliegue de la nueva interfaz de ajustes de Gemini. Ese conjunto de anuncios y cambios coincide con el crecimiento de +513 % en creadores distintos y 22 creadores esta semana.",
+  "cited": [
+   "bluesky:3mxievnxq522c",
+   "news:CBMidEFVX3lxTE9OcXU0R09ma2ZIcWcxdzRVcGttbGtMbWM0akdfVUxJQUViSUFuTXhpZ0ExdFNJQ0YwNlBVZVNaNS1rUjhXYXllWWpxVGx3NDhvTWNZYXlFLS1Xa09EMFhoMFpYLWxzajd6OVF4aFdidkFCQ1JE",
+   "news:CBMijAFBVV95cUxOTmt5b0xqNjBvejJ2NHJBV3VBSzZ4akxBM01HM05OeTlRWnFGNjk0aEEtdE1SM3JRYVdNakNJRnFCa3BOMjItRzJXdGwzQTUzVDhtbm4xNHc3WFpMTThLYTFUSHNxbWZwRWpCTHRBbWdlVUpPUmFLMGgweWlhM1VWWVc2dTVxaHloZ19FMA",
+   "news:CBMihAFBVV95cUxOZUpqSUxVbEhTdWQ1SHgxOTlWZkxXTTU2VS1jX0ZIeWx5X1BWNGZGRDY2MVhjaTBKaXVxUC1WWENGeEJZX1BRZkxxLUtvWThRUEFBcUt2Q0RGdU9pTmlTZVRXUmRBTVc1STc5OEVHNXIyeDV2VFViUjcxVGVxdnRRWHZmSHE"
+  ]
+ }
+}

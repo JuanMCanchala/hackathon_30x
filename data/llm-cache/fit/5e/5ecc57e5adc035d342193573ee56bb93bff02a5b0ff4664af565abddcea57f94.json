@@ -1,0 +1,24 @@
+{
+ "key": "5ecc57e5adc035d342193573ee56bb93bff02a5b0ff4664af565abddcea57f94",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:16:25.037Z",
+ "latencyMs": 10757,
+ "usage": {
+  "inputTokens": 733,
+  "outputTokens": 1343
+ },
+ "output": {
+  "score": 6,
+  "executive": 8,
+  "noCode": 3,
+  "latam": 6,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Riesgo macro y de inversión que todo CEO debe monitorear.",
+   "Poco accionable para equipos de ventas o growth.",
+   "Ángulo LatAm: Banco Mundial pide IA local y práctica."
+  ]
+ }
+}

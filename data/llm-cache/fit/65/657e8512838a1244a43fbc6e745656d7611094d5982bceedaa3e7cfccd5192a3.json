@@ -1,0 +1,24 @@
+{
+ "key": "657e8512838a1244a43fbc6e745656d7611094d5982bceedaa3e7cfccd5192a3",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:13:41.041Z",
+ "latencyMs": 6203,
+ "usage": {
+  "inputTokens": 670,
+  "outputTokens": 822
+ },
+ "output": {
+  "score": 6,
+  "executive": 8,
+  "noCode": 9,
+  "latam": 2,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "alto",
+  "reasons": [
+   "Tema viral, pero Character.ai no quebró; riesgo de desinformación.",
+   "Ilustra costos de IA y modelos de negocio insostenibles.",
+   "Poco ángulo LatAm y aplicación comercial indirecta."
+  ]
+ }
+}

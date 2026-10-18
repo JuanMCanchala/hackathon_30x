@@ -1,0 +1,21 @@
+{
+ "key": "2c72e575ccdbcafc6e3e4c174b92e3ec2007672525e320d9ae2c5b50e483fef7",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:20:12.244Z",
+ "latencyMs": 17059,
+ "usage": {
+  "inputTokens": 1434,
+  "outputTokens": 2916
+ },
+ "output": {
+  "oneLiner": "Mistral, BrainChip y Teradyne mueven IA en edge; creadores distintos suben 100%.",
+  "narrative": "No hay patrones con al menos 3 piezas: el crecimiento de +100% en creadores distintos y 5 creadores esta semana se apoya en evidencia dispersa. Mistral publica en LinkedIn que sus modelos ya corren en órbita, con 2399 de engagement, aunque queda en 0.8× la mediana de su autor. openbmb sube modelos GGUF a HuggingFace para ejecución local, con engagement de 156, por debajo de su mediana. Las noticias de Teradyne y BrainChip registran 0 de engagement, así que el tema crece por anuncios, no por piezas virales consolidadas.",
+  "cited": [
+   "linkedin:7515766629327335424",
+   "huggingface:model:openbmb/MiniCPM-V-4.7-35B-A3B-gguf",
+   "news:CBMiuwFBVV95cUxOelVxaE1uVzZVeUpQZlIzcFV3U2poZEFwdFRGNVZfbkUxVTZYU0QyNjZfT2U0Z0M3WHFNLVJKZWFMTjNIbUlkOWEtNTRSRnpRMmpsOGRMckFTMndYeEdGT0hEblE3SUhqaXViMHd1ZHh1WDVORERDcDl2dTJXSkpHZzRBaXVDbGg3VUEwa1dNLTMxTlRyR2dJa0huMnIxTnhLOXkxNHc0dUFJRW9Vbk1taUd3cWlaelMtZzdB",
+   "news:CBMi_wFBVV95cUxPUTExcy1lVFp3a3pYaWloczkxcFNIeGNPUERka1ZVMHRHNmg3ZXVmX3RhYkJMSEpHOUpCakh6cnlvc1BtelB0ODM3Y2ZZcGVKeHFoYWZva2t5Z3Y2dVpLS21TQ3VjT1JONWE1TldqaEtBSDRDRHM5ZG9uNksybG5sVDRzM3hmOW9GRk1vV01GcXlrNjVONDhudnFJZlAzRGJCcVB3N1VIV2R0VWREcG90NjVKX0xNc3FjTzdLc0F4T29MaFg2dnh2T3RQb3ZaZ1FYRmhDMEo5c2xHZG50SVoxUnJ2Y1d3QnBoRHh0MWh3S0hFVno2S052Rzcya005RHM"
+  ]
+ }
+}

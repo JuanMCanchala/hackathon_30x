@@ -1,0 +1,21 @@
+{
+ "key": "a057e288674c00155c3d6f269697f844b67fb860a78098b6ecb152f6dc293e0d",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:19:25.120Z",
+ "latencyMs": 6501,
+ "usage": {
+  "inputTokens": 1352,
+  "outputTokens": 1027
+ },
+ "output": {
+  "oneLiner": "nFox abre Blockhouse, un sandbox de kernel para modelos abiertos, y Nvidia lanza tres modelos abiertos.",
+  "narrative": "No hay patrones con al menos 3 piezas, así que el patrón no se puede confirmar con cifras. Las piezas que despegaron son posts de Bluesky sobre Blockhouse, el sandbox de nFox: uno duplica la mediana de su autor y otro la supera 1,3 veces. El ángulo que mueve la conversación es de seguridad, con un ejecutivo de Anthropic advirtiendo que los modelos abiertos traen más riesgo. Las noticias de Nvidia y Xataka sobre modelos abiertos no registran engagement.",
+  "cited": [
+   "bluesky:3mxxqa4xwyx2u",
+   "bluesky:3mxx4boo6m22y",
+   "bluesky:3mxtbwd5blj22",
+   "news:CBMinwFBVV95cUxOVW9sWFJ6TXBCVE1GNXVKV0g4MEt0WU1WUjh4WHkxMmVrOHdIajlLMXFZZ2ZZWk1uUVlxclpfVHNFYV9QT3QzRHlsTGlZZGlsZEJ6SGJWNFZ3NTFYZ2M4YUV3dm9tQXRQOGl2M0pOVDRlN1UzMU9seV9IZ095S0pBNFA4VWVMa285RDdaN1h3dzNUWnk3NXNxUUE3OXp6Sk0"
+  ]
+ }
+}

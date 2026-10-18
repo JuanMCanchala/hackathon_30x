@@ -1,0 +1,24 @@
+{
+ "key": "56b1f42028560cf7147a9fddddaa093da415ff437d328501f3c9816e23cef305",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:17:06.671Z",
+ "latencyMs": 6958,
+ "usage": {
+  "inputTokens": 726,
+  "outputTokens": 731
+ },
+ "output": {
+  "score": 4,
+  "executive": 6,
+  "noCode": 1,
+  "latam": 3,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Es contexto financiero, no uso práctico de IA en negocios.",
+   "Ayuda a ejecutivos a leer valuaciones, burbuja y clima de inversión.",
+   "Poco accionable para ventas, growth o equipos sin conocimiento financiero."
+  ]
+ }
+}

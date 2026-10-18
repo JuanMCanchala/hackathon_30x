@@ -1,0 +1,24 @@
+{
+ "key": "c843b17944f1ba5fe628e497c4933ecce6692034c1c6f5de65e0047668c54071",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:16:54.383Z",
+ "latencyMs": 7506,
+ "usage": {
+  "inputTokens": 730,
+  "outputTokens": 923
+ },
+ "output": {
+  "score": 5,
+  "executive": 6,
+  "noCode": 7,
+  "latam": 3,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Tema de regulación y confianza; poco accionable para ventas o growth.",
+   "Relevante para marketing y compliance, pero nicho gaming y medios.",
+   "Escaso ángulo LatAm; debate global, sin casos locales claros."
+  ]
+ }
+}

@@ -1,0 +1,255 @@
+{
+ "key": "dc424ea6a9330b470651f69b339e03506a441260ab983c61ff2f2864a796f04d",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:07:46.405Z",
+ "latencyMs": 129428,
+ "usage": {
+  "inputTokens": 3028,
+  "outputTokens": 1773
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_969fc23a",
+    "name": "Ciberataques con IA",
+    "definition": "Uso de inteligencia artificial para automatizar y escalar ciberataques, incluyendo agentes autónomos y ataques generados por IA.",
+    "wikipedia": "AI-powered cyberattack",
+    "queries": [
+     "ciberataques con IA",
+     "autonomous cyberattack",
+     "AI hacking agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f4654e77",
+    "name": "Trump y IA",
+    "definition": "Noticias y controversias que involucran a Donald Trump y la inteligencia artificial, incluyendo videos generados y políticas.",
+    "wikipedia": "Donald Trump and artificial intelligence",
+    "queries": [
+     "Trump AI video",
+     "Trump inteligencia artificial",
+     "Trump AI policy"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_81fe4f58",
+    "name": "Meta IA",
+    "definition": "Desarrollos de inteligencia artificial de Meta, incluyendo agentes personales, modelos y su infraestructura de datos.",
+    "wikipedia": "Meta AI",
+    "queries": [
+     "Meta AI agent",
+     "Meta Muse",
+     "Meta inteligencia artificial"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ee91ee3a",
+    "name": "Derechos de autor e IA",
+    "definition": "Debates legales sobre derechos de autor y propiedad intelectual en el entrenamiento y generación de contenido con IA.",
+    "wikipedia": "Artificial intelligence and copyright",
+    "queries": [
+     "copyright IA",
+     "AI copyright lawsuit",
+     "derechos autor IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_4fdbd41f",
+    "name": "Model Context Protocol",
+    "definition": "Protocolo abierto que estandariza la conexión de modelos de IA con herramientas y fuentes de datos externas.",
+    "wikipedia": "Model Context Protocol",
+    "queries": [
+     "Model Context Protocol",
+     "MCP protocol",
+     "MCP AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c9a96eb6",
+    "name": "Futuro del empleo",
+    "definition": "Impacto de la IA y la automatización en el empleo, incluyendo desplazamiento laboral y nuevas demandas de habilidades.",
+    "wikipedia": "Technological unemployment",
+    "queries": [
+     "futuro del empleo",
+     "AI job displacement",
+     "automatización empleo"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_8f692516",
+    "name": "Robótica con IA",
+    "definition": "Avances en robots humanoides y manipulación robótica impulsados por inteligencia artificial y datos de entrenamiento.",
+    "wikipedia": "Robotics",
+    "queries": [
+     "robótica IA",
+     "humanoid robot",
+     "robot manipulation AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1a14e59e",
+    "name": "Educación e IA",
+    "definition": "Uso de inteligencia artificial en educación, incluyendo aprendizaje personalizado, alfabetización digital y brechas educativas.",
+    "wikipedia": "Artificial intelligence in education",
+    "queries": [
+     "educación IA",
+     "AI in education",
+     "aprendizaje IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_230a24e6",
+    "name": "Entrenamiento de modelos",
+    "definition": "Prácticas y desafíos en el entrenamiento de modelos de IA, incluyendo datos, destilación y desarrollo de LLM.",
+    "wikipedia": "Training, validation, and test data sets",
+    "queries": [
+     "entrenamiento LLM",
+     "AI training data",
+     "model training"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_933332b0",
+    "name": "Generación de imágenes IA",
+    "definition": "Creación de imágenes mediante inteligencia artificial, incluyendo herramientas como ChatGPT Image y modelos generativos.",
+    "wikipedia": "Text-to-image model",
+    "queries": [
+     "generación imágenes IA",
+     "AI image generation",
+     "ChatGPT images"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8d5a211d",
+    "name": "Ingeniería de prompts",
+    "definition": "Técnicas para diseñar y optimizar instrucciones (prompts) para obtener mejores resultados de modelos de IA.",
+    "wikipedia": "Prompt engineering",
+    "queries": [
+     "ingeniería prompts",
+     "prompt engineering",
+     "prompt injection"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_71f9c040",
+    "name": "Líderes tecnológicos e IA",
+    "definition": "Opiniones y acciones de figuras como Bezos, Gates y Zuckerberg sobre el desarrollo y riesgo de la inteligencia artificial.",
+    "wikipedia": "Artificial intelligence",
+    "queries": [
+     "Bezos IA",
+     "Bill Gates AI",
+     "Zuckerberg AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_fa284cae",
+    "name": "IA en finanzas",
+    "definition": "Aplicación de inteligencia artificial en servicios financieros, incluyendo asesoría, automatización y análisis económico.",
+    "wikipedia": "Artificial intelligence in finance",
+    "queries": [
+     "IA finanzas",
+     "AI in finance",
+     "fintech IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_240caa41",
+    "name": "Chatbots y asistentes",
+    "definition": "Desarrollo y uso de chatbots y asistentes conversacionales basados en IA, incluyendo agentes personales y de voz.",
+    "wikipedia": "Chatbot",
+    "queries": [
+     "chatbots IA",
+     "AI assistants",
+     "conversational agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_41a5e73c",
+    "name": "Desinformación con IA",
+    "definition": "Generación y propagación de información falsa mediante inteligencia artificial, incluyendo deepfakes y noticias falsas.",
+    "wikipedia": "Deepfake",
+    "queries": [
+     "desinformación IA",
+     "AI disinformation",
+     "deepfakes"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b29c5984",
+    "name": "Desarrollo de software con IA",
+    "definition": "Uso de inteligencia artificial en el desarrollo de software, incluyendo generación de código y automatización de tareas.",
+    "wikipedia": "AI-assisted software development",
+    "queries": [
+     "desarrollo software IA",
+     "AI coding",
+     "software development AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_7d1fb3a2",
+    "name": "CRM con IA",
+    "definition": "Integración de inteligencia artificial en plataformas CRM como Salesforce y HubSpot para automatizar ventas y servicio.",
+    "wikipedia": "Customer relationship management",
+    "queries": [
+     "CRM IA",
+     "Salesforce AI",
+     "HubSpot AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ee603823",
+    "name": "Despidos por IA",
+    "definition": "Desplazamiento laboral y despidos en el sector tecnológico atribuidos a la automatización y adopción de inteligencia artificial.",
+    "wikipedia": "Technological unemployment",
+    "queries": [
+     "despidos IA",
+     "AI layoffs",
+     "tech layoffs AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_6d43dc74",
+    "name": "IA en matemáticas",
+    "definition": "Aplicación de inteligencia artificial en investigación matemática, resolución de problemas y avances teóricos.",
+    "wikipedia": "Artificial intelligence in mathematics",
+    "queries": [
+     "IA matemáticas",
+     "AI mathematics",
+     "math AI research"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c101e5fa",
+    "name": "Rondas de financiación IA",
+    "definition": "Inversiones y rondas de financiamiento en startups de inteligencia artificial, incluyendo capital semilla y series.",
+    "wikipedia": "Venture capital",
+    "queries": [
+     "financiación IA",
+     "AI funding",
+     "AI startup investment"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

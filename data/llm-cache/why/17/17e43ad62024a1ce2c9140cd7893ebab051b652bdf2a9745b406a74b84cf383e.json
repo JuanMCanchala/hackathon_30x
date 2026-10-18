@@ -1,0 +1,21 @@
+{
+ "key": "17e43ad62024a1ce2c9140cd7893ebab051b652bdf2a9745b406a74b84cf383e",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:19:47.311Z",
+ "latencyMs": 7356,
+ "usage": {
+  "inputTokens": 1264,
+  "outputTokens": 1097
+ },
+ "output": {
+  "oneLiner": "Inferencia de IA: 22 creadores nuevos y un post de Seth Abramson sobre código abierto cerrado.",
+  "narrative": "9 de 10 piezas que despegaron las publicó un creador de contenido, frente a 2 de 37 del resto, y 9 de 10 son posts de texto, frente a 9 de 37. El gancho es la idea contraintuitiva: 6 de 10 abren así, frente a 5 de 37. Seth Abramson firma el post de mayor alcance, 609 veces la mediana de su autor, con la tesis de que el software cerrado terminó de un día para otro. Celia Hodent y Lauren McKenzie llevan el mismo marco al escepticismo y a la ingeniería inversa, y en Hacker News un artículo sobre agentes que decompilan un videojuego confirma el interés técnico.",
+  "cited": [
+   "bluesky:3mxhkcrr2lk24",
+   "bluesky:3mxxcyleiv22y",
+   "bluesky:3mxrxz7otdk2s",
+   "hn:50039092"
+  ]
+ }
+}

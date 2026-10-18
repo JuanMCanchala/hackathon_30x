@@ -1,0 +1,255 @@
+{
+ "key": "00226fedbaf8b68a7876909293e0e911c20e0bb7259f8c149267399ff2679a49",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:12:48.817Z",
+ "latencyMs": 11373,
+ "usage": {
+  "inputTokens": 3182,
+  "outputTokens": 1850
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_06e25ed4",
+    "name": "Agentes de IA descontrolados",
+    "definition": "Agentes autónomos que actúan fuera de control, causando daños o comportamientos no previstos por sus creadores.",
+    "wikipedia": "Rogue AI",
+    "queries": [
+     "rogue AI agents",
+     "agentes descontrolados",
+     "AI agent swarm"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_50cba756",
+    "name": "Papa León XIV y la IA",
+    "definition": "El Papa León XIV aborda la IA en discursos y conferencias, pidiendo regulación ética y que sirva a la humanidad.",
+    "wikipedia": "Pope Leo XIV",
+    "queries": [
+     "Pope Leo XIV AI",
+     "papa León XIV inteligencia artificial",
+     "Vaticano IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8ca2f8b7",
+    "name": "IA en Europa",
+    "definition": "Adopción, regulación y controversias sobre inteligencia artificial en países europeos como Alemania, Francia o Noruega.",
+    "wikipedia": "Artificial intelligence in Europe",
+    "queries": [
+     "AI Europe regulation",
+     "IA en Alemania",
+     "France AI controversy"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_64c63e54",
+    "name": "GLM-5.3",
+    "definition": "Modelo de lenguaje de código abierto GLM-5.3 y sus variantes, desarrollado por Zhipu AI (Z.ai).",
+    "wikipedia": "GLM (language model)",
+    "queries": [
+     "GLM-5.3",
+     "Zhipu AI GLM",
+     "GLM-5.3-Flash"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_097038f2",
+    "name": "EE. UU. vs China en IA",
+    "definition": "Competencia geopolítica entre Estados Unidos y China por el liderazgo en inteligencia artificial, chips y talento.",
+    "wikipedia": "AI Cold War",
+    "queries": [
+     "US China AI race",
+     "EEUU China IA",
+     "competencia IA China"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_36abf59c",
+    "name": "Criterio humano vs IA",
+    "definition": "Debate sobre la importancia del juicio y criterio humano frente a la automatización y las decisiones de la IA.",
+    "wikipedia": "Human judgment",
+    "queries": [
+     "human judgment AI",
+     "criterio humano IA",
+     "agency AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_bf26fbfe",
+    "name": "SEO para IA",
+    "definition": "Optimización de contenido para aparecer en respuestas de motores de IA como Perplexity o ChatGPT, conocido como AEO o LLM SEO.",
+    "wikipedia": "Answer engine optimization",
+    "queries": [
+     "AI SEO",
+     "answer engine optimization",
+     "LLM SEO"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_721271f0",
+    "name": "Vulnerabilidades en IA",
+    "definition": "Fallos de seguridad y vulnerabilidades críticas en sistemas y modelos de inteligencia artificial, como los de Anthropic o Gemini.",
+    "wikipedia": "Vulnerability (computing)",
+    "queries": [
+     "AI vulnerability",
+     "vulnerabilidad IA",
+     "Anthropic security flaw"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a0e9485d",
+    "name": "Comunicación con IA",
+    "definition": "Uso de IA en comunicación corporativa, política y entre modelos, y los desafíos éticos que plantea.",
+    "wikipedia": "AI communication",
+    "queries": [
+     "AI communication",
+     "comunicación con IA",
+     "AI corporate messaging"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c2b7a155",
+    "name": "Vigilancia con IA",
+    "definition": "Uso de inteligencia artificial para vigilancia masiva, policial y videovigilancia, y sus implicaciones éticas y legales.",
+    "wikipedia": "Mass surveillance",
+    "queries": [
+     "AI surveillance",
+     "vigilancia con IA",
+     "policía IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_0f35280c",
+    "name": "Adquisiciones en IA",
+    "definition": "Compras y adquisiciones de startups de inteligencia artificial por grandes tecnológicas, incluyendo acuerdos como acquihires.",
+    "wikipedia": "Mergers and acquisitions",
+    "queries": [
+     "AI acquisitions",
+     "adquisiciones IA",
+     "acquihire AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f6be5034",
+    "name": "Escasez de chips",
+    "definition": "Crisis de suministro de chips de memoria y procesadores debido a la alta demanda de IA, afectando a la electrónica de consumo.",
+    "wikipedia": "2020–2023 global chip shortage",
+    "queries": [
+     "chip shortage AI",
+     "escasez chips IA",
+     "RAMageddon"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_72303e72",
+    "name": "Pruebas de seguridad en IA",
+    "definition": "Evaluaciones y pruebas de ciberseguridad para modelos de IA, incluyendo incidentes donde modelos hackean sistemas.",
+    "wikipedia": "AI safety",
+    "queries": [
+     "AI safety testing",
+     "pruebas seguridad IA",
+     "AI red teaming"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_39e2cbc4",
+    "name": "Arte humano vs IA",
+    "definition": "Debate sobre el valor del arte creado por humanos frente al generado por inteligencia artificial, y su impacto en artistas.",
+    "wikipedia": "Artificial intelligence art",
+    "queries": [
+     "human art vs AI",
+     "arte humano IA",
+     "AI art controversy"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_eed91c7e",
+    "name": "Apple Silicon y IA",
+    "definition": "Impacto de la demanda de IA en los chips Apple Silicon y equipos Mac, como el Mac Mini y Mac Studio.",
+    "wikipedia": "Apple silicon",
+    "queries": [
+     "Apple Silicon AI",
+     "Mac Mini AI",
+     "Apple M6 chip"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5eb7d9e0",
+    "name": "Cerebras y CoreWeave",
+    "definition": "Proveedores de infraestructura de cómputo para IA como Cerebras y CoreWeave, y su competencia con Nvidia.",
+    "wikipedia": "Cerebras",
+    "queries": [
+     "Cerebras AI",
+     "CoreWeave",
+     "Nvidia Nemotron"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a12bc49a",
+    "name": "Bonos de IA",
+    "definition": "Emisión de bonos y deuda por empresas de IA para financiar su crecimiento, y su impacto en los mercados financieros.",
+    "wikipedia": "AI bond",
+    "queries": [
+     "AI bonds",
+     "bonos IA",
+     "AI debt market"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a7e31a93",
+    "name": "IA en industrias creativas",
+    "definition": "Impacto de la inteligencia artificial en sectores creativos como cine, música y entretenimiento, y los debates sobre empleo y derechos.",
+    "wikipedia": "Artificial intelligence in the creative industries",
+    "queries": [
+     "AI creative industries",
+     "IA industrias creativas",
+     "AI entertainment impact"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5b4d8dcf",
+    "name": "Brad Smith y regulación IA",
+    "definition": "Postura de Brad Smith, presidente de Microsoft, sobre la necesidad de regulación de la inteligencia artificial a nivel global.",
+    "wikipedia": "Brad Smith (Microsoft)",
+    "queries": [
+     "Brad Smith AI regulation",
+     "Microsoft AI policy",
+     "regulación IA Microsoft"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_84b7a886",
+    "name": "IA en la escritura",
+    "definition": "Uso de inteligencia artificial para escribir y redactar, y el debate sobre su impacto en escritores y estilo.",
+    "wikipedia": "AI writing",
+    "queries": [
+     "AI writing",
+     "IA escritura",
+     "AI for writers"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

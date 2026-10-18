@@ -1,0 +1,255 @@
+{
+ "key": "25dc3efcf038dcf155bca2d3ebbf759894a9ccc8c670ac3f0ac615ffa8d59d81",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:28:51.536Z",
+ "latencyMs": 10804,
+ "usage": {
+  "inputTokens": 2777,
+  "outputTokens": 1837
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_7f5e4ab7",
+    "name": "IA en gestión de almacenes",
+    "definition": "Aplicación de agentes de IA a la gestión de almacenes y logística, y la presión de almacenamiento que exige la IA.",
+    "wikipedia": "Warehouse management system",
+    "queries": [
+     "AI warehouse management",
+     "agentes almacén IA",
+     "agentic warehouse systems"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a12723e5",
+    "name": "Bucles agénticos",
+    "definition": "Cambio de automatizaciones rígidas a bucles dinámicos donde los LLM deciden acciones en tiempo real.",
+    "wikipedia": "Intelligent agent",
+    "queries": [
+     "agentic loops",
+     "OpenAI Decisions API",
+     "bucles agénticos automatización"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_7dcd781b",
+    "name": "Streaming con IA",
+    "definition": "Uso de IA generativa en streams en vivo, desde avatares hasta contenido automatizado, y el rechazo de artistas.",
+    "wikipedia": "Artificial intelligence in video games",
+    "queries": [
+     "AI streaming Twitch",
+     "streaming con IA",
+     "AI video model stream"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_622b0749",
+    "name": "Side hustles con IA",
+    "definition": "Negocios paralelos que usan IA para automatizar tareas, generar contenido o vender servicios digitales.",
+    "wikipedia": "Side job",
+    "queries": [
+     "AI side hustle",
+     "side hustles IA",
+     "AI automation playbook"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_fc72433d",
+    "name": "Crítica a Silicon Valley",
+    "definition": "Cuestionamientos éticos y económicos a las grandes tecnológicas por su poder, deuda e impacto social.",
+    "wikipedia": "Criticism of Silicon Valley",
+    "queries": [
+     "Silicon Valley criticism",
+     "crítica Silicon Valley",
+     "deuda Silicon Valley IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9da7d2db",
+    "name": "IA y combustibles fósiles",
+    "definition": "Uso de IA por petroleras y gaseras para hallar más reservas, aumentando emisiones en vez de reducirlas.",
+    "wikipedia": "Environmental impact of artificial intelligence",
+    "queries": [
+     "AI fossil fuels",
+     "IA petróleo gas",
+     "AI oil gas emissions"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_7d6f5788",
+    "name": "CNDH y regulación de IA",
+    "definition": "La Comisión Nacional de Derechos Humanos de México pide regular la IA para evitar desigualdad y desempleo.",
+    "wikipedia": "National Human Rights Commission (Mexico)",
+    "queries": [
+     "CNDH regulación IA",
+     "CNDH inteligencia artificial",
+     "Mexico AI regulation"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e4b17e58",
+    "name": "Fundación Gates e IA",
+    "definition": "Inversión de la Fundación Gates para llevar IA a salud, educación y agricultura en países en desarrollo.",
+    "wikipedia": "Gates Foundation",
+    "queries": [
+     "Gates Foundation AI",
+     "Fundación Gates IA",
+     "Gates AI global access"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2e329b2a",
+    "name": "Consolas y IA",
+    "definition": "Movimientos en la industria de consolas y software, como Xbox, Reevo y adquisiciones de startups de IA.",
+    "wikipedia": "Video game console",
+    "queries": [
+     "Xbox AI strategy",
+     "Reevo AI sales",
+     "Palo Alto Networks Console"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e563f26c",
+    "name": "Apocalipsis laboral por IA",
+    "definition": "Debate sobre si la IA destruirá empleos masivamente y la precarización de quienes la entrenan.",
+    "wikipedia": "Technological unemployment",
+    "queries": [
+     "AI job apocalypse",
+     "apocalipsis laboral IA",
+     "AI precarious jobs"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8324793a",
+    "name": "Desarrollo agéntico",
+    "definition": "Nueva era de ingeniería de software donde agentes de IA generan código y construyen interfaces autónomas.",
+    "wikipedia": "Software agent",
+    "queries": [
+     "agentic development",
+     "desarrollo agéntico",
+     "agentic software engineering"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a44f731c",
+    "name": "Estrategia de producto con IA",
+    "definition": "Decisiones estratégicas de empresas tecnológicas sobre cómo integrar IA en productos y evitar perder el rumbo.",
+    "wikipedia": "Strategic management",
+    "queries": [
+     "AI product strategy",
+     "estrategia IA negocio",
+     "Salesforce AI acquisition"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e343cf30",
+    "name": "Industria del videojuego e IA",
+    "definition": "Impacto de la IA en la industria del gaming: despidos, microtransacciones y rechazo a contenido generado.",
+    "wikipedia": "Video game industry",
+    "queries": [
+     "AI video game industry",
+     "industria videojuego IA",
+     "AI triple A games"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5ea6e270",
+    "name": "eM Client 11",
+    "definition": "Cliente de correo europeo que se posiciona como alternativa a Outlook con IA y soberanía digital.",
+    "wikipedia": "EM Client",
+    "queries": [
+     "eM Client 11",
+     "eM Client AI",
+     "Outlook alternative eM Client"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_12995229",
+    "name": "Claude y denuncias falsas",
+    "definition": "Caso en que Claude de Anthropic envió una pista falsa a la policía de Filadelfia sobre un homicidio.",
+    "wikipedia": "Claude (language model)",
+    "queries": [
+     "Claude false tip",
+     "Anthropic Claude police",
+     "Claude murder tip"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f97e6735",
+    "name": "Capacitación en IA para pymes",
+    "definition": "Programas para entrenar a empleados y pymes en el uso de IA para ventas, administración y contenido.",
+    "wikipedia": "Training and development",
+    "queries": [
+     "capacitación IA pymes",
+     "AI training employees",
+     "IA para vender más"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b2391eb9",
+    "name": "Claude Code y CLI",
+    "definition": "Herramientas de línea de comandos y plugins para Claude Code, en competencia con GitHub Copilot CLI.",
+    "wikipedia": "Claude (language model)",
+    "queries": [
+     "Claude Code CLI",
+     "Claude Code plugins",
+     "GitHub Copilot CLI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_6c089572",
+    "name": "GPUs para IA",
+    "definition": "Precios, disponibilidad y guías para correr modelos de IA en GPUs Nvidia de consumo.",
+    "wikipedia": "Graphics processing unit",
+    "queries": [
+     "Nvidia GPU prices",
+     "GPUs para IA",
+     "run LLM Nvidia GPU"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_7527fb94",
+    "name": "PyTorch y LLMs",
+    "definition": "Implementaciones y tutoriales para construir modelos de lenguaje desde cero usando PyTorch.",
+    "wikipedia": "PyTorch",
+    "queries": [
+     "PyTorch LLM scratch",
+     "build LLM PyTorch",
+     "PyTorch arquitecturas LLM"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_840928b3",
+    "name": "Terence Tao e IA matemática",
+    "definition": "Debate sobre el impacto de la IA en las matemáticas, con advertencias de Terence Tao sobre su uso.",
+    "wikipedia": "Terence Tao",
+    "queries": [
+     "Terence Tao AI math",
+     "Tao OpenAI mathematics",
+     "IA matemáticas Tao"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

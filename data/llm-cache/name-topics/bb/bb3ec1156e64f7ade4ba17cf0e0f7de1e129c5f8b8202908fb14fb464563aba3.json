@@ -1,0 +1,255 @@
+{
+ "key": "bb3ec1156e64f7ade4ba17cf0e0f7de1e129c5f8b8202908fb14fb464563aba3",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T17:38:55.121Z",
+ "latencyMs": 11706,
+ "usage": {
+  "inputTokens": 2878,
+  "outputTokens": 1897
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_8e852bba",
+    "name": "Salida a bolsa de Anthropic y OpenAI",
+    "definition": "Debate sobre si Anthropic y OpenAI pueden salir a bolsa y qué implicaría para el mercado de la IA.",
+    "wikipedia": "Initial public offering",
+    "queries": [
+     "Anthropic IPO",
+     "OpenAI salida bolsa",
+     "AI companies IPO"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_4df7f205",
+    "name": "IA agéntica en salud",
+    "definition": "Uso de agentes de IA en hospitales y diagnóstico médico, con marcos de gobernanza y confianza clínica.",
+    "wikipedia": "Artificial intelligence in healthcare",
+    "queries": [
+     "agentic AI healthcare",
+     "IA diagnóstico médico",
+     "AI hospital governance"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_0c256b13",
+    "name": "Modelos fundacionales de series temporales",
+    "definition": "Nuevos modelos de IA para predecir series temporales, como Timestral de Mistral, con aplicaciones en finanzas y operaciones.",
+    "wikipedia": "Time series",
+    "queries": [
+     "time series foundation models",
+     "modelos series temporales",
+     "Mistral Timestral"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a48a47c4",
+    "name": "Alternativas a Outlook con IA",
+    "definition": "Clientes de correo europeos como eM Client que compiten con Outlook integrando IA y soberanía digital.",
+    "wikipedia": "Email client",
+    "queries": [
+     "eM Client Outlook",
+     "alternativa Outlook IA",
+     "European email client"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1d3fbde7",
+    "name": "Rust para agentes de IA",
+    "definition": "Adopción del lenguaje Rust en el desarrollo de agentes de IA y herramientas de software de alto rendimiento.",
+    "wikipedia": "Rust (programming language)",
+    "queries": [
+     "Rust AI agents",
+     "Rust agentic",
+     "Rust para IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_221ee590",
+    "name": "IA en pagos y funciones premium",
+    "definition": "Integración de IA en plataformas de pago y cambios en suscripciones, como Gemini Pay o TreviPay.",
+    "wikipedia": "Payment system",
+    "queries": [
+     "AI payments",
+     "IA en pagos",
+     "Gemini Pay funciones"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_18e25693",
+    "name": "IA para correos electrónicos",
+    "definition": "Herramientas de IA que generan, gestionan o analizan emails, desde asistentes de escritura hasta inteligencia de email marketing.",
+    "wikipedia": "Email marketing",
+    "queries": [
+     "AI email writing",
+     "IA para emails",
+     "email intelligence AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_90431425",
+    "name": "VRAM para IA local",
+    "definition": "Requisitos de memoria de video (VRAM) para ejecutar modelos de IA localmente, con debates sobre 24GB vs 128GB.",
+    "wikipedia": "Video RAM",
+    "queries": [
+     "VRAM local AI",
+     "24GB VRAM LLM",
+     "128GB VRAM AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_dc72fa45",
+    "name": "Regulación de IA en el Congreso de EE.UU.",
+    "definition": "Propuestas legislativas y debates políticos en EE.UU. sobre regulación de IA, con figuras como Blackburn, Jayapal y Brown.",
+    "wikipedia": "Regulation of artificial intelligence",
+    "queries": [
+     "AI regulation Congress",
+     "Blackburn AI video",
+     "Jayapal AI charter"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1a3bd343",
+    "name": "Clonar software con IA",
+    "definition": "Uso de IA para recrear o clonar aplicaciones y startups, reduciendo costos de desarrollo y reemplazando software existente.",
+    "wikipedia": "Software cloning",
+    "queries": [
+     "clone software AI",
+     "clonar software IA",
+     "AI reverse engineering"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_51286054",
+    "name": "IA agéntica en operaciones de TI",
+    "definition": "Aplicación de agentes de IA para automatizar y mejorar operaciones de TI empresariales, con casos como Kyndryl y DXC.",
+    "wikipedia": "IT operations",
+    "queries": [
+     "agentic AI IT operations",
+     "IA operaciones TI",
+     "AI incident resolution"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8f202c1e",
+    "name": "Alternativas a suscripciones de IA",
+    "definition": "Herramientas open source y opciones gratuitas que compiten con suscripciones de pago a servicios de IA.",
+    "wikipedia": "Open-source software",
+    "queries": [
+     "open source AI alternatives",
+     "alternativas suscripciones IA",
+     "free AI tools"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_db4e828a",
+    "name": "Gremios de escritores contra la IA",
+    "definition": "Postura de sindicatos y asociaciones de autores frente al uso de IA generativa en la industria editorial.",
+    "wikipedia": "Writers Guild of America",
+    "queries": [
+     "writers guild AI",
+     "gremios escritores IA",
+     "Society of Authors AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f2b4f4d6",
+    "name": "NVIDIA App y agentes de IA",
+    "definition": "Actualización de la app de NVIDIA que permite a agentes de IA controlarla, generando preocupación por privacidad y control.",
+    "wikipedia": "Nvidia",
+    "queries": [
+     "NVIDIA App AI agents",
+     "NVIDIA MCP server",
+     "NVIDIA app control"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2db0623c",
+    "name": "Estudios sobre IA y empleo",
+    "definition": "Informes de McKinsey, IBM y otros sobre el impacto de la IA en el empleo y la reinvención de la fuerza laboral.",
+    "wikipedia": "Technological unemployment",
+    "queries": [
+     "McKinsey AI jobs",
+     "AI workforce report",
+     "estudio IA empleo"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b0004006",
+    "name": "Gestión de proyectos con IA",
+    "definition": "Herramientas de gestión de proyectos que integran IA, como Leantime, Monday.com o soluciones de TPIsoftware.",
+    "wikipedia": "Project management software",
+    "queries": [
+     "AI project management",
+     "Leantime AI",
+     "gestión proyectos IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8c897d1b",
+    "name": "IA en ciudades colombianas",
+    "definition": "Eventos y desarrollos de IA en ciudades de Colombia como Bogotá, Manizales, Santa Marta y Valledupar.",
+    "wikipedia": "Artificial intelligence in Colombia",
+    "queries": [
+     "IA Bogotá",
+     "inteligencia artificial Colombia",
+     "CX Techday Bogotá"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b6ac403f",
+    "name": "Soberanía digital en Canadá",
+    "definition": "Debate sobre la estrategia canadiense de soberanía digital y la dependencia de centros de datos de IA extranjeros.",
+    "wikipedia": "Digital sovereignty",
+    "queries": [
+     "Canada digital sovereignty",
+     "soberanía digital Canadá",
+     "AI data centres Canada"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d254020a",
+    "name": "Demos de Gradio",
+    "definition": "Interfaces y demos interactivas creadas con Gradio para probar modelos de IA, como face swap u OCR.",
+    "wikipedia": "Gradio (software)",
+    "queries": [
+     "Gradio demo",
+     "Gradio interface",
+     "Hugging Face Gradio"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1999cb2e",
+    "name": "IA en aviación y flotas",
+    "definition": "Aplicación de IA en control de tráfico aéreo, gestión de flotas y transporte de carga, con interés de la FAA.",
+    "wikipedia": "Aviation safety",
+    "queries": [
+     "AI air traffic control",
+     "IA aviación",
+     "AI fleet management"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

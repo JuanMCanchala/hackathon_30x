@@ -1,0 +1,21 @@
+{
+ "key": "ce16515c9a3ce5bf29aa1c81ff10c8b1e35dfcdcd44ef53f35c24a64f21fe0b9",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:17:57.228Z",
+ "latencyMs": 22258,
+ "usage": {
+  "inputTokens": 1985,
+  "outputTokens": 3488
+ },
+ "output": {
+  "oneLiner": "El FMI advierte que una caída de acciones de IA amenaza la estabilidad financiera; el FSB pide supervisión.",
+  "narrative": "No hay patrones con al menos 3 piezas que despegaron, así que no hay un gancho o formato recurrente comprobado. La evidencia muestra que el tema se mueve por advertencias del FMI: un artículo de novaRom en Hacker News logra 369 de engagement, 3.8 veces la mediana de su autor, y un post de Seti I. en Bluesky alcanza 4 veces su mediana. También aparecen el Banco Mundial en un post de Dragster Systems y el FSB en una noticia de fomoera.com. El crecimiento de 22 creadores y +254 % indica interés amplio, pero sin patrón claro de formato.",
+  "cited": [
+   "hn:50067356",
+   "bluesky:3mxp4tzn2ck2l",
+   "bluesky:3mxhue5gj422o",
+   "news:CBMiW0FVX3lxTE94MHNia0JmbHp4YUEtYkR1YjhIQ1h6d1JKSHgzamZBNzFaVGt1TkZKbHVpMjZsLXhVR0VRaHVGNGJUVHFqZDlQQUwtclk1TU92a2dPZE5qbE8xeGc"
+  ]
+ }
+}

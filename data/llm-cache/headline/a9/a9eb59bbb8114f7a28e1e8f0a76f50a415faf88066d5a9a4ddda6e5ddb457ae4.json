@@ -1,0 +1,14 @@
+{
+ "key": "a9eb59bbb8114f7a28e1e8f0a76f50a415faf88066d5a9a4ddda6e5ddb457ae4",
+ "name": "headline",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:29:21.998Z",
+ "latencyMs": 1107,
+ "usage": {
+  "inputTokens": 330,
+  "outputTokens": 26
+ },
+ "output": {
+  "headline": "La conversación de IA esta semana gira hacia agentes de IA, Android e IA open source"
+ }
+}

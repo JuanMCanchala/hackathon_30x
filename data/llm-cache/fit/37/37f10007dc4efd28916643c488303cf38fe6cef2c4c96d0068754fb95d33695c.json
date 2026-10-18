@@ -1,0 +1,24 @@
+{
+ "key": "37f10007dc4efd28916643c488303cf38fe6cef2c4c96d0068754fb95d33695c",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:16:31.071Z",
+ "latencyMs": 6024,
+ "usage": {
+  "inputTokens": 712,
+  "outputTokens": 651
+ },
+ "output": {
+  "score": 3,
+  "executive": 2,
+  "noCode": 1,
+  "latam": 1,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Tema técnico de kernel y comunidad open source, poco accionable para negocios.",
+   "No hay ángulo LatAm ni aplicación comercial directa para ventas o growth.",
+   "Útil solo para equipos de ingeniería, no para ejecutivos comerciales."
+  ]
+ }
+}

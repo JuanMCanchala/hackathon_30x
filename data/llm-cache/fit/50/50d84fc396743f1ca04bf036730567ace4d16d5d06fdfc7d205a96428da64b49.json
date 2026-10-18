@@ -1,0 +1,24 @@
+{
+ "key": "50d84fc396743f1ca04bf036730567ace4d16d5d06fdfc7d205a96428da64b49",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:20:18.510Z",
+ "latencyMs": 9223,
+ "usage": {
+  "inputTokens": 675,
+  "outputTokens": 818
+ },
+ "output": {
+  "score": 6,
+  "executive": 6,
+  "noCode": 3,
+  "latam": 2,
+  "pillar": "Next",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Impacta productividad y futuro del trabajo, no ventas directas.",
+   "Herramientas aún técnicas; poca aplicación sin código para equipos comerciales.",
+   "Debate polarizado por reemplazo de empleos y calidad del código."
+  ]
+ }
+}

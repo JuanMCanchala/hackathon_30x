@@ -1,0 +1,63 @@
+{
+ "key": "b0b98158efaf2406bd7ded8ec5f5794989aeffc63e3292ac986bbddece477fe8",
+ "name": "watch-translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T23:40:39.485Z",
+ "latencyMs": 5241,
+ "usage": {
+  "inputTokens": 622,
+  "outputTokens": 562
+ },
+ "output": {
+  "items": [
+   {
+    "id": "youtube:xopOlg2Dd-A",
+    "es": "Las ideas de negocio más ignoradas de 2026"
+   },
+   {
+    "id": "youtube:7IaWQ_LG69M",
+    "es": "Niños emprendedores convierten sus talentos en negocios"
+   },
+   {
+    "id": "youtube:C0ZpCI1VPM8",
+    "es": "Las ideas de negocio más ignoradas de 2026"
+   },
+   {
+    "id": "youtube:xlM4lI9aALY",
+    "es": "Todo negocio necesitará su propia IA. Aquí te explicamos por qué."
+   },
+   {
+    "id": "instagram:DekV4KYHyj2",
+    "es": "La demo del nuevo Roadster de Tesla impresionó. Pero si quieres comprar uno, lee la letra pequeña: los términos de reserva generan dudas sobre dónde será legal conducirlo, su precio y cuándo lo recibirías."
+   },
+   {
+    "id": "instagram:DekmngKl59U",
+    "es": "Katie Zacharia deja la portavocía de la Casa Blanca tras cinco días en el cargo, confirmaron funcionarios el viernes. La abogada convertida en vocera tuvo un debut difícil el martes."
+   },
+   {
+    "id": "youtube:9xlw9-63K5s",
+    "es": "Estoy operando mi empresa 100% con IA"
+   },
+   {
+    "id": "youtube:s6cgMtfPVVE",
+    "es": "Escuchar al cliente puede transformar un negocio"
+   },
+   {
+    "id": "instagram:DemhG_YlJ65",
+    "es": "Greer Hiltabidle (@greerb123) convirtió su amor por la sopa de cebolla francesa en mantequilla, lo publicó y miles llegaron. Recaudó $23,948 en Kickstarter, dejó su empleo corporativo y ganó 80,000 seguidores en una semana."
+   },
+   {
+    "id": "youtube:vCsWYqhmxOc",
+    "es": "5 negocios de los que casi nadie habla, pero que podrían crecer en 2026 👀"
+   },
+   {
+    "id": "youtube:xU7mxYw-_YI",
+    "es": "Esta idea se está viralizando y hace rentables a los negocios en octubre… #shorts"
+   },
+   {
+    "id": "youtube:PnurTT8dluU",
+    "es": "10 formas de marcar tu negocio en 2026"
+   }
+  ]
+ }
+}

@@ -1,0 +1,255 @@
+{
+ "key": "7a594b92ef641296d57802343ff771b08d294ed857b46ada4d4161ea8cc7a110",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:05:50.258Z",
+ "latencyMs": 13416,
+ "usage": {
+  "inputTokens": 3228,
+  "outputTokens": 1671
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_0e5f5c61",
+    "name": "Agentes de IA",
+    "definition": "Sistemas autónomos que ejecutan tareas y acciones en nombre del usuario, con impacto creciente en empresas.",
+    "wikipedia": "Intelligent agent",
+    "queries": [
+     "agentes de IA",
+     "AI agents",
+     "agentic AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_df45e715",
+    "name": "Gobernanza de IA",
+    "definition": "Reglas, políticas y acuerdos para el desarrollo y uso responsable de la inteligencia artificial.",
+    "wikipedia": "Regulation of artificial intelligence",
+    "queries": [
+     "AI governance",
+     "regulación IA",
+     "política IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ede616c3",
+    "name": "OpenAI y Anthropic",
+    "definition": "Empresas líderes en modelos de IA y sus productos, alianzas y movimientos estratégicos.",
+    "wikipedia": "OpenAI",
+    "queries": [
+     "OpenAI Anthropic",
+     "modelos IA",
+     "empresas IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e1fc8517",
+    "name": "Claude",
+    "definition": "Familia de modelos de IA de Anthropic, usada en empresas para tareas de lenguaje y agentes.",
+    "wikipedia": "Claude (language model)",
+    "queries": [
+     "Claude Anthropic",
+     "Claude AI",
+     "modelo Claude"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d182d3e3",
+    "name": "IA generativa",
+    "definition": "Tecnología que crea contenido original (texto, imagen, código) a partir de instrucciones, con adopción masiva.",
+    "wikipedia": "Generative artificial intelligence",
+    "queries": [
+     "IA generativa",
+     "generative AI",
+     "AI art"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b0d11833",
+    "name": "Anthropic",
+    "definition": "Empresa de IA enfocada en seguridad y modelos Claude, con creciente presencia corporativa y educativa.",
+    "wikipedia": "Anthropic",
+    "queries": [
+     "Anthropic empresa",
+     "Anthropic Claude",
+     "Anthropic AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5b6d37af",
+    "name": "Productividad con IA",
+    "definition": "Uso de IA para automatizar tareas, mejorar flujos de trabajo y aumentar eficiencia en empresas.",
+    "wikipedia": "Productivity",
+    "queries": [
+     "productividad IA",
+     "AI productivity",
+     "automatización IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_4c991fff",
+    "name": "IA en educación",
+    "definition": "Integración de inteligencia artificial en procesos de enseñanza, aprendizaje y capacitación docente.",
+    "wikipedia": "Artificial intelligence in education",
+    "queries": [
+     "IA educación",
+     "AI education",
+     "ChatGPT educación"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ec9bf6e5",
+    "name": "Vibe coding",
+    "definition": "Práctica de programar con IA generando código a partir de lenguaje natural, con críticas y adopción empresarial.",
+    "wikipedia": "Vibe coding",
+    "queries": [
+     "vibe coding",
+     "programación IA",
+     "AI coding"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_cb7a75ac",
+    "name": "IA en marketing y ventas",
+    "definition": "Aplicación de agentes y herramientas de IA para marketing, publicidad y ventas en empresas.",
+    "wikipedia": "Marketing and artificial intelligence",
+    "queries": [
+     "IA marketing",
+     "AI sales",
+     "agentes ventas"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ffafb6a9",
+    "name": "Burbuja de IA",
+    "definition": "Debate sobre posible sobrevaloración e inversión excesiva en empresas y startups de inteligencia artificial.",
+    "wikipedia": "AI bubble",
+    "queries": [
+     "burbuja IA",
+     "AI bubble",
+     "inversión IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e4cb40a5",
+    "name": "Video con IA",
+    "definition": "Generación y edición de video mediante inteligencia artificial, con impacto en contenido viral y publicidad.",
+    "wikipedia": "Artificial intelligence art",
+    "queries": [
+     "video IA",
+     "AI video",
+     "generación video"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_acda05b8",
+    "name": "Rechazo a la IA",
+    "definition": "Corriente crítica y de rechazo al avance de la IA generativa en productos y sociedad.",
+    "wikipedia": "AI backlash",
+    "queries": [
+     "backlash IA",
+     "anti AI",
+     "crítica IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_264a71df",
+    "name": "Automatización con IA",
+    "definition": "Uso de IA para automatizar procesos administrativos, comerciales y operativos en organizaciones.",
+    "wikipedia": "Automation",
+    "queries": [
+     "automatización IA",
+     "AI automation",
+     "automatización procesos"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8a8894c1",
+    "name": "Riesgos de la IA",
+    "definition": "Debate sobre peligros, amenazas y advertencias asociadas al desarrollo y uso de inteligencia artificial.",
+    "wikipedia": "Existential risk from artificial general intelligence",
+    "queries": [
+     "riesgos IA",
+     "AI risk",
+     "peligros IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_90e14d8e",
+    "name": "Gemini",
+    "definition": "Modelo de IA de Google, integrado en búsqueda, productividad y servicios empresariales.",
+    "wikipedia": "Gemini (chatbot)",
+    "queries": [
+     "Gemini Google",
+     "Gemini AI",
+     "modelo Gemini"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_aec77814",
+    "name": "Ciberseguridad e IA",
+    "definition": "Intersección entre inteligencia artificial y seguridad informática, con amenazas y defensas potenciadas.",
+    "wikipedia": "Computer security",
+    "queries": [
+     "ciberseguridad IA",
+     "AI cybersecurity",
+     "ciberamenazas"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9da4e586",
+    "name": "Google",
+    "definition": "Empresa tecnológica que integra IA en búsqueda, nube y productos, con movimientos estratégicos clave.",
+    "wikipedia": "Google",
+    "queries": [
+     "Google IA",
+     "Google AI",
+     "Alphabet"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_217223e2",
+    "name": "IA y empleo",
+    "definition": "Impacto de la inteligencia artificial en el mercado laboral, empleabilidad y creación o destrucción de puestos.",
+    "wikipedia": "Technological unemployment",
+    "queries": [
+     "IA empleo",
+     "AI jobs",
+     "futuro trabajo"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9cdeba2e",
+    "name": "Open source e IA",
+    "definition": "Ecosistema de modelos y herramientas de IA de código abierto, con implicaciones para empresas y desarrolladores.",
+    "wikipedia": "Open-source artificial intelligence",
+    "queries": [
+     "open source IA",
+     "AI open source",
+     "modelos abiertos"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

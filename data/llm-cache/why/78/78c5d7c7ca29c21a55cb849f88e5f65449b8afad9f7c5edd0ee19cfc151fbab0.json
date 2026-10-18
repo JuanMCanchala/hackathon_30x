@@ -1,0 +1,21 @@
+{
+ "key": "78c5d7c7ca29c21a55cb849f88e5f65449b8afad9f7c5edd0ee19cfc151fbab0",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:30:12.733Z",
+ "latencyMs": 5567,
+ "usage": {
+  "inputTokens": 1418,
+  "outputTokens": 969
+ },
+ "output": {
+  "oneLiner": "Meta lanzó Muse Wonder y la polémica por apropiarse de nombres y marcas mueve a creadores de IA.",
+  "narrative": "De las 6 piezas que despegaron, 3 las publicó un creador de contenido, frente a 3 de 36 del resto, y 3 son posts de texto, frente a 7 de 36. También 3 de 6 salieron un lunes y 3 de 6 apelan a la sorpresa. El video de Matthew Berman en YouTube abre con \"Meta just dropped something insane\" y multiplica por 11 la mediana de su autor; en Bluesky, Aricie y AI Digest empujan el ángulo de acceso y controversia. La disputa por el nombre, como el post de ENIAC sobre la banda MUSE, sostiene la conversación.",
+  "cited": [
+   "youtube:rpLrkJ5NNEI",
+   "bluesky:3mxhvwkt2f22q",
+   "bluesky:3mxry4drhii2q",
+   "bluesky:3mxo46brwss25"
+  ]
+ }
+}

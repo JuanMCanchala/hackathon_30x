@@ -1,0 +1,21 @@
+{
+ "key": "b3edddd123a1f51375a7f8231888bd83f5f7041bc2bb8659b53d228c902b77e1",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T21:58:16.216Z",
+ "latencyMs": 24258,
+ "usage": {
+  "inputTokens": 1631,
+  "outputTokens": 3302
+ },
+ "output": {
+  "oneLiner": "Shadow AI crece +247% en creadores; TN y DiarioBitcoin cubren uso no autorizado.",
+  "narrative": "No hay patrones con al menos 3 piezas, así que no se puede generalizar un formato ganador. La evidencia muestra que un post de James Ball en Bluesky despegó 12.3× sobre su mediana, mientras uno de EMPIST en Bluesky quedó en 0.7×. El crecimiento de +247% en creadores distintos y 12 creadores esta semana coincide con coberturas de TN y DiarioBitcoin sobre uso no autorizado de IA.",
+  "cited": [
+   "bluesky:3mxwt5tophk2a",
+   "bluesky:3mxoqv56yb22x",
+   "news:CBMi3AFBVV95cUxQNm4wRWRReEcyZE9zSEV6dGNtdTNpZ0tHU3BRcFVRa0F2TEU2d1RsTjVwbzFHVEJuYnFlTnVvOTNDYjYtRVF0NWVFZzItamtKa1JXUzQ1VTVqbUlkZm8yWEdlWVlySjEwbkdQNXg3NWY1dmFrQzA2THUzYTc5TTY1Z25oNUdDNl9sTE00d3hOanRDOTEwbURWR3JpR3N3MEpzWHhxaVpKc09qclh3YWJ6RmZSM1Vvb1FVd2NBZ1JITmlDX1ZVR1M0Qm5wbHRmb3B6aGVxcEdhN2xrZS1n0gHwAUFVX3lxTE9LN09BZGV3amdQS2IwLUxiTF9NQlFsTHBCMUFHTWU1UkliY3ZwSVhpWEVXQXhFTkEtRUJVVUVGQ0ZKWWQtQkUwTUVrbi1rTDRWNldNX0RIckkzZ3NYXzVualhqNURHazl6dWxWeHZSNmtZeno1aGhyWnI4Z0RsZlNraXhUdUZLS0o4SkM1WF9zRGl5RUVuUmhuWFoyX1ZuM2Y3d25DQlQ1aWw1YnUzZUh3WE5YWU94bHF3STJ6YWJJbHhXc0toNV9FOWJEanVxOW5KWG5qYkJuQ3lZMUVyRHRvVVp3d3F3R1ViVDIyM21aWg",
+   "news:CBMiwwFBVV95cUxPdm5NMkZCUUoxVGE2WmxYRHF0MlZ3SGNMM2FRaV9ZNkJxQ3hxYVpyVEpWWDByWi1rek1EdDlWd28tZEFVdjl0VHVJSl9rS0F6WGpaY1o1UkNOcDJGVkU2UHVpejlzUUs5NHM0SGxzRC1UTXNXNlZWbVkwNlVCS2dTMnhIRzJyV3duR3NXVE9wZUdnbUxULXNWNEduUmxoV2t6eFR6ZDhvTDRxcUhmVkZwVFU0V1lfZHhvUGNHcDZRRWVNYk0"
+  ]
+ }
+}

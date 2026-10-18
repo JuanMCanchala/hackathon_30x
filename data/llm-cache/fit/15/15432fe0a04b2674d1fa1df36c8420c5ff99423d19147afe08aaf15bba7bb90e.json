@@ -1,0 +1,24 @@
+{
+ "key": "15432fe0a04b2674d1fa1df36c8420c5ff99423d19147afe08aaf15bba7bb90e",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T21:54:39.535Z",
+ "latencyMs": 12254,
+ "usage": {
+  "inputTokens": 674,
+  "outputTokens": 1255
+ },
+ "output": {
+  "score": 6,
+  "executive": 7,
+  "noCode": 4,
+  "latam": 2,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Marcos de seguridad para agentes IA importan a empresas que automatizan decisiones.",
+   "Poco ángulo LatAm y aplicación aún requiere equipos técnicos.",
+   "Mezcla NSA/Satoshi/Claude puede derivar en polémica y distraer."
+  ]
+ }
+}

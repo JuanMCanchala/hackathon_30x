@@ -1,0 +1,21 @@
+{
+ "key": "437306ec4267976d18111cbc26ad718ca3d66fa77b31147835dc4b370c9aec5a",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:19:12.661Z",
+ "latencyMs": 7596,
+ "usage": {
+  "inputTokens": 1613,
+  "outputTokens": 1117
+ },
+ "output": {
+  "oneLiner": "Konami dice que la IA no reemplaza creadores y desata debate en Bluesky sobre Sega.",
+  "narrative": "4 de 4 piezas que despegaron son posts de texto y las publicó un creador de contenido, frente a 1 de 5 del resto. 3 de 4 salieron en la tarde, frente a 0 de 5 del resto, y 3 de 4 apelan a la polémica. El gancho es corregir la lectura de un titular: dos posts en Bluesky discuten que el caso Konami no es una victoria contra la IA generativa. Las piezas de medios como GamerFocus, Business Wire e Insurance Innovation Reporter no registran engagement.",
+  "cited": [
+   "bluesky:3mxyswv7o5k22",
+   "bluesky:3mxzb5s4rk22v",
+   "bluesky:3mxwkkadzg22d",
+   "news:CBMiggJBVV95cUxOOHdlZWZNMHN6LV9sZzhORkc1OU9pdFFIZHRiNXIwcUcxRlNMaDdhZzJZZXVWU25OeGE4QzFpbGdFaDVHMVBXY2VjT1BYMjdUdUhMYVp3TnlGWHF0VU05bWk5TVMxU0RJblRMaGpWUkktRkVuVXFuVFJVdExQN05jbTFlVERta1JUU1IxVTRLMWJpYVNjWVhPQWU3ZmcwTEJzWkZ3YmhIWTdOWjlFR01yT1hxVTVjbThWR2Y3NXdma2h6NTRiYlZwZTJjeVFyczQyWnVIMkZ4aEVneGtIQ3IzOFRCMEZvb2t0NzBuWExQMmk3Sko0WUZUVzljRFlWd3R3S1E"
+  ]
+ }
+}

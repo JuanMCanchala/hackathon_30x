@@ -1,0 +1,22 @@
+{
+ "key": "c027e823997e66476c599293f296a95fc422e0cad7ed4770f21bf547183e9558",
+ "name": "watch-video",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T23:53:28.558Z",
+ "latencyMs": 4597,
+ "usage": {
+  "inputTokens": 1008,
+  "outputTokens": 319
+ },
+ "output": {
+  "hook": "Denny's ha estado sirviendo Grand Slams por décadas, pero ahora su CEO da una lección sorprendente en negocios y a veces hacer demasiado es una receta para el desastre.",
+  "points": [
+   "Hay mucho que puedes manejar, pero esto es lo que debes manejar para cambiar la trayectoria del negocio que diriges, así que nos mantenemos enfocados en eso rutinariamente.",
+   "Mantente humilde y escucha a las personas, no pienses que lo sabes todo porque no lo sabes.",
+   "Los mejores líderes asumen la responsabilidad de los errores y dan crédito a todos los éxitos.",
+   "Existe sabiduría en el principio de la regla 80/20, y más importante aún, tenemos un recurso de tiempo limitado y lo usamos para el mayor impacto en tu negocio, eso significa hacer menos para hacer más por tu cliente.",
+   "Es importante ser disciplinado y enfocarse en lo que es inmediatamente necesario, especialmente cuando intentas implementar cambios, a veces el cambio puede ser abrumador, así que enfocarse en una cosa a la vez puede llevarte a un lugar más fuerte."
+  ],
+  "idea": "El CEO de Denny's comparte lecciones de negocios sobre mantenerse humilde, escuchar, asumir responsabilidad, dar crédito, aplicar la regla 80/20 y enfocarse en lo esencial para liderar efectivamente."
+ }
+}

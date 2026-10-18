@@ -1,0 +1,24 @@
+{
+ "key": "bcc3331f5c88512a942d60463373a3662aebb08c63ba0543523b3e69598dfa3e",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:16:13.676Z",
+ "latencyMs": 8322,
+ "usage": {
+  "inputTokens": 716,
+  "outputTokens": 1056
+ },
+ "output": {
+  "score": 4,
+  "executive": 6,
+  "noCode": 1,
+  "latam": 1,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "bajo",
+  "reasons": [
+   "Indicador macro de capex en IA; poco accionable para equipos comerciales.",
+   "Sin ángulo LatAm ni aplicación directa sin código para negocios.",
+   "Relevante para CEOs seguir ciclo de inversión, no para ventas/growth."
+  ]
+ }
+}

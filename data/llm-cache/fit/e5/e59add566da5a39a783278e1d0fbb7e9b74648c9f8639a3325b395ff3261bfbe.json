@@ -1,0 +1,24 @@
+{
+ "key": "e59add566da5a39a783278e1d0fbb7e9b74648c9f8639a3325b395ff3261bfbe",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:14:10.054Z",
+ "latencyMs": 7613,
+ "usage": {
+  "inputTokens": 681,
+  "outputTokens": 802
+ },
+ "output": {
+  "score": 4,
+  "executive": 7,
+  "noCode": 2,
+  "latam": 2,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "alto",
+  "reasons": [
+   "Riesgo reputacional y legal para CEOs, pero poco aplicable a ventas.",
+   "No hay ángulo LatAm ni acción no-code concreta.",
+   "Sensacionalismo y acusaciones no probadas elevan riesgo de humo."
+  ]
+ }
+}

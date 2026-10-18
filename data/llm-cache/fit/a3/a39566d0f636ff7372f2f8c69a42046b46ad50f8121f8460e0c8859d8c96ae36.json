@@ -1,0 +1,24 @@
+{
+ "key": "a39566d0f636ff7372f2f8c69a42046b46ad50f8121f8460e0c8859d8c96ae36",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:17:03.515Z",
+ "latencyMs": 4370,
+ "usage": {
+  "inputTokens": 739,
+  "outputTokens": 546
+ },
+ "output": {
+  "score": 8,
+  "executive": 7,
+  "noCode": 9,
+  "latam": 7,
+  "pillar": "Growth",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Aplicable a marketing y adquisición sin programar.",
+   "México: 59,000 sitios IA, reto es conseguir clientes.",
+   "Riesgo de calidad, originalidad y percepción pública."
+  ]
+ }
+}

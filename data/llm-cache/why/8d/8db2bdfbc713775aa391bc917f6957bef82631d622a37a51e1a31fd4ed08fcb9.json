@@ -1,0 +1,21 @@
+{
+ "key": "8db2bdfbc713775aa391bc917f6957bef82631d622a37a51e1a31fd4ed08fcb9",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:30:22.704Z",
+ "latencyMs": 6421,
+ "usage": {
+  "inputTokens": 1599,
+  "outputTokens": 609
+ },
+ "output": {
+  "oneLiner": "Epic declara su apuesta por IA generativa en Fortnite y DeepMind presume agentes que superan Minecraft.",
+  "narrative": "El pico lo mueven la apuesta pública de Epic Games por la IA generativa en Fortnite y los agentes de Google DeepMind que terminan Minecraft. 7 de 8 piezas que despegaron son posts de texto, frente a 1 de 9 del resto, y 3 de 8 abren con una opinión fuerte, frente a 0 de 9 del resto. El tono crítico de Luke Plunkett y Lumin en Bluesky, y el anuncio escueto de Google DeepMind en X, convierten el tema en debate de texto rápido. 4 de 8 piezas que despegaron las publicó un creador de contenido, frente a 0 de 9 del resto, y 5 de 8 salieron en la mañana.",
+  "cited": [
+   "bluesky:3mxpor26yy22g",
+   "bluesky:3mxfcigndjc2s",
+   "x:2111127991401247033",
+   "bluesky:3mxtt3znpqc2g"
+  ]
+ }
+}

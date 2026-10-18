@@ -1,0 +1,255 @@
+{
+ "key": "1fdd692b136a37e1c6cb220b036ec41b96e33cac7e384a72ac29b3b05fe34ad0",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T17:39:11.709Z",
+ "latencyMs": 16573,
+ "usage": {
+  "inputTokens": 2855,
+  "outputTokens": 1818
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_d1d77882",
+    "name": "IA y carga laboral",
+    "definition": "Debate sobre si la IA reduce la carga de trabajo o la aumenta al exigir más productividad a los empleados.",
+    "wikipedia": "Technological unemployment",
+    "queries": [
+     "IA carga laboral",
+     "AI workload productivity",
+     "sobrecarga laboral IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_074a8c08",
+    "name": "Modelos de mundo 3D",
+    "definition": "Modelos de IA que generan y comprenden entornos tridimensionales coherentes a partir de videos o texto.",
+    "wikipedia": "World model (artificial intelligence)",
+    "queries": [
+     "world models 3D",
+     "LLM 3D worlds",
+     "modelos mundo robots"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_69cad77b",
+    "name": "Presupuesto de IA por empleado",
+    "definition": "Empresas que asignan un límite mensual de gasto en herramientas de IA a cada trabajador.",
+    "wikipedia": null,
+    "queries": [
+     "presupuesto IA empleado",
+     "AI budget per employee",
+     "límite gasto IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a3d4da68",
+    "name": "Control de robots con IA",
+    "definition": "Uso de modelos de IA para dirigir, entrenar y controlar robots y máquinas en tiempo real.",
+    "wikipedia": "Robot control",
+    "queries": [
+     "control robots IA",
+     "AI robot control",
+     "Gemini robotics control"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2925d7b2",
+    "name": "Spam generado por IA",
+    "definition": "Aumento de correos y mensajes no deseados creados automáticamente por empresas y modelos de IA.",
+    "wikipedia": "Spamming",
+    "queries": [
+     "spam IA",
+     "AI spam LLM",
+     "spam automatizado"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_cd273ba5",
+    "name": "Vigilancia masiva con IA",
+    "definition": "Uso de agentes y sistemas de IA para monitorear comportamientos, comunicaciones y actividades a gran escala.",
+    "wikipedia": "Mass surveillance",
+    "queries": [
+     "vigilancia masiva IA",
+     "AI mass surveillance",
+     "monitoreo comportamiento IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_07a96879",
+    "name": "Fuga de credenciales por IA",
+    "definition": "Vulnerabilidades en herramientas de IA que exponen claves SSH, tokens y credenciales de acceso.",
+    "wikipedia": "Data breach",
+    "queries": [
+     "fuga credenciales IA",
+     "AI credential leak",
+     "Claude Code vulnerabilidad"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f5059338",
+    "name": "Detección de texto IA",
+    "definition": "Herramientas y marcas de agua para identificar si un texto fue generado por inteligencia artificial.",
+    "wikipedia": "AI content detection",
+    "queries": [
+     "detectar texto IA",
+     "AI text detection",
+     "marca agua IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_fd560ea4",
+    "name": "Arquitectura Transformer",
+    "definition": "Modelo de red neuronal basado en atención que sustenta los grandes modelos de lenguaje actuales.",
+    "wikipedia": "Transformer (deep learning architecture)",
+    "queries": [
+     "arquitectura transformer",
+     "transformers explicados",
+     "attention LLM designs"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_33120773",
+    "name": "Concentración de poder corporativo",
+    "definition": "Debate sobre cómo la IA concentra riqueza y poder en grandes tecnológicas, medios y finanzas.",
+    "wikipedia": "Corporate concentration",
+    "queries": [
+     "concentración riqueza IA",
+     "AI corporate power",
+     "poder big tech"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e6d084a7",
+    "name": "Robots humanoides open source",
+    "definition": "Proyectos de robots humanoides de código abierto y modelos de IA para robótica avanzada.",
+    "wikipedia": "Humanoid robot",
+    "queries": [
+     "robots humanoides open source",
+     "open source humanoid",
+     "Gemini robótica"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_42ca541f",
+    "name": "Plugins para agentes de IA",
+    "definition": "Ecosistema de extensiones y plugins que amplían las capacidades de agentes de programación y automatización.",
+    "wikipedia": "Plug-in (computing)",
+    "queries": [
+     "plugins agentes IA",
+     "AI agent plugins",
+     "Claude plugins oficiales"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_066cafb6",
+    "name": "Gafas inteligentes con IA",
+    "definition": "Dispositivos de gafas con cámara, IA y realidad aumentada de Meta, Alibaba y otros fabricantes.",
+    "wikipedia": "Smartglasses",
+    "queries": [
+     "gafas inteligentes IA",
+     "smart glasses AI",
+     "Ray-Ban Meta Gen 3"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_630204ae",
+    "name": "Vehículos autónomos y Tesla",
+    "definition": "Avances y noticias sobre conducción autónoma, robotaxis y vehículos eléctricos de Tesla, Waymo y Rivian.",
+    "wikipedia": "Self-driving car",
+    "queries": [
+     "vehículos autónomos Tesla",
+     "Waymo robotaxi",
+     "Tesla Roadster"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9da16d27",
+    "name": "IA en farmacéuticas",
+    "definition": "Aplicaciones de inteligencia artificial en farmacéuticas como Moderna, AstraZeneca y Boehringer Ingelheim.",
+    "wikipedia": "Artificial intelligence in healthcare",
+    "queries": [
+     "IA farmacéuticas",
+     "AI pharma companies",
+     "Moderna IA regulación"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c3276853",
+    "name": "Empresas y adopción de IA",
+    "definition": "Cómo las empresas de distintos países adoptan la IA y compiten con modelos chinos y occidentales.",
+    "wikipedia": "Artificial intelligence industry",
+    "queries": [
+     "empresas adopción IA",
+     "AI companies China",
+     "empresas IA España"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_848b4caf",
+    "name": "IA en diseño 3D",
+    "definition": "Uso de modelos como Gemini para crear diseños y animaciones en Blender, Cinema 4D y otras herramientas.",
+    "wikipedia": "3D modeling",
+    "queries": [
+     "IA diseño 3D",
+     "AI Blender design",
+     "Gemini 3D design"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_605bd30f",
+    "name": "MOSS-Image",
+    "definition": "Familia de modelos de generación de imágenes de código abierto desarrollada por OpenMOSS.",
+    "wikipedia": null,
+    "queries": [
+     "MOSS-Image",
+     "OpenMOSS image model",
+     "MOSS-Image-Base"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_0b3411e6",
+    "name": "IA y creadores de contenido",
+    "definition": "Tensión entre YouTubers, TikTokers y plataformas por el uso de IA en la creación y moderación de contenido.",
+    "wikipedia": "Artificial intelligence in video games",
+    "queries": [
+     "IA YouTube TikTok",
+     "AI content creators",
+     "youtubers contra IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1e2abac4",
+    "name": "Asistentes de IA en WhatsApp",
+    "definition": "Automatización de atención al cliente y ventas en WhatsApp mediante agentes y asistentes de IA.",
+    "wikipedia": "WhatsApp",
+    "queries": [
+     "asistente WhatsApp IA",
+     "WhatsApp automation AI",
+     "IA WhatsApp Business"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

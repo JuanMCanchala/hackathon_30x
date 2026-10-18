@@ -1,0 +1,25 @@
+{
+ "key": "b701ea8a14bd63dbe3426ccc1a9c0495ec6b95ba67224eb25dbed00ca0a9d712",
+ "name": "watch-video",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T23:47:38.662Z",
+ "latencyMs": 1903,
+ "usage": {
+  "inputTokens": 287,
+  "outputTokens": 111
+ },
+ "output": {
+  "hook": "Primero, marketing de contenidos.",
+  "points": [
+   "Marketing de contenidos.",
+   "SEO.",
+   "Anuncios pagados.",
+   "Marketing por correo electrónico.",
+   "Alianzas con influencers.",
+   "Redes sociales orgánicas.",
+   "Programas de referidos.",
+   "Webinars o transmisiones en vivo."
+  ],
+  "idea": "El video enumera estrategias de marketing para 2026, cada una con una calificación numérica, y funciona como una lista rápida de tácticas."
+ }
+}

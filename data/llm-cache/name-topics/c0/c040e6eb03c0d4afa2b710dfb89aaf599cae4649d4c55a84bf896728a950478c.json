@@ -1,0 +1,255 @@
+{
+ "key": "c040e6eb03c0d4afa2b710dfb89aaf599cae4649d4c55a84bf896728a950478c",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:11:25.356Z",
+ "latencyMs": 217037,
+ "usage": {
+  "inputTokens": 3511,
+  "outputTokens": 1842
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_890aa31c",
+    "name": "Semiconductores e IA",
+    "definition": "La IA dispara la demanda de chips avanzados y reconfigura la industria de semiconductores, con ingresos récord y nueva arquitectura de diseño.",
+    "wikipedia": "Semiconductor industry",
+    "queries": [
+     "semiconductores IA",
+     "AI chip demand",
+     "TSMC AI revenue"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_bb837551",
+    "name": "Productividad con IA",
+    "definition": "Cómo ejecutivos y profesionales usan herramientas de IA para gestionar tiempo, tareas y flujos de trabajo con mayor eficiencia.",
+    "wikipedia": "Productivity",
+    "queries": [
+     "productividad con IA",
+     "AI productivity tools",
+     "productividad ejecutiva"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_7cf1bfe3",
+    "name": "Contabilidad con IA",
+    "definition": "Automatización de facturas, auditoría y análisis financiero mediante asistentes de IA que transforman el trabajo contable y de CFOs.",
+    "wikipedia": "Accounting software",
+    "queries": [
+     "contabilidad IA",
+     "AI accounting",
+     "automatización contable"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b3ffad01",
+    "name": "Pagos agénticos",
+    "definition": "Sistemas de pago autónomos donde agentes de IA realizan transacciones en nombre de usuarios, impulsados por empresas como Stripe y Manus.",
+    "wikipedia": "Payment system",
+    "queries": [
+     "pagos agénticos",
+     "agentic payments",
+     "AI payments"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_0360ede1",
+    "name": "IA y derechos laborales",
+    "definition": "El impacto de la IA en cargas laborales, jornadas y derechos de trabajadores, con debates sobre empleo formal y ética laboral.",
+    "wikipedia": "Labor rights",
+    "queries": [
+     "IA derechos laborales",
+     "AI labor rights",
+     "jornada laboral IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e2c7d4f2",
+    "name": "Pioneros de la IA",
+    "definition": "Figuras clave como Hinton, LeCun, Fei-Fei Li y Karpathy que definen el debate sobre riesgos, avances y futuro de la inteligencia artificial.",
+    "wikipedia": "Artificial intelligence",
+    "queries": [
+     "pioneros IA",
+     "AI pioneers",
+     "LeCun Hinton"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_3fc6b52b",
+    "name": "IA en farmacéutica",
+    "definition": "Uso de IA en descubrimiento de fármacos, ensayos clínicos y biotech para acelerar la investigación médica y reducir costos.",
+    "wikipedia": "Drug discovery",
+    "queries": [
+     "IA farmacéutica",
+     "AI drug discovery",
+     "IA ensayos clínicos"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_03fc0390",
+    "name": "Linux e IA",
+    "definition": "Debates en la comunidad Linux sobre integrar o prohibir IA, con proyectos como Debian y Red Hat definiendo políticas de adopción.",
+    "wikipedia": "Linux",
+    "queries": [
+     "Linux IA",
+     "Debian AI policy",
+     "open source AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b7c5ca9e",
+    "name": "YouTube e IA",
+    "definition": "Nuevas funciones de IA en YouTube como capítulos automáticos, generadores de video y etiquetado de contenido sintético.",
+    "wikipedia": "YouTube",
+    "queries": [
+     "YouTube IA",
+     "AI video YouTube",
+     "YouTube shorts AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_31df93f2",
+    "name": "Verificación con IA",
+    "definition": "Herramientas y métodos para verificar hechos, fuentes y contenido generado por IA, combatiendo desinformación y errores algorítmicos.",
+    "wikipedia": "Fact-checking",
+    "queries": [
+     "verificación IA",
+     "AI fact checking",
+     "verificación contenido"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_fa1ed034",
+    "name": "Libros e IA",
+    "definition": "El impacto de la IA en el mundo editorial: desde libros generados hasta el uso de textos raros para entrenar modelos.",
+    "wikipedia": "Book",
+    "queries": [
+     "libros IA",
+     "AI books",
+     "libros generados IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8b1c9537",
+    "name": "Creatividad vs IA",
+    "definition": "El debate sobre si la IA puede replicar o reemplazar la creatividad humana, con empresas como Procreate rechazando la IA generativa.",
+    "wikipedia": "Creativity",
+    "queries": [
+     "creatividad IA",
+     "AI creativity",
+     "human vs AI art"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f35df0b3",
+    "name": "Asistentes personales IA",
+    "definition": "Uso de asistentes de IA para decisiones cotidianas, desde tutorías hasta votar o resolver problemas técnicos, transformando la vida diaria.",
+    "wikipedia": "Virtual assistant",
+    "queries": [
+     "asistente personal IA",
+     "AI assistant",
+     "ChatGPT ayuda"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_720b9dcf",
+    "name": "IA open source",
+    "definition": "Adopción empresarial de modelos y herramientas de IA de código abierto, con debates sobre gobernanza y sostenibilidad comunitaria.",
+    "wikipedia": "Open-source artificial intelligence",
+    "queries": [
+     "IA open source",
+     "open source AI",
+     "modelos abiertos IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_cead0312",
+    "name": "Resultados trimestrales IA",
+    "definition": "Cifras financieras de empresas de IA como Nvidia y Anthropic que muestran crecimiento récord y su impacto en los mercados.",
+    "wikipedia": "Earnings call",
+    "queries": [
+     "resultados IA",
+     "AI earnings",
+     "Nvidia revenue"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b4a778b8",
+    "name": "Datos para IA",
+    "definition": "La infraestructura de datos que alimenta la IA: centros de datos, datasets de entrenamiento y su enorme consumo energético.",
+    "wikipedia": "Data center",
+    "queries": [
+     "datos IA",
+     "AI training data",
+     "centros datos IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_95988c84",
+    "name": "Geopolítica de la IA",
+    "definition": "Cómo foros como G20, BRICS y WEF abordan la regulación y competencia global por el liderazgo en inteligencia artificial.",
+    "wikipedia": "Geopolitics",
+    "queries": [
+     "geopolítica IA",
+     "AI geopolitics",
+     "G20 IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_805eca24",
+    "name": "Google Antigravity",
+    "definition": "Plataforma de Google Labs para crear animaciones y experiencias en tiempo real con IA, usando modelos como Gemini 4 Argon.",
+    "wikipedia": "Google Labs",
+    "queries": [
+     "Google Antigravity",
+     "Gemini Argon",
+     "Google Labs IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_42764df5",
+    "name": "OpenAI Dots",
+    "definition": "Agentes siempre activos de OpenAI basados en GPT-6 Astra que gestionan tareas cotidianas como reservas o compras.",
+    "wikipedia": "OpenAI",
+    "queries": [
+     "OpenAI Dots",
+     "GPT-6 Astra",
+     "agentes OpenAI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_91fe08e7",
+    "name": "Snowflake e IA",
+    "definition": "La plataforma de datos Snowflake se posiciona como capa de contexto y gobernanza para agentes de IA empresariales.",
+    "wikipedia": "Snowflake Inc.",
+    "queries": [
+     "Snowflake IA",
+     "Snowflake Cortex",
+     "AI data platform"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

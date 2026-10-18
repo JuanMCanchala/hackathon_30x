@@ -1,0 +1,24 @@
+{
+ "key": "d6a7571087feafcf4e89061f55f8bed2dccb9f17cce3307c5bc3b06398bd3798",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:29:16.307Z",
+ "latencyMs": 5557,
+ "usage": {
+  "inputTokens": 708,
+  "outputTokens": 679
+ },
+ "output": {
+  "score": 3,
+  "executive": 4,
+  "noCode": 7,
+  "latam": 2,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "alto",
+  "reasons": [
+   "Tema político de EE.UU., poco aplicable a negocios LatAm.",
+   "Uso de IA sin código, pero no genera ventaja comercial.",
+   "Riesgo de polarización y desinformación para la marca."
+  ]
+ }
+}

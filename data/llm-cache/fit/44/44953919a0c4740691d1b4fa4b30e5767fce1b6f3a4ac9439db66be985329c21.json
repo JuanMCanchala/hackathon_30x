@@ -1,0 +1,24 @@
+{
+ "key": "44953919a0c4740691d1b4fa4b30e5767fce1b6f3a4ac9439db66be985329c21",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:16:48.133Z",
+ "latencyMs": 11538,
+ "usage": {
+  "inputTokens": 695,
+  "outputTokens": 994
+ },
+ "output": {
+  "score": 6,
+  "executive": 6,
+  "noCode": 5,
+  "latam": 3,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Actualización relevante del ecosistema IA, pero sin aplicación comercial directa.",
+   "Pruebas hands-on y coding: poco accionable para equipos no técnicos.",
+   "Título en español, pero sin casos, empresas ni regulación LatAm."
+  ]
+ }
+}

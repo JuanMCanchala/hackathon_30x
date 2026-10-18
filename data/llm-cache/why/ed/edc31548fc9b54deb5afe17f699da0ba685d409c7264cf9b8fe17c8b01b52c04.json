@@ -1,0 +1,21 @@
+{
+ "key": "edc31548fc9b54deb5afe17f699da0ba685d409c7264cf9b8fe17c8b01b52c04",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:19:57.814Z",
+ "latencyMs": 4672,
+ "usage": {
+  "inputTokens": 1138,
+  "outputTokens": 685
+ },
+ "output": {
+  "oneLiner": "Google lanza Gemini 4 Argon para robótica y Physical Intelligence abre su API beta.",
+  "narrative": "4 de 5 piezas que despegaron salieron en la noche, frente a 9 de 53 del resto, y 3 de 5 cayeron en miércoles, frente a 12 de 53. El gancho es el lanzamiento: Gemini 4 Argon para robótica en Hacker News y la API beta de Physical Intelligence para todo robot. Los papers de VLA en Hugging Face, de Luozheng Qin y Qi Lu, aportan el marco técnico de transición de estado físico. Con 32 creadores esta semana y +40 % de crecimiento, el tema está saturado: la ventana es publicar de noche y a mitad de semana.",
+  "cited": [
+   "hn:50074869",
+   "hn:50079437",
+   "huggingface:paper:2610.22276",
+   "huggingface:paper:2610.21306"
+  ]
+ }
+}

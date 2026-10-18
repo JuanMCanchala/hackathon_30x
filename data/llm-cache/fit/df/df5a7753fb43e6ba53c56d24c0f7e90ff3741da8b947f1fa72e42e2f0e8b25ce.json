@@ -1,0 +1,24 @@
+{
+ "key": "df5a7753fb43e6ba53c56d24c0f7e90ff3741da8b947f1fa72e42e2f0e8b25ce",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T21:58:23.043Z",
+ "latencyMs": 6806,
+ "usage": {
+  "inputTokens": 713,
+  "outputTokens": 638
+ },
+ "output": {
+  "score": 8,
+  "executive": 9,
+  "noCode": 8,
+  "latam": 6,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Tema crítico para CEOs: gobernanza y seguridad de IA en empresas.",
+   "Cualquier equipo usa IA sin permiso; requiere políticas claras ya.",
+   "Ángulo LatAm: empresas adoptan IA sin marcos regulatorios claros."
+  ]
+ }
+}

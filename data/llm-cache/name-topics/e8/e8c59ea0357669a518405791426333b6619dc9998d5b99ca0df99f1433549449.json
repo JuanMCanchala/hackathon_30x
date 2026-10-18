@@ -1,0 +1,255 @@
+{
+ "key": "e8c59ea0357669a518405791426333b6619dc9998d5b99ca0df99f1433549449",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T21:53:47.105Z",
+ "latencyMs": 13404,
+ "usage": {
+  "inputTokens": 2829,
+  "outputTokens": 1824
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_cfe97312",
+    "name": "Agentes de IA y refactorización",
+    "definition": "Uso de agentes de IA para migrar y refactorizar código, con resultados dispares en calidad y control humano.",
+    "wikipedia": "Code refactoring",
+    "queries": [
+     "AI agent refactoring",
+     "migración código IA",
+     "LLM code migration"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2d47bb2d",
+    "name": "Contact center con IA",
+    "definition": "Plataformas como Five9, RingCentral y Twilio integran agentes de IA en centros de contacto y telefonía empresarial.",
+    "wikipedia": "Contact center",
+    "queries": [
+     "AI contact center",
+     "Twilio AI agent",
+     "Five9 IA contact"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e8cdc986",
+    "name": "IA en RRHH",
+    "definition": "Aplicación de asistentes y agentes de IA a procesos de recursos humanos, desde consultas internas hasta orquestación de flujos.",
+    "wikipedia": "Human resource management",
+    "queries": [
+     "IA recursos humanos",
+     "AI HR agents",
+     "RRHH inteligencia artificial"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_bb3561c6",
+    "name": "RentAHuman",
+    "definition": "Plataforma donde agentes de IA contratan personas para tareas físicas, invirtiendo la relación laboral humano-máquina.",
+    "wikipedia": null,
+    "queries": [
+     "RentAHuman",
+     "AI hires humans",
+     "agentes contratan humanos"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_30c0241e",
+    "name": "IA en videojuegos de criaturas",
+    "definition": "Polémica por el uso de IA generativa en franquicias como Pokémon, Digimon o Yo-kai Watch y su impacto en las comunidades.",
+    "wikipedia": "Pokémon",
+    "queries": [
+     "Pokemon AI controversy",
+     "Digimon IA",
+     "Yo-kai Watch AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9e1b81c3",
+    "name": "Ruby on Rails e IA",
+    "definition": "Integración de agentes de IA en el ecosistema Ruby on Rails, desde benchmarks de features hasta herramientas como RuboCop.",
+    "wikipedia": "Ruby on Rails",
+    "queries": [
+     "Rails AI agents",
+     "Ruby AI coding",
+     "RuboCop AI agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c0f78fd3",
+    "name": "Estilo de escritura LLM",
+    "definition": "Reconocimiento y debate sobre el estilo característico de los textos generados por modelos de lenguaje.",
+    "wikipedia": "Large language model",
+    "queries": [
+     "LLM writing style",
+     "texto generado LLM",
+     "AI slop writing"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e33900b4",
+    "name": "IA en investigación científica",
+    "definition": "Impacto de la IA en la productividad de científicos, con ganancias de tiempo pero cuellos de botella en validación social.",
+    "wikipedia": "AI for Science",
+    "queries": [
+     "AI scientific productivity",
+     "IA investigación",
+     "AI for science"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b0ba0105",
+    "name": "Físicos y ética de IA",
+    "definition": "Físicos advierten sobre los límites éticos de la IA y lo que las grandes tecnológicas ocultan sobre sus riesgos.",
+    "wikipedia": "Ethics of artificial intelligence",
+    "queries": [
+     "físicos ética IA",
+     "physicists AI ethics",
+     "AI big tech risks"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_3749ba34",
+    "name": "Regulación legislativa de IA",
+    "definition": "Debate y propuestas legislativas para regular la inteligencia artificial en distintos países y congresos.",
+    "wikipedia": "Regulation of artificial intelligence",
+    "queries": [
+     "AI regulation Congress",
+     "regulación IA legislativa",
+     "ley inteligencia artificial"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_42c5da3f",
+    "name": "IA y seguridad psicológica",
+    "definition": "Efectos de la IA en la seguridad psicológica de los equipos y el rol del liderazgo en entornos laborales cambiantes.",
+    "wikipedia": "Psychological safety",
+    "queries": [
+     "AI psychological safety",
+     "seguridad psicológica IA",
+     "AI leadership teams"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_660cc53e",
+    "name": "Seguridad en apps con IA",
+    "definition": "Riesgos de seguridad en aplicaciones construidas con vibe coding y nuevas protecciones móviles impulsadas por IA.",
+    "wikipedia": "Mobile security",
+    "queries": [
+     "vibe coding security",
+     "seguridad apps IA",
+     "AI app security risks"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_222197ac",
+    "name": "Guías prácticas de IA",
+    "definition": "Tutoriales y guías para principiantes sobre herramientas de IA como ChatGPT, Gemini y agentes inteligentes.",
+    "wikipedia": null,
+    "queries": [
+     "ChatGPT guide beginners",
+     "guía IA principiantes",
+     "Gemini tutorial"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_0f1e319c",
+    "name": "Zelda Ocarina of Time e IA",
+    "definition": "Polémica por vídeos generados con IA que usan imágenes de Zelda: Ocarina of Time en contextos políticos y deportivos.",
+    "wikipedia": "The Legend of Zelda: Ocarina of Time",
+    "queries": [
+     "Zelda Ocarina AI",
+     "Zelda IA polémica",
+     "Ocarina of Time AI video"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5b9b56d1",
+    "name": "Insilico Medicine",
+    "definition": "Empresa de descubrimiento de fármacos con IA generativa, con avances en longevidad y cuestionamientos sobre autoría real.",
+    "wikipedia": "Insilico Medicine",
+    "queries": [
+     "Insilico Medicine",
+     "Insilico AI drug",
+     "Insilico longevity"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b14dd248",
+    "name": "Factorial e IA",
+    "definition": "Factorial refuerza su software de gestión de RRHH con IA, alianzas con Microsoft y adquisiciones de startups.",
+    "wikipedia": "Factorial (company)",
+    "queries": [
+     "Factorial IA",
+     "Factorial Microsoft",
+     "Factorial RRHH AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_796e1421",
+    "name": "IA en operaciones",
+    "definition": "Dónde falla la automatización con IA en operaciones reales: permisos, estado, lectura de ejecución y recuperación ante errores.",
+    "wikipedia": "Business operations",
+    "queries": [
+     "AI operations failure",
+     "IA operaciones",
+     "agentic AI workflows"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_3608ec59",
+    "name": "Acceso web para agentes IA",
+    "definition": "El reto de que los sitios web permitan el acceso a agentes de IA, entre bloqueos, conversión y una web desigual.",
+    "wikipedia": "Web scraping",
+    "queries": [
+     "AI agents web access",
+     "agentes IA web",
+     "websites block AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_00899eb2",
+    "name": "IA en apuestas online",
+    "definition": "Uso de IA por operadores como DraftKings para segmentar conductualmente a apostadores crónicos y amplificar daños.",
+    "wikipedia": "DraftKings",
+    "queries": [
+     "DraftKings AI gambling",
+     "IA apuestas online",
+     "AI gambling targeting"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9b6cf02f",
+    "name": "IA y ultraderecha",
+    "definition": "Cómo la ultraderecha usa IA para viralizar odio, desinformación y campañas políticas en redes sociales.",
+    "wikipedia": "Far-right politics",
+    "queries": [
+     "IA ultraderecha",
+     "AI far-right hate",
+     "AI misinformation politics"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

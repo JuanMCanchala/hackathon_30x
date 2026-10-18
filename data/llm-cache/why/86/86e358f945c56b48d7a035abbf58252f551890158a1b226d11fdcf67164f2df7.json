@@ -1,0 +1,21 @@
+{
+ "key": "86e358f945c56b48d7a035abbf58252f551890158a1b226d11fdcf67164f2df7",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:17:50.561Z",
+ "latencyMs": 15746,
+ "usage": {
+  "inputTokens": 1166,
+  "outputTokens": 2176
+ },
+ "output": {
+  "oneLiner": "Workday lleva IA agéntica a contratos y cobra por ahorro; lo mueven su blog, Foro3D y Tim Newman.",
+  "narrative": "No hay patrones con al menos 3 piezas, así que no hay un gancho o formato común medible. Las piezas de esta semana son anuncios y un post: Workday Blog publica dos veces sobre IA agéntica en el ciclo de contratos, Foro3D dice que Workday cobrará la IA según el ahorro en nóminas y subcontratas, y Tim Newman explica en Bluesky que Work Intelligence divide roles en tareas. El crecimiento de +620 % en creadores distintos y 17 creadores esta semana apunta a interés por cómo Workday integra agentes en RR. HH., pero la evidencia tiene engagement bajo o nulo.",
+  "cited": [
+   "bluesky:3mxts2wzycc2n",
+   "news:CBMikAFBVV95cUxOdzFYVzRNa3BSdnVRcEMwMEN1SUZ4Y05ObURpVGFiYV9pVXRuWTJFQXItd2pIdmlob1ctRTBxSjB5UC15YjlyX1dkaDlWdzVSYnpObnRtcFJnX2x0WG9mMGZudk04RVJEOGpsQlNHMzlHNVBVUWpEcHUwQ240WHIzbHNjSjk1ZFJYQjVTeEEwNmc",
+   "news:CBMikAFBVV95cUxPeUUtUFZDMG82c0s1eTZQelBpdUxyZjBaVUM2aEZVNVBJcmpjTnc4VXNUSFNKMVpSSUpyRDlYYXk3Vm1SVTlqY0w1V2FtTUtYTzNKZ1N2Sm1rQ1lDX2JMa2hlWGlRWHpsUy11SlNSLUkwQlQ5cGJkZWRabGk2QVBlVHVaeFN4cUx0UmpHMTZOVXg",
+   "news:CBMiogFBVV95cUxQSEZQNmxvMXV4eUZBcF91OE9CcjFyWF9zbC1TWWNEOThMX21xYkNxSklNaVdnWVQzRVVkaXVadXlKclhTSUUyQjFUNVV0YTI3c1pmaUxLT1h3LU9ybVhsS0laYVlpWEZXLVcydVM0MDQ3b1ZFUVhFektwdEE3RnNnZTJIWDN6WmFsWU5BWTM0ZWhEMnhoemJDWHU4eW15LWlZYWc"
+  ]
+ }
+}

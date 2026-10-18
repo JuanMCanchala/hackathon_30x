@@ -1,0 +1,255 @@
+{
+ "key": "85450c3a466c2126f501c058ff1b68e93764ff370d912e1d6de047ce51a88834",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:12:37.394Z",
+ "latencyMs": 11248,
+ "usage": {
+  "inputTokens": 3287,
+  "outputTokens": 1781
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_7bbc93a9",
+    "name": "Descubrimiento científico con IA",
+    "definition": "Uso de modelos de IA para hallar nuevos materiales, enzimas, planetas o teoremas de forma autónoma.",
+    "wikipedia": "Artificial intelligence in scientific discovery",
+    "queries": [
+     "AI scientific discovery",
+     "descubrimiento científico IA",
+     "AI research agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_24c5c05b",
+    "name": "IA y mercados financieros",
+    "definition": "Impacto de la IA en bolsas, crédito y capital, y su uso para generar o analizar datos de mercado.",
+    "wikipedia": "Financial market impact of artificial intelligence",
+    "queries": [
+     "AI financial markets",
+     "IA mercados bursátiles",
+     "AI market data"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_49e3eeb2",
+    "name": "Voces de IA y TTS",
+    "definition": "Plataformas y APIs de texto a voz con voces sintéticas realistas para productos y asistentes.",
+    "wikipedia": "Speech synthesis",
+    "queries": [
+     "text to speech AI",
+     "voces IA TTS",
+     "AI voice API"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f54f706b",
+    "name": "Vulnerabilidades y CVE",
+    "definition": "Fallos de seguridad identificados con CVE y su explotación o mitigación en sistemas, incluida la IA.",
+    "wikipedia": "Common Vulnerabilities and Exposures",
+    "queries": [
+     "CVE vulnerability",
+     "vulnerabilidades CVE",
+     "AI security flaws"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_549571b8",
+    "name": "Colaboración humano-IA",
+    "definition": "Formas de trabajar conjuntamente personas y agentes de IA manteniendo criterio y control humano.",
+    "wikipedia": "Human-AI collaboration",
+    "queries": [
+     "human AI collaboration",
+     "colaboración humano IA",
+     "human in the loop"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d59c5165",
+    "name": "Reclutamiento con IA",
+    "definition": "Automatización de búsqueda, selección y contratación de talento mediante herramientas de inteligencia artificial.",
+    "wikipedia": "Recruitment",
+    "queries": [
+     "AI recruiting",
+     "reclutamiento IA",
+     "automated hiring"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_7c1409a4",
+    "name": "E-commerce con IA",
+    "definition": "Comercio electrónico transformado por agentes, recomendaciones y automatización de compras y ventas online.",
+    "wikipedia": "E-commerce",
+    "queries": [
+     "AI ecommerce",
+     "ecommerce con IA",
+     "AI shopping agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_482156ef",
+    "name": "Cripto y IA",
+    "definition": "Intersección de criptomonedas, blockchain y agentes de IA para pagos, trading y regulación.",
+    "wikipedia": "Cryptocurrency",
+    "queries": [
+     "crypto AI agents",
+     "criptomonedas IA",
+     "blockchain AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_263bea20",
+    "name": "Skills para agentes",
+    "definition": "Habilidades, capacidades y personalidad configurables que se añaden a agentes de IA para tareas concretas.",
+    "wikipedia": "Intelligent agent",
+    "queries": [
+     "AI agent skills",
+     "skills agentes IA",
+     "agent capabilities"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_42e2affd",
+    "name": "Cultura de Silicon Valley",
+    "definition": "Dinámicas sociales, laborales y mediáticas del ecosistema tecnológico de San Francisco y Silicon Valley.",
+    "wikipedia": "Silicon Valley",
+    "queries": [
+     "Silicon Valley culture",
+     "cultura Silicon Valley",
+     "San Francisco tech"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_7cb2b749",
+    "name": "Adopción de IA en Latam",
+    "definition": "Nivel de adopción de inteligencia artificial por empresas y gobiernos en Latinoamérica y otros mercados emergentes.",
+    "wikipedia": "Artificial intelligence in Latin America",
+    "queries": [
+     "AI adoption Latam",
+     "adopción IA Latinoamérica",
+     "AI adoption emerging markets"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e7d6fb79",
+    "name": "Pruebas PISA",
+    "definition": "Evaluación internacional de estudiantes de la OCDE y su relación con tecnología, IA y resultados educativos.",
+    "wikipedia": "Programme for International Student Assessment",
+    "queries": [
+     "PISA results",
+     "pruebas PISA",
+     "PISA education"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_aa3c57ec",
+    "name": "Valor de negocio de IA",
+    "definition": "Cómo las organizaciones traducen inversiones en IA en resultados, productividad y ventaja competitiva real.",
+    "wikipedia": "Business value of artificial intelligence",
+    "queries": [
+     "AI business value",
+     "valor negocio IA",
+     "AI ROI enterprise"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b55a74cc",
+    "name": "Precios de modelos de IA",
+    "definition": "Comparativas de coste y precios de APIs y modelos de lenguaje entre proveedores como OpenAI, Google o Anthropic.",
+    "wikipedia": "Large language model",
+    "queries": [
+     "LLM API pricing",
+     "precios modelos IA",
+     "AI model comparison"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_53ac4b30",
+    "name": "Startups de IA",
+    "definition": "Nuevas empresas y productos de inteligencia artificial que emergen en el ecosistema emprendedor global.",
+    "wikipedia": "Artificial intelligence industry",
+    "queries": [
+     "AI startups",
+     "startups IA",
+     "new AI companies"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_038b9391",
+    "name": "IA en turismo y viajes",
+    "definition": "Aplicación de IA en agencias, hoteles y plataformas de viaje para planificar, reservar y personalizar experiencias.",
+    "wikipedia": "Travel technology",
+    "queries": [
+     "AI travel industry",
+     "IA turismo viajes",
+     "AI travel agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8aaab655",
+    "name": "IA en sector público",
+    "definition": "Uso de inteligencia artificial en gobiernos y administraciones para mejorar servicios, productividad y políticas públicas.",
+    "wikipedia": "Artificial intelligence in government",
+    "queries": [
+     "AI government",
+     "IA sector público",
+     "AI public administration"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_543a502e",
+    "name": "Conducción autónoma",
+    "definition": "Vehículos y asistentes que operan con autonomía creciente gracias a IA, sensores y software a bordo.",
+    "wikipedia": "Self-driving car",
+    "queries": [
+     "autonomous driving",
+     "conducción autónoma",
+     "self-driving AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8ffac5d2",
+    "name": "Hardware para IA",
+    "definition": "Fabricantes de servidores, chips y equipos que sostienen la infraestructura de cómputo para inteligencia artificial.",
+    "wikipedia": "AI accelerator",
+    "queries": [
+     "AI hardware",
+     "hardware IA",
+     "AI servers chips"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e86b5cca",
+    "name": "Adopción interna de IA",
+    "definition": "Cómo las empresas integran IA en procesos internos, decisiones y productividad de sus equipos.",
+    "wikipedia": "Artificial intelligence adoption",
+    "queries": [
+     "enterprise AI adoption",
+     "adopción IA empresas",
+     "internal AI usage"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

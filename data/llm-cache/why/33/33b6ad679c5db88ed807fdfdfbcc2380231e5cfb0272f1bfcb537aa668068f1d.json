@@ -1,0 +1,20 @@
+{
+ "key": "33b6ad679c5db88ed807fdfdfbcc2380231e5cfb0272f1bfcb537aa668068f1d",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T21:55:25.569Z",
+ "latencyMs": 8448,
+ "usage": {
+  "inputTokens": 1066,
+  "outputTokens": 823
+ },
+ "output": {
+  "oneLiner": "OpenAI halla un dispositivo de grabación oculto en sus oficinas; creadores en Bluesky lo convierten en meme.",
+  "narrative": "Las tres piezas que despegaron salieron un martes por la tarde, frente a 2 de 4 del resto: la muestra es mínima, así que el patrón es indicio, no regla. El gancho es la cita textual del comunicado de OpenAI sobre un dispositivo sofisticado diseñado para evadir detección, que en Bluesky se vuelve burla. Un post de jenn schiffer con el detalle del papel higiénico llega a 30 veces la mediana de su autor y el de Rude Law Dog a 14,3 veces. Carl Quintanilla publica el titular en mayúsculas y suma 2234 interacciones, 3,5 veces su mediana.",
+  "cited": [
+   "bluesky:3mxrvvu7w322g",
+   "bluesky:3mxruozx66k2l",
+   "bluesky:3mxrsnyfobk2k"
+  ]
+ }
+}

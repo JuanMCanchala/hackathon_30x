@@ -1,0 +1,21 @@
+{
+ "key": "397fb2a3c667ca3dd6cdda7a275260fed608fb551abdc0de2fa98deb1e506db0",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T21:55:30.597Z",
+ "latencyMs": 15992,
+ "usage": {
+  "inputTokens": 1253,
+  "outputTokens": 1316
+ },
+ "output": {
+  "oneLiner": "Google lanza Universal Cart en EE. UU. para Search y Gemini; cinco creadores distintos cubren la noticia esta semana.",
+  "narrative": "No hay patrones con al menos 3 piezas, así que no se puede hablar de un formato ganador. Las piezas de evidencia son anuncios del lanzamiento en EE. UU., publicados por medios y cuentas de noticias de IA el 15 y 16 de octubre. Ninguna despegó: engagement de 0,5×, 0,3× y 0 frente a la mediana de sus autores. El crecimiento de +500 % en creadores distintos viene de la cobertura del lanzamiento, no de piezas virales.",
+  "cited": [
+   "bluesky:3mxygk5qrvk24",
+   "bluesky:3mxy7w6lqrg2v",
+   "news:CBMifkFVX3lxTE4xdER5UlpjUHoxbDR3T3dXZWtGYVVwVGhRYm1NdjVuZ2dZRU9NOTUwZkwxVlQtbE9FZUNIMnFWb192U2M5VVdfTXRTLW5BQU1WeFMyT3BwOUJ3T3VYcVhSQjB6aHpFN0tibFBhS1J1RTk4VGV6YnJrSnVudU9kZw",
+   "news:CBMiyAFBVV95cUxQdElEVHkweDAzYy1SZlNoRUhUUUl3a0QyUmpXYXIyNXFKcktrT2ZVX2xqTVUySjVMX3V6bTU5V3BPOEs4MWdXYzJBa2IxdU1Ed3p6NkZrTE9USldjWWZKdlFrTmpFLXlxMURLcmJqUXhoZXMyX1FSSzJJSk9wWHlkZGNCNjFic0hYQ3I2Zmg5MUc3S0dOUHV0NEJXYTZGclA1ZEJNOG5ZZG9rQTUxeENjdmFMcjR6bkdrM0s2N2o1dzM3QmpEdzUtVA"
+  ]
+ }
+}

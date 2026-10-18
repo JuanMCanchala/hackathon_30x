@@ -1,0 +1,24 @@
+{
+ "key": "536306eceb7f2f475b7f7f4cb79b8640cfa9a4a5fbc028ee87d1f8710d444eb5",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:17:10.134Z",
+ "latencyMs": 9431,
+ "usage": {
+  "inputTokens": 700,
+  "outputTokens": 1263
+ },
+ "output": {
+  "score": 4,
+  "executive": 7,
+  "noCode": 2,
+  "latam": 2,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Tema macro de chips, poco accionable para ventas o growth.",
+   "Sin ángulo LatAm ni aplicación sin código inmediata.",
+   "Útil como contexto estratégico, no para equipos comerciales."
+  ]
+ }
+}

@@ -1,0 +1,20 @@
+{
+ "key": "3c88f015ec0783cc98e244a5c8ff6e81ed402733d57e75ffd22267d22efa91ad",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:18:56.618Z",
+ "latencyMs": 5492,
+ "usage": {
+  "inputTokens": 1678,
+  "outputTokens": 607
+ },
+ "output": {
+  "oneLiner": "Higgsfield crece con videos gratis e ilimitados; Adrián Sáenz y Malva AI lo empujan en YouTube.",
+  "narrative": "5 de 5 piezas que despegaron son videos, frente a 0 de 28 del resto. 4 de 5 apelan a la utilidad práctica y 5 de 5 las publicó un creador de contenido. El gancho es el acceso gratis e ilimitado, sin créditos, y el momento lo mueve YouTube. Adrián Sáenz multiplica por 107,3 la mediana de su autor y Malva AI repite con dos videos sobre lo mismo.",
+  "cited": [
+   "youtube:fJzUnSEnKNs",
+   "youtube:IQaF5gr0HM8",
+   "youtube:ZZmhkPa2YG8"
+  ]
+ }
+}

@@ -1,0 +1,24 @@
+{
+ "key": "6bbae4d3c03c691503653d5973dfa4bde1fe1e997c55b64a780a65a60b6b9e02",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:29:15.027Z",
+ "latencyMs": 7578,
+ "usage": {
+  "inputTokens": 698,
+  "outputTokens": 761
+ },
+ "output": {
+  "score": 6,
+  "executive": 8,
+  "noCode": 3,
+  "latam": 2,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Clave para entender alianzas y competencia que definen el ecosistema IA.",
+   "Poco accionable para ventas o growth sin contexto estratégico.",
+   "Sin ángulo LatAm claro; cobertura mayormente global y en inglés."
+  ]
+ }
+}

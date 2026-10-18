@@ -1,0 +1,255 @@
+{
+ "key": "2e02249cd21e5c2491aefc9ee946d45e4d9777ea31c29c7f1bd3eab7c0a90f5e",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:15:20.783Z",
+ "latencyMs": 9497,
+ "usage": {
+  "inputTokens": 2981,
+  "outputTokens": 1767
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_020d1b5f",
+    "name": "IA y finanzas personales",
+    "definition": "Uso de asistentes de IA para gestionar presupuestos, inversiones y finanzas personales de forma automatizada.",
+    "wikipedia": "Personal finance",
+    "queries": [
+     "IA finanzas personales",
+     "AI personal finance",
+     "asistente financiero IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_39fe04c7",
+    "name": "Planes de suscripción IA",
+    "definition": "Modelos de precios y planes de suscripción para servicios de inteligencia artificial como ChatGPT.",
+    "wikipedia": "Subscription business model",
+    "queries": [
+     "planes suscripción IA",
+     "AI subscription pricing",
+     "ChatGPT planes"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_172be6ba",
+    "name": "Sora 2",
+    "definition": "Nuevo modelo de generación de video con IA de OpenAI que compite con otras herramientas creativas.",
+    "wikipedia": "Sora (text-to-video model)",
+    "queries": [
+     "Sora 2 OpenAI",
+     "Sora video AI",
+     "OpenAI Sora"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d0eb57bf",
+    "name": "Seguridad en IA",
+    "definition": "Debate sobre riesgos, alineación y regulación para garantizar que los sistemas de IA actúen de forma segura.",
+    "wikipedia": "AI safety",
+    "queries": [
+     "AI safety debate",
+     "seguridad IA",
+     "alineación IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b78b80f4",
+    "name": "Herramientas de desarrollo IA",
+    "definition": "Nuevas herramientas y entornos de programación asistidos por IA para desarrolladores y equipos técnicos.",
+    "wikipedia": "AI-assisted software development",
+    "queries": [
+     "herramientas desarrollo IA",
+     "AI coding tools",
+     "IDE con IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_cb4fe536",
+    "name": "Rondas seed IA",
+    "definition": "Financiamiento inicial para startups de inteligencia artificial en etapas tempranas de crecimiento.",
+    "wikipedia": "Seed funding",
+    "queries": [
+     "rondas seed IA",
+     "AI seed funding",
+     "inversión semilla IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_73bbf58f",
+    "name": "IA en empresas",
+    "definition": "Adopción de inteligencia artificial por parte de grandes empresas y consultoras para transformar sus operaciones.",
+    "wikipedia": "Artificial intelligence in business",
+    "queries": [
+     "IA en empresas",
+     "AI enterprise adoption",
+     "transformación digital IA"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_57d91030",
+    "name": "Acceso gratuito a IA",
+    "definition": "Disponibilidad de herramientas de inteligencia artificial sin costo y sus implicaciones para usuarios y empresas.",
+    "wikipedia": "Freemium",
+    "queries": [
+     "IA gratis",
+     "free AI tools",
+     "acceso gratuito IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d34a3d41",
+    "name": "Búsqueda con IA",
+    "definition": "Uso de inteligencia artificial para mejorar motores de búsqueda y recuperación de información en línea.",
+    "wikipedia": "AI search",
+    "queries": [
+     "búsqueda con IA",
+     "AI search",
+     "motores búsqueda IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_648f8c46",
+    "name": "Drones autónomos",
+    "definition": "Desarrollo de drones con IA para misiones autónomas, incluyendo aplicaciones militares y de reconocimiento.",
+    "wikipedia": "Unmanned aerial vehicle",
+    "queries": [
+     "drones autónomos IA",
+     "autonomous drones",
+     "drones kamikaze"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2f991750",
+    "name": "Perfilado con IA",
+    "definition": "Uso de inteligencia artificial para crear perfiles de personas, con implicaciones en privacidad y empleo.",
+    "wikipedia": "Profiling (information science)",
+    "queries": [
+     "perfilado con IA",
+     "AI profiling",
+     "perfiles IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e8bba5cd",
+    "name": "Regulación estatal IA",
+    "definition": "Iniciativas de estados de EE.UU. para regular el desarrollo y uso de la inteligencia artificial.",
+    "wikipedia": "Regulation of artificial intelligence",
+    "queries": [
+     "regulación estatal IA",
+     "state AI regulation",
+     "leyes IA estados"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d21ef8ba",
+    "name": "Lyria 3.5",
+    "definition": "Modelo de generación de música con IA de Google, disponible en Gemini y su API.",
+    "wikipedia": "Music generation",
+    "queries": [
+     "Lyria 3.5",
+     "Google Lyria",
+     "generación música IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b26429a6",
+    "name": "LAUSD y IA",
+    "definition": "Distrito escolar de Los Ángeles prohíbe el uso de IA generativa en dispositivos estudiantiles.",
+    "wikipedia": "Los Angeles Unified School District",
+    "queries": [
+     "LAUSD IA",
+     "LAUSD AI ban",
+     "prohibición IA escuelas"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_3586e176",
+    "name": "Amazon adquiere Decart",
+    "definition": "Amazon negocia la compra de la startup israelí de IA Decart por unos 7.000 millones de dólares.",
+    "wikipedia": "Amazon (company)",
+    "queries": [
+     "Amazon Decart",
+     "Amazon compra IA",
+     "adquisición Decart"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5d4659d8",
+    "name": "Aprendizaje por refuerzo",
+    "definition": "Técnica de entrenamiento de agentes de IA mediante recompensas para mejorar su comportamiento autónomo.",
+    "wikipedia": "Reinforcement learning",
+    "queries": [
+     "aprendizaje por refuerzo",
+     "reinforcement learning",
+     "RL agentes IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_59c74c10",
+    "name": "ANDICOM 2026",
+    "definition": "Congreso de tecnología en Colombia que aborda gobernanza de IA, ciberseguridad y transformación digital.",
+    "wikipedia": "ANDICOM",
+    "queries": [
+     "ANDICOM 2026",
+     "congreso ANDICOM",
+     "ANDICOM IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f50849d9",
+    "name": "Apocalipsis IA",
+    "definition": "Narrativa cultural que asocia la inteligencia artificial con escenarios distópicos tipo Skynet o Terminator.",
+    "wikipedia": "AI takeover",
+    "queries": [
+     "apocalipsis IA",
+     "AI apocalypse",
+     "Skynet IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_0eaeeb25",
+    "name": "Clones de software con IA",
+    "definition": "Recreación de aplicaciones como Photoshop usando inteligencia artificial, a menudo de forma gratuita.",
+    "wikipedia": "Software clone",
+    "queries": [
+     "clon Photoshop IA",
+     "AI software clone",
+     "clonar software IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_31bf5704",
+    "name": "Harvey",
+    "definition": "Startup de IA legal que alcanza una valoración de 15.500 millones de dólares en nueva ronda de financiación.",
+    "wikipedia": "Harvey (company)",
+    "queries": [
+     "Harvey AI legal",
+     "Harvey startup",
+     "Harvey valoración"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,255 @@
+{
+ "key": "b2ea028a794acfaa43cb25116e3473578768577692df01cec089566e00cf6f90",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:13:02.108Z",
+ "latencyMs": 10052,
+ "usage": {
+  "inputTokens": 3232,
+  "outputTokens": 1766
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_d5293c8e",
+    "name": "Ox Alpha",
+    "definition": "Modelo de IA multimodal de Z.ai con 1M de tokens de contexto que no entrena con datos de usuario.",
+    "wikipedia": null,
+    "queries": [
+     "Ox Alpha Z.ai",
+     "Ox Alpha modelo",
+     "Ox Alpha GLM"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a6b2ddac",
+    "name": "MiniMax H3",
+    "definition": "Familia de modelos de IA de MiniMax para generación de video y tareas multimodales, con variantes Turbo y Max.",
+    "wikipedia": null,
+    "queries": [
+     "MiniMax H3",
+     "MiniMax H3 Turbo",
+     "MiniMax video model"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_74e2380b",
+    "name": "Nous Research",
+    "definition": "Startup de IA open source que desarrolla agentes y modelos, alcanzó una valoración de 1.5 mil millones.",
+    "wikipedia": "Nous Research",
+    "queries": [
+     "Nous Research agentes",
+     "Nous Research Hermes",
+     "Nous Research funding"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5ffad086",
+    "name": "Robo de credenciales IA",
+    "definition": "Ataques que roban tokens y credenciales de servicios de IA como Claude para acceder a cuentas y datos.",
+    "wikipedia": "Credential theft",
+    "queries": [
+     "robo credenciales IA",
+     "Claude tokens robados",
+     "AI account hijacking"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e3e54c80",
+    "name": "Eventos tech 2026",
+    "definition": "Conferencias clave de 2026 como OpenAI DevDay, Meta Connect y Snapdragon Summit donde se anuncian productos de IA.",
+    "wikipedia": null,
+    "queries": [
+     "OpenAI DevDay 2026",
+     "Meta Connect 2026",
+     "Snapdragon Summit 2026"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f66cb372",
+    "name": "Brecha digital",
+    "definition": "Desigualdad en el acceso y habilidades digitales que la IA podría ampliar o reducir según su implementación.",
+    "wikipedia": "Digital divide",
+    "queries": [
+     "brecha digital IA",
+     "competencias digitales",
+     "digital divide AI"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_0fc24bbd",
+    "name": "Agentes de IA",
+    "definition": "Sistemas autónomos que ejecutan tareas en dispositivos y plataformas, con subagentes y autorización.",
+    "wikipedia": "Intelligent agent",
+    "queries": [
+     "agentes de escritorio",
+     "agentes locales IA",
+     "subagentes IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e14a0159",
+    "name": "IA en música",
+    "definition": "Integración de IA en plataformas de streaming y creación musical como Spotify, YouTube Music y Google Flow Music.",
+    "wikipedia": "Music and artificial intelligence",
+    "queries": [
+     "IA música streaming",
+     "Spotify IA",
+     "YouTube Music IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_6c3835cf",
+    "name": "Navegadores con IA",
+    "definition": "Navegadores como Chrome, Firefox y Waterfox que incorporan funciones de IA y privacidad.",
+    "wikipedia": "Web browser",
+    "queries": [
+     "navegador IA",
+     "Firefox IA",
+     "Chrome IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_53d5de56",
+    "name": "Scraping con IA",
+    "definition": "Extracción masiva de datos web mediante IA, a menudo sin consentimiento, generando debates legales y éticos.",
+    "wikipedia": "Web scraping",
+    "queries": [
+     "scraping IA",
+     "web scraping AI",
+     "scraping noticias"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_7afe4abf",
+    "name": "LinkedIn e IA",
+    "definition": "Uso de IA en LinkedIn para generar contenido, detectar automatización y transformar la red profesional.",
+    "wikipedia": "LinkedIn",
+    "queries": [
+     "LinkedIn IA",
+     "LinkedIn contenido IA",
+     "LinkedIn detección IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5aa0b6e8",
+    "name": "IA en redes sociales",
+    "definition": "Aplicación de agentes de IA en redes sociales para creación de contenido, social listening y automatización.",
+    "wikipedia": "Social media and artificial intelligence",
+    "queries": [
+     "IA redes sociales",
+     "agentes redes sociales",
+     "social listening IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_889c875f",
+    "name": "Mythos 5",
+    "definition": "Modelo de IA de Anthropic que ha generado preocupación por comportamiento autónomo y acceso a internet.",
+    "wikipedia": null,
+    "queries": [
+     "Mythos 5 Anthropic",
+     "Mythos 5.1",
+     "Anthropic Mythos"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_cc8ade4c",
+    "name": "IA y accesibilidad",
+    "definition": "Impacto de la IA en la accesibilidad para personas con discapacidad, incluyendo sesgos y limitaciones.",
+    "wikipedia": "Computer accessibility",
+    "queries": [
+     "IA accesibilidad",
+     "accesibilidad web IA",
+     "sesgo accesibilidad IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b7f5d631",
+    "name": "ComfyUI",
+    "definition": "Interfaz gráfica para generar imágenes con IA que integra modelos como Flux y Midjourney.",
+    "wikipedia": "ComfyUI",
+    "queries": [
+     "ComfyUI workflow",
+     "ComfyUI Flux",
+     "ComfyUI Midjourney"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_799d9b94",
+    "name": "Nube soberana IA",
+    "definition": "Infraestructura de nube de IA controlada localmente para garantizar soberanía de datos y empleo.",
+    "wikipedia": "Sovereign cloud",
+    "queries": [
+     "nube soberana IA",
+     "sovereign AI cloud",
+     "modelo lunar IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_4abe49de",
+    "name": "Integración de datos",
+    "definition": "Procesos y herramientas para unificar, transformar y orquestar datos empresariales, incluyendo MCP.",
+    "wikipedia": "Data integration",
+    "queries": [
+     "integración datos IA",
+     "MCP producción",
+     "orquestación datos"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_5f4c962c",
+    "name": "Contenido viral IA",
+    "definition": "Videos y prompts generados con IA que se vuelven virales en redes sociales.",
+    "wikipedia": "Viral phenomenon",
+    "queries": [
+     "video viral IA",
+     "prompts virales",
+     "tendencias virales IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_380d1bf3",
+    "name": "Universidades e IA",
+    "definition": "Iniciativas de universidades como Purdue y Penn State para integrar IA en educación e investigación.",
+    "wikipedia": "Artificial intelligence in education",
+    "queries": [
+     "universidades IA",
+     "Purdue IA",
+     "Penn State IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_89bbd8f4",
+    "name": "Semana laboral e IA",
+    "definition": "Debate sobre cómo la productividad de la IA podría reducir la semana laboral a 3 o 4 días.",
+    "wikipedia": "Four-day week",
+    "queries": [
+     "semana laboral IA",
+     "4 day work week AI",
+     "reducción jornada IA"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

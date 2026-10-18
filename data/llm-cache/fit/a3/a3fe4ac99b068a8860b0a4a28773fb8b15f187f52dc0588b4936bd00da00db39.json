@@ -1,0 +1,24 @@
+{
+ "key": "a3fe4ac99b068a8860b0a4a28773fb8b15f187f52dc0588b4936bd00da00db39",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:17:14.824Z",
+ "latencyMs": 5638,
+ "usage": {
+  "inputTokens": 683,
+  "outputTokens": 674
+ },
+ "output": {
+  "score": 7,
+  "executive": 6,
+  "noCode": 9,
+  "latam": 6,
+  "pillar": "Growth",
+  "hypeRisk": "alto",
+  "reasons": [
+   "Herramientas de video IA aceleran marketing y ventas sin equipo técnico.",
+   "Cuidado: promesas de gratis ilimitado y millonario suenan a humo.",
+   "LatAm puede crear anuncios en español a bajo costo, pero faltan casos locales."
+  ]
+ }
+}

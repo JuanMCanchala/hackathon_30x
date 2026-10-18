@@ -1,0 +1,255 @@
+{
+ "key": "fcdc519f0f03446712951b86702cd8e0b09b0a3377945cd07252d067d8aa6ed3",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:15:42.352Z",
+ "latencyMs": 10537,
+ "usage": {
+  "inputTokens": 2856,
+  "outputTokens": 1778
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_87b43004",
+    "name": "Claude en Google Workspace",
+    "definition": "Integración de Claude de Anthropic en Docs, Sheets, Slides y Gmail para leer y editar archivos directamente.",
+    "wikipedia": "Claude (language model)",
+    "queries": [
+     "Claude Google Docs",
+     "Claude Workspace sidebar",
+     "Claude Gmail integration"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d405d227",
+    "name": "Plataformas de agentes de IA",
+    "definition": "Herramientas y frameworks para construir y desplegar agentes autónomos que automatizan tareas empresariales.",
+    "wikipedia": "Intelligent agent",
+    "queries": [
+     "agentic AI platform",
+     "ChatGPT agent",
+     "Gemini automation"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_86ae3817",
+    "name": "IA para atención de llamadas",
+    "definition": "Sistemas de voz con IA que contestan llamadas, agendan citas y atienden clientes 24/7 en empresas.",
+    "wikipedia": "Voice user interface",
+    "queries": [
+     "AI call answering",
+     "voice AI contact center",
+     "automatización de llamadas"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_cb4f9a01",
+    "name": "Uber y la IA",
+    "definition": "Uso de inteligencia artificial por Uber en operaciones, soporte y desarrollo, incluyendo casos regulatorios.",
+    "wikipedia": "Uber",
+    "queries": [
+     "Uber AI",
+     "Uber software factory",
+     "Uber AI regulation"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_6624c4e5",
+    "name": "Calidad de datos para IA",
+    "definition": "Prácticas y desafíos para asegurar que los datos usados en IA sean precisos, representativos y confiables.",
+    "wikipedia": "Data quality",
+    "queries": [
+     "data quality AI",
+     "calidad de datos",
+     "AI data reliability"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9fd6f16a",
+    "name": "Exposición laboral a la IA",
+    "definition": "Estudios e índices que miden qué ocupaciones y trabajadores están más expuestos a ser reemplazados por IA.",
+    "wikipedia": "Technological unemployment",
+    "queries": [
+     "AI job exposure",
+     "exposición laboral IA",
+     "AI occupational index"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5c1a3a51",
+    "name": "DevOps con IA",
+    "definition": "Integración de agentes y asistentes de IA en flujos DevOps, desde Azure DevOps hasta automatización de despliegues.",
+    "wikipedia": "DevOps",
+    "queries": [
+     "AI DevOps",
+     "Azure DevOps AI",
+     "DevOps automation"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b92ad5a1",
+    "name": "Creación de webs con IA",
+    "definition": "Herramientas y métodos para diseñar y construir sitios web usando inteligencia artificial generativa.",
+    "wikipedia": "Web development",
+    "queries": [
+     "AI web design",
+     "crear webs IA",
+     "AI website builder"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_53b86be4",
+    "name": "Predicciones deportivas con IA",
+    "definition": "Uso de modelos de IA para pronosticar resultados de partidos y eventos deportivos.",
+    "wikipedia": "Sports betting",
+    "queries": [
+     "AI sports prediction",
+     "predicciones deportivas IA",
+     "IA pronóstico partidos"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_530f7f7c",
+    "name": "Sitios web generados con IA",
+    "definition": "Sitios web creados total o parcialmente por IA, con implicaciones en calidad, originalidad y percepción pública.",
+    "wikipedia": "Website builder",
+    "queries": [
+     "AI generated websites",
+     "webs con IA",
+     "AI built site"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_0c714ff7",
+    "name": "Nvidia RTX 5090 y Blackwell",
+    "definition": "Nuevas GPUs de Nvidia para IA local, incluyendo RTX 5090, arquitectura Blackwell y RTX Spark.",
+    "wikipedia": "GeForce RTX 50 series",
+    "queries": [
+     "Nvidia RTX 5090",
+     "Nvidia Blackwell",
+     "RTX Spark"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_36f2a809",
+    "name": "Hardware para IA local",
+    "definition": "Equipos como DGX Spark, Jetson y H200 que permiten ejecutar modelos de IA sin depender de la nube.",
+    "wikipedia": "Nvidia DGX",
+    "queries": [
+     "DGX Spark",
+     "Nvidia Jetson",
+     "local AI hardware"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_785436b1",
+    "name": "Encuestas sobre IA",
+    "definition": "Estudios y sondeos que miden actitudes, opiniones y adopción de la IA en distintos públicos.",
+    "wikipedia": "Survey methodology",
+    "queries": [
+     "AI survey",
+     "encuesta IA",
+     "public opinion AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_03170803",
+    "name": "IA para directivos",
+    "definition": "Formación y recursos sobre IA generativa orientados a líderes y ejecutivos para la toma de decisiones.",
+    "wikipedia": "Executive education",
+    "queries": [
+     "IA para directivos",
+     "AI leadership",
+     "AI for executives"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9f127f33",
+    "name": "IA para debugging",
+    "definition": "Uso de asistentes de IA para detectar, diagnosticar y corregir errores en software.",
+    "wikipedia": "Debugging",
+    "queries": [
+     "AI debugging",
+     "IA detección bugs",
+     "ChatGPT debugging"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_510736c5",
+    "name": "Agentes persistentes",
+    "definition": "Agentes de IA que operan de forma continua y mantienen estado a lo largo de tareas de largo horizonte.",
+    "wikipedia": "Intelligent agent",
+    "queries": [
+     "always-on agents",
+     "persistent agents",
+     "long-horizon agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c7c95db2",
+    "name": "IA en tareas escolares",
+    "definition": "Impacto del uso de IA en deberes y trabajos escolares, incluyendo efectos en aprendizaje y exámenes.",
+    "wikipedia": "Academic dishonesty",
+    "queries": [
+     "AI homework",
+     "tareas escolares IA",
+     "AI education impact"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a19cba13",
+    "name": "Modelos de embeddings",
+    "definition": "Modelos como EmbeddingGemma que convierten texto, imágenes o audio en vectores para búsqueda y análisis.",
+    "wikipedia": "Word embedding",
+    "queries": [
+     "EmbeddingGemma",
+     "embedding models",
+     "sentence transformers"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_18bb36a6",
+    "name": "Edición de video con IA",
+    "definition": "Herramientas de IA para generar, restaurar, escalar y colorear video, con debates sobre calidad y autenticidad.",
+    "wikipedia": "Video editing",
+    "queries": [
+     "AI video editing",
+     "edición video IA",
+     "AI video restoration"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2377f9b9",
+    "name": "Percepción pública de la IA",
+    "definition": "Opinión y confianza del público hacia la IA, sus empresas y sus impactos sociales.",
+    "wikipedia": "Public opinion",
+    "queries": [
+     "public perception AI",
+     "percepción pública IA",
+     "AI trust survey"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,275 @@
+{
+ "key": "24ff82fe6be3af4f284dfaac9af67fd345df0cf8145ce471a715884f6f79501d",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T17:37:36.413Z",
+ "latencyMs": 12020,
+ "usage": {
+  "inputTokens": 3207,
+  "outputTokens": 1591
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_f04daa88",
+    "name": "IA en bienes raíces",
+    "definition": "Uso de IA para prospección, hipotecas y datos inmobiliarios en compra, venta e inversión de vivienda.",
+    "wikipedia": "Real estate technology",
+    "queries": [
+     "IA inmobiliaria",
+     "proptech IA",
+     "AI real estate",
+     "hipotecas IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e2d62c76",
+    "name": "IA para gestionar tareas",
+    "definition": "Herramientas de IA que priorizan, organizan y automatizan tareas personales, escolares o de equipo.",
+    "wikipedia": "Task management",
+    "queries": [
+     "IA tareas",
+     "task management AI",
+     "priorizar tareas IA",
+     "AI productivity tasks"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9462744a",
+    "name": "Edición de fotos con IA",
+    "definition": "Herramientas generativas para editar, restaurar o crear imágenes, compitiendo con Photoshop y editores open source.",
+    "wikipedia": "Image editing",
+    "queries": [
+     "edición fotos IA",
+     "AI photo editor",
+     "editar imágenes IA",
+     "generative image editing"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_227fe6dd",
+    "name": "Google Antigravity",
+    "definition": "Plataforma y SDK de Google para construir agentes y experiencias 3D en tiempo real con Gemini.",
+    "wikipedia": null,
+    "queries": [
+     "Google Antigravity",
+     "Antigravity SDK",
+     "Gemini Antigravity",
+     "Antigravity agentes"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_3a4c5469",
+    "name": "Algoritmos y sesgo",
+    "definition": "Debate sobre cómo los algoritmos de recomendación moldean el contenido, sesgan decisiones y generan responsabilidad.",
+    "wikipedia": "Algorithmic bias",
+    "queries": [
+     "sesgo algorítmico",
+     "algorithm bias",
+     "algoritmos recomendación",
+     "algorithmic accountability"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8c1e1eae",
+    "name": "IA para documentos",
+    "definition": "Procesamiento, generación y chat con documentos empresariales y oficiales mediante IA.",
+    "wikipedia": "Document processing",
+    "queries": [
+     "document AI",
+     "IA documentos",
+     "chat documentos IA",
+     "document automation"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_62dff93c",
+    "name": "Precios de modelos IA",
+    "definition": "Evolución de precios y costos de APIs y modelos de lenguaje como GPT, Claude y Gemini.",
+    "wikipedia": null,
+    "queries": [
+     "precios API IA",
+     "LLM pricing",
+     "costos modelos IA",
+     "API pricing AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_70ec8282",
+    "name": "Crédito y deuda",
+    "definition": "Presiones crediticias, calificaciones de riesgo y deuda en empresas tecnológicas y sectores vinculados a IA.",
+    "wikipedia": "Credit rating",
+    "queries": [
+     "calificación crediticia",
+     "credit rating AI",
+     "deuda tecnológica",
+     "junk credit AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d6a2f1e2",
+    "name": "OpenAI en Georgia",
+    "definition": "Inversión de OpenAI en infraestructura de datos cerca de un puerto de Georgia y su impacto regional.",
+    "wikipedia": null,
+    "queries": [
+     "OpenAI Georgia",
+     "OpenAI data center",
+     "inversión OpenAI",
+     "Georgia port OpenAI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_098f88c6",
+    "name": "ERP con IA",
+    "definition": "Integración de IA en sistemas ERP como SAP, TOTVS, Sage X3 y TallyPrime para automatizar finanzas y operaciones.",
+    "wikipedia": "Enterprise resource planning",
+    "queries": [
+     "ERP IA",
+     "AI ERP",
+     "SAP IA",
+     "TOTVS IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_cc8ade4c",
+    "name": "Accesibilidad e IA",
+    "definition": "Estudios y debates sobre si las herramientas de IA generan código y contenidos realmente accesibles.",
+    "wikipedia": "Web accessibility",
+    "queries": [
+     "accesibilidad IA",
+     "AI accessibility",
+     "accesibilidad web IA",
+     "accessible AI code"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_80104962",
+    "name": "Analítica de datos con IA",
+    "definition": "Uso de IA para analizar datos financieros, de marketing y empresariales, convirtiéndolos en decisiones.",
+    "wikipedia": "Analytics",
+    "queries": [
+     "analítica IA",
+     "AI analytics",
+     "datos empresariales IA",
+     "financial analytics AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c2ba08bd",
+    "name": "IA para comercio",
+    "definition": "Herramientas de IA para retail y ecommerce en plataformas como Shopify, Lightspeed, Mirakl y Stripe.",
+    "wikipedia": "E-commerce",
+    "queries": [
+     "IA Shopify",
+     "AI commerce",
+     "retail IA",
+     "agentic commerce"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_55a75b14",
+    "name": "Reconversión laboral por IA",
+    "definition": "Impacto de la automatización en el empleo y necesidad de reskilling y cambios de carrera.",
+    "wikipedia": "Reskilling",
+    "queries": [
+     "reconversión laboral",
+     "reskilling IA",
+     "AI job displacement",
+     "futuro del trabajo IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1631ae12",
+    "name": "IA en streaming",
+    "definition": "Uso de IA generativa en Netflix, YouTube y Google TV para producir y recomendar contenido audiovisual.",
+    "wikipedia": "Streaming media",
+    "queries": [
+     "IA streaming",
+     "Netflix IA",
+     "YouTube IA",
+     "AI video streaming"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_643e13ac",
+    "name": "IA en videojuegos",
+    "definition": "Posturas y resultados de estudios japoneses como Konami, Sega y Capcom frente a la IA generativa.",
+    "wikipedia": "Video game industry",
+    "queries": [
+     "IA videojuegos",
+     "AI gaming",
+     "Konami IA",
+     "Sega IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_19f35502",
+    "name": "Suscripciones de IA",
+    "definition": "Modelos de suscripción paga para acceder a funciones avanzadas de IA en Google, Adobe y otras plataformas.",
+    "wikipedia": "Subscription business model",
+    "queries": [
+     "suscripciones IA",
+     "AI subscription",
+     "planes Pro IA",
+     "paid AI tiers"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_77d3aeb5",
+    "name": "IA en música",
+    "definition": "Etiquetado y uso de IA generativa en plataformas de música como Spotify y YouTube Music.",
+    "wikipedia": "Music and artificial intelligence",
+    "queries": [
+     "IA música",
+     "AI music",
+     "Spotify IA",
+     "YouTube Music IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1e663d27",
+    "name": "Hardware para IA local",
+    "definition": "Chips y portátiles como RTX Spark y RTX Pro para ejecutar agentes de IA en local.",
+    "wikipedia": "Nvidia RTX",
+    "queries": [
+     "RTX Spark",
+     "hardware IA local",
+     "Nvidia RTX Pro",
+     "local AI chips"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_43173403",
+    "name": "IA en farmacéutica",
+    "definition": "Aplicación de IA generativa al descubrimiento de fármacos, enzimas y antibióticos en la industria farmacéutica.",
+    "wikipedia": "Drug discovery",
+    "queries": [
+     "IA farmacéutica",
+     "AI drug discovery",
+     "descubrimiento fármacos IA",
+     "AI pharma"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

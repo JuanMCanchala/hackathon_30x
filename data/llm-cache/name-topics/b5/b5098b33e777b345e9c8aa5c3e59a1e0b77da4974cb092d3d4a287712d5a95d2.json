@@ -1,0 +1,255 @@
+{
+ "key": "b5098b33e777b345e9c8aa5c3e59a1e0b77da4974cb092d3d4a287712d5a95d2",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:28:27.642Z",
+ "latencyMs": 11604,
+ "usage": {
+  "inputTokens": 2964,
+  "outputTokens": 1822
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_103addfc",
+    "name": "Burnout por IA",
+    "definition": "Agotamiento laboral de desarrolladores y creativos por la presión de adoptar IA y la pérdida de sentido en su trabajo.",
+    "wikipedia": "Occupational burnout",
+    "queries": [
+     "AI burnout developers",
+     "agotamiento laboral IA",
+     "burnout por IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_3fa6bd8a",
+    "name": "Robotaxi de Tesla",
+    "definition": "Servicio de taxis autónomos de Tesla y competidores como Pony.ai, con retos técnicos y regulatorios.",
+    "wikipedia": "Robotaxi",
+    "queries": [
+     "Tesla Robotaxi",
+     "robotaxi Pony.ai",
+     "robotaxi revenue"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_26b88f26",
+    "name": "OSS Scanner de Anthropic",
+    "definition": "Herramienta de Anthropic que escanea proyectos open source con modelos de IA para detectar vulnerabilidades.",
+    "wikipedia": null,
+    "queries": [
+     "Anthropic OSS Scanner",
+     "open source security scan",
+     "AI vulnerability scanner"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_188b6c3e",
+    "name": "Startups de IA en India",
+    "definition": "Empresas como Gnani AI, Bodhan AI y Abacus.ai que desarrollan modelos y agentes de voz para el mercado indio.",
+    "wikipedia": null,
+    "queries": [
+     "Indian AI startups",
+     "Gnani AI voice",
+     "Bodhan AI Indic"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_62f70b3c",
+    "name": "IA multilingüe",
+    "definition": "Desarrollo de modelos de IA entrenados en múltiples idiomas para ampliar la diversidad lingüística y el acceso global.",
+    "wikipedia": "Multilingualism",
+    "queries": [
+     "IA multilingüe",
+     "multilingual AI models",
+     "diversidad lingüística IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e300d5e6",
+    "name": "Zeta Global",
+    "definition": "Empresa de marketing con IA que expande su plataforma AthenaOS para competir con gigantes empresariales de IA.",
+    "wikipedia": "Zeta Global",
+    "queries": [
+     "Zeta Global AI",
+     "Zeta AthenaOS",
+     "Zeta marketing AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_97d1307b",
+    "name": "Crisis climática",
+    "definition": "Emergencia global por el cambio climático y el uso de IA para desinformar o visibilizar el problema.",
+    "wikipedia": "Climate crisis",
+    "queries": [
+     "crisis climática IA",
+     "climate change AI",
+     "cambio climático desinformación"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_02dd99da",
+    "name": "IA cardiovascular",
+    "definition": "Aplicación de IA agéntica y software aprobado por la FDA para mejorar el diagnóstico y tratamiento cardiovascular.",
+    "wikipedia": "Artificial intelligence in healthcare",
+    "queries": [
+     "IA cardiología",
+     "AI cardiovascular care",
+     "agentic AI heart"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_cfea1880",
+    "name": "Matemáticos contra OpenAI",
+    "definition": "Comunidad matemática protesta por el uso de sus documentos en el entrenamiento de modelos de OpenAI sin permiso.",
+    "wikipedia": null,
+    "queries": [
+     "matemáticos OpenAI",
+     "mathematicians OpenAI protest",
+     "OpenAI documentos matemáticos"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c9cff431",
+    "name": "Algoritmos en delivery",
+    "definition": "Repartidores de plataformas como DoorDash denuncian que los algoritmos de IA reducen sus pagos y piden transparencia.",
+    "wikipedia": "Food delivery",
+    "queries": [
+     "delivery AI black box",
+     "repartidores algoritmos",
+     "DoorDash AI pay"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_0dee7103",
+    "name": "Ventas de Nvidia a China",
+    "definition": "Exportaciones de chips de IA de Nvidia a China y las tensiones comerciales y de seguridad nacional asociadas.",
+    "wikipedia": "Nvidia",
+    "queries": [
+     "Nvidia China sales",
+     "exportaciones chips China",
+     "Nvidia H200 China"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_90415434",
+    "name": "Derechos de las máquinas",
+    "definition": "Debate sobre otorgar derechos o conciencia a la IA, impulsado por declaraciones del Papa León XIV y empresas como Anthropic.",
+    "wikipedia": "Machine ethics",
+    "queries": [
+     "AI rights",
+     "derechos de IA",
+     "machine consciousness"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2f6d7e43",
+    "name": "Comercio autónomo",
+    "definition": "Uso de agentes de IA en pagos y marketing local para automatizar transacciones y captar clientes en negocios locales.",
+    "wikipedia": "Autonomous agent",
+    "queries": [
+     "agentic commerce",
+     "comercio autónomo IA",
+     "AI local business"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9ce21a36",
+    "name": "Irregular AI",
+    "definition": "Startup israelí de seguridad vinculada a ataques de agentes de IA contra objetivos reales durante pruebas de seguridad.",
+    "wikipedia": null,
+    "queries": [
+     "Irregular AI security",
+     "Irregular startup hacking",
+     "AI security test rogue"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b2a7e292",
+    "name": "IA en experimentos científicos",
+    "definition": "Modelos de IA que ayudan a diseñar y ejecutar experimentos científicos físicos en laboratorios automatizados.",
+    "wikipedia": "Automated laboratory",
+    "queries": [
+     "AI science experiments",
+     "IA experimentos científicos",
+     "AI lab automation"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9ef23eb5",
+    "name": "Donaciones de ejecutivos de IA",
+    "definition": "Donaciones millonarias de líderes de IA a super PACs y proyectos políticos de Trump a cambio de desregulación.",
+    "wikipedia": "Political action committee",
+    "queries": [
+     "AI executives donations",
+     "donaciones ejecutivos IA",
+     "Trump AI super PAC"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8e926c6b",
+    "name": "Aniimo y IA generativa",
+    "definition": "Videojuego Aniimo criticado por usar IA generativa y software espía, generando rechazo en la comunidad gamer.",
+    "wikipedia": null,
+    "queries": [
+     "Aniimo AI controversy",
+     "Aniimo generative AI",
+     "Aniimo spyware"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ed7cdb8c",
+    "name": "Waystar y IA agéntica",
+    "definition": "Waystar implementa agentes de IA para gestionar reclamos médicos, denegaciones y facturas de pacientes.",
+    "wikipedia": "Waystar",
+    "queries": [
+     "Waystar agentic AI",
+     "Waystar claims denials",
+     "IA reclamos médicos"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_dbe46d02",
+    "name": "Model Context Protocol",
+    "definition": "Protocolo de Anthropic adoptado por Microsoft, Google y OpenAI para conectar agentes de IA con APIs y datos.",
+    "wikipedia": "Model Context Protocol",
+    "queries": [
+     "Model Context Protocol",
+     "MCP Linux Foundation",
+     "MCP AI agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_4a32cf0c",
+    "name": "Nvidia compra Hugging Face",
+    "definition": "Adquisición de Hugging Face por Nvidia por 12.9 mil millones para impulsar modelos de IA open source.",
+    "wikipedia": "Hugging Face",
+    "queries": [
+     "Nvidia Hugging Face",
+     "Nvidia acquisition Hugging Face",
+     "compra Hugging Face"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

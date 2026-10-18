@@ -1,0 +1,255 @@
+{
+ "key": "ab1de5bde6d5e3464e4fc259197589e3a840f34514fbeea9e60797131bfecaf2",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T17:35:14.279Z",
+ "latencyMs": 12689,
+ "usage": {
+  "inputTokens": 3284,
+  "outputTokens": 1466
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_0f159cf0",
+    "name": "Vibe coding",
+    "definition": "Programar dejando que la IA escriba el código a partir de instrucciones en lenguaje natural, sin revisar cada línea.",
+    "wikipedia": "Vibe coding",
+    "queries": [
+     "vibe coding",
+     "vibe coding empresarial",
+     "vibe coding críticas"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_bdff91ea",
+    "name": "Arte y animación con IA",
+    "definition": "Creación de imágenes, animaciones y piezas audiovisuales usando modelos generativos en lugar de herramientas tradicionales.",
+    "wikipedia": "Generative art",
+    "queries": [
+     "arte generativo IA",
+     "animación con IA",
+     "AI art tools"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_346b2d56",
+    "name": "Modelos de IA abiertos",
+    "definition": "Lanzamientos y comparativas de modelos de lenguaje de pesos abiertos que compiten con los cerrados.",
+    "wikipedia": "Open-weight model",
+    "queries": [
+     "open weight models",
+     "Mistral Large",
+     "modelos abiertos IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_09713a2d",
+    "name": "Automatización con IA",
+    "definition": "Uso de agentes y flujos automatizados para ejecutar tareas de trabajo sin intervención humana continua.",
+    "wikipedia": "Business process automation",
+    "queries": [
+     "automatización con IA",
+     "AI automation",
+     "agentic automation"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2a181d1e",
+    "name": "Agentes de IA",
+    "definition": "Sistemas que ejecutan tareas de forma autónoma usando herramientas, memoria y planificación prolongada.",
+    "wikipedia": "Intelligent agent",
+    "queries": [
+     "agentes de IA",
+     "AI agents",
+     "context engineering agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_85091172",
+    "name": "Video generado con IA",
+    "definition": "Producción de cortos, anuncios y películas mediante herramientas de generación y edición de video con IA.",
+    "wikipedia": "Text-to-video model",
+    "queries": [
+     "AI video generation",
+     "video con IA",
+     "AI filmmaking"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_126bb27f",
+    "name": "Capacidades de los LLM",
+    "definition": "Qué pueden y qué no pueden hacer los grandes modelos de lenguaje, y cómo medirlo.",
+    "wikipedia": "Large language model",
+    "queries": [
+     "LLM capabilities",
+     "benchmark LLM",
+     "capacidades LLM"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8a6557c7",
+    "name": "Gemini 4 Argon",
+    "definition": "Nueva generación de modelos Gemini de Google, con ventanas de contexto y salidas muy amplias.",
+    "wikipedia": "Gemini (chatbot)",
+    "queries": [
+     "Gemini 4 Argon",
+     "Gemini 4",
+     "Google Gemini demo"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_98db7ae2",
+    "name": "IA en educación",
+    "definition": "Uso de asistentes de IA por docentes y estudiantes en aulas, tareas y formación ejecutiva.",
+    "wikipedia": "Artificial intelligence in education",
+    "queries": [
+     "IA educación",
+     "AI in education",
+     "ChatGPT docentes"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_acda05b8",
+    "name": "Crítica a la IA",
+    "definition": "Rechazo público a herramientas, empresas y contenidos generados por IA en comunidades creativas y tecnológicas.",
+    "wikipedia": "AI backlash",
+    "queries": [
+     "AI backlash",
+     "crítica IA",
+     "anti AI movement"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a68c6328",
+    "name": "Riesgos de la IA",
+    "definition": "Debates sobre riesgos catastróficos, biológicos y de seguridad asociados a modelos avanzados.",
+    "wikipedia": "Existential risk from artificial intelligence",
+    "queries": [
+     "AI risk",
+     "riesgo IA",
+     "AI safety"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d3871488",
+    "name": "Marketing con IA",
+    "definition": "Aplicación de IA a campañas, contenidos, analítica y atención al cliente en equipos de marketing.",
+    "wikipedia": "Marketing automation",
+    "queries": [
+     "marketing con IA",
+     "AI marketing",
+     "agentic marketing"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_68c5f4e1",
+    "name": "IA y empleo",
+    "definition": "Impacto de la IA en despidos, creación de puestos y empleabilidad, especialmente entre jóvenes.",
+    "wikipedia": "Technological unemployment",
+    "queries": [
+     "IA y empleo",
+     "AI jobs",
+     "AI layoffs"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_01fc284f",
+    "name": "Código abierto e IA",
+    "definition": "Comunidades y proyectos open source que desarrollan modelos, agentes y herramientas de IA.",
+    "wikipedia": "Open-source software",
+    "queries": [
+     "open source AI",
+     "código abierto IA",
+     "open source agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_09d79abd",
+    "name": "MCP",
+    "definition": "Protocolo abierto para conectar modelos de IA con herramientas, datos y aplicaciones externas.",
+    "wikipedia": "Model Context Protocol",
+    "queries": [
+     "MCP protocol",
+     "MCP servers",
+     "MCP integraciones"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d1fb0ce5",
+    "name": "Adopción empresarial de IA",
+    "definition": "Cómo las grandes empresas integran IA en sus procesos, con casos, métricas y resultados.",
+    "wikipedia": "Artificial intelligence in business",
+    "queries": [
+     "adopción IA empresas",
+     "enterprise AI",
+     "AI adoption"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_6c4260e2",
+    "name": "Seguridad en IA",
+    "definition": "Riesgos, ataques y controles de seguridad asociados a asistentes, agentes y APIs de IA.",
+    "wikipedia": "AI safety",
+    "queries": [
+     "AI security",
+     "seguridad IA",
+     "AI agent security"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1a8f9fb4",
+    "name": "IA y búsqueda de empleo",
+    "definition": "Uso de IA para redactar CVs, filtrar candidatos y automatizar postulaciones laborales.",
+    "wikipedia": "Recruitment",
+    "queries": [
+     "IA búsqueda empleo",
+     "AI hiring",
+     "CV con IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_97919ea2",
+    "name": "Ciberseguridad con IA",
+    "definition": "Uso de IA tanto para lanzar ciberataques autónomos como para reforzar la ciberdefensa.",
+    "wikipedia": "AI-powered cybersecurity",
+    "queries": [
+     "AI cybersecurity",
+     "ciberataques IA",
+     "AI hacking"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f15e8e85",
+    "name": "Ventas con IA",
+    "definition": "Automatización de prospección, seguimiento y atención comercial mediante agentes y asistentes de IA.",
+    "wikipedia": "Sales automation",
+    "queries": [
+     "ventas con IA",
+     "AI sales",
+     "sales automation"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

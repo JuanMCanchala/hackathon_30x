@@ -1,0 +1,25 @@
+{
+ "key": "31a7cbd1b6e9be00870b39fd05dff5b4809abbe8964be955157967eaed44bb45",
+ "name": "ask",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T22:01:52.486Z",
+ "latencyMs": 8288,
+ "usage": {
+  "inputTokens": 4566,
+  "outputTokens": 580
+ },
+ "output": {
+  "answer": "No hay esta semana ningún tema etiquetado explícitamente como IA para ventas en el radar. Lo más cercano es Workday e IA agéntica, en etapa crecimiento (+620 %, 17 creadores, encaje 30X 6), que lleva agentes de IA a la gestión de contratos y cobra por el ahorro que generan: es el ángulo más vendible para un ejecutivo comercial. También puede servirte IA para multitarea (+460 %, encaje 30X 8), por el aviso de Gonzalo Bernardos sobre tareas repetitivas, y Apate y estafas con IA (+256 %, encaje 30X 7), útil si el equipo vende soluciones de confianza o antifraude. En el carril de «Se están formando» no aparece tampoco un tema de ventas puro; el más afín ahí es CERT-In y agentes de IA (encaje 30X 7), por el ángulo de agentes que actúan sin autorización. Si buscas un tema de ventas concreto, conviene mirar el radar por la etiqueta de uso comercial, porque en esta lista no está desglosado.",
+  "refs": [
+   "t_94e93fea",
+   "t_f941cb75",
+   "t_c92a4c02",
+   "t_1fb3f275"
+  ],
+  "followUps": [
+   "¿Hay algún tema de IA para marketing o atención al cliente creciendo esta semana?",
+   "¿Qué temas con encaje 30X alto (7-8) no hemos tocado todavía?",
+   "¿Workday e IA agéntica tiene creadores o redes concretas que podamos usar para un guion?"
+  ]
+ }
+}

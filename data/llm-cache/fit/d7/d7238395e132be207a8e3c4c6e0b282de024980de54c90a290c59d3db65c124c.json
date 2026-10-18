@@ -1,0 +1,24 @@
+{
+ "key": "d7238395e132be207a8e3c4c6e0b282de024980de54c90a290c59d3db65c124c",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:17:06.004Z",
+ "latencyMs": 9406,
+ "usage": {
+  "inputTokens": 744,
+  "outputTokens": 1256
+ },
+ "output": {
+  "score": 6,
+  "executive": 6,
+  "noCode": 8,
+  "latam": 3,
+  "pillar": "Next",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Impacta contratación y futuro del trabajo, no ventas directas.",
+   "Herramientas no-code ya permiten entrevistas y role-plays con IA.",
+   "Riesgo de sesgo y polémica; falta ángulo latinoamericano claro."
+  ]
+ }
+}

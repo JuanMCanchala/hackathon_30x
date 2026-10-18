@@ -1,0 +1,255 @@
+{
+ "key": "868ad5a2e9a09a32c256680282d009f6d384701fb51bbd454a7f8ad176dd8432",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:15:31.711Z",
+ "latencyMs": 10443,
+ "usage": {
+  "inputTokens": 3053,
+  "outputTokens": 1808
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_15c9af0a",
+    "name": "Amazon Quick MCP",
+    "definition": "Asistente de IA de AWS que ahora se conecta a servidores MCP para acceder a datos y herramientas externas de forma estandarizada.",
+    "wikipedia": null,
+    "queries": [
+     "Amazon Quick MCP",
+     "AWS Kiro agentes",
+     "Amazon Q connectors"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1db550da",
+    "name": "Binance Agent OS",
+    "definition": "Plataforma de Binance que permite conectar agentes de IA como ChatGPT o Claude a servicios financieros y cripto.",
+    "wikipedia": null,
+    "queries": [
+     "Binance Agent OS",
+     "agentes cripto IA",
+     "Binance AI agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1f9f0e11",
+    "name": "IA para PyMEs latinas",
+    "definition": "Adopción de inteligencia artificial por pequeñas y medianas empresas de Argentina, México y España para publicidad, video y ventas.",
+    "wikipedia": null,
+    "queries": [
+     "PyMEs IA Argentina",
+     "IA pymes México",
+     "AI SMEs Latin America"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_aa7fff94",
+    "name": "Teorema de Fermat formalizado",
+    "definition": "Anthropic usó Claude para formalizar el último teorema de Fermat en Lean, un hito en razonamiento matemático con IA.",
+    "wikipedia": "Fermat's Last Theorem",
+    "queries": [
+     "Fermat theorem Lean",
+     "Claude Fermat formalization",
+     "Anthropic matemáticas IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_6023f045",
+    "name": "IA en telecomunicaciones",
+    "definition": "Alianzas de operadores como Verizon, T-Mobile y Comcast con proveedores de IA para atención al cliente y operación de red.",
+    "wikipedia": null,
+    "queries": [
+     "Verizon Gemini Enterprise",
+     "Comcast AI video",
+     "telecom AI customer service"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8a29f33d",
+    "name": "Wonderful AI",
+    "definition": "Startup de IA agéntica que alcanzó una valuación de 5.000 millones de dólares con su sistema operativo para grandes empresas.",
+    "wikipedia": null,
+    "queries": [
+     "Wonderful AI startup",
+     "Wonderful Serie C",
+     "agentic AI enterprise"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_149bc086",
+    "name": "IA para fundadores",
+    "definition": "Uso de inteligencia artificial por emprendedores y CEOs de startups para automatizar operaciones, ventas y gestión.",
+    "wikipedia": null,
+    "queries": [
+     "IA para startups",
+     "AI for founders",
+     "IA para CEOs"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_63c7d918",
+    "name": "Filtraciones de modelos IA",
+    "definition": "Filtraciones e intrusiones que revelan avances internos de modelos como Claude o exponen vulnerabilidades en sistemas de IA.",
+    "wikipedia": null,
+    "queries": [
+     "Claude NEXT leak",
+     "AI model leak",
+     "filtración modelo IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_796a932e",
+    "name": "Herramientas IA educativas",
+    "definition": "Plataformas como Khanmigo, Kling o Tyk que aplican IA a tutoría, generación de video y gestión de APIs.",
+    "wikipedia": null,
+    "queries": [
+     "Khanmigo AI tutor",
+     "Kling AI video",
+     "Tyk API gateway"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9f647103",
+    "name": "Consumo energético de IA",
+    "definition": "Impacto del gasto energético y de recursos de la IA en consumidores, empresas y costos operativos globales.",
+    "wikipedia": null,
+    "queries": [
+     "AI energy consumption",
+     "consumo eléctrico IA",
+     "AI resource costs"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_add2cb95",
+    "name": "IA para freelancers",
+    "definition": "Freelancers y trabajadores autónomos que usan inteligencia artificial para automatizar servicios, crear ofertas y gestionar proyectos.",
+    "wikipedia": null,
+    "queries": [
+     "IA para freelancers",
+     "AI freelance work",
+     "automatización freelance"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_856711f2",
+    "name": "Marketing del miedo IA",
+    "definition": "Críticas a las narrativas apocalípticas de empresas de IA, señaladas como estrategias de marketing para desviar atención regulatoria.",
+    "wikipedia": null,
+    "queries": [
+     "AI doomsday marketing",
+     "marketing miedo IA",
+     "AI hype criticism"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_4dbd8a33",
+    "name": "Regulación IA en UE",
+    "definition": "Debate y aplicación del AI Act y normas europeas sobre inteligencia artificial, incluyendo consultas públicas y críticas de la industria.",
+    "wikipedia": "Artificial Intelligence Act",
+    "queries": [
+     "AI Act Europa",
+     "regulación IA UE",
+     "EU AI regulation"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_032d969d",
+    "name": "Bioseguridad e IA",
+    "definition": "Riesgos de que agentes de IA sean usados para ciberataques, creación de virus o intrusiones en sistemas de salud.",
+    "wikipedia": null,
+    "queries": [
+     "AI biosecurity",
+     "bioseguridad IA",
+     "AI virus creation"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e6dc695c",
+    "name": "Claude Agent SDK",
+    "definition": "Herramientas de Anthropic para construir agentes de IA vía CLI y SDK, incluyendo créditos para apps de terceros.",
+    "wikipedia": null,
+    "queries": [
+     "Claude Agent SDK",
+     "Anthropic agent CLI",
+     "Claude managed agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_210cf92f",
+    "name": "Moratoria IA en escuelas",
+    "definition": "Prohibiciones temporales del uso de IA generativa en escuelas públicas de Nueva York, San Francisco y Los Ángeles.",
+    "wikipedia": null,
+    "queries": [
+     "moratoria IA escuelas",
+     "AI school moratorium",
+     "AI ban schools"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_66533599",
+    "name": "IA self-hosted",
+    "definition": "Tendencia de ejecutar modelos y agentes de IA en infraestructura propia para mayor control, privacidad y personalización.",
+    "wikipedia": "Self-hosting",
+    "queries": [
+     "self-hosted AI",
+     "IA self-hosting",
+     "local AI agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f235dc0f",
+    "name": "Billonarios de IA",
+    "definition": "Fundadores e inversores de IA que acumulan riqueza e influencia política, generando debate sobre su poder y lujos.",
+    "wikipedia": null,
+    "queries": [
+     "AI billionaires",
+     "billonarios IA",
+     "AI startup founders"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_7b0be70f",
+    "name": "Spy x Family",
+    "definition": "Manga y anime de espionaje y comedia que sigue siendo tendencia en comunidades de fans y contenido generado por usuarios.",
+    "wikipedia": "Spy × Family",
+    "queries": [
+     "Spy x Family",
+     "Spy Family anime",
+     "Spy x Family manga"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f85e282b",
+    "name": "Google Play Books",
+    "definition": "Integración de Google Play Books con Gemini Notebooks y nuevos dispositivos Googlebook para lectura y productividad.",
+    "wikipedia": "Google Play Books",
+    "queries": [
+     "Google Play Books",
+     "Googlebook laptops",
+     "Gemini Notebooks"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

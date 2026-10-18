@@ -1,0 +1,21 @@
+{
+ "key": "0dd39ab695c2cc6bd21a789d0a64b0a17c74a6eafbf5f6b9d3f25825cbcd7ba3",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:20:25.135Z",
+ "latencyMs": 6627,
+ "usage": {
+  "inputTokens": 1201,
+  "outputTokens": 760
+ },
+ "output": {
+  "oneLiner": "NVIDIA publica alianzas de conducción autónoma y posts de texto en Bluesky y LinkedIn superan su mediana.",
+  "narrative": "5 de 5 piezas que despegaron son posts de texto, frente a 3 de 12 del resto: el formato corto y conversacional gana. 3 de 5 las publicó un creador de contenido, frente a 2 de 12 del resto. NVIDIA mueve el tema con dos posts en LinkedIn sobre alianzas de seguridad y la próxima década de conducción. En Bluesky el gancho es la ironía: Gemini dentro de CarPlay y flotas de BMW con bots agénticos.",
+  "cited": [
+   "bluesky:3mxsjbdf32s26",
+   "bluesky:3mxtimhfrw22o",
+   "linkedin:7516770896230010881",
+   "linkedin:7516573728458199042"
+  ]
+ }
+}

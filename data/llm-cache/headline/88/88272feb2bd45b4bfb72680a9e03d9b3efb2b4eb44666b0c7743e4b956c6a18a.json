@@ -1,0 +1,14 @@
+{
+ "key": "88272feb2bd45b4bfb72680a9e03d9b3efb2b4eb44666b0c7743e4b956c6a18a",
+ "name": "headline",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T17:39:59.791Z",
+ "latencyMs": 1960,
+ "usage": {
+  "inputTokens": 349,
+  "outputTokens": 35
+ },
+ "output": {
+  "headline": "La conversación de IA esta semana gira hacia la seguridad y regulación, los agentes de código y los modelos abiertos chinos"
+ }
+}

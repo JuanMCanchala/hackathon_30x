@@ -1,0 +1,275 @@
+{
+ "key": "7cfb94b788c55292f7aaad6f46a6dca4f8e18457cda57b74dd600382f4fb8a4e",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T17:36:07.944Z",
+ "latencyMs": 13067,
+ "usage": {
+  "inputTokens": 3391,
+  "outputTokens": 1764
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_ddd3313f",
+    "name": "Voz e IA conversacional",
+    "definition": "Herramientas y modelos que convierten voz a texto y habilitan interfaces habladas con IA.",
+    "wikipedia": "Speech recognition",
+    "queries": [
+     "voice AI tools",
+     "speech to text",
+     "ElevenLabs voz",
+     "transcripción con IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5ef02647",
+    "name": "IA en dispositivos personales",
+    "definition": "Integración de IA en iPhone, Mac, PC y otros dispositivos de uso cotidiano.",
+    "wikipedia": "Apple Intelligence",
+    "queries": [
+     "IA en iPhone",
+     "local AI Mac",
+     "AI smartphones",
+     "IA en PC"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ed44d677",
+    "name": "CRM con agentes de IA",
+    "definition": "Plataformas de CRM como Salesforce o Zoho que incorporan agentes de IA para ventas y soporte.",
+    "wikipedia": "Customer relationship management",
+    "queries": [
+     "Salesforce Agentforce",
+     "CRM AI agents",
+     "Pipedrive MCP",
+     "ServiceNow AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a55dd5aa",
+    "name": "Apps privadas con IA",
+    "definition": "Aplicaciones internas o personales creadas con IA, a menudo sin código y para uso privado.",
+    "wikipedia": "Vibe coding",
+    "queries": [
+     "private AI apps",
+     "vibe coding apps",
+     "internal AI tools",
+     "apps sin código"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c101e5fa",
+    "name": "Rondas de financiación IA",
+    "definition": "Levantamientos de capital por parte de startups de inteligencia artificial.",
+    "wikipedia": "Venture round",
+    "queries": [
+     "AI funding round",
+     "ronda inversión IA",
+     "startup funding",
+     "AI startup raises"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_680c34e3",
+    "name": "Alucinaciones de IA",
+    "definition": "Errores en que los modelos de lenguaje generan información falsa o inventada.",
+    "wikipedia": "Hallucination (artificial intelligence)",
+    "queries": [
+     "AI hallucinations",
+     "LLM hallucination",
+     "alucinaciones IA",
+     "fake citations AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_3953b668",
+    "name": "Ecosistema de startups IA",
+    "definition": "Entorno de emprendimiento, financiación y herramientas para startups de inteligencia artificial.",
+    "wikipedia": "Startup ecosystem",
+    "queries": [
+     "AI startup ecosystem",
+     "startup funding",
+     "ecosistema emprendedor",
+     "IA para startups"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_34f4bc21",
+    "name": "IA en banca",
+    "definition": "Uso de inteligencia artificial en bancos para atención al cliente, riesgo y operaciones.",
+    "wikipedia": "Artificial intelligence in banking",
+    "queries": [
+     "AI in banking",
+     "IA banca",
+     "banking AI agents",
+     "bancos inteligencia artificial"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_4fdbd41f",
+    "name": "Model Context Protocol",
+    "definition": "Estándar abierto que permite a modelos de IA conectarse con herramientas y datos externos.",
+    "wikipedia": "Model Context Protocol",
+    "queries": [
+     "Model Context Protocol",
+     "MCP vs API",
+     "MCP explained",
+     "MCP servers"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_0fdbca0e",
+    "name": "IA en atención al cliente",
+    "definition": "Uso de agentes de IA para gestionar consultas, llamadas y experiencia de cliente.",
+    "wikipedia": "Customer service",
+    "queries": [
+     "AI customer service",
+     "IA atención cliente",
+     "customer engagement AI",
+     "AI call center"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9169feda",
+    "name": "Semiconductores e IA",
+    "definition": "Fabricación, inversión y demanda de chips impulsada por la inteligencia artificial.",
+    "wikipedia": "Semiconductor industry",
+    "queries": [
+     "AI semiconductors",
+     "semiconductores IA",
+     "chip manufacturing",
+     "TSMC AI chips"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_0b45762f",
+    "name": "Ética y humanismo digital",
+    "definition": "Debate sobre dignidad humana, criterio ético y valores en el desarrollo de la IA.",
+    "wikipedia": "Digital humanism",
+    "queries": [
+     "AI ethics",
+     "humanismo digital",
+     "IA y dignidad",
+     "human-centered AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_fde42fdd",
+    "name": "IA y creatividad",
+    "definition": "Impacto de la inteligencia artificial en el trabajo creativo y la expresión artística.",
+    "wikipedia": "Artificial intelligence art",
+    "queries": [
+     "AI creativity",
+     "IA y creatividad",
+     "generative AI art",
+     "AI creative work"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d12cc5f9",
+    "name": "Hardware para IA local",
+    "definition": "Chips y equipos como DGX Spark o Cerebras para ejecutar modelos de IA localmente.",
+    "wikipedia": "AI accelerator",
+    "queries": [
+     "local AI hardware",
+     "DGX Spark",
+     "Cerebras AI",
+     "hardware IA local"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_7843f0e7",
+    "name": "IA para ejecutivos",
+    "definition": "Aplicaciones de inteligencia artificial para gestión, estrategia y escalado de empresas.",
+    "wikipedia": "Artificial intelligence for business",
+    "queries": [
+     "AI for executives",
+     "IA para directivos",
+     "AI for business",
+     "IA para pymes"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_71f9c040",
+    "name": "Líderes tech y IA",
+    "definition": "Declaraciones y posturas sobre IA de figuras como Musk, Nadella, Gates o Zuckerberg.",
+    "wikipedia": "Big Tech",
+    "queries": [
+     "tech leaders AI",
+     "Elon Musk AI",
+     "Satya Nadella AI",
+     "Bill Gates AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ddeb378e",
+    "name": "Datos de entrenamiento IA",
+    "definition": "Obtención, uso y controversias sobre los datos con que se entrenan los modelos de IA.",
+    "wikipedia": "Training, validation, and test data sets",
+    "queries": [
+     "AI training data",
+     "datos entrenamiento IA",
+     "LLM training data",
+     "data for AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ca413d56",
+    "name": "Ingeniería inversa con IA",
+    "definition": "Uso de inteligencia artificial para analizar, descompilar o clonar software y binarios.",
+    "wikipedia": "Reverse engineering",
+    "queries": [
+     "AI reverse engineering",
+     "ingeniería inversa IA",
+     "reverse engineer software",
+     "AI binary analysis"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_dcc2ab4f",
+    "name": "Espionaje corporativo tech",
+    "definition": "Casos de espionaje industrial o interno en empresas tecnológicas como OpenAI.",
+    "wikipedia": "Industrial espionage",
+    "queries": [
+     "corporate espionage",
+     "espionaje industrial",
+     "OpenAI spy",
+     "tech espionage"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f4128bb6",
+    "name": "Apps Android sin código",
+    "definition": "Creación de aplicaciones Android mediante herramientas de vibe coding y publicación en Google Play.",
+    "wikipedia": "Google Play",
+    "queries": [
+     "vibe coding Android",
+     "Google Play apps",
+     "no-code Android",
+     "apps sin código"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

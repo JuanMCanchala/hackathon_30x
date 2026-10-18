@@ -1,0 +1,255 @@
+{
+ "key": "f8050b5ab0039c33008c29595e7befc89af49344f2822481c18778517201a00a",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:28:45.727Z",
+ "latencyMs": 10139,
+ "usage": {
+  "inputTokens": 2998,
+  "outputTokens": 1790
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_5e6770d4",
+    "name": "Jailbreaks de IA",
+    "definition": "Técnicas para burlar los filtros de seguridad de los modelos de lenguaje y obtener respuestas restringidas.",
+    "wikipedia": "Prompt injection",
+    "queries": [
+     "jailbreak LLM",
+     "prompt injection",
+     "AI guardrails bypass"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a26ef3c4",
+    "name": "Marketing engañoso con IA",
+    "definition": "Publicidad y reseñas falsas generadas con IA que distorsionan la realidad y engañan a los consumidores.",
+    "wikipedia": "False advertising",
+    "queries": [
+     "publicidad engañosa IA",
+     "reseñas falsas IA",
+     "AI deceptive marketing"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f941cb75",
+    "name": "IA para multitarea",
+    "definition": "Herramientas de IA que gestionan tareas complejas, largas o repetitivas para aumentar la productividad ejecutiva.",
+    "wikipedia": "Multitasking",
+    "queries": [
+     "IA multitarea",
+     "Gemini tareas complejas",
+     "AI complex tasks"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_afd530d1",
+    "name": "IA local y agentes",
+    "definition": "Modelos de IA que se ejecutan localmente y agentes autónomos que mejoran su propio rendimiento.",
+    "wikipedia": "Local AI",
+    "queries": [
+     "IA local coding",
+     "self-improving agents",
+     "Warp Claude agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_75b67a85",
+    "name": "Carrera de modelos de IA",
+    "definition": "Competencia entre empresas por desarrollar los modelos de IA más avanzados y dominar el mercado.",
+    "wikipedia": "AI race",
+    "queries": [
+     "carrera modelos IA",
+     "OpenAI vs Anthropic",
+     "Gemini 4 Carbon"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_4b694cd7",
+    "name": "IA en defensa de EE.UU.",
+    "definition": "Integración de sistemas de IA como Claude y Grok en operaciones militares y de defensa de Estados Unidos.",
+    "wikipedia": "Artificial intelligence in military applications",
+    "queries": [
+     "IA ejército EE.UU.",
+     "Claude US Navy",
+     "military AI integration"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_50ca59a8",
+    "name": "Animación y memes con IA",
+    "definition": "Creación de caricaturas, memes y motion graphics mediante herramientas de inteligencia artificial generativa.",
+    "wikipedia": "AI-generated animation",
+    "queries": [
+     "motion graphics IA",
+     "caricatura ChatGPT",
+     "AI memes animation"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c6e84315",
+    "name": "Oportunidades de negocio con IA",
+    "definition": "Identificación de nuevas oportunidades económicas, inversión y desarrollo de negocio basadas en inteligencia artificial.",
+    "wikipedia": "Business opportunity",
+    "queries": [
+     "oportunidades negocio IA",
+     "inversión IA",
+     "AI business opportunities"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_3f52e0e6",
+    "name": "Contenido educativo con IA",
+    "definition": "Uso de IA generativa para crear material educativo, entrenar modelos y difundir conocimiento sobre inteligencia artificial.",
+    "wikipedia": "Educational technology",
+    "queries": [
+     "contenido educativo IA",
+     "entrenamiento IA generativa",
+     "AI educational content"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_3a95c3f2",
+    "name": "Presentaciones con IA",
+    "definition": "Generación automática de presentaciones estilo consultoría y dashboards mediante herramientas de inteligencia artificial.",
+    "wikipedia": "Presentation program",
+    "queries": [
+     "presentaciones IA",
+     "PowerPoint con IA",
+     "AI consulting slides"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_caf4e0f8",
+    "name": "Capacidad de cómputo",
+    "definition": "Infraestructura de supercomputación y centros de datos necesarios para entrenar y ejecutar modelos de IA.",
+    "wikipedia": "Supercomputer",
+    "queries": [
+     "capacidad cómputo IA",
+     "supercomputación IA",
+     "AI data centers"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8665b092",
+    "name": "Datos de clientes e IA",
+    "definition": "Uso, apropiación y controversias sobre datos de usuarios para entrenar modelos de inteligencia artificial.",
+    "wikipedia": "Customer data",
+    "queries": [
+     "datos clientes IA",
+     "user data training",
+     "AI data privacy"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ef5c0f88",
+    "name": "Algoritmos de reparto",
+    "definition": "Sistemas algorítmicos que asignan pedidos y fijan pagos en plataformas de reparto, cuestionados por opacos.",
+    "wikipedia": "Algorithmic management",
+    "queries": [
+     "algoritmos reparto",
+     "delivery algorithms",
+     "AI black box riders"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_17b42e5d",
+    "name": "IA y justicia",
+    "definition": "Aplicación de inteligencia artificial en el poder judicial y debates sobre su regulación y uso en tribunales.",
+    "wikipedia": "Artificial intelligence and law",
+    "queries": [
+     "IA justicia",
+     "AI court evidence",
+     "regulación IA judicial"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_bf6348e3",
+    "name": "IA modular y vertical",
+    "definition": "Enfoque de IA especializada por industria y funciones modulares, con estándares y seguros para agentes.",
+    "wikipedia": "Vertical market",
+    "queries": [
+     "IA vertical",
+     "modular AI agents",
+     "contextual AI tools"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d8a57fec",
+    "name": "Directores de cine e IA",
+    "definition": "Cineastas reconocidos que incorporan o critican el uso de inteligencia artificial generativa en sus películas.",
+    "wikipedia": "Generative artificial intelligence in film",
+    "queries": [
+     "directores IA cine",
+     "Danny Boyle IA",
+     "James Cameron Stability AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e593124e",
+    "name": "Acciones de Alphabet",
+    "definition": "Evolución bursátil de Alphabet y su relación con los avances y dudas en torno a los modelos Gemini.",
+    "wikipedia": "Alphabet Inc.",
+    "queries": [
+     "acciones Alphabet",
+     "Google stock Gemini",
+     "Alphabet AI investors"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_0dcb68d9",
+    "name": "Flujo de desarrollo con IA",
+    "definition": "Metodologías y herramientas que integran inteligencia artificial en el ciclo de desarrollo de software.",
+    "wikipedia": "Software development process",
+    "queries": [
+     "flujo desarrollo IA",
+     "AI dev workflow",
+     "building AI agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_00d2f3b1",
+    "name": "Agentes de ciberseguridad",
+    "definition": "Uso de agentes de IA para investigación de seguridad, detección de amenazas y respuesta automatizada.",
+    "wikipedia": "Computer security",
+    "queries": [
+     "agentes ciberseguridad",
+     "AI security research",
+     "cybersecurity agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1f01439d",
+    "name": "Código de conducta IA",
+    "definition": "Normas y principios publicados por empresas como Microsoft para guiar el comportamiento ético de sus modelos de IA.",
+    "wikipedia": "Ethics of artificial intelligence",
+    "queries": [
+     "código conducta IA",
+     "Microsoft AI conduct",
+     "AI safety guidelines"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

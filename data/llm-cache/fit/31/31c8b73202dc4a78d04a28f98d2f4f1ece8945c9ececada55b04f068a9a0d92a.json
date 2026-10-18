@@ -1,0 +1,24 @@
+{
+ "key": "31c8b73202dc4a78d04a28f98d2f4f1ece8945c9ececada55b04f068a9a0d92a",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:29:06.005Z",
+ "latencyMs": 5127,
+ "usage": {
+  "inputTokens": 774,
+  "outputTokens": 557
+ },
+ "output": {
+  "score": 2,
+  "executive": 3,
+  "noCode": 3,
+  "latam": 1,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "alto",
+  "reasons": [
+   "Polémica política y tragedia real, poco aplicable a negocios.",
+   "Muestra riesgos de deepfakes, pero sin ángulo LatAm ni acción comercial.",
+   "No enseña ventas, growth ni productividad; solo escándalo viral."
+  ]
+ }
+}

@@ -1,0 +1,21 @@
+{
+ "key": "84c2a5a0ff470b9276a20c48850699bc88f68998a355a1a93cabdd8be90379e2",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:18:09.309Z",
+ "latencyMs": 10045,
+ "usage": {
+  "inputTokens": 1550,
+  "outputTokens": 1699
+ },
+ "output": {
+  "oneLiner": "El debate sobre alternativas open source a la IA crece en Bluesky, impulsado por creadores de contenido.",
+  "narrative": "Las piezas que despegan son posts de texto: 9 de 10 frente a 3 de 9 del resto. Las publica un creador de contenido en 7 de 10 casos, frente a 1 de 9 del resto, y 4 de 10 apelan a la utilidad práctica. El momento pesa: 3 de 10 salieron en la tarde, frente a 0 de 9 del resto. En Bluesky, John, 𝔢𝔪𝔬𝔯𝔲𝔦 y Baagender Pride empujan el debate sobre clones de Adobe y alternativas open source, mientras la noticia de Linus Torvalds sobre prohibiciones de código con IA marca la gobernanza.",
+  "cited": [
+   "bluesky:3mxuclg2l4c22",
+   "bluesky:3mxqpsnz4ec2x",
+   "bluesky:3mxvbqenb7c2j",
+   "news:CBMimgFBVV95cUxOV2NzRHA5bjFIOHhGQ1hmT0Nxd0E0MmNQRWFmS0tkbVRwbVNUX203d1Q0Njh4S05YWVAzNWNBRDVVd3VxTGQ0R0hxT0J3LXAxYTM1bGhFcm1wRXU5Z3dueU5GbEpGa3pXTnNwYkJwVy0tZG1zNmVxRWc0STA2QTNJcjh1NzJadlA3amtqaWxHejktVmNPX0t1YzdB"
+  ]
+ }
+}

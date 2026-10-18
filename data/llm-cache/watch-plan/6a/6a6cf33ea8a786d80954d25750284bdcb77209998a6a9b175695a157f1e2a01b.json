@@ -1,0 +1,51 @@
+{
+ "key": "6a6cf33ea8a786d80954d25750284bdcb77209998a6a9b175695a157f1e2a01b",
+ "name": "watch-plan",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T23:39:59.520Z",
+ "latencyMs": 2216,
+ "usage": {
+  "inputTokens": 384,
+  "outputTokens": 156
+ },
+ "output": {
+  "en": {
+   "queries": [
+    "business trends 2026",
+    "business strategy AI",
+    "entrepreneurship latest news"
+   ],
+   "match": [
+    "business",
+    "businesses",
+    "company",
+    "companies",
+    "entrepreneurship",
+    "startup",
+    "startups",
+    "commerce",
+    "corporate",
+    "management"
+   ]
+  },
+  "pt": {
+   "queries": [
+    "tendências negócios 2026",
+    "estratégia negócios IA",
+    "empreendedorismo notícias"
+   ],
+   "match": [
+    "negócios",
+    "negócio",
+    "empresa",
+    "empresas",
+    "empreendedorismo",
+    "startup",
+    "startups",
+    "comércio",
+    "corporativo",
+    "gestão"
+   ]
+  }
+ }
+}

@@ -1,0 +1,255 @@
+{
+ "key": "530cca2779ce56006559f0f1a158d92c3e6d772ffaff2ad27c1b595d5dfa20eb",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T21:54:08.491Z",
+ "latencyMs": 19817,
+ "usage": {
+  "inputTokens": 2936,
+  "outputTokens": 1843
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_4b39b8ca",
+    "name": "GSA y contratación de IA",
+    "definition": "La agencia federal de compras de EE.UU. define cláusulas y acuerdos marco para que el gobierno adopte IA de proveedores como Anthropic.",
+    "wikipedia": "General Services Administration",
+    "queries": [
+     "GSA AI contract",
+     "GSA OneGov Claude",
+     "contratación IA gobierno"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8a955963",
+    "name": "Regulación de IA en Massachusetts",
+    "definition": "Debate político y electoral en Massachusetts sobre leyes de seguridad de IA, protagonizado por Ed Markey y Lori Trahan.",
+    "wikipedia": null,
+    "queries": [
+     "Ed Markey AI",
+     "Massachusetts AI regulation",
+     "Lori Trahan AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ae03cb6a",
+    "name": "AI washing",
+    "definition": "Práctica de empresas que exageran o etiquetan productos como IA sin sustento real, similar al greenwashing.",
+    "wikipedia": "AI washing",
+    "queries": [
+     "AI washing",
+     "AI washing empresas",
+     "exagerar capacidades IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ea9ec894",
+    "name": "IA y abuso infantil",
+    "definition": "Auge de material de abuso infantil generado con IA y los debates legales y éticos que desata.",
+    "wikipedia": "Child sexual abuse material",
+    "queries": [
+     "AI child abuse",
+     "IA abuso infantil",
+     "CSAM AI generated"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_031c5a1c",
+    "name": "Conectores MCP",
+    "definition": "Estándar de Anthropic para conectar modelos de IA con herramientas y datos empresariales, con autenticación gestionada.",
+    "wikipedia": "Model Context Protocol",
+    "queries": [
+     "MCP connectors",
+     "Anthropic MCP",
+     "conectores MCP empresa"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_4a250888",
+    "name": "Clay",
+    "definition": "Startup de ventas B2B con IA que levantó 115 millones a una valoración de 7.100 millones de dólares.",
+    "wikipedia": "Clay (company)",
+    "queries": [
+     "Clay AI sales",
+     "Clay funding",
+     "Clay ventas IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_40293d93",
+    "name": "EMMS 2026",
+    "definition": "Evento de marketing en Mar del Plata donde se debate cómo la IA ejecuta campañas de punta a punta.",
+    "wikipedia": null,
+    "queries": [
+     "EMMS 2026",
+     "EMMS marketing IA",
+     "evento EMMS Mar del Plata"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_89ac2103",
+    "name": "Telemetría y IA",
+    "definition": "Debate sobre la recolección de datos de uso en herramientas de IA y software, y su relación con la privacidad.",
+    "wikipedia": "Telemetry",
+    "queries": [
+     "AI telemetry",
+     "telemetría IA privacidad",
+     "Claude Code telemetry"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e2d789d4",
+    "name": "IA en broadcast",
+    "definition": "Aplicaciones de IA en radio, televisión y streaming: desde workflows multilingües hasta entrevistas generadas.",
+    "wikipedia": "Broadcasting",
+    "queries": [
+     "AI broadcast",
+     "IA radio televisión",
+     "broadcast workflow AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_83eba09f",
+    "name": "IA e IoT",
+    "definition": "Integración de inteligencia artificial con dispositivos conectados, desde electrodomésticos hasta agricultura de precisión.",
+    "wikipedia": "Internet of things",
+    "queries": [
+     "AI IoT",
+     "IA internet de las cosas",
+     "IoT inteligencia artificial"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_64f1542d",
+    "name": "Arte vs IA",
+    "definition": "Conflicto entre artistas humanos y la generación de imágenes con IA, con debates sobre derechos y sustitución.",
+    "wikipedia": "Artificial intelligence art",
+    "queries": [
+     "AI art controversy",
+     "arte vs IA",
+     "artistas contra IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_6272c8a3",
+    "name": "Bases de datos para agentes",
+    "definition": "Nuevas bases de datos en tiempo real diseñadas para gestionar el estado y las operaciones de agentes de IA.",
+    "wikipedia": "InstantDB",
+    "queries": [
+     "InstantDB OpenAI",
+     "AI agent database",
+     "bases de datos agentes IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c8ad1e68",
+    "name": "Jailbreak de LLM",
+    "definition": "Técnicas para eludir las restricciones de seguridad de modelos de lenguaje, incluyendo inyección de prompts y robo de tokens.",
+    "wikipedia": "Prompt injection",
+    "queries": [
+     "LLM jailbreak",
+     "jailbreak IA",
+     "prompt injection"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_00784283",
+    "name": "Precios de Gemini API",
+    "definition": "Cambios en las tarifas y niveles gratuitos de la API de Google Gemini para empresas y desarrolladores.",
+    "wikipedia": "Gemini (chatbot)",
+    "queries": [
+     "Gemini API pricing",
+     "precios Gemini API",
+     "Google Gemini precios"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ac3cb9c7",
+    "name": "Inteligencia de mercado con IA",
+    "definition": "Plataformas como AlphaSense, Dataminr y HawkSearch que usan IA para análisis financiero y de riesgos en tiempo real.",
+    "wikipedia": "AlphaSense",
+    "queries": [
+     "AlphaSense AI",
+     "Dataminr AI",
+     "inteligencia mercado IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9a4a4fda",
+    "name": "V7 y VGen",
+    "definition": "Herramientas de anotación de datos y generación de imágenes con IA, y su impacto en artistas y flujos de trabajo.",
+    "wikipedia": "V7 (company)",
+    "queries": [
+     "V7 AI",
+     "VGen generative AI",
+     "V7 GPT-5"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_14d79635",
+    "name": "Flock y vigilancia con IA",
+    "definition": "Empresa de cámaras con IA para vigilancia policial que enfrenta críticas por privacidad y despidos.",
+    "wikipedia": "Flock Safety",
+    "queries": [
+     "Flock surveillance AI",
+     "Flock Safety",
+     "vigilancia IA Flock"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_13cca391",
+    "name": "IA en escuelas de negocio",
+    "definition": "Programas de formación ejecutiva en IA de universidades como UVA Darden, Wharton y Yale, y su impacto laboral.",
+    "wikipedia": "Darden School of Business",
+    "queries": [
+     "UVA Darden AI",
+     "Wharton AI",
+     "Yale AI education"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9a97d494",
+    "name": "NCSC y agentes de IA",
+    "definition": "Guía del centro de ciberseguridad británico para gestionar riesgos de agentes autónomos de IA en organizaciones.",
+    "wikipedia": "National Cyber Security Centre (United Kingdom)",
+    "queries": [
+     "NCSC agentic AI",
+     "NCSC AI guidance",
+     "riesgos agentes IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8b079e91",
+    "name": "IA y empleo turístico",
+    "definition": "Impacto de la inteligencia artificial en el sector turístico: transformación de tareas y posible pérdida de puestos.",
+    "wikipedia": "Tourism",
+    "queries": [
+     "IA empleo turístico",
+     "AI tourism jobs",
+     "WTTC IA empleo"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

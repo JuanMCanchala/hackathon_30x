@@ -1,0 +1,21 @@
+{
+ "key": "332d4bca25c178119711518f8bacf1ea11dbb584366c9656ebd652e851dcad03",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:19:36.240Z",
+ "latencyMs": 8918,
+ "usage": {
+  "inputTokens": 1576,
+  "outputTokens": 1086
+ },
+ "output": {
+  "oneLiner": "Cresta lanza un agente pos-atención y creadores satirizan a los agentes que no resuelven reclamos.",
+  "narrative": "4 de 5 piezas que despegaron las publicó un creador de contenido, frente a 0 de 33 del resto, y 4 de 5 son posts de texto. El gancho es la sátira: agentes que hacen el servicio menos servicio, como el post de Rick CarBOOso's Private Fire Crew. 4 de 5 salieron en la tarde, cuando el debate sobre empleo y atención al cliente se cruza, como en el video de Andrea Eskailet. Frente a eso, Salesforce muestra el caso real de Groutie, que gestiona más de 3.000 correos semanales.",
+  "cited": [
+   "bluesky:3mxp5qtwf2s2z",
+   "linkedin:7516211460226699264",
+   "youtube:90ljQHUfUqs",
+   "bluesky:3mxa62vksyk2u"
+  ]
+ }
+}

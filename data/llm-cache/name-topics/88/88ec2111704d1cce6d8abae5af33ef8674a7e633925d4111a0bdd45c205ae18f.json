@@ -1,0 +1,255 @@
+{
+ "key": "88ec2111704d1cce6d8abae5af33ef8674a7e633925d4111a0bdd45c205ae18f",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T17:39:47.730Z",
+ "latencyMs": 12300,
+ "usage": {
+  "inputTokens": 2821,
+  "outputTokens": 1852
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_d5184070",
+    "name": "Mac Mini y IA local",
+    "definition": "Uso de Mac Mini, Mac Studio y chips Apple Silicon para ejecutar modelos de IA localmente sin depender de la nube.",
+    "wikipedia": "Apple silicon",
+    "queries": [
+     "Mac Mini local AI",
+     "Apple Silicon LLM",
+     "Mac Studio AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d9331c5b",
+    "name": "IA para ahorrar tiempo",
+    "definition": "Herramientas y flujos de trabajo con IA que prometen reducir el tiempo dedicado a tareas profesionales y personales.",
+    "wikipedia": "Productivity",
+    "queries": [
+     "IA ahorro tiempo",
+     "AI productivity tools",
+     "automatización tareas IA"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_5884fe67",
+    "name": "Alternativas open source a Adobe",
+    "definition": "Herramientas gratuitas y de código abierto, muchas con IA, que compiten con Photoshop, Premiere, After Effects y otras suites de Adobe.",
+    "wikipedia": "Adobe Inc.",
+    "queries": [
+     "alternativas Adobe open source",
+     "After Effects alternative",
+     "open source Photoshop"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_6bd24515",
+    "name": "Summits de IA en 2026",
+    "definition": "Eventos y cumbres empresariales en España y Latinoamérica que debaten el impacto de la IA en productividad, talento y futuro.",
+    "wikipedia": null,
+    "queries": [
+     "summit IA 2026",
+     "cumbre inteligencia artificial",
+     "evento IA empresarial"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a5d9a5e8",
+    "name": "IA en entrevistas de trabajo",
+    "definition": "Uso de inteligencia artificial por candidatos y empresas en procesos de selección, entrevistas y búsqueda de empleo.",
+    "wikipedia": "Job interview",
+    "queries": [
+     "IA entrevista trabajo",
+     "AI job interview",
+     "entrevistas con IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_423ede71",
+    "name": "Atención lineal en IA",
+    "definition": "Técnicas de atención eficiente y de contexto largo que reducen el coste computacional de los modelos de lenguaje.",
+    "wikipedia": "Attention (machine learning)",
+    "queries": [
+     "linear attention",
+     "sparse attention",
+     "long context attention"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ce950199",
+    "name": "Habilidades humanas e IA",
+    "definition": "Debate sobre cómo la IA revaloriza capacidades humanas como liderazgo, criterio y creatividad en el mercado laboral.",
+    "wikipedia": "Human capital",
+    "queries": [
+     "habilidades humanas IA",
+     "human skills AI",
+     "talento humano IA"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_f1038feb",
+    "name": "Términos de servicio e IA",
+    "definition": "Cambios en términos de uso que permiten a las empresas usar datos de usuarios para entrenar IA, y su regulación.",
+    "wikipedia": "Terms of service",
+    "queries": [
+     "términos de servicio IA",
+     "AI terms of service",
+     "ToS entrenamiento IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_6c37e5bb",
+    "name": "Exportaciones de chips a China",
+    "definition": "Restricciones de Taiwán y EE. UU. a la venta de chips de IA a China y su impacto en la industria tecnológica.",
+    "wikipedia": "Semiconductor industry",
+    "queries": [
+     "chips IA China",
+     "Taiwán exportaciones chips",
+     "AI chip export"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_59a2262b",
+    "name": "Razonamiento visual de modelos",
+    "definition": "Capacidad de los modelos de IA para razonar usando imágenes dentro de cadenas de pensamiento y verificadores visuales.",
+    "wikipedia": "Visual reasoning",
+    "queries": [
+     "razonamiento visual IA",
+     "visual reasoning models",
+     "chain of thought images"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c1224b2c",
+    "name": "Regulación de IA en el Congreso",
+    "definition": "Debates y proyectos de ley en el Congreso y Senado de EE. UU. para regular la inteligencia artificial.",
+    "wikipedia": "Regulation of artificial intelligence",
+    "queries": [
+     "regulación IA Congreso",
+     "AI regulation Congress",
+     "Senado IA EEUU"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c50cce14",
+    "name": "IA en América Latina",
+    "definition": "Adopción, oportunidades y debates sobre inteligencia artificial en México, Perú y el resto de Latinoamérica.",
+    "wikipedia": "Artificial intelligence in Latin America",
+    "queries": [
+     "IA América Latina",
+     "AI Latin America",
+     "inteligencia artificial LATAM"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_482c67c6",
+    "name": "Metaclade Research",
+    "definition": "Firma de investigación que publica informes sobre proveedores de datos de entrenamiento para modelos de lenguaje.",
+    "wikipedia": null,
+    "queries": [
+     "Metaclade Research",
+     "LLM training data",
+     "proveedores datos LLM"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a9a509b3",
+    "name": "LLM locales",
+    "definition": "Modelos de lenguaje ejecutados en hardware propio, con foco en privacidad, coste y rendimiento frente a la nube.",
+    "wikipedia": "Large language model",
+    "queries": [
+     "LLM locales",
+     "local LLM hardware",
+     "modelos IA locales"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ad3fd2d7",
+    "name": "Proveedores de datos para IA",
+    "definition": "Empresas que suministran datasets y datos de entrenamiento para modelos de lenguaje y sistemas de IA.",
+    "wikipedia": "Training data",
+    "queries": [
+     "proveedores datos IA",
+     "LLM training data providers",
+     "datasets entrenamiento IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_dd30b238",
+    "name": "Compresión y generación de video",
+    "definition": "Técnicas generativas y autorregresivas para comprimir, generar y modelar video con IA, incluyendo world models.",
+    "wikipedia": "Video compression",
+    "queries": [
+     "generative video compression",
+     "autoregressive video",
+     "video world models"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8a8c2119",
+    "name": "Acceso a internet e IA",
+    "definition": "Brecha digital global y esfuerzos por ampliar el acceso a internet y a herramientas de IA como Gemini.",
+    "wikipedia": "Digital divide",
+    "queries": [
+     "acceso internet IA",
+     "digital divide AI",
+     "brecha digital IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d4002d00",
+    "name": "Agentes de IA en WhatsApp",
+    "definition": "Creación de agentes y automatizaciones de IA integradas en WhatsApp, KakaoTalk y otras apps de mensajería.",
+    "wikipedia": "WhatsApp",
+    "queries": [
+     "agentes IA WhatsApp",
+     "WhatsApp business AI",
+     "KakaoTalk AI agent"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5f2d0072",
+    "name": "Bugs generados por IA",
+    "definition": "Aumento de fallos de software introducidos o detectados con ayuda de IA, y su impacto en la calidad del código.",
+    "wikipedia": "Software bug",
+    "queries": [
+     "bugs generados IA",
+     "AI generated bugs",
+     "detección bugs IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1018be33",
+    "name": "Firefox y funciones de IA",
+    "definition": "Integración de IA en Firefox y Chrome, incluyendo resúmenes automáticos y gobernanza de IA en navegadores empresariales.",
+    "wikipedia": "Firefox",
+    "queries": [
+     "Firefox IA",
+     "Firefox AI features",
+     "navegador IA resumen"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

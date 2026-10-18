@@ -1,0 +1,24 @@
+{
+ "key": "83dfe8a44df4f5c5826b740d214b53fed653c1459690f0ba906d3b40311b5938",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:29:12.332Z",
+ "latencyMs": 5240,
+ "usage": {
+  "inputTokens": 774,
+  "outputTokens": 654
+ },
+ "output": {
+  "score": 4,
+  "executive": 5,
+  "noCode": 7,
+  "latam": 2,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "alto",
+  "reasons": [
+   "Caso político y viral, poco aplicable a negocios LatAm.",
+   "Ilustra riesgos reputacionales del contenido generado con IA.",
+   "Tema polarizante; puede distraer de aplicaciones prácticas."
+  ]
+ }
+}

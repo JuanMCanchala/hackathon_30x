@@ -1,0 +1,22 @@
+{
+ "key": "b03293fa41cd5d726fdac03efc255fec20c05f34c16e5a01581153f13ff93c25",
+ "name": "watch-video",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T23:46:42.647Z",
+ "latencyMs": 25383,
+ "usage": {
+  "inputTokens": 626,
+  "outputTokens": 264
+ },
+ "output": {
+  "hook": "Mientras hablo contigo en este video, la IA está trabajando en mi computadora de forma automática.",
+  "points": [
+   "En 2026 esto ya es realidad: no estoy tocando nada y la IA opera todo lo que le pido automáticamente.",
+   "La IA está configurando mis cuentas de tráfico pago: crea las campañas, adjunta los creativos y coloca las descripciones.",
+   "Esto es posible cuando entiendes cómo operar la IA: usamos Cloud, que está conectado con Facebook y Meta Ads, y a partir de una conversación y un contexto hace todo el proceso automáticamente.",
+   "Antes una persona hacía toda la configuración manualmente, podía haber errores o distracciones porque Facebook tiene muchos botones; con un robot garantizas que no haya errores si le das un buen contexto.",
+   "Mi empresa hoy funciona 90% entera con robots."
+  ],
+  "idea": "Muestra cómo su empresa opera casi totalmente con IA, usando Cloud conectado a Meta Ads para crear campañas sin errores, y funciona porque demuestra con evidencia en pantalla una automatización real que reemplaza el trabajo manual."
+ }
+}

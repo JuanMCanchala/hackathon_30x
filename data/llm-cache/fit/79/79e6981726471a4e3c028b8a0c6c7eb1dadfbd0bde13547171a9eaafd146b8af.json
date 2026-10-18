@@ -1,0 +1,24 @@
+{
+ "key": "79e6981726471a4e3c028b8a0c6c7eb1dadfbd0bde13547171a9eaafd146b8af",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:29:07.396Z",
+ "latencyMs": 6521,
+ "usage": {
+  "inputTokens": 712,
+  "outputTokens": 666
+ },
+ "output": {
+  "score": 7,
+  "executive": 8,
+  "noCode": 5,
+  "latam": 3,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Ejecutivos deben gobernar agentes que acceden a datos reales.",
+   "Refuerza necesidad de permisos y auditoría antes de escalar IA.",
+   "Ángulo LatAm limitado; caso India y cobertura en español."
+  ]
+ }
+}

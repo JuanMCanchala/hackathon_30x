@@ -1,0 +1,21 @@
+{
+ "key": "4989c3d6b5fd0a5e4b0e278701e2f60a56b607b22fdea20f484a9b264f8e814b",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:14:17.917Z",
+ "latencyMs": 5822,
+ "usage": {
+  "inputTokens": 1369,
+  "outputTokens": 827
+ },
+ "output": {
+  "oneLiner": "Bluesky lanzó Attie, su IA de vibe coding social, y 32 creadores distintos ya publican sobre ella.",
+  "narrative": "El tema crece por el lanzamiento de Attie, la IA de Bluesky para crear webs y juegos, y lo mueven creadores que reaccionan con burla y escepticismo. 19 de 20 piezas que despegaron son posts de texto, frente a 10 de 16 del resto: el formato ganador es la opinión corta, no el video. 8 de 20 piezas que despegaron salieron en la tarde, frente a 3 de 16 del resto, y 6 de 20 apelan a la risa, frente a 3 de 16. Mat Brunet (AniMat) y PureKoor enlazan el vibe coding con las caídas previas de la red, y DaiShimaVT acusa a los devs de no anunciarlo en la propia plataforma.",
+  "cited": [
+   "bluesky:3mxxhumvcys2p",
+   "bluesky:3mxxb6ygdzs2j",
+   "bluesky:3mxzse45yas2g",
+   "news:CBMiiAFBVV95cUxNWHc2U3V5ZzA4XzhsTU40cHV2dXViVi1ISDBKTk8tYWh4T3JocmF5Sk1ESGdXcjNvRXlCWGlZMXZQQjBPU2dTTXE0RGpSSmpjSHFRZTdtTl96VmtWRkhMaDJaSklQeTZwd2l2NmQ2ZjJOcHB4Nk9BX1lpQTVteDZ5N3ZuODFBdmdq"
+  ]
+ }
+}

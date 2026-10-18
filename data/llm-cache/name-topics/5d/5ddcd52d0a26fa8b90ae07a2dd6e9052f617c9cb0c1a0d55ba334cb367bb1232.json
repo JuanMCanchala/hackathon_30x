@@ -1,0 +1,275 @@
+{
+ "key": "5ddcd52d0a26fa8b90ae07a2dd6e9052f617c9cb0c1a0d55ba334cb367bb1232",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T17:36:24.087Z",
+ "latencyMs": 16128,
+ "usage": {
+  "inputTokens": 3268,
+  "outputTokens": 1562
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_fa5a7e6a",
+    "name": "OpenAI y seguridad infantil",
+    "definition": "Demandas y escrutinio regulatorio contra OpenAI por supuestos daños de ChatGPT a menores de edad.",
+    "wikipedia": "ChatGPT",
+    "queries": [
+     "OpenAI children lawsuit",
+     "ChatGPT menores demanda",
+     "OpenAI child safety",
+     "ChatGPT harm minors"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_fb2fff6e",
+    "name": "Bluesky y vibe coding",
+    "definition": "Debate sobre el uso de código generado por IA en Bluesky y sus fallos técnicos recurrentes.",
+    "wikipedia": "Bluesky",
+    "queries": [
+     "Bluesky vibe coding",
+     "Bluesky AI code",
+     "Bluesky outages",
+     "Bluesky desarrollo IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_77643cd8",
+    "name": "Regulación de IA en industrias",
+    "definition": "Marcos regulatorios y cumplimiento de IA en sectores regulados como banca, salud y legal.",
+    "wikipedia": "Regulation of artificial intelligence",
+    "queries": [
+     "AI regulated industries",
+     "regulación IA empresas",
+     "AI compliance",
+     "marcos regulatorios IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e4a01eca",
+    "name": "IA en Latinoamérica y Europa",
+    "definition": "Adopción y políticas de IA en países como Colombia, Chile, México, Italia y España.",
+    "wikipedia": null,
+    "queries": [
+     "IA Colombia",
+     "IA Latinoamérica",
+     "AI Italy adoption",
+     "IA España empresas"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_cf1c6173",
+    "name": "Trump y videos con IA",
+    "definition": "Polémica por videos generados con IA publicados por Trump y su impacto político.",
+    "wikipedia": "Donald Trump",
+    "queries": [
+     "Trump AI video",
+     "Trump video IA",
+     "Trump tiger AI",
+     "Trump contenido IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_4d4e06f6",
+    "name": "IA en despachos legales",
+    "definition": "Uso de IA jurídica por abogados y despachos, y casos legales que involucran a OpenAI.",
+    "wikipedia": "Legal informatics",
+    "queries": [
+     "IA para abogados",
+     "AI legal industry",
+     "OpenAI lawsuit",
+     "IA jurídica"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_657029d8",
+    "name": "Humor sobre IA",
+    "definition": "Memes y sátira sobre LLMs, vibe coding y la cultura tecnológica en redes.",
+    "wikipedia": null,
+    "queries": [
+     "AI humor memes",
+     "humor IA",
+     "vibe coding memes",
+     "LLM jokes"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_0d8ecc75",
+    "name": "Trump y video del tigre",
+    "definition": "Controversia por el video con IA de Trump luchando con un tigre tras una muerte real.",
+    "wikipedia": "Donald Trump",
+    "queries": [
+     "Trump tiger video",
+     "Trump AI tiger",
+     "video tigre Trump",
+     "Trump IA polémica"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_168235a6",
+    "name": "IA y economía global",
+    "definition": "Impacto de la IA en crecimiento, inflación, productividad y posibles recesiones económicas.",
+    "wikipedia": "Artificial intelligence and economic growth",
+    "queries": [
+     "AI economic impact",
+     "IA economía",
+     "AI productivity inflation",
+     "IA crecimiento"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_33fa3a68",
+    "name": "Agentes de compra con IA",
+    "definition": "Herramientas como Universal Cart de Google que permiten compras automatizadas con agentes de IA.",
+    "wikipedia": null,
+    "queries": [
+     "AI shopping agents",
+     "Google Universal Cart",
+     "compras con IA",
+     "agentes compra IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ddae4334",
+    "name": "Crítica al hype de IA",
+    "definition": "Cuestionamientos al entusiasmo corporativo y al impacto cognitivo del uso masivo de IA.",
+    "wikipedia": "AI hype",
+    "queries": [
+     "AI hype criticism",
+     "crítica IA",
+     "AI backlash",
+     "crítica al hype"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_078cfb10",
+    "name": "Clones de Photoshop con IA",
+    "definition": "Herramientas que replican funciones de Adobe Photoshop mediante vibe coding y modelos generativos.",
+    "wikipedia": "Adobe Photoshop",
+    "queries": [
+     "AI Photoshop clone",
+     "clon Photoshop IA",
+     "vibe coding Photoshop",
+     "Adobe AI clone"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e1434a68",
+    "name": "Guerra entre gigantes de IA",
+    "definition": "Competencia entre OpenAI, Google, Meta, Anthropic y Microsoft por el liderazgo en modelos de IA.",
+    "wikipedia": "AI arms race",
+    "queries": [
+     "OpenAI vs Google",
+     "Meta vs OpenAI",
+     "AI competition",
+     "guerra IA empresas"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_162dc550",
+    "name": "IA en campañas electorales",
+    "definition": "Uso de IA y bots en elecciones de EE.UU., Brasil y otros países para manipular o informar votantes.",
+    "wikipedia": "Artificial intelligence in elections",
+    "queries": [
+     "AI elections",
+     "IA elecciones",
+     "political bots",
+     "campaña electoral IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_7401d9cd",
+    "name": "Google y buscadores con IA",
+    "definition": "Integración de Gemini y agentes de IA en Google Search, Translate y otras APIs de búsqueda.",
+    "wikipedia": "Google Search",
+    "queries": [
+     "Google Gemini Search",
+     "buscador IA",
+     "Google AI search",
+     "Gemini en Search"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e5380c70",
+    "name": "IA en geopolítica global",
+    "definition": "Carrera de IA entre China, EE.UU., Europa y países emergentes, incluyendo su uso en guerra.",
+    "wikipedia": "Artificial intelligence arms race",
+    "queries": [
+     "AI geopolitics",
+     "IA China EEUU",
+     "AI global race",
+     "IA geopolítica"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_de7454df",
+    "name": "Verificación de contenido con IA",
+    "definition": "Herramientas y técnicas para verificar hechos, imágenes y código generado o asistido por IA.",
+    "wikipedia": "Fact-checking",
+    "queries": [
+     "AI fact checking",
+     "verificación IA",
+     "AI content verification",
+     "verificar imágenes IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_af455a22",
+    "name": "Consultoras y soluciones de IA",
+    "definition": "Empresas como Globant, Palantir y startups que despliegan soluciones de IA para clientes corporativos.",
+    "wikipedia": null,
+    "queries": [
+     "Globant AI",
+     "AI consulting firms",
+     "Palantir AI",
+     "consultoras IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_cd3a95ec",
+    "name": "IA y capitalismo",
+    "definition": "Debate sobre el impacto de la IA en el capitalismo, mercados, geopolítica y desigualdad global.",
+    "wikipedia": "Capitalism and artificial intelligence",
+    "queries": [
+     "AI capitalism",
+     "IA y capitalismo",
+     "AI markets geopolitics",
+     "IA economía política"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_6aed6ce1",
+    "name": "Costos de tokens y APIs",
+    "definition": "Facturación, costos de tokens y control de gasto en el uso de APIs de modelos de IA.",
+    "wikipedia": null,
+    "queries": [
+     "AI token costs",
+     "costos tokens IA",
+     "API billing AI",
+     "gasto API IA"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

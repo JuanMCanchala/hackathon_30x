@@ -1,0 +1,275 @@
+{
+ "key": "5497f30b162b201a9bdeb6523ac3bed1ccbd81f759e493af0ebb04b49945ca74",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T17:36:50.544Z",
+ "latencyMs": 13368,
+ "usage": {
+  "inputTokens": 3554,
+  "outputTokens": 1738
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_a55096c2",
+    "name": "IA para estudiar y aprender",
+    "definition": "Uso de asistentes de IA por estudiantes y opositores para estudiar, practicar y evaluarse, con dudas sobre su impacto real.",
+    "wikipedia": "AI in education",
+    "queries": [
+     "estudiar con IA",
+     "AI study tools",
+     "oposiciones IA",
+     "AI tutoring"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_48527dcc",
+    "name": "Cursos de IA para empresas",
+    "definition": "Formación práctica en IA para pymes y equipos, desde cursos gratuitos hasta programas corporativos y generadores de contenido.",
+    "wikipedia": null,
+    "queries": [
+     "curso IA gratis",
+     "AI course enterprise",
+     "formación IA pymes",
+     "generative AI tutorial"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ac180891",
+    "name": "Claude Haiku y Sonnet",
+    "definition": "Modelos rápidos y económicos de Anthropic, Haiku y Sonnet, usados para agentes y tareas de bajo coste.",
+    "wikipedia": "Claude (language model)",
+    "queries": [
+     "Claude Haiku",
+     "Claude Sonnet 5",
+     "Anthropic models",
+     "Claude pricing"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_dbcb75f9",
+    "name": "Hardware para IA local",
+    "definition": "Equipos y componentes necesarios para ejecutar modelos de IA en local, desde GPUs hasta laptops con VRAM suficiente.",
+    "wikipedia": null,
+    "queries": [
+     "local AI hardware",
+     "VRAM local AI",
+     "hardware IA",
+     "laptops IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_cbf1747e",
+    "name": "Scraping de datos para IA",
+    "definition": "Extracción masiva de datos web para entrenar modelos y alimentar agentes, con actores como Apify o Bright Data.",
+    "wikipedia": "Web scraping",
+    "queries": [
+     "web scraping AI",
+     "scraping agentes",
+     "Apify scraping",
+     "data scraping tools"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ccdeb5b2",
+    "name": "IA en la industria del videojuego",
+    "definition": "Debate sobre el uso de IA generativa en motores, producción y marketing de videojuegos, y su recepción por la comunidad.",
+    "wikipedia": "Video game industry",
+    "queries": [
+     "AI game industry",
+     "IA videojuegos",
+     "game engine AI",
+     "vibe coding games"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_cc3491fe",
+    "name": "Automatización de workflows con IA",
+    "definition": "Captura, refactorización y orquestación de flujos de trabajo mediante agentes y herramientas de IA en desarrollo y empresa.",
+    "wikipedia": "Workflow automation",
+    "queries": [
+     "AI workflow automation",
+     "workflow agents",
+     "automatizar workflows",
+     "MCP workflow"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ffacc824",
+    "name": "IA en política y elecciones",
+    "definition": "Uso de IA generativa en campañas, publicidad política y desinformación electoral, con creciente escrutinio regulatorio.",
+    "wikipedia": "Artificial intelligence in politics",
+    "queries": [
+     "IA política",
+     "AI elections",
+     "deepfake campaña",
+     "political AI ads"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e2f0c9e8",
+    "name": "Claude Opus 5.5",
+    "definition": "Modelo de gama alta de Anthropic para tareas complejas de código y agentes, con mejoras de rendimiento y coste.",
+    "wikipedia": "Claude (language model)",
+    "queries": [
+     "Claude Opus 5.5",
+     "Opus 6",
+     "Anthropic Opus",
+     "Claude benchmarks"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_3c6fb70a",
+    "name": "Inferencia eficiente de LLMs",
+    "definition": "Técnicas para acelerar y abaratar la ejecución de modelos, como decodificación especulativa, inferencia local o distribuida.",
+    "wikipedia": "Inference engine",
+    "queries": [
+     "LLM inference",
+     "speculative decoding",
+     "inferencia local LLM",
+     "efficient inference"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b14ae0a3",
+    "name": "Eventos y cumbres de IA",
+    "definition": "Conferencias, hackathones y festivales donde se presentan avances, se hacen contactos y se debate el futuro de la IA.",
+    "wikipedia": null,
+    "queries": [
+     "AI summit",
+     "eventos IA",
+     "AI conference",
+     "hackathon IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9ec50aa7",
+    "name": "IA en diagnóstico médico",
+    "definition": "Aplicación de IA en radiología, patología y diagnóstico clínico, con retos de confianza, regulación y adopción por profesionales.",
+    "wikipedia": "Artificial intelligence in healthcare",
+    "queries": [
+     "IA diagnóstico médico",
+     "AI medical diagnosis",
+     "AI radiology",
+     "regulación IA médica"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f99a0231",
+    "name": "IA y computación cuántica",
+    "definition": "Uso de modelos de IA para diseñar circuitos cuánticos y optimizar el control de computadores cuánticos.",
+    "wikipedia": "Quantum computing",
+    "queries": [
+     "quantum computing AI",
+     "IA cuántica",
+     "quantum circuits LLM",
+     "AI quantum control"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_550e93dd",
+    "name": "IA en reclutamiento y contratación",
+    "definition": "Automatización de entrevistas, filtrado de candidatos y prompts para RRHH, con debate sobre sesgos y contratación junior.",
+    "wikipedia": "Recruitment",
+    "queries": [
+     "AI recruiting",
+     "IA contratación",
+     "AI interview",
+     "prompts reclutamiento"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_fee5520f",
+    "name": "Conducción autónoma y robotaxis",
+    "definition": "Avances en vehículos autónomos y robotaxis, con alianzas entre automovilísticas y empresas de IA y dudas de seguridad.",
+    "wikipedia": "Self-driving car",
+    "queries": [
+     "self-driving car",
+     "robotaxi Tesla",
+     "conducción autónoma",
+     "autonomous driving AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_da9c0a3b",
+    "name": "Generación de leads con IA",
+    "definition": "Uso de IA para prospección, captación y seguimiento de clientes B2B, automatizando embudos y campañas de ventas.",
+    "wikipedia": "Lead generation",
+    "queries": [
+     "AI lead generation",
+     "generación leads IA",
+     "prospección B2B",
+     "AI sales funnel"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1ab344ec",
+    "name": "Benchmarks de modelos de IA",
+    "definition": "Pruebas estandarizadas que comparan rendimiento de modelos en tareas como razonamiento, voz, vídeo o memoria.",
+    "wikipedia": "Benchmark (computing)",
+    "queries": [
+     "AI benchmark",
+     "benchmark modelos",
+     "LLM benchmark",
+     "benchmark 2026"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_4fab567b",
+    "name": "Detección de contenido con IA",
+    "definition": "Herramientas que identifican vídeo, imágenes o texto generados por IA, con problemas de sesgo y falsos positivos.",
+    "wikipedia": "AI content detection",
+    "queries": [
+     "AI detection",
+     "detectar video IA",
+     "AI video detection",
+     "sesgo detección IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_74d7eda2",
+    "name": "Plataformas de datos con IA",
+    "definition": "Integración de agentes y modelos en plataformas como Snowflake, Databricks u Oracle para análisis y operaciones empresariales.",
+    "wikipedia": "Data platform",
+    "queries": [
+     "Snowflake Cortex AI",
+     "Databricks AI",
+     "Oracle AI Database",
+     "enterprise AI data"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_6a5d21cb",
+    "name": "Vulnerabilidades en sistemas de IA",
+    "definition": "Fallos de seguridad en asistentes, agentes y protocolos como MCP, que exponen credenciales o permiten ataques zero-click.",
+    "wikipedia": "Vulnerability (computing)",
+    "queries": [
+     "AI vulnerability",
+     "MCP vulnerability",
+     "vulnerabilidad IA",
+     "zero-click exploit"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

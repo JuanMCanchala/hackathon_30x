@@ -1,0 +1,24 @@
+{
+ "key": "e69d7fa468cd86efb2ea0b5694a18673a9d4d723b2a9a9133ed31528572e879b",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:16:12.407Z",
+ "latencyMs": 7054,
+ "usage": {
+  "inputTokens": 706,
+  "outputTokens": 871
+ },
+ "output": {
+  "score": 4,
+  "executive": 5,
+  "noCode": 1,
+  "latam": 1,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Tema técnico de kernel, poco aplicable a equipos comerciales",
+   "Muestra productividad con IA en desarrollo, relevante para CTOs",
+   "Sin ángulo LatAm ni casos en español"
+  ]
+ }
+}

@@ -1,0 +1,21 @@
+{
+ "key": "0732e50aab87ec24de4d120f66d37ded920611fe6904c0c959aa9e91fd8842ce",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:20:09.285Z",
+ "latencyMs": 4254,
+ "usage": {
+  "inputTokens": 1183,
+  "outputTokens": 562
+ },
+ "output": {
+  "oneLiner": "El rechazo al código generado por IA crece con Fable Siegel, TimBagels y proyectos open source que lo vetan.",
+  "narrative": "7 de 52 piezas que despegaron abren con una opinión fuerte, frente a 6 de 86 del resto, y 5 de 52 son videos, frente a 2 de 86. El gancho es el rechazo frontal al código hecho con IA: Fable Siegel y TimBagels desaconsejan el vibe coding y acusan decompilaciones hechas por IA. El momento lo marcan proyectos open source que lo prohíben, como QGIS y Pop!_OS, y videos como el de Bag of Milk que llevan el debate a audiencia masiva. Publican desarrolladores y creadores técnicos, no medios.",
+  "cited": [
+   "bluesky:3mxunjlaods26",
+   "bluesky:3mxubhz4wvk2l",
+   "hn:50054751",
+   "youtube:RckI7mBhZvY"
+  ]
+ }
+}

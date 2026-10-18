@@ -1,0 +1,21 @@
+{
+ "key": "e22d52fb1b42b5a6f165b6831f265d69768f4afec75700c98bbb16a279419ec9",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:19:03.028Z",
+ "latencyMs": 4413,
+ "usage": {
+  "inputTokens": 1409,
+  "outputTokens": 489
+ },
+ "output": {
+  "oneLiner": "ASML reporta pedidos fuertes y TSMC ventas +51%, y medios y foros calman el temor a que la inversión en IA se agote.",
+  "narrative": "No hay patrones con al menos 3 piezas, así que el patrón se lee en la evidencia suelta. Lo que despega son titulares de resultados concretos: el envío de Hacker News sobre los pedidos de ASML llega a 6.8× la mediana de su autor y el de CNA a 4×, ambos con la cifra de pedidos o ventas en el gancho. Lo que no despega son las piezas sin dato duro ni ángulo de ciclo: el post de YEP News queda en 0.7× y las notas de Fox Business y Stocktwits en 0 de engagement. El momento es la semana de resultados de ASML y TSMC, y lo mueven cuentas de noticias tecnológicas y foros, no creadores individuales.",
+  "cited": [
+   "hn:50088430",
+   "bluesky:3mxss2xxucw2w",
+   "bluesky:3mxth3pkpxv2t",
+   "news:CBMiW0FVX3lxTE4xUUg2dFpkOW9iMXpudG83b3hhdUpqOFRYLWpwcVB3cHM4UHpiWldTM3ZncmxkX1J0UXZpVTAxY3RLQ0RxMnVMaV9PSnp2NTNWRXpHaS12ZTBsR1E"
+  ]
+ }
+}

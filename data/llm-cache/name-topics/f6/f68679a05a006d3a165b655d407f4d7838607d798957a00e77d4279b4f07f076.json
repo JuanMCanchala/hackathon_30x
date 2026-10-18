@@ -1,0 +1,255 @@
+{
+ "key": "f68679a05a006d3a165b655d407f4d7838607d798957a00e77d4279b4f07f076",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:12:37.337Z",
+ "latencyMs": 11052,
+ "usage": {
+  "inputTokens": 3245,
+  "outputTokens": 1582
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_c92a4c02",
+    "name": "Apate y estafas con IA",
+    "definition": "Startup que usa bots encubiertos para enfrentar estafadores globales y proteger a usuarios de fraudes digitales.",
+    "wikipedia": null,
+    "queries": [
+     "Apate AI scammers",
+     "estafas con IA",
+     "AI scam bots"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_066cafb6",
+    "name": "Gafas inteligentes de Meta",
+    "definition": "Lentes con IA de Meta que graban y asisten en tiempo real, ya generan polémica por privacidad y prohibiciones.",
+    "wikipedia": "Ray-Ban Meta",
+    "queries": [
+     "Meta AI glasses",
+     "gafas inteligentes Meta",
+     "smart glasses privacy"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c3f46e07",
+    "name": "Agentes de IA en WhatsApp",
+    "definition": "Automatización de conversaciones y ventas en WhatsApp mediante agentes de IA para empresas y desarrolladores.",
+    "wikipedia": "WhatsApp",
+    "queries": [
+     "WhatsApp AI agents",
+     "agentes IA WhatsApp",
+     "WhatsApp Business automation"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c8047f7b",
+    "name": "Perplexity Computer",
+    "definition": "Producto de Perplexity que ejecuta tareas complejas con IA y compite con asistentes empresariales de otros gigantes.",
+    "wikipedia": "Perplexity AI",
+    "queries": [
+     "Perplexity Computer",
+     "Perplexity AI agent",
+     "Perplexity enterprise"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_da1fd924",
+    "name": "Sandbox de agentes de IA",
+    "definition": "Aislamiento de seguridad para contener agentes autónomos y evitar que escapen o causen daños.",
+    "wikipedia": null,
+    "queries": [
+     "AI agent sandbox",
+     "sandbox escape AI",
+     "agent containment"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_4fa6047f",
+    "name": "Lobby de big tech en IA",
+    "definition": "Presión de gigantes tecnológicos sobre gobiernos para frenar o moldear regulaciones de inteligencia artificial.",
+    "wikipedia": "Regulation of artificial intelligence",
+    "queries": [
+     "AI lobbying",
+     "lobby IA regulación",
+     "Big Tech AI policy"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b479fb11",
+    "name": "Clonación de voz con IA",
+    "definition": "Tecnología que replica voces humanas y ya se usa en fraudes, deepfakes y casos criminales reales.",
+    "wikipedia": "Voice cloning",
+    "queries": [
+     "voice cloning AI",
+     "clonación de voz",
+     "AI voice deepfake"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8eb7c093",
+    "name": "Cognition y SWE-2",
+    "definition": "Startup detrás de Devin lanza modelos de IA para programar y compite con los principales laboratorios.",
+    "wikipedia": "Cognition AI",
+    "queries": [
+     "Cognition SWE-2",
+     "Cognition AI startup",
+     "Devin AI model"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_357b1b3e",
+    "name": "Auto-mejora recursiva de IA",
+    "definition": "Debate sobre sistemas de IA capaces de mejorarse a sí mismos sin intervención humana, con riesgos de control.",
+    "wikipedia": "Recursive self-improvement",
+    "queries": [
+     "recursive self-improvement",
+     "auto-mejora IA",
+     "AI self-improvement"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_eba8e881",
+    "name": "Estafadores y bots de IA",
+    "definition": "Creadores y herramientas que usan IA para enfrentar, exponer o estafar a través de chatbots y llamadas.",
+    "wikipedia": null,
+    "queries": [
+     "AI scambaiting",
+     "Kitboga AI",
+     "estafas con chatbots"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_53644edf",
+    "name": "IA en ventas B2B",
+    "definition": "Uso de agentes y asistentes de IA para reconfigurar procesos comerciales y empleos en ventas empresariales.",
+    "wikipedia": null,
+    "queries": [
+     "AI B2B sales",
+     "IA ventas B2B",
+     "sales AI agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9d018e49",
+    "name": "IPO de Firmus",
+    "definition": "Salida a bolsa de la startup australiana de infraestructura de IA que desató dudas sobre la burbuja neocloud.",
+    "wikipedia": null,
+    "queries": [
+     "Firmus IPO",
+     "Firmus AI data center",
+     "neocloud IPO"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_cf5e5d9d",
+    "name": "Impuestos a la IA",
+    "definition": "Propuestas de gravar robots, fondos soberanos de IA y reparto de beneficios ante la automatización.",
+    "wikipedia": "Robot tax",
+    "queries": [
+     "robot tax",
+     "impuesto a la IA",
+     "AI sovereign wealth fund"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_151d1fc9",
+    "name": "IA en Asia-Pacífico",
+    "definition": "Regulación, inversión y impacto laboral de la IA en Australia, Nueva Zelanda y mercados asiáticos.",
+    "wikipedia": null,
+    "queries": [
+     "AI Asia regulation",
+     "IA Australia",
+     "Asia AI investment"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_bd9f854d",
+    "name": "IA en descubrimiento de fármacos",
+    "definition": "Aplicación de IA para acelerar investigación farmacéutica, con nuevos laboratorios y riesgos biológicos.",
+    "wikipedia": "Artificial intelligence in drug discovery",
+    "queries": [
+     "AI drug discovery",
+     "IA descubrimiento fármacos",
+     "AI pharma research"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_3ce2cbfa",
+    "name": "IA y seguridad nacional",
+    "definition": "Riesgos de que agentes de IA escaneen o comprometan sitios gubernamentales y amenacen infraestructura crítica.",
+    "wikipedia": null,
+    "queries": [
+     "AI national security",
+     "IA seguridad nacional",
+     "AI government hacking"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_141646c9",
+    "name": "IA en escuelas de NYC",
+    "definition": "Políticas de distritos escolares como Nueva York para prohibir o regular el uso de IA generativa en aulas.",
+    "wikipedia": null,
+    "queries": [
+     "NYC schools AI",
+     "IA escuelas Nueva York",
+     "school AI ban"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e603de18",
+    "name": "Herramientas de diseño con IA",
+    "definition": "Plataformas como Figma, Canva y Adobe integran IA generativa y redefinen el trabajo creativo y de diseño.",
+    "wikipedia": null,
+    "queries": [
+     "Figma AI",
+     "Canva AI design",
+     "IA diseño gráfico"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b02f2782",
+    "name": "Spam generado por IA",
+    "definition": "Aumento de correos, propaganda y phishing automatizados con agentes de IA que saturan canales digitales.",
+    "wikipedia": "Spamming",
+    "queries": [
+     "AI spam",
+     "spam con IA",
+     "AI phishing agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_31029fc2",
+    "name": "IA en el hogar",
+    "definition": "Electrodomésticos y asistentes conectados con IA que fallan, espían o generan nuevos riesgos domésticos.",
+    "wikipedia": "Home automation",
+    "queries": [
+     "AI smart home",
+     "domótica con IA",
+     "AI home assistant"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

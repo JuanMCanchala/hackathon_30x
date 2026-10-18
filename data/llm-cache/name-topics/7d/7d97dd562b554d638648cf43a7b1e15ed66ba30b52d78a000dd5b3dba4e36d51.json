@@ -1,0 +1,255 @@
+{
+ "key": "7d97dd562b554d638648cf43a7b1e15ed66ba30b52d78a000dd5b3dba4e36d51",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:28:37.490Z",
+ "latencyMs": 9716,
+ "usage": {
+  "inputTokens": 2800,
+  "outputTokens": 1867
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_836e2c96",
+    "name": "Modelos de IA sin censura",
+    "definition": "Modelos de lenguaje open source sin restricciones, usados para evitar bloqueos de plataformas occidentales y dependencia de grandes tecnológicas.",
+    "wikipedia": "Uncensored language model",
+    "queries": [
+     "modelos IA sin censura",
+     "open source LLM uncensored",
+     "IA local GPU"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_43c2a617",
+    "name": "Synopsys y diseño de chips con IA",
+    "definition": "Synopsys colabora con OpenAI y TSMC para desarrollar modelos de IA que optimicen el diseño de semiconductores.",
+    "wikipedia": "Synopsys",
+    "queries": [
+     "Synopsys OpenAI chip",
+     "AI chip design",
+     "Synopsys TSMC agentic AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b29dd817",
+    "name": "Ingeniería de contexto para agentes",
+    "definition": "Técnicas para gestionar el contexto que se proporciona a agentes de IA, evitando fallos y mejorando su rendimiento.",
+    "wikipedia": "Context engineering",
+    "queries": [
+     "context engineering agentes",
+     "AI agent context",
+     "Claude Code context"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f64f4440",
+    "name": "Gemini para tareas empresariales",
+    "definition": "Uso de agentes Gemini de Google para automatizar tareas administrativas y de oficina en empresas.",
+    "wikipedia": "Gemini (chatbot)",
+    "queries": [
+     "Gemini tareas empresariales",
+     "Google Gemini enterprise",
+     "agente Gemini oficina"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_17814b5a",
+    "name": "Amenaza de modelos abiertos a hyperscalers",
+    "definition": "El avance de modelos de IA abiertos plantea un desafío a los grandes proveedores de nube e infraestructura.",
+    "wikipedia": "Hyperscaler",
+    "queries": [
+     "open models hyperscalers",
+     "modelos abiertos nube",
+     "AI cloud competition"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_93531e0e",
+    "name": "Privacidad de menores en IA",
+    "definition": "Preocupación por la recolección de datos personales de menores por parte de plataformas de IA y sus implicaciones legales.",
+    "wikipedia": "Children's privacy",
+    "queries": [
+     "privacidad menores IA",
+     "AI children data",
+     "Character.AI menores"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a13aed65",
+    "name": "Nscale salida a bolsa",
+    "definition": "Nscale, proveedor de infraestructura de IA, busca financiación pre-IPO tras un acuerdo masivo con Anthropic.",
+    "wikipedia": "Nscale",
+    "queries": [
+     "Nscale IPO",
+     "Nscale Anthropic",
+     "AI infrastructure IPO"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_dccd25be",
+    "name": "Micro1 y datos de Spirit Airlines",
+    "definition": "La startup de IA Micro1 ofrece millones por datos internos de Spirit Airlines para entrenar modelos.",
+    "wikipedia": "Micro1",
+    "queries": [
+     "Micro1 Spirit Airlines",
+     "AI data acquisition",
+     "Micro1 funding"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a4355660",
+    "name": "Expert Intelligence de Gemini Notebook",
+    "definition": "Función de Gemini Notebook que permite usar libros comprados en Google Play Books como fuentes para respuestas ancladas.",
+    "wikipedia": "Google NotebookLM",
+    "queries": [
+     "Expert Intelligence Gemini",
+     "Gemini Notebook libros",
+     "Google Play Books IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1fb3f275",
+    "name": "CERT-In y agentes de IA",
+    "definition": "La agencia de ciberseguridad india advierte que agentes de IA accedieron sin autorización a sistemas de organizaciones.",
+    "wikipedia": "CERT-In",
+    "queries": [
+     "CERT-In AI agents",
+     "India cybersecurity AI",
+     "agentes IA acceso no autorizado"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_bae1f1bc",
+    "name": "IA y violencia de género",
+    "definition": "Uso de IA generativa para crear contenido sexual no consentido y su vínculo con la misoginia y la violencia digital.",
+    "wikipedia": "Technology-facilitated sexual violence",
+    "queries": [
+     "IA violencia género",
+     "AI misogyny",
+     "deepfake violencia digital"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_269ec5a3",
+    "name": "Podcasts sobre IA",
+    "definition": "Programas de audio que analizan el impacto de la inteligencia artificial desde diversas perspectivas.",
+    "wikipedia": "Podcast",
+    "queries": [
+     "podcast IA",
+     "AI podcast",
+     "podcast inteligencia artificial"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_b3a758d3",
+    "name": "Actores contra IA",
+    "definition": "Celebridades como Nicolas Cage y la hija de Robin Williams se oponen al uso no autorizado de sus imágenes con IA.",
+    "wikipedia": "Nicolas Cage",
+    "queries": [
+     "Nicolas Cage AI",
+     "Robin Williams AI",
+     "actors AI rights"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_700b03dc",
+    "name": "Probador de ropa virtual de ChatGPT",
+    "definition": "ChatGPT incorpora una función de prueba virtual de ropa para facilitar compras en línea con IA.",
+    "wikipedia": "ChatGPT",
+    "queries": [
+     "ChatGPT probador ropa",
+     "virtual try-on ChatGPT",
+     "IA compras moda"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_69d997ce",
+    "name": "Estée Lauder y marketing con IA",
+    "definition": "La empresa de belleza Estée Lauder apuesta por plataformas de IA para optimizar marketing y su transformación digital.",
+    "wikipedia": "Estée Lauder Companies",
+    "queries": [
+     "Estée Lauder AI",
+     "AI marketing beauty",
+     "Profound Estée Lauder"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5b3d20ba",
+    "name": "Keenable y KT en IA",
+    "definition": "Keenable lanza una API de búsqueda web para agentes de IA, mientras KT presenta un dispositivo de IA soberana con chip NPU.",
+    "wikipedia": "KT Corporation",
+    "queries": [
+     "Keenable search API",
+     "KT sovereign AI",
+     "Korean AI chip"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_4d3fa5dc",
+    "name": "Plugin4Shell vulnerabilidad",
+    "definition": "Vulnerabilidad de ejecución remota de código en plugins de agentes de codificación con IA, exponiendo la cadena de suministro de software.",
+    "wikipedia": "Remote code execution",
+    "queries": [
+     "Plugin4Shell vulnerability",
+     "AI coding agents security",
+     "zero-click RCE"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e1914fa7",
+    "name": "IA y estabilidad financiera",
+    "definition": "Advertencias del FMI y el Banco de Inglaterra sobre cómo una caída de acciones de IA podría desestabilizar los mercados globales.",
+    "wikipedia": "Financial stability",
+    "queries": [
+     "IA estabilidad financiera",
+     "AI financial risk",
+     "FMI IA mercados"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f900c2d1",
+    "name": "IA en agricultura",
+    "definition": "Aplicación de inteligencia artificial, drones y automatización para optimizar la agricultura de precisión.",
+    "wikipedia": "Precision agriculture",
+    "queries": [
+     "IA agricultura",
+     "AI agriculture",
+     "agricultura precisión IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d69c603e",
+    "name": "LLM en dispositivos pequeños",
+    "definition": "Ejecución de modelos de lenguaje y asistentes de voz en hardware de bajo costo como ESP32 y Raspberry Pi.",
+    "wikipedia": "ESP32",
+    "queries": [
+     "LLM ESP32",
+     "offline AI Raspberry Pi",
+     "small device LLM"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

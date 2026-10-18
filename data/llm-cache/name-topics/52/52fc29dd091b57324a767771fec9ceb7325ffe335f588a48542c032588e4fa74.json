@@ -1,0 +1,255 @@
+{
+ "key": "52fc29dd091b57324a767771fec9ceb7325ffe335f588a48542c032588e4fa74",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T17:38:20.354Z",
+ "latencyMs": 11618,
+ "usage": {
+  "inputTokens": 2981,
+  "outputTokens": 1568
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_1947e778",
+    "name": "Automatización industrial con IA",
+    "definition": "Fabricantes de automatización y robótica industrial integran IA en sus plataformas para pruebas, control y eficiencia energética.",
+    "wikipedia": "Industrial automation",
+    "queries": [
+     "industrial automation AI",
+     "ABB robotics AI",
+     "automatización industrial IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_97083123",
+    "name": "IA en publicación académica",
+    "definition": "Uso de IA en escritura, revisión y publicación de artículos científicos, con debates sobre integridad y productividad.",
+    "wikipedia": "Academic publishing",
+    "queries": [
+     "AI academic writing",
+     "revisión por pares IA",
+     "AI scientific publishing"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c73174df",
+    "name": "Alineación de modelos de IA",
+    "definition": "Técnicas para alinear el comportamiento de modelos generativos con valores humanos, incluyendo alineación en tiempo de inferencia.",
+    "wikipedia": "AI alignment",
+    "queries": [
+     "AI alignment",
+     "test-time alignment",
+     "alineación de valores IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_04ed682e",
+    "name": "Google y CNN",
+    "definition": "Alianza entre Google y CNN para probar herramientas de IA generativa en la producción y búsqueda de contenido periodístico.",
+    "wikipedia": "CNN",
+    "queries": [
+     "Google CNN AI",
+     "CNN Google partnership",
+     "IA en periodismo Google"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9504a35e",
+    "name": "Automatización financiera con IA",
+    "definition": "Aplicación de IA para automatizar tesorería, flujos fiscales, detección de fraude y procesos financieros empresariales.",
+    "wikipedia": "Financial technology",
+    "queries": [
+     "AI finance automation",
+     "automatización financiera IA",
+     "AI treasury automation"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_19f26b64",
+    "name": "IA en África",
+    "definition": "Iniciativas del Banco Africano de Desarrollo y UNDP para invertir 10.000 millones en IA y productividad en África.",
+    "wikipedia": "African Development Bank",
+    "queries": [
+     "AfDB UNDP AI",
+     "AI Africa investment",
+     "IA África productividad"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_de56eedc",
+    "name": "Lanzamientos de productos IA",
+    "definition": "Anuncios y lanzamientos de nuevas herramientas, modelos y plataformas de IA para empresas y consumidores.",
+    "wikipedia": null,
+    "queries": [
+     "AI product launch",
+     "lanzamiento IA",
+     "new AI tools"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_f85b92e8",
+    "name": "IA en oncología",
+    "definition": "Uso de IA generativa y algoritmos en diagnóstico, tratamiento y detección temprana del cáncer.",
+    "wikipedia": "Artificial intelligence in healthcare",
+    "queries": [
+     "AI cancer detection",
+     "IA oncología",
+     "generative AI oncology"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f801948c",
+    "name": "IA en India",
+    "definition": "Adopción y riesgos de agentes de IA en empresas indias, con incidentes de seguridad y desarrollos locales.",
+    "wikipedia": "Artificial intelligence in India",
+    "queries": [
+     "AI India",
+     "India AI agents",
+     "IA en India"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2af1084b",
+    "name": "Diseño centrado en comportamiento",
+    "definition": "Enfoque de diseño de productos y experiencias de usuario basado en el comportamiento real de las personas.",
+    "wikipedia": "User-centered design",
+    "queries": [
+     "behavior-centric design",
+     "diseño UX IA",
+     "user behavior AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5169ef81",
+    "name": "LFM2.5",
+    "definition": "Familia de modelos de lenguaje de Liquid AI optimizados para agentes rápidos en dispositivos locales.",
+    "wikipedia": null,
+    "queries": [
+     "LFM2.5 LiquidAI",
+     "LFM2.5-24B-A2B",
+     "Liquid AI model"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_bfde60de",
+    "name": "Integridad académica e IA",
+    "definition": "Desafíos de validación, plagio y vigilancia en la investigación académica ante el uso de agentes de IA.",
+    "wikipedia": "Academic integrity",
+    "queries": [
+     "AI academic integrity",
+     "plagio IA académico",
+     "AI research validation"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f5b4aa32",
+    "name": "Trump y video del tigre",
+    "definition": "Video generado con IA por Trump que simula un ataque de tigre, generando controversia y críticas familiares.",
+    "wikipedia": null,
+    "queries": [
+     "Trump AI tiger",
+     "Trump video IA tigre",
+     "AI tiger attack video"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_6cdf1bfd",
+    "name": "MoE abiertos y MTP",
+    "definition": "Modelos de mezcla de expertos de pesos abiertos y decodificación especulativa con predicción multi-token para acelerar inferencia.",
+    "wikipedia": "Mixture of experts",
+    "queries": [
+     "open MoE models",
+     "MTP speculative decoding",
+     "Step 5 Preview MoE"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_909f9b1c",
+    "name": "Percepción del consumidor sobre IA",
+    "definition": "Cómo los consumidores perciben y reaccionan ante productos y servicios que utilizan inteligencia artificial.",
+    "wikipedia": "Consumer behaviour",
+    "queries": [
+     "consumer perception AI",
+     "percepción consumidor IA",
+     "AI consumer behavior"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_63b304bf",
+    "name": "Bluesky y la IA",
+    "definition": "Debate en Bluesky sobre el uso de herramientas de IA generativa y vibe coding en su desarrollo, con tensión cultural.",
+    "wikipedia": "Bluesky (social network)",
+    "queries": [
+     "Bluesky AI",
+     "Bluesky vibe coding",
+     "IA en Bluesky"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c8124f24",
+    "name": "Automatización clínica",
+    "definition": "Automatización con IA en laboratorios, triaje hospitalario, FIV y procesos de atención sanitaria.",
+    "wikipedia": "Healthcare automation",
+    "queries": [
+     "clinical automation AI",
+     "automatización hospitalaria IA",
+     "AI triage healthcare"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_09ae8ff7",
+    "name": "IA en Europa y Asia",
+    "definition": "Desarrollos, inversiones y regulación de IA en Europa, Asia, Australia y Nueva Zelanda.",
+    "wikipedia": null,
+    "queries": [
+     "AI Europe regulation",
+     "IA Europa Asia",
+     "Mistral AI funding"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_258826c7",
+    "name": "IA en electrodomésticos",
+    "definition": "Integración de agentes de IA en electrodomésticos y hogares inteligentes, con debates sobre regulación y privacidad.",
+    "wikipedia": "Home automation",
+    "queries": [
+     "AI home appliances",
+     "electrodomésticos IA",
+     "smart home AI agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_31782a21",
+    "name": "Capacidad de cómputo",
+    "definition": "Carrera por infraestructura de cómputo, supercomputación y eficiencia para entrenar y ejecutar modelos de IA.",
+    "wikipedia": "Supercomputer",
+    "queries": [
+     "AI compute capacity",
+     "capacidad cómputo IA",
+     "supercomputing AI"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

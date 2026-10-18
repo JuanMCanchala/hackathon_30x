@@ -1,0 +1,21 @@
+{
+ "key": "b8f6c6e185a4336710bb142b40c16703aea457af1a7800b914a883b9d464871c",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:19:00.267Z",
+ "latencyMs": 5961,
+ "usage": {
+  "inputTokens": 1241,
+  "outputTokens": 948
+ },
+ "output": {
+  "oneLiner": "Vibe coding crece 82 % en creadores: memes en Bluesky y demos de clones con IA en YouTube.",
+  "narrative": "110 de 247 piezas que despegaron abren con una opinión fuerte, frente a 54 de 301 del resto, y 205 de 247 las publica un creador de contenido. El video pesa más en lo que despega: 23 de 247 frente a 8 de 301. El gancho es la burla o la demo: un post de robo en Bluesky critica webs hechas con IA y multiplica por 1511 la mediana de su autor, mientras SAMTIME prueba en YouTube un Photoshop vibe-codeado. En Hacker News el tema no despega: los Show HN sobre clones hechos con Opus 5.5 quedan en 1,3 y 1 vez la mediana de su autor.",
+  "cited": [
+   "bluesky:3mxmegrhjc22l",
+   "youtube:NCxbzbwBHzI",
+   "hn:50060311",
+   "hn:49977886"
+  ]
+ }
+}

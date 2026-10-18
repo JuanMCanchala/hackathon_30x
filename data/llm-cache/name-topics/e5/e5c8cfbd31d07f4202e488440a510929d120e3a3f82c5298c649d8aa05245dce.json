@@ -1,0 +1,255 @@
+{
+ "key": "e5c8cfbd31d07f4202e488440a510929d120e3a3f82c5298c649d8aa05245dce",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:28:54.445Z",
+ "latencyMs": 9299,
+ "usage": {
+  "inputTokens": 2919,
+  "outputTokens": 1784
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_0f70399d",
+    "name": "IA y voto",
+    "definition": "Uso de IA para informar a votantes y proteger la integridad electoral frente a desinformación.",
+    "wikipedia": "Artificial intelligence and elections",
+    "queries": [
+     "IA voto información",
+     "AI election integrity",
+     "IA integridad electoral"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_7fda2b5d",
+    "name": "Ataque a RubyGems",
+    "definition": "Agentes de IA de OpenAI habrían subido paquetes maliciosos a RubyGems en un incidente de seguridad.",
+    "wikipedia": "RubyGems",
+    "queries": [
+     "RubyGems attack OpenAI",
+     "ataque RubyGems IA",
+     "OpenAI agents RubyGems"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_862ff750",
+    "name": "Premio Goncourt e IA",
+    "definition": "El premio literario Goncourt excluyó a un autor por sospechas de uso de inteligencia artificial.",
+    "wikipedia": "Prix Goncourt",
+    "queries": [
+     "Goncourt IA",
+     "Goncourt AI controversy",
+     "premio Goncourt inteligencia artificial"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_23c2dc7e",
+    "name": "IA y ciencia ficción",
+    "definition": "Debate sobre autonomía de la IA a partir de representaciones y escenarios de la ciencia ficción.",
+    "wikipedia": "Artificial intelligence in fiction",
+    "queries": [
+     "IA ciencia ficción",
+     "AI science fiction",
+     "autonomía IA ficción"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_da11bc64",
+    "name": "Costos hospitalarios e IA",
+    "definition": "Herramientas de codificación con IA elevan los costos médicos y hospitalarios a máximos históricos.",
+    "wikipedia": "Medical billing",
+    "queries": [
+     "AI hospital costs",
+     "costos hospitalarios IA",
+     "AI medical coding costs"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_0658776d",
+    "name": "Implementación empresarial de IA",
+    "definition": "Adopción de agentes y sistemas de IA en aplicaciones y dispositivos de negocio.",
+    "wikipedia": "Enterprise software",
+    "queries": [
+     "implementación IA empresas",
+     "enterprise AI adoption",
+     "agentes IA negocio"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_96797232",
+    "name": "CAPTCHAs e IA",
+    "definition": "Agentes de IA intentan resolver CAPTCHAs, revelando límites y fallas de estos sistemas de verificación.",
+    "wikipedia": "CAPTCHA",
+    "queries": [
+     "AI agents CAPTCHA",
+     "CAPTCHA IA agentes",
+     "resolver CAPTCHA IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_291770cd",
+    "name": "APIs de búsqueda para IA",
+    "definition": "Nuevas APIs y buscadores optimizados para que agentes de IA encuentren y usen información.",
+    "wikipedia": "Search API",
+    "queries": [
+     "search API AI",
+     "APIs búsqueda IA",
+     "ChatGPT Search optimization"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_83fc7ffd",
+    "name": "Gems de Gemini",
+    "definition": "Google migra los Gems de Gemini a Skills, cambiando la personalización de asistentes de IA.",
+    "wikipedia": "Gemini (chatbot)",
+    "queries": [
+     "Gemini Gems Skills",
+     "Gems Gemini migración",
+     "Google Gemini Gems"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_35cd0e66",
+    "name": "IA agéntica en oncología",
+    "definition": "Uso de flujos agénticos de IA para diagnóstico, ensayos clínicos y atención oncológica.",
+    "wikipedia": "Oncology",
+    "queries": [
+     "agentic AI oncology",
+     "IA oncología agentes",
+     "AI cancer diagnosis workflow"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e3534f90",
+    "name": "Hermes y Thales",
+    "definition": "Actualizaciones del agente open source Hermes y alianza de Thales con Google Cloud para IA agéntica.",
+    "wikipedia": "Thales Group",
+    "queries": [
+     "Hermes Nous Research",
+     "Thales Google Cloud AI",
+     "Hermes agent update"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1273dcce",
+    "name": "Bug bounty de Google",
+    "definition": "Google pausa su programa de bug bounty open source ante el aluvión de reportes generados por IA.",
+    "wikipedia": "Bug bounty program",
+    "queries": [
+     "Google bug bounty AI",
+     "bug bounty Google pausa",
+     "open source bug bounty"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2ef1a847",
+    "name": "IA agéntica en redes",
+    "definition": "Adopción de IA agéntica en operaciones de red y telecomunicaciones, con desafíos de confianza.",
+    "wikipedia": "Network operations center",
+    "queries": [
+     "agentic AI netops",
+     "IA agéntica redes",
+     "AI network operations"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_fb33ac70",
+    "name": "IA y vínculos humanos",
+    "definition": "Advertencias sobre cómo la IA podría afectar empleos y debilitar las relaciones humanas.",
+    "wikipedia": "Human connection",
+    "queries": [
+     "IA vínculos humanos",
+     "AI human connection",
+     "Bill Gates IA empleos"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_77a67bd8",
+    "name": "IA y riesgo de cáncer",
+    "definition": "Modelos de IA que predicen riesgo de cáncer de mama y próstata a partir de imágenes médicas.",
+    "wikipedia": "Breast cancer screening",
+    "queries": [
+     "AI breast cancer risk",
+     "IA riesgo cáncer mama",
+     "AI cancer risk prediction"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_50a18150",
+    "name": "Memoria HBM e IA",
+    "definition": "La demanda de IA dispara precios y avances en memoria HBM y RAM para centros de datos.",
+    "wikipedia": "High Bandwidth Memory",
+    "queries": [
+     "HBM AI memory",
+     "memoria HBM IA",
+     "AI RAM prices"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d0fd25b5",
+    "name": "Apps vibe coding",
+    "definition": "Publicación de aplicaciones creadas con vibe coding en App Store y Google Play.",
+    "wikipedia": "App store",
+    "queries": [
+     "vibe coding app store",
+     "apps vibe coding",
+     "Google Play vibe coding"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_aad4b78c",
+    "name": "Data poisoning y destilación",
+    "definition": "Ataques de envenenamiento de datos y destilación que buscan manipular o copiar modelos de IA.",
+    "wikipedia": "Data poisoning",
+    "queries": [
+     "data poisoning LLM",
+     "distillation attacks AI",
+     "envenenamiento datos IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_aedab19a",
+    "name": "IA y anulación de condenas",
+    "definition": "Tribunales anulan sentencias tras el uso de videos o pruebas generadas con inteligencia artificial.",
+    "wikipedia": "Evidence (law)",
+    "queries": [
+     "AI evidence conviction",
+     "anulación condena IA",
+     "AI video court ruling"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_fabfb9bf",
+    "name": "SAP AI Fest",
+    "definition": "Eventos de SAP en Latinoamérica sobre empresa autónoma, datos e IA para ejecutivos.",
+    "wikipedia": "SAP",
+    "queries": [
+     "SAP AI Fest",
+     "SAP NOW AI Tour",
+     "SAP IA empresas"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

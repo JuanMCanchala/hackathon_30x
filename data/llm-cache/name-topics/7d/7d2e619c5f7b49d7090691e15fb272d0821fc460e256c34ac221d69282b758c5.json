@@ -1,0 +1,255 @@
+{
+ "key": "7d2e619c5f7b49d7090691e15fb272d0821fc460e256c34ac221d69282b758c5",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T17:37:24.376Z",
+ "latencyMs": 21682,
+ "usage": {
+  "inputTokens": 3453,
+  "outputTokens": 1843
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_8665b092",
+    "name": "Vigilancia de clientes con IA",
+    "definition": "Startups usan agentes de IA para monitorear y perfilar clientes B2B de forma continua, generando debates sobre privacidad.",
+    "wikipedia": "Surveillance capitalism",
+    "queries": [
+     "customer surveillance AI",
+     "vigilancia clientes IA",
+     "B2B sales AI agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e275af0c",
+    "name": "Talento tech y capacitación",
+    "definition": "La demanda de talento técnico con habilidades en IA crece, mientras las empresas enfrentan escasez y necesidad de capacitación.",
+    "wikipedia": "Skills gap",
+    "queries": [
+     "talento tech IA",
+     "AI talent shortage",
+     "capacitación talento IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_aeb3a504",
+    "name": "Eventos tech 2026",
+    "definition": "Conferencias y hackathones como Google I/O, DevDay y MWC 2026 marcan la agenda de anuncios y tendencias en IA.",
+    "wikipedia": "Google I/O",
+    "queries": [
+     "Google I/O 2026",
+     "DevDay 2026",
+     "Mobile World Congress 2026"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_da0014c1",
+    "name": "Gobernanza de datos",
+    "definition": "La gestión, regulación y derechos sobre los datos se vuelven críticos ante el aumento del consumo y etiquetado por IA.",
+    "wikipedia": "Data governance",
+    "queries": [
+     "gobernanza de datos",
+     "data governance AI",
+     "derechos de datos"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_440ecc49",
+    "name": "Música generada por IA",
+    "definition": "Plataformas como YouTube etiquetan canciones creadas con IA, mientras crece el debate sobre derechos y creatividad.",
+    "wikipedia": "Music and artificial intelligence",
+    "queries": [
+     "música IA etiquetado",
+     "AI generated music",
+     "YouTube AI labels"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_26f416ee",
+    "name": "Ansiedad por IA",
+    "definition": "Crece el miedo y la ansiedad laboral por la automatización y el impacto de la IA en el empleo.",
+    "wikipedia": "Technophobia",
+    "queries": [
+     "ansiedad por IA",
+     "AI job anxiety",
+     "miedo a la IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d85c7f74",
+    "name": "Adquisiciones de startups IA",
+    "definition": "Grandes tecnológicas compran startups de IA en acuerdos millonarios, a veces solo por su talento (acquihires).",
+    "wikipedia": "Mergers and acquisitions",
+    "queries": [
+     "adquisiciones IA",
+     "AI startup acquisition",
+     "acquihire IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_6b9d84c2",
+    "name": "Voces sintéticas con IA",
+    "definition": "La generación de voces realistas con IA transforma audiolibros, podcasts y doblajes, generando conflictos con actores de voz.",
+    "wikipedia": "Speech synthesis",
+    "queries": [
+     "voces IA",
+     "AI voice cloning",
+     "voces sintéticas"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8f753034",
+    "name": "Volatilidad bursátil IA",
+    "definition": "Las acciones tecnológicas y de IA sufren caídas y rebotes ante expectativas de productividad y temores de burbuja.",
+    "wikipedia": "Stock market bubble",
+    "queries": [
+     "burbuja IA bolsa",
+     "AI stock crash",
+     "volatilidad tech"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a4cff7db",
+    "name": "McDonald's y MCP",
+    "definition": "McDonald's China y otras cadenas exploran el uso de MCP (Model Context Protocol) para agentes de IA en atención al cliente.",
+    "wikipedia": "McDonald's",
+    "queries": [
+     "McDonald's MCP",
+     "McDonald's China IA",
+     "Yum Brands IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_eaa9f665",
+    "name": "Control de versiones con IA",
+    "definition": "Anthropic y otras empresas rediseñan el control de código fuente con IA, optimizando commits y dependencias.",
+    "wikipedia": "Version control",
+    "queries": [
+     "control de versiones IA",
+     "AI source control",
+     "Anthropic Scion"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_3127b995",
+    "name": "AMD y IA",
+    "definition": "AMD lanza procesadores Ryzen AI Max y soluciones como Helion para ejecutar agentes de IA localmente y en racks.",
+    "wikipedia": "Advanced Micro Devices",
+    "queries": [
+     "AMD Ryzen AI",
+     "AMD Helion",
+     "AMD IA local"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c4c7cf21",
+    "name": "GPUs para IA",
+    "definition": "La demanda de GPUs para entrenar y ejecutar IA crece, con desafíos de costo, VRAM y competencia con gaming.",
+    "wikipedia": "Graphics processing unit",
+    "queries": [
+     "GPU para IA",
+     "AI GPU cost",
+     "GPU low VRAM"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c86150d4",
+    "name": "Decompilación con IA",
+    "definition": "La IA permite decompilar videojuegos y software con facilidad, afectando a comunidades de reverse engineering.",
+    "wikipedia": "Decompiler",
+    "queries": [
+     "decompilación IA",
+     "AI decompile games",
+     "reverse engineering IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_4086ff06",
+    "name": "SEO con IA",
+    "definition": "El SEO se transforma con IA y Gemini, optimizando visibilidad y automatizando estrategias para pymes.",
+    "wikipedia": "Search engine optimization",
+    "queries": [
+     "SEO con IA",
+     "AI SEO",
+     "SEO Gemini"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f93a7bdd",
+    "name": "IA y armas autónomas",
+    "definition": "Informes revelan que grupos como los hutíes usan IA como Claude para desarrollar misiles y armamento autónomo.",
+    "wikipedia": "Lethal autonomous weapon",
+    "queries": [
+     "IA armas",
+     "AI autonomous weapons",
+     "Claude missiles"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f2d21584",
+    "name": "Interpretabilidad de IA",
+    "definition": "La transparencia y explicabilidad de los modelos de IA son clave para la confianza y la regulación.",
+    "wikipedia": "Explainable artificial intelligence",
+    "queries": [
+     "interpretabilidad IA",
+     "AI explainability",
+     "transparencia IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5a3e858c",
+    "name": "Programación con IA",
+    "definition": "La IA transforma el oficio de programar, permitiendo crear código sin escribir cada línea, pero generando debates sobre recortes.",
+    "wikipedia": "Computer programming",
+    "queries": [
+     "programación con IA",
+     "AI coding",
+     "vibe coding"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_387eab9c",
+    "name": "Amazon compra Decart",
+    "definition": "Amazon negocia la compra de la startup de IA Decart por unos 7.000 millones de dólares.",
+    "wikipedia": "Amazon (company)",
+    "queries": [
+     "Amazon Decart",
+     "Amazon compra IA",
+     "Decart acquisition"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e1832e5f",
+    "name": "Trading automatizado con IA",
+    "definition": "Bots y agentes de IA automatizan el trading en cripto y mercados, integrando MCP y análisis on-chain.",
+    "wikipedia": "Automated trading system",
+    "queries": [
+     "trading con IA",
+     "AI trading bot",
+     "automatización trading"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

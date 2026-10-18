@@ -1,0 +1,21 @@
+{
+ "key": "a0926e3b8251ee03a5f891ad104bd86f67789e9fd0fd583f712ec4de2ac87a39",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:19:10.215Z",
+ "latencyMs": 7896,
+ "usage": {
+  "inputTokens": 1196,
+  "outputTokens": 1219
+ },
+ "output": {
+  "oneLiner": "Ocho estados de EE. UU. demandan a OpenAI por dañar a menores y medios y creadores amplifican el caso.",
+  "narrative": "El pico lo mueve la demanda de ocho estados de EE. UU. contra OpenAI por el uso de ChatGPT en menores, con titulares de última hora que se comparten rápido. 6 de 21 piezas que despegaron son videos, frente a 1 de 81 del resto, y 10 de 21 las publicó un creador de contenido, frente a 2 de 81 del resto: el video corto y la voz de creador convierten la noticia legal en alcance. Los medios aportan el dato duro, como el video de News 4 Tucson sobre la demanda de Arizona y el de Reuters Legal, y los creadores el comentario, como el post de Dr. Damien P. Williams.",
+  "cited": [
+   "youtube:1Twxqbt25kQ",
+   "bluesky:3mxu7ouahp22x",
+   "bluesky:3mxwbx7upxk22",
+   "bluesky:3mxtd6kixvs2k"
+  ]
+ }
+}

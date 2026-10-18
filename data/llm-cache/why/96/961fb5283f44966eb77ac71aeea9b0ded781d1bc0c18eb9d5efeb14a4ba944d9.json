@@ -1,0 +1,20 @@
+{
+ "key": "961fb5283f44966eb77ac71aeea9b0ded781d1bc0c18eb9d5efeb14a4ba944d9",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:14:43.615Z",
+ "latencyMs": 15427,
+ "usage": {
+  "inputTokens": 1184,
+  "outputTokens": 2501
+ },
+ "output": {
+  "oneLiner": "Amazon negocia comprar Decart por alrededor de 7.000 millones; Rick Hasen lo impulsa en Bluesky.",
+  "narrative": "No hay patrones con al menos 3 piezas, así que no hay un gancho o formato dominante que explique el despegue. El tema crece +1020% en creadores distintos, con 13 creadores esta semana. La pieza que despega es un post de Rick Hasen en Bluesky con 14,3 veces la mediana de su autor, mientras la cobertura de medios registra engagement 0.",
+  "cited": [
+   "bluesky:3mxnanjp4xc2c",
+   "news:CBMiZ0FVX3lxTE9NN1FuaVRxX09XNVg2NE1CcDdCdnZVcE1mbGppeEhBeTFZM3FQeTU5WXpyRkREZWRIQ0M1ZnItaTlxWVlyWm54cy1QY2ZqSklhcHBNV0dJUnNnRHJ2QjNDQjByWGU5c2M",
+   "news:CBMirAFBVV95cUxQdW1CQU9IV0JNVE5jRE9oVUpfQ2ZCNE1waUx6WW5ua25wbDJBZ1EyY1Y4S09Nakk1NG4ySUdrMlRTTVNDM3ZmYjBucms4UWFtckN4M2twdlBIUzVSVXZUTkY2SnBwam1COWRZVTNVVDE4NnE1V2h3RG0tanNkQmtzR3hSSm1JUzdTZEVXelJkWVhpSngxdlNJOUcydDJwWVhWWHZUb00wTFlrNl9K"
+  ]
+ }
+}

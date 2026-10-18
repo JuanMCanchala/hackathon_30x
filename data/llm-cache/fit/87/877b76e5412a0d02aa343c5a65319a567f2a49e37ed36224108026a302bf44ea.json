@@ -1,0 +1,24 @@
+{
+ "key": "877b76e5412a0d02aa343c5a65319a567f2a49e37ed36224108026a302bf44ea",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:16:18.290Z",
+ "latencyMs": 5873,
+ "usage": {
+  "inputTokens": 715,
+  "outputTokens": 770
+ },
+ "output": {
+  "score": 5,
+  "executive": 7,
+  "noCode": 3,
+  "latam": 2,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Litigios y talento: contexto estratégico, poca aplicación directa para ventas o growth.",
+   "Riesgo legal de datos y copyright sí importa a empresas que usan IA.",
+   "Poco ángulo LatAm; protagonistas son gigantes de EE.UU. y en inglés."
+  ]
+ }
+}

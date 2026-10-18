@@ -1,0 +1,36 @@
+{
+ "key": "10336c5e6e922a84d178c5852433fc4f21b85c3aa797181aa61cec34fdb17bb7",
+ "name": "watch-slides",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T23:53:19.173Z",
+ "latencyMs": 8909,
+ "usage": {
+  "inputTokens": 4890,
+  "outputTokens": 579
+ },
+ "output": {
+  "slides": [
+   {
+    "text": "Estudante pré-vestibular\nCLT\nEmpreendedora\nMãe e empreendedora",
+    "es": "Estudiante preuniversitario\nEmpleada en relación de dependencia\nEmprendedora\nMadre y emprendedora"
+   },
+   {
+    "text": "Sonhando em abrir um negócio\nAcabou de abrir\nComeçou a faturar\nTem funcionários, mas faz tudo sozinha",
+    "es": "Soñando con abrir un negocio\nAcaba de abrir\nEmpezó a facturar\nTiene empleados, pero hace todo sola"
+   },
+   {
+    "text": "Mulher com boletos\nMulher com filhos\nMulher com empresa\nMulher com filhos, empresa e boletos",
+    "es": "Mujer con cuentas por pagar\nMujer con hijos\nMujer con empresa\nMujer con hijos, empresa y cuentas por pagar"
+   },
+   {
+    "text": "Quero ser minha própria chefe\nAbri minha empresa\nAgora trabalho 14 horas por dia\nMinha chefe não me deixa tirar férias",
+    "es": "Quiero ser mi propia jefa\nAbrí mi empresa\nAhora trabajo 14 horas por día\nMi jefa no me deja tomarme vacaciones"
+   },
+   {
+    "text": "VOCÊ ABRIU UMA EMPRESA PRA TER LIBERDADE. NÃO PRA VIRAR REFÉM DELA!\n\nEu quero você comigo na MESA DE NEGÓCIOS!\n\nNo dia 9 de novembro, às 20h, serão 2 horas comigo pra criar seu Manual da CEO e fazer sua empresa depender menos de você.\n\nComenta MESA pra garantir sua vaga!",
+    "es": "ABRISTE UNA EMPRESA PARA TENER LIBERTAD. ¡NO PARA VOLVERTE ESCLAVA DE ELLA!\n\n¡Te quiero conmigo en la MESA DE NEGOCIOS!\n\nEl 9 de noviembre, a las 20 h, serán 2 horas conmigo para crear tu Manual de CEO y hacer que tu empresa dependa menos de ti.\n\n¡Comenta MESA para asegurar tu lugar!"
+   }
+  ],
+  "idea": "El carrusel muestra, con una serie de primeros planos de ojos cada vez más cansados, cómo el sueño de ser tu propia jefa termina convirtiéndote en la empleada más explotada de tu propio negocio, y cierra invitando a un evento online para recuperar la libertad."
+ }
+}

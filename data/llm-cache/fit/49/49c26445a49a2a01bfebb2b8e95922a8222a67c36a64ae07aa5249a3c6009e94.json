@@ -1,0 +1,24 @@
+{
+ "key": "49c26445a49a2a01bfebb2b8e95922a8222a67c36a64ae07aa5249a3c6009e94",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:16:37.659Z",
+ "latencyMs": 14068,
+ "usage": {
+  "inputTokens": 707,
+  "outputTokens": 1147
+ },
+ "output": {
+  "score": 4,
+  "executive": 4,
+  "noCode": 1,
+  "latam": 1,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Tema técnico de kernel, poco aplicable a equipos comerciales.",
+   "Señala adopción de IA en desarrollo, relevante para estrategia tecnológica.",
+   "Sin ángulo LatAm claro; solo cobertura en español."
+  ]
+ }
+}

@@ -1,0 +1,24 @@
+{
+ "key": "4865e9274c75a07e540bdc6cec3288291b30cd7ddc40119d7ed81b62ee4c3928",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T17:45:24.786Z",
+ "latencyMs": 6463,
+ "usage": {
+  "inputTokens": 719,
+  "outputTokens": 664
+ },
+ "output": {
+  "score": 2,
+  "executive": 2,
+  "noCode": 1,
+  "latam": 1,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "bajo",
+  "reasons": [
+   "Infraestructura técnica interna, sin aplicación comercial directa para negocios.",
+   "Poco relevante para ventas, growth o estrategia en LatAm.",
+   "No requiere acción para equipos no técnicos."
+  ]
+ }
+}

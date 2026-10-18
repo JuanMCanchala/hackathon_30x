@@ -1,0 +1,255 @@
+{
+ "key": "f91d08511726ab5177c4be8d2fcb4416bf651788d5a8869a942f7ae9cd8de7f8",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T17:38:08.721Z",
+ "latencyMs": 19598,
+ "usage": {
+  "inputTokens": 2978,
+  "outputTokens": 1752
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_0f16f127",
+    "name": "Carrera de modelos frontera",
+    "definition": "Competencia entre grandes tecnológicas por lanzar los modelos de IA más avanzados y captar el mercado.",
+    "wikipedia": "AI race",
+    "queries": [
+     "frontier AI race",
+     "carrera modelos IA",
+     "Gemini 4 Argon"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_4dd88051",
+    "name": "Publicis y IA publicitaria",
+    "definition": "Publicis y otras agencias usan IA para impulsar el marketing y superar previsiones de crecimiento.",
+    "wikipedia": "Publicis",
+    "queries": [
+     "Publicis AI marketing",
+     "Publicis resultados IA",
+     "WPP Dentsu IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a55dd001",
+    "name": "RAG y Graph RAG",
+    "definition": "Técnicas de recuperación aumentada para que los LLM accedan a datos externos con mayor precisión.",
+    "wikipedia": "Retrieval-augmented generation",
+    "queries": [
+     "Graph RAG pipeline",
+     "RAG multiagente",
+     "RAG local LLM"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a1a0ad26",
+    "name": "Seguros para riesgos de IA",
+    "definition": "Aseguradoras desarrollan pólizas y productos para cubrir riesgos de agentes de IA y ciberataques.",
+    "wikipedia": "AI safety",
+    "queries": [
+     "AI agent insurance",
+     "seguros IA riesgo",
+     "insurtech IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c8047f7b",
+    "name": "Perplexity",
+    "definition": "Buscador con IA que integra agentes, skills y modelos como GPT-6 para empresas y usuarios.",
+    "wikipedia": "Perplexity AI",
+    "queries": [
+     "Perplexity Computer",
+     "Perplexity Amex",
+     "Perplexity AI search"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_7696f358",
+    "name": "Asistentes de voz con IA",
+    "definition": "Evolución de Siri, Google Assistant y Google Home hacia agentes de IA conversacionales.",
+    "wikipedia": "Siri",
+    "queries": [
+     "Siri AI agentic",
+     "Google Assistant Gemini",
+     "Google Home IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_21c58569",
+    "name": "IA agéntica por sector",
+    "definition": "Adopción de agentes de IA en finanzas, salud, farma, universidades y sector público de la UE.",
+    "wikipedia": "Intelligent agent",
+    "queries": [
+     "agentic AI finance",
+     "IA agéntica salud",
+     "agentic AI EU"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d4cde064",
+    "name": "Codex",
+    "definition": "Herramienta de OpenAI para generar código y automatizar tareas de desarrollo con IA.",
+    "wikipedia": "OpenAI Codex",
+    "queries": [
+     "OpenAI Codex",
+     "Codex dashboard",
+     "Codex AI coding"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d97c6fee",
+    "name": "Observabilidad de IA",
+    "definition": "Monitoreo y análisis del comportamiento de modelos y agentes de IA en producción.",
+    "wikipedia": "Observability",
+    "queries": [
+     "LLM observability",
+     "observabilidad IA",
+     "AI agent monitoring"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_37a60a6f",
+    "name": "Becas de IA de Google",
+    "definition": "Google ofrece 15.000 becas para formación en inteligencia artificial en España y Latinoamérica.",
+    "wikipedia": "Google",
+    "queries": [
+     "becas Google IA",
+     "Google AI scholarships",
+     "becas inteligencia artificial"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_68acbf93",
+    "name": "Dispositivos de grabación ocultos",
+    "definition": "Casos de micrófonos y dispositivos de escucha clandestinos en oficinas, como el de OpenAI.",
+    "wikipedia": "Covert listening device",
+    "queries": [
+     "OpenAI listening device",
+     "hidden microphone office",
+     "grabación conversaciones"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_0faa4b2a",
+    "name": "Compliance e IA",
+    "definition": "Cómo los equipos de cumplimiento normativo gestionan riesgos y regulación de la IA.",
+    "wikipedia": "Regulatory compliance",
+    "queries": [
+     "AI governance compliance",
+     "compliance IA",
+     "EU AI Act compliance"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_561ac064",
+    "name": "Descubrimiento científico con IA",
+    "definition": "Uso de IA para hallazgos en matemáticas, materiales, historia y otras disciplinas científicas.",
+    "wikipedia": "Artificial intelligence in science",
+    "queries": [
+     "AI scientific discovery",
+     "descubrimiento IA",
+     "AI-Scientist"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_7135b73c",
+    "name": "Quiebras de startups de IA",
+    "definition": "Startups de IA que cierran o quiebran por modelos de negocio insostenibles y burbuja inversora.",
+    "wikipedia": "Startup company",
+    "queries": [
+     "AI startup bankruptcy",
+     "quiebra startup IA",
+     "AI bubble burst"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c248f2c0",
+    "name": "Procesamiento de lenguaje natural",
+    "definition": "Tecnologías que permiten a las máquinas entender y generar lenguaje humano, base de los LLM.",
+    "wikipedia": "Natural language processing",
+    "queries": [
+     "natural language processing",
+     "NLP IA",
+     "lenguaje natural búsqueda"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_ca854cde",
+    "name": "ChatGPT en salud",
+    "definition": "Uso de ChatGPT y Claude para consultas médicas, diagnósticos y terapia psicológica.",
+    "wikipedia": "ChatGPT in healthcare",
+    "queries": [
+     "ChatGPT medical advice",
+     "ChatGPT salud mental",
+     "Claude health"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ff06a73a",
+    "name": "Figma e IA",
+    "definition": "Figma integra agentes de IA y especificaciones para diseño y código en su plataforma.",
+    "wikipedia": "Figma (software)",
+    "queries": [
+     "Figma AI agents",
+     "Figma clone AI",
+     "Figma specs IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_49fcb5b6",
+    "name": "Verificación de respuestas de IA",
+    "definition": "Riesgos de respuestas incorrectas de IA y necesidad de verificar información generada.",
+    "wikipedia": "Hallucination (artificial intelligence)",
+    "queries": [
+     "AI hallucination verification",
+     "verificar respuestas IA",
+     "AI fact checking"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b33ef5ff",
+    "name": "Ventana de contexto",
+    "definition": "Gestión del contexto que los LLM pueden procesar en una conversación o tarea.",
+    "wikipedia": "Context window",
+    "queries": [
+     "context window LLM",
+     "ventana contexto IA",
+     "context management AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_65a9d617",
+    "name": "Ética y límites de la IA",
+    "definition": "Debate sobre regulación, límites éticos y figuras como Catalina Botero o Corina Rogovsky.",
+    "wikipedia": "Ethics of artificial intelligence",
+    "queries": [
+     "AI ethics limits",
+     "límites inteligencia artificial",
+     "AI regulation debate"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

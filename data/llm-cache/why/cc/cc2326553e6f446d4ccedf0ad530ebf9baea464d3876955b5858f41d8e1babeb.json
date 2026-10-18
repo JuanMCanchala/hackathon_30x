@@ -1,0 +1,21 @@
+{
+ "key": "cc2326553e6f446d4ccedf0ad530ebf9baea464d3876955b5858f41d8e1babeb",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:19:40.951Z",
+ "latencyMs": 4713,
+ "usage": {
+  "inputTokens": 1934,
+  "outputTokens": 837
+ },
+ "output": {
+  "oneLiner": "La IA en videojuegos crece con polémica: creadores de contenido y el caso Dragon Quest mueven la conversación.",
+  "narrative": "9 de 9 piezas que despegaron las publicó un creador de contenido, frente a 2 de 25 del resto, y 6 de 9 son posts de texto. El gancho es la polémica: 6 de 9 la usan, frente a 5 de 25 del resto, con discusiones sobre IA en grupos de gamedev y videos como el de Luneist. El momento también pesa: 5 de 9 salieron en la mañana. Un post de imagen de Trend AI sobre el Playground de Google muestra que los lanzamientos de herramientas también empujan el tema.",
+  "cited": [
+   "bluesky:3mxu4ibvwa22i",
+   "youtube:lZYGlExw9jU",
+   "bluesky:3mxzevrtyh22n",
+   "bluesky:3mxh7tvkycj2p"
+  ]
+ }
+}

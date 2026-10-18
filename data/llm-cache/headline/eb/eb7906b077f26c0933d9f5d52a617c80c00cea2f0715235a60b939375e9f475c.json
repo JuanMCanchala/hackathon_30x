@@ -1,0 +1,14 @@
+{
+ "key": "eb7906b077f26c0933d9f5d52a617c80c00cea2f0715235a60b939375e9f475c",
+ "name": "headline",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:13:22.708Z",
+ "latencyMs": 1165,
+ "usage": {
+  "inputTokens": 333,
+  "outputTokens": 29
+ },
+ "output": {
+  "headline": "Esta semana la IA en YouTube gira hacia videojuegos, espionaje corporativo y ChatGPT para adolescentes"
+ }
+}

@@ -1,0 +1,24 @@
+{
+ "key": "ff4cbe4c54ad333fb32f5c0e9abf4ad72518c1f35f053f411d89066a6eac009e",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:16:41.790Z",
+ "latencyMs": 5541,
+ "usage": {
+  "inputTokens": 701,
+  "outputTokens": 640
+ },
+ "output": {
+  "score": 8,
+  "executive": 8,
+  "noCode": 8,
+  "latam": 6,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Ejecutivos deben detectar alucinaciones y proteger marca y decisiones.",
+   "Herramientas no-code para verificar contenido antes de publicar o vender.",
+   "LatAm: desinformación en español, WhatsApp y campañas políticas."
+  ]
+ }
+}

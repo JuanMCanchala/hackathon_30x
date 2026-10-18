@@ -1,0 +1,275 @@
+{
+ "key": "cb14eb21938ae7f0b84acf24b8582ff31160879a171328df8c46e8087f2f151d",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:12:50.865Z",
+ "latencyMs": 11267,
+ "usage": {
+  "inputTokens": 3355,
+  "outputTokens": 1673
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_a8bd71cc",
+    "name": "RPA y agentes UiPath",
+    "definition": "Automatización de procesos con robots y agentes autónomos, con foco en gobernanza y control en empresas reguladas.",
+    "wikipedia": "Robotic process automation",
+    "queries": [
+     "UiPath agentes autónomos",
+     "RPA enterprise governance",
+     "UiPath automation agents",
+     "automatización procesos RPA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_30c056dd",
+    "name": "Etiquetado de contenido con IA",
+    "definition": "Marcar y clasificar contenido generado por IA para trazabilidad, transparencia y cumplimiento normativo.",
+    "wikipedia": "Content moderation",
+    "queries": [
+     "AI content labeling",
+     "etiquetado contenido IA",
+     "AI watermarking",
+     "marca de IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_6d123a3b",
+    "name": "Salida a bolsa de IA",
+    "definition": "Planes y rumores de OPV de empresas de IA como OpenAI y Anthropic, y su impacto en mercados.",
+    "wikipedia": "Initial public offering",
+    "queries": [
+     "OpenAI IPO",
+     "Anthropic salida bolsa",
+     "AI company IPO",
+     "IA y bolsa"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_3d45a295",
+    "name": "Startups de IA emergentes",
+    "definition": "Nuevas empresas de IA como Kimi, Arcee o EliseAI que lanzan productos para oficina, agentes y automatización.",
+    "wikipedia": null,
+    "queries": [
+     "Kimi AI office",
+     "AI startup agents",
+     "startups IA emergentes",
+     "AI agent teammates"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b7ca8876",
+    "name": "Robots y agentes de consumo",
+    "definition": "Robots domésticos y agentes de IA con personalidad, como Microduck o Goose, que acercan la IA al gran público.",
+    "wikipedia": null,
+    "queries": [
+     "Microduck robot",
+     "Goose agentic AI",
+     "robots IA consumo",
+     "AI agent foundation"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_0ade90d2",
+    "name": "Empleos reservados a humanos",
+    "definition": "Debate sobre trabajos que la IA no reemplazará y la posible creación de categorías laborales exclusivas para personas.",
+    "wikipedia": "Technological unemployment",
+    "queries": [
+     "empleos reservados humanos",
+     "AI proof jobs",
+     "trabajos que IA no reemplaza",
+     "AI hiring boom"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_7f4fc28f",
+    "name": "IA en la industria editorial",
+    "definition": "Uso de IA por editoriales y agentes literarios en marketing, rechazos y descripciones, con recelos sobre derechos de autor.",
+    "wikipedia": "Publishing",
+    "queries": [
+     "AI publishing industry",
+     "IA en editoriales",
+     "publishers AI marketing",
+     "literary agents AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b66884cf",
+    "name": "Riesgo sistémico de la IA",
+    "definition": "Riesgos financieros y operativos de la exposición bancaria y de capital riesgo a las empresas de IA.",
+    "wikipedia": "Systemic risk",
+    "queries": [
+     "AI systemic risk",
+     "riesgo sistémico IA",
+     "bank AI exposure",
+     "AI financial risk"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_34e55be6",
+    "name": "Modelos chinos open source",
+    "definition": "Modelos de IA abiertos desarrollados en China que ganan cuota frente a los modelos estadounidenses cerrados.",
+    "wikipedia": "DeepSeek",
+    "queries": [
+     "Chinese open source models",
+     "modelos chinos IA",
+     "open source China AI",
+     "modelos abiertos chinos"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_0c096ea3",
+    "name": "Riesgos de agentes de IA",
+    "definition": "Fallos y peligros de agentes autónomos, desde fugas de datos hasta riesgos biológicos y falta de supervisión humana.",
+    "wikipedia": "AI safety",
+    "queries": [
+     "AI agent risks",
+     "riesgos agentes IA",
+     "AI agent safety",
+     "agentes autónomos riesgo"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e2c4d14e",
+    "name": "Marcas e IA generativa",
+    "definition": "Impacto de la IA generativa en branding, confianza del consumidor y diferenciación de marca.",
+    "wikipedia": "Brand management",
+    "queries": [
+     "AI branding trust",
+     "marcas e IA",
+     "AI generated ads",
+     "brand reputation AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_caaff770",
+    "name": "Malware con IA",
+    "definition": "Malware potenciado por IA, agentes maliciosos y ataques autorreplicantes que explotan herramientas de IA.",
+    "wikipedia": "Malware",
+    "queries": [
+     "AI malware",
+     "malware con IA",
+     "AI agent attacks",
+     "ransomware IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_fcebc453",
+    "name": "Economía de los tokens",
+    "definition": "Coste, consumo y valor de los tokens como unidad económica central de los modelos de IA.",
+    "wikipedia": "Lexical analysis",
+    "queries": [
+     "AI token economics",
+     "tokens de IA",
+     "token cost LLM",
+     "AI token usage"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a7f70743",
+    "name": "Analítica con IA",
+    "definition": "Uso de IA para analítica de datos, marketing y predicción, y la presión por adoptarla en las empresas.",
+    "wikipedia": "Analytics",
+    "queries": [
+     "AI analytics",
+     "analítica con IA",
+     "predictive analytics AI",
+     "big data IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_954424a7",
+    "name": "Cadena de suministro de chips",
+    "definition": "Demanda de chips de IA, memoria y diseño asistido por IA en una cadena de suministro global tensionada.",
+    "wikipedia": "Semiconductor industry",
+    "queries": [
+     "AI chip supply chain",
+     "chips de IA",
+     "AI chip demand",
+     "semiconductor AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_547562e4",
+    "name": "Alineación y eficiencia de modelos",
+    "definition": "Investigación sobre alineación, desalineación, autorreplicación y eficiencia de los grandes modelos de lenguaje.",
+    "wikipedia": "AI alignment",
+    "queries": [
+     "LLM alignment",
+     "alineación modelos IA",
+     "LLM efficiency",
+     "model alignment research"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_98dc7d04",
+    "name": "Gobernanza de la IA",
+    "definition": "Regulación, gobernanza de datos e intervención gubernamental sobre la IA a nivel global.",
+    "wikipedia": "Regulation of artificial intelligence",
+    "queries": [
+     "AI governance",
+     "gobernanza IA",
+     "AI regulation government",
+     "data governance AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ad46e59f",
+    "name": "Traducción con IA",
+    "definition": "Debate sobre la traducción automática con IA frente a traductores humanos y su calidad en la industria editorial.",
+    "wikipedia": "Machine translation",
+    "queries": [
+     "AI translation",
+     "traducción con IA",
+     "machine translation quality",
+     "AI translators"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_db92e60e",
+    "name": "Voces y doblaje con IA",
+    "definition": "Generación de voces, doblaje, lip-sync y animación con IA para microdramas y contenido viral.",
+    "wikipedia": "Speech synthesis",
+    "queries": [
+     "AI voice dubbing",
+     "doblaje con IA",
+     "AI lip sync",
+     "voces generadas IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_245f63e9",
+    "name": "Linus Torvalds y la IA",
+    "definition": "Uso de asistentes de código como Claude Code por Linus Torvalds en el desarrollo del kernel Linux.",
+    "wikipedia": "Linus Torvalds",
+    "queries": [
+     "Linus Torvalds AI",
+     "Torvalds Claude Code",
+     "Linux AI coding",
+     "Torvalds LLM patch"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

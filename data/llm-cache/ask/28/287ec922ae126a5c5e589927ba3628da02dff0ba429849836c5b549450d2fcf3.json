@@ -1,0 +1,23 @@
+{
+ "key": "287ec922ae126a5c5e589927ba3628da02dff0ba429849836c5b549450d2fcf3",
+ "name": "ask",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T21:59:24.949Z",
+ "latencyMs": 5747,
+ "usage": {
+  "inputTokens": 3445,
+  "outputTokens": 434
+ },
+ "output": {
+  "answer": "El tema más cercano a IA para ventas es t_94e93fea, Workday e IA agéntica: está en etapa crecimiento, +620 %, con 17 creadores y presencia en news y bluesky. Workday lleva la IA agéntica a contratos y cobra por ahorro, y lo mueven su propio blog, Foro3D y Tim Newman. Encaje 30X 6 y 30X no lo ha tocado todavía. No hay en el radar un tema etiquetado específicamente como ventas o CRM comercial; si buscas ese ángulo, conviene mirar la sección de temas de negocio/empresa del radar o cruzar t_94e93fea con t_1fb3f275 (CERT-In y agentes de IA, encaje 30X 7), que toca agentes actuando en sistemas corporativos.",
+  "refs": [
+   "t_94e93fea",
+   "t_1fb3f275"
+  ],
+  "followUps": [
+   "¿Cómo se puede contar t_94e93fea para un público de ejecutivos comerciales?",
+   "¿Qué otros temas del radar tienen encaje 30X alto y aún no hemos tocado?",
+   "¿En qué redes conviene publicar t_94e93fea para llegar a decisores de ventas?"
+  ]
+ }
+}

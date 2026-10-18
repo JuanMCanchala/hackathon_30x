@@ -1,0 +1,14 @@
+{
+ "key": "2f48b911ff4ccc7c1cc5f8b8491e6d2c12f893da2ab81d94e535881f9b47e2c4",
+ "name": "headline",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:29:28.098Z",
+ "latencyMs": 1184,
+ "usage": {
+  "inputTokens": 328,
+  "outputTokens": 28
+ },
+ "output": {
+  "headline": "La IA esta semana se concentra en el control de código, ChatGPT para adolescentes y los modelos frontera"
+ }
+}

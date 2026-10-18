@@ -1,0 +1,24 @@
+{
+ "key": "b5fca4c9e6718818127ca94f92fcedb8ca4f20829512ea50197b686f215be4bd",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:16:25.475Z",
+ "latencyMs": 5841,
+ "usage": {
+  "inputTokens": 733,
+  "outputTokens": 695
+ },
+ "output": {
+  "score": 5,
+  "executive": 7,
+  "noCode": 2,
+  "latam": 2,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Tema macroindustrial: relevante para estrategia, poco accionable para ventas.",
+   "Sin ángulo LatAm ni aplicación sin código inmediata.",
+   "Datos sólidos, pero riesgo de burbuja AI en titulares."
+  ]
+ }
+}

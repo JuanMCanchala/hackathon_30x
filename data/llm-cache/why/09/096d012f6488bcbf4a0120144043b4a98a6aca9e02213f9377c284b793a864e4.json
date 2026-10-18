@@ -1,0 +1,18 @@
+{
+ "key": "096d012f6488bcbf4a0120144043b4a98a6aca9e02213f9377c284b793a864e4",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:18:12.300Z",
+ "latencyMs": 11037,
+ "usage": {
+  "inputTokens": 1408,
+  "outputTokens": 1750
+ },
+ "output": {
+  "oneLiner": "Apate, startup de bots encubiertos contra estafas con IA, crece esta semana por Thailand Medical News en Bluesky.",
+  "narrative": "No hay patrones con al menos 3 piezas, así que no se puede hablar de un formato recurrente. La única pieza que despega es un post de Thailand Medical News en Bluesky sobre Apate y sus bots encubiertos: engagement 11 y 3.7× la mediana de su autor. El crecimiento de +233 % en creadores distintos frente a las 4 semanas anteriores y 14 creadores esta semana apunta a interés disperso, no a una fórmula replicada.",
+  "cited": [
+   "bluesky:3mxvj33npjk2n"
+  ]
+ }
+}

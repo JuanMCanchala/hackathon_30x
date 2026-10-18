@@ -1,0 +1,255 @@
+{
+ "key": "3862c216c0507cbfc63c513a3b024c8dbf90f69682852371e270ff92db385e9c",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:07:47.072Z",
+ "latencyMs": 130041,
+ "usage": {
+  "inputTokens": 3195,
+  "outputTokens": 1713
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_ee42c265",
+    "name": "Detección de contenido con IA",
+    "definition": "Herramientas y debates sobre cómo identificar textos, imágenes o videos generados por inteligencia artificial.",
+    "wikipedia": "AI content detection",
+    "queries": [
+     "detección contenido IA",
+     "AI content detection",
+     "detectar texto IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ce9c2453",
+    "name": "Burbuja de la IA",
+    "definition": "Debate sobre si el actual auge de inversión en inteligencia artificial constituye una burbuja económica.",
+    "wikipedia": "AI bubble",
+    "queries": [
+     "burbuja IA",
+     "AI bubble",
+     "boom IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_511890c1",
+    "name": "IA en empresas",
+    "definition": "Uso de inteligencia artificial en empresas para automatizar procesos, analizar datos y mejorar la toma de decisiones.",
+    "wikipedia": "Artificial intelligence in business",
+    "queries": [
+     "IA empresas",
+     "AI enterprise",
+     "empresa autónoma IA"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_0eda60c7",
+    "name": "Cursos de IA",
+    "definition": "Programas de formación, bootcamps y certificaciones para aprender inteligencia artificial y habilidades relacionadas.",
+    "wikipedia": "Artificial intelligence education",
+    "queries": [
+     "curso IA",
+     "AI bootcamp",
+     "aprender IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_6b8bc84e",
+    "name": "Asistentes de voz con IA",
+    "definition": "Asistentes virtuales como Siri, Alexa o Google Assistant que incorporan inteligencia artificial para interactuar con usuarios.",
+    "wikipedia": "Virtual assistant",
+    "queries": [
+     "asistente voz IA",
+     "AI voice assistant",
+     "Siri Alexa IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_91468bda",
+    "name": "Benchmarks de IA",
+    "definition": "Pruebas estandarizadas para medir el rendimiento y las capacidades de modelos y sistemas de inteligencia artificial.",
+    "wikipedia": "Benchmark (computing)",
+    "queries": [
+     "benchmark IA",
+     "AI benchmark",
+     "evaluación LLM"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e2f0c9e8",
+    "name": "Claude Opus 5.5",
+    "definition": "Modelo de lenguaje de Anthropic, parte de la familia Claude Opus, con mejoras en razonamiento y generación de texto.",
+    "wikipedia": "Claude (language model)",
+    "queries": [
+     "Claude Opus 5.5",
+     "Opus 5.5",
+     "Anthropic Claude"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_eca4a890",
+    "name": "IA en Asia",
+    "definition": "Desarrollo y regulación de la inteligencia artificial en países asiáticos como China, Corea del Sur y Japón.",
+    "wikipedia": "Artificial intelligence in China",
+    "queries": [
+     "IA China",
+     "AI Asia",
+     "inteligencia artificial Corea"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_aedd3bc6",
+    "name": "Superinteligencia artificial",
+    "definition": "Concepto de una inteligencia artificial que superaría ampliamente la capacidad humana en todos los ámbitos.",
+    "wikipedia": "Superintelligence",
+    "queries": [
+     "superinteligencia IA",
+     "AGI",
+     "superintelligence"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_37b975a6",
+    "name": "ChatGPT para adolescentes",
+    "definition": "Uso de ChatGPT por parte de adolescentes y las preocupaciones sobre seguridad, privacidad y regulación.",
+    "wikipedia": "ChatGPT",
+    "queries": [
+     "ChatGPT adolescentes",
+     "ChatGPT teens",
+     "seguridad ChatGPT"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_197bf353",
+    "name": "Música generada con IA",
+    "definition": "Creación de canciones, audio y videos musicales mediante herramientas de inteligencia artificial generativa.",
+    "wikipedia": "Music and artificial intelligence",
+    "queries": [
+     "música IA",
+     "AI music",
+     "generación musical IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_46459b83",
+    "name": "LLM locales",
+    "definition": "Modelos de lenguaje ejecutados localmente en dispositivos, con alternativas a APIs en la nube y herramientas como LangChain.",
+    "wikipedia": "Large language model",
+    "queries": [
+     "LLM local",
+     "local LLM",
+     "LangChain"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_46395cea",
+    "name": "Publicidad en ChatGPT",
+    "definition": "Inclusión de anuncios y contenido patrocinado en ChatGPT y otras plataformas de inteligencia artificial conversacional.",
+    "wikipedia": "ChatGPT",
+    "queries": [
+     "anuncios ChatGPT",
+     "ChatGPT ads",
+     "publicidad IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2ac2329f",
+    "name": "Regulación de IA en EE.UU.",
+    "definition": "Debate político y propuestas legislativas en Estados Unidos para regular el desarrollo y uso de la inteligencia artificial.",
+    "wikipedia": "Regulation of artificial intelligence",
+    "queries": [
+     "regulación IA EEUU",
+     "AI regulation US",
+     "política IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2faf48b9",
+    "name": "Hardware para IA",
+    "definition": "Componentes físicos como GPUs, TPUs y aceleradores diseñados para ejecutar cargas de trabajo de inteligencia artificial.",
+    "wikipedia": "AI accelerator",
+    "queries": [
+     "hardware IA",
+     "AI hardware",
+     "GPU IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c606a6e5",
+    "name": "IA y gobierno",
+    "definition": "Aplicación de inteligencia artificial en el sector público, elecciones y políticas gubernamentales.",
+    "wikipedia": "Artificial intelligence in government",
+    "queries": [
+     "IA gobierno",
+     "AI government",
+     "IA elecciones"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c86322b7",
+    "name": "Costos de la IA",
+    "definition": "Precios, suscripciones y costes asociados al uso de modelos y servicios de inteligencia artificial.",
+    "wikipedia": "Artificial intelligence",
+    "queries": [
+     "costos IA",
+     "AI pricing",
+     "suscripción IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b0788b49",
+    "name": "IA en el derecho",
+    "definition": "Uso de inteligencia artificial en despachos legales, decisiones judiciales y asesoría jurídica.",
+    "wikipedia": "Artificial intelligence and law",
+    "queries": [
+     "IA derecho",
+     "AI law",
+     "IA legal"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f63caa1a",
+    "name": "Aplicaciones con IA",
+    "definition": "Desarrollo y uso de aplicaciones móviles y web que integran funcionalidades de inteligencia artificial.",
+    "wikipedia": "Artificial intelligence",
+    "queries": [
+     "apps IA",
+     "AI apps",
+     "aplicaciones inteligencia artificial"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_393c6145",
+    "name": "AI slop",
+    "definition": "Contenido de baja calidad generado masivamente con inteligencia artificial, a menudo sin criterio ni revisión humana.",
+    "wikipedia": "AI slop",
+    "queries": [
+     "AI slop",
+     "slop IA",
+     "contenido basura IA"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,275 @@
+{
+ "key": "450c4c0c07787099be6c1439055704aba21831bffe574b8784d6cd4b897043f9",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:07:47.733Z",
+ "latencyMs": 117420,
+ "usage": {
+  "inputTokens": 3451,
+  "outputTokens": 1602
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_65d4f39d",
+    "name": "IA en China",
+    "definition": "Carrera de China por liderar la inteligencia artificial global, con modelos propios, chips y adopción estatal y empresarial.",
+    "wikipedia": "Artificial intelligence industry in China",
+    "queries": [
+     "IA en China",
+     "China AI race",
+     "chips IA China",
+     "modelos chinos IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ccf4d6f2",
+    "name": "Opinión pública sobre IA",
+    "definition": "Cómo percibe la sociedad la inteligencia artificial: expectativas, miedos, conciencia y confianza en la tecnología.",
+    "wikipedia": "Public opinion on artificial intelligence",
+    "queries": [
+     "opinión pública IA",
+     "public opinion AI",
+     "percepción social IA",
+     "AI consciousness debate"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f3963d68",
+    "name": "Hackeos con IA",
+    "definition": "Ataques y brechas de seguridad ejecutados o asistidos por inteligencia artificial contra gobiernos, bancos y empresas.",
+    "wikipedia": "Security hacker",
+    "queries": [
+     "hackeo con IA",
+     "AI agent hacked",
+     "OpenAI hack",
+     "hackeo bancario IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e725e624",
+    "name": "IA en empleo y contratación",
+    "definition": "Uso de agentes de IA para buscar empleo, filtrar candidatos y transformar la contratación y el mercado laboral.",
+    "wikipedia": "Artificial intelligence in hiring",
+    "queries": [
+     "IA contratación",
+     "AI hiring",
+     "empleo con IA",
+     "AI job search"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_291614cf",
+    "name": "Seguridad de modelos de IA",
+    "definition": "Evaluación, riesgos y protección de modelos de lenguaje frente a fallos, ataques y usos indebidos.",
+    "wikipedia": "AI safety",
+    "queries": [
+     "seguridad LLM",
+     "AI model security",
+     "evaluación modelos IA",
+     "LLM safety"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_05ebbe9e",
+    "name": "Servidores MCP",
+    "definition": "Infraestructura de servidores que conecta modelos de IA con herramientas y datos externos mediante el protocolo MCP.",
+    "wikipedia": "Model Context Protocol",
+    "queries": [
+     "MCP server",
+     "servidores MCP",
+     "MCP registry",
+     "MCP tools"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ecfbde70",
+    "name": "Marcas de agua en IA",
+    "definition": "Técnicas para marcar contenido generado por IA y el debate sobre su detección, consumo de agua y trazabilidad.",
+    "wikipedia": "Watermarking",
+    "queries": [
+     "marca de agua IA",
+     "AI watermarking",
+     "watermark LLM",
+     "marcas de agua texto"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_53ea6940",
+    "name": "Inferencia de IA",
+    "definition": "Costes, chips y arquitecturas para ejecutar modelos de IA en producción, clave para la economía del sector.",
+    "wikipedia": "Inference engine",
+    "queries": [
+     "inferencia IA",
+     "AI inference cost",
+     "chips inferencia",
+     "LLM inference"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ae3df1a6",
+    "name": "Geopolítica tecnológica",
+    "definition": "Competencia y dependencia entre potencias por el control de la tecnología, con la IA como eje central.",
+    "wikipedia": "Technological geopolitics",
+    "queries": [
+     "geopolítica tecnología",
+     "tech geopolitics",
+     "soberanía tecnológica",
+     "AI geopolitics"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f24e3650",
+    "name": "Consultoras y IA",
+    "definition": "Cómo McKinsey, Deloitte, Accenture y otras firmas adoptan y venden servicios de inteligencia artificial.",
+    "wikipedia": "Consulting firm",
+    "queries": [
+     "McKinsey IA",
+     "consultoras IA",
+     "Deloitte AI report",
+     "Accenture AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_523b0048",
+    "name": "Política de IA",
+    "definition": "Regulación, inversión pública y debates políticos sobre inteligencia artificial en EE.UU., Europa y Latinoamérica.",
+    "wikipedia": "Regulation of artificial intelligence",
+    "queries": [
+     "regulación IA",
+     "AI policy",
+     "política IA EEUU",
+     "AI regulation Europe"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2acb7195",
+    "name": "IA en finanzas",
+    "definition": "Agentes y herramientas de IA que transforman la asesoría financiera, la banca y las decisiones de inversión.",
+    "wikipedia": "Financial technology",
+    "queries": [
+     "IA finanzas",
+     "AI fintech",
+     "agentes financieros IA",
+     "AI banking"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_4c1ed0a7",
+    "name": "IA en manufactura",
+    "definition": "Aplicación de agentes y modelos de IA en plantas, minería, agricultura y operaciones industriales.",
+    "wikipedia": "Industrial artificial intelligence",
+    "queries": [
+     "IA manufactura",
+     "AI manufacturing",
+     "IA industria",
+     "agentic AI operations"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5e4c2171",
+    "name": "IA en retail",
+    "definition": "Uso de IA en comercio, e-commerce, precios dinámicos, cadena de suministro y experiencia de cliente.",
+    "wikipedia": "Artificial intelligence in retail",
+    "queries": [
+     "IA retail",
+     "AI ecommerce",
+     "IA precios dinámicos",
+     "AI supply chain"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_740686c0",
+    "name": "IA en Latinoamérica",
+    "definition": "Adopción de inteligencia artificial por empresas y gobiernos en América Latina y otras regiones emergentes.",
+    "wikipedia": "Artificial intelligence in Latin America",
+    "queries": [
+     "IA Latinoamérica",
+     "AI Latin America",
+     "adopción IA Colombia",
+     "IA Brasil"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_51b21d6d",
+    "name": "IA en Europa",
+    "definition": "Estrategia, inversión y regulación europea frente al dominio tecnológico de Estados Unidos y China.",
+    "wikipedia": "Artificial intelligence in Europe",
+    "queries": [
+     "IA Europa",
+     "European AI",
+     "Mistral AI",
+     "EU AI Act"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f6225fa5",
+    "name": "IA en Nueva York",
+    "definition": "Debate sobre el avance de la IA en Wall Street, la educación y las políticas locales de Nueva York.",
+    "wikipedia": "Artificial intelligence in New York",
+    "queries": [
+     "IA Nueva York",
+     "AI New York",
+     "Wall Street IA",
+     "NYC AI policy"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_048ed317",
+    "name": "IA en videojuegos",
+    "definition": "Impacto de la inteligencia artificial en el desarrollo, los estudios y la industria de los videojuegos.",
+    "wikipedia": "Artificial intelligence in video games",
+    "queries": [
+     "IA videojuegos",
+     "AI game development",
+     "AI in gaming",
+     "generación videojuegos IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e7ec5e82",
+    "name": "IA local",
+    "definition": "Ejecución de modelos de IA en hardware propio, sin depender de la nube, por privacidad y coste.",
+    "wikipedia": "Local AI",
+    "queries": [
+     "IA local",
+     "local AI",
+     "LLM local",
+     "VRAM local AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_245fc69b",
+    "name": "Startups de IA",
+    "definition": "Emprendimiento, financiación y aceleración de startups que construyen productos sobre inteligencia artificial.",
+    "wikipedia": "Artificial intelligence startup",
+    "queries": [
+     "startups IA",
+     "AI startup funding",
+     "emprendimiento IA",
+     "YC AI startups"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

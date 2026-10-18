@@ -1,0 +1,255 @@
+{
+ "key": "de60c57327905d971b78675c3dfd8d71d35abbdb6ee970263715fdd7cb686dc1",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T21:54:08.491Z",
+ "latencyMs": 21387,
+ "usage": {
+  "inputTokens": 2813,
+  "outputTokens": 1815
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_40d08a77",
+    "name": "Memoria compartida entre agentes",
+    "definition": "Sistemas que permiten a agentes de IA y equipos compartir contexto y conocimiento persistente entre sesiones y herramientas.",
+    "wikipedia": "Shared memory",
+    "queries": [
+     "shared memory agents",
+     "memoria compartida IA",
+     "agent shared context"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_395f6422",
+    "name": "HiddenLayer",
+    "definition": "Startup de ciberseguridad para IA que recaudó 100 millones en Serie B para proteger modelos en producción.",
+    "wikipedia": "HiddenLayer",
+    "queries": [
+     "HiddenLayer funding",
+     "HiddenLayer AI security",
+     "HiddenLayer Serie B"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_da1bc88b",
+    "name": "Cegid y software IA",
+    "definition": "Movimientos corporativos y reconocimientos en software empresarial con IA, incluyendo la fusión de Cegid y Silae.",
+    "wikipedia": null,
+    "queries": [
+     "Cegid Silae fusión",
+     "Cerillion Gartner IA",
+     "software empresarial IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1a20e20b",
+    "name": "Petróleo e incertidumbre IA",
+    "definition": "Impacto del petróleo y las dudas sobre la IA en los mercados bursátiles, como la caída del Ibex 35.",
+    "wikipedia": "Oil price",
+    "queries": [
+     "petróleo Ibex 35",
+     "oil AI markets",
+     "incertidumbre IA petróleo"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_4adfdd9d",
+    "name": "AI IRAN",
+    "definition": "Canal de YouTube que crea videos LEGO con IA, usado como ejemplo de contenido generado por IA.",
+    "wikipedia": null,
+    "queries": [
+     "AI IRAN LEGO",
+     "AI IRAN YouTube",
+     "LEGO AI video"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a35ddafc",
+    "name": "Visibilidad IA y TTS abierto",
+    "definition": "Tendencias en optimización de visibilidad en buscadores de IA y modelos abiertos de texto a voz como Kokoro.",
+    "wikipedia": "Text-to-speech",
+    "queries": [
+     "AI visibility optimization",
+     "Kokoro TTS open source",
+     "Enso AI visibility"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9e0c7d09",
+    "name": "Paradoja de Jevons",
+    "definition": "Concepto económico que explica cómo la eficiencia en el uso de IA puede aumentar el consumo total de recursos.",
+    "wikipedia": "Jevons paradox",
+    "queries": [
+     "Jevons paradox AI",
+     "paradoja de Jevons",
+     "Jevons AI energy"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_db2e7462",
+    "name": "Atomic Machines y fábricas IA",
+    "definition": "Startups que combinan diseño CAD nativo de IA con fábricas automatizadas, como Atomic Machines y Factory AI.",
+    "wikipedia": "Automated factory",
+    "queries": [
+     "Atomic Machines factory",
+     "Factory AI valuation",
+     "AI-native CAD fab"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f05a8895",
+    "name": "AMD ROCm 10",
+    "definition": "Nueva versión del stack de cómputo abierto de AMD, con mejoras de inferencia para IA agéntica.",
+    "wikipedia": "ROCm",
+    "queries": [
+     "AMD ROCm 10",
+     "ROCm 10.0 inference",
+     "ROCm agentic AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_39dfdba1",
+    "name": "Next.js para IA",
+    "definition": "Framework web usado para construir aplicaciones SaaS y agentes de IA full-stack con Claude Code y Supabase.",
+    "wikipedia": "Next.js",
+    "queries": [
+     "Next.js AI SaaS",
+     "Next.js Claude Code",
+     "Next.js Supabase AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_6817b31b",
+    "name": "IA europea y gasto",
+    "definition": "Modelos de IA desarrollados en Europa y el crecimiento del gasto europeo en IA hacia 2030.",
+    "wikipedia": "Artificial intelligence in Europe",
+    "queries": [
+     "European AI spending",
+     "modelo IA europeo",
+     "Quasar 438B"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c813fdc2",
+    "name": "Arquitectura cloud para agentes",
+    "definition": "Evolución de la computación en la nube para soportar millones de agentes de IA y capacitación empresarial.",
+    "wikipedia": "Cloud computing",
+    "queries": [
+     "cloud architecture agents",
+     "arquitectura cloud IA",
+     "AWS Entrena Chile"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9032980f",
+    "name": "Gobiernos y agentes IA",
+    "definition": "Incidentes y relaciones entre gobiernos como el británico y australiano con agentes de IA de OpenAI.",
+    "wikipedia": "AI safety",
+    "queries": [
+     "OpenAI Australia government",
+     "UK government AI",
+     "AI agents breach"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_750ffe42",
+    "name": "Cuellos de botella en IA",
+    "definition": "La verificación y revisión humana se convierten en el principal cuello de botella al adoptar IA en empresas.",
+    "wikipedia": "Bottleneck",
+    "queries": [
+     "AI verification bottleneck",
+     "cuellos de botella IA",
+     "AI review expensive"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9d4b57dd",
+    "name": "Ética y cultura de desarrollo",
+    "definition": "Debate sobre el uso de IA generativa en código y arte dentro de comunidades de desarrollo y videojuegos.",
+    "wikipedia": "Vibe coding",
+    "queries": [
+     "vibe coding ethics",
+     "ética desarrollo IA",
+     "AI generated code"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9cbfd91e",
+    "name": "Dependencia de la nube",
+    "definition": "Riesgos y alternativas a depender de servicios cloud e IA centralizados, incluyendo servidores domésticos.",
+    "wikipedia": "Vendor lock-in",
+    "queries": [
+     "cloud dependency risks",
+     "dependencia nube IA",
+     "self-hosted server"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_6867c3db",
+    "name": "Washington y regulación IA",
+    "definition": "Debates y esfuerzos legislativos en Washington D.C. para regular la inteligencia artificial.",
+    "wikipedia": "Regulation of artificial intelligence",
+    "queries": [
+     "Washington AI regulation",
+     "regulación IA Washington",
+     "AI safety bills"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f8faf9a5",
+    "name": "Super PACs de IA",
+    "definition": "Comités de acción política financiados por la industria de IA que invierten en elecciones estatales de EE.UU.",
+    "wikipedia": "Super PAC",
+    "queries": [
+     "AI super PACs",
+     "super PACs IA",
+     "AI election spending"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_32f563dc",
+    "name": "Google Universal Cart",
+    "definition": "Herramienta de compras de Google que permite guardar productos de varios minoristas desde Search y Gemini.",
+    "wikipedia": "Google Shopping",
+    "queries": [
+     "Google Universal Cart",
+     "Universal Cart Gemini",
+     "Google shopping tool"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9f280ab8",
+    "name": "Audrey Tang y Joe Tsai",
+    "definition": "Voces destacadas que promueven asambleas ciudadanas y código abierto en la gobernanza y desarrollo de IA.",
+    "wikipedia": "Audrey Tang",
+    "queries": [
+     "Audrey Tang AI",
+     "Joe Tsai open source",
+     "citizens assembly AI"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

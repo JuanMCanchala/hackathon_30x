@@ -1,0 +1,24 @@
+{
+ "key": "c054296f1e9b447db51139a26d969080428a54089b75bcd641d364eb9e9c0c8e",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:16:54.188Z",
+ "latencyMs": 8011,
+ "usage": {
+  "inputTokens": 721,
+  "outputTokens": 1036
+ },
+ "output": {
+  "score": 8,
+  "executive": 7,
+  "noCode": 6,
+  "latam": 4,
+  "pillar": "Growth",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Automatiza contenido y listening, clave para growth y ventas.",
+   "Curso con Claude Code y Next.js limita uso sin programar.",
+   "Ángulo LatAm débil: solo mención en español, sin casos locales."
+  ]
+ }
+}

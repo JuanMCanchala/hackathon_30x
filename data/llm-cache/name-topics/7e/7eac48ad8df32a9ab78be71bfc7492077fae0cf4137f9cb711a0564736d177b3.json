@@ -1,0 +1,255 @@
+{
+ "key": "7eac48ad8df32a9ab78be71bfc7492077fae0cf4137f9cb711a0564736d177b3",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T17:37:02.679Z",
+ "latencyMs": 12119,
+ "usage": {
+  "inputTokens": 3677,
+  "outputTokens": 1739
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_805e757d",
+    "name": "Agentes de navegador",
+    "definition": "Agentes de IA que navegan la web de forma autónoma, y la reacción de los sitios que buscan bloquearlos.",
+    "wikipedia": "Browser automation",
+    "queries": [
+     "agentes de navegador",
+     "browser agents",
+     "AI web agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e24176f7",
+    "name": "Transformación digital con IA",
+    "definition": "Cómo las empresas y pymes replantean sus operaciones y modelos de negocio adoptando inteligencia artificial.",
+    "wikipedia": "Digital transformation",
+    "queries": [
+     "transformación digital IA",
+     "digital transformation AI",
+     "IA en pymes"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_5ff6e53a",
+    "name": "IA en gestión de talento",
+    "definition": "Uso de IA en recursos humanos, gestión de equipos, políticas laborales y organización del trabajo.",
+    "wikipedia": "Human resource management",
+    "queries": [
+     "IA recursos humanos",
+     "AI talent management",
+     "gestión equipos IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_93531e0e",
+    "name": "Privacidad de menores",
+    "definition": "Riesgos y regulación sobre datos y seguridad de menores en plataformas de IA y redes sociales.",
+    "wikipedia": "Children's Online Privacy Protection Act",
+    "queries": [
+     "privacidad menores IA",
+     "children privacy AI",
+     "seguridad menores online"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_dd232fd4",
+    "name": "Criptografía frente a IA",
+    "definition": "El impacto de la IA en la criptografía, desde ECDSA hasta la seguridad post-cuántica y las criptomonedas.",
+    "wikipedia": "Cryptography",
+    "queries": [
+     "criptografía IA",
+     "AI cryptography",
+     "ECDSA seguridad"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_91468bda",
+    "name": "Benchmarks de IA",
+    "definition": "Pruebas y comparativas que miden el rendimiento real de modelos y agentes de IA.",
+    "wikipedia": "Benchmark (computing)",
+    "queries": [
+     "benchmarks IA",
+     "AI benchmarks",
+     "comparativa modelos IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_71d02fa0",
+    "name": "Debate sobre IA",
+    "definition": "Polémicas públicas sobre riesgos, ética y el impacto de la IA en la sociedad y el trabajo.",
+    "wikipedia": "AI safety",
+    "queries": [
+     "debate IA",
+     "AI debate",
+     "polémica IA"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_7f1c7b48",
+    "name": "IA en el espacio",
+    "definition": "Colaboraciones entre empresas de IA y agencias espaciales para llevar modelos a satélites y misiones.",
+    "wikipedia": "Space exploration",
+    "queries": [
+     "IA espacio",
+     "AI space",
+     "satélites IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1217b060",
+    "name": "Consumo energético de IA",
+    "definition": "El coste eléctrico y la huella de carbono de los centros de datos que entrenan y ejecutan IA.",
+    "wikipedia": "Energy consumption of artificial intelligence",
+    "queries": [
+     "consumo energético IA",
+     "AI energy consumption",
+     "energía centros datos"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_0ff05faa",
+    "name": "Autenticidad en redes",
+    "definition": "El debate sobre contenido generado por IA, cuentas falsas y regulación en plataformas sociales.",
+    "wikipedia": "Social media",
+    "queries": [
+     "autenticidad redes IA",
+     "AI social media",
+     "regulación redes"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e62a37c9",
+    "name": "Aprendizaje por refuerzo",
+    "definition": "Técnicas de entrenamiento de agentes y LLM mediante recompensas y entornos de simulación.",
+    "wikipedia": "Reinforcement learning",
+    "queries": [
+     "aprendizaje por refuerzo",
+     "reinforcement learning",
+     "RLHF agentes"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_4867d81b",
+    "name": "Poder de las big tech",
+    "definition": "La influencia política, económica y social de los gigantes tecnológicos y sus líderes.",
+    "wikipedia": "Big Tech",
+    "queries": [
+     "big tech poder",
+     "Big Tech influence",
+     "gigantes tecnológicos"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_b92ad5a1",
+    "name": "Creación de webs con IA",
+    "definition": "Herramientas y debates sobre generar sitios web y prototipos usando modelos de lenguaje.",
+    "wikipedia": "Web development",
+    "queries": [
+     "crear webs IA",
+     "AI website builder",
+     "diseño web IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_be167c7e",
+    "name": "Marketing de producto con IA",
+    "definition": "Estrategias de posicionamiento, performance y generación de contenido para lanzar productos de IA.",
+    "wikipedia": "Product marketing",
+    "queries": [
+     "marketing producto IA",
+     "AI product marketing",
+     "performance marketing IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_bf4b4070",
+    "name": "Rondas pre-seed y seed",
+    "definition": "Financiación temprana de startups de IA en fases pre-semilla y semilla a nivel global.",
+    "wikipedia": "Seed funding",
+    "queries": [
+     "ronda pre-seed IA",
+     "AI seed round",
+     "financiación startups IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_17867956",
+    "name": "IA en la industria editorial",
+    "definition": "El uso de IA en editoriales, redacciones y literatura, y el conflicto con autores y traductores.",
+    "wikipedia": "Publishing",
+    "queries": [
+     "IA editorial",
+     "AI publishing",
+     "IA escritores"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_0a6f755b",
+    "name": "Infraestructura de IA",
+    "definition": "Costes, control y despliegue de la infraestructura de cómputo y datos que sostiene la IA.",
+    "wikipedia": "Infrastructure",
+    "queries": [
+     "infraestructura IA",
+     "AI infrastructure",
+     "cómputo IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_25b69601",
+    "name": "Google y Gemini",
+    "definition": "Lanzamientos, rumores y críticas en torno a los modelos Gemini y los productos de IA de Google.",
+    "wikipedia": "Gemini (chatbot)",
+    "queries": [
+     "Google Gemini",
+     "Gemini IA",
+     "críticas Google IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c8d25c69",
+    "name": "Calidad del contenido IA",
+    "definition": "La percepción de baja calidad y falta de rigor en contenidos, software y respuestas generadas por IA.",
+    "wikipedia": "Content quality",
+    "queries": [
+     "calidad contenido IA",
+     "AI content quality",
+     "vibe coding calidad"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_59b27ae5",
+    "name": "Automatización del navegador",
+    "definition": "Herramientas y frameworks para automatizar tareas web, testing y QA con apoyo de IA.",
+    "wikipedia": "Browser automation",
+    "queries": [
+     "automatización navegador",
+     "browser automation",
+     "QA automation IA"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

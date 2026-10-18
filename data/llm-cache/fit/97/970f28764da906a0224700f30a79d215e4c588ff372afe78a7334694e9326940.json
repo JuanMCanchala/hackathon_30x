@@ -1,0 +1,24 @@
+{
+ "key": "970f28764da906a0224700f30a79d215e4c588ff372afe78a7334694e9326940",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:29:08.817Z",
+ "latencyMs": 7860,
+ "usage": {
+  "inputTokens": 758,
+  "outputTokens": 1094
+ },
+ "output": {
+  "score": 8,
+  "executive": 9,
+  "noCode": 7,
+  "latam": 5,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Productividad ejecutiva con IA es prioridad para fundadores y equipos.",
+   "Herramientas no-code permiten aplicar agentes mañana mismo.",
+   "Piezas en español, pero sin casos LatAm específicos."
+  ]
+ }
+}

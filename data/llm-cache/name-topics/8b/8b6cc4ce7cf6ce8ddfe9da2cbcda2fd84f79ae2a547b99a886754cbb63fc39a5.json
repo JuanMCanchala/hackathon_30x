@@ -1,0 +1,255 @@
+{
+ "key": "8b6cc4ce7cf6ce8ddfe9da2cbcda2fd84f79ae2a547b99a886754cbb63fc39a5",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:28:30.188Z",
+ "latencyMs": 14094,
+ "usage": {
+  "inputTokens": 3049,
+  "outputTokens": 1891
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_922139c3",
+    "name": "Fan art con IA",
+    "definition": "Creaciones de fans que usan herramientas de IA generativa para reinterpretar personajes, mundos o estéticas de obras existentes.",
+    "wikipedia": "Fan art",
+    "queries": [
+     "fan art IA",
+     "AI fan art",
+     "arte generativo fans"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a3717a48",
+    "name": "Google y Mercado Libre en IA",
+    "definition": "Iniciativas de Google y Mercado Libre para formar talento en IA y lanzar agentes de venta en Latinoamérica.",
+    "wikipedia": null,
+    "queries": [
+     "Google Colombia IA",
+     "Mercado Libre IA",
+     "becas IA Colombia"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_6503398b",
+    "name": "Crítica al capitalismo e IA",
+    "definition": "Debate sobre cómo el auge de la IA podría generar destrucción masiva de capital y concentrar aún más el poder económico.",
+    "wikipedia": "Criticism of capitalism",
+    "queries": [
+     "capitalismo IA",
+     "AI capital destruction",
+     "crítica capitalismo tecnología"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d318b45a",
+    "name": "Unity e IA",
+    "definition": "Integración de herramientas de IA, como Claude Code o MCP, en el motor de videojuegos Unity para automatizar tareas de desarrollo.",
+    "wikipedia": "Unity (game engine)",
+    "queries": [
+     "Unity IA",
+     "Unity Claude Code",
+     "Unity MCP AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2a579fad",
+    "name": "IA y jóvenes",
+    "definition": "Percepciones, protestas y preocupaciones de estudiantes y menores sobre el impacto de la IA en su futuro.",
+    "wikipedia": null,
+    "queries": [
+     "IA jóvenes",
+     "AI youth protest",
+     "IA menores riesgos"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_aa16dc44",
+    "name": "Startups de IA: Barndoor, Fathom",
+    "definition": "Ronda de startups emergentes de IA como Barndoor, Fathom, Imersa y Timestral en automatización y copilotos de ventas.",
+    "wikipedia": null,
+    "queries": [
+     "Barndoor IA",
+     "Fathom AI startup",
+     "Imersa sales copilot"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_bbef10a4",
+    "name": "IMTS y Expocon 2026",
+    "definition": "Eventos industriales donde se presentan aplicaciones de IA para manufactura, máquinas conversacionales y automatización CNC.",
+    "wikipedia": null,
+    "queries": [
+     "IMTS 2026 IA",
+     "Expocon 2026 IA",
+     "AI manufacturing conference"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_6e7c5333",
+    "name": "Claude Partner Network",
+    "definition": "Red de socios y marketplace de Anthropic donde empresas certifican integraciones y servicios basados en Claude.",
+    "wikipedia": null,
+    "queries": [
+     "Claude Partner Network",
+     "Claude marketplace",
+     "Anthropic partners"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_3095711a",
+    "name": "Demanda a OpenAI en Columbia Británica",
+    "definition": "Gobierno de Columbia Británica demanda a OpenAI por su presunto rol en el tiroteo masivo de Tumbler Ridge.",
+    "wikipedia": "Tumbler Ridge shooting",
+    "queries": [
+     "OpenAI lawsuit BC",
+     "Tumbler Ridge OpenAI",
+     "demanda OpenAI Canadá"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b23e8d68",
+    "name": "Rendición cognitiva por IA",
+    "definition": "Fenómeno donde la dependencia excesiva de la IA debilita habilidades cognitivas y de pensamiento crítico en usuarios.",
+    "wikipedia": "Cognitive surrender",
+    "queries": [
+     "rendición cognitiva IA",
+     "cognitive surrender AI",
+     "declive cognitivo IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_03380803",
+    "name": "Startups IA: Elevatry, Gradial",
+    "definition": "Startups como Elevatry y Gradial que aplican agentes de IA a compras estratégicas y marketing empresarial.",
+    "wikipedia": null,
+    "queries": [
+     "Elevatry IA",
+     "Gradial marketing IA",
+     "AI procurement startup"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_adb48c23",
+    "name": "IA en videojuegos: Blood of Dawnwalker",
+    "definition": "Polémica por el uso de IA generativa en el desarrollo de videojuegos como Blood of Dawnwalker y su impacto en ventas.",
+    "wikipedia": "Blood of Dawnwalker",
+    "queries": [
+     "Blood of Dawnwalker IA",
+     "AI in game dev",
+     "videojuegos IA polémica"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ab312b09",
+    "name": "Modelos de audio y voz",
+    "definition": "Avances en modelos de IA para separación de audio, detección de eventos sonoros y transcripción enriquecida.",
+    "wikipedia": "Speech recognition",
+    "queries": [
+     "modelos de audio IA",
+     "AI voice models",
+     "audio source separation"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_fa05eb3d",
+    "name": "Educación en programación con IA",
+    "definition": "Cursos y enfoques que enseñan a programar usando asistentes de IA, agentes y nuevas metodologías de desarrollo.",
+    "wikipedia": "Computer programming education",
+    "queries": [
+     "curso programación IA",
+     "AI coding education",
+     "aprender a programar IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ab1eb1e6",
+    "name": "Humanidades digitales e IA",
+    "definition": "Uso de modelos de lenguaje y herramientas digitales para investigar archivos históricos, textos alquímicos y arte.",
+    "wikipedia": "Digital humanities",
+    "queries": [
+     "humanidades digitales IA",
+     "digital humanities AI",
+     "LLM archivos históricos"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_993e7fff",
+    "name": "AEPD y regulación de IA",
+    "definition": "Advertencias y sanciones de la Agencia Española de Protección de Datos sobre el uso de IA en selección y ciberseguridad.",
+    "wikipedia": "Agencia Española de Protección de Datos",
+    "queries": [
+     "AEPD IA",
+     "AEPD selección currículums",
+     "regulación IA España"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_df9c0cd6",
+    "name": "Claude Code Projects",
+    "definition": "Nueva función de Anthropic que permite conversaciones persistentes y delegación de tareas largas de desarrollo a Claude.",
+    "wikipedia": "Claude (language model)",
+    "queries": [
+     "Claude Code Projects",
+     "Claude para código",
+     "Anthropic Claude Code"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c3e63345",
+    "name": "Samsung Galaxy S26 y IA",
+    "definition": "Lanzamientos de smartphones como Galaxy S26 y Oppo Find X10 con agentes de IA integrados a nivel de sistema.",
+    "wikipedia": "Samsung Galaxy S26",
+    "queries": [
+     "Galaxy S26 IA",
+     "Oppo Find X10",
+     "ColorOS 17 IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5a411606",
+    "name": "Análisis de video con IA",
+    "definition": "Tecnologías que detectan, identifican y analizan contenido en videos, incluyendo aplicaciones de defensa y verificación.",
+    "wikipedia": "Video content analysis",
+    "queries": [
+     "análisis video IA",
+     "AI video analysis",
+     "detección videos IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_59f92cd5",
+    "name": "Gestión de identidades para agentes IA",
+    "definition": "Desafíos de seguridad y gobernanza para controlar el acceso de agentes autónomos a datos y sistemas empresariales.",
+    "wikipedia": "Identity management",
+    "queries": [
+     "identity management AI agents",
+     "gestión identidades IA",
+     "seguridad agentes IA"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

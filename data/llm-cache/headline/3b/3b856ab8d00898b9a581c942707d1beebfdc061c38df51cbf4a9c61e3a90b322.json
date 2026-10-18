@@ -1,0 +1,14 @@
+{
+ "key": "3b856ab8d00898b9a581c942707d1beebfdc061c38df51cbf4a9c61e3a90b322",
+ "name": "headline",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:13:20.675Z",
+ "latencyMs": 1532,
+ "usage": {
+  "inputTokens": 346,
+  "outputTokens": 29
+ },
+ "output": {
+  "headline": "La IA esta semana se concentra en la compra de Decart por Amazon y el video IA de Trump"
+ }
+}

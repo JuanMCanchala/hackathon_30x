@@ -1,0 +1,255 @@
+{
+ "key": "bc3251ceda4c36d0ebed6ebfba5b611f6f19143d7e9eed7322ee3e5ea2835aae",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:16:02.228Z",
+ "latencyMs": 50984,
+ "usage": {
+  "inputTokens": 2850,
+  "outputTokens": 1789
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_967689dd",
+    "name": "IA y rendimiento académico",
+    "definition": "Estudios muestran que la IA mejora tareas pero puede reducir notas en exámenes, afectando la evaluación educativa.",
+    "wikipedia": "Academic integrity",
+    "queries": [
+     "AI homework exam scores",
+     "IA rendimiento académico",
+     "evaluación aprendizaje IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_4baf5bb5",
+    "name": "Adquisiciones de startups IA",
+    "definition": "Compras y valoraciones de startups de inteligencia artificial por parte de grandes tecnológicas y fondos.",
+    "wikipedia": "List of mergers and acquisitions by Alphabet",
+    "queries": [
+     "AI startup acquisition",
+     "adquisición startup IA",
+     "valoración startups IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9151aa80",
+    "name": "Cisco e IA agéntica",
+    "definition": "Cisco integra IA agéntica en redes, Webex y flujos de trabajo empresariales para automatizar operaciones.",
+    "wikipedia": "Cisco",
+    "queries": [
+     "Cisco agentic AI",
+     "Cisco IA redes",
+     "Cisco Webex AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8d9e0f9f",
+    "name": "Agentes de codificación",
+    "definition": "Herramientas y agentes autónomos que escriben, revisan y gestionan código con mínima intervención humana.",
+    "wikipedia": "AI-assisted software development",
+    "queries": [
+     "coding agents tools",
+     "agentes de codificación",
+     "agentic coding"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_bfde60de",
+    "name": "Integridad académica e IA",
+    "definition": "Debate sobre el uso de IA generativa en investigación y educación, y políticas para preservar la integridad científica.",
+    "wikipedia": "Academic integrity",
+    "queries": [
+     "AI academic integrity",
+     "integridad académica IA",
+     "trampa académica IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e7e4e2d7",
+    "name": "Tool calling y agentes CLI",
+    "definition": "Capacidad de modelos de IA para invocar herramientas externas y ejecutar tareas vía línea de comandos.",
+    "wikipedia": "Function calling",
+    "queries": [
+     "tool calling agents",
+     "CLI agentico",
+     "agent tool calls"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f5df8737",
+    "name": "Filosofía de la IA",
+    "definition": "Reflexiones sobre conciencia, identidad y ética de los sistemas de inteligencia artificial.",
+    "wikipedia": "Philosophy of artificial intelligence",
+    "queries": [
+     "AI consciousness debate",
+     "filosofía de la IA",
+     "AI philosophy"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_31727345",
+    "name": "Agencias de marketing con IA",
+    "definition": "Agencias y agentes de marketing que usan IA para automatizar campañas y estrategias publicitarias.",
+    "wikipedia": "Marketing automation",
+    "queries": [
+     "AI marketing agency",
+     "agencia marketing IA",
+     "agentic marketing"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_db0cf182",
+    "name": "Beneficios de la IA en negocios",
+    "definition": "Análisis del impacto real y los beneficios de adoptar IA en productividad y resultados empresariales.",
+    "wikipedia": "Artificial intelligence in business",
+    "queries": [
+     "AI business benefits",
+     "beneficios IA negocios",
+     "impacto IA empresas"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_f9995b79",
+    "name": "Generación 3D con IA",
+    "definition": "Herramientas que crean modelos 3D a partir de texto o imágenes mediante inteligencia artificial.",
+    "wikipedia": "3D modeling",
+    "queries": [
+     "AI 3D generation",
+     "generación 3D IA",
+     "modelado 3D IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_be0ad537",
+    "name": "Cultura tech y IA",
+    "definition": "Tendencias y debates en la comunidad tecnológica sobre el impacto de la IA en startups y mercado laboral.",
+    "wikipedia": "Technology culture",
+    "queries": [
+     "tech culture AI",
+     "cultura tech IA",
+     "startup culture AI"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_443d9dcd",
+    "name": "AFA, BofA y Wafrn",
+    "definition": "Términos diversos: AFA (federación argentina), BofA (banco) y Wafrn (red social) en contextos de IA.",
+    "wikipedia": null,
+    "queries": [
+     "AFA IA",
+     "BofA AI",
+     "Wafrn AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e3fcf026",
+    "name": "Casos de uso de IA",
+    "definition": "Ejemplos concretos de aplicación de IA generativa en empresas y pequeñas organizaciones.",
+    "wikipedia": "Use case",
+    "queries": [
+     "AI use cases",
+     "casos de uso IA",
+     "real AI applications"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_320e0125",
+    "name": "ROI de la IA",
+    "definition": "Medición del retorno de inversión y rentabilidad de proyectos de inteligencia artificial en empresas.",
+    "wikipedia": "Return on investment",
+    "queries": [
+     "AI ROI",
+     "ROI IA empresarial",
+     "rentabilidad IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_716d113b",
+    "name": "IA en farmacéuticas",
+    "definition": "Alianzas de farmacéuticas como Novo Nordisk con empresas de IA para acelerar descubrimiento de fármacos.",
+    "wikipedia": "Artificial intelligence in drug discovery",
+    "queries": [
+     "AI drug discovery",
+     "IA farmacéuticas",
+     "Novo Nordisk AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_82977d72",
+    "name": "Impacto económico de la IA",
+    "definition": "Efectos macroeconómicos de la IA en productividad, empleo y modelos económicos como UBI.",
+    "wikipedia": "Economic impact of artificial intelligence",
+    "queries": [
+     "AI economic impact",
+     "impacto económico IA",
+     "AI macroeconomics"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_a9409f97",
+    "name": "Claude Fable 5",
+    "definition": "Modelo o herramienta de IA denominada Claude Fable 5, con versiones 5.1 y 5.2.",
+    "wikipedia": null,
+    "queries": [
+     "Claude Fable 5",
+     "Fable 5.1",
+     "Claude Fable"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_3c612efd",
+    "name": "Ventanas de contexto",
+    "definition": "Gestión de la memoria y contexto en modelos de IA para procesar información extensa en conversaciones.",
+    "wikipedia": "Context window",
+    "queries": [
+     "context window AI",
+     "ventana de contexto",
+     "AI context management"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d7409c29",
+    "name": "Banca agéntica",
+    "definition": "Uso de agentes de IA en banca para automatizar servicios, detección de fraude y atención al cliente.",
+    "wikipedia": "Artificial intelligence in banking",
+    "queries": [
+     "agentic banking",
+     "banca agéntica",
+     "AI banking agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_3296d338",
+    "name": "Call for Me y Poolside",
+    "definition": "Nuevas funciones de IA como Call for Me de Google y startups como Poolside y Upstage.",
+    "wikipedia": null,
+    "queries": [
+     "Call for Me Google",
+     "Poolside AI",
+     "Upstage AI"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

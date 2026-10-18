@@ -1,0 +1,255 @@
+{
+ "key": "7c98228545990c06d540086bbbcd87894b3467d43b305ac7bd5adc828ce76cb3",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T21:54:24.537Z",
+ "latencyMs": 26891,
+ "usage": {
+  "inputTokens": 2712,
+  "outputTokens": 1809
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_ac3dc36f",
+    "name": "Forward Deployed Engineers",
+    "definition": "Ingenieros que trabajan dentro del negocio del cliente para adaptar e implementar soluciones de IA en producción.",
+    "wikipedia": "Forward Deployed Engineer",
+    "queries": [
+     "forward deployed engineer",
+     "FDE AI",
+     "ingenieros IA cliente"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_66a6fb53",
+    "name": "IA en Kenia y Marruecos",
+    "definition": "Avance de la IA en África: Kenia pierde empleos de outsourcing y Marruecos lanza herramientas open source con Mistral.",
+    "wikipedia": "Artificial intelligence in Africa",
+    "queries": [
+     "AI Kenya jobs",
+     "Morocco Mistral AI",
+     "IA África"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_43d97947",
+    "name": "IA en hospitales de EE.UU.",
+    "definition": "Sistemas de salud como Cleveland Clinic y Kaiser Permanente adoptan IA para automatización y cuidado de pacientes.",
+    "wikipedia": "Artificial intelligence in healthcare",
+    "queries": [
+     "Cleveland Clinic AI",
+     "Kaiser Permanente AI",
+     "IA hospitales"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_98fe03c5",
+    "name": "IA en archivos históricos",
+    "definition": "Uso de IA para digitalizar, catalogar y vincular archivos y artefactos históricos en museos e instituciones.",
+    "wikipedia": "Digital preservation",
+    "queries": [
+     "AI archives metadata",
+     "Smithsonian AI",
+     "IA archivos históricos"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_370bcc86",
+    "name": "Recompilaciones y refactors con IA",
+    "definition": "Reescritura de software antiguo, como juegos o código C/C++, a lenguajes modernos usando IA.",
+    "wikipedia": "Automated code translation",
+    "queries": [
+     "AI code rewrite",
+     "recompilación IA",
+     "AI refactoring Rust"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5ec59d27",
+    "name": "Gemini en Google Sheets",
+    "definition": "Integración de Gemini en Hojas de cálculo de Google para generar datos, resumir y automatizar tareas.",
+    "wikipedia": "Google Sheets",
+    "queries": [
+     "Gemini Google Sheets",
+     "IA hojas cálculo",
+     "Gemini Sheets"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_482c67c6",
+    "name": "Metaclade Research",
+    "definition": "Firma de investigación que publica informes sobre proveedores de datos para entrenar modelos de lenguaje.",
+    "wikipedia": null,
+    "queries": [
+     "Metaclade Research",
+     "LLM training data",
+     "proveedores datos IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_0b305afc",
+    "name": "Startups de salud con IA",
+    "definition": "Nuevas empresas que usan IA para prevenir pandemias y mejorar la preparación sanitaria global.",
+    "wikipedia": "Health technology",
+    "queries": [
+     "AI health startup",
+     "startup salud IA",
+     "pandemic AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_650d63d3",
+    "name": "Datos de Spirit Airlines",
+    "definition": "Google y otras empresas compiten por adquirir datos de negocio de Spirit Airlines para entrenar IA.",
+    "wikipedia": "Spirit Airlines",
+    "queries": [
+     "Spirit Airlines data",
+     "Google AI data",
+     "datos Spirit Airlines"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9f47459e",
+    "name": "Video IA del Balón de Oro",
+    "definition": "Video generado con IA que imagina el robo del Balón de Oro y se viraliza en redes sociales.",
+    "wikipedia": "Ballon d'Or",
+    "queries": [
+     "Balón de Oro IA",
+     "AI Ballon d'Or",
+     "video IA Messi"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c22ca2cd",
+    "name": "Ventas de servidores por IA",
+    "definition": "Aumento de ventas de servidores impulsado por la demanda de infraestructura para inteligencia artificial.",
+    "wikipedia": "Server (computing)",
+    "queries": [
+     "server sales AI",
+     "ventas servidores IA",
+     "AI server demand"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9d4a1275",
+    "name": "Haaland y video IA del Real Madrid",
+    "definition": "Erling Haaland se burla de un video generado con IA que presenta a Bernardo Silva en el Real Madrid.",
+    "wikipedia": "Erling Haaland",
+    "queries": [
+     "Haaland video IA",
+     "Real Madrid IA",
+     "Bernardo Silva AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5b59be1d",
+    "name": "Superhuman adquiere Fathom",
+    "definition": "Superhuman compra la startup de notas de reuniones con IA Fathom para ampliar su suite de productividad.",
+    "wikipedia": "Superhuman (software)",
+    "queries": [
+     "Superhuman Fathom",
+     "AI notetaker",
+     "Superhuman acquisition"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9f40acf7",
+    "name": "Riesgo de extinción por IA",
+    "definition": "Debate sobre el riesgo existencial que la inteligencia artificial podría representar para la humanidad.",
+    "wikipedia": "Existential risk from artificial general intelligence",
+    "queries": [
+     "AI human extinction",
+     "riesgo existencial IA",
+     "AI future humanity"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a7e61130",
+    "name": "Social Media Day Mendoza",
+    "definition": "Evento de marketing digital en Mendoza que aborda IA, redes sociales y negocios.",
+    "wikipedia": null,
+    "queries": [
+     "Social Media Day Mendoza",
+     "marketing IA Mendoza",
+     "evento redes sociales"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_962ef7b4",
+    "name": "IA en computación cuántica",
+    "definition": "Uso de modelos de lenguaje como Claude para automatizar y optimizar circuitos y sistemas de computación cuántica.",
+    "wikipedia": "Quantum computing",
+    "queries": [
+     "AI quantum computing",
+     "IA cuántica",
+     "IonQ QuEra AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_79f27d53",
+    "name": "EndoSoft Argus CareFlow",
+    "definition": "EndoSoft lanza Argus CareFlow, herramienta de IA para llamadas de seguimiento y participación de pacientes.",
+    "wikipedia": null,
+    "queries": [
+     "EndoSoft Argus CareFlow",
+     "AI patient engagement",
+     "EndoSoft IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_7155395c",
+    "name": "Superficie de ataque con IA",
+    "definition": "Los agentes de IA amplían la superficie de ataque al explotar dependencias antiguas y sistemas vulnerables.",
+    "wikipedia": "Attack surface",
+    "queries": [
+     "AI attack surface",
+     "superficie ataque IA",
+     "AI agents security"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_bd945710",
+    "name": "Tecnotree en Gartner",
+    "definition": "Tecnotree es nombrada visionaria en el Magic Quadrant de Gartner para soluciones de marketing y ventas con IA.",
+    "wikipedia": "Tecnotree",
+    "queries": [
+     "Tecnotree Gartner",
+     "Tecnotree AI marketing",
+     "Gartner Magic Quadrant CSP"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9514f379",
+    "name": "IA en política canadiense",
+    "definition": "Uso de videos generados con IA para parodiar o atacar a políticos canadienses como Pierre Poilievre.",
+    "wikipedia": "Politics of Canada",
+    "queries": [
+     "AI Canada politics",
+     "Pierre Poilievre AI",
+     "IA política Canadá"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

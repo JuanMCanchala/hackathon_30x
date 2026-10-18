@@ -1,0 +1,24 @@
+{
+ "key": "91aa551380d68e51cba98a0db861e03b52b38b6763b4acb4611f270c0bd77c7b",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:29:18.612Z",
+ "latencyMs": 7106,
+ "usage": {
+  "inputTokens": 683,
+  "outputTokens": 622
+ },
+ "output": {
+  "score": 6,
+  "executive": 8,
+  "noCode": 5,
+  "latam": 2,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Riesgos reales de IA que todo líder debe gobernar.",
+   "Poco accionable para ventas o growth sin contexto.",
+   "Casos globales; falta ángulo LatAm o español."
+  ]
+ }
+}

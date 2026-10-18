@@ -1,0 +1,21 @@
+{
+ "key": "d4a22eb293ddbe45e4ff7a7377e6e5afdb1a17eccf8f75f4fad46cb277814ff8",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:13:34.834Z",
+ "latencyMs": 3590,
+ "usage": {
+  "inputTokens": 1580,
+  "outputTokens": 586
+ },
+ "output": {
+  "oneLiner": "Character.ai se declara en bancarrota y la noticia la amplifican creadores de contenido en Bluesky y Hacker News.",
+  "narrative": "5 de 7 piezas que despegaron son posts de texto, frente a 0 de 12 del resto, y 4 de 7 las publicó un creador de contenido. El gancho es la frase corta y directa sobre la quiebra, como el post de Luis Alis en Bluesky que abre con la primera startup de AI que va a la bancarrota. El momento pesa: 5 de 7 salieron un martes y 3 de 7 de madrugada. En Hacker News el artículo de nryoo multiplica por 9.5 la mediana de su autor.",
+  "cited": [
+   "bluesky:3mxqgzdbxcc22",
+   "hn:50068036",
+   "bluesky:3mxswpyp2k225",
+   "bluesky:3mxrnyi4yjk2a"
+  ]
+ }
+}

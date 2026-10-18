@@ -1,0 +1,255 @@
+{
+ "key": "4927778149ad9d8f02d41a5ea5315b7f79b9030020eafa32804f23cff6c25d69",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:13:12.982Z",
+ "latencyMs": 12256,
+ "usage": {
+  "inputTokens": 3362,
+  "outputTokens": 1763
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_0e008a7a",
+    "name": "IA en contratos",
+    "definition": "Automatización y revisión de contratos con IA, incluyendo el ciclo de vida contractual y las cláusulas sobre IA.",
+    "wikipedia": "Contract lifecycle management",
+    "queries": [
+     "AI contract review",
+     "contratos con IA",
+     "contract automation"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1501f3ab",
+    "name": "Gemelos digitales con IA",
+    "definition": "Réplicas virtuales de personas, activos o procesos que usan IA para simular, predecir y automatizar decisiones.",
+    "wikipedia": "Digital twin",
+    "queries": [
+     "digital twin AI",
+     "gemelo digital IA",
+     "AI avatars clones"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_168235a6",
+    "name": "Crecimiento económico e IA",
+    "definition": "Debate sobre si la IA impulsa el crecimiento de ingresos, la productividad y la economía o solo infla expectativas.",
+    "wikipedia": "Economic growth",
+    "queries": [
+     "AI economic growth",
+     "crecimiento ingresos IA",
+     "AI productivity growth"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_e1434a68",
+    "name": "Apple vs OpenAI",
+    "definition": "Litigios y tensiones competitivas entre Apple, Google, Meta y OpenAI por talento, datos y dominio de la IA.",
+    "wikipedia": "OpenAI",
+    "queries": [
+     "Apple OpenAI lawsuit",
+     "Google vs OpenAI",
+     "OpenAI talent war"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_deb06166",
+    "name": "OpenClaw",
+    "definition": "Agente de IA open source que genera debate por sus incidentes de seguridad y su uso empresarial.",
+    "wikipedia": null,
+    "queries": [
+     "OpenClaw security",
+     "OpenClaw enterprise",
+     "OpenClaw agent"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b5cfd085",
+    "name": "IA industrial europea",
+    "definition": "Siemens, Schneider, Rockwell y Nidec integran IA en automatización industrial y presionan por cambios regulatorios en Europa.",
+    "wikipedia": "Siemens",
+    "queries": [
+     "Siemens AI industry",
+     "Rockwell AI automation",
+     "IA industrial Europa"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_83a0c9d6",
+    "name": "Anthropic laboratorio biología",
+    "definition": "Anthropic monta un laboratorio de biología física para acelerar su programa de fármacos con IA, despertando debates de riesgo.",
+    "wikipedia": "Anthropic",
+    "queries": [
+     "Anthropic biology lab",
+     "AI drug discovery",
+     "biolab IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ca65c214",
+    "name": "Legaltech y empresas tech",
+    "definition": "Movimientos de empresas como Clio, Appian, Hiberus o De-Cix en IA legal, infraestructura y servicios profesionales.",
+    "wikipedia": "Legal technology",
+    "queries": [
+     "Clio AI acquisition",
+     "legal AI startup",
+     "De-Cix MCP"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ba5d6439",
+    "name": "IA inmobiliaria",
+    "definition": "Agentes de IA, CRM y marketing transforman la compraventa de vivienda y el trabajo de los agentes inmobiliarios.",
+    "wikipedia": "Real estate",
+    "queries": [
+     "AI real estate",
+     "IA inmobiliaria",
+     "agentic internet real estate"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8abcc8a2",
+    "name": "IA en retail",
+    "definition": "Comercio conversacional, automatización en tienda y retail media redefinen la experiencia de compra con IA.",
+    "wikipedia": "Retail",
+    "queries": [
+     "AI retail shopping",
+     "retail media IA",
+     "IA comercio minorista"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_eb55e9ec",
+    "name": "IA en finanzas",
+    "definition": "Claude, ChatGPT y agentes de IA se adoptan en banca, asesoría financiera y servicios financieros para automatizar flujos.",
+    "wikipedia": "Financial technology",
+    "queries": [
+     "Claude financial advisors",
+     "AI in finance",
+     "IA generativa banca"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_932210dc",
+    "name": "Voces y figuras IA",
+    "definition": "Personajes y expertos que marcan el debate público sobre IA, desde Francesca Bria hasta Taylor Lorenz o Gracie Bon.",
+    "wikipedia": null,
+    "queries": [
+     "Francesca Bria IA",
+     "Taylor Lorenz AI",
+     "AI influencers debate"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_3028b3db",
+    "name": "Regulación IA EE.UU. y Canadá",
+    "definition": "Debate sobre leyes, regulación y jurisdicciones provinciales y federales para la IA en Norteamérica.",
+    "wikipedia": "Regulation of artificial intelligence",
+    "queries": [
+     "AI regulation Canada",
+     "US AI legislation",
+     "regulación IA EEUU"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_0d7720ea",
+    "name": "Bancos centrales e IA",
+    "definition": "La Fed, el BCE y el Banco de Inglaterra analizan el impacto de la IA en inflación, productividad y política monetaria.",
+    "wikipedia": "Central bank",
+    "queries": [
+     "Fed AI productivity",
+     "central banks AI",
+     "BCE inteligencia artificial"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8471708d",
+    "name": "IA en salud",
+    "definition": "Adopción de IA en diagnóstico, codificación médica, terapia y salud mental, con debates éticos y regulatorios.",
+    "wikipedia": "Artificial intelligence in healthcare",
+    "queries": [
+     "AI healthcare diagnosis",
+     "IA salud mental",
+     "AI medical decisions"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1c69f0f6",
+    "name": "Modelos de Google",
+    "definition": "Nuevos modelos Gemini y System One de Google compiten por liderar capacidades y velocidad en IA.",
+    "wikipedia": "Gemini (language model)",
+    "queries": [
+     "Gemini 4 Argon",
+     "Google AI models",
+     "System One models"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_594a4805",
+    "name": "IA en videojuegos",
+    "definition": "Konami, Sega, Nintendo y PlayStation enfrentan el uso de IA generativa en desarrollo y producción de videojuegos.",
+    "wikipedia": "Video game industry",
+    "queries": [
+     "Konami AI project",
+     "Sega generative AI",
+     "IA videojuegos"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c10c1efa",
+    "name": "Tendencias tecnológicas",
+    "definition": "Hype, adquisiciones y narrativas sobre el mercado tecnológico y los tecnoligarcas que lo dominan.",
+    "wikipedia": "Technology trends",
+    "queries": [
+     "tech trends AI",
+     "tendencias tecnológicas",
+     "tech acquisitions hype"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_276aa25a",
+    "name": "Internet post-IA",
+    "definition": "Cómo la IA por defecto, offline y sin control transforma el acceso, la navegación y la experiencia de internet.",
+    "wikipedia": "Internet",
+    "queries": [
+     "post-AI internet",
+     "internet post-IA",
+     "AI offline access"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_05a80baf",
+    "name": "Comunicación entre agentes",
+    "definition": "Agentes de IA que desarrollan lenguajes propios, protocolos de interoperabilidad y dinámicas de consenso multiagente.",
+    "wikipedia": "Multi-agent system",
+    "queries": [
+     "AI agent communication",
+     "agentes IA idioma",
+     "multi-agent consensus"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

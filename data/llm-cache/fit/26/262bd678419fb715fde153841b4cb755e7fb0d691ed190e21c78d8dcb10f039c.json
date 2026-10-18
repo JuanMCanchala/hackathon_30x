@@ -1,0 +1,24 @@
+{
+ "key": "262bd678419fb715fde153841b4cb755e7fb0d691ed190e21c78d8dcb10f039c",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:16:56.589Z",
+ "latencyMs": 6556,
+ "usage": {
+  "inputTokens": 689,
+  "outputTokens": 814
+ },
+ "output": {
+  "score": 4,
+  "executive": 7,
+  "noCode": 2,
+  "latam": 2,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "alto",
+  "reasons": [
+   "Riesgo legal y reputacional relevante para CEOs que adoptan IA.",
+   "Poco aplicable sin abogados; no es táctico para ventas o growth.",
+   "Ángulo LatAm débil: litigios y regulación son de EE.UU."
+  ]
+ }
+}

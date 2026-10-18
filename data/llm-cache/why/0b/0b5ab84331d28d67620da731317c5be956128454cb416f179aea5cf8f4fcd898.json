@@ -1,0 +1,21 @@
+{
+ "key": "0b5ab84331d28d67620da731317c5be956128454cb416f179aea5cf8f4fcd898",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:20:58.353Z",
+ "latencyMs": 25208,
+ "usage": {
+  "inputTokens": 1722,
+  "outputTokens": 4049
+ },
+ "output": {
+  "oneLiner": "Linus Torvalds usa Claude Code y rechaza prohibir IA; Red Hat y Linux avivan el debate.",
+  "narrative": "No hay patrones con al menos 3 piezas que permitan aislar un formato ganador. La única pieza que supera 2 veces la mediana de su autor es un post de Jump Daily en Bluesky sobre Linus Torvalds usando Claude Code para revisar código de Linux. Le sigue un video de VT Security en YouTube sobre un agente de IA en Linux, con 1.5 veces su mediana. En noticias, XDA cubre a Torvalds llamando 'utterly stupid' prohibir código generado por IA, y Red Hat habla del papel creciente del open source en la IA; el crecimiento de +220% en creadores distintos y 11 creadores esta semana apunta a un debate abierto, no a un patrón de formato.",
+  "cited": [
+   "bluesky:3mxswj32yap2l",
+   "youtube:HiMF5jh-YmA",
+   "news:CBMi0AFBVV95cUxOVVItMmNSQnNGRC1MN1N1YmM0RUFYOVRVMWRjYkJrMmtIX2M0XzFQZkhfbFVvakU1U1c5WEFobUsydHZzUzBsSEFiUkRIWjNyQVBpcHRTNnZsQWpyZ3NpQnlJUEl3cmw0bTZGTHppMDd4a3BKNTNMZEhjZnBNX1pkLU5oZTlpVjFmQVBCdlAxa1p0b3lad0V3Vl9iblozRU1OTk1telRUOG56ZmFYRzBQUlgwZXdaZHlvNHdJUDd6SngxN1ktVjBwZEcxU3E2YkRX",
+   "news:CBMiswFBVV95cUxNMG9yVVhSR001a2RoSUhZeE84cU16VHEtdXIyVW8tdjE5RnBNMy03bG5uQ3pibjAxVWVfMUQwck9kZnVQNWN3eFhRS1gwcmwzZGRqVzFNbE1abUVOX3pxUXZfYXVGUHhQNzhfM3JocDFVck9pX2lBRExmYjJKeEtDVDRidFlUTUlObDBLLVRkQmJDXzR1OU9wMk5OM2hyRXpxZHZqaWFzRHJjMk1aVUhjOEdoMA"
+  ]
+ }
+}

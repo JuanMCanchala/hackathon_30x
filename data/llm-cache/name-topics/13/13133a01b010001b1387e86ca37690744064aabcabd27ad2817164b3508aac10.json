@@ -1,0 +1,255 @@
+{
+ "key": "13133a01b010001b1387e86ca37690744064aabcabd27ad2817164b3508aac10",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:15:30.150Z",
+ "latencyMs": 9314,
+ "usage": {
+  "inputTokens": 2990,
+  "outputTokens": 1704
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_2de96fb7",
+    "name": "World models de video",
+    "definition": "Modelos de IA que simulan entornos visuales y predicen su evolución para generar video interactivo.",
+    "wikipedia": "World model",
+    "queries": [
+     "video world models",
+     "world models video",
+     "modelos mundo video"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_fe151469",
+    "name": "Inversores IA India",
+    "definition": "Figuras tecnológicas indias como Nilekani, Khosla o Arora que invierten y opinan sobre IA.",
+    "wikipedia": "Nandan Nilekani",
+    "queries": [
+     "Nandan Nilekani AI",
+     "Vinod Khosla AI",
+     "inversores IA India"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5806a8ed",
+    "name": "Videos IA de Trump",
+    "definition": "Videos generados con IA protagonizados por Trump que generan polémica política y viralidad.",
+    "wikipedia": "Donald Trump",
+    "queries": [
+     "Trump AI video",
+     "video IA Trump",
+     "Trump AI deepfake"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_37de92b7",
+    "name": "IA en el espacio",
+    "definition": "Aplicaciones de IA en el espacio: satélites, cohetes y centros de datos orbitales.",
+    "wikipedia": "Space-based artificial intelligence",
+    "queries": [
+     "IA espacio",
+     "AI space",
+     "Perplexity space"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b272a703",
+    "name": "IA en viajes",
+    "definition": "Agencias de viaje online como Booking, Expedia o Airbnb que integran IA en sus plataformas.",
+    "wikipedia": "Online travel agency",
+    "queries": [
+     "AI travel agents",
+     "IA viajes",
+     "Booking AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8030a729",
+    "name": "Empleo remoto con IA",
+    "definition": "Ofertas y cursos de trabajo remoto en tecnología que requieren o enseñan habilidades de IA.",
+    "wikipedia": "Remote work",
+    "queries": [
+     "remote AI jobs",
+     "empleo remoto IA",
+     "trabajo remoto IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2fd8115c",
+    "name": "UNESCO e IA",
+    "definition": "Iniciativas de la UNESCO sobre ética, educación superior y patrimonio cultural relacionadas con IA.",
+    "wikipedia": "UNESCO",
+    "queries": [
+     "UNESCO AI ethics",
+     "UNESCO IA educación",
+     "UNESCO artificial intelligence"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_cbd568d2",
+    "name": "Costos de cómputo IA",
+    "definition": "Gastos crecientes en centros de datos, chips y energía para entrenar y ejecutar modelos de IA.",
+    "wikipedia": "AI compute cost",
+    "queries": [
+     "AI compute costs",
+     "costos cómputo IA",
+     "LLM costs"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_36091fe5",
+    "name": "Visibilidad en buscadores IA",
+    "definition": "Optimización para aparecer en respuestas de buscadores con IA como ChatGPT o Perplexity.",
+    "wikipedia": "Search engine optimization",
+    "queries": [
+     "AI search visibility",
+     "visibilidad buscadores IA",
+     "SEO IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_52fcbcc2",
+    "name": "Lovable y agentes",
+    "definition": "Plataformas como Lovable, Vercel o Replit que permiten crear apps con agentes de IA.",
+    "wikipedia": "Lovable (company)",
+    "queries": [
+     "Lovable AI",
+     "Lovable agentic",
+     "Lovable Replit"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_7a1a929f",
+    "name": "IA en defensa",
+    "definition": "Uso de IA en defensa: drones autónomos, armas y estrategia militar con inteligencia artificial.",
+    "wikipedia": "Artificial intelligence in warfare",
+    "queries": [
+     "AI defense",
+     "IA defensa",
+     "autonomous drones"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_0638b68b",
+    "name": "Automatización de seguros",
+    "definition": "Automatización con IA de pólizas, siniestros y ajustes en el sector asegurador.",
+    "wikipedia": "Insurance technology",
+    "queries": [
+     "insurance automation AI",
+     "automatización seguros IA",
+     "insurtech AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_53f9b915",
+    "name": "HBR y IA",
+    "definition": "Cobertura de Harvard Business Review y escuelas de negocio sobre IA en gestión y educación.",
+    "wikipedia": "Harvard Business Review",
+    "queries": [
+     "HBR AI",
+     "Harvard Business School AI",
+     "HBR inteligencia artificial"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_431effdb",
+    "name": "Computer use",
+    "definition": "Agentes de IA que controlan ordenadores para ejecutar tareas como un humano.",
+    "wikipedia": "Computer use agent",
+    "queries": [
+     "computer use AI",
+     "computer-use agent",
+     "agentes computer use"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_85a175ae",
+    "name": "Seguridad de LLMs",
+    "definition": "Vulnerabilidades, exploits y buenas prácticas de seguridad en modelos de lenguaje grandes.",
+    "wikipedia": "LLM security",
+    "queries": [
+     "LLM security",
+     "seguridad LLM",
+     "OWASP LLM Top 10"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ab12fcbd",
+    "name": "Gemini en Google Docs",
+    "definition": "Integración de Gemini en Google Docs y Sheets para redacción y análisis asistidos por IA.",
+    "wikipedia": "Google Docs",
+    "queries": [
+     "Gemini Google Docs",
+     "Google Docs AI",
+     "Gemini Sheets"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f2d9b80c",
+    "name": "Waymo y Pony AI",
+    "definition": "Empresas de robotaxis como Waymo y Pony.ai que avanzan en conducción autónoma comercial.",
+    "wikipedia": "Waymo",
+    "queries": [
+     "Waymo AI",
+     "Pony.ai",
+     "robotaxi AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f2faa6da",
+    "name": "Gen Z y IA",
+    "definition": "Actitudes de la Generación Z y Alpha hacia la IA, desde el rechazo hasta la adaptación laboral.",
+    "wikipedia": "Generation Z",
+    "queries": [
+     "Gen Z AI",
+     "Gen Alpha AI",
+     "generación Z IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c9eea12a",
+    "name": "Yext y ZoomInfo",
+    "definition": "Plataformas de marketing y datos B2B como Yext y ZoomInfo que integran agentes de IA.",
+    "wikipedia": "ZoomInfo",
+    "queries": [
+     "ZoomInfo AI",
+     "Yext AI",
+     "GTM AI agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e6747759",
+    "name": "LibreOffice sin IA",
+    "definition": "LibreOffice se posiciona como suite ofimática sin funciones de IA, atrayendo usuarios.",
+    "wikipedia": "LibreOffice",
+    "queries": [
+     "LibreOffice AI",
+     "LibreOffice 26.8",
+     "LibreOffice no AI"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

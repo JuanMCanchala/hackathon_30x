@@ -1,0 +1,20 @@
+{
+ "key": "7da57c23f6def31af65f6546e7aff5c541de78907e25c4e2f2b952932475b147",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:15:01.651Z",
+ "latencyMs": 9415,
+ "usage": {
+  "inputTokens": 1468,
+  "outputTokens": 1363
+ },
+ "output": {
+  "oneLiner": "El video IA de Trump con un tigre tras el ataque de Yorkshire dispara el debate en Bluesky.",
+  "narrative": "6 de 6 piezas que despegaron son posts de texto, frente a 0 de 9 del resto: el gancho es la reacción corta, no el video. 6 de 6 salieron un miércoles, frente a 6 de 9 del resto, y 6 de 6 las publicó un medio, frente a 8 de 9 del resto, así que el empuje viene de la cobertura y de cuentas que amplifican el caso. El tema está saturado: 13 creadores esta semana y +1020 % frente a las cuatro anteriores.",
+  "cited": [
+   "bluesky:3mxto2nxjo22h",
+   "bluesky:3mxt57wjcb22s",
+   "bluesky:3mxtow35unc2b"
+  ]
+ }
+}

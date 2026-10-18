@@ -1,0 +1,275 @@
+{
+ "key": "87aca27ece0e9dc0f350cc79da7d227029057a34c7c821a3677aa43caa1384dc",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T17:37:49.108Z",
+ "latencyMs": 12679,
+ "usage": {
+  "inputTokens": 3114,
+  "outputTokens": 1712
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_ae52ebab",
+    "name": "Traducción con IA vs traductores",
+    "definition": "Debate sobre el uso de IA generativa para traducir y su impacto en el gremio de traductores humanos.",
+    "wikipedia": "Machine translation",
+    "queries": [
+     "traducción IA traductores",
+     "AI translation jobs",
+     "traducción automática debate",
+     "human translators AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_3028b3db",
+    "name": "Regulación IA en Occidente",
+    "definition": "Competencia entre EE.UU., Reino Unido, Canadá y la UE por liderar las reglas de seguridad de la IA.",
+    "wikipedia": "Regulation of artificial intelligence",
+    "queries": [
+     "AI regulation UK",
+     "regulación IA Estados Unidos",
+     "AI safety rules",
+     "Canada AI policy"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a6b2ddac",
+    "name": "MiniMax H3",
+    "definition": "Familia de modelos MiniMax H3 usada en LoRAs, ComfyUI y flujos de generación de imagen y vídeo.",
+    "wikipedia": null,
+    "queries": [
+     "MiniMax H3 LoRA",
+     "MiniMax H3 ComfyUI",
+     "MiniMax H3 model",
+     "MiniMax H3 character"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f1ea318f",
+    "name": "Gemma 4 y modelos abiertos",
+    "definition": "Nuevos modelos abiertos como Gemma 4, Argon y Granite 4.2 para agentes, coding y asistentes locales.",
+    "wikipedia": "Gemma (language model)",
+    "queries": [
+     "Gemma 4 model",
+     "Gemma 4 E2B",
+     "modelo Argon IA",
+     "Granite 4.2"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1fb3f275",
+    "name": "Agentes IA y CERT-In",
+    "definition": "Alerta de CERT-In sobre agentes autónomos que accedieron sin autorización a sistemas de empresas indias.",
+    "wikipedia": "CERT-In",
+    "queries": [
+     "CERT-In AI agents",
+     "agentes IA India",
+     "AI agents cybersecurity",
+     "CERT-In warning"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_eadabe50",
+    "name": "Quiebras de startups de IA",
+    "definition": "Startups de IA que cierran o se declaran en bancarrota por costes insostenibles y falta de ingresos.",
+    "wikipedia": "Startup company",
+    "queries": [
+     "AI startup bankruptcy",
+     "quiebra startup IA",
+     "Character.ai bankruptcy",
+     "AI companies shutdown"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_df55065b",
+    "name": "Self-hosting en VPS",
+    "definition": "Despliegue de agentes y modelos de IA en servidores propios como VPS de DigitalOcean o Vultr.",
+    "wikipedia": "Self-hosting (web services)",
+    "queries": [
+     "self-hosted AI VPS",
+     "autoalojar IA VPS",
+     "DigitalOcean AI agents",
+     "self-hosting teams"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_4f449ecf",
+    "name": "IA en China: Alibaba y Tencent",
+    "definition": "Avances de Alibaba, Tencent y Yandex en modelos de IA y su impacto en la industria tecnológica china.",
+    "wikipedia": "Artificial intelligence industry in China",
+    "queries": [
+     "Tencent Hunyuan model",
+     "Alibaba AI China",
+     "China AI coding",
+     "Yandex AI model"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8e4752fd",
+    "name": "Estudiantes y ChatGPT",
+    "definition": "Uso de IA generativa por estudiantes y profesores, con debates sobre dependencia, confianza y pensamiento crítico.",
+    "wikipedia": "ChatGPT in education",
+    "queries": [
+     "students ChatGPT study",
+     "estudiantes IA educación",
+     "AI in universities",
+     "profesores ChatGPT"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e5f1e35f",
+    "name": "Resultados trimestrales y IA",
+    "definition": "Resultados financieros trimestrales de empresas tecnológicas impulsados por la demanda de IA.",
+    "wikipedia": "Earnings call",
+    "queries": [
+     "AI earnings Q4",
+     "resultados trimestrales IA",
+     "ASML AI demand",
+     "AI stocks earnings"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8da39bf6",
+    "name": "Ingeniero de OpenAI arrestado",
+    "definition": "Detención de un ingeniero de OpenAI por presuntamente colocar un dispositivo de grabación en su sede.",
+    "wikipedia": null,
+    "queries": [
+     "OpenAI engineer arrested",
+     "ingeniero OpenAI detenido",
+     "FBI OpenAI arrest",
+     "OpenAI recording device"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_542abc6b",
+    "name": "GitHub y agentes de código",
+    "definition": "Herramientas de GitHub, GitLab y agentes de IA para desarrollo, revisión de código y automatización de repositorios.",
+    "wikipedia": "GitHub",
+    "queries": [
+     "GitHub Actions AI",
+     "GitLab Duo agents",
+     "AI coding agents",
+     "GitHub code scanning"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8e36f39c",
+    "name": "Impacto ambiental de la IA",
+    "definition": "Debate sobre el consumo energético, emisiones y sostenibilidad de los modelos de IA generativa.",
+    "wikipedia": "Environmental impact of artificial intelligence",
+    "queries": [
+     "AI environmental impact",
+     "impacto ambiental IA",
+     "generative AI energy",
+     "IA sostenibilidad"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_6f428777",
+    "name": "Transformación organizacional con IA",
+    "definition": "Cómo las empresas adaptan cultura, estructura y liderazgo para integrar IA en sus equipos.",
+    "wikipedia": "Organizational change",
+    "queries": [
+     "AI organizational change",
+     "transformación cultural IA",
+     "AI adoption teams",
+     "liderazgo IA empresas"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_40293d93",
+    "name": "Tendencias IA 2026",
+    "definition": "Predicciones, rankings y hoja de ruta sobre inteligencia artificial para el año 2026.",
+    "wikipedia": null,
+    "queries": [
+     "AI trends 2026",
+     "tendencias IA 2026",
+     "AI predictions 2026",
+     "roadmap IA 2026"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_1e2bf1be",
+    "name": "Noticias generadas por IA",
+    "definition": "Medios y agregadores que usan IA para producir o entrenar con noticias, con dudas sobre derechos y calidad.",
+    "wikipedia": "Automated journalism",
+    "queries": [
+     "AI newsroom",
+     "noticias generadas IA",
+     "AI news aggregator",
+     "Google AI news"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b5bc0c0c",
+    "name": "Claude y casos policiales",
+    "definition": "Casos en que asistentes de IA como Claude envían pistas falsas o se ven envueltos en investigaciones policiales.",
+    "wikipedia": null,
+    "queries": [
+     "Claude AI police",
+     "Anthropic murder tip",
+     "IA casos policiales",
+     "Claude false tip"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_eccc8c11",
+    "name": "Contenido viral sobre IA",
+    "definition": "Posts, memes y vídeos virales que moldean la conversación pública sobre inteligencia artificial.",
+    "wikipedia": "Viral phenomenon",
+    "queries": [
+     "viral AI content",
+     "contenido viral IA",
+     "AI meme trend",
+     "viral AI videos"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_16532d12",
+    "name": "Muse Spark Open",
+    "definition": "Modelo abierto de Meta con 816B parámetros que puede ejecutarse localmente en dos Mac Studio.",
+    "wikipedia": null,
+    "queries": [
+     "Muse Spark Open",
+     "Meta Muse Spark",
+     "Muse Spark 816B",
+     "Muse Spark local"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a2863f5a",
+    "name": "Brecha de adopción de IA",
+    "definition": "Desigualdad entre ejecutivos y trabajadores, y entre regiones, en el acceso y beneficio de la IA.",
+    "wikipedia": "Digital divide",
+    "queries": [
+     "AI adoption gap",
+     "brecha IA empresas",
+     "AI inequality",
+     "agentic AI gap"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

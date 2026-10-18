@@ -1,0 +1,83 @@
+{
+ "key": "604e7c0d413125803cb174035a62326b6d375b32d9e335f60df7e35bbea70a95",
+ "name": "adapt",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T21:56:43.963Z",
+ "latencyMs": 15897,
+ "usage": {
+  "inputTokens": 1358,
+  "outputTokens": 1835
+ },
+ "output": {
+  "angle": "Shadow AI no es un problema de tecnología, es un problema de gobernanza: mientras los medios latinoamericanos lo cubren con engagement cero, la ventaja está en que un ejecutivo arme esta semana el inventario, las reglas de datos y la capacitación antes de que ocurra el incidente, en lugar de reaccionar cuando ya se filtró información.",
+  "hooks": [
+   "La conversación sobre Shadow AI creció 247% esta semana.",
+   "¿Sabes qué herramientas de IA usa tu equipo hoy sin avisarte?",
+   "Prohibir la IA no la detiene: solo la vuelve invisible."
+  ],
+  "linkedin": "En Rappi aprendí algo que no está en ningún manual: la tecnología entra a la empresa por la puerta de atrás, no por la puerta principal.\n\nHoy pasa con la IA. Tu equipo ya la usa. No esperó tu aprobación. Alguien pega datos de clientes en un chatbot para redactar un correo. Otro sube un contrato para que se lo resuma. Un tercero conecta un agente a un sistema interno. Nadie lo hizo con mala intención. Todos lo hicieron para ir más rápido.\n\nEso es Shadow AI. Esta semana la conversación creció 247% entre creadores. Los medios ya lo cubren. Las empresas latinoamericanas todavía no.\n\nEl problema no es la herramienta. Es que no tienes inventario de qué se usa, con qué datos y quién responde cuando algo sale mal.\n\nNo necesitas prohibir. Necesitas gobernar. Tres cosas esta semana: haz un inventario de las herramientas de IA en uso, define qué datos nunca salen de la empresa y capacita a tu equipo en vez de castigarlo.\n\nLa ventaja injusta no es adoptar IA primero. Es adoptarla sin abrir un hueco de seguridad.\n\n#IA #Gobernanza #LatAm",
+  "carousel": [
+   {
+    "title": "Tu equipo ya usa IA sin permiso",
+    "body": "No esperaron tu aprobación. Pegan datos, suben contratos y conectan agentes para ir más rápido. Eso es Shadow AI."
+   },
+   {
+    "title": "Creció 247% esta semana",
+    "body": "La conversación entre creadores se disparó. Los medios ya publican del tema. Las empresas de la región todavía no reaccionan."
+   },
+   {
+    "title": "El riesgo no es la herramienta",
+    "body": "El riesgo es que no sabes qué se usa, con qué datos y quién responde cuando algo sale mal."
+   },
+   {
+    "title": "Prohibir no funciona",
+    "body": "Si bloqueas todo, la IA se vuelve invisible. Tu equipo la sigue usando desde el celular, sin controles ni registro."
+   },
+   {
+    "title": "Paso 1: inventario",
+    "body": "Lista qué herramientas de IA se usan hoy en cada área. Pregunta sin castigar. Necesitas el mapa real, no el ideal."
+   },
+   {
+    "title": "Paso 2: reglas de datos",
+    "body": "Define qué información nunca sale de la empresa: clientes, contratos, código, finanzas. Escríbelo en una página, no en un manual."
+   },
+   {
+    "title": "Paso 3: capacitar, no castigar",
+    "body": "Entrena a tu equipo en uso seguro. La mayoría no busca hacer daño, busca velocidad. Dale el marco correcto."
+   },
+   {
+    "title": "Gobierna la IA esta semana",
+    "body": "Inventario, reglas de datos y capacitación. Tres acciones concretas. Empieza hoy, no cuando llegue el incidente."
+   }
+  ],
+  "reel": {
+   "hook": "Tu equipo ya usa IA sin pedirte permiso. Y probablemente no lo sabes.",
+   "beats": [
+    "Alguien pega datos de clientes en un chatbot para redactar un correo más rápido.",
+    "Otro sube un contrato para resumirlo. Nadie avisó a nadie.",
+    "Eso es Shadow AI: uso no autorizado de IA dentro de tu empresa.",
+    "La conversación creció 247% esta semana. El riesgo es real: datos expuestos y cero trazabilidad.",
+    "Prohibir no sirve. La IA se vuelve invisible y el riesgo crece.",
+    "Haz tres cosas: inventario de herramientas, reglas de datos y capacitación."
+   ],
+   "onScreen": [
+    "IA SIN PERMISO",
+    "DATOS EN UN CHATBOT",
+    "ESO ES SHADOW AI",
+    "+247% ESTA SEMANA",
+    "PROHIBIR NO FUNCIONA",
+    "INVENTARIO + REGLAS + CAPACITACIÓN"
+   ],
+   "cta": "Guarda este video y haz el inventario de IA de tu empresa esta semana."
+  },
+  "youtube": {
+   "title": "Shadow AI: tus empleados ya usan IA sin permiso",
+   "thumbnail": "Un gerente frente a su laptop con la mirada en el celular; texto grande: IA SIN PERMISO"
+  },
+  "avoid": [
+   "Enfoque apocalíptico tipo 'la IA va a destruir tu empresa': genera miedo sin dar acción y no le sirve a un ejecutivo que necesita decidir.",
+   "Titulares de 'prohíbe la IA en tu empresa': ya está gastado y contradice la voz práctica de 30X, que construye ventajas en vez de frenar adopción.",
+   "Debate abstracto sobre regulación y agentes autónomos sin caso concreto: la conversación actual tiene engagement cero y no aterriza en decisiones de negocio."
+  ]
+ }
+}

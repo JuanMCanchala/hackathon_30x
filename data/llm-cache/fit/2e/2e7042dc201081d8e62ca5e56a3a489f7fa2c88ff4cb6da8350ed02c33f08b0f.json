@@ -1,0 +1,24 @@
+{
+ "key": "2e7042dc201081d8e62ca5e56a3a489f7fa2c88ff4cb6da8350ed02c33f08b0f",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:17:17.527Z",
+ "latencyMs": 8376,
+ "usage": {
+  "inputTokens": 762,
+  "outputTokens": 1124
+ },
+ "output": {
+  "score": 4,
+  "executive": 6,
+  "noCode": 1,
+  "latam": 1,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "bajo",
+  "reasons": [
+   "Tema técnico de desarrollo, poco aplicable a equipos comerciales.",
+   "Ejecutivos deben entender ROI real de IA en ingeniería.",
+   "Sin ángulo LatAm ni aplicación sin código."
+  ]
+ }
+}

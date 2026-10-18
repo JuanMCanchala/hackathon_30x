@@ -1,0 +1,24 @@
+{
+ "key": "11222c5eb7bbc66a93f951e20fb34c8fe9695b385e5c631a497e79a298e591f8",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:29:06.999Z",
+ "latencyMs": 6125,
+ "usage": {
+  "inputTokens": 693,
+  "outputTokens": 788
+ },
+ "output": {
+  "score": 3,
+  "executive": 4,
+  "noCode": 1,
+  "latam": 1,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Tema muy técnico de ingeniería; poco aplicable a ventas, growth o estrategia comercial.",
+   "Relevante para CTOs, no para audiencia ejecutiva/comercial amplia de LatAm.",
+   "Riesgo de hype y polémica por rediseño de Git y acusaciones de copia."
+  ]
+ }
+}

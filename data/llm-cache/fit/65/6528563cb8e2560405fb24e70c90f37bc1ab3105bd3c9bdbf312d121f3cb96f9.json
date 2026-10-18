@@ -1,0 +1,24 @@
+{
+ "key": "6528563cb8e2560405fb24e70c90f37bc1ab3105bd3c9bdbf312d121f3cb96f9",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:19:37.945Z",
+ "latencyMs": 4684,
+ "usage": {
+  "inputTokens": 738,
+  "outputTokens": 531
+ },
+ "output": {
+  "score": 9,
+  "executive": 9,
+  "noCode": 8,
+  "latam": 6,
+  "pillar": "Ventas",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Reconfigura procesos comerciales y roles de ventas con IA aplicada.",
+   "Muy relevante para CEOs y equipos comerciales en LatAm.",
+   "Incluye pieza en español, pero faltan casos LatAm concretos."
+  ]
+ }
+}

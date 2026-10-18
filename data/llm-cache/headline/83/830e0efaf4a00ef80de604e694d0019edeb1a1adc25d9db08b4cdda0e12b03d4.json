@@ -1,0 +1,14 @@
+{
+ "key": "830e0efaf4a00ef80de604e694d0019edeb1a1adc25d9db08b4cdda0e12b03d4",
+ "name": "headline",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:17:20.459Z",
+ "latencyMs": 915,
+ "usage": {
+  "inputTokens": 336,
+  "outputTokens": 37
+ },
+ "output": {
+  "headline": "Esta semana la conversación de IA gira hacia las quiebras de startups, Bluesky y Attie, y Workday con IA agéntica"
+ }
+}

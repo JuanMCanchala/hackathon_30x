@@ -1,0 +1,24 @@
+{
+ "key": "dee93b8c897a342b120ea82e762c0196af4d41e8e13eb3e2ccb8e33a3ef9a826",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:16:46.864Z",
+ "latencyMs": 7844,
+ "usage": {
+  "inputTokens": 681,
+  "outputTokens": 997
+ },
+ "output": {
+  "score": 5,
+  "executive": 6,
+  "noCode": 4,
+  "latam": 3,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Muy técnico: parámetros, benchmarks y hardware; poco accionable para equipos comerciales.",
+   "Open-weight reduce costos y dependencia; relevante para estrategia IA ejecutiva.",
+   "NanoMuse agente sin código, pero sin ángulo LatAm claro."
+  ]
+ }
+}

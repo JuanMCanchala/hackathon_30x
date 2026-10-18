@@ -1,0 +1,24 @@
+{
+ "key": "e149ec89557cfb15f638d7a03b723ccee4d234256ff02e64779e68b790bedf67",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:14:26.192Z",
+ "latencyMs": 8271,
+ "usage": {
+  "inputTokens": 723,
+  "outputTokens": 1004
+ },
+ "output": {
+  "score": 6,
+  "executive": 5,
+  "noCode": 9,
+  "latam": 3,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "alto",
+  "reasons": [
+   "Herramienta no-code para crear apps y juegos; atractiva para equipos no técnicos.",
+   "Poco vínculo directo con ventas, growth o decisiones ejecutivas LatAm.",
+   "Riesgo de humo y polémica por vibe coding y fallas de Bluesky."
+  ]
+ }
+}

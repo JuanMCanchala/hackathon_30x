@@ -1,0 +1,255 @@
+{
+ "key": "c2f4bbffecf0aaac847edd555b591373bbbe0a816672af25b9ec0d5b878dbdeb",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:28:25.101Z",
+ "latencyMs": 9116,
+ "usage": {
+  "inputTokens": 3266,
+  "outputTokens": 1784
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_5a8a2afe",
+    "name": "Salarios en IA",
+    "definition": "Tendencias salariales y compensación para profesionales de inteligencia artificial en distintos sectores.",
+    "wikipedia": "Artificial intelligence",
+    "queries": [
+     "salarios IA",
+     "AI salaries",
+     "compensación expertos IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e237210c",
+    "name": "Seedance 2.5",
+    "definition": "Modelo de generación de video con IA de ByteDance, enfocado en creación de contenido visual.",
+    "wikipedia": "Seedance",
+    "queries": [
+     "Seedance 2.5",
+     "Seedance video AI",
+     "ByteDance Seedance"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_38d29606",
+    "name": "Legaltech con IA",
+    "definition": "Aplicación de inteligencia artificial en servicios legales, automatización jurídica y regulación tecnológica.",
+    "wikipedia": "Legal technology",
+    "queries": [
+     "legaltech IA",
+     "automatización jurídica",
+     "AI legal tech"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8ba60b51",
+    "name": "Vulnerabilidad Confluence y Jira",
+    "definition": "Fallos de seguridad en servidores MCP de Atlassian que afectan Confluence y Jira.",
+    "wikipedia": "Confluence (software)",
+    "queries": [
+     "vulnerabilidad Confluence",
+     "Jira security flaw",
+     "MCP Atlassian vulnerability"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a5c9f7f0",
+    "name": "Caterpillar y John Deere",
+    "definition": "Empresas de maquinaria pesada que aplican IA en automatización de minas, agricultura y datos.",
+    "wikipedia": "Caterpillar Inc.",
+    "queries": [
+     "Caterpillar IA",
+     "John Deere AI",
+     "automatización maquinaria"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_32af66ef",
+    "name": "Hosting con IA",
+    "definition": "Proveedores de VPS y hosting que integran herramientas de inteligencia artificial para gestión de infraestructura.",
+    "wikipedia": "Virtual private server",
+    "queries": [
+     "Hostinger Horizons",
+     "ConoHa VPS MCP",
+     "AI hosting providers"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_975fb96d",
+    "name": "Sheinbaum y deepfakes",
+    "definition": "Líderes mundiales, incluida Sheinbaum, impulsan medidas contra deepfakes generados con IA.",
+    "wikipedia": "Claudia Sheinbaum",
+    "queries": [
+     "Sheinbaum deepfakes",
+     "deepfakes líderes",
+     "regulación deepfakes"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ee5f6c8d",
+    "name": "IA y democracia",
+    "definition": "Impacto de la IA generativa y plataformas descentralizadas en la democracia y el control corporativo.",
+    "wikipedia": "Democracy",
+    "queries": [
+     "IA democracia",
+     "AI democracy",
+     "descentralización IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_dd51234f",
+    "name": "Regulación IA en EE.UU.",
+    "definition": "Posturas de políticos estadounidenses como Buttigieg y Fetterman sobre la regulación de la IA.",
+    "wikipedia": "Regulation of artificial intelligence",
+    "queries": [
+     "Buttigieg AI regulation",
+     "Fetterman AI",
+     "US AI policy"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5a95e5b7",
+    "name": "WeatherNext 3",
+    "definition": "Modelo de IA de Google DeepMind para predicción meteorológica global más precisa y local.",
+    "wikipedia": "WeatherNext",
+    "queries": [
+     "WeatherNext 3",
+     "Google weather AI",
+     "predicción meteorológica IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_719a149f",
+    "name": "IA y VRChat",
+    "definition": "Debate sobre la infiltración de contenido generado por IA en VRChat y su impacto cultural.",
+    "wikipedia": "VRChat",
+    "queries": [
+     "VRChat AI",
+     "IA en VRChat",
+     "AI slop VRChat"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c1853c5f",
+    "name": "IA en casos policiales",
+    "definition": "Uso de IA en denuncias policiales, incluyendo deepfakes no consentidos y confesiones a chatbots.",
+    "wikipedia": "Artificial intelligence in law enforcement",
+    "queries": [
+     "IA denuncias",
+     "deepfake policía",
+     "ChatGPT arresto"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_efe92601",
+    "name": "Adicción a ChatGPT",
+    "definition": "Dependencia de plataformas de IA como ChatGPT y su impacto en la productividad y creatividad.",
+    "wikipedia": "ChatGPT",
+    "queries": [
+     "adicción ChatGPT",
+     "dependencia IA",
+     "ChatGPT outage impact"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5a838b1a",
+    "name": "Tablets con IA",
+    "definition": "Nuevas tablets como Huawei MatePad Air y Samsung Galaxy Tab S12 con funciones de productividad IA.",
+    "wikipedia": "Huawei MatePad",
+    "queries": [
+     "Huawei MatePad Air",
+     "Samsung Galaxy Tab S12",
+     "tablets IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_96844af9",
+    "name": "Valoración bursátil IA",
+    "definition": "Impacto de la IA en la capitalización y valoración de empresas tecnológicas en el mercado bursátil.",
+    "wikipedia": "Market capitalization",
+    "queries": [
+     "valoración IA bolsa",
+     "AI stock market",
+     "capitalización IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_76f678e8",
+    "name": "Alibaba Wan 3.0",
+    "definition": "Nuevo generador de video con IA de Alibaba, lanzado tras una venta de acciones de 10 mil millones.",
+    "wikipedia": "Alibaba Group",
+    "queries": [
+     "Alibaba Wan 3.0",
+     "Wan3.0 video AI",
+     "Alibaba AI video"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_53bb6fd5",
+    "name": "Empleos en riesgo por IA",
+    "definition": "Preocupación por el impacto de la IA en el empleo y los riesgos laborales en Latinoamérica y el mundo.",
+    "wikipedia": "Technological unemployment",
+    "queries": [
+     "empleos riesgo IA",
+     "AI job displacement",
+     "futuro del trabajo IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_314d57e6",
+    "name": "Comparativas de herramientas IA",
+    "definition": "Análisis comparativos de herramientas de inteligencia artificial para imágenes, video, ventas y automatización.",
+    "wikipedia": "Comparison of artificial intelligence tools",
+    "queries": [
+     "comparativa herramientas IA",
+     "best AI tools",
+     "AI tool comparison"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_725d78e8",
+    "name": "Decart",
+    "definition": "Startup israelí de IA cuyo posible acuerdo con Anthropic por 6-7 mil millones de dólares generó atención.",
+    "wikipedia": "Decart",
+    "queries": [
+     "Decart AI",
+     "Anthropic Decart",
+     "Decart startup"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_49206008",
+    "name": "Autoría humana vs IA",
+    "definition": "Debate sobre atribución de autoría y protección de escritores humanos frente a contenido generado por IA.",
+    "wikipedia": "Authorship",
+    "queries": [
+     "autoría IA",
+     "human authorship AI",
+     "AI writing scams"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

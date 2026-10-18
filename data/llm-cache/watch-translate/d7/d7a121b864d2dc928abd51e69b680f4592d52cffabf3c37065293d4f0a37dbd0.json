@@ -1,0 +1,63 @@
+{
+ "key": "d7a121b864d2dc928abd51e69b680f4592d52cffabf3c37065293d4f0a37dbd0",
+ "name": "watch-translate",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T23:52:51.571Z",
+ "latencyMs": 6207,
+ "usage": {
+  "inputTokens": 886,
+  "outputTokens": 824
+ },
+ "output": {
+  "items": [
+   {
+    "id": "instagram:DekV4KYHyj2",
+    "es": "La demo del nuevo Roadster de Tesla impresionó. Pero si quieres comprar uno, lee la letra pequeña: los términos de reserva generan dudas sobre dónde será legal conducirlo, su precio y cuándo lo recibirás."
+   },
+   {
+    "id": "instagram:DemhG_YlJ65",
+    "es": "Greer Hiltabidle convirtió su amor por la sopa de cebolla francesa en mantequilla, lo publicó y miles llegaron. Tras recaudar $23,948 en Kickstarter y dejar su empleo, ganó 80,000 seguidores en una semana y una lista de espera de 10,000."
+   },
+   {
+    "id": "instagram:DemmCU9AZJM",
+    "es": "Cerrar antes puede parecer lo más barato ante el fin de la jornada 6x1. Pero para negocios que dependen de cada hora de venta, ahorrar en personal puede salir caro. Alerta el empresario Lásaro do Carmo Junior, exvicepresidente."
+   },
+   {
+    "id": "youtube:wOPNkY2rtqo",
+    "es": "EN VIVO | PrimeCast en Expo Negócios 2026 - Participa: O Boticário"
+   },
+   {
+    "id": "instagram:DemX_8GFT4Z",
+    "es": "¿Renunciaste a tu jefe para ser la empleada más explotada de tu propia empresa? 😂 Trabajas 14 horas, haces todo sola, sin vacaciones y si paras una semana, el negocio se detiene. ¡Amiga, algo está mal! Emprender cuesta, pero no así."
+   },
+   {
+    "id": "bluesky:3mxwfnztyl223",
+    "es": "101 impactos emergentes: cómo la inteligencia con IA transforma el rendimiento de negocios rentables. Descubre finanzas con los artículos del blog Finance Keeda: desde finanzas personales hasta estrategias de inversión."
+   },
+   {
+    "id": "bluesky:3my2adfl23wav",
+    "es": "Microsoft pasó de defender Windows a los servicios en la nube y adoptó plataformas rivales. Caydex: investigación de IA sobre empresas públicas, en la App Store. Más: https://caydexinvest.com/go/bluesky Solo educativo, no es asesoría de inversión. Con IA."
+   },
+   {
+    "id": "youtube:iYP4ytYQDBY",
+    "es": "El CEO de Denny's da consejos de negocios: 'MANTENTE HUMILDE'"
+   },
+   {
+    "id": "youtube:xU7mxYw-_YI",
+    "es": "Esta idea se está viralizando y hace que los negocios sean rentables en octubre… #shorts"
+   },
+   {
+    "id": "youtube:v5J_O4nPM0U",
+    "es": "El camino más fácil para enriquecerse en 2026 (que nadie quiere tomar)"
+   },
+   {
+    "id": "youtube:xopOlg2Dd-A",
+    "es": "Las ideas de negocio más ignoradas de 2026"
+   },
+   {
+    "id": "bluesky:3mxzckzruuc2v",
+    "es": "Esta gran oferta se absorbió fácil por la fuerte demanda inversora, y los diferenciales de riesgo catastrófico volvieron a niveles previos al huracán Ian. www.swissre.com/our-business... 9/x ILS: julio 2026 | Swiss Re Análisis del mercado de seguros vinculados."
+   }
+  ]
+ }
+}

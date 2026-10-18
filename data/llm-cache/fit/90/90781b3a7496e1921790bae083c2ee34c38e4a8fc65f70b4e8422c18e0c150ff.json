@@ -1,0 +1,24 @@
+{
+ "key": "90781b3a7496e1921790bae083c2ee34c38e4a8fc65f70b4e8422c18e0c150ff",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:16:10.470Z",
+ "latencyMs": 5185,
+ "usage": {
+  "inputTokens": 692,
+  "outputTokens": 477
+ },
+ "output": {
+  "score": 2,
+  "executive": 2,
+  "noCode": 3,
+  "latam": 1,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "alto",
+  "reasons": [
+   "Polémica política de EE.UU., poco aplicable a negocios LatAm.",
+   "No enseña uso práctico de IA para ventas o growth.",
+   "Riesgo de polarización daña la marca 30X."
+  ]
+ }
+}

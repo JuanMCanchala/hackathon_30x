@@ -1,0 +1,21 @@
+{
+ "key": "03f03f5ca1199bbbe1980e231a52f9f7ac5352644ae4431dfddc341454fa8490",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:17:59.267Z",
+ "latencyMs": 9916,
+ "usage": {
+  "inputTokens": 1484,
+  "outputTokens": 1316
+ },
+ "output": {
+  "oneLiner": "Google lanza Gemini 4 Argon y medios y creadores lo comparan con GPT-6 Astra y Claude Opus 5.5.",
+  "narrative": "No hay patrones con al menos 3 piezas, así que esta semana no hay una fórmula verificada de qué despega. La evidencia se concentra en el lanzamiento de Gemini 4 Argon: tres medios publicaron entre el 14 y el 16 de octubre y un post en Bluesky lo anunció el mismo día. El salto de +253 % en creadores distintos coincide con esa cobertura, aunque las métricas de esas piezas son bajas: engagement 0 en tres de ellas. El único dato con tracción es un post de Bluesky que cuestiona la demanda de los modelos frontera, con 1.3× la mediana de su autor.",
+  "cited": [
+   "news:CBMiggJBVV95cUxQbW1PV25nZWsxVlBKSFZVY3RBbzhsbmJ0ZDJnUXdicXdXZjVYQTI2QnZxLTVvZDZvR2pwS1hfaHAyQTBDRkZIYVdsQjdjMVVXUUJMekhUNkVmY0pZakhlZ0t2bVVRWWxRTlFKVkJXdVVaWW5Lb0pWd1l3aUZwczI0OU85TTh6RDB6VVNuM2tHQ1pBQ0NQV2VpME1pQ1ZsaDdjeDE3YmotY0t4WDdBR1RwOGxKT3F0bm5SNlhiTUhoXzhxb2V5bnZlNlJUVFo4Q2hpM09xQ0o2bmZ0NHVGM1VyZ0dqdVFWbDhDTklvRjBOaWl2d0pmNnRXd3RoQkV2dUUyeUE",
+   "news:CBMixwFBVV95cUxNWkVUUVQ1R0lCLUJrQl9mSXdXRWNPTWZyV1BFUm9JN00tTzlUc2hPY3ZXQlhKbENIaVY5Q21IeVRXeXloUEZoQndBcTN3ZXFkUFA1OTAwcVlRY1NJSUlHWTBGRWJTbmxZaExaTFQ4QU0tQmZMUGZZbkhwTEJ2VFFXWUFzX21pVnByYXkwV2JfVTd4eklrdHdrLUJVaENVV29pV3dyd2Jxa0VjUDBvZVBaZVdVUmxjZnFGai1rbHd5WURkN1p6ekl3",
+   "news:CBMirAFBVV95cUxQSzdXRWFBYmFCTmVtLUNoX0NQOWl2ajE2ektFS29LdHQyY09TMVlDSXg2REgzdjlZcWRLS2dlVGlMRmg4SUNBM05sYlBjam1NZ0czREpwVXBxdFF1UGpEcFFQVDFKQTI1ZU9mV3BubkZtWmpCemQ4bENJUXlvVUdRb3Q3NnNtWVBDUkdEVmpxTjQ3TWN4YnVTVHNEM2QtX0N0Sk96YkxaUGFsNEl5",
+   "bluesky:3mxrfvjnbnh2g"
+  ]
+ }
+}

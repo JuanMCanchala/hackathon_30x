@@ -1,0 +1,24 @@
+{
+ "key": "d7fb319647741bd72d7ef3555b5990ca45eda7804398a4ccafe86e392ea2dea7",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:16:19.622Z",
+ "latencyMs": 8075,
+ "usage": {
+  "inputTokens": 732,
+  "outputTokens": 957
+ },
+ "output": {
+  "score": 4,
+  "executive": 4,
+  "noCode": 2,
+  "latam": 1,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Tema técnico de hardware, poco aplicable a ventas o growth.",
+   "Relevante para infraestructura de IA local, no para equipos comerciales.",
+   "Sin ángulo latinoamericano claro; cobertura sensacionalista de GPU."
+  ]
+ }
+}

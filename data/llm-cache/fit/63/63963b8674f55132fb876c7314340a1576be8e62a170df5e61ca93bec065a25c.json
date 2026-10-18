@@ -1,0 +1,24 @@
+{
+ "key": "63963b8674f55132fb876c7314340a1576be8e62a170df5e61ca93bec065a25c",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:16:36.576Z",
+ "latencyMs": 5495,
+ "usage": {
+  "inputTokens": 728,
+  "outputTokens": 554
+ },
+ "output": {
+  "score": 4,
+  "executive": 6,
+  "noCode": 2,
+  "latam": 1,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Infraestructura de cómputo importa a CEOs por costos y dependencia de proveedores.",
+   "Poco aplicable sin código para equipos de ventas o growth.",
+   "Sin ángulo LatAm claro; tema técnico y de inversión."
+  ]
+ }
+}

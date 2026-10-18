@@ -1,0 +1,22 @@
+{
+ "key": "74aedb6bead077c810673c7e8e626f57dc575efcd2f835ce60d27279ec0ddc5f",
+ "name": "watch-video",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T00:16:01.366Z",
+ "latencyMs": 3328,
+ "usage": {
+  "inputTokens": 4186,
+  "outputTokens": 315
+ },
+ "output": {
+  "hook": "e acompanha o nosso podcast especial na Expo Negócios 2026, essa feira que é a primeira, mas e a gente já pode colocar para você que tá acompanhando no rádio, no YouTube, no Instagram que vai ser achoana, a feira do calendário de São Luís, do calendário Montebelense, porque a gente já vê movimentação muito intensa.",
+  "points": [
+   "Falamos com a Vivian, proprietária do Boticário São Luís, sobre beleza, autocuidado e gestão.",
+   "Agora vamos falar de viagens com Andreia Gimenees da Trip Viagens.",
+   "A Trip Viagens é uma franquia e a unidade de Firminópolis está em oitavo lugar no ranking brasileiro.",
+   "O agente de viagem auxilia com o melhor custo-benefício e acompanha do começo ao fim.",
+   "Os destinos preferidos da região são praias como Porto Seguro, Porto de Galinhas e Maceió, e internacionais como Buenos Aires."
+  ],
+  "idea": "O vídeo mostra um podcast ao vivo na Expo Negócios 2026, com a participação da proprietária da Trip Viagens, que conta sua experiência como franqueada de sucesso e explica a importância do agente de viagem para segurança e economia, funcionando por ser um conteúdo informativo e inspirador sobre empreendedorismo e viagens."
+ }
+}

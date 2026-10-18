@@ -1,0 +1,20 @@
+{
+ "key": "fb090493c67c575f04502f1284a9c3f892b8cafac163822d8e91821483856ac1",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:30:30.884Z",
+ "latencyMs": 8183,
+ "usage": {
+  "inputTokens": 2051,
+  "outputTokens": 1351
+ },
+ "output": {
+  "oneLiner": "OpenAI publica video de ChatGPT Space para equipos y acelera la conversación sobre colaboración humano-IA.",
+  "narrative": "No hay patrones con al menos 3 piezas que despegaron, así que la evidencia es dispersa. La pieza más fuerte es un video de OpenAI en YouTube sobre trabajar en equipo en ChatGPT Space: 7.1 veces la mediana de su autor. Le sigue un post de Cory Doctorow en Bluesky sobre colaboración humano-IA, con 1.9 veces su mediana, y otro de Sakana AI, con 1.3 veces. La semana reúne 13 creadores distintos, el doble que las cuatro semanas previas.",
+  "cited": [
+   "youtube:G-9Y2xNiDKQ",
+   "bluesky:3mxvd543zmd24",
+   "bluesky:3mxwbsqjhxs2q"
+  ]
+ }
+}

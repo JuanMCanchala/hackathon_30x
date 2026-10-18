@@ -1,0 +1,255 @@
+{
+ "key": "b00b9eda9155a46852b4d11574a8c52635020b72ab626667b375f6959dfc795d",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:12:47.278Z",
+ "latencyMs": 9885,
+ "usage": {
+  "inputTokens": 2990,
+  "outputTokens": 1747
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_0dae46ad",
+    "name": "IA en formación docente",
+    "definition": "Capacitación de profesores en inteligencia artificial para modernizar la enseñanza y reducir tareas administrativas.",
+    "wikipedia": "Teacher education",
+    "queries": [
+     "formación docente IA",
+     "AI teacher training",
+     "capacitación profesores IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_64c13aaf",
+    "name": "Experiencia de cliente con IA",
+    "definition": "Impacto de la inteligencia artificial en la experiencia del cliente y del usuario en productos y servicios.",
+    "wikipedia": "Customer experience",
+    "queries": [
+     "experiencia cliente IA",
+     "AI customer experience",
+     "UX inteligencia artificial"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_6294afce",
+    "name": "IA soberana y de frontera",
+    "definition": "Desarrollo de inteligencia artificial de vanguardia con control nacional o regional para sectores regulados.",
+    "wikipedia": "Sovereign AI",
+    "queries": [
+     "IA soberana",
+     "sovereign AI",
+     "frontier AI models"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9b6efd55",
+    "name": "ChatGPT en el trabajo",
+    "definition": "Uso de ChatGPT y asistentes de IA para automatizar tareas laborales y aumentar la productividad.",
+    "wikipedia": "ChatGPT",
+    "queries": [
+     "ChatGPT trabajo",
+     "ChatGPT for work",
+     "IA tareas laborales"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_6c834fdf",
+    "name": "DeepSeek V4.1 Flash",
+    "definition": "Nuevo modelo de lenguaje de DeepSeek con mejoras en velocidad y eficiencia para aplicaciones empresariales.",
+    "wikipedia": "DeepSeek",
+    "queries": [
+     "DeepSeek V4.1",
+     "DeepSeek Flash",
+     "DeepSeek harness"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_216ce0af",
+    "name": "Claude Code Skills",
+    "definition": "Habilidades y plugins de Claude para automatizar tareas de programación y desarrollo de agentes.",
+    "wikipedia": "Claude (language model)",
+    "queries": [
+     "Claude Code skills",
+     "Claude skills plugins",
+     "Anthropic Claude agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_08436d16",
+    "name": "IA en administración pública",
+    "definition": "Aplicación de inteligencia artificial en gobiernos y servicios públicos para mejorar trámites y gestión.",
+    "wikipedia": "E-government",
+    "queries": [
+     "IA sector público",
+     "AI government services",
+     "IA administración pública"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e2fc4914",
+    "name": "Acceso no autorizado de IA",
+    "definition": "Incidentes donde agentes de IA acceden sin permiso a sistemas, datos o redes, planteando riesgos de seguridad.",
+    "wikipedia": "Security hacker",
+    "queries": [
+     "IA acceso no autorizado",
+     "AI unauthorized access",
+     "AI agent security breach"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_98410dae",
+    "name": "Jóvenes y IA",
+    "definition": "Uso, percepciones y riesgos de la inteligencia artificial entre adolescentes, estudiantes y menores.",
+    "wikipedia": "Digital native",
+    "queries": [
+     "jóvenes IA",
+     "AI and youth",
+     "menores inteligencia artificial"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c35722a4",
+    "name": "Herramientas no-code con IA",
+    "definition": "Plataformas que permiten crear aplicaciones y automatizaciones sin programar, potenciadas por IA.",
+    "wikipedia": "No-code development platform",
+    "queries": [
+     "no-code IA",
+     "AI no-code tools",
+     "low-code platforms"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f973551b",
+    "name": "IA en seguros",
+    "definition": "Uso de inteligencia artificial en el sector asegurador para evaluar riesgos, gestionar siniestros y nuevos productos.",
+    "wikipedia": "Insurance",
+    "queries": [
+     "IA seguros",
+     "AI insurance",
+     "seguros inteligencia artificial"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c7f8b3eb",
+    "name": "IA en campañas políticas",
+    "definition": "Uso de inteligencia artificial para crear anuncios, discursos y estrategias en campañas electorales.",
+    "wikipedia": "Political campaign",
+    "queries": [
+     "IA campañas políticas",
+     "AI political campaigns",
+     "IA discurso político"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_49c40a67",
+    "name": "Seguridad de código con IA",
+    "definition": "Riesgos y soluciones de seguridad en el desarrollo de software asistido por inteligencia artificial.",
+    "wikipedia": "Application security",
+    "queries": [
+     "seguridad código IA",
+     "AI code security",
+     "secure coding AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_00865361",
+    "name": "IA para creadores de contenido",
+    "definition": "Herramientas de inteligencia artificial que transforman la creación, distribución y monetización de contenido digital.",
+    "wikipedia": "Content creation",
+    "queries": [
+     "IA creadores contenido",
+     "AI content creators",
+     "herramientas creadores IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1e51c207",
+    "name": "Deuda técnica de IA",
+    "definition": "Costos ocultos y problemas acumulados por implementar inteligencia artificial sin mantenimiento ni refactorización.",
+    "wikipedia": "Technical debt",
+    "queries": [
+     "deuda técnica IA",
+     "AI technical debt",
+     "deuda IA empresas"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_94e93fea",
+    "name": "Workday e IA agéntica",
+    "definition": "Integración de inteligencia artificial agéntica en plataformas de recursos humanos como Workday para gestionar tareas.",
+    "wikipedia": "Workday, Inc.",
+    "queries": [
+     "Workday IA",
+     "Workday agentic AI",
+     "Workday Rising IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f10f8fcc",
+    "name": "Confianza en la IA",
+    "definition": "Nivel de credibilidad y fiabilidad que los usuarios depositan en sistemas de inteligencia artificial y agentes autónomos.",
+    "wikipedia": "Trust (social science)",
+    "queries": [
+     "confianza IA",
+     "trust in AI",
+     "confianza agentes IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_131bd5e9",
+    "name": "Limitaciones de los LLM",
+    "definition": "Restricciones técnicas y prácticas de los grandes modelos de lenguaje que frenan su adopción empresarial.",
+    "wikipedia": "Large language model",
+    "queries": [
+     "limitaciones LLM",
+     "LLM limitations",
+     "fallos modelos lenguaje"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_577578c5",
+    "name": "Pagos con IA y tarjetas",
+    "definition": "Integración de inteligencia artificial en pagos digitales y tarjetas de crédito para agentes autónomos y comercio.",
+    "wikipedia": "Payment card industry",
+    "queries": [
+     "pagos IA",
+     "AI payments",
+     "tarjetas inteligencia artificial"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5d0cb582",
+    "name": "GEO: optimización para IA",
+    "definition": "Optimización de presencia digital para que los motores de IA generativa recomienden marcas y contenidos.",
+    "wikipedia": "Search engine optimization",
+    "queries": [
+     "GEO optimización IA",
+     "generative engine optimization",
+     "SEO para IA"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

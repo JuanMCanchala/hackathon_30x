@@ -1,0 +1,255 @@
+{
+ "key": "648a72507daf68b1106da3185472cbf559c134181cc3eb45ece7a9f2090add30",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:11:14.988Z",
+ "latencyMs": 207199,
+ "usage": {
+  "inputTokens": 3603,
+  "outputTokens": 1709
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_2ef46f0f",
+    "name": "Carrera de IA EEUU-China",
+    "definition": "Competencia geopolítica entre Estados Unidos y China por el liderazgo global en inteligencia artificial.",
+    "wikipedia": "AI arms race",
+    "queries": [
+     "carrera IA EEUU China",
+     "US China AI race",
+     "carrera tecnológica global"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_db2d2a17",
+    "name": "IA en videojuegos",
+    "definition": "Uso de inteligencia artificial generativa en el desarrollo, diseño y creación de videojuegos.",
+    "wikipedia": "Artificial intelligence in video games",
+    "queries": [
+     "IA videojuegos desarrollo",
+     "AI game development",
+     "crear juegos IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_fb2fff6e",
+    "name": "Bluesky y Attie",
+    "definition": "Herramienta de IA de Bluesky que permite crear juegos y apps para compartir en la red social.",
+    "wikipedia": "Bluesky (social network)",
+    "queries": [
+     "Bluesky Attie IA",
+     "Bluesky AI tool",
+     "comunidad Bluesky"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_0d6f1057",
+    "name": "Qwen 3.8",
+    "definition": "Familia de modelos de lenguaje de Alibaba, incluyendo versiones Flash y variantes de distinto tamaño.",
+    "wikipedia": "Qwen",
+    "queries": [
+     "Qwen 3.8",
+     "Qwen Alibaba modelo",
+     "Qwen3.8 27B"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b2a09134",
+    "name": "Agentes de IA para trading",
+    "definition": "Uso de agentes autónomos de IA para automatizar operaciones de trading y estrategias de inversión.",
+    "wikipedia": "Algorithmic trading",
+    "queries": [
+     "agentes IA trading",
+     "AI trading agents",
+     "trading automatizado IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_3e7b549f",
+    "name": "IA en periodismo",
+    "definition": "Adopción de inteligencia artificial generativa en redacciones, medios y flujos editoriales.",
+    "wikipedia": "Artificial intelligence in journalism",
+    "queries": [
+     "IA periodismo",
+     "AI in newsrooms",
+     "IA medios comunicación"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a418a061",
+    "name": "Costes de tokens",
+    "definition": "Economía y optimización del gasto en tokens al usar modelos de lenguaje en producción.",
+    "wikipedia": "Tokenization (lexical analysis)",
+    "queries": [
+     "coste tokens IA",
+     "AI token cost",
+     "optimización tokens LLM"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_292d430a",
+    "name": "IA para audio y música",
+    "definition": "Startups y herramientas de IA generativa aplicadas a música, voz, audio y doblaje.",
+    "wikipedia": "Music and artificial intelligence",
+    "queries": [
+     "Suno música IA",
+     "ElevenLabs voz IA",
+     "AI music generation"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_6d0b0e33",
+    "name": "IA en banca española",
+    "definition": "Aplicaciones de IA en bancos y entidades financieras de España y Latinoamérica.",
+    "wikipedia": "Banking in Spain",
+    "queries": [
+     "IA banca España",
+     "bancos IA Latinoamérica",
+     "IA servicios financieros"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b04af47c",
+    "name": "Human in the loop",
+    "definition": "Supervisión y revisión humana en sistemas de IA, especialmente en agentes autónomos.",
+    "wikipedia": "Human-in-the-loop",
+    "queries": [
+     "human in the loop",
+     "supervisión humana IA",
+     "revisión humana agentes"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_87fddb04",
+    "name": "IA y desigualdad",
+    "definition": "Impacto de la inteligencia artificial en la desigualdad económica, salarial y social.",
+    "wikipedia": "Technological unemployment",
+    "queries": [
+     "IA desigualdad",
+     "AI inequality",
+     "IA brecha económica"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e275af0c",
+    "name": "Talento junior e IA",
+    "definition": "Efecto de la IA en el valor y desarrollo del talento junior y técnico en las empresas.",
+    "wikipedia": null,
+    "queries": [
+     "talento junior IA",
+     "AI junior talent",
+     "IA talento técnico"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d3e37860",
+    "name": "Libros escritos con IA",
+    "definition": "Debate sobre autoría, calidad y ética de libros y textos creados con inteligencia artificial.",
+    "wikipedia": "AI-generated literature",
+    "queries": [
+     "libros escritos IA",
+     "AI written books",
+     "autoría IA libros"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2cf7c8a2",
+    "name": "Impacto ambiental de la IA",
+    "definition": "Consumo de agua y energía de los centros de datos y modelos de IA generativa.",
+    "wikipedia": "Environmental impact of artificial intelligence",
+    "queries": [
+     "impacto ambiental IA",
+     "AI environmental impact",
+     "centros datos IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_da437558",
+    "name": "Privacidad en chats de IA",
+    "definition": "Filtraciones y uso publicitario de datos de conversaciones con chatbots de IA.",
+    "wikipedia": "Chatbot privacy",
+    "queries": [
+     "privacidad ChatGPT",
+     "AI chat privacy",
+     "datos chats IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_0e091f53",
+    "name": "IA en diagnóstico médico",
+    "definition": "Uso de IA en radiología, oncología y diagnóstico clínico por imagen.",
+    "wikipedia": "Artificial intelligence in healthcare",
+    "queries": [
+     "IA diagnóstico médico",
+     "AI medical diagnosis",
+     "IA radiología cáncer"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b9cfc1db",
+    "name": "Startups de IA",
+    "definition": "Rondas de financiación y nuevos productos de startups emergentes de inteligencia artificial.",
+    "wikipedia": "Artificial intelligence industry",
+    "queries": [
+     "startups IA funding",
+     "rondas IA startups",
+     "AI startup news"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9d3a6503",
+    "name": "Claude Haiku 5.5",
+    "definition": "Modelo ligero y económico de Anthropic dentro de la familia Claude, orientado a bajo coste.",
+    "wikipedia": "Claude (language model)",
+    "queries": [
+     "Claude Haiku 5.5",
+     "Anthropic Haiku",
+     "Claude modelos ligeros"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2c77ea7f",
+    "name": "IA en telecomunicaciones",
+    "definition": "Adopción de IA por operadores de telecomunicaciones y grandes empresas de servicios.",
+    "wikipedia": "Telecommunications industry",
+    "queries": [
+     "IA telecomunicaciones",
+     "AI telecom operators",
+     "Telefónica IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d1c3ebba",
+    "name": "Agentes de IA y banca",
+    "definition": "Riesgos y usos de dar acceso a agentes de IA a cuentas bancarias y datos financieros.",
+    "wikipedia": "Open banking",
+    "queries": [
+     "agentes IA banca",
+     "AI agents banking",
+     "IA cuentas bancarias"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

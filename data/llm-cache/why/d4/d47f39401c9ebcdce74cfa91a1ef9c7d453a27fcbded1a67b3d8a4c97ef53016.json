@@ -1,0 +1,21 @@
+{
+ "key": "d47f39401c9ebcdce74cfa91a1ef9c7d453a27fcbded1a67b3d8a4c97ef53016",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:20:22.825Z",
+ "latencyMs": 7791,
+ "usage": {
+  "inputTokens": 1243,
+  "outputTokens": 1202
+ },
+ "output": {
+  "oneLiner": "El debate sobre la burbuja de IA crece con críticas a la inversión excesiva y videos sobre OpenAI.",
+  "narrative": "El tema está saturado: 193 creadores esta semana, +30 % frente a las cuatro anteriores. Lo que despega son opiniones fuertes y sátira sobre el dinero: 24 de 92 piezas que despegaron abren con una opinión fuerte, frente a 21 de 364 del resto, y 9 de 92 apelan a la risa, frente a 5 de 364. También pesa quién publica: 57 de 92 las firmó un creador de contenido, frente a 40 de 364 del resto. Kameron Hurley en Bluesky critica el capital que no financia ideas útiles, Michael West resume el retorno de la IA como incierto y Wall Street Millennial habla de una bomba de deuda de 500.000 millones.",
+  "cited": [
+   "bluesky:3mxjcaokvr22n",
+   "bluesky:3mxrx33uk7k2v",
+   "youtube:drbn-L39MtY",
+   "hn:50051583"
+  ]
+ }
+}

@@ -1,0 +1,255 @@
+{
+ "key": "1a24f28528cefe7fe9b5a8ed19ba8951de47aff6aa31b3d378aa2b99ae797e7b",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:15:21.086Z",
+ "latencyMs": 9938,
+ "usage": {
+  "inputTokens": 3202,
+  "outputTokens": 1681
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_7bcaad70",
+    "name": "Publicidad digital con IA",
+    "definition": "Uso de inteligencia artificial en publicidad digital, incluyendo segmentación, compra programática y formatos visuales.",
+    "wikipedia": "Programmatic advertising",
+    "queries": [
+     "publicidad programática IA",
+     "AI advertising",
+     "publicidad digital tendencias"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2436371d",
+    "name": "IA y sostenibilidad",
+    "definition": "Intersección entre inteligencia artificial y sostenibilidad ambiental, incluyendo emisiones y clima.",
+    "wikipedia": "Sustainable AI",
+    "queries": [
+     "IA sostenible",
+     "AI climate impact",
+     "IA y medio ambiente"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c1664a10",
+    "name": "Modelos de IA gratuitos",
+    "definition": "Modelos de inteligencia artificial de código abierto o gratuitos, incluyendo versiones abliterated.",
+    "wikipedia": "Open-source artificial intelligence",
+    "queries": [
+     "modelos IA gratis",
+     "free AI models",
+     "abliterated models"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f2d21584",
+    "name": "Interpretabilidad de IA",
+    "definition": "Campo que busca explicar cómo funcionan los modelos de IA, incluyendo interpretabilidad mecanicista.",
+    "wikipedia": "Explainable artificial intelligence",
+    "queries": [
+     "interpretabilidad IA",
+     "AI interpretability",
+     "mecanicista interpretabilidad"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_4fdf8c8e",
+    "name": "IA y pandemias",
+    "definition": "Aplicación de inteligencia artificial en salud pública para prevenir y combatir pandemias.",
+    "wikipedia": "Artificial intelligence in healthcare",
+    "queries": [
+     "IA pandemias",
+     "AI pandemics",
+     "IA salud pública"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f2c7cd12",
+    "name": "Cultura organizacional e IA",
+    "definition": "Impacto de la inteligencia artificial en la cultura empresarial y laboral.",
+    "wikipedia": "Organizational culture",
+    "queries": [
+     "cultura empresarial IA",
+     "AI company culture",
+     "cultura laboral IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_61d1b426",
+    "name": "IA generativa legal",
+    "definition": "Uso de IA generativa en el ámbito legal, incluyendo redacción de documentos y litigios.",
+    "wikipedia": "Artificial intelligence in law",
+    "queries": [
+     "IA generativa legal",
+     "generative AI law",
+     "ChatGPT abogados"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8fcb6b7c",
+    "name": "Antropomorfismo en IA",
+    "definition": "Tendencia a atribuir características humanas a sistemas de inteligencia artificial.",
+    "wikipedia": "Anthropomorphism",
+    "queries": [
+     "antropomorfismo IA",
+     "AI anthropomorphism",
+     "antropomorfizar IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_3efeaefb",
+    "name": "Verificación de código IA",
+    "definition": "Prácticas para revisar y verificar código generado por inteligencia artificial.",
+    "wikipedia": "Code review",
+    "queries": [
+     "verificación código IA",
+     "AI code verification",
+     "revisión código IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9f32cf12",
+    "name": "AMD Ryzen AI",
+    "definition": "Procesadores AMD con capacidades de inteligencia artificial integradas para PCs y servidores.",
+    "wikipedia": "AMD Ryzen",
+    "queries": [
+     "AMD Ryzen AI",
+     "AMD EPYC IA",
+     "AMD Helion"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5b7b8540",
+    "name": "Interfaz inteligente",
+    "definition": "Diseño de interfaces de usuario potenciadas por IA, como GPT-6 e Intelligent UI.",
+    "wikipedia": "User interface",
+    "queries": [
+     "interfaz inteligente",
+     "intelligent UI",
+     "generative UI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_af5a72e9",
+    "name": "Impacto cultural de IA",
+    "definition": "Efectos de la inteligencia artificial en la cultura, la creatividad y la sociedad.",
+    "wikipedia": "Artificial intelligence in society",
+    "queries": [
+     "impacto cultural IA",
+     "AI cultural impact",
+     "IA y cultura"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8a45e5f0",
+    "name": "Contenido adulto con IA",
+    "definition": "Generación de contenido para adultos, violento o NSFW mediante inteligencia artificial.",
+    "wikipedia": "Artificial intelligence and pornography",
+    "queries": [
+     "contenido adulto IA",
+     "AI NSFW",
+     "contenido sexual sintético"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_4df107bb",
+    "name": "GTA 6",
+    "definition": "Grand Theft Auto VI, videojuego de Rockstar Games, y su relación con la IA generativa.",
+    "wikipedia": "Grand Theft Auto VI",
+    "queries": [
+     "GTA 6 IA",
+     "GTA VI",
+     "GTA 6 noticias"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_80411b21",
+    "name": "IA en moda y diseño",
+    "definition": "Aplicación de inteligencia artificial en moda, belleza y diseño creativo.",
+    "wikipedia": "Artificial intelligence in fashion",
+    "queries": [
+     "IA en moda",
+     "AI fashion design",
+     "IA generativa moda"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_7ec02658",
+    "name": "Políticos y regulación IA",
+    "definition": "Posturas de figuras políticas como Andy Burnham o Danielle Smith sobre regulación de IA.",
+    "wikipedia": "Regulation of artificial intelligence",
+    "queries": [
+     "regulación IA políticos",
+     "AI regulation politics",
+     "Andy Burnham IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_bacecd2a",
+    "name": "IA e inflación",
+    "definition": "Efectos del auge de la inteligencia artificial en la inflación y la economía.",
+    "wikipedia": "Inflation",
+    "queries": [
+     "IA e inflación",
+     "AI inflation",
+     "IA economía precios"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_6f175266",
+    "name": "Modelos fundacionales",
+    "definition": "Grandes modelos de IA entrenados con datos masivos, desarrollados por startups y laboratorios.",
+    "wikipedia": "Foundation model",
+    "queries": [
+     "modelos fundacionales",
+     "foundation models",
+     "startups IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2c799f60",
+    "name": "IA en música",
+    "definition": "Uso de inteligencia artificial en la creación musical y su impacto en la industria.",
+    "wikipedia": "Artificial intelligence in music",
+    "queries": [
+     "IA en música",
+     "AI music",
+     "música generativa"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8c962dea",
+    "name": "Historia de la IA",
+    "definition": "Evolución histórica de la inteligencia artificial y su contexto social.",
+    "wikipedia": "History of artificial intelligence",
+    "queries": [
+     "historia de la IA",
+     "AI history",
+     "evolución IA"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

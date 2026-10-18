@@ -1,0 +1,24 @@
+{
+ "key": "83dc08af88597cb1fdd848e1fb8f679c32a83e1ff1ba812e6dd1ded51fd0a2cf",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:16:39.013Z",
+ "latencyMs": 8272,
+ "usage": {
+  "inputTokens": 733,
+  "outputTokens": 834
+ },
+ "output": {
+  "score": 7,
+  "executive": 7,
+  "noCode": 5,
+  "latam": 7,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Fraude digital crece en LatAm; protege clientes y confianza.",
+   "Bots encubiertos suenan innovadores, pero adopción requiere expertise técnico.",
+   "Útil para estrategia y riesgo, no tanto para ventas diarias."
+  ]
+ }
+}

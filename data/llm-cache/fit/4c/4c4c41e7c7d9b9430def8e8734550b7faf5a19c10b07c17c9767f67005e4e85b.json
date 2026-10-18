@@ -1,0 +1,24 @@
+{
+ "key": "4c4c41e7c7d9b9430def8e8734550b7faf5a19c10b07c17c9767f67005e4e85b",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:20:16.463Z",
+ "latencyMs": 4216,
+ "usage": {
+  "inputTokens": 698,
+  "outputTokens": 510
+ },
+ "output": {
+  "score": 5,
+  "executive": 6,
+  "noCode": 2,
+  "latam": 2,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Tema técnico de hardware; poca aplicación directa en ventas o growth.",
+   "Relevante para estrategia de costos, privacidad y latencia.",
+   "Ángulo LatAm casi nulo; sin casos locales ni regulación."
+  ]
+ }
+}

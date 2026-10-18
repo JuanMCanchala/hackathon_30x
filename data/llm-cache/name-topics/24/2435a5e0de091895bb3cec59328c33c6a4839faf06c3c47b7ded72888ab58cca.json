@@ -1,0 +1,255 @@
+{
+ "key": "2435a5e0de091895bb3cec59328c33c6a4839faf06c3c47b7ded72888ab58cca",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:28:58.130Z",
+ "latencyMs": 9927,
+ "usage": {
+  "inputTokens": 3007,
+  "outputTokens": 1884
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_72afb934",
+    "name": "Estudiar con IA",
+    "definition": "Uso de asistentes generativos por estudiantes para estudiar, hacer tareas y preparar exámenes, con debate sobre aprendizaje real.",
+    "wikipedia": "Generative artificial intelligence",
+    "queries": [
+     "estudiar con IA",
+     "AI studying students",
+     "IA educación tareas"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_554026e2",
+    "name": "Hedge funds y IA",
+    "definition": "Movimientos de fondos de cobertura en acciones de IA, con ventas masivas y riesgos por apalancamiento en el sector.",
+    "wikipedia": "Hedge fund",
+    "queries": [
+     "hedge funds AI stocks",
+     "fondos cobertura IA",
+     "AI stock selloff"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1727c92b",
+    "name": "Marketplace de plugins de agentes",
+    "definition": "Tiendas y repositorios de plugins que extienden agentes de IA como Claude Code, con ecosistemas de herramientas de terceros.",
+    "wikipedia": null,
+    "queries": [
+     "Claude Code plugins",
+     "marketplace plugins agentes",
+     "AI agent plugin shop"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ed955698",
+    "name": "Agente universal de trabajo",
+    "definition": "Asistentes de IA que prometen gestionar tareas laborales completas, correo y flujos de trabajo como un empleado digital.",
+    "wikipedia": "Intelligent agent",
+    "queries": [
+     "universal AI agent work",
+     "agente universal trabajo",
+     "Gemini agent work"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_efcd2901",
+    "name": "Contratación de desarrolladores",
+    "definition": "Cambios en entrevistas y contratación de ingenieros de software ante la irrupción de asistentes de código y vibe coding.",
+    "wikipedia": "Recruitment",
+    "queries": [
+     "interviewing developers AI",
+     "contratación desarrolladores IA",
+     "hiring engineers post-AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_cb4895e5",
+    "name": "Consumo de contenido con IA",
+    "definition": "Cambios en cómo se consume y paga contenido en internet cuando la IA generativa produce, resume y satura plataformas.",
+    "wikipedia": "Content consumption",
+    "queries": [
+     "AI content consumption",
+     "consumo contenido IA",
+     "paid content AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_3c02b880",
+    "name": "Rey Carlos III y IA",
+    "definition": "Reuniones y advertencias del rey Carlos III con líderes de IA sobre riesgos existenciales y controles antes de superar la supervisión humana.",
+    "wikipedia": "Charles III",
+    "queries": [
+     "King Charles AI",
+     "Carlos III inteligencia artificial",
+     "royal AI summit"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_de7f13c1",
+    "name": "Verificación de imágenes y videos",
+    "definition": "Herramientas y prácticas para detectar si imágenes y videos son reales, manipulados o generados por IA.",
+    "wikipedia": "Deepfake detection",
+    "queries": [
+     "AI image verification",
+     "verificar videos IA",
+     "deepfake detection tools"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d25095f8",
+    "name": "Retención de clientes con IA",
+    "definition": "Uso de inteligencia de clientes y automatización con IA para fidelizar, retener y ganar ventas complejas.",
+    "wikipedia": "Customer retention",
+    "queries": [
+     "customer retention AI",
+     "fidelización clientes IA",
+     "customer intelligence revenue"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_0b57059c",
+    "name": "Descubrimiento de enzimas con IA",
+    "definition": "Modelos como Claude que descubren sistemas enzimáticos ocultos en ADN, acelerando hallazgos científicos inesperados.",
+    "wikipedia": "Enzyme discovery",
+    "queries": [
+     "AI enzyme discovery",
+     "descubrimiento enzimas IA",
+     "Claude enzyme system"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e54f8301",
+    "name": "Extracción de datos con IA",
+    "definition": "Herramientas que extraen datos estructurados de webs, PDFs y documentos para alimentar flujos de trabajo y agentes de IA.",
+    "wikipedia": "Data extraction",
+    "queries": [
+     "AI data extraction",
+     "extracción datos IA",
+     "structured data extraction"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_3f1e69e0",
+    "name": "Think tank falso para IA",
+    "definition": "Creación de organizaciones falsas para manipular respuestas de chatbots y modelos de lenguaje con narrativas geopolíticas.",
+    "wikipedia": "Think tank",
+    "queries": [
+     "fake think tank AI",
+     "think tank falso IA",
+     "manipulate AI chatbots"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a6481ff0",
+    "name": "Google Translate con Gemini",
+    "definition": "Migración de Google Translate a traducción basada en Gemini, con reacciones encontradas sobre calidad y experiencia.",
+    "wikipedia": "Google Translate",
+    "queries": [
+     "Google Translate Gemini",
+     "traducción IA Google",
+     "DeepL vs Google Translate"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_3655c81d",
+    "name": "Labs de infraestructura de IA",
+    "definition": "Startups como Andon, Gimlet o Vertice Labs que experimentan con agentes autónomos e infraestructura de inferencia para IA.",
+    "wikipedia": null,
+    "queries": [
+     "AI infrastructure labs",
+     "Gimlet Labs funding",
+     "Andon Labs agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_163b16cc",
+    "name": "AEO y visibilidad en IA",
+    "definition": "Optimización para aparecer en respuestas de asistentes de IA, conocida como AEO, y plataformas que miden esa visibilidad.",
+    "wikipedia": "Answer engine optimization",
+    "queries": [
+     "AEO AI visibility",
+     "visibilidad IA AEO",
+     "AI search optimization"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2728db84",
+    "name": "Bend 2 y vibe coding",
+    "definition": "Debate sobre el lenguaje Bend 2 y las trampas del vibe coding, donde la IA genera código sin comprensión profunda.",
+    "wikipedia": null,
+    "queries": [
+     "Bend 2 vibe coding",
+     "Bend language AI",
+     "vibe coding trap"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_11d61317",
+    "name": "Detección de fraude con IA",
+    "definition": "Uso de IA para detectar fraudes financieros y trampas académicas, mientras los defraudadores también emplean estas herramientas.",
+    "wikipedia": "Fraud detection",
+    "queries": [
+     "AI fraud detection",
+     "detección fraude IA",
+     "AI cheating detection"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_79f9ce90",
+    "name": "Movimiento anti-IA",
+    "definition": "Comunidades y expresiones culturales que rechazan la IA generativa, desde arte hasta críticas al uso obligatorio de chatbots.",
+    "wikipedia": "AI backlash",
+    "queries": [
+     "anti-AI movement",
+     "movimiento anti IA",
+     "AI backlash culture"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a23c6f66",
+    "name": "Imagen a video con IA",
+    "definition": "Modelos que convierten imágenes fijas en videos animados, con rápida evolución en herramientas open source y comerciales.",
+    "wikipedia": "Image-to-video",
+    "queries": [
+     "image to video AI",
+     "imagen a video IA",
+     "I2V models"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_789b96a8",
+    "name": "Publicis y Dentsu con IA",
+    "definition": "Resultados y movimientos de grupos publicitarios como Publicis y Dentsu impulsados por demanda de marketing con IA.",
+    "wikipedia": "Publicis",
+    "queries": [
+     "Publicis AI marketing",
+     "Dentsu AI transparency",
+     "agencias publicidad IA"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

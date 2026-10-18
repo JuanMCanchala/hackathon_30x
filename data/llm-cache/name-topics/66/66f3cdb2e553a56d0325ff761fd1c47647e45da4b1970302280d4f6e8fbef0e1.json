@@ -1,0 +1,255 @@
+{
+ "key": "66f3cdb2e553a56d0325ff761fd1c47647e45da4b1970302280d4f6e8fbef0e1",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T17:39:23.574Z",
+ "latencyMs": 11848,
+ "usage": {
+  "inputTokens": 2674,
+  "outputTokens": 1795
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_12995229",
+    "name": "Claude y pistas falsas",
+    "definition": "El caso en que Claude de Anthropic envió una pista falsa a la policía de Filadelfia sobre un homicidio sin resolver.",
+    "wikipedia": "Claude (language model)",
+    "queries": [
+     "Claude false tip",
+     "Anthropic police tip",
+     "Claude homicide case"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f0000b31",
+    "name": "IA en doctorado",
+    "definition": "Uso de inteligencia artificial en tesis doctorales y formación académica, con implicaciones éticas y de dependencia.",
+    "wikipedia": "Artificial intelligence in education",
+    "queries": [
+     "IA tesis doctorales",
+     "AI PhD training",
+     "AI academic writing"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c56c7478",
+    "name": "Rondas de financiación IA",
+    "definition": "Rondas de inversión en startups de IA, desde Serie A hasta Serie D, con ejemplos como Mistral y RapidCanvas.",
+    "wikipedia": "Venture round",
+    "queries": [
+     "AI Series A",
+     "AI funding round",
+     "ronda financiación IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_acea5a35",
+    "name": "IA en empresas españolas",
+    "definition": "Adopción de inteligencia artificial por grandes empresas en España como Orange, Iberdrola e Inditex.",
+    "wikipedia": "Artificial intelligence in Spain",
+    "queries": [
+     "IA empresas España",
+     "Orange IA España",
+     "Iberdrola IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b479fb11",
+    "name": "Clonación de voz con IA",
+    "definition": "Uso de inteligencia artificial para clonar voces, incluyendo deepfakes de audio y sus implicaciones éticas.",
+    "wikipedia": "Voice cloning",
+    "queries": [
+     "clonación voz IA",
+     "voice cloning AI",
+     "deepfake voz"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f10f8fcc",
+    "name": "Confianza en la IA",
+    "definition": "Nivel de confianza de consumidores y trabajadores en sistemas de inteligencia artificial y su fiabilidad percibida.",
+    "wikipedia": "Trust in artificial intelligence",
+    "queries": [
+     "confianza IA",
+     "AI trust",
+     "consumer trust AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b536a888",
+    "name": "IA en Oriente Medio",
+    "definition": "Desarrollo y controversias de inteligencia artificial en países como Arabia Saudita, Emiratos Árabes, Israel y Kazajistán.",
+    "wikipedia": "Artificial intelligence in the Middle East",
+    "queries": [
+     "IA Arabia Saudita",
+     "AI Middle East",
+     "Israel IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_aedf55d8",
+    "name": "Regulación IA en Wisconsin",
+    "definition": "Propuestas políticas para regular la inteligencia artificial y redes sociales en Wisconsin, impulsadas por David Crowley.",
+    "wikipedia": "Artificial intelligence regulation in the United States",
+    "queries": [
+     "Wisconsin AI regulation",
+     "Crowley IA",
+     "regulación IA Wisconsin"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_487cdab2",
+    "name": "Agentes IA y mapas",
+    "definition": "Uso de agentes de inteligencia artificial en plataformas de mapas como Amap de Alibaba y Gemini Maps.",
+    "wikipedia": "Amap",
+    "queries": [
+     "Amap AI agents",
+     "Gemini Maps IA",
+     "AI map agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_42626d89",
+    "name": "Políticas de uso de IA",
+    "definition": "Reglas y políticas de uso de plataformas de inteligencia artificial, como la prohibición de Anthropic de ser abusivo con Claude.",
+    "wikipedia": "Terms of service",
+    "queries": [
+     "Anthropic policy",
+     "AI usage policy",
+     "políticas uso IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_eb62a02d",
+    "name": "IA en regiones españolas",
+    "definition": "Impacto y adopción de inteligencia artificial en comunidades autónomas como Extremadura, Galicia, Andalucía y Tenerife.",
+    "wikipedia": "Artificial intelligence in Spain",
+    "queries": [
+     "IA Extremadura",
+     "IA Galicia",
+     "IA Andalucía"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_24d53410",
+    "name": "Clasificación de texto con IA",
+    "definition": "Modelos de inteligencia artificial para clasificación de texto, incluyendo clasificación zero-shot y modelos especializados.",
+    "wikipedia": "Text classification",
+    "queries": [
+     "clasificación texto IA",
+     "zero-shot classification",
+     "text classification model"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c9e27c98",
+    "name": "Modelos de contexto largo",
+    "definition": "Modelos de inteligencia artificial con capacidad de manejar contextos extensos, como UltraBERT y atención lineal.",
+    "wikipedia": "Long short-term memory",
+    "queries": [
+     "long context models",
+     "contexto largo IA",
+     "linear attention"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_314d57e6",
+    "name": "Comparativas de herramientas IA",
+    "definition": "Comparativas de herramientas y plataformas de inteligencia artificial para generación de imágenes, vídeo y otras tareas.",
+    "wikipedia": "Comparison of artificial intelligence tools",
+    "queries": [
+     "AI tools comparison",
+     "comparativa IA",
+     "best AI generators"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_64482358",
+    "name": "Broadcom, Intel y IA",
+    "definition": "Estrategias y resultados de empresas de semiconductores como Broadcom, Intel y Qualcomm en el negocio de la inteligencia artificial.",
+    "wikipedia": "Broadcom",
+    "queries": [
+     "Broadcom AI",
+     "Intel IA",
+     "Qualcomm AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a1c77d1a",
+    "name": "IA en sector público",
+    "definition": "Aplicación de inteligencia artificial en servicios públicos para mejorar productividad y gestión, con ejemplos como Justicia y transcripción.",
+    "wikipedia": "Artificial intelligence in government",
+    "queries": [
+     "IA sector público",
+     "AI public sector",
+     "IA servicios públicos"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_222197ac",
+    "name": "Guías de IA para principiantes",
+    "definition": "Tutoriales y guías prácticas para principiantes sobre herramientas de inteligencia artificial como ChatGPT y Gemini.",
+    "wikipedia": "ChatGPT",
+    "queries": [
+     "guía IA principiantes",
+     "ChatGPT tutorial",
+     "AI beginner guide"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_725d78e8",
+    "name": "Decart y adquisición Amazon",
+    "definition": "Startup de inteligencia artificial Decart y su posible adquisición por Amazon por 7.000 millones de dólares.",
+    "wikipedia": "Decart",
+    "queries": [
+     "Decart AI",
+     "Amazon Decart",
+     "Decart acquisition"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c9eea12a",
+    "name": "ZoomInfo y agentes IA",
+    "definition": "Evolución de ZoomInfo hacia infraestructura de ventas con inteligencia artificial, incluyendo adquisiciones como DoubleO.ai.",
+    "wikipedia": "ZoomInfo",
+    "queries": [
+     "ZoomInfo AI",
+     "ZoomInfo sales agents",
+     "ZoomInfo DoubleO"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_6c890801",
+    "name": "IA en universidades",
+    "definition": "Iniciativas de inteligencia artificial en universidades como UCLA, UCR y la Universidad Nacional de Ciudad Ho Chi Minh.",
+    "wikipedia": "Artificial intelligence in education",
+    "queries": [
+     "IA universidades",
+     "AI university research",
+     "UCLA humanoid"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

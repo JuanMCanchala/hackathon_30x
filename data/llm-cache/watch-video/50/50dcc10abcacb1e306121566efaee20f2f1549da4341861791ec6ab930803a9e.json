@@ -1,0 +1,22 @@
+{
+ "key": "50dcc10abcacb1e306121566efaee20f2f1549da4341861791ec6ab930803a9e",
+ "name": "watch-video",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T00:15:48.445Z",
+ "latencyMs": 3209,
+ "usage": {
+  "inputTokens": 586,
+  "outputTokens": 270
+ },
+ "output": {
+  "hook": "Todos parecen estar deslumbrados con la nueva demo del Tesla Roadster, pero leímos la letra pequeña y tres cosas nos llamaron la atención.",
+  "points": [
+   "La variante con cohetes del Roadster tiene un descargo de responsabilidad que dice: \"Nota: no aprobado para uso en vías públicas\".",
+   "Musk dijo que para la variante de propulsión, que fue la que se mostró, no está seguro de que sea legal en todas las jurisdicciones.",
+   "Reservar tu lugar para la variante de propulsión requiere un pago inmediato de $5,000 y $245,000 a pagar en 10 días.",
+   "No está claro cuánto costarán realmente estos autos, ya que los términos y condiciones dicen que la compañía no puede confirmar el precio exacto todavía.",
+   "Los términos y condiciones también establecen: \"No podemos garantizar cuándo se entregará realmente tu vehículo\"."
+  ],
+  "idea": "El video analiza la letra pequeña de la reserva del nuevo Tesla Roadster volador y destaca tres puntos preocupantes sobre su legalidad, costo y entrega, lo que genera dudas sobre su viabilidad."
+ }
+}

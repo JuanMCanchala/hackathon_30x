@@ -1,0 +1,14 @@
+{
+ "key": "e0b1c04d5079658e77b2b2784200170ec61aa197e90d030a39c2715fc9a12e23",
+ "name": "headline",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T21:55:02.180Z",
+ "latencyMs": 984,
+ "usage": {
+  "inputTokens": 331,
+  "outputTokens": 26
+ },
+ "output": {
+  "headline": "La IA esta semana se concentra en agentes de CERT-In, Android y Google Universal Cart"
+ }
+}

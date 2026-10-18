@@ -1,0 +1,21 @@
+{
+ "key": "765cfd1f4c311e3d5dec0bb1ea44f560b727fcc9df6b96f62a9025d333b842aa",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:18:54.308Z",
+ "latencyMs": 5241,
+ "usage": {
+  "inputTokens": 1761,
+  "outputTokens": 873
+ },
+ "output": {
+  "oneLiner": "Gemini 4 Argon y Claude Haiku 5.5 mueven precios y comparativas entre creadores como Fazt y Pablo Tapias.",
+  "narrative": "4 de 6 piezas que despegaron son videos, frente a 1 de 22 del resto, y 5 de 6 las publicó un creador de contenido. 3 de 6 apelan a la sorpresa y 3 de 6 abren con una comparación, como el video de Fazt sobre Gemini 4 Argon contra GPT-6 Astra. El momento lo marcan el lanzamiento de Gemini 4 Argon y los ajustes de precio de Claude Haiku 5.5, que empujan comparativas de coste entre proveedores.",
+  "cited": [
+   "youtube:swm8KeXAuc0",
+   "youtube:TTA5Ej2q4-k",
+   "youtube:xF7fISoiTrI",
+   "bluesky:3mxqsax5d2g26"
+  ]
+ }
+}

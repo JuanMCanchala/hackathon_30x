@@ -1,0 +1,255 @@
+{
+ "key": "52ad7e13b56e46db58635a2e985a782205b0ac4aae4e4a94123792146a7a4953",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:28:45.021Z",
+ "latencyMs": 9587,
+ "usage": {
+  "inputTokens": 2490,
+  "outputTokens": 1780
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_3ea930fe",
+    "name": "Hacker News y saturación de IA",
+    "definition": "Debate en la comunidad Hacker News sobre el exceso de noticias de IA y cómo moderar su presencia en el foro.",
+    "wikipedia": "Hacker News",
+    "queries": [
+     "Hacker News AI flood",
+     "HN AI saturation",
+     "Hacker News moderación IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1e663d27",
+    "name": "PCs con IA local",
+    "definition": "Equipos de escritorio con hardware dedicado para ejecutar modelos de IA localmente sin depender de la nube.",
+    "wikipedia": "AI PC",
+    "queries": [
+     "AI PC local",
+     "ASUS ProArt RTX",
+     "desktop AI supercomputer"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ce8659ac",
+    "name": "Pull requests con IA",
+    "definition": "Uso de asistentes de IA para generar y revisar pull requests, con impacto en velocidad y riesgos de seguridad.",
+    "wikipedia": "Pull request",
+    "queries": [
+     "AI pull requests",
+     "AI code review",
+     "PRs generados por IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_44c3a5df",
+    "name": "Detectores de texto IA",
+    "definition": "Herramientas que identifican si un texto o imagen fue generado por inteligencia artificial.",
+    "wikipedia": "AI content detection",
+    "queries": [
+     "AI text detector",
+     "detector contenido IA",
+     "Pangram AI detector"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_555d0d33",
+    "name": "Go para agentes de IA",
+    "definition": "Ecosistema open source en lenguaje Go para construir agentes y servidores de IA, incluyendo MCP.",
+    "wikipedia": "Go (programming language)",
+    "queries": [
+     "Go AI agents",
+     "MCP Go implementation",
+     "golang open source IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_892cc4c4",
+    "name": "Modelos visión-lenguaje",
+    "definition": "Modelos de IA que combinan visión y lenguaje para razonamiento espacial y comprensión de video.",
+    "wikipedia": "Vision-language model",
+    "queries": [
+     "vision language models",
+     "modelos visión lenguaje",
+     "spatial reasoning AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_205868c4",
+    "name": "Symbe y ventas con IA",
+    "definition": "Startup de plataforma de ventas con IA que levanta capital, en medio de debates sobre IA generativa en videojuegos.",
+    "wikipedia": null,
+    "queries": [
+     "Symbe AI sales",
+     "Symbe funding",
+     "Neverness to Everness IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8619775e",
+    "name": "IA y escritura creativa",
+    "definition": "Debate sobre el impacto de la IA generativa en el trabajo creativo y si la escritura es un refugio laboral.",
+    "wikipedia": "Creative writing",
+    "queries": [
+     "AI writing jobs",
+     "IA escritura creativa",
+     "generative AI creative work"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_479ea518",
+    "name": "ARPA-H e IA cardiovascular",
+    "definition": "Programa de ARPA-H que financia equipos para desarrollar IA agéntica aplicada a cuidados cardiovasculares.",
+    "wikipedia": "ARPA-H",
+    "queries": [
+     "ARPA-H cardiovascular AI",
+     "agentic AI health",
+     "ARPA-H award AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e2203576",
+    "name": "Fiscales y uso de IA",
+    "definition": "Ministerios públicos y departamentos de justicia que adoptan lineamientos para el uso responsable de IA.",
+    "wikipedia": "Prosecutor",
+    "queries": [
+     "fiscalía inteligencia artificial",
+     "DOJ AI policy",
+     "ministerio público IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5d53371b",
+    "name": "Reflection Beam",
+    "definition": "Modelo de IA de pesos abiertos lanzado por Reflection, con licencia Apache 2.0 y bajo costo de cómputo.",
+    "wikipedia": null,
+    "queries": [
+     "Reflection Beam model",
+     "Beam open weights",
+     "Reflection AI model"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d2875a78",
+    "name": "OSINT con IA",
+    "definition": "Uso de inteligencia artificial para investigaciones de fuentes abiertas, incluyendo geolocalización y análisis.",
+    "wikipedia": "Open-source intelligence",
+    "queries": [
+     "OSINT AI tools",
+     "inteligencia fuentes abiertas",
+     "agentic OSINT"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_6952181e",
+    "name": "Fábricas de software con IA",
+    "definition": "Modelo donde agentes de IA abren, revisan y fusionan pull requests de forma continua en repositorios.",
+    "wikipedia": "Software factory",
+    "queries": [
+     "AI software factory",
+     "agentic workflows GitHub",
+     "fábrica software IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a2ef9ebb",
+    "name": "IA en agencias federales EEUU",
+    "definition": "Adopción y riesgos de IA en agencias gubernamentales de Estados Unidos, incluyendo incidentes con bots.",
+    "wikipedia": "Federal government of the United States",
+    "queries": [
+     "federal agencies AI",
+     "OpenAI government bots",
+     "IA agencias gobierno"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_64cd0c6f",
+    "name": "IA agéntica en ventas",
+    "definition": "Aplicación de agentes de IA en equipos de ventas y marketing para automatizar tareas y mejorar ingresos.",
+    "wikipedia": "Sales management",
+    "queries": [
+     "agentic AI sales",
+     "IA ventas marketing",
+     "revenue teams AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d8fb5a62",
+    "name": "Agentes IA en ciberseguridad",
+    "definition": "Herramientas de seguridad como Gravwell y Dynatrace que incorporan agentes de IA para investigaciones.",
+    "wikipedia": "Computer security",
+    "queries": [
+     "AI security agents",
+     "Gravwell AI agents",
+     "Dynatrace AI coding"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f00f9eba",
+    "name": "Neural rendering y DLSS",
+    "definition": "Técnicas de renderizado neuronal y upscaling con IA aplicadas a gráficos, incluyendo DLSS en GPUs AMD.",
+    "wikipedia": "Neural rendering",
+    "queries": [
+     "neural rendering DLSS",
+     "DLSS AMD",
+     "AI upscaling graphics"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ceb2ac85",
+    "name": "Amazon, Meta y Nvidia",
+    "definition": "Movimientos estratégicos de grandes tecnológicas en IA: alianzas, bloqueos y acuerdos con startups.",
+    "wikipedia": null,
+    "queries": [
+     "Amazon Nvidia AI deals",
+     "Meta Apple AI model",
+     "Amazon blocks Meta agent"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_eaa9f665",
+    "name": "Control de código con IA",
+    "definition": "Rediseño de sistemas de control de versiones y su integración con asistentes de IA para gestionar cambios masivos.",
+    "wikipedia": "Version control",
+    "queries": [
+     "AI source control",
+     "control de versiones IA",
+     "Anthropic source control"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9c52c0cc",
+    "name": "Arquitecturas de LLM",
+    "definition": "Investigación sobre arquitecturas transformer, transformers recurrentes y límites estructurales de los LLM.",
+    "wikipedia": "Transformer (deep learning architecture)",
+    "queries": [
+     "LLM architecture",
+     "recurrent transformer",
+     "arquitectura transformer LLM"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

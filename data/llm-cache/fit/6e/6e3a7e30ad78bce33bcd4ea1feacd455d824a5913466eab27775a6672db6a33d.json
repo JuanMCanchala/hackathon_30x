@@ -1,0 +1,24 @@
+{
+ "key": "6e3a7e30ad78bce33bcd4ea1feacd455d824a5913466eab27775a6672db6a33d",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:16:59.137Z",
+ "latencyMs": 12248,
+ "usage": {
+  "inputTokens": 721,
+  "outputTokens": 1697
+ },
+ "output": {
+  "score": 7,
+  "executive": 7,
+  "noCode": 7,
+  "latam": 2,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Agentes con personalidad atraen, pero robots domésticos aún lejanos al negocio.",
+   "Floqer y wearables sí aplican a ventas y productividad.",
+   "Sin ángulo LatAm claro; riesgo de humo en robots de consumo."
+  ]
+ }
+}

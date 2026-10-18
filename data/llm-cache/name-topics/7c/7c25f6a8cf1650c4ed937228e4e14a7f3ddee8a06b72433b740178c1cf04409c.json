@@ -1,0 +1,255 @@
+{
+ "key": "7c25f6a8cf1650c4ed937228e4e14a7f3ddee8a06b72433b740178c1cf04409c",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:28:48.083Z",
+ "latencyMs": 10473,
+ "usage": {
+  "inputTokens": 2880,
+  "outputTokens": 1522
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_f59c725d",
+    "name": "Microsoft Office con IA",
+    "definition": "Integración de funciones de IA generativa en Word, Excel y PowerPoint, y su impacto en precios y competencia.",
+    "wikipedia": "Microsoft Office",
+    "queries": [
+     "Microsoft Office IA",
+     "Copilot Word Excel",
+     "Office AI pricing"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_003b41eb",
+    "name": "IA agéntica en viajes",
+    "definition": "Uso de agentes de IA para reservas, atención al cliente y planificación de viajes en la industria turística.",
+    "wikipedia": "Travel technology",
+    "queries": [
+     "agentic AI travel",
+     "IA agéntica viajes",
+     "AI trip booking"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_dd2bdeb6",
+    "name": "CrewAI y agentes",
+    "definition": "Plataformas y frameworks como CrewAI para construir agentes de IA y flujos multiagente en empresas.",
+    "wikipedia": "CrewAI",
+    "queries": [
+     "CrewAI agents",
+     "construir agentes IA",
+     "multi-agent frameworks"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_93ebbdd3",
+    "name": "Tendencias tecnológicas 2026",
+    "definition": "Pronósticos y tendencias emergentes de tecnología e IA que marcarán la agenda empresarial en 2026 y 2027.",
+    "wikipedia": null,
+    "queries": [
+     "tendencias 2026 IA",
+     "tech trends 2026",
+     "tendencias tecnológicas"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_9c51724a",
+    "name": "Search Console y analítica",
+    "definition": "Herramientas como Search Console, Semrush y Similarweb para medir visibilidad, tráfico y comercio agéntico.",
+    "wikipedia": "Google Search Console",
+    "queries": [
+     "Search Console IA",
+     "Semrush Similarweb",
+     "AI search analytics"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2316c312",
+    "name": "Neurociencia e IA",
+    "definition": "Aplicaciones de IA en neurociencia para leer la actividad cerebral, reconstruir imágenes y entender la cognición.",
+    "wikipedia": "Neuroinformatics",
+    "queries": [
+     "neurociencia IA",
+     "AI neuroscience",
+     "brain AI reconstruction"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_bf272467",
+    "name": "Polémicas por IA",
+    "definition": "Controversias en redes y política por el uso de IA generativa en vídeos, imágenes y contenido viral.",
+    "wikipedia": null,
+    "queries": [
+     "polémica IA",
+     "AI controversy",
+     "IA redes sociales"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_6057c604",
+    "name": "Recreaciones históricas con IA",
+    "definition": "Uso de IA generativa para recrear visualmente eventos, personajes y épocas históricas en documentales y televisión.",
+    "wikipedia": null,
+    "queries": [
+     "recreaciones históricas IA",
+     "AI historical recreation",
+     "historia con IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_40aa3af1",
+    "name": "Fandom y IA",
+    "definition": "Uso de IA generativa por fans de sagas como Star Wars, Star Trek y Doctor Who para crear contenido y debates.",
+    "wikipedia": "Fandom",
+    "queries": [
+     "AI fan film",
+     "fandom IA",
+     "Star Wars AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_0663a64f",
+    "name": "Auditoría de modelos IA",
+    "definition": "Servicios y herramientas para auditar, certificar y evaluar el comportamiento de modelos y agentes de IA.",
+    "wikipedia": "AI audit",
+    "queries": [
+     "auditoría IA",
+     "AI model audit",
+     "AI certification"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c1738320",
+    "name": "Inversión en IA",
+    "definition": "Movimientos de fondos y gestoras como Apollo, T. Rowe Price y Franklin Templeton en startups y hardware de IA.",
+    "wikipedia": null,
+    "queries": [
+     "inversión IA",
+     "AI investment funds",
+     "Apollo AI startups"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_af7cc804",
+    "name": "Nikon y concursos IA",
+    "definition": "Descalificaciones y controversias en concursos de fotografía y vídeo de Nikon por el uso de IA generativa.",
+    "wikipedia": "Nikon",
+    "queries": [
+     "Nikon AI contest",
+     "Nikon IA concurso",
+     "AI photo disqualification"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_830fd737",
+    "name": "LangGraph",
+    "definition": "Framework de LangChain para construir agentes de IA y flujos de trabajo multiagente con grafos y estado.",
+    "wikipedia": "LangChain",
+    "queries": [
+     "LangGraph agents",
+     "LangGraph tutorial",
+     "LangGraph Vertex AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a71c7204",
+    "name": "Futuro de la programación",
+    "definition": "Debate sobre cómo la IA transforma el desarrollo de software y el rol de los programadores.",
+    "wikipedia": "Software development",
+    "queries": [
+     "futuro programación IA",
+     "AI coding future",
+     "future of software"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_e28795ef",
+    "name": "IA y economías en desarrollo",
+    "definition": "Impacto de la IA en el crecimiento económico de países en desarrollo y su riesgo de quedar relegados.",
+    "wikipedia": "Artificial intelligence and economic development",
+    "queries": [
+     "IA economías desarrollo",
+     "AI developing economies",
+     "AI economic growth"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5baebd09",
+    "name": "IA en videojuegos",
+    "definition": "Adopción de IA generativa por estudios de videojuegos y su impacto en producción y creatividad.",
+    "wikipedia": "Video game development",
+    "queries": [
+     "IA videojuegos",
+     "generative AI game dev",
+     "AI game development"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_78661bee",
+    "name": "Modelos especializados",
+    "definition": "Modelos de IA más pequeños y especializados que compiten con modelos generales en tareas concretas.",
+    "wikipedia": "Foundation model",
+    "queries": [
+     "modelos especializados IA",
+     "specialized AI models",
+     "frontier AI models"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_7cc848e2",
+    "name": "Crazy Taxi y IA",
+    "definition": "Polémica por el uso de IA generativa en el desarrollo de Crazy Taxi: World Tour y la postura de Sega.",
+    "wikipedia": "Crazy Taxi",
+    "queries": [
+     "Crazy Taxi IA",
+     "Crazy Taxi World Tour",
+     "Sega generative AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f0cafe9d",
+    "name": "Plataformas AI-native",
+    "definition": "Nuevas plataformas digitales diseñadas desde su base con IA para búsqueda, workflows y creación de contenido.",
+    "wikipedia": "AI-native",
+    "queries": [
+     "plataformas AI-native",
+     "AI-native platforms",
+     "AI native workflow"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_90393f2f",
+    "name": "Caída bursátil por IA",
+    "definition": "Descensos en bolsa de empresas tecnológicas y de IA por temores sobre deuda, valoración y sostenibilidad.",
+    "wikipedia": "AI bubble",
+    "queries": [
+     "caída acciones IA",
+     "AI stock selloff",
+     "Nasdaq AI drop"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

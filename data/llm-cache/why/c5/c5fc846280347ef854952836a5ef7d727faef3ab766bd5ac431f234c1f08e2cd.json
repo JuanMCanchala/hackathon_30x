@@ -1,0 +1,21 @@
+{
+ "key": "c5fc846280347ef854952836a5ef7d727faef3ab766bd5ac431f234c1f08e2cd",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:30:07.167Z",
+ "latencyMs": 6478,
+ "usage": {
+  "inputTokens": 1357,
+  "outputTokens": 773
+ },
+ "output": {
+  "oneLiner": "Anthropic y Google DeepMind publican que Claude y Gemini 4 Argon diseñan circuitos cuánticos más eficientes.",
+  "narrative": "No hay patrones con al menos 3 piezas, así que la lectura se apoya en evidencia suelta. Las piezas que despegan salen de cuentas grandes: un video de Google DeepMind en X llega a 9.8 veces la mediana de su autor y un post de Anthropic en X a 1.4. El gancho es un resultado concreto: 53 horas de trabajo autónomo de Claude o circuitos con menos puertas. El momento lo marcan los anuncios de Anthropic y Google DeepMind entre el 14 y el 16 de octubre.",
+  "cited": [
+   "x:2110421861435879476",
+   "x:2111152183240511640",
+   "bluesky:3my35rqlcpv2z",
+   "hn:50121939"
+  ]
+ }
+}

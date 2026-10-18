@@ -1,0 +1,24 @@
+{
+ "key": "42fb52be9591e6cd5c73573c5645c7b7d2113e76e66119b943ea1e91c7c933e9",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T21:54:37.597Z",
+ "latencyMs": 10407,
+ "usage": {
+  "inputTokens": 685,
+  "outputTokens": 995
+ },
+ "output": {
+  "score": 7,
+  "executive": 7,
+  "noCode": 8,
+  "latam": 4,
+  "pillar": "Growth",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Impacta ecommerce y descubrimiento de productos con IA.",
+   "Solo disponible en EE.UU.; LatAm aún sin acceso directo.",
+   "Equipos de growth y retail deben anticipar cambios."
+  ]
+ }
+}

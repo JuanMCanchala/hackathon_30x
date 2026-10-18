@@ -1,0 +1,14 @@
+{
+ "key": "a837f7f6d4f94e99d406c485ffe1014df55b87955f2d89252edcaa3c7003e910",
+ "name": "headline",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:17:23.447Z",
+ "latencyMs": 1136,
+ "usage": {
+  "inputTokens": 341,
+  "outputTokens": 32
+ },
+ "output": {
+  "headline": "La conversación de IA gira hacia quiebras de startups, videojuegos con IA y espionaje corporativo"
+ }
+}

@@ -1,0 +1,21 @@
+{
+ "key": "9e246bbaa0352e4eec3f697da47d80c561fcb6c1b045913b6c92141750609582",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:29:48.189Z",
+ "latencyMs": 10890,
+ "usage": {
+  "inputTokens": 1713,
+  "outputTokens": 1588
+ },
+ "output": {
+  "oneLiner": "Google lanza Gemini 4 Argon para tareas complejas y Gonzalo Bernardos avisa: quien hace tareas repetitivas, busque empleo.",
+  "narrative": "No hay patrones con al menos 3 piezas, así que la señal es el volumen: 6 creadores distintos esta semana y un crecimiento del 460 % frente a las 4 semanas anteriores. El gancho que se repite es la tarea concreta: Google lanzó Gemini 4 Argon para tareas complejas y un post de Jump Daily en Bluesky destaca modelos abiertos de NVIDIA para tareas largas. El ángulo de empleo lo mueve el economista Gonzalo Bernardos, que en dos medios pide buscar otro trabajo a quien realiza tareas repetitivas.",
+  "cited": [
+   "news:CBMi4wFBVV95cUxNZzRhZWk2VzRIa0Y2dE9fS1hJMmMzOHl0bjFxZFFBSVR5YWt5VWpZSlh2N0hqekhwZzQzUVhZZTF3NzFwR0I5TmtOcXpmMFhpczYtaTIyX2tzNmk4Q0VydTBiUVlzcG4xX3NYRHlCNFZKN1llSVlpeEdtSm11Qm5ucjVoX1FuUVZudUJvNXRsWDdFQ3FVOElpeHkxeEFtbjFLZjlUZ2E1cF9JVlZLZFRscDdqQnFoRjR6dEhUWXpJYngxMEJPT1c0TTBwRW1HODV1WG5ISHJhZmpsT1BxbU5Fb21MMA",
+   "bluesky:3mxxsfyywu32f",
+   "news:CBMijwJBVV95cUxQSjc0Q0RtV29tbGJZZHdPU3gtUkIwYTdPdm1JYkw4M2ZzNnlELW9mVDhJZnpvemRPNUtpbmtHNloydldjdUhyTjd4OTVMa3BFZkFJQXhwM042eGJNdXBEUDRHT0FEYllkQUFyWWNHNW5hLV9ybWhiY2NYSFZwNnY0YnZ5d1NJV1R2cHlPY2RaNkNJQ1hEa0RPR2RzSHdKZGRiRG1tTXYzUEs0QUJ1YXZPLXdLcjRlVm1WY2xHNWhPU0Q1bEhYUml1Nmx6VE95ei1zUlcyWWdqTTFaSm1td2pkeUFMMGZ3UndtYVdUV1ZfY3A1YnBBalRtU1Jvel9QUTlubjk3OXFERjNCWWVDWVFB",
+   "news:CBMi6wFBVV95cUxPX2dkSGgxUGNNMG1zNmF1WXFUcVdQdHkxOXQxb2dYZDdhd2t2b2w5U1Rib2IybktyQ3Qwb0Q1dmxPWE9vemFRTGhGNGpVYXZHT3d1V2hPVklielJBWTd5bHN1akp4QjNGZV9MdnpnT2p1NE55RTA1aE1oVFVHM3N3SGpOS3NRXzBVdS1fTnI4SHBwVGpZM3NUR2hRdWdELVN1NDJkcy1UMWcxZXBreXNXV3RSLUVPbDdKcFRjTncwVDNuV2lTVzg4dG9hR2NjSWZtYTBhZHZnT2dNYUZDYWRBUW8zUEpEY2JaazI00gHwAUFVX3lxTE9kNFVkRU1Rcl95UDFGVjBlMTRjc2tQRDVrUG1veGsyQWpncWRlWHBXaW5vT2hXcE8xbk02U1A2MFRHU1ptVm43MG5ZMUlDYnhnWktDbER3X2d4ZlVHWDViSmpwcXFlQ1g4R0hOTldJbHJrMHNKYWt1b085RzRjRlBYUUItVmlpbGZIUGVDMFRyVmRuT0ZJTDZRdmlWeWhNLXhVRllwMXlJZlkwN3k1WnEwV1VkN0dSemtrenl5YkZaZ3owTy1xck9oUlpVd05DbXRBaUN6YVp4bjZHb2t0RFp2MVZwcjdrMU9qbkRnYkFaQQ"
+  ]
+ }
+}

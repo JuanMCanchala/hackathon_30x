@@ -1,0 +1,255 @@
+{
+ "key": "9c14ed6c6d7ef2047e9f0be9615fa6d1ac3c375a5d38b69e5eeeb8c33fc8cf9d",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:28:55.672Z",
+ "latencyMs": 9811,
+ "usage": {
+  "inputTokens": 2756,
+  "outputTokens": 1823
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_3f96f129",
+    "name": "Interfaces de voz con IA",
+    "definition": "Funciones de voz en asistentes y apps que permiten conversar, hacer llamadas y aumentar la productividad.",
+    "wikipedia": "Speech recognition",
+    "queries": [
+     "AI voice interface",
+     "voz IA productividad",
+     "voice AI calls"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_40572f67",
+    "name": "IA en seguros",
+    "definition": "Aseguradoras y consultoras adoptan IA para publicidad, documentación regulada y decisiones de negocio.",
+    "wikipedia": "Insurance",
+    "queries": [
+     "IA seguros España",
+     "AI insurance regulation",
+     "AXA Mapfre IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1dff777c",
+    "name": "Vigilancia de clientes con IA",
+    "definition": "Startups proponen agentes de IA que monitorean continuamente a cada cliente para ventas B2B.",
+    "wikipedia": "Surveillance capitalism",
+    "queries": [
+     "AI customer surveillance",
+     "vigilancia clientes IA",
+     "B2B sales agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2cc547e8",
+    "name": "Trump y video IA del tigre",
+    "definition": "Trump compartió un video generado con IA sobre un ataque de tigre, generando polémica y peticiones de la víctima.",
+    "wikipedia": "Donald Trump",
+    "queries": [
+     "Trump AI tiger video",
+     "ataque tigre IA",
+     "Trump video IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_df3b5d99",
+    "name": "Mistral Le Chonk",
+    "definition": "Nuevo modelo de lenguaje abierto de Mistral, apodado Le Chonk, que compite con otros modelos franceses.",
+    "wikipedia": "Mistral AI",
+    "queries": [
+     "Mistral Le Chonk",
+     "Mistral Large 4",
+     "modelo Mistral IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_535f3052",
+    "name": "Llamados a frenar IA",
+    "definition": "Líderes como Amodei, Altman y Musk piden ralentizar el desarrollo de modelos de IA por riesgos.",
+    "wikipedia": "AI safety",
+    "queries": [
+     "slow AI development",
+     "Amodei Altman Musk",
+     "frenar desarrollo IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2c698210",
+    "name": "Sistemas operativos agénticos",
+    "definition": "Nuevos sistemas operativos nativos de agentes de IA que gestionan tareas y recursos de forma autónoma.",
+    "wikipedia": "Agent-based model",
+    "queries": [
+     "agentic operating system",
+     "sistema operativo agéntico",
+     "AI OS agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_3f63d733",
+    "name": "Precios de LLM",
+    "definition": "Evolución de costes de API y modelos de lenguaje, con caídas de precios y competencia entre proveedores.",
+    "wikipedia": "Large language model",
+    "queries": [
+     "LLM API pricing",
+     "costes LLM",
+     "precios modelos IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_70c67e32",
+    "name": "Block y seguridad IA",
+    "definition": "Block colabora con OpenAI para encontrar y corregir riesgos de seguridad en agentes de IA.",
+    "wikipedia": "Block, Inc.",
+    "queries": [
+     "Block OpenAI security",
+     "AI agent protocol",
+     "Block seguridad IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_cd4f65b5",
+    "name": "IA en medios y video",
+    "definition": "Empresas como Bitmovin, Kaltura y Telestream integran IA para análisis de escenas y flujos de producción.",
+    "wikipedia": "Video production",
+    "queries": [
+     "AI media workflows",
+     "IA producción video",
+     "Bitmovin Kaltura AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_657029d8",
+    "name": "Humor sobre IA",
+    "definition": "Chistes y memes que circulan en redes sobre el comportamiento y las limitaciones de la IA.",
+    "wikipedia": "Artificial intelligence in fiction",
+    "queries": [
+     "AI humor memes",
+     "humor IA tech",
+     "chistes inteligencia artificial"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ecfea618",
+    "name": "Flock Safety y vigilancia",
+    "definition": "Startup de vigilancia con IA enfrenta críticas y despidos por preocupaciones de privacidad.",
+    "wikipedia": "Flock Safety",
+    "queries": [
+     "Flock Safety backlash",
+     "vigilancia IA privacidad",
+     "Flock Safety layoffs"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_6ec2daff",
+    "name": "Automatización clínica con IA",
+    "definition": "IA automatiza codificación médica, ensayos clínicos y flujos de trabajo en atención sanitaria.",
+    "wikipedia": "Clinical decision support system",
+    "queries": [
+     "AI clinical automation",
+     "automatización clínica IA",
+     "medical coding AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c0e7a156",
+    "name": "Fútbol y videos IA",
+    "definition": "Clubes como Real Madrid y Liverpool usan IA para anuncios y contenido, generando reacciones virales.",
+    "wikipedia": "Association football",
+    "queries": [
+     "Real Madrid AI video",
+     "fútbol IA anuncios",
+     "Liverpool Google Gemini"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_7b4e660b",
+    "name": "Plan IA360 España",
+    "definition": "Plan del Gobierno español para el despliegue responsable de IA, con proyectos open source asociados.",
+    "wikipedia": "Artificial intelligence in Spain",
+    "queries": [
+     "Plan IA360 España",
+     "IA360 Pedro Sánchez",
+     "itsaplan open source"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_89f245bd",
+    "name": "David Vélez asesor IA",
+    "definition": "Fundador de Nubank nombrado asesor ad honorem para liderar la transformación digital y IA en Colombia.",
+    "wikipedia": "David Vélez",
+    "queries": [
+     "David Vélez asesor IA",
+     "Nubank Colombia IA",
+     "transformación digital Colombia"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_531db55c",
+    "name": "Protestas contra centros de datos",
+    "definition": "Manifestaciones en Polonia, Reino Unido y EE.UU. contra centros de datos de IA y su impacto.",
+    "wikipedia": "Data center",
+    "queries": [
+     "AI data center protest",
+     "protestas centros datos",
+     "Pull the Plug protest"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d3b3be1c",
+    "name": "CNN y Google IA",
+    "definition": "CNN y Google firman alianza para probar IA generativa en la producción de contenidos periodísticos.",
+    "wikipedia": "CNN",
+    "queries": [
+     "CNN Google AI",
+     "CNN IA periodismo",
+     "Google generative AI news"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_640b045e",
+    "name": "IA en seguros de salud",
+    "definition": "Uso de IA en seguros de salud y cuidado de mayores, incluyendo automatización de reclamaciones y apoyo a adultos mayores.",
+    "wikipedia": "Health insurance",
+    "queries": [
+     "AI health insurance",
+     "IA seguros salud",
+     "IA cuidado mayores"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b62eaf5f",
+    "name": "Autodesk e IA",
+    "definition": "Autodesk integra IA en diseño y manufactura, con nuevas herramientas como Fusion Compute MCP.",
+    "wikipedia": "Autodesk",
+    "queries": [
+     "Autodesk AI strategy",
+     "Autodesk Fusion MCP",
+     "IA diseño manufactura"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

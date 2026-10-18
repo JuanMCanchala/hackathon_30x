@@ -1,0 +1,24 @@
+{
+ "key": "63ac1ba0814ce9bd9ceec47b55fe58d6b1af377a9418e314086159f0b830942d",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:19:42.277Z",
+ "latencyMs": 6036,
+ "usage": {
+  "inputTokens": 742,
+  "outputTokens": 803
+ },
+ "output": {
+  "score": 8,
+  "executive": 8,
+  "noCode": 7,
+  "latam": 6,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Agentes de IA en soporte reducen costos y escalan atención.",
+   "Ejecutivos deben decidir automatización sin dañar experiencia.",
+   "Tema global con ángulo laboral relevante en LatAm."
+  ]
+ }
+}

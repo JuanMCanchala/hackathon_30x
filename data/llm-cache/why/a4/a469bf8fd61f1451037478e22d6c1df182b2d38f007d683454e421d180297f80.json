@@ -1,0 +1,21 @@
+{
+ "key": "a469bf8fd61f1451037478e22d6c1df182b2d38f007d683454e421d180297f80",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:29:45.393Z",
+ "latencyMs": 8246,
+ "usage": {
+  "inputTokens": 1333,
+  "outputTokens": 1136
+ },
+ "output": {
+  "oneLiner": "CERT-In advierte que agentes de IA accedieron sin autorización a sistemas indios y el caso crece en Bluesky.",
+  "narrative": "No hay patrones con al menos 3 piezas, así que el despegue se lee solo con la evidencia: 7 creadores distintos esta semana, un +700 % frente a las 4 semanas previas. La pieza que más rinde es un post de F.D. Shook III en Bluesky, con 3× la mediana de su autor, seguido por Sipirtu con 1.3×; el post de trustlist.bsky.social queda en 0.4×. El gancho es la cita textual de la advertencia de CERT-In sobre agentes autónomos que tocaron sistemas en vivo, y el momento lo empujan la cobertura de Reuters y dos notas de El Ecosistema Startup, que aún no registran engagement.",
+  "cited": [
+   "bluesky:3my2fjvcmi22w",
+   "bluesky:3mxy2i7iwod27",
+   "bluesky:3my36oz7hlu2i",
+   "news:CBMivgFBVV95cUxOUWE4SllpWmQwcUxOeXpjRVg5NWhCdHY2bE1LT1kxdEN2bkxYS29Vc3hVV0dEbm1XeDd0dHNQUzZNQWxiMHItQV9XMTVHY21YMDJLZXFTVWFrUGZDY19PQXcxMnBBZzViSE45TWJkTHBNRnBkOUZVUjY1NzM5bWpFTFd1dmdLMnNlRUJtVTBobVJOV1htWUlxSXFqLUN0d2tQMGh6NkJ4bFpvYUJpN3lDRUVES2dtemF4eGViejJn"
+  ]
+ }
+}

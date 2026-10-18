@@ -1,0 +1,255 @@
+{
+ "key": "c3eec4dece93f9e883c76eae7348111a1afadeb8a559cc6bbcfebd13b0ed0ca6",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T21:53:33.544Z",
+ "latencyMs": 12481,
+ "usage": {
+  "inputTokens": 2723,
+  "outputTokens": 1785
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_b4ebd67a",
+    "name": "Emulación y IA",
+    "definition": "Uso de IA generativa para crear emuladores y cores, y el debate sobre su impacto en proyectos como MAME.",
+    "wikipedia": "Video game emulation",
+    "queries": [
+     "AI emulation cores",
+     "emuladores IA",
+     "MAME AI coding"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f1e49bf9",
+    "name": "Boomi y Collibra",
+    "definition": "Plataformas de integración y gobernanza de datos que habilitan el control de la IA empresarial y agentes.",
+    "wikipedia": "Boomi",
+    "queries": [
+     "Boomi agentic AI",
+     "Collibra IA",
+     "Boomi enterprise AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_06815341",
+    "name": "Amazon SageMaker y IA",
+    "definition": "Servicios de IA empresarial de Amazon, incluyendo SageMaker, Bedrock y su integración con Databricks y Oracle.",
+    "wikipedia": "Amazon SageMaker",
+    "queries": [
+     "Amazon SageMaker AI",
+     "Bedrock AgentCore",
+     "Databricks AI runtime"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1d07bf01",
+    "name": "IA agéntica en UE y salud",
+    "definition": "Adopción de IA agéntica en la Unión Europea y aplicaciones en salud, como agentes para atención cardíaca.",
+    "wikipedia": "Agentic AI",
+    "queries": [
+     "agentic AI EU",
+     "IA agéntica salud",
+     "agentic AI healthcare"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_7ed74d8b",
+    "name": "Red teaming con IA",
+    "definition": "Prácticas de red teaming para probar la seguridad de sistemas de IA y agentes, incluyendo hackeos éticos.",
+    "wikipedia": "Red teaming",
+    "queries": [
+     "AI red teaming",
+     "red teaming IA",
+     "red team agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5c208d55",
+    "name": "Dun & Bradstreet y Experian",
+    "definition": "Empresas de datos crediticios que lanzan capacidades de IA y agentes para evaluar crédito y riesgos.",
+    "wikipedia": "Dun & Bradstreet",
+    "queries": [
+     "Experian AI agents",
+     "Dun Bradstreet AI",
+     "credit AI agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ef924ce6",
+    "name": "CMO e IA",
+    "definition": "Rol del director de marketing (CMO) en la adopción de IA para campañas, medición de ROI y sostenibilidad.",
+    "wikipedia": "Chief marketing officer",
+    "queries": [
+     "CMO AI marketing",
+     "CMO IA ROI",
+     "marketing AI cost"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c63ae52b",
+    "name": "Channel 5 y VOD",
+    "definition": "Contenido de YouTube y plataformas VOD que usan IA para análisis de escenas y metadatos en video.",
+    "wikipedia": "Video on demand",
+    "queries": [
+     "Channel 5 AI",
+     "VOD AI metadata",
+     "AI scene analysis"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_398eb7d5",
+    "name": "IA rogue",
+    "definition": "Debate sobre riesgos de IA descontrolada y llamados de empresas a defenderse contra agentes autónomos peligrosos.",
+    "wikipedia": "Rogue AI",
+    "queries": [
+     "rogue AI",
+     "IA rogue",
+     "AI risk defense"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_23d159c1",
+    "name": "IA en dispositivos",
+    "definition": "Integración de IA en dispositivos físicos como televisores, computadoras y hardware de borde.",
+    "wikipedia": "Edge computing",
+    "queries": [
+     "on-device AI",
+     "IA en televisores",
+     "AI TV devices"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_88661002",
+    "name": "RE Engine y IA",
+    "definition": "Planes de Capcom de incorporar IA generativa en su motor RE Engine para desarrollo de videojuegos.",
+    "wikipedia": "RE Engine",
+    "queries": [
+     "RE Engine AI",
+     "Capcom generative AI",
+     "RE Engine IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_19f26b64",
+    "name": "AfDB y UNDP",
+    "definition": "Iniciativas del Banco Africano de Desarrollo y PNUD para entrenamiento en IA y productividad en África.",
+    "wikipedia": "African Development Bank",
+    "queries": [
+     "AfDB AI training",
+     "UNDP AI Africa",
+     "AfDB UNDP AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ea6fe960",
+    "name": "Brand intelligence",
+    "definition": "Herramientas de IA que analizan marcas y automatizan pujas y presupuestos en comercio y publicidad.",
+    "wikipedia": "Brand management",
+    "queries": [
+     "brand intelligence AI",
+     "CommerceIQ AI",
+     "AI brand analytics"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_62592a1a",
+    "name": "Hackathones de IA",
+    "definition": "Eventos y competencias para desarrollar soluciones con IA, incluyendo agentes y modelos abiertos.",
+    "wikipedia": "Hackathon",
+    "queries": [
+     "AI hackathon",
+     "hackathon IA",
+     "agentic AI hackathon"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9fff2a1a",
+    "name": "Dispositivos escolares e IA",
+    "definition": "Prohibiciones y usos de IA generativa en dispositivos entregados a estudiantes y en aulas.",
+    "wikipedia": "Educational technology",
+    "queries": [
+     "AI school devices",
+     "IA en aulas",
+     "LAUSD AI ban"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_dd99e990",
+    "name": "Personalización con IA",
+    "definition": "Uso de IA para personalizar experiencias de cliente, promociones y algoritmos de contenido.",
+    "wikipedia": "Personalization",
+    "queries": [
+     "AI personalization",
+     "personalización IA",
+     "hyper-personalized AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_60cff2f2",
+    "name": "Nvidia y Hugging Face",
+    "definition": "Adquisición de Hugging Face por Nvidia por 13 mil millones de dólares y su impacto en modelos abiertos.",
+    "wikipedia": "Hugging Face",
+    "queries": [
+     "Nvidia Hugging Face",
+     "Nvidia acquisition AI",
+     "Hugging Face 13B"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_fad8bf2e",
+    "name": "Restaurantes e IA",
+    "definition": "Uso de IA en restaurantes para publicidad, imágenes de comida y atención al cliente, con reacciones negativas.",
+    "wikipedia": "Restaurant",
+    "queries": [
+     "AI restaurant ads",
+     "restaurantes IA",
+     "AI food images"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_835c924f",
+    "name": "Healthtech y IA",
+    "definition": "Startups de salud y medtech que aplican IA para diagnóstico, prevención y flujos de ventas médicos.",
+    "wikipedia": "Health technology",
+    "queries": [
+     "healthtech AI",
+     "IA salud startups",
+     "medtech AI sales"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e5429c2a",
+    "name": "Cuantización de modelos",
+    "definition": "Técnicas como GGUF para comprimir y ejecutar modelos de lenguaje grandes con menos recursos.",
+    "wikipedia": "Quantization (machine learning)",
+    "queries": [
+     "LLM quantization",
+     "cuantización GGUF",
+     "GGUF models"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

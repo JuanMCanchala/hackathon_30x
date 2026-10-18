@@ -1,0 +1,24 @@
+{
+ "key": "10c7ccbc03beee6cd1eca43e0ac0731eb64158ec8870ca11c97e7f089188be1b",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:17:15.480Z",
+ "latencyMs": 8797,
+ "usage": {
+  "inputTokens": 701,
+  "outputTokens": 858
+ },
+ "output": {
+  "score": 5,
+  "executive": 7,
+  "noCode": 2,
+  "latam": 3,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "alto",
+  "reasons": [
+   "Tema legal y sensible, no acción comercial directa.",
+   "Relevante para CEOs por riesgo regulatorio y reputacional.",
+   "Poco aplicable sin código; ángulo LatAm limitado."
+  ]
+ }
+}

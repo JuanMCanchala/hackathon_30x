@@ -1,0 +1,255 @@
+{
+ "key": "3eaee5e53c39bc8b435e532b0f2c4681ebc6e6803284d71d002269748be72f30",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T21:54:24.537Z",
+ "latencyMs": 16046,
+ "usage": {
+  "inputTokens": 2664,
+  "outputTokens": 1723
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_e7ceac8b",
+    "name": "GitHub HydraFusion",
+    "definition": "Herramienta de Copilot que combina modelos de IA para reducir costos y mejorar calidad en tareas de código.",
+    "wikipedia": null,
+    "queries": [
+     "GitHub HydraFusion",
+     "HydraFusion Copilot",
+     "modelos IA costos"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_863ed3fd",
+    "name": "Fórmulas de IA en hojas de cálculo",
+    "definition": "Uso de fórmulas impulsadas por IA en hojas de cálculo para automatizar tareas como enriquecimiento de datos y análisis.",
+    "wikipedia": null,
+    "queries": [
+     "AI formulas spreadsheet",
+     "fórmulas IA Excel",
+     "spreadsheet AI automation"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_bae56388",
+    "name": "Canales de distribución de IA",
+    "definition": "Estrategias y programas de socios para distribuir soluciones de IA a través de canales como AWS y Dell.",
+    "wikipedia": null,
+    "queries": [
+     "canales distribución IA",
+     "AI channel partners",
+     "partner AI distribution"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_787970fc",
+    "name": "EFF y regulación de IA",
+    "definition": "Postura de la Electronic Frontier Foundation sobre derechos digitales y regulación de IA, incluyendo copyright.",
+    "wikipedia": "Electronic Frontier Foundation",
+    "queries": [
+     "EFF AI regulation",
+     "EFF copyright AI",
+     "EFF frontier AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_218477cc",
+    "name": "Vaticano e IA ética",
+    "definition": "Iniciativas del Vaticano y organizaciones católicas para promover una IA centrada en la dignidad humana.",
+    "wikipedia": "Vatican and artificial intelligence",
+    "queries": [
+     "Vaticano IA ética",
+     "Vatican AI ethics",
+     "IA dignidad humana"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_7f73b748",
+    "name": "Ciberataque con agentes de IA en España",
+    "definition": "Primer ciberataque en España ejecutado por agentes de IA autónomos, según alerta de la AEPD.",
+    "wikipedia": null,
+    "queries": [
+     "ciberataque agentes IA",
+     "AI agent cyberattack",
+     "AEPD ciberataque IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_57e6e897",
+    "name": "IA en editoriales",
+    "definition": "Adopción de herramientas de IA por editoriales como HarperCollins y McGraw Hill para producción y educación.",
+    "wikipedia": null,
+    "queries": [
+     "IA editoriales",
+     "AI publishing industry",
+     "HarperCollins IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_415eba63",
+    "name": "PrismML",
+    "definition": "Startup que desarrolla modelos de lenguaje diminutos para dispositivos como gafas inteligentes y teléfonos.",
+    "wikipedia": null,
+    "queries": [
+     "PrismML",
+     "tiny LLM PrismML",
+     "PrismML Qualcomm"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_7473fb08",
+    "name": "Pew Research e IA",
+    "definition": "Estudios del Pew Research Center sobre el impacto de la IA en empleo, autoría web y sociedad.",
+    "wikipedia": "Pew Research Center",
+    "queries": [
+     "Pew Research AI",
+     "Pew IA empleo",
+     "Pew Center inteligencia artificial"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_def37cdd",
+    "name": "Pi coding agent",
+    "definition": "Agente de codificación basado en IA que automatiza tareas de programación y configuración de entornos.",
+    "wikipedia": null,
+    "queries": [
+     "Pi coding agent",
+     "agente codificación Pi",
+     "Pi AI coding"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_70cfac39",
+    "name": "IDC y IA agéntica",
+    "definition": "Investigaciones de IDC sobre riesgos y seguridad de la IA agéntica en organizaciones y medios.",
+    "wikipedia": "International Data Corporation",
+    "queries": [
+     "IDC agentic AI",
+     "IDC IA agéntica",
+     "IDC MarketScape AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a8604c78",
+    "name": "Mirror Particle",
+    "definition": "Startup que desarrolla modelos del mundo para predecir comportamiento humano, alternativa a los LLM.",
+    "wikipedia": null,
+    "queries": [
+     "Mirror Particle",
+     "world model behavior",
+     "Mirror Particle AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_38705426",
+    "name": "Actualización de ChatGPT",
+    "definition": "Nuevas versiones y funciones de ChatGPT que amplían sus capacidades y herramientas de IA.",
+    "wikipedia": "ChatGPT",
+    "queries": [
+     "ChatGPT update",
+     "actualización ChatGPT",
+     "nuevas funciones ChatGPT"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e7cd70d8",
+    "name": "Gemini en educación",
+    "definition": "Uso de Gemini de Google en escuelas y entornos educativos, con debates sobre privacidad y aprendizaje.",
+    "wikipedia": "Gemini (chatbot)",
+    "queries": [
+     "Gemini education",
+     "Gemini escuelas",
+     "Google Gemini schools"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2334cdd3",
+    "name": "Mechanize",
+    "definition": "Startup de codificación con IA adquirida por Google para integrar su talento en DeepMind.",
+    "wikipedia": null,
+    "queries": [
+     "Mechanize AI",
+     "Google Mechanize",
+     "Mechanize DeepMind"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b7fa21c1",
+    "name": "IA en hoteles",
+    "definition": "Aplicación de agentes de IA en la industria hotelera para gestión, descubrimiento y publicidad.",
+    "wikipedia": null,
+    "queries": [
+     "AI hotels",
+     "IA hoteles",
+     "hotel AI agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a2704834",
+    "name": "Computer History de ChatGPT",
+    "definition": "Función de ChatGPT que registra la actividad del usuario en el ordenador para personalizar respuestas.",
+    "wikipedia": null,
+    "queries": [
+     "ChatGPT Computer History",
+     "historia ChatGPT",
+     "ChatGPT Mac history"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_50d0fb3a",
+    "name": "Elsevier e IA",
+    "definition": "Políticas y herramientas de IA generativa de Elsevier para autores, editores y enfermería clínica.",
+    "wikipedia": "Elsevier",
+    "queries": [
+     "Elsevier AI",
+     "Elsevier IA científica",
+     "Elsevier generative AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a19a8c3f",
+    "name": "Grab y OpenAI",
+    "definition": "Colaboración entre Grab y OpenAI para llevar habilidades prácticas de IA al Sudeste Asiático.",
+    "wikipedia": "Grab (company)",
+    "queries": [
+     "Grab OpenAI",
+     "Grab AI skills",
+     "OpenAI Southeast Asia"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_42732a98",
+    "name": "Gafas Ray-Ban Meta",
+    "definition": "Nuevos modelos y funciones de IA en las gafas inteligentes Ray-Ban Meta de Meta.",
+    "wikipedia": "Ray-Ban Stories",
+    "queries": [
+     "Ray-Ban Meta",
+     "Meta smart glasses",
+     "gafas Ray-Ban IA"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

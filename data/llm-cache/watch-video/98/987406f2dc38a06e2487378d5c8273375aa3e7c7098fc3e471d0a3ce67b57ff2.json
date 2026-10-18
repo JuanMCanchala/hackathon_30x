@@ -1,0 +1,22 @@
+{
+ "key": "987406f2dc38a06e2487378d5c8273375aa3e7c7098fc3e471d0a3ce67b57ff2",
+ "name": "watch-video",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-18T00:16:35.219Z",
+ "latencyMs": 5035,
+ "usage": {
+  "inputTokens": 3598,
+  "outputTokens": 275
+ },
+ "output": {
+  "hook": "Y básicamente le dije a todos: tienen que multiplicar por 10 su productividad con estas herramientas de IA que les damos o tienen que salir de la caja, y reemplazó a 250 personas de soporte a tiempo completo. Reemplazó a más de 100 desarrolladores.",
+  "points": [
+   "En el pico teníamos alrededor de 500 personas, ahora estamos por debajo de 100 y todavía optimizando.",
+   "Un gran SAS que responde las preguntas de todos va a morir.",
+   "La IA ahora puede reemplazar a los copywriters, me supera.",
+   "El evento FHL AI vendió una oferta de $150,000 y recaudó $4.5 millones con 31 ventas.",
+   "Usamos IA de manera diferente: en lugar de hacer el trabajo manual, gestionamos 10 agentes de IA para multiplicar la productividad y luego pasamos a la imaginación."
+  ],
+  "idea": "Russell Brunson cuenta cómo reemplazó a 250 empleados de soporte y más de 100 desarrolladores con IA, y explica que la clave está en usar la IA para subir de nivel de valor, no para hacer el trabajo manual, lo que genera una gran productividad y ganancias."
+ }
+}

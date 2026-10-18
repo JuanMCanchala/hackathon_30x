@@ -1,0 +1,20 @@
+{
+ "key": "ae63f43a0e9530f9698cb7b05c9ee88e0a7ca6f722071452697fbc854a108992",
+ "name": "why",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:29:57.803Z",
+ "latencyMs": 19989,
+ "usage": {
+  "inputTokens": 1559,
+  "outputTokens": 3277
+ },
+ "output": {
+  "oneLiner": "Expansión reporta 59,000 sitios con IA en México; TruLata lanza constructor web gratis.",
+  "narrative": "El tema crece +200% en creadores distintos, con 5 esta semana, pero no hay patrones con al menos 3 piezas. La evidencia mezcla noticias de negocio y herramientas: Expansión reporta 59,000 sitios con IA en México y el reto de conseguir clientes; TruLata lanza una plataforma de marketing con constructor web gratis. En redes, un post de Belkis dice que la IA facilita crear webs y campañas, pero su engagement es bajo. El momento lo mueven medios y lanzamientos, no un formato repetido.",
+  "cited": [
+   "news:CBMilwFBVV95cUxNRy1Pd1JqWHRhV2VPcmI5RlVlcjdjMHhNVUFqNVlxeEtERWhBOHhSaWxkWC05Q1dGLWJjUmNmY3dWV3Fodl9FcHViTlJReDU2TUJncTlPLVVtSkFucEtDcGstcE13em9IQXhwdEFsbG5JYnFWbVRrNUdRVC0wbUdOMF9kcmxmWXRJR1J1WENNTi0tYXRfNFdj0gGkAUFVX3lxTE5uLUF1cjl3WE5BWU5JdDJ2OWZHQ0I1VWhIMHZNMmUyS05CRUp1d1E0Q0VuODVscjc4REJNXzdHdDFtYzQ4bmZTNjBQSWludS10LVVxZk0ycm5pSFU3MUxFeWUxQ2cwMHJZQWtRdDVYMWhOcUFWU3FkWUFLQzJXYm1mS0g0UXp6VFRKTWhiVUFOeW5Yb3l6M1pCY25Sc2dMN2d6Sncz",
+   "news:CBMi1gFBVV95cUxPVW1tc284T3FDaXB2QTREeTBobTRNeG0wUjBDNF9ac3JvRGVzdFBQVVdZOTlUMUhOTnJPZGMyemp0OVJxQnBHS2FtT3dSUlBsanhJS3ZyN0x3SEV2QmZnT1p5WldSck1LRUVuTmpMc0FlM0pfZGFEQTR2QnpQam4tQVFDd19XVjk1TzJZNXJteWlzcHRzYVRVS0NoaGlQeWg2OFAzWUZyUkJXTVBpcVRBNjMySEE5aVBidlU4UGNJeUZwOGs5QTVvXzVwZzN0SkpRS1pjQnBn",
+   "bluesky:3mxw6kecj5s2j"
+  ]
+ }
+}

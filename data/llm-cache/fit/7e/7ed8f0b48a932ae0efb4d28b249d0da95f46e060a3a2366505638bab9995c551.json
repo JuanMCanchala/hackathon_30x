@@ -1,0 +1,24 @@
+{
+ "key": "7ed8f0b48a932ae0efb4d28b249d0da95f46e060a3a2366505638bab9995c551",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:19:34.207Z",
+ "latencyMs": 9084,
+ "usage": {
+  "inputTokens": 700,
+  "outputTokens": 1003
+ },
+ "output": {
+  "score": 6,
+  "executive": 7,
+  "noCode": 2,
+  "latam": 2,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Clave para estrategia de IA: costo, control y seguridad empresarial.",
+   "Sandboxes y pesos abiertos son técnicos; poca aplicación comercial directa.",
+   "Ángulo LatAm limitado; foco en EEUU, China y seguridad."
+  ]
+ }
+}

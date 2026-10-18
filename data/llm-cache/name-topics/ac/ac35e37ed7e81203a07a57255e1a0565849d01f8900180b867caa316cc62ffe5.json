@@ -1,0 +1,255 @@
+{
+ "key": "ac35e37ed7e81203a07a57255e1a0565849d01f8900180b867caa316cc62ffe5",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T17:35:54.861Z",
+ "latencyMs": 13006,
+ "usage": {
+  "inputTokens": 3282,
+  "outputTokens": 1724
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_0def1bad",
+    "name": "Comercio con IA",
+    "definition": "Uso de inteligencia artificial en comercio electrónico, transfronterizo y conversacional para automatizar ventas y operaciones.",
+    "wikipedia": "E-commerce",
+    "queries": [
+     "comercio electrónico IA",
+     "AI commerce agents",
+     "comercio conversacional IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_20f4c831",
+    "name": "Branding con IA",
+    "definition": "Aplicación de IA en creación de marcas, diseño de identidad y descubrimiento de marca para empresas.",
+    "wikipedia": "Brand management",
+    "queries": [
+     "IA branding",
+     "AI brand intelligence",
+     "diseño de marca IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_81970f86",
+    "name": "Calidad de código con IA",
+    "definition": "Evaluación y mejora de la calidad del código generado por IA, incluyendo revisión, auditoría y control.",
+    "wikipedia": "Code review",
+    "queries": [
+     "calidad código IA",
+     "AI code review",
+     "auditoría código LLM"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b33344d9",
+    "name": "Escritura con IA",
+    "definition": "Herramientas y prácticas de escritura asistida por IA, desde copywriting hasta diarios personales.",
+    "wikipedia": "AI writing",
+    "queries": [
+     "escritura con IA",
+     "AI writing tools",
+     "copywriting IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_eca4a890",
+    "name": "China vs EE.UU. en IA",
+    "definition": "Competencia geopolítica entre China y Estados Unidos en desarrollo, exportación y regulación de IA.",
+    "wikipedia": "AI Cold War",
+    "queries": [
+     "China vs EEUU IA",
+     "US China AI competition",
+     "export controls AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d60e9c18",
+    "name": "Muse de Meta",
+    "definition": "Familia de modelos y productos de IA de Meta bajo la marca Muse, incluyendo versiones como Muse Spark.",
+    "wikipedia": "Meta AI",
+    "queries": [
+     "Muse Meta IA",
+     "Meta Muse models",
+     "Muse Spark"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_11f72d70",
+    "name": "Empleo y IA",
+    "definition": "Impacto de la IA en el empleo, empleabilidad y calidad del trabajo en diversos sectores.",
+    "wikipedia": "Technological unemployment",
+    "queries": [
+     "empleo IA",
+     "AI jobs impact",
+     "futuro empleo IA"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_84fca487",
+    "name": "IA en finanzas",
+    "definition": "Aplicaciones de IA en finanzas personales, inclusión financiera, banca de inversión y sostenibilidad.",
+    "wikipedia": "Financial technology",
+    "queries": [
+     "IA finanzas",
+     "AI in finance",
+     "finanzas personales IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5a24f5ae",
+    "name": "IA en desarrollo de software",
+    "definition": "Uso de IA en arquitectura, generación y preservación de software, y su efecto en empleos técnicos.",
+    "wikipedia": "Software development",
+    "queries": [
+     "IA desarrollo software",
+     "AI software engineering",
+     "vibe coding"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b5a56a70",
+    "name": "ASML y chips IA",
+    "definition": "Rol de ASML, Applied Materials y TSMC en la cadena de suministro de chips para IA.",
+    "wikipedia": "ASML",
+    "queries": [
+     "ASML IA chips",
+     "TSMC AI demand",
+     "semiconductor AI boom"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ba9f4fd9",
+    "name": "IA y arte humano",
+    "definition": "Debate sobre el valor del arte creado por humanos frente al generado por IA y su impacto cultural.",
+    "wikipedia": "Artificial intelligence art",
+    "queries": [
+     "IA y arte",
+     "AI art human premium",
+     "arte humano IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_df12b17c",
+    "name": "Estafas con IA",
+    "definition": "Uso de IA para cometer fraudes y estafas, y desarrollo de agentes para detectarlas.",
+    "wikipedia": "Fraud",
+    "queries": [
+     "estafas IA",
+     "AI scam detection",
+     "fraude con IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_6f770336",
+    "name": "IA en medios",
+    "definition": "Adopción y gobernanza de IA generativa en medios, periodismo y derechos de contenido.",
+    "wikipedia": "Generative artificial intelligence in journalism",
+    "queries": [
+     "IA en medios",
+     "AI in journalism",
+     "IA generativa noticias"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c97416a9",
+    "name": "Ventas con IA",
+    "definition": "Transformación de ventas mediante IA, incluyendo previsión, liderazgo y oportunidades comerciales.",
+    "wikipedia": "Sales",
+    "queries": [
+     "ventas con IA",
+     "AI sales playbook",
+     "futuro de ventas"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a0c3f858",
+    "name": "Character.AI",
+    "definition": "Plataforma de chat con personajes IA, su situación financiera y relación con Disney.",
+    "wikipedia": "Character.ai",
+    "queries": [
+     "Character.AI bankruptcy",
+     "Character.AI Disney",
+     "Character.AI news"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8f3f8c20",
+    "name": "Contenido sintético",
+    "definition": "Generación y consumo de contenido sintético, slop y su impacto en medios y cultura.",
+    "wikipedia": "Synthetic media",
+    "queries": [
+     "contenido sintético",
+     "AI slop",
+     "contenido IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b03f9ec5",
+    "name": "Líderes de IA",
+    "definition": "Figuras clave en el debate sobre regulación y desarrollo de IA, como Dario Amodei o Brad Smith.",
+    "wikipedia": "Dario Amodei",
+    "queries": [
+     "Dario Amodei",
+     "Brad Smith AI",
+     "AI regulation leaders"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_21a54d55",
+    "name": "Diseño con IA",
+    "definition": "Uso de IA en diseño gráfico, de interiores, moda, logos e interfaces.",
+    "wikipedia": "Artificial intelligence in design",
+    "queries": [
+     "diseño con IA",
+     "AI design tools",
+     "diseño gráfico IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b78b47d5",
+    "name": "Contenido NSFW con IA",
+    "definition": "Generación de contenido para adultos, violento o sexualizado mediante IA y sus implicaciones legales.",
+    "wikipedia": "Not safe for work",
+    "queries": [
+     "IA NSFW",
+     "AI adult content",
+     "porno con IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_50236597",
+    "name": "IA en banca",
+    "definition": "Adopción de IA por bancos como American Express, JPMorgan y Citi para servicios financieros.",
+    "wikipedia": "Artificial intelligence in banking",
+    "queries": [
+     "IA en banca",
+     "AI banking",
+     "Amex IA"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

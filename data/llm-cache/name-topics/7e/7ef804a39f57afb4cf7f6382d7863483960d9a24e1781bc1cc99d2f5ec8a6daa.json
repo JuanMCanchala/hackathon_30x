@@ -1,0 +1,255 @@
+{
+ "key": "7ef804a39f57afb4cf7f6382d7863483960d9a24e1781bc1cc99d2f5ec8a6daa",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T21:53:57.573Z",
+ "latencyMs": 12508,
+ "usage": {
+  "inputTokens": 2895,
+  "outputTokens": 1767
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_2faeca79",
+    "name": "Seguridad de APIs en IA",
+    "definition": "Riesgos de exponer claves y datos en APIs de herramientas de IA y agentes autónomos.",
+    "wikipedia": "API security",
+    "queries": [
+     "API security AI",
+     "seguridad APIs IA",
+     "leaked API keys"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1650bc5a",
+    "name": "Paint.NET y Procreate",
+    "definition": "Debate en herramientas creativas sobre código asistido por IA y rechazo de arte generativo.",
+    "wikipedia": "Paint.NET",
+    "queries": [
+     "Paint.NET AI coding",
+     "Procreate IA arte",
+     "vibe coding tools"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a93e7823",
+    "name": "Sashiko de Google",
+    "definition": "IA de código abierto que revisa parches del kernel Linux y detecta vulnerabilidades.",
+    "wikipedia": "Linux kernel",
+    "queries": [
+     "Google Sashiko",
+     "Sashiko kernel reviews",
+     "IA revisión código"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_baf90c60",
+    "name": "Medios digitales e IA",
+    "definition": "Impacto de la IA en medios digitales, negocios y preservación de contenido cultural.",
+    "wikipedia": "Digital media",
+    "queries": [
+     "medios digitales IA",
+     "AI digital media",
+     "negocios digitales IA"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_92aafd4a",
+    "name": "Inherent e Intrinsic",
+    "definition": "Startups de IA fundadas por ex-DeepMind que desarrollan agentes y plataformas de investigación.",
+    "wikipedia": "DeepMind",
+    "queries": [
+     "Inherent AI teammate",
+     "Intrinsic open source",
+     "DeepMind alumni startups"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_373a5a7e",
+    "name": "Agentes en AT Protocol",
+    "definition": "Uso de agentes de IA en la red AT Protocol y su potencial para empresas y consumidores.",
+    "wikipedia": "AT Protocol",
+    "queries": [
+     "ATProto AI agents",
+     "agentes Bluesky",
+     "atproto enterprise AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8cec3618",
+    "name": "Seguridad ofensiva con IA",
+    "definition": "Modelos de IA usados para hacking y la creciente inseguridad de herramientas internas empresariales.",
+    "wikipedia": "Offensive security",
+    "queries": [
+     "AI hacking model",
+     "seguridad ofensiva IA",
+     "DeepSeek hacking"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_011993d7",
+    "name": "Mercadona y Soriana",
+    "definition": "Retailers que implementan IA y automatización, con recortes de empleo en Soriana.",
+    "wikipedia": "Mercadona",
+    "queries": [
+     "Mercadona IA Atenea",
+     "Soriana automatización IA",
+     "retail IA empleos"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_6a280692",
+    "name": "IA y lenguas indígenas",
+    "definition": "Uso de IA para preservar lenguas indígenas y la necesidad de entrenar modelos multilingües.",
+    "wikipedia": "Indigenous languages",
+    "queries": [
+     "IA lenguas indígenas",
+     "AI endangered languages",
+     "preservación idiomas IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_bcbf463a",
+    "name": "Amenazas de ciberseguridad IA",
+    "definition": "Nuevas amenazas y herramientas de inteligencia que integran IA en ciberseguridad empresarial.",
+    "wikipedia": "Threat intelligence",
+    "queries": [
+     "AI threat intelligence",
+     "amenazas ciberseguridad IA",
+     "cybersecurity AI agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_546b0168",
+    "name": "IA en impresión 3D",
+    "definition": "Adopción de IA y automatización en impresión, impresión 3D y la industria gráfica.",
+    "wikipedia": "3D printing",
+    "queries": [
+     "AI 3D printing",
+     "IA impresión 3D",
+     "printing industry AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2757c4c3",
+    "name": "IA y defensa",
+    "definition": "Contratos y compras del sector defensa con empresas de IA y agentes autónomos.",
+    "wikipedia": "Defense industry",
+    "queries": [
+     "AI defense contracts",
+     "IA industria defensa",
+     "Pentagon AI contracts"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2ac5ae79",
+    "name": "Honor 600 y Huawei Ascend",
+    "definition": "Nuevos dispositivos Honor con IA y herramientas de programación de Huawei para su ecosistema Ascend.",
+    "wikipedia": "Huawei Ascend",
+    "queries": [
+     "Honor 600 IA",
+     "Huawei Ascend tools",
+     "Honor 600e Chile"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e8bf87a8",
+    "name": "Protesta con robots",
+    "definition": "Robots usados en protestas para exigir regulación de la IA, con referencias a ciencia ficción.",
+    "wikipedia": "Robot protest",
+    "queries": [
+     "robots protest AI",
+     "protesta robots IA",
+     "regulate AI robots"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_67e4a83c",
+    "name": "Fabric en industria textil",
+    "definition": "Framework de prompts Fabric y su adopción en la industria textil junto a Anthropic.",
+    "wikipedia": "Textile industry",
+    "queries": [
+     "Fabric AI prompts",
+     "Fabric Anthropic",
+     "IA industria textil"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_55b2467c",
+    "name": "Regulación de IA en EE.UU.",
+    "definition": "Debate político en Estados Unidos sobre regulación de IA con figuras como Jeffries y Jayapal.",
+    "wikipedia": "Regulation of artificial intelligence",
+    "queries": [
+     "AI regulation US",
+     "regulación IA Congreso",
+     "Jeffries AI regulation"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a78ab318",
+    "name": "IA científica",
+    "definition": "Agentes y modelos de IA aplicados a investigación científica y supervisión internacional.",
+    "wikipedia": "Artificial intelligence in science",
+    "queries": [
+     "AI scientific research",
+     "IA científica agentes",
+     "scientists AI oversight"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_905824b9",
+    "name": "Costo por tarea en IA",
+    "definition": "Métrica de costo por tarea para evaluar modelos de IA frente a la hora facturable tradicional.",
+    "wikipedia": "Cost per task",
+    "queries": [
+     "AI cost per task",
+     "costo por tarea IA",
+     "model cost comparison"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_eff462d6",
+    "name": "Gestión de credenciales con IA",
+    "definition": "Nuevos gestores de contraseñas y proxies que protegen claves de API usadas por agentes de IA.",
+    "wikipedia": "Password manager",
+    "queries": [
+     "AI password manager",
+     "gestor contraseñas IA",
+     "credential security AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_7ad9757f",
+    "name": "AppLovin y The Trade Desk",
+    "definition": "Plataformas de adtech que integran IA y enfrentan volatilidad bursátil y competencia en retail media.",
+    "wikipedia": "AppLovin",
+    "queries": [
+     "AppLovin AI adtech",
+     "The Trade Desk Zuma",
+     "retail media IA"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

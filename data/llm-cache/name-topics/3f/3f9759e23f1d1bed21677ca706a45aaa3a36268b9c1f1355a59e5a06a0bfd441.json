@@ -1,0 +1,255 @@
+{
+ "key": "3f9759e23f1d1bed21677ca706a45aaa3a36268b9c1f1355a59e5a06a0bfd441",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T17:38:43.399Z",
+ "latencyMs": 23030,
+ "usage": {
+  "inputTokens": 2985,
+  "outputTokens": 1723
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_2f7bebb3",
+    "name": "IA en elecciones y deepfakes",
+    "definition": "Uso de IA para desinformar en elecciones y las leyes que buscan frenar deepfakes políticos.",
+    "wikipedia": "Deepfake",
+    "queries": [
+     "deepfakes elecciones",
+     "ley deepfakes",
+     "AI election law"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_3afd1af9",
+    "name": "Fine-tuning de LLM",
+    "definition": "Ajuste de modelos de lenguaje con datos propios para tareas específicas de negocio.",
+    "wikipedia": "Fine-tuning (machine learning)",
+    "queries": [
+     "fine-tuning LLM",
+     "ajuste modelos IA",
+     "supervised fine-tuning"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_3b3c4fe9",
+    "name": "IA en flujos clínicos",
+    "definition": "Herramientas de IA que agilizan búsqueda de información, notas y diagnósticos en consulta médica.",
+    "wikipedia": "Artificial intelligence in healthcare",
+    "queries": [
+     "IA flujos clínicos",
+     "AI clinical workflows",
+     "IA diagnóstico médico"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5ea6e270",
+    "name": "eM Client 11",
+    "definition": "Cliente de correo europeo con IA que busca alternativas a Outlook con soberanía digital.",
+    "wikipedia": "EM Client",
+    "queries": [
+     "eM Client 11",
+     "eM Client AI",
+     "Outlook alternative"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_cf8f7e37",
+    "name": "Seguridad infantil en IA",
+    "definition": "Demandas y regulaciones sobre riesgos de chatbots de IA para menores de edad.",
+    "wikipedia": "AI safety",
+    "queries": [
+     "seguridad infantil IA",
+     "ChatGPT menores",
+     "OpenAI lawsuit safety"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a12bc49a",
+    "name": "Bonos e IA",
+    "definition": "Impacto de la IA en mercados de renta fija, bonos soberanos y apuestas corporativas.",
+    "wikipedia": "Bond (finance)",
+    "queries": [
+     "bonos IA",
+     "AI bond market",
+     "renta fija IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_aa33d1f1",
+    "name": "IA en RRHH",
+    "definition": "Plataformas que usan IA para gestionar datos de empleados, finanzas y agentes de RRHH.",
+    "wikipedia": "Human resource management",
+    "queries": [
+     "IA RRHH",
+     "HR AI agents",
+     "Workday AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_10dfca9f",
+    "name": "n8n para agentes IA",
+    "definition": "Automatización de flujos de trabajo con n8n para construir y conectar agentes de IA.",
+    "wikipedia": "N8n",
+    "queries": [
+     "n8n agentes IA",
+     "n8n MCP workflow",
+     "n8n tutorial"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_55f7427d",
+    "name": "Cripto y agentes IA",
+    "definition": "Riesgos y oportunidades de agentes de IA que operan con criptomonedas y wallets.",
+    "wikipedia": "Cryptocurrency",
+    "queries": [
+     "cripto agentes IA",
+     "AI crypto wallet",
+     "bitcoin agent"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2ae720c5",
+    "name": "IA y cultura pop",
+    "definition": "Debate sobre IA en música, piratería, talento creativo y contenido para niños.",
+    "wikipedia": "Artificial intelligence in popular culture",
+    "queries": [
+     "IA cultura pop",
+     "AI music piracy",
+     "IA y talento"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_aeacc340",
+    "name": "Empleado digital",
+    "definition": "Nuevos roles y habilidades para trabajar con agentes de IA en marketing y empresas.",
+    "wikipedia": "Digital worker",
+    "queries": [
+     "empleado digital",
+     "digital workforce",
+     "talento IA marketing"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_07831354",
+    "name": "Ataques hutíes e IA",
+    "definition": "Uso de IA para generar desinformación y desarrollar misiles en ataques hutíes.",
+    "wikipedia": "Houthi movement",
+    "queries": [
+     "ataques hutíes IA",
+     "Houthi AI missiles",
+     "desinformación hutí"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a4004158",
+    "name": "FBI y OpenAI",
+    "definition": "Caso de espionaje industrial con un empleado de OpenAI arrestado por el FBI.",
+    "wikipedia": "Federal Bureau of Investigation",
+    "queries": [
+     "FBI OpenAI",
+     "OpenAI espionaje",
+     "OpenAI bugging"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2d0f735a",
+    "name": "OpenAI y matemáticas",
+    "definition": "Modelos de OpenAI que resuelven problemas matemáticos complejos y generan debate académico.",
+    "wikipedia": "OpenAI",
+    "queries": [
+     "OpenAI matemáticas",
+     "OpenAI math problems",
+     "IA resuelve matemáticas"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_93a17e1c",
+    "name": "StepFun Step-5-Preview",
+    "definition": "Modelo de lenguaje abierto de StepFun con arquitectura MoE y ventana de contexto de 1M tokens.",
+    "wikipedia": "StepFun",
+    "queries": [
+     "StepFun AI",
+     "Step-5-Preview",
+     "StepFun model"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a4e2002d",
+    "name": "IA e impuestos",
+    "definition": "Impacto de la IA en ingresos fiscales, contabilidad y herramientas tributarias para autónomos.",
+    "wikipedia": "Tax",
+    "queries": [
+     "IA impuestos",
+     "AI tax accounting",
+     "IA contabilidad"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_25fb9492",
+    "name": "Redes neuronales y ML",
+    "definition": "Avances en redes neuronales y machine learning aplicados a clima y otras industrias.",
+    "wikipedia": "Neural network (machine learning)",
+    "queries": [
+     "redes neuronales",
+     "machine learning",
+     "ML weather forecasting"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_2c0a355c",
+    "name": "Hiperpersonalización con IA",
+    "definition": "Uso de IA para personalizar experiencias de cliente a escala en marketing y finanzas.",
+    "wikipedia": "Personalization",
+    "queries": [
+     "hiperpersonalización IA",
+     "AI personalization",
+     "personalización web IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_7d5f7d9b",
+    "name": "Futuro del coding",
+    "definition": "Debate sobre si los agentes de IA reemplazarán a programadores y cómo cambia el desarrollo.",
+    "wikipedia": "Software development",
+    "queries": [
+     "futuro coding IA",
+     "AI replacing developers",
+     "futuro programación"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2488bd5f",
+    "name": "Google Universal Cart",
+    "definition": "Herramienta de compras de Google que unifica carritos y alertas de precios en Search y Gemini.",
+    "wikipedia": "Google Shopping",
+    "queries": [
+     "Google Universal Cart",
+     "Universal Cart",
+     "Google shopping AI"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

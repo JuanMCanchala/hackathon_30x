@@ -1,0 +1,24 @@
+{
+ "key": "81099407dbbfaab6ce9cb2bec3f64c199beb86aabafb820cf5c9ef0b1d41beb5",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:16:36.676Z",
+ "latencyMs": 6178,
+ "usage": {
+  "inputTokens": 763,
+  "outputTokens": 819
+ },
+ "output": {
+  "score": 7,
+  "executive": 8,
+  "noCode": 5,
+  "latam": 5,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Decisiones build vs buy, control de datos y dependencia de proveedores.",
+   "Herramientas open source permiten probar rápido sin gran presupuesto.",
+   "Ángulo brasileño y costos en dólares resuenan en LatAm."
+  ]
+ }
+}

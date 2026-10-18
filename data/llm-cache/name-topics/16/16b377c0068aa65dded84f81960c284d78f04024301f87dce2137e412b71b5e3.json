@@ -1,0 +1,255 @@
+{
+ "key": "16b377c0068aa65dded84f81960c284d78f04024301f87dce2137e412b71b5e3",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T21:53:34.356Z",
+ "latencyMs": 13235,
+ "usage": {
+  "inputTokens": 2720,
+  "outputTokens": 1857
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_a58acdc8",
+    "name": "IA y carreras profesionales",
+    "definition": "Cómo la IA transforma el mercado laboral, las carreras universitarias y las trayectorias profesionales de los ejecutivos.",
+    "wikipedia": "Technological unemployment",
+    "queries": [
+     "AI careers impact",
+     "carreras universitarias IA",
+     "AI job displacement"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8d0cd709",
+    "name": "Rescate con IA en Mount Shasta",
+    "definition": "Excursionistas rescatados tras planificar su ruta con IA, evidenciando riesgos de confiar en modelos generativos.",
+    "wikipedia": "Mount Shasta",
+    "queries": [
+     "Mount Shasta rescue",
+     "hikers AI rescue",
+     "Gemini hiking rescue"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_bb19cc83",
+    "name": "Pion y Positron",
+    "definition": "Startups de agentes autónomos y chips de IA que atraen inversión y despliegues en plataformas cloud.",
+    "wikipedia": null,
+    "queries": [
+     "Pion AI agent",
+     "Positron AI chip",
+     "autonomous company agent"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_fc6881f3",
+    "name": "Agentes de IA y lenguaje propio",
+    "definition": "Agentes de IA que desarrollan lenguajes internos incomprensibles para humanos, planteando retos de control y auditoría.",
+    "wikipedia": "Multi-agent system",
+    "queries": [
+     "AI agents language",
+     "agentes IA idioma",
+     "emergent communication AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1a5cef9b",
+    "name": "Automatización de prospección comercial",
+    "definition": "Herramientas como AutoProspector que automatizan targeting, outreach y seguimiento para equipos de ventas.",
+    "wikipedia": "Sales automation",
+    "queries": [
+     "AI prospecting tool",
+     "automatización prospección",
+     "sales outreach AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b5401db2",
+    "name": "Expansión internacional de startups IA",
+    "definition": "Startups de IA que abren oficinas en el extranjero y buscan clientes empresariales fuera de su mercado local.",
+    "wikipedia": "Internationalization",
+    "queries": [
+     "AI startup expansion",
+     "expansión internacional startups",
+     "global AI market entry"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_0331e904",
+    "name": "Despliegue de LLM en producción",
+    "definition": "Prácticas y herramientas para llevar modelos de lenguaje a producción, incluyendo serving, GPUs y monitoreo.",
+    "wikipedia": "Large language model",
+    "queries": [
+     "deploy LLM production",
+     "despliegue LLM",
+     "LLM serving vLLM"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2d4d5588",
+    "name": "LEGO e IA",
+    "definition": "Aplicaciones de IA en robótica y educación con LEGO, desde clasificadoras de piezas hasta kits educativos.",
+    "wikipedia": "Lego Education",
+    "queries": [
+     "LEGO AI robot",
+     "LEGO Education IA",
+     "AI brick sorting"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b3c68eac",
+    "name": "ZCode",
+    "definition": "Agente de codificación de Zhipu/GLM que compite con Claude Code y genera debate sobre privacidad y rendimiento.",
+    "wikipedia": null,
+    "queries": [
+     "ZCode GLM agent",
+     "ZCode coding agent",
+     "Zhipu coding agent"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_13269137",
+    "name": "Tempus AI y Xpectrum AI",
+    "definition": "Plataformas de IA para diagnóstico médico y construcción de agentes, con movimientos bursátiles y lanzamientos de producto.",
+    "wikipedia": "Tempus AI",
+    "queries": [
+     "Tempus AI diagnostics",
+     "Xpectrum AI agents",
+     "AI agent platform"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_01c0b755",
+    "name": "IA en física teórica",
+    "definition": "Uso de agentes de IA para resolver cálculos complejos en física teórica, como amplitudes de scattering.",
+    "wikipedia": "Theoretical physics",
+    "queries": [
+     "AI theoretical physics",
+     "IA física teórica",
+     "AI physics calculation"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_56190eb9",
+    "name": "IA open source china",
+    "definition": "Modelos de IA de código abierto desarrollados en China que ganan adopción en empresas y economías en desarrollo.",
+    "wikipedia": "Open-source artificial intelligence",
+    "queries": [
+     "Chinese open source AI",
+     "IA china open source",
+     "China AI models"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d88c420d",
+    "name": "Tether y XRP con IA",
+    "definition": "Iniciativas de criptoempresas como Tether y XRP que integran IA, desde traducción open source hasta trading automatizado.",
+    "wikipedia": "Tether (cryptocurrency)",
+    "queries": [
+     "Tether AI translation",
+     "XRP AI trading",
+     "crypto AI models"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_df6d0a0c",
+    "name": "Infografías y propuestas con IA",
+    "definition": "Uso de IA generativa para crear infografías, propuestas comerciales y materiales visuales en minutos.",
+    "wikipedia": "Infographic",
+    "queries": [
+     "AI infographic generator",
+     "propuestas comerciales IA",
+     "Venngage AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8500e22c",
+    "name": "Automatización de correo con IA",
+    "definition": "Agentes de IA que gestionan, envían y responden correos automáticamente, con implicaciones de productividad y privacidad.",
+    "wikipedia": "Email automation",
+    "queries": [
+     "AI email automation",
+     "automatización correos IA",
+     "Claude email agent"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_af8fe70f",
+    "name": "Crítica a la industria de IA",
+    "definition": "Debate sobre regulación, desaceleración y daños actuales de la IA generativa frente a narrativas de superinteligencia.",
+    "wikipedia": "Regulation of artificial intelligence",
+    "queries": [
+     "AI industry criticism",
+     "crítica industria IA",
+     "AI regulation debate"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_6ac85981",
+    "name": "Sony y Warner vs Anthropic",
+    "definition": "Demandas de discográficas contra Anthropic por entrenar IA con canciones protegidas, y sistemas públicos de empleo con IA.",
+    "wikipedia": "Anthropic",
+    "queries": [
+     "Sony Warner Anthropic lawsuit",
+     "Anthropic copyright music",
+     "EMI IA empleo"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_247169b0",
+    "name": "TrueForge",
+    "definition": "Harness open source de TrueFoundry para construir agentes de IA con enrutamiento, sandboxing y persistencia de sesiones.",
+    "wikipedia": null,
+    "queries": [
+     "TrueForge agent harness",
+     "TrueFoundry TrueForge",
+     "open source agent harness"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_acf9ebb4",
+    "name": "IA en servicios de TI",
+    "definition": "Impacto de la IA en contratos, productividad y modelos de negocio de empresas de servicios de TI como Wipro y Kyndryl.",
+    "wikipedia": "Information technology consulting",
+    "queries": [
+     "AI IT services",
+     "IA servicios TI",
+     "Wipro AI productivity"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_684770e6",
+    "name": "IBM Bob",
+    "definition": "Asistente de codificación con IA de IBM que se integra en codebases y opera dentro de firewalls para empresas reguladas.",
+    "wikipedia": "IBM",
+    "queries": [
+     "IBM Bob coding agent",
+     "IBM AI developer",
+     "Bob AI coding"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

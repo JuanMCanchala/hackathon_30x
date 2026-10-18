@@ -1,0 +1,255 @@
+{
+ "key": "3e4f22e41d605a2eb8bcf41c476c18e6f2171aa65802fe418dd774458f53bcf1",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T21:53:44.905Z",
+ "latencyMs": 10652,
+ "usage": {
+  "inputTokens": 2760,
+  "outputTokens": 1633
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_dc49d210",
+    "name": "Base44",
+    "definition": "Plataforma de vibe coding que permite crear aplicaciones con IA sin escribir código.",
+    "wikipedia": null,
+    "queries": [
+     "Base44 AI",
+     "Base44 vibe coding",
+     "Base44 plataforma"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f06c8ced",
+    "name": "BBVA Research IA empleo",
+    "definition": "Estudios de BBVA Research sobre el impacto de la IA en el empleo, sin destrucción de puestos.",
+    "wikipedia": null,
+    "queries": [
+     "BBVA Research IA",
+     "IA empleo España",
+     "BBVA Research productividad"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e7eb95e1",
+    "name": "Calidad en código IA",
+    "definition": "Preocupación por la calidad del software generado con IA y su impacto en productos finales.",
+    "wikipedia": null,
+    "queries": [
+     "calidad código IA",
+     "vibe coding calidad",
+     "AI code quality"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_3e9c56ad",
+    "name": "Dispositivo escucha OpenAI",
+    "definition": "Incidente de un dispositivo de grabación oculto encontrado en oficinas de OpenAI.",
+    "wikipedia": null,
+    "queries": [
+     "OpenAI listening device",
+     "dispositivo escucha OpenAI",
+     "OpenAI FBI arrest"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_7ec2eea7",
+    "name": "IA y PIB",
+    "definition": "Debate sobre el impacto de la IA en el crecimiento del PIB mundial y sus riesgos financieros.",
+    "wikipedia": null,
+    "queries": [
+     "IA PIB mundial",
+     "AI GDP impact",
+     "FMI IA PIB"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c54cb24e",
+    "name": "Claude y Policía Filadelfia",
+    "definition": "Modelo de IA Claude envió una pista falsa de homicidio a la policía de Filadelfia.",
+    "wikipedia": null,
+    "queries": [
+     "Claude Philadelphia police",
+     "Anthropic false tip",
+     "Claude policía Filadelfia"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1db58fe8",
+    "name": "IA en el cine",
+    "definition": "Uso de IA generativa en la producción cinematográfica y reacciones del público.",
+    "wikipedia": null,
+    "queries": [
+     "IA cine",
+     "AI in film",
+     "IA generativa cine"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_afc32874",
+    "name": "Hong Kong IA",
+    "definition": "Iniciativas de Hong Kong en IA, incluyendo marco regulatorio y aplicaciones bancarias.",
+    "wikipedia": null,
+    "queries": [
+     "Hong Kong AI",
+     "Hong Kong inteligencia artificial",
+     "Hong Kong AI framework"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_238965e9",
+    "name": "Marcas de agua Gemini",
+    "definition": "Google Gemini permite eliminar marcas de agua visibles de imágenes generadas por IA.",
+    "wikipedia": null,
+    "queries": [
+     "Gemini watermarks",
+     "marcas de agua Gemini",
+     "Google Gemini watermark removal"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a4f82737",
+    "name": "Publicidad generada con IA",
+    "definition": "Reacciones negativas hacia anuncios y folletos generados con IA por parte de negocios locales.",
+    "wikipedia": null,
+    "queries": [
+     "AI generated ads",
+     "publicidad IA",
+     "AI flyers backlash"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_90112f42",
+    "name": "IA en universidades India",
+    "definition": "Avances y proyectos de IA en universidades indias como IIT Bombay y Galgotias.",
+    "wikipedia": null,
+    "queries": [
+     "IIT Bombay AI",
+     "Galgotias University AI",
+     "India AI universities"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_89a75102",
+    "name": "Argon",
+    "definition": "Plataforma de IA que utiliza Gemini API para crear videojuegos y simulaciones científicas.",
+    "wikipedia": null,
+    "queries": [
+     "Argon AI",
+     "Argon Gemini API",
+     "Argon game developer"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_3a5f996e",
+    "name": "Productividad europea IA",
+    "definition": "Impacto de la IA en la productividad europea y riesgo de desigualdad según el FMI.",
+    "wikipedia": null,
+    "queries": [
+     "IA productividad Europa",
+     "IMF AI Europe",
+     "productividad europea IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_19e37de0",
+    "name": "Tributación e IA",
+    "definition": "Desafíos fiscales y evasión de impuestos relacionados con startups de IA y la economía digital.",
+    "wikipedia": null,
+    "queries": [
+     "IA impuestos",
+     "AI tax evasion",
+     "tributación IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_57636286",
+    "name": "Modelo Astra",
+    "definition": "Modelo de IA de OpenAI demandado por infracción de marca registrada.",
+    "wikipedia": null,
+    "queries": [
+     "OpenAI Astra",
+     "Astra AI model",
+     "OpenAI trademark lawsuit"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a48a47c4",
+    "name": "Alternativa a Outlook",
+    "definition": "eM Client 11 se posiciona como alternativa europea a Outlook con IA y soberanía digital.",
+    "wikipedia": null,
+    "queries": [
+     "eM Client 11",
+     "Outlook alternative",
+     "alternativa Outlook IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_196e74d7",
+    "name": "RentAHuman",
+    "definition": "Plataforma donde agentes de IA contratan humanos para realizar trabajos físicos.",
+    "wikipedia": null,
+    "queries": [
+     "RentAHuman",
+     "AI hires humans",
+     "trabajo físico IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_66e8da48",
+    "name": "IA en seguros de salud",
+    "definition": "Aseguradoras como Cigna y Blue Cross Blue Shield usan IA para reducir costos y mejorar productividad.",
+    "wikipedia": null,
+    "queries": [
+     "Cigna AI",
+     "Blue Cross Blue Shield AI",
+     "IA seguros salud"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e3468391",
+    "name": "Launcher con IA",
+    "definition": "Epic Games lanza un launcher vibe coded con IA, más rápido que Steam.",
+    "wikipedia": null,
+    "queries": [
+     "Epic launcher AI",
+     "launcher IA",
+     "Epic Games Store launcher"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_54ff0599",
+    "name": "SaaSpocalypse",
+    "definition": "Temor a que agentes de IA reemplacen o transformen el modelo de negocio del software como servicio.",
+    "wikipedia": null,
+    "queries": [
+     "SaaSpocalypse",
+     "AI SaaS disruption",
+     "SaaS apocalypse IA"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

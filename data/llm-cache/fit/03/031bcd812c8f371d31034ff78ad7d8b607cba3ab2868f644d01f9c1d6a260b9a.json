@@ -1,0 +1,24 @@
+{
+ "key": "031bcd812c8f371d31034ff78ad7d8b607cba3ab2868f644d01f9c1d6a260b9a",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:19:53.144Z",
+ "latencyMs": 5831,
+ "usage": {
+  "inputTokens": 743,
+  "outputTokens": 686
+ },
+ "output": {
+  "score": 4,
+  "executive": 6,
+  "noCode": 2,
+  "latam": 2,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Tema técnico de infraestructura, poco accionable para equipos comerciales",
+   "Costos de inferencia importan a CEOs, pero sin ángulo LatAm claro",
+   "Incluye cuantización y decodificación especulativa, difícil sin programar"
+  ]
+ }
+}

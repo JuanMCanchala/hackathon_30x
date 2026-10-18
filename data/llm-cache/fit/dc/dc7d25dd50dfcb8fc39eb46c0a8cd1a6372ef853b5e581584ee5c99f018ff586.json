@@ -1,0 +1,24 @@
+{
+ "key": "dc7d25dd50dfcb8fc39eb46c0a8cd1a6372ef853b5e581584ee5c99f018ff586",
+ "name": "fit",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:16:32.940Z",
+ "latencyMs": 6917,
+ "usage": {
+  "inputTokens": 709,
+  "outputTokens": 810
+ },
+ "output": {
+  "score": 6,
+  "executive": 7,
+  "noCode": 4,
+  "latam": 3,
+  "pillar": "Inteligencia Artificial",
+  "hypeRisk": "medio",
+  "reasons": [
+   "Regulación global impacta estrategia y compliance de empresas que usan IA.",
+   "Poco ángulo LatAm; foco en Reino Unido, EE.UU. y UE.",
+   "Útil para líderes, no tanto para equipos comerciales o growth."
+  ]
+ }
+}

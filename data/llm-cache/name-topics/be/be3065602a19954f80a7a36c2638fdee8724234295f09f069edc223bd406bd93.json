@@ -1,0 +1,255 @@
+{
+ "key": "be3065602a19954f80a7a36c2638fdee8724234295f09f069edc223bd406bd93",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T21:53:46.960Z",
+ "latencyMs": 12412,
+ "usage": {
+  "inputTokens": 2690,
+  "outputTokens": 1877
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_9828e1e6",
+    "name": "Vitalik Buterin y agentes de IA",
+    "definition": "El cofundador de Ethereum experimenta con agentes de IA en 'modo paranoico' y advierte sobre avances matemáticos acelerados.",
+    "wikipedia": "Vitalik Buterin",
+    "queries": [
+     "Vitalik Buterin IA",
+     "Vitalik agentes paranoicos",
+     "Buterin crypto AI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_04d74744",
+    "name": "Gemini CLI",
+    "definition": "Herramienta de línea de comandos de Google para agentes de codificación con IA, ahora bajo escrutinio por vulnerabilidades de seguridad.",
+    "wikipedia": "Gemini (chatbot)",
+    "queries": [
+     "Gemini CLI vulnerabilidad",
+     "Gemini CLI coding",
+     "Google Gemini CLI"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c9e27c98",
+    "name": "Modelos de contexto largo",
+    "definition": "Modelos de lenguaje que procesan ventanas de contexto extensas, clave para análisis de documentos y memoria en agentes.",
+    "wikipedia": "Large language model",
+    "queries": [
+     "long context models",
+     "contexto largo IA",
+     "long context LLM"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_845f19f4",
+    "name": "IA en consultoría",
+    "definition": "Uso de inteligencia artificial por firmas consultoras para transformar servicios, automatizar entregables y generar nuevos ingresos.",
+    "wikipedia": "Consulting",
+    "queries": [
+     "IA consultoría",
+     "AI consulting firms",
+     "consultoría inteligencia artificial"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5c78b6c6",
+    "name": "IA en Europa del Este",
+    "definition": "Desarrollo de inteligencia artificial y empleos tecnológicos en ciudades como Bucarest y Varsovia, con protestas simbólicas de robots.",
+    "wikipedia": null,
+    "queries": [
+     "AI Bucharest jobs",
+     "robots Varsovia",
+     "AI Eastern Europe"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_153c21de",
+    "name": "Guías de IA en comunidades",
+    "definition": "Debates y directrices sobre el uso de modelos de lenguaje en comunidades de código abierto como KDE.",
+    "wikipedia": "KDE",
+    "queries": [
+     "KDE AI guidelines",
+     "guías IA open source",
+     "LLM guidelines community"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_03a562ce",
+    "name": "Stanford HAI y Hotwire",
+    "definition": "Iniciativas de investigación y laboratorios de IA como Stanford HAI y el AI Lab de Hotwire en España.",
+    "wikipedia": "Stanford Institute for Human-Centered Artificial Intelligence",
+    "queries": [
+     "Stanford HAI AI",
+     "Hotwire AI Lab",
+     "Stanford HAI agents"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_aaf558c7",
+    "name": "Efectos cognitivos de la IA",
+    "definition": "Preocupación por el impacto del uso intensivo de IA en la cognición humana, especialmente en programación y adultos mayores.",
+    "wikipedia": "Cognitive effects of artificial intelligence",
+    "queries": [
+     "efectos cognitivos IA",
+     "AI cognitive effects",
+     "ChatGPT cerebro"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_16b481c2",
+    "name": "Automatización de contenido con IA",
+    "definition": "Herramientas como Robopost y Relay que automatizan la publicación de contenido y flujos de trabajo con IA.",
+    "wikipedia": null,
+    "queries": [
+     "Robopost AI",
+     "Relay AI shutdown",
+     "automatización contenido IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5a57103e",
+    "name": "IBM watsonx y NASA",
+    "definition": "Plataforma de IA empresarial de IBM y su colaboración con NASA para modelos geoespaciales y monitoreo de reglas de IA.",
+    "wikipedia": "IBM Watsonx",
+    "queries": [
+     "IBM watsonx",
+     "NASA IBM AI",
+     "watsonx monitoring tools"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_2f0ce2f1",
+    "name": "Upscaling de video con IA",
+    "definition": "Tecnologías de mejora de resolución de imágenes y videos mediante inteligencia artificial, a menudo confundidas con IA generativa.",
+    "wikipedia": "Video upscaling",
+    "queries": [
+     "AI video upscaling",
+     "upscaling video IA",
+     "mejorar video IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_595bdf26",
+    "name": "Ataque BragJack",
+    "definition": "Vulnerabilidad que permite secuestrar asistentes de IA en navegadores para ejecutar acciones maliciosas.",
+    "wikipedia": null,
+    "queries": [
+     "BragJack attack",
+     "BragJack browser AI",
+     "ataque BragJack"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_93a17e1c",
+    "name": "StepFun",
+    "definition": "Startup china de IA que lanza modelos y hasta un smartphone para competir con gigantes tecnológicos.",
+    "wikipedia": "StepFun",
+    "queries": [
+     "StepFun AI",
+     "StepFun smartphone",
+     "StepFun modelos"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_301dee78",
+    "name": "IA para Artemis y Atenea",
+    "definition": "Proyectos de IA como el copiloto lunar de NASA-IBM y la IA Atenea de Mercadona, vinculados a misiones espaciales y retail.",
+    "wikipedia": "Artemis program",
+    "queries": [
+     "NASA Artemis AI",
+     "Mercadona Atenea IA",
+     "IA lunar copiloto"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_50a08f63",
+    "name": "Testing automatizado con IA",
+    "definition": "Impacto de la generación de código por IA en los procesos de prueba de software y riesgos de calidad.",
+    "wikipedia": "Test automation",
+    "queries": [
+     "AI software testing",
+     "testing automatizado IA",
+     "AI code testing risks"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ea066309",
+    "name": "Workflow para agentes de IA",
+    "definition": "Motores de flujo de trabajo que orquestan agentes de IA, herramientas y contexto para tareas complejas.",
+    "wikipedia": "Workflow engine",
+    "queries": [
+     "AI agent workflow",
+     "workflow engine IA",
+     "agentes IA flujos"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_314a4bd7",
+    "name": "Protocolo ACP para agentes",
+    "definition": "Estándar de comunicación para agentes de IA, con ejemplos como Zed Editor y Docker Agent en entornos sandbox.",
+    "wikipedia": null,
+    "queries": [
+     "ACP AI agents",
+     "Agent Communication Protocol",
+     "Zed Docker ACP"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ed592d5a",
+    "name": "Xiaomi MiMo-V2.6",
+    "definition": "Nueva familia de modelos de IA de código abierto de Xiaomi con precios competitivos frente a GPT y otros.",
+    "wikipedia": "Xiaomi",
+    "queries": [
+     "Xiaomi MiMo",
+     "MiMo-V2.6 AI",
+     "Xiaomi open source model"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_5e4f2a41",
+    "name": "Datos estructurados y no estructurados",
+    "definition": "Gestión de datos no estructurados para IA empresarial y desafíos de integración con sistemas internos.",
+    "wikipedia": "Unstructured data",
+    "queries": [
+     "unstructured data AI",
+     "datos no estructurados",
+     "enterprise AI data"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_b14d4fef",
+    "name": "WTTC y empleo turístico",
+    "definition": "El Consejo Mundial de Viajes y Turismo prevé millones de nuevos empleos en turismo pese al avance de la IA.",
+    "wikipedia": "World Travel and Tourism Council",
+    "queries": [
+     "WTTC AI empleo",
+     "WTTC tourism jobs",
+     "turismo IA empleo"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,255 @@
+{
+ "key": "bcec90a83ea8932ede5d8265728bf5bf382007a9f7f93d29c3cdc9fe384338ae",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T21:54:08.383Z",
+ "latencyMs": 21205,
+ "usage": {
+  "inputTokens": 2961,
+  "outputTokens": 1788
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_c6b27bdd",
+    "name": "Minerales críticos e IA",
+    "definition": "La demanda de minerales críticos impulsada por la IA y su impacto en la geopolítica y la energía.",
+    "wikipedia": "Critical mineral",
+    "queries": [
+     "minerales críticos IA",
+     "critical minerals AI",
+     "minería inteligencia artificial"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_6d17954b",
+    "name": "Beneficios de empleados con IA",
+    "definition": "Automatización y gestión de beneficios laborales mediante inteligencia artificial en las empresas.",
+    "wikipedia": "Employee benefits",
+    "queries": [
+     "beneficios empleados IA",
+     "employee benefits AI",
+     "automatización beneficios"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_a0b57f6b",
+    "name": "Expertos y regulación de IA",
+    "definition": "Preocupación de expertos y profesionales por los riesgos de la IA y la necesidad de regulación.",
+    "wikipedia": "Regulation of artificial intelligence",
+    "queries": [
+     "expertos regulación IA",
+     "AI experts regulation",
+     "riesgos IA expertos"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_7dc288c2",
+    "name": "Incidentes de desalineación",
+    "definition": "Casos en que sistemas de IA actúan en contra de las intenciones humanas, generando riesgos.",
+    "wikipedia": "AI alignment",
+    "queries": [
+     "incidentes desalineación IA",
+     "AI misalignment incidents",
+     "riesgos desalineación"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_41c7b85b",
+    "name": "Rentabilidad de la IA",
+    "definition": "Impacto de la IA en los beneficios empresariales y la dificultad de obtener retorno financiero.",
+    "wikipedia": "Artificial intelligence in business",
+    "queries": [
+     "rentabilidad IA empresas",
+     "AI profitability",
+     "retorno inversión IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_0312ea9f",
+    "name": "Quema de caja en IA",
+    "definition": "Altas tasas de consumo de efectivo en empresas de IA y su impacto en la viabilidad financiera.",
+    "wikipedia": "Cash flow",
+    "queries": [
+     "quema de caja IA",
+     "AI cash burn",
+     "ciclo de caja IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8ae6a344",
+    "name": "Fact-checking con IA",
+    "definition": "Uso de IA para verificar información y combatir desinformación, incluyendo riesgos de informes falsos.",
+    "wikipedia": "Fact-checking",
+    "queries": [
+     "fact-checking IA",
+     "AI fact checking",
+     "informes falsos IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_da053bc2",
+    "name": "Cómic e IA generativa",
+    "definition": "Debate en el mundo del cómic sobre el uso de IA generativa y su impacto en la creación artística.",
+    "wikipedia": "Comics",
+    "queries": [
+     "cómic IA generativa",
+     "AI comics",
+     "cómic divulgativo IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_8a4aa8af",
+    "name": "Kalshi y publicidad con IA",
+    "definition": "Polémica por el uso de IA para recrear videos de creadores sin permiso en anuncios de Kalshi.",
+    "wikipedia": "Kalshi",
+    "queries": [
+     "Kalshi IA publicidad",
+     "Kalshi AI ad",
+     "Kalshi controversia"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_063329ad",
+    "name": "Filtrado de candidatos con IA",
+    "definition": "Uso de IA para evaluar y filtrar candidatos en procesos de selección, con desafíos éticos y prácticos.",
+    "wikipedia": "Recruitment",
+    "queries": [
+     "filtrado candidatos IA",
+     "AI candidate screening",
+     "selección personal IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1ee6a720",
+    "name": "Deshumanización laboral por IA",
+    "definition": "Preocupación por la pérdida de dignidad y precarización del trabajo debido a la automatización con IA.",
+    "wikipedia": "Precarity",
+    "queries": [
+     "deshumanización laboral IA",
+     "AI job dignity",
+     "precarización IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_60137d3d",
+    "name": "KDE y directrices de IA",
+    "definition": "Debate en la comunidad KDE sobre la integración de IA y la creación de guías éticas.",
+    "wikipedia": "KDE",
+    "queries": [
+     "KDE directrices IA",
+     "KDE AI guidelines",
+     "KDE inteligencia artificial"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_e4abdfc4",
+    "name": "Estética generada por IA",
+    "definition": "Tendencias visuales y estéticas asociadas a contenidos generados por inteligencia artificial.",
+    "wikipedia": "AI art",
+    "queries": [
+     "estética IA",
+     "AI aesthetics",
+     "estilo generado IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_893b8cec",
+    "name": "Vidu Q4",
+    "definition": "Modelo de generación de video con IA de Vidu, con capacidades avanzadas de edición y control.",
+    "wikipedia": "Vidu",
+    "queries": [
+     "Vidu Q4",
+     "Vidu video IA",
+     "Vidu Q4 review"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_43e66845",
+    "name": "IA en química",
+    "definition": "Aplicación de inteligencia artificial en química para descubrimiento y desarrollo de materiales.",
+    "wikipedia": "Cheminformatics",
+    "queries": [
+     "IA en química",
+     "AI chemistry",
+     "química digital IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_45001372",
+    "name": "FinOps para IA",
+    "definition": "Gestión financiera de costos de infraestructura y servicios de inteligencia artificial en la nube.",
+    "wikipedia": "FinOps",
+    "queries": [
+     "FinOps IA",
+     "AI FinOps",
+     "costos IA nube"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_3c57bf74",
+    "name": "Granjas de bots",
+    "definition": "Redes de cuentas automatizadas que manipulan plataformas, a menudo usando contenido generado por IA.",
+    "wikipedia": "Botnet",
+    "queries": [
+     "granjas de bots",
+     "bot farms AI",
+     "bots IA redes"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_ccfa57c3",
+    "name": "Reservas con IA en restaurantes",
+    "definition": "Uso de bots con IA para reservar en restaurantes, generando conflictos con plataformas como Resy y OpenTable.",
+    "wikipedia": "OpenTable",
+    "queries": [
+     "reservas IA restaurantes",
+     "AI restaurant reservations",
+     "Resy bots IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d3a1b189",
+    "name": "Hacking de IA",
+    "definition": "Manipulación de sistemas de IA para obtener recompensas no previstas o explotar vulnerabilidades.",
+    "wikipedia": "Reward hacking",
+    "queries": [
+     "hacking de IA",
+     "AI reward hacking",
+     "vulnerabilidades IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d76e2a6f",
+    "name": "IA y emisiones de CO2",
+    "definition": "Impacto del aumento de la IA en las emisiones de carbono y el consumo energético global.",
+    "wikipedia": "Environmental impact of artificial intelligence",
+    "queries": [
+     "IA emisiones CO2",
+     "AI carbon emissions",
+     "IA energía emisiones"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,275 @@
+{
+ "key": "835113e1e098dcb54bdc24c21363ebba4493dd8a339c8b3a9659d1d64e307c5b",
+ "name": "name-topics",
+ "model": "accounts/fireworks/models/deepseek-v4p1-flash",
+ "recordedAt": "2026-10-17T18:11:14.660Z",
+ "latencyMs": 207533,
+ "usage": {
+  "inputTokens": 3256,
+  "outputTokens": 1834
+ },
+ "output": {
+  "topics": [
+   {
+    "id": "t_bc80deba",
+    "name": "Hype y narrativas de IA",
+    "definition": "Cobertura mediática y relatos exagerados sobre el avance de la IA que moldean expectativas ejecutivas.",
+    "wikipedia": "AI boom",
+    "queries": [
+     "AI hype cycle",
+     "narrativas IA medios",
+     "AI media coverage",
+     "avances IA noticias"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_64482358",
+    "name": "Chips: Broadcom, Qualcomm, Marvell",
+    "definition": "Movimientos bursátiles y estratégicos de los fabricantes de semiconductores que sostienen la infraestructura de IA.",
+    "wikipedia": "Broadcom",
+    "queries": [
+     "Broadcom AI chips",
+     "Qualcomm agentes IA",
+     "Marvell AI earnings",
+     "semiconductores IA bolsa"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_bf4fc473",
+    "name": "IA y política en Latinoamérica",
+    "definition": "Uso de IA generativa por líderes y gobiernos de la región, de Milei a Bukele, y su impacto político.",
+    "wikipedia": null,
+    "queries": [
+     "Milei IA video",
+     "IA política Latinoamérica",
+     "Bukele IA",
+     "AI political propaganda"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f4e20ef7",
+    "name": "Oracle y OpenAI",
+    "definition": "La apuesta de Oracle por la nube e IA y su exposición financiera ante el crecimiento de OpenAI.",
+    "wikipedia": "Oracle Corporation",
+    "queries": [
+     "Oracle OpenAI deal",
+     "Oracle AI database",
+     "Oracle cloud IA",
+     "OpenAI Oracle riesgo"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c891d67c",
+    "name": "Prohibición de IA en escuelas",
+    "definition": "Restricciones y moratorias al uso de IA generativa en aulas y espacios educativos o creativos.",
+    "wikipedia": null,
+    "queries": [
+     "ban AI schools",
+     "prohibición IA aulas",
+     "AI ban education",
+     "regulación IA escuelas"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_0f6d277f",
+    "name": "Modelos open weight",
+    "definition": "Modelos de IA con pesos abiertos que compiten con los cerrados y habilitan soberanía tecnológica.",
+    "wikipedia": "Open-weight model",
+    "queries": [
+     "open weight models",
+     "modelos open weights",
+     "open source LLM",
+     "Mistral open model"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_c417a82a",
+    "name": "Investigación académica en IA",
+    "definition": "Estudios, papers y metodologías de investigación sobre IA desde universidades y centros de pensamiento.",
+    "wikipedia": "Artificial intelligence research",
+    "queries": [
+     "AI research paper",
+     "investigación IA académica",
+     "AI empirical study",
+     "research AI agents"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_e8fcdaeb",
+    "name": "AI Act europeo",
+    "definition": "Reglamento de la UE que fija obligaciones de transparencia y riesgo para sistemas de IA.",
+    "wikipedia": "Artificial Intelligence Act",
+    "queries": [
+     "EU AI Act",
+     "ley IA UE",
+     "AI Act obligaciones",
+     "regulación IA Europa"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_9b4b2a5a",
+    "name": "Memoria de agentes de IA",
+    "definition": "Capacidad de los agentes y LLM para recordar contexto a largo plazo y su aplicación empresarial.",
+    "wikipedia": "Memory (artificial intelligence)",
+    "queries": [
+     "LLM memory",
+     "memoria agentes IA",
+     "AI agent memory",
+     "long-term memory LLM"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_d9e3341a",
+    "name": "Agentes de código (Devin, Kiro)",
+    "definition": "Herramientas emergentes de agentes autónomos para programar y automatizar tareas de desarrollo.",
+    "wikipedia": "Devin AI",
+    "queries": [
+     "Devin AI agent",
+     "Kiro AI IDE",
+     "agentes código IA",
+     "AI coding agent"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_984131ac",
+    "name": "Machine learning y redes neuronales",
+    "definition": "Fundamentos técnicos de aprendizaje automático, deep learning y ciencia de datos aplicada.",
+    "wikipedia": "Machine learning",
+    "queries": [
+     "machine learning",
+     "redes neuronales",
+     "deep learning",
+     "neural networks research"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_a0c1686d",
+    "name": "Contenido generado por IA",
+    "definition": "Producción automatizada de textos, imágenes y piezas digitales con modelos generativos y su calidad.",
+    "wikipedia": "AI-generated content",
+    "queries": [
+     "AI generated content",
+     "contenido IA",
+     "LLM content",
+     "contenido automatizado"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_1f0952f6",
+    "name": "Productividad de desarrolladores con IA",
+    "definition": "Evidencia sobre si los agentes de código aumentan realmente la productividad o solo el volumen de código.",
+    "wikipedia": null,
+    "queries": [
+     "AI coding productivity",
+     "productividad desarrolladores IA",
+     "developer productivity AI",
+     "agentic coding study"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_eab13911",
+    "name": "Infraestructura de IA",
+    "definition": "Centros de datos, cómputo y nube que sostienen el despliegue de modelos de IA a escala.",
+    "wikipedia": "AI infrastructure",
+    "queries": [
+     "AI infrastructure",
+     "infraestructura IA",
+     "data centers AI",
+     "cloud AI compute"
+    ],
+    "generic": true
+   },
+   {
+    "id": "t_b608ab8b",
+    "name": "Muse de Meta",
+    "definition": "Herramienta de IA generativa de Meta que genera controversia por apropiarse de nombres y marcas existentes.",
+    "wikipedia": null,
+    "queries": [
+     "Meta Muse AI",
+     "Muse Glimmer",
+     "Meta AI tool",
+     "Muse AI controversy"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_977246f3",
+    "name": "IA en cine y entretenimiento",
+    "definition": "Debate sobre el uso de IA generativa en Hollywood, animación y producción audiovisual.",
+    "wikipedia": "Artificial intelligence in film",
+    "queries": [
+     "AI Hollywood",
+     "IA cine animación",
+     "generative AI film",
+     "IA entretenimiento"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_6337bb2b",
+    "name": "Consumo energético de la IA",
+    "definition": "Demanda eléctrica de los centros de datos de IA y su impacto en redes y fuentes de energía.",
+    "wikipedia": "Energy consumption of artificial intelligence",
+    "queries": [
+     "AI energy consumption",
+     "consumo energético IA",
+     "AI data center power",
+     "energía nuclear IA"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_f0c97109",
+    "name": "IA y pensamiento crítico",
+    "definition": "Efectos del uso de IA generativa sobre la escritura, el razonamiento y las capacidades cognitivas humanas.",
+    "wikipedia": "Critical thinking",
+    "queries": [
+     "AI critical thinking",
+     "IA pensamiento crítico",
+     "AI cognitive offloading",
+     "writing AI brain"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_12fc8d98",
+    "name": "Edición de imágenes con IA",
+    "definition": "Herramientas generativas para editar fotos, producto e imágenes con modelos como Flux o Qwen.",
+    "wikipedia": "Generative artificial intelligence",
+    "queries": [
+     "AI photo editing",
+     "edición imágenes IA",
+     "Flux image model",
+     "AI image editor"
+    ],
+    "generic": false
+   },
+   {
+    "id": "t_37f6d0a6",
+    "name": "Armas autónomas con IA",
+    "definition": "Uso militar de IA en drones, misiles y sistemas de guiado, y los riesgos de autonomía letal.",
+    "wikipedia": "Lethal autonomous weapon",
+    "queries": [
+     "autonomous weapons AI",
+     "armas autónomas IA",
+     "AI drones military",
+     "killer robots"
+    ],
+    "generic": false
+   }
+  ]
+ }
+}
