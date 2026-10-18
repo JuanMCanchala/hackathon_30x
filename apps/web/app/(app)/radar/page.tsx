@@ -181,13 +181,11 @@ export default function RadarPage() {
 
   return (
     <>
-      <section className="noche pb-8">
-        <div className="mx-auto max-w-[1240px] px-4 pt-8 sm:px-6 sm:pt-10">
+      <section className="mx-auto max-w-[1376px] px-3 pt-4 sm:px-6">
+        <div className="noche rounded-[28px] px-4 pt-8 pb-8 sm:px-8 sm:pt-10 lg:px-12">
           {data ? (
             <>
-              <p className="text-[0.95rem] font-[600] text-white/70">
-                {weekLabel(data.week.start, data.week.end)}
-              </p>
+              <p className="eyebrow text-lavender">{weekLabel(data.week.start, data.week.end)}</p>
               <h1 className="t-display mt-2 max-w-5xl text-[clamp(1.85rem,1.1rem+2.4vw,3rem)] text-balance text-white">
                 {data.headline}
               </h1>
@@ -222,7 +220,7 @@ export default function RadarPage() {
                           <span
                             className={clsx(
                               'text-[0.8rem]',
-                              t.spanishWindow.open ? 'font-[650] text-[#ffb08a]' : 'text-white/55',
+                              t.spanishWindow.open ? 'font-[650] text-marker' : 'text-white/55',
                             )}
                           >
                             {t.spanishWindow.open
@@ -287,7 +285,7 @@ export default function RadarPage() {
               onClick={() => setForAudience((v) => !v)}
               className={clsx(
                 'rounded-full px-3.5 py-2 text-[0.88rem] font-[620] transition',
-                forAudience ? 'bg-brand text-on-brand' : 'bg-fill text-ink-2 hover:text-ink',
+                forAudience ? 'bg-ink font-[700] text-sheet' : 'bg-fill text-ink-2 hover:text-ink',
               )}
             >
               Le sirve a 30X
@@ -298,7 +296,7 @@ export default function RadarPage() {
               onClick={() => setUntouched((v) => !v)}
               className={clsx(
                 'rounded-full px-3.5 py-2 text-[0.88rem] font-[620] transition',
-                untouched ? 'bg-brand text-on-brand' : 'bg-fill text-ink-2 hover:text-ink',
+                untouched ? 'bg-ink font-[700] text-sheet' : 'bg-fill text-ink-2 hover:text-ink',
               )}
             >
               Sin explotar por 30X

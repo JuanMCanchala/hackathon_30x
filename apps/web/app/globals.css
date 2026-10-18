@@ -4,106 +4,115 @@
 @custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
 
 /*
- * Radar 30X: el parte de olas del contenido. Petrol-teal sea for the identity (top bar, hero),
- * foam-white pages, and one buoy-orange accent reserved for "entra ya": the moment to ride a
- * wave. The four lifecycle stages follow the wave (aqua forming, deep blue rising, sand at the
- * crest, grey going out) and always come with their name, never color alone.
+ * OndAI: the design system of the team's landing, applied to the app. Warm paper and sand,
+ * coffee-black ink, one signal orange for «entra ya» and the open window, lavender as the
+ * second voice. Hanken Grotesk for everything, JetBrains Mono for small labels. Stages keep
+ * their name next to their color, never color alone.
  */
 :root {
   color-scheme: light;
-  --noche: #0d4a55;
-  --noche-2: #0f5b68;
-  --noche-3: #136b79;
-  --marker: #ff6b2c;
-  --marker-strong: #f2541a;
-  --on-marker: #0c2730;
-  --paper: #f2f6f6;
-  --sheet: #ffffff;
-  --sheet-2: #f1f6f6;
-  --fill: #e3ecec;
-  --ink: #0c2730;
-  --ink-2: #44606a;
-  --ink-3: #6f8890;
-  --rule: #dde7e7;
-  --rule-strong: #c5d4d5;
-  --brand: #0b6f80;
-  --brand-strong: #075867;
-  --brand-tint: #e0f0f1;
+  --noche: #201515;
+  --noche-2: #2a1f1d;
+  --noche-3: #3a2c29;
+  --marker: #ff4f00;
+  --marker-strong: #e64700;
+  --on-marker: #201515;
+  --lavender: #c1b7ff;
+  --lavender-tint: #e6e1ff;
+  --on-lavender: #201515;
+  --paper: #efebe4;
+  --sheet: #fffdf9;
+  --sheet-2: #f6f3ed;
+  --fill: #eceae3;
+  --ink: #201515;
+  --ink-2: #5e5b52;
+  --ink-3: #8a847c;
+  --rule: #e2ddd3;
+  --rule-strong: #c5c0b1;
+  --brand: #3b33a8;
+  --brand-strong: #2a2380;
+  --brand-tint: #e6e1ff;
   --on-brand: #ffffff;
-  /* Languages: the sources (English, Portuguese) in their own hues, Spanish in ink. */
+  /* Languages: English and Portuguese in their own hues, Spanish in the signal orange. */
   --lang-en: #5a54d6;
   --lang-pt: #2b8a3e;
-  --lang-es: #0c2730;
-  --st-emergente: #0f9e8f;
-  --st-crecimiento: #1561a8;
-  --st-saturado: #b07d00;
-  --st-declive: #7d8f95;
-  --st-estable: #9fb1b5;
-  --st-emergente-tint: #dcf3ef;
-  --st-crecimiento-tint: #e1ecf8;
-  --st-saturado-tint: #f6edd4;
-  --st-declive-tint: #e9eef0;
-  --paid: #0f9e8f;
-  --held: #c8333f;
-  --pending: #b07d00;
-  --rejected: #7d8f95;
-  --paid-tint: #dcf3ef;
-  --held-tint: #f9e3e5;
-  --pending-tint: #f6edd4;
-  --rejected-tint: #e9eef0;
+  --lang-es: #ff4f00;
+  --st-emergente: #1e6b3a;
+  --st-crecimiento: #3b33a8;
+  --st-saturado: #8a5a00;
+  --st-declive: #5e5b52;
+  --st-estable: #a9a49e;
+  --st-emergente-tint: #e6f2e8;
+  --st-crecimiento-tint: #e6e1ff;
+  --st-saturado-tint: #fff0d4;
+  --st-declive-tint: #ecebe5;
+  --paid: #1e6b3a;
+  --held: #b42318;
+  --pending: #8a5a00;
+  --rejected: #8a847c;
+  --paid-tint: #e6f2e8;
+  --held-tint: #fbe4e1;
+  --pending-tint: #fff0d4;
+  --rejected-tint: #ecebe5;
   --on-paid: #ffffff;
   --on-held: #ffffff;
-  --on-pending: #1f1604;
-  --focus: #0b6f80;
-  --material: rgb(242 246 246 / 0.8);
-  --shadow: 0 1px 0 rgb(12 39 48 / 0.04), 0 10px 30px -20px rgb(12 39 48 / 0.28);
-  --shadow-float: 0 30px 60px -24px rgb(12 39 48 / 0.45), 0 2px 6px rgb(12 39 48 / 0.06);
+  --on-pending: #201515;
+  --focus: #ff4f00;
+  --material: rgb(255 253 249 / 0.82);
+  --shadow: 0 0 0 1px rgb(32 21 21 / 0.06);
+  --shadow-float: 0 40px 80px rgb(32 21 21 / 0.28), 0 12px 24px rgb(32 21 21 / 0.18);
 }
 
 :root[data-theme='dark'] {
   color-scheme: dark;
-  --noche: #0a3a44;
-  --noche-2: #0d4652;
-  --noche-3: #105463;
-  --paper: #071c22;
-  --sheet: #0c2830;
-  --sheet-2: #10313a;
-  --fill: #153a44;
-  --ink: #e8f2f3;
-  --ink-2: #a9c0c4;
-  --ink-3: #7f979c;
-  --rule: #18414b;
-  --rule-strong: #22525d;
-  --brand: #5cc6d3;
-  --brand-strong: #8ad9e2;
-  --brand-tint: #11404a;
-  --on-brand: #06222a;
-  --lang-en: #aaa7ff;
+  --noche: #1a1311;
+  --noche-2: #241a18;
+  --noche-3: #342825;
+  --marker: #ff5f17;
+  --marker-strong: #ff7a3d;
+  --on-marker: #201515;
+  --lavender: #c1b7ff;
+  --lavender-tint: #2e2850;
+  --on-lavender: #201515;
+  --paper: #140e0d;
+  --sheet: #201515;
+  --sheet-2: #2a1f1d;
+  --fill: #342825;
+  --ink: #fffdf9;
+  --ink-2: #c5c0b1;
+  --ink-3: #8a847c;
+  --rule: #342825;
+  --rule-strong: #4a3c38;
+  --brand: #c1b7ff;
+  --brand-strong: #e6e1ff;
+  --brand-tint: #2e2850;
+  --on-brand: #201515;
+  --lang-en: #aaa4ff;
   --lang-pt: #74d88a;
-  --lang-es: #e8f2f3;
-  --st-emergente: #3cc7b6;
-  --st-crecimiento: #6aa9ea;
-  --st-saturado: #d9a93a;
-  --st-declive: #8fa3a8;
-  --st-estable: #6f8489;
-  --st-emergente-tint: #0f3b37;
-  --st-crecimiento-tint: #132f4b;
-  --st-saturado-tint: #3a2f12;
-  --st-declive-tint: #1b3036;
-  --paid: #3cc7b6;
-  --held: #ec6b74;
-  --pending: #d9a93a;
-  --rejected: #8fa3a8;
-  --paid-tint: #0f3b37;
-  --held-tint: #3d1a20;
-  --pending-tint: #3a2f12;
-  --rejected-tint: #1b3036;
-  --on-paid: #04201c;
-  --on-held: #1a0608;
-  --on-pending: #160f02;
-  --focus: #ff6b2c;
-  --material: rgb(7 28 34 / 0.8);
-  --shadow: 0 0 0 1px rgb(255 255 255 / 0.04);
+  --lang-es: #ff6a2b;
+  --st-emergente: #74d88a;
+  --st-crecimiento: #c1b7ff;
+  --st-saturado: #f0b54a;
+  --st-declive: #a9a49e;
+  --st-estable: #6e6a66;
+  --st-emergente-tint: #173524;
+  --st-crecimiento-tint: #2e2850;
+  --st-saturado-tint: #3a2a0c;
+  --st-declive-tint: #2a2220;
+  --paid: #74d88a;
+  --held: #ff8a80;
+  --pending: #f0b54a;
+  --rejected: #a9a49e;
+  --paid-tint: #173524;
+  --held-tint: #3d1a17;
+  --pending-tint: #3a2a0c;
+  --rejected-tint: #2a2220;
+  --on-paid: #0e2016;
+  --on-held: #2a0b08;
+  --on-pending: #1f1604;
+  --focus: #ff6a2b;
+  --material: rgb(20 14 13 / 0.82);
+  --shadow: 0 0 0 1px rgb(255 253 249 / 0.06);
   --shadow-float: 0 30px 60px -20px rgb(0 0 0 / 0.7), 0 0 0 1px rgb(255 255 255 / 0.06);
 }
 
@@ -111,23 +120,26 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
     color-scheme: dark;
-    --paper: #071c22;
-    --sheet: #0c2830;
-    --sheet-2: #10313a;
-    --fill: #153a44;
-    --ink: #e8f2f3;
-    --ink-2: #a9c0c4;
-    --ink-3: #7f979c;
-    --rule: #18414b;
-    --rule-strong: #22525d;
-    --brand: #5cc6d3;
-    --brand-tint: #11404a;
-    --material: rgb(7 28 34 / 0.8);
+    --paper: #140e0d;
+    --sheet: #201515;
+    --sheet-2: #2a1f1d;
+    --fill: #342825;
+    --ink: #fffdf9;
+    --ink-2: #c5c0b1;
+    --ink-3: #8a847c;
+    --rule: #342825;
+    --rule-strong: #4a3c38;
+    --brand: #c1b7ff;
+    --brand-tint: #2e2850;
+    --material: rgb(20 14 13 / 0.82);
   }
 }
 
 @theme inline {
   --color-noche: var(--noche);
+  --color-lavender: var(--lavender);
+  --color-lavender-tint: var(--lavender-tint);
+  --color-on-lavender: var(--on-lavender);
   --color-noche-2: var(--noche-2);
   --color-noche-3: var(--noche-3);
   --color-marker: var(--marker);
@@ -171,10 +183,10 @@
   --color-st-declive-tint: var(--st-declive-tint);
   --color-focus: var(--focus);
   --color-material: var(--material);
-  --font-sans: var(--font-archivo), system-ui, sans-serif;
-  --font-display: var(--font-archivo), system-ui, sans-serif;
-  --font-hand: var(--font-archivo), system-ui, sans-serif;
-  --font-mono: ui-monospace, 'SF Mono', 'SFMono-Regular', Menlo, monospace;
+  --font-sans: var(--font-hanken), system-ui, sans-serif;
+  --font-display: var(--font-hanken), system-ui, sans-serif;
+  --font-hand: var(--font-hanken), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, 'SF Mono', Menlo, monospace;
   --shadow-sheet: var(--shadow);
   --shadow-float: var(--shadow-float);
   --animate-float: float 7s ease-in-out infinite;
@@ -187,7 +199,6 @@
     color: var(--ink);
     font-family: var(--font-sans);
     font-size: 16px;
-    font-variation-settings: 'wdth' 100;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
@@ -207,59 +218,66 @@
   }
 }
 
-/* Archivo carries the voice through its width axis: expanded and heavy for headlines like a
-   surf poster, condensed for figures so tables stay compact. */
+/* Hanken Grotesk carries the voice: headlines heavy and tight, figures heavier still; JetBrains Mono
+   for the small labels that name a section or a source. */
 @layer components {
   .t-display {
     font-family: var(--font-display);
-    font-size: clamp(2.1rem, 1.2rem + 3vw, 3.5rem);
-    line-height: 1;
-    font-weight: 800;
-    font-variation-settings: 'wdth' 118;
-    letter-spacing: -0.03em;
+    font-size: clamp(2.25rem, 1.2rem + 3.4vw, 4.25rem);
+    line-height: 1.04;
+    font-weight: 700;
+    letter-spacing: -0.035em;
   }
   .t-h1 {
     font-family: var(--font-display);
-    font-size: clamp(1.9rem, 1.4rem + 1.8vw, 2.5rem);
-    line-height: 1.04;
-    font-weight: 800;
-    font-variation-settings: 'wdth' 115;
-    letter-spacing: -0.025em;
+    font-size: clamp(1.95rem, 1.4rem + 1.8vw, 2.75rem);
+    line-height: 1.05;
+    font-weight: 700;
+    letter-spacing: -0.035em;
   }
   .t-h2 {
     font-family: var(--font-display);
-    font-size: 1.45rem;
+    font-size: 1.6875rem;
     line-height: 1.12;
-    font-weight: 760;
-    font-variation-settings: 'wdth' 110;
-    letter-spacing: -0.015em;
+    font-weight: 700;
+    letter-spacing: -0.02em;
   }
   .t-h3 {
     font-family: var(--font-display);
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     line-height: 1.2;
     font-weight: 700;
-    font-variation-settings: 'wdth' 106;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
   }
   .t-figure {
     font-family: var(--font-display);
-    font-weight: 760;
-    font-variation-settings: 'wdth' 82;
+    font-weight: 800;
     font-variant-numeric: tabular-nums;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.04em;
   }
   .t-condensed {
-    font-variation-settings: 'wdth' 85;
+    letter-spacing: -0.01em;
+  }
+  /* «• La onda de la semana»: the mono label that opens a section. */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+  }
+  .eyebrow::before {
+    content: '• ';
   }
   .voice {
     font-size: 1.1875rem;
     line-height: 1.5;
-    font-weight: 450;
+    font-weight: 400;
   }
   .sheet {
     background: var(--sheet);
-    border-radius: 22px;
+    border-radius: 28px;
     box-shadow: var(--shadow);
   }
   .material {
@@ -267,13 +285,11 @@
     -webkit-backdrop-filter: saturate(160%) blur(20px);
     backdrop-filter: saturate(160%) blur(20px);
   }
-  /* The sea: a grainy petrol surface for the identity (top bar, hero). */
+  /* The dark surface: coffee-black with a lavender glow, for the radar's hero and the menu. */
   .noche {
     background-color: var(--noche);
-    background-image:
-      radial-gradient(80% 70% at 85% 0%, rgb(60 199 182 / 0.22), transparent 60%),
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
-    color: #eef7f7;
+    background-image: radial-gradient(70% 60% at 92% 0%, rgb(193 183 255 / 0.18), transparent 62%);
+    color: #fffdf9;
   }
   /* A Wallet-style pass: the outcome is the color of the whole card. */
   .pass {

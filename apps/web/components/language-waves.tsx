@@ -5,14 +5,22 @@ import { useLayoutEffect, useRef, useState } from 'react';
 import { fmtInt, waveY } from './ui';
 import { LANGS, LANG_COPY, STAGE_COPY, type Lang, type RadarTopic, type Stage } from '@/lib/types';
 
-/** Language hues on the sea (the hero is dark in both themes). Spanish is white: our language. */
-const SEA_LANG: Record<Lang, string> = { en: '#b9b6ff', pt: '#8ce99a', es: '#ffffff' };
+/** Language hues on the dark hero (dark in both themes). Spanish is cream: our language. */
+const SEA_LANG: Record<Lang, string> = { en: '#c1b7ff', pt: '#8fd8a3', es: '#fffdf9' };
 const STAGES: { stage: Stage; from: number; to: number }[] = [
   { stage: 'emergente', from: 0.04, to: 0.32 },
   { stage: 'crecimiento', from: 0.32, to: 0.56 },
   { stage: 'saturado', from: 0.56, to: 0.72 },
   { stage: 'declive', from: 0.72, to: 0.97 },
 ];
+/** Stage names that fit side by side on a phone. */
+const STAGE_SHORT: Partial<Record<Stage, string>> = {
+  emergente: 'Emerge',
+  crecimiento: 'Crece',
+  saturado: 'Satura',
+  declive: 'Declina',
+};
+
 /** Where a topic sits on a lane where nobody has talked about it yet: the calm sea before it. */
 const ABSENT_X = 0.015;
 
@@ -130,7 +138,7 @@ export function LanguageWaves({
               fontSize={narrow ? 10.5 : 12}
               fontWeight={600}
             >
-              {STAGE_COPY[s.stage]}
+              {narrow ? STAGE_SHORT[s.stage] : STAGE_COPY[s.stage]}
             </text>
           ))}
           {topics.map((t) => {
@@ -141,7 +149,7 @@ export function LanguageWaves({
                 key={`thread-${t.id}`}
                 points={pts.map((p) => `${p.x},${p.y}`).join(' ')}
                 fill="none"
-                stroke={open ? '#ff6b2c' : '#ffffff'}
+                stroke={open ? '#ff4f00' : '#ffffff'}
                 strokeOpacity={hover && hover !== t.id ? 0.12 : open ? 0.9 : 0.3}
                 strokeWidth={open ? 2.4 : 1.5}
                 strokeDasharray={open ? undefined : '3 4'}
@@ -169,8 +177,8 @@ export function LanguageWaves({
                 cx={d.x}
                 cy={d.y}
                 r={radius}
-                fill={d.absent ? '#0d4a55' : SEA_LANG[d.lang]}
-                stroke={d.absent ? SEA_LANG[d.lang] : '#0d4a55'}
+                fill={d.absent ? '#201515' : SEA_LANG[d.lang]}
+                stroke={d.absent ? SEA_LANG[d.lang] : '#201515'}
                 strokeWidth={d.absent ? 1.6 : 2.5}
                 strokeDasharray={d.absent ? '2 2' : undefined}
               />
@@ -178,7 +186,7 @@ export function LanguageWaves({
                 x={d.x}
                 y={d.y + 4}
                 textAnchor="middle"
-                fill={d.absent ? SEA_LANG[d.lang] : '#0c2730'}
+                fill={d.absent ? SEA_LANG[d.lang] : '#201515'}
                 fontSize={narrow ? 10 : 11.5}
                 fontWeight={800}
               >
@@ -198,7 +206,7 @@ export function LanguageWaves({
             creadores esta semana.
           </p>
           {active.spanishWindow.open && (
-            <p className="mt-1 text-[0.84rem] font-[650] text-[#c2410c]">
+            <p className="mt-1 text-[0.84rem] font-[650] text-marker-strong">
               Ventana abierta en español.
             </p>
           )}

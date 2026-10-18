@@ -138,9 +138,9 @@ export function WaveChart({ topics }: { topics: RadarTopic[] }) {
             width={xOf(WINDOW.to) - xOf(WINDOW.from)}
             height={base - top + 56}
             rx={14}
-            fill="#ff6b2c"
+            fill="#ff4f00"
             fillOpacity={0.1}
-            stroke="#ff6b2c"
+            stroke="#ff4f00"
             strokeOpacity={0.55}
             strokeDasharray="5 6"
           />
@@ -242,7 +242,7 @@ export function WaveChart({ topics }: { topics: RadarTopic[] }) {
                 cy={y}
                 r={narrow ? 11 : 13}
                 fill={SEA_STAGE[topic.stage]}
-                stroke="#0d4a55"
+                stroke="#201515"
                 strokeWidth={3}
               />
               {hover === topic.id && (
@@ -259,7 +259,7 @@ export function WaveChart({ topics }: { topics: RadarTopic[] }) {
                 x={x}
                 y={y + 4.2}
                 textAnchor="middle"
-                fill="#0c2730"
+                fill="#201515"
                 fontSize={narrow ? 11 : 12}
                 fontWeight={800}
               >

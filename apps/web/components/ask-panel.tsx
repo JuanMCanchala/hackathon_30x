@@ -49,19 +49,19 @@ export function AskTrigger({ onOpen }: { onOpen: () => void }) {
       <button
         type="button"
         onClick={onOpen}
-        className="hidden h-10 w-[300px] items-center gap-2.5 rounded-full bg-white/10 pr-2 pl-3.5 text-left text-[0.92rem] text-white/75 transition hover:bg-white/15 hover:text-white md:flex"
+        className="hidden h-10 w-[260px] items-center gap-2.5 rounded-full bg-fill pr-2 pl-3.5 text-left text-[0.92rem] text-ink-2 transition hover:text-ink md:flex"
       >
         <MessageCircleQuestion className="size-[1.1rem] shrink-0 text-marker" aria-hidden />
-        <span className="flex-1 truncate">Pregúntale al radar</span>
-        <kbd className="rounded-md bg-white/15 px-1.5 py-0.5 font-sans text-[0.75rem] font-[600] text-white/80">
+        <span className="flex-1 truncate">Pregúntale a OndAI</span>
+        <kbd className="rounded-md bg-sheet px-1.5 py-0.5 font-mono text-[0.72rem] text-ink-2">
           {shortcut}
         </kbd>
       </button>
       <button
         type="button"
         onClick={onOpen}
-        aria-label="Pregúntale al radar"
-        className="grid size-10 place-items-center rounded-full text-white hover:bg-white/10 md:hidden"
+        aria-label="Pregúntale a OndAI"
+        className="grid size-10 place-items-center rounded-full text-ink hover:bg-fill md:hidden"
       >
         <MessageCircleQuestion className="size-5" aria-hidden />
       </button>
@@ -83,7 +83,7 @@ function useStarters(open: boolean): string[] {
   ];
 }
 
-/** "Pregúntale al radar": a read-only conversation about the week, with cited topics and pieces. */
+/** "Pregúntale a OndAI": a read-only conversation about the week, with cited topics and pieces. */
 export function AskPanel({
   open,
   onOpenChange,
@@ -139,7 +139,7 @@ export function AskPanel({
           <header className="bg-noche px-6 pt-6 pb-5 text-white">
             <div className="flex items-start justify-between gap-4">
               <DialogPrimitive.Title className="t-h2 text-white">
-                Pregúntale al radar
+                Pregúntale a OndAI
               </DialogPrimitive.Title>
               <DialogPrimitive.Close
                 className="grid size-8 place-items-center rounded-full bg-white/10 hover:bg-white/20"

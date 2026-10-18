@@ -81,7 +81,7 @@ function ThemeSwitch() {
     <div
       role="radiogroup"
       aria-label="Tema"
-      className="inline-flex w-fit rounded-full bg-white/10 p-0.5"
+      className="inline-flex w-fit rounded-full bg-fill p-0.5"
     >
       {options.map(({ value, label, icon: Icon }) => (
         <button
@@ -92,8 +92,8 @@ function ThemeSwitch() {
           title={label}
           onClick={() => chooseTheme(value)}
           className={clsx(
-            'rounded-full px-2.5 py-1 text-white/60 transition hover:text-white',
-            theme === value && 'bg-white/90 text-noche hover:text-noche',
+            'rounded-full px-2.5 py-1 text-ink-3 transition hover:text-ink',
+            theme === value && 'bg-sheet text-ink shadow-sheet',
           )}
         >
           <Icon className="size-4" aria-hidden />
@@ -119,13 +119,11 @@ function NavLinks({ pathname, onNavigate }: { pathname: string; onNavigate?: () 
           onClick={onNavigate}
           aria-current={isActive(pathname, href) ? 'page' : undefined}
           className={clsx(
-            'inline-flex items-center gap-2 rounded-full px-3.5 py-2 text-[0.93rem] font-[600] transition',
-            isActive(pathname, href)
-              ? 'bg-white text-noche'
-              : 'text-white/75 hover:bg-white/10 hover:text-white',
+            'inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-[0.95rem] transition',
+            isActive(pathname, href) ? 'bg-ink font-[700] text-sheet' : 'text-ink hover:bg-fill',
           )}
         >
-          <Icon className="size-4" aria-hidden />
+          <Icon className="size-4 lg:hidden" aria-hidden />
           {label}
         </Link>
       ))}
@@ -134,8 +132,8 @@ function NavLinks({ pathname, onNavigate }: { pathname: string; onNavigate?: () 
 }
 
 /**
- * The app frame: the sea band on top (logo, sections, the question box) and the page below.
- * The radar's hero continues the same sea, so the answer reads as part of the header.
+ * The app frame: OndAI's floating pill on top (logo, sections, the question box), as on the
+ * landing, and the page below.
  */
 export function AppShell({ children }: { children: ReactNode }) {
   const pathname = usePathname();
@@ -155,12 +153,16 @@ export function AppShell({ children }: { children: ReactNode }) {
 
   return (
     <div className="min-h-dvh">
-      <header className="noche">
-        <div className="mx-auto flex h-16 max-w-[1240px] items-center gap-3 px-4 sm:px-6">
-          <Link href="/radar" className="shrink-0 text-white" aria-label="Radar 30X, inicio">
+      <header className="sticky top-0 z-30 px-3 pt-3 sm:px-6">
+        <div className="material mx-auto flex h-[60px] max-w-[1376px] items-center gap-3 rounded-full border border-rule pr-2.5 pl-5">
+          <Link
+            href="/radar"
+            className="shrink-0 text-ink"
+            aria-label="OndAI, el radar de la semana"
+          >
             <Logo />
           </Link>
-          <nav className="ml-4 hidden items-center gap-1 lg:flex" aria-label="Secciones">
+          <nav className="ml-6 hidden items-center gap-0.5 lg:flex" aria-label="Secciones">
             <NavLinks pathname={pathname} />
           </nav>
           <div className="ml-auto flex items-center gap-2">
@@ -171,7 +173,7 @@ export function AppShell({ children }: { children: ReactNode }) {
             <button
               type="button"
               onClick={() => setMenuOpen(true)}
-              className="grid size-10 place-items-center rounded-full text-white hover:bg-white/10 lg:hidden"
+              className="grid size-10 place-items-center rounded-full text-ink hover:bg-fill lg:hidden"
               aria-label="Abrir secciones"
             >
               <Menu className="size-5" aria-hidden />
@@ -185,12 +187,12 @@ export function AppShell({ children }: { children: ReactNode }) {
       <DialogPrimitive.Root open={menuOpen} onOpenChange={setMenuOpen}>
         <DialogPrimitive.Portal>
           <DialogPrimitive.Overlay className="fixed inset-0 z-40 bg-black/25 backdrop-blur-sm lg:hidden" />
-          <DialogPrimitive.Content className="noche fixed inset-y-0 right-0 z-50 flex w-[86vw] max-w-xs flex-col gap-5 overflow-y-auto px-4 py-5 outline-none lg:hidden">
+          <DialogPrimitive.Content className="fixed inset-y-0 right-0 z-50 bg-sheet flex w-[86vw] max-w-xs flex-col gap-5 overflow-y-auto px-4 py-5 outline-none lg:hidden">
             <DialogPrimitive.Title className="sr-only">Secciones</DialogPrimitive.Title>
             <div className="flex items-center justify-between">
-              <Logo className="text-white" />
+              <Logo className="text-ink" />
               <DialogPrimitive.Close
-                className="grid size-9 place-items-center rounded-full bg-white/10 text-white"
+                className="grid size-9 place-items-center rounded-full bg-fill text-ink"
                 aria-label="Cerrar"
               >
                 <X className="size-4" aria-hidden />
@@ -209,7 +211,7 @@ export function AppShell({ children }: { children: ReactNode }) {
   );
 }
 
-/** The page column below the sea band. */
+/** The page column below the top bar. */
 export function Page({ children, className }: { children: ReactNode; className?: string }) {
   return (
     <div className={clsx('mx-auto max-w-[1240px] px-4 py-8 sm:px-6 sm:py-10', className)}>
