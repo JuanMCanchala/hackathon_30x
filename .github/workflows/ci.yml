@@ -34,3 +34,19 @@ jobs:
       - name: Backtest gate
         run: pnpm eval
       - run: pnpm build
+      # The bundle must start on its own: catches dependencies that only resolve inside the workspace.
+      - name: Start the built API
+        env:
+          DEMO_MODE: 'true'
+          LLM_MODE: replay
+          PORT: '4199'
+          DATA_DIR: ${{ runner.temp }}/radar-data
+        run: |
+          node apps/api/dist/index.js > api.log 2>&1 &
+          pid=$!
+          for i in $(seq 1 120); do
+            curl -sf http://localhost:4199/api/v1/health && break
+            sleep 1
+          done
+          curl -sf http://localhost:4199/api/v1/health || { cat api.log; kill $pid; exit 1; }
+          kill $pid

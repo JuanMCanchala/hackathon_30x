@@ -14,7 +14,7 @@ await build({
   format: 'esm',
   target: 'node22',
   sourcemap: true,
-  external: [...external, 'cheerio', 'fast-xml-parser'],
+  external,
   banner: {
     js: "import { createRequire as __createRequire } from 'node:module'; const require = __createRequire(import.meta.url);",
   },
