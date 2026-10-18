@@ -3,11 +3,11 @@
  * loaded into an empty database at startup. With the recorded model answers, the radar runs
  * exactly as captured, without network.
  */
-import { existsSync } from 'node:fs';
-import { cp, mkdir, readFile, writeFile } from 'node:fs/promises';
+import { createReadStream, existsSync } from 'node:fs';
+import { cp, mkdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import { gunzipSync, gzipSync } from 'node:zlib';
-import { sql } from 'drizzle-orm';
+import { createGunzip, gzipSync } from 'node:zlib';
+import { eq, sql } from 'drizzle-orm';
 import type { PgTable } from 'drizzle-orm/pg-core';
 import * as schema from '../db/schema';
 import type { Deps } from './deps';
@@ -55,28 +55,69 @@ export async function exportSnapshot(deps: Deps): Promise<Record<string, number>
   return counts;
 }
 
-/** Loads the snapshot when the database has no pieces yet. Returns how many rows it loaded. */
+/** Written last: a database holding pieces but no marker is an import a restart cut short. */
+const IMPORTED = { id: 'run_snapshot_import', kind: 'snapshot-import' };
+
+/**
+ * A gzipped JSON-lines file, one row at a time, so the whole file never sits in memory. Only a
+ * line feed ends a row: JSON.stringify escapes it inside strings.
+ */
+async function* jsonLines(path: string): AsyncGenerator<Record<string, unknown>> {
+  let rest = '';
+  for await (const chunk of createReadStream(path).pipe(createGunzip()).setEncoding('utf8')) {
+    const lines = (rest + (chunk as string)).split('\n');
+    rest = lines.pop()!;
+    for (const line of lines) if (line) yield JSON.parse(line) as Record<string, unknown>;
+  }
+  if (rest) yield JSON.parse(rest) as Record<string, unknown>;
+}
+
+/**
+ * Loads the snapshot into a database with no pieces yet, or one whose import a restart cut short
+ * (rows already there are kept). Returns how many rows it read.
+ */
 export async function importSnapshotIfEmpty(deps: Deps): Promise<number> {
   const [row] = await deps.db.select({ n: sql<number>`count(*)::int` }).from(schema.items);
-  if ((row?.n ?? 0) > 0) return 0;
+  if ((row?.n ?? 0) > 0) {
+    const [marker] = await deps.db
+      .select({ id: schema.runs.id })
+      .from(schema.runs)
+      .where(eq(schema.runs.id, IMPORTED.id));
+    // Pieces and no marker: an import a restart cut short, or a database older than the marker.
+    // Finishing the import is harmless either way: rows already there win.
+    if (marker) return 0;
+  }
   const dir = deps.config.SNAPSHOT_DIR;
   if (!existsSync(join(dir, 'items.jsonl.gz'))) return 0;
   let total = 0;
   for (const [name, table] of TABLES) {
     const path = join(dir, `${name}.jsonl.gz`);
     if (!existsSync(path)) continue;
-    const text = gunzipSync(await readFile(path)).toString('utf8');
-    const rows = text ? text.split('\n').map((l) => JSON.parse(l) as Record<string, unknown>) : [];
-    for (let i = 0; i < rows.length; i += 500) {
-      await deps.db
-        .insert(table)
-        .values(rows.slice(i, i + 500) as never)
-        .onConflictDoNothing();
+    let batch: Record<string, unknown>[] = [];
+    const flush = async () => {
+      if (batch.length)
+        await deps.db
+          .insert(table)
+          .values(batch as never)
+          .onConflictDoNothing();
+      batch = [];
+    };
+    for await (const r of jsonLines(path)) {
+      // A snapshot exported from an imported database carries the marker: it goes in last.
+      if (name === 'runs' && r.id === IMPORTED.id) continue;
+      batch.push(r);
+      total += 1;
+      if (batch.length === 500) await flush();
     }
-    total += rows.length;
+    await flush();
   }
   const media = join(dir, 'media');
   if (existsSync(media))
     await cp(media, join(deps.config.DATA_DIR, 'media'), { recursive: true, force: false });
+  const now = deps.clock.now().toISOString();
+  await deps.db
+    .insert(schema.runs)
+    .values({ ...IMPORTED, startedAt: now, finishedAt: now, stats: { rows: total } })
+    .onConflictDoNothing();
   return total;
 }

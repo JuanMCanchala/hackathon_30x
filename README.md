@@ -157,6 +157,7 @@ La pantalla Evaluación muestra el costo real de la semana medido en cada llamad
 - **Secretos fuera del código:** las llaves (`FIREWORKS_API_KEY`, `TYPESAFE_API_KEY`, `APIFY_TOKEN`) solo se leen del entorno; `env.example` lista los nombres sin valores y ningún `.env` está en el repositorio.
 - **Errores sin llaves:** si JEV rechaza una llamada, el mensaje se guarda sin la llave aunque el servidor la repita.
 - **Nada se publica solo:** el radar propone y una persona del equipo aprueba cada pieza al calendario.
+- **API pública protegida:** lo que borra datos o escribe en disco (correr el pipeline, exportar el snapshot, borrar temas seguidos o entradas del calendario) pide `Authorization: Bearer <ADMIN_TOKEN>`, comparado en tiempo constante, y sin token configurado queda cerrado en la demo. Lo que llama al modelo o a JEV tiene un límite de 20 consultas por hora por visitante, se siguen máximo 5 temas a la vez y CORS solo responde a `PUBLIC_WEB_URL`.
 - **Sin red en pruebas y CI:** las respuestas del modelo quedan grabadas y JEV se prueba con respuestas simuladas.
 
 ## Correrlo
@@ -174,8 +175,8 @@ node packages/sources/scripts/backfill.mjs
 # 2. La API (http://localhost:4100) y la web (http://localhost:3300)
 pnpm dev
 
-# 3. Procesar lo capturado: leer, agrupar, nombrar y explicar
-curl -X POST localhost:4100/api/v1/pipeline/run -H 'content-type: application/json' -d '{}'
+# 3. Procesar lo capturado: leer, agrupar, nombrar y explicar (ADMIN_TOKEN del .env)
+curl -X POST localhost:4100/api/v1/pipeline/run -H "authorization: Bearer $ADMIN_TOKEN"   -H 'content-type: application/json' -d '{}'
 ```
 
 Sin llave, `LLM_MODE=replay` reproduce las respuestas grabadas y `data/snapshot` carga la semana congelada de la demo.
@@ -183,6 +184,22 @@ Sin llave, `LLM_MODE=replay` reproduce las respuestas grabadas y `data/snapshot`
 - **Pruebas:** `pnpm test` (sin red). **Backtest:** `pnpm eval`. **Tipos y lint:** `pnpm typecheck`, `pnpm lint`.
 - **MCP:** `claude mcp add radar-30x --env RADAR_API_URL=http://localhost:4100 -- pnpm --dir apps/mcp dev`
 - **Extensión:** en Chrome, `chrome://extensions`, modo desarrollador, «Cargar descomprimida» y elegir `apps/sensor`.
+
+## Desplegar
+
+La API va en Railway y la web en Vercel.
+
+**API (Railway)**
+
+- Al menos 1 GB de memoria: la carga de la semana congelada (388.249 filas) llega a cerca de 1 GB.
+- Un volumen montado en la ruta de `DATA_DIR`, para que la base no se vuelva a cargar en cada despliegue.
+- Build: `pnpm install && pnpm --filter @radar/api build`. Start: `pnpm --filter @radar/api start`.
+- Healthcheck en `/api/v1/health` con 120 s de espera. La API escucha de inmediato: el healthcheck responde mientras carga la semana (unos 30 s en frío) y el resto de rutas responde 503 con `{"error":{"code":"loading"}}` hasta que termina. Si un reinicio corta la carga, el siguiente arranque la completa.
+- Variables: `DEMO_MODE=true`, `LLM_MODE=auto`, `FIREWORKS_API_KEY`, `TYPESAFE_API_KEY`, `ADMIN_TOKEN` (16 caracteres o más, por ejemplo `openssl rand -hex 24`) y `PUBLIC_WEB_URL` (la URL de Vercel). En la demo Vigía no busca solo, para que la semana no se mueva; `WATCH_SCHEDULER=true` lo enciende.
+
+**Web (Vercel)**
+
+- `API_URL` con la URL pública de Railway, definida **antes del build**: `next.config.ts` la lee para las reescrituras de `/api/*`.
 
 ## Estructura
 

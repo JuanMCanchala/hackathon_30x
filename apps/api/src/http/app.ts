@@ -9,8 +9,19 @@ import { registerEventRoutes } from './routes/events';
 import { registerRadarRoutes } from './routes/radar';
 import { registerWatchRoutes } from './routes/watch';
 
-export function createApp(deps: Deps) {
+export interface AppOptions {
+  /** Settles when the demo week is loaded: until then only the health check answers. */
+  ready?: Promise<unknown>;
+}
+
+export function createApp(deps: Deps, options: AppOptions = {}) {
   const app = new OpenAPIHono();
+  let loading = options.ready !== undefined;
+  // A failed import ends the process (index.ts); here it only must not go unhandled.
+  void options.ready?.then(
+    () => (loading = false),
+    () => undefined,
+  );
   const webOrigin = new URL(deps.config.PUBLIC_WEB_URL).origin;
 
   app.use(
@@ -43,7 +54,17 @@ export function createApp(deps: Deps) {
     return c.json({ error: { code: 'internal_error', message: 'Error interno.' } }, 500);
   });
 
-  app.get('/api/v1/health', (c) => c.json({ ok: true }));
+  // The platform's health check must pass while the snapshot loads (about 30 s on a cold start).
+  app.get('/api/v1/health', (c) => c.json({ ok: true, loading }));
+  app.use('/api/*', async (c, next) => {
+    if (loading)
+      throw new AppError(
+        503,
+        'loading',
+        'El radar está cargando la semana. Intenta en unos segundos.',
+      );
+    return next();
+  });
   registerEventRoutes(app, deps);
   // One budget per visitor across every route that calls a paid model.
   const guards = { admin: requireAdmin(deps), paid: rateLimit(deps) };
