@@ -101,6 +101,7 @@ Usa solo hechos que estén en la pieza o sean de conocimiento general. Español 
 export interface WatchSource {
   source: string;
   lang: WatchLang | null;
+  region?: string;
   query: string;
   status: number;
   found: number;
@@ -221,6 +222,7 @@ async function collect(
         sources.push({
           source: request.source,
           lang,
+          region: request.region,
           query,
           status: result.status,
           found: result.items.length,

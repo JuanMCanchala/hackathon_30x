@@ -15,10 +15,17 @@ const ACCEPT: Record<SearchLang, string> = {
   pt: 'pt-BR,pt;q=0.9',
   es: 'es-419,es;q=0.9',
 };
-const YOUTUBE_REGION: Record<SearchLang, string> = {
-  en: 'hl=en&gl=US',
-  pt: 'hl=pt-BR&gl=BR',
-  es: 'hl=es-419&gl=CO',
+/**
+ * Where YouTube searches each language. Results change by country, and English also runs from
+ * India, where much of the AI and business content in English comes from.
+ */
+const YOUTUBE_REGIONS: Record<SearchLang, { region: string; params: string }[]> = {
+  en: [
+    { region: 'US', params: 'hl=en&gl=US' },
+    { region: 'IN', params: 'hl=en-IN&gl=IN' },
+  ],
+  pt: [{ region: 'BR', params: 'hl=pt-BR&gl=BR' }],
+  es: [{ region: 'CO', params: 'hl=es-419&gl=CO' }],
 };
 /** YouTube's upload-date filters: today and this week. */
 const YOUTUBE_TODAY = 'EgIIAg%253D%253D';
@@ -27,6 +34,8 @@ const YOUTUBE_WEEK = 'EgIIAw%253D%253D';
 export interface SearchRequest {
   source: SearchSource;
   lang: SearchLang;
+  /** The country a search runs from, when the source lets us choose (YouTube). */
+  region?: string;
   query: string;
   url: string;
   headers: Record<string, string>;
@@ -43,13 +52,14 @@ export function searchRequests(
   const q = encodeURIComponent(query);
   const browser = { 'user-agent': BROWSER_UA, 'accept-language': ACCEPT[lang] };
   const requests: SearchRequest[] = [
-    {
-      source: 'youtube',
+    ...YOUTUBE_REGIONS[lang].map(({ region, params }) => ({
+      source: 'youtube' as const,
       lang,
+      region,
       query,
-      url: `https://www.youtube.com/results?search_query=${q}&sp=${windowHours <= 24 ? YOUTUBE_TODAY : YOUTUBE_WEEK}&${YOUTUBE_REGION[lang]}`,
+      url: `https://www.youtube.com/results?search_query=${q}&sp=${windowHours <= 24 ? YOUTUBE_TODAY : YOUTUBE_WEEK}&${params}`,
       headers: browser,
-    },
+    })),
     {
       source: 'bluesky',
       lang,
