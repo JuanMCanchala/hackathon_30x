@@ -3,7 +3,7 @@
  * writes from counts the code already made (feature lift, outlier ratios) and may only cite
  * pieces it was given; both answers are stored per topic and week.
  */
-import { and, eq } from 'drizzle-orm';
+import { and, desc, eq, sql } from 'drizzle-orm';
 import { z } from 'zod';
 import { analyses } from '../db/schema';
 import type { Deps } from './deps';
@@ -55,10 +55,16 @@ async function stored<T>(
   week: string,
   kind: string,
 ): Promise<T | null> {
+  // Weeks are labelled by the day the data ends, which moves by hours between captures. The
+  // nearest analysis less than a week away still describes this week (the radar list reads the
+  // latest one too); a real new week has none and gets written afresh.
+  const distance = sql`abs(${analyses.week} - ${week}::date)`;
   const [row] = await deps.db
     .select({ payload: analyses.payload })
     .from(analyses)
-    .where(and(eq(analyses.topicId, topicId), eq(analyses.week, week), eq(analyses.kind, kind)));
+    .where(and(eq(analyses.topicId, topicId), eq(analyses.kind, kind), sql`${distance} < 7`))
+    .orderBy(distance, desc(analyses.week))
+    .limit(1);
   return (row?.payload as T | undefined) ?? null;
 }
 

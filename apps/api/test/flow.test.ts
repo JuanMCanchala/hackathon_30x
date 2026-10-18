@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import type { z } from 'zod';
 import type { RawItem } from '@radar/core';
+import { analyses } from '../src/db/schema';
 import { createApp } from '../src/http/app';
 import type { Llm, RecordedRequest } from '../src/llm/cached';
 import { approve, adaptTopic, calendar } from '../src/services/adapt';
@@ -177,5 +178,39 @@ describe('the radar, from pieces to the calendar', () => {
     expect(res.status).toBe(200);
     const body = (await res.json()) as { topics: { name: string }[] };
     expect(body.topics[0]?.name).toBe('Sora 2');
+  });
+
+  it('reads the latest stored analysis when the week moved, without calling the model', async () => {
+    const deps = await seeded();
+    const week = await radar(deps, { platform: 'all', region: 'global', untouched: false });
+    const id = week.topics[0]!.id;
+    await topicDetail(deps, id);
+    // The snapshot's analyses are dated a day before its asOf: the exact week has none.
+    const [stored] = await deps.db.select({ week: analyses.week }).from(analyses);
+    const dayBefore = new Date(Date.parse(stored!.week) - 86_400_000).toISOString().slice(0, 10);
+    await deps.db.update(analyses).set({ week: dayBefore });
+    deps.llm = {
+      complete: () => Promise.reject(new Error('Petición inesperada al modelo')),
+    };
+    const res = await createApp(deps).request(`/api/v1/topics/${id}`);
+    expect(res.status).toBe(200);
+    const body = (await res.json()) as {
+      why: { narrative: string | null };
+      fit: { score: number } | null;
+    };
+    expect(body.why.narrative).toBe('Abren con una cifra.');
+    expect(body.fit?.score).toBe(8);
+  });
+
+  it('writes a new analysis once the stored one is a week or more away', async () => {
+    const deps = await seeded();
+    const week = await radar(deps, { platform: 'all', region: 'global', untouched: false });
+    const id = week.topics[0]!.id;
+    await topicDetail(deps, id);
+    await deps.db.update(analyses).set({ week: '2026-09-01' });
+    const detail = await topicDetail(deps, id);
+    expect(detail.why.narrative).toBe('Abren con una cifra.');
+    const weeks = await deps.db.select({ week: analyses.week }).from(analyses);
+    expect(weeks.some((w) => w.week !== '2026-09-01')).toBe(true);
   });
 });
