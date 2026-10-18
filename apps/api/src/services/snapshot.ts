@@ -32,6 +32,13 @@ const TABLES: [string, PgTable][] = [
   ['watch_hits', schema.watchHits],
 ];
 
+const round4 = (v: unknown) =>
+  Array.isArray(v) ? v.map((x) => (typeof x === 'number' ? Math.round(x * 1e4) / 1e4 : x)) : v;
+
+/** A topic's vectors only steer where new labels go: four decimals keep that and halve the file. */
+const slim = (name: string, row: Record<string, unknown>) =>
+  name === 'topics' ? { ...row, leader: round4(row.leader), centroid: round4(row.centroid) } : row;
+
 export async function exportSnapshot(deps: Deps): Promise<Record<string, number>> {
   const dir = deps.config.SNAPSHOT_DIR;
   await mkdir(dir, { recursive: true });
@@ -39,7 +46,7 @@ export async function exportSnapshot(deps: Deps): Promise<Record<string, number>
   for (const [name, table] of TABLES) {
     const rows = await deps.db.select().from(table);
     counts[name] = rows.length;
-    const text = rows.map((r) => JSON.stringify(r)).join('\n');
+    const text = rows.map((r) => JSON.stringify(slim(name, r))).join('\n');
     await writeFile(join(dir, `${name}.jsonl.gz`), gzipSync(text));
   }
   // The slides Vigía caught: Instagram's links expire, so the copies travel with the snapshot.
