@@ -470,8 +470,8 @@ function WatchView({ id, onStopped }: { id: string; onStopped: () => void }) {
         </div>
         <p className="max-w-3xl text-ink-2" role="status">
           {watch.running
-            ? 'Buscando ahora en YouTube, Bluesky, Hacker News e Instagram. Tarda uno o dos minutos.'
-            : `Busca cada ${watch.everyMinutes === 60 ? 'hora' : `${watch.everyMinutes} minutos`} en inglés y portugués.${
+            ? 'Buscando ahora en YouTube, Bluesky, Hacker News e Instagram. Tarda unos minutos.'
+            : `Busca cada ${watch.everyMinutes === 60 ? 'hora' : `${watch.everyMinutes} minutos`} en inglés (desde Estados Unidos e India) y en portugués.${
                 watch.lastRunAt ? ` La última búsqueda fue ${ago(watch.lastRunAt)}` : ''
               }${watch.nextRunAt ? `; la próxima, a las ${fmtTime.format(new Date(watch.nextRunAt)).replace(/\.$/, '')}.` : '.'}`}
         </p>
@@ -559,9 +559,9 @@ export default function WatchPage() {
       <header className="grid gap-4">
         <h1 className="t-display max-w-4xl text-ink">Vigía</h1>
         <p className="max-w-2xl text-[1.1rem] leading-relaxed text-ink-2">
-          Sigue un tema y el radar lo busca cada hora en inglés y portugués, donde lo viral sobre IA
-          suele nacer. Atrapa lo que despega antes de que llegue al español, con su texto, sus
-          láminas o su video leídos para adaptarlo.
+          Sigue un tema y el radar lo busca cada hora en inglés, desde Estados Unidos e India, y en
+          portugués, donde lo viral sobre IA suele nacer. Atrapa lo que despega antes de que llegue
+          al español, con su texto, sus láminas o su video leídos para adaptarlo.
         </p>
         <FollowForm
           onFollowed={(id) => {
