@@ -32,6 +32,8 @@ const EnvSchema = z.object({
   LLM_PROVIDER: z.enum(['auto', 'anthropic', 'fireworks']).default('auto'),
   /** Optional: LinkedIn search by keyword through Apify. Without it LinkedIn comes from seeds. */
   APIFY_TOKEN: z.string().min(1).optional(),
+  /** Optional: JEV (TypeSafe) judges topic and fit in the Vigía screen. Without it, keywords decide. */
+  TYPESAFE_API_KEY: z.string().min(1).optional(),
   /** Seeds the database from SNAPSHOT_DIR when it is empty. */
   DEMO_MODE: bool.default(true),
   /** Public URL of the web app. */

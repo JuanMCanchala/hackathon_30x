@@ -21,6 +21,7 @@
     "@radar/core": "workspace:*",
     "@radar/sources": "workspace:*",
     "@scalar/hono-api-reference": "^0.12.13",
+    "@typesafe-ai/sdk": "0.7.0",
     "drizzle-orm": "^0.45.4",
     "hono": "^4.13.13",
     "pg": "^8.23.1",
