@@ -121,4 +121,42 @@ describe('reading a capture run', () => {
     expect(items).toHaveLength(4);
     expect(items.filter((i) => i.platform === 'bluesky')).toHaveLength(2);
   });
+
+  it('fills in exact YouTube data from the videos.list answers of the same run', async () => {
+    const dir = join(root, 'youtube-run');
+    mkdirSync(join(dir, 'youtube'), { recursive: true });
+    mkdirSync(join(dir, 'youtube_api'), { recursive: true });
+    writeFileSync(join(dir, 'youtube/s.html.gz'), gzipSync(fixture('youtube-search-en.html')));
+    const answer = {
+      items: [
+        {
+          id: 'HdI_aYzgJIg',
+          snippet: {
+            publishedAt: '2026-10-13T09:30:00Z',
+            channelId: 'UCwAnu01qlnVg1Ai2AbtTMaA',
+            title: 'Personal Agents, Clearly Explained',
+            channelTitle: 'Jeff Su',
+          },
+          statistics: { viewCount: '170000', likeCount: '5000', commentCount: '300' },
+          contentDetails: { duration: 'PT15M21S' },
+        },
+      ],
+    };
+    writeFileSync(join(dir, 'youtube_api/1.json.gz'), gzipSync(JSON.stringify(answer)));
+    const lines = [
+      { source: 'youtube', key: 's', file: 'youtube/s.html.gz', meta: { query: 'AI agents' } },
+      { source: 'youtube_api', key: '1', file: 'youtube_api/1.json.gz', meta: {} },
+    ].map((l) =>
+      JSON.stringify({ url: 'u', status: 200, bytes: 1, capturedAt: '2026-10-17T14:00:00Z', ...l }),
+    );
+    writeFileSync(join(dir, 'index.jsonl'), `${lines.join('\n')}\n`);
+    const [item] = await parseRun(dir);
+    expect(item).toMatchObject({
+      source: 'youtube-search',
+      publishedAt: '2026-10-13T09:30:00.000Z',
+      publishedApprox: false,
+      metrics: { views: 170000, likes: 5000, comments: 300 },
+      query: 'AI agents',
+    });
+  });
 });

@@ -1,0 +1,393 @@
+{
+  "kind": "youtube#videoListResponse",
+  "etag": "xiYJPDoAQ8DEqR_DkqtI49onbtA",
+  "items": [
+    {
+      "kind": "youtube#video",
+      "etag": "l-UD2m11C7nLiUsZq83tM4qCA48",
+      "id": "6H0zKbTKJZI",
+      "snippet": {
+        "publishedAt": "2026-10-16T15:27:36Z",
+        "channelId": "UCWwxU_VkC5cALXiuimijSog",
+        "title": "Carrera de Marketing y Negocios Digitales con IA",
+        "description": "Aprendé haciendo para potenciar la comunicación, el marketing y los negocios digitales centrados en las necesidades de las personas. Trabajá bajo la mirada de profesionales de la industria con el fin de convertir ideas en contenidos, campañas y soluciones concretas. Además, participá en proyectos y prácticas junto a destacadas empresas y organizaciones para sumar experiencia y acercarte al mundo laboral.\n\n👉 Obtené toda la información e inscribite al 1128920848 (WhatsApp), al 011 5032-0076 (teléfono) o al mail correo@example.com",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/6H0zKbTKJZI/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/6H0zKbTKJZI/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/6H0zKbTKJZI/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/6H0zKbTKJZI/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/6H0zKbTKJZI/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Escuela Da Vinci",
+        "tags": [
+          "Carreras",
+          "Marketing y Negocios Digitales con IA",
+          "Escuela Da Vinci"
+        ],
+        "categoryId": "27",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "es",
+        "localized": {
+          "title": "Carrera de Marketing y Negocios Digitales con IA",
+          "description": "Aprendé haciendo para potenciar la comunicación, el marketing y los negocios digitales centrados en las necesidades de las personas. Trabajá bajo la mirada de profesionales de la industria con el fin de convertir ideas en contenidos, campañas y soluciones concretas. Además, participá en proyectos y prácticas junto a destacadas empresas y organizaciones para sumar experiencia y acercarte al mundo laboral.\n\n👉 Obtené toda la información e inscribite al 1128920848 (WhatsApp), al 011 5032-0076 (teléfono) o al mail correo@example.com"
+        },
+        "defaultAudioLanguage": "es-419"
+      },
+      "contentDetails": {
+        "duration": "PT40S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "52",
+        "likeCount": "0",
+        "favoriteCount": "0",
+        "commentCount": "0"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "GIcjuyupyTxNfXO-EtO74BFij2Q",
+      "id": "lLpnK-tYWQ4",
+      "snippet": {
+        "publishedAt": "2026-10-16T19:23:03Z",
+        "channelId": "UC2Xq2PK-got3Rtz9ZJ32hLQ",
+        "title": "Así mejora la inteligencia artificial la precisión en diagnósticos de gastroenterología",
+        "description": "La inteligencia artificial se ha consolidado como un valioso asistente en la gastroenterología, mejorando la precisión y rapidez en diagnósticos y tratamientos a través del análisis de exámenes como endoscopias y colonoscopias. Según el gastroenterólogo Alejandro Concha, esta tecnología permite detectar patrones e imágenes imperceptibles para el ojo humano, ayudando a identificar lesiones tempranas, cánceres y bacterias. \n\n  #NoticiasCaracol #NoticiasColombia #NoticiasInternacionales\n\n👉 Suscríbete a nuestro canal en YouTube: https://www.youtube.com/@noticiascaracol\n\nMás información en: https://www.noticiascaracol.com/\nSíganos en WhatsApp: https://acortar.link/5aMLkx\nTikTok: https://www.tiktok.com/@noticiascaracol?lang=en\nInstagram: https://www.instagram.com/noticiascaracol/\nFacebook: https://www.facebook.com/NoticiasCaracol\nX: https://x.com/NoticiasCaracol\n\nNuestros canales en YouTube:\n\nCaracol Televisión: https://www.youtube.com/@caracoltv\nGol Caracol: https://www.youtube.com/@golcaracol\nBlu Radio: https://www.youtube.com/@bluradioco\nEl Espectador: https://www.youtube.com/@ElEspectador",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/lLpnK-tYWQ4/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/lLpnK-tYWQ4/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/lLpnK-tYWQ4/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/lLpnK-tYWQ4/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/lLpnK-tYWQ4/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Noticias Caracol",
+        "tags": [
+          "Noticias Caracol",
+          "Noticias de hoy",
+          "Noticias en vivo",
+          "Noticias de Colombia",
+          "Noticias Internacionales",
+          "ultimas noticias",
+          "noticias",
+          "breaking news",
+          "news",
+          "noticias de última hora"
+        ],
+        "categoryId": "25",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "es",
+        "localized": {
+          "title": "Así mejora la inteligencia artificial la precisión en diagnósticos de gastroenterología",
+          "description": "La inteligencia artificial se ha consolidado como un valioso asistente en la gastroenterología, mejorando la precisión y rapidez en diagnósticos y tratamientos a través del análisis de exámenes como endoscopias y colonoscopias. Según el gastroenterólogo Alejandro Concha, esta tecnología permite detectar patrones e imágenes imperceptibles para el ojo humano, ayudando a identificar lesiones tempranas, cánceres y bacterias. \n\n  #NoticiasCaracol #NoticiasColombia #NoticiasInternacionales\n\n👉 Suscríbete a nuestro canal en YouTube: https://www.youtube.com/@noticiascaracol\n\nMás información en: https://www.noticiascaracol.com/\nSíganos en WhatsApp: https://acortar.link/5aMLkx\nTikTok: https://www.tiktok.com/@noticiascaracol?lang=en\nInstagram: https://www.instagram.com/noticiascaracol/\nFacebook: https://www.facebook.com/NoticiasCaracol\nX: https://x.com/NoticiasCaracol\n\nNuestros canales en YouTube:\n\nCaracol Televisión: https://www.youtube.com/@caracoltv\nGol Caracol: https://www.youtube.com/@golcaracol\nBlu Radio: https://www.youtube.com/@bluradioco\nEl Espectador: https://www.youtube.com/@ElEspectador"
+        },
+        "defaultAudioLanguage": "es-419"
+      },
+      "contentDetails": {
+        "duration": "PT4M6S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": true,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "4780",
+        "likeCount": "27",
+        "favoriteCount": "0",
+        "commentCount": "9"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "nqU2oh-1BhYgSluazk7VZm2UrRo",
+      "id": "-6KC3hR36d4",
+      "snippet": {
+        "publishedAt": "2026-10-13T02:18:56Z",
+        "channelId": "UCkIREct1yO-CMDNB8D_VHMQ",
+        "title": "Clase 01 - Asistentes de IA desde cero con Claude Cowork y Gemini Gems",
+        "description": "🎁 Regalo: https://drive.google.com/drive/folders/1KZiTuxoaVH9MmJZjTBxsnI2x28Xwi2-x\n\n📌 Inscríbete para entrar en el grupo de WhatsApp y recibir los materiales: https://lives.daxus.com/inmersion-ag?utm_source=descricao-live\n\n🤖 Clase 01 de la Inmersión Agentes de IA en la Práctica\n\n🎁 Dinámica de recomendaciones: https://www.daxus.com/programa-referencia-ag\n\nℹ️ Información importante:\n- Siga las 4 transmisiones en vivo el 12/10, 13/10, 14/10 y 15/10 a las 7:30 PM (Hora de Colombia).\n- Los materiales se enviarán a los grupos de WhatsApp al final de cada transmisión en vivo.\n- Invite a un amigo o amiga a participar contigo.\n\n✅ Activa el recordatorio para la CLASE 2: https://links.daxus.com/inmersion-ag-live2",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/-6KC3hR36d4/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/-6KC3hR36d4/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/-6KC3hR36d4/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/-6KC3hR36d4/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/-6KC3hR36d4/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "fhd": {
+            "url": "https://i.ytimg.com/vi/-6KC3hR36d4/fhddefault.jpg",
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        "channelTitle": "Daxus Latam",
+        "categoryId": "27",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "es",
+        "localized": {
+          "title": "Clase 01 - Asistentes de IA desde cero con Claude Cowork y Gemini Gems",
+          "description": "🎁 Regalo: https://drive.google.com/drive/folders/1KZiTuxoaVH9MmJZjTBxsnI2x28Xwi2-x\n\n📌 Inscríbete para entrar en el grupo de WhatsApp y recibir los materiales: https://lives.daxus.com/inmersion-ag?utm_source=descricao-live\n\n🤖 Clase 01 de la Inmersión Agentes de IA en la Práctica\n\n🎁 Dinámica de recomendaciones: https://www.daxus.com/programa-referencia-ag\n\nℹ️ Información importante:\n- Siga las 4 transmisiones en vivo el 12/10, 13/10, 14/10 y 15/10 a las 7:30 PM (Hora de Colombia).\n- Los materiales se enviarán a los grupos de WhatsApp al final de cada transmisión en vivo.\n- Invite a un amigo o amiga a participar contigo.\n\n✅ Activa el recordatorio para la CLASE 2: https://links.daxus.com/inmersion-ag-live2"
+        },
+        "defaultAudioLanguage": "es-419"
+      },
+      "contentDetails": {
+        "duration": "PT1H53M43S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "167137",
+        "likeCount": "9191",
+        "favoriteCount": "0",
+        "commentCount": "762"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "WKiYRzWndLpjkI3pdYpUExWti4E",
+      "id": "QxWnRJz-kRU",
+      "snippet": {
+        "publishedAt": "2026-10-14T23:36:30Z",
+        "channelId": "UCzGMBzt6UOMoQe_dqOfShZw",
+        "title": "La INTELIGENCIA ARTIFICIAL al servicio de la PIRATERIA | Descompilaciones, emulación y clones",
+        "description": "Checa los CURSOS de la EBAC aquí: https://bit.ly/YTCVJ1026\nUsa el código CVJ55 para el 55% de DESCUENTO \n___________________________________________________________________¿\n🔥 Juegos -70% DTO: https://ene.ba/CulturaVJ\n🔥 ¡Compra los mejores juegos más baratos!: https://ene.ba/CulturaVJ-Games \n🔥 ¡Compra tarjetas regalo digitales al mejor precio!: https://ene.ba/CulturaVJ-Tarjetas\n___________________________________________________________________\nLa inteligencia artificial está siendo usada de la manera que tal vez las corporaciones no esperaban. Para descompilar su software, entregar sus servicios de manera gratuita, crear emuladores y potenciar la piratería. Democratizando el software. \nEsto pone en aprietos y en un paradigma al Big Tech. \n¡Hablemos de ello!\n___________________________________________________________________\nVOZ Y GUION: Alex Nevárez | X: https://x.com/AlexCVJ\nEDICIÓN: Israel \"Rebel\" Mendoza | X: https://x.com/rebelvulpes\n___________________________________________________________________\nCOMPRA NUESTRAS PLAYERAS: https://ninogamer.com/creadores/culturavj\n___________________________________________________________________\nVuélvete un miembro del canal, recibe emojis y acceso anticipado a videos:\nhttps://www.youtube.com/channel/UCzGMBzt6UOMoQe_dqOfShZw/join\n\nDa like y suscribete ;)\nNo olvides dejar tus comentarios. \n\nDirectos en Twitch toda la semana:\nhttps://www.twitch.tv/team/culturavj\nGameplays y otras cosas:\nhttp://youtube.com/CVJExtra\n\nTodo el gameplay es capturado con productos Elgato: https://e.lga.to/CulturaVJ\n\nSígueme en mis redes sociales:\nFacebook: https://www.facebook.com/CulturaVJ\nTwitter: https://twitter.com/CulturaVJ\nInstagram: https://instagram.com/culturavj/\n\nMusica: Chillhop\n\nStay Geek!\n\n0:00 La IA como arma de doble filo\n1:03 Patrocinador \n2:06 Ingeniería inversa al alcance de todos\n5:31 PlayStation 5 bajo fuego\n9:21 La encrucijada de los gigantes tecnológicos\n15:15 De la resistencia a la adopción masiva\n\n#inteligenciaartificial #videojuegos #playstation5 #jailbreak",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/QxWnRJz-kRU/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/QxWnRJz-kRU/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/QxWnRJz-kRU/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/QxWnRJz-kRU/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/QxWnRJz-kRU/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Cultura VJ",
+        "tags": [
+          "inteligencia artificial",
+          "pirateria",
+          "descompilacion de juegos",
+          "mashup videojuegos",
+          "videojuegos inteligencia artificial",
+          "open ai",
+          "ingenieria inversa",
+          "artcraft",
+          "playstation",
+          "playstation 5",
+          "ps5 jailbreak",
+          "ps5 hypervisor",
+          "desarrollo de videojuegos",
+          "ia",
+          "openai",
+          "chatgpt",
+          "futuro de la ia",
+          "pirateria videojuegos",
+          "videojuegos y pirateria",
+          "emulacion de videojuegos",
+          "emulacion juegos",
+          "emuladores ps5",
+          "ps5 emulacion",
+          "ps5 homebrew",
+          "ai",
+          "videojuegos",
+          "PS5 en PC",
+          "claude ai",
+          "era dorada de pirateria",
+          "CVJ"
+        ],
+        "categoryId": "20",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "es-419",
+        "localized": {
+          "title": "La INTELIGENCIA ARTIFICIAL al servicio de la PIRATERIA | Descompilaciones, emulación y clones",
+          "description": "Checa los CURSOS de la EBAC aquí: https://bit.ly/YTCVJ1026\nUsa el código CVJ55 para el 55% de DESCUENTO \n___________________________________________________________________¿\n🔥 Juegos -70% DTO: https://ene.ba/CulturaVJ\n🔥 ¡Compra los mejores juegos más baratos!: https://ene.ba/CulturaVJ-Games \n🔥 ¡Compra tarjetas regalo digitales al mejor precio!: https://ene.ba/CulturaVJ-Tarjetas\n___________________________________________________________________\nLa inteligencia artificial está siendo usada de la manera que tal vez las corporaciones no esperaban. Para descompilar su software, entregar sus servicios de manera gratuita, crear emuladores y potenciar la piratería. Democratizando el software. \nEsto pone en aprietos y en un paradigma al Big Tech. \n¡Hablemos de ello!\n___________________________________________________________________\nVOZ Y GUION: Alex Nevárez | X: https://x.com/AlexCVJ\nEDICIÓN: Israel \"Rebel\" Mendoza | X: https://x.com/rebelvulpes\n___________________________________________________________________\nCOMPRA NUESTRAS PLAYERAS: https://ninogamer.com/creadores/culturavj\n___________________________________________________________________\nVuélvete un miembro del canal, recibe emojis y acceso anticipado a videos:\nhttps://www.youtube.com/channel/UCzGMBzt6UOMoQe_dqOfShZw/join\n\nDa like y suscribete ;)\nNo olvides dejar tus comentarios. \n\nDirectos en Twitch toda la semana:\nhttps://www.twitch.tv/team/culturavj\nGameplays y otras cosas:\nhttp://youtube.com/CVJExtra\n\nTodo el gameplay es capturado con productos Elgato: https://e.lga.to/CulturaVJ\n\nSígueme en mis redes sociales:\nFacebook: https://www.facebook.com/CulturaVJ\nTwitter: https://twitter.com/CulturaVJ\nInstagram: https://instagram.com/culturavj/\n\nMusica: Chillhop\n\nStay Geek!\n\n0:00 La IA como arma de doble filo\n1:03 Patrocinador \n2:06 Ingeniería inversa al alcance de todos\n5:31 PlayStation 5 bajo fuego\n9:21 La encrucijada de los gigantes tecnológicos\n15:15 De la resistencia a la adopción masiva\n\n#inteligenciaartificial #videojuegos #playstation5 #jailbreak"
+        },
+        "defaultAudioLanguage": "es-419"
+      },
+      "contentDetails": {
+        "duration": "PT18M59S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": true,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "307953",
+        "likeCount": "9065",
+        "favoriteCount": "0",
+        "commentCount": "946"
+      }
+    },
+    {
+      "kind": "youtube#video",
+      "etag": "kC76tVyx1TqEZ_yDbWYGP63-JHE",
+      "id": "tPafk6DKa5w",
+      "snippet": {
+        "publishedAt": "2026-10-16T23:29:19Z",
+        "channelId": "UCUYokk2dJxFZf7NgxTL-ROg",
+        "title": "¿El dato mata relato? El impacto real de la inteligencia artificial en el fútbol",
+        "description": "En Blog Deportivo se analizó la incorporación de la inteligencia artificial y el análisis de datos en el fútbol tras el simposio organizado por la CONMEBOL.\n\nMatías Conde, Senior Data Editor y Data Analyst en Opta, explicó cómo las nuevas herramientas tecnológicas permiten entender mejor el desarrollo de los partidos. Durante la conversación, se debatieron mitos sobre la posesión del balón, destacando que en la liga colombiana solo dos equipos mantienen mayor tiempo de posesión cuando van ganando. Asimismo, la mesa de trabajo compartió reflexiones históricas sobre el rol de los entrenadores y la conducta de los futbolistas en la cancha.\n\n¿Considera que la inteligencia artificial ayuda a respaldar el trabajo de los entrenadores?\n\nBlog Deportivo - Blu Radio: Lunes a viernes, 2:00 PM a 4:00 PM: Fútbol colombiano y protagonistas del deporte en el mundo.\n\n¡Ahora la radio no solo se escucha, también se ve! En Blu le ponemos cara a la opinión, al debate, al humor, los deportes y al entretenimiento. ¡Le ponemos cara a la radio! Siga en directo la señal en vivo de nuestra programación.\n\nNoticias en vivo de Colombia y el mundo, suscríbase [GRATIS] a nuestro canal en YouTube: http://bit.ly/2CFF7Fo y encuentre las últimas noticias en Colombia, el mundo y mucho más.\n\nBLU RADIO EN VIVO HOY |  #LePonemosCaraalaRadio\n\nSíganos en Google Noticias: http://bit.ly/2lM3iLH\n\nSíganos en redes sociales:\nFacebook: http://www.facebook.com/BluRadioColombia \nInstagram: @BluRadio http://instagram.com/bluradio \nTwitter: @BluRadioCo http://www.twitter.com/BluRadioCo \n\nÚltimas noticias de hoy en Colombia: https://www.bluradio.com\n\nNuestra red de canales en YouTube:\nNoticias Caracol en vivo: http://bit.ly/2Jhc3oO Suscribirse\nCaracol en vivo: http://bit.ly/2CHpld2 Suscribirse \nGol Caracol: http://bit.ly/2yAIGcU Suscribirse\nShock: http://bit.ly/2CHNKzi Suscribirse\nLa Kalle en vivo: http://bit.ly/2JkgfEz Suscribirse\nCaracol Play: http://bit.ly/2SkyjlM Suscribirse\nEl Espectador: http://bit.ly/2D4rkt7 Suscribirse\n\n- - - - - - - - - - - - - -\n\nSiga nuestra programación, Blu Radio en vivo y en directo: \nMañanas Blu con Néstor Morales EN VIVO\nMeridiano Blu EN VIVO\nBlog Deportivo EN VIVO\nVoz Populi EN VIVO\nbluradio.com.co EN VIVO\n\nBlu Radio: 89.9 FM en Bogotá.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/tPafk6DKa5w/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/tPafk6DKa5w/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/tPafk6DKa5w/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/tPafk6DKa5w/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/tPafk6DKa5w/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "fhd": {
+            "url": "https://i.ytimg.com/vi/tPafk6DKa5w/fhddefault.jpg",
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        "channelTitle": "Blu Radio",
+        "tags": [
+          "Matias Conde Opta datos futbol",
+          "inteligencia artificial futbol CONMEBOL",
+          "analisis de datos futbol Blog Deportivo",
+          "posesion de pelota liga colombiana Atletico Nacional Tolima",
+          "Opta Stats Perform IA futbol",
+          "simposio CONMEBOL inteligencia artificial",
+          "Cesar Luis Menotti reflexiones futbol",
+          "Blog Deportivo",
+          "Blu Radio",
+          "BLOG DEPORTIVO",
+          "IA",
+          "FUTBOL"
+        ],
+        "categoryId": "17",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "es",
+        "localized": {
+          "title": "¿El dato mata relato? El impacto real de la inteligencia artificial en el fútbol",
+          "description": "En Blog Deportivo se analizó la incorporación de la inteligencia artificial y el análisis de datos en el fútbol tras el simposio organizado por la CONMEBOL.\n\nMatías Conde, Senior Data Editor y Data Analyst en Opta, explicó cómo las nuevas herramientas tecnológicas permiten entender mejor el desarrollo de los partidos. Durante la conversación, se debatieron mitos sobre la posesión del balón, destacando que en la liga colombiana solo dos equipos mantienen mayor tiempo de posesión cuando van ganando. Asimismo, la mesa de trabajo compartió reflexiones históricas sobre el rol de los entrenadores y la conducta de los futbolistas en la cancha.\n\n¿Considera que la inteligencia artificial ayuda a respaldar el trabajo de los entrenadores?\n\nBlog Deportivo - Blu Radio: Lunes a viernes, 2:00 PM a 4:00 PM: Fútbol colombiano y protagonistas del deporte en el mundo.\n\n¡Ahora la radio no solo se escucha, también se ve! En Blu le ponemos cara a la opinión, al debate, al humor, los deportes y al entretenimiento. ¡Le ponemos cara a la radio! Siga en directo la señal en vivo de nuestra programación.\n\nNoticias en vivo de Colombia y el mundo, suscríbase [GRATIS] a nuestro canal en YouTube: http://bit.ly/2CFF7Fo y encuentre las últimas noticias en Colombia, el mundo y mucho más.\n\nBLU RADIO EN VIVO HOY |  #LePonemosCaraalaRadio\n\nSíganos en Google Noticias: http://bit.ly/2lM3iLH\n\nSíganos en redes sociales:\nFacebook: http://www.facebook.com/BluRadioColombia \nInstagram: @BluRadio http://instagram.com/bluradio \nTwitter: @BluRadioCo http://www.twitter.com/BluRadioCo \n\nÚltimas noticias de hoy en Colombia: https://www.bluradio.com\n\nNuestra red de canales en YouTube:\nNoticias Caracol en vivo: http://bit.ly/2Jhc3oO Suscribirse\nCaracol en vivo: http://bit.ly/2CHpld2 Suscribirse \nGol Caracol: http://bit.ly/2yAIGcU Suscribirse\nShock: http://bit.ly/2CHNKzi Suscribirse\nLa Kalle en vivo: http://bit.ly/2JkgfEz Suscribirse\nCaracol Play: http://bit.ly/2SkyjlM Suscribirse\nEl Espectador: http://bit.ly/2D4rkt7 Suscribirse\n\n- - - - - - - - - - - - - -\n\nSiga nuestra programación, Blu Radio en vivo y en directo: \nMañanas Blu con Néstor Morales EN VIVO\nMeridiano Blu EN VIVO\nBlog Deportivo EN VIVO\nVoz Populi EN VIVO\nbluradio.com.co EN VIVO\n\nBlu Radio: 89.9 FM en Bogotá."
+        },
+        "defaultAudioLanguage": "es-419"
+      },
+      "contentDetails": {
+        "duration": "PT18M40S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": true,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "1304",
+        "likeCount": "8",
+        "favoriteCount": "0",
+        "commentCount": "4"
+      }
+    }
+  ],
+  "pageInfo": {
+    "totalResults": 5,
+    "resultsPerPage": 5
+  }
+}

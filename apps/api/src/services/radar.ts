@@ -122,6 +122,9 @@ export function isUniform(p: Pick<PieceRow, 'platform' | 'approx' | 'query'>): b
   if (p.approx) return false;
   // A followed topic searches on demand, not alike every week: its finds never count as growth.
   if ((p.query ?? '').startsWith('vigia:')) return false;
+  // YouTube stays out even with exact dates from videos.list: its search shows only this week's
+  // top results and cannot be replayed for past weeks, so older windows hold only what earlier
+  // captures happened to see. It counts for presence and evidence, not for the curve.
   if (p.platform === 'bluesky' || p.platform === 'news' || p.platform === 'hn') return true;
   return p.platform === 'github' && (p.query ?? '').startsWith('created:');
 }

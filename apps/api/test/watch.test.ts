@@ -133,6 +133,66 @@ describe('Vigía', () => {
         .adaptation?.angle,
     ).toContain('pyme');
   });
+
+  it('with a YouTube key, reads exact dates in one videos.list call instead of opening pages', async () => {
+    const { deps } = await testContainer({ now: NOW });
+    deps.llm = llm;
+    const empty = mkdtempSync(join(tmpdir(), 'radar-watch-'));
+    deps.config = { ...deps.config, RAW_DIR: empty, DATA_DIR: empty, YOUTUBE_API_KEY: 'TEST' };
+    // The search page rounds to «5 hours ago»; the API knows it is nine days old.
+    const page = `<script>var ytInitialData = ${JSON.stringify({
+      contents: [
+        {
+          videoRenderer: {
+            videoId: 'yt-business',
+            title: { runs: [{ text: 'How small business owners are using AI agents this year' }] },
+            publishedTimeText: { simpleText: '5 hours ago' },
+            viewCountText: { simpleText: '90,000 views' },
+            ownerText: {
+              runs: [
+                { text: 'Canal', navigationEndpoint: { browseEndpoint: { browseId: 'UC1' } } },
+              ],
+            },
+          },
+        },
+      ],
+    })};</script>`;
+    const answer = JSON.stringify({
+      items: [
+        {
+          id: 'yt-business',
+          snippet: {
+            publishedAt: hoursAgo(24 * 9),
+            channelId: 'UC1',
+            title: 't',
+            channelTitle: 'Canal',
+          },
+          statistics: { viewCount: '95000', likeCount: '4000', commentCount: '200' },
+          contentDetails: { duration: 'PT9M' },
+        },
+      ],
+    });
+    const urls: string[] = [];
+    const youtube: Fetcher = async (url, init) => {
+      urls.push(url);
+      if (url.includes('googleapis.com')) return { status: 200, url, body: answer };
+      if (url.includes('youtube.com/results') && url.includes('hl=en'))
+        return { status: 200, url, body: page };
+      if (url.includes('youtube.com')) return { status: 404, url, body: '' };
+      return fetcher(url, init);
+    };
+
+    const watch = await createWatch(deps, 'negocios');
+    const report = await runWatch(deps, watch.id, { fetcher: youtube, pauseMs: 0 });
+
+    const api = urls.filter((u) => u.includes('googleapis.com/youtube/v3/videos'));
+    expect(api).toHaveLength(1);
+    expect(new URL(api[0]!).searchParams.get('id')).toBe('yt-business');
+    expect(urls.some((u) => u.includes('youtube.com/watch'))).toBe(false);
+    expect(report.sources.find((s) => s.source === 'youtube-api')).toMatchObject({ found: 1 });
+    const late = report.rejected.find((r) => r.rule === 'reciente')!;
+    expect(late.examples.map((e) => e.reason).join(' ')).toContain('9 días');
+  });
 });
 
 describe('Vigía with JEV', () => {

@@ -7,6 +7,9 @@
  *   node packages/sources/scripts/capture.mjs --every 120     one run every 120 minutes
  *   node packages/sources/scripts/capture.mjs --only x,hn     only some sources
  *
+ * With YOUTUBE_API_KEY set, the ids on the YouTube search pages are then asked to the official
+ * videos.list (1 quota unit per 50 ids) for their exact date and counts, saved as `youtube_api`.
+ *
  * Output: data/raw/<run>/<source>/<key>.<ext>.gz and data/raw/<run>/index.jsonl.
  */
 import { appendFile, mkdir, readFile, writeFile } from 'node:fs/promises';
@@ -263,6 +266,7 @@ async function runGroup(dir, source, group) {
         file = `${source}/${req.key}.${req.ext}.gz`;
         await mkdir(join(dir, source), { recursive: true });
         await writeFile(join(dir, file), gzipSync(body));
+        group.onBody?.(body);
         ok += 1;
       }
     } catch (error) {
@@ -271,11 +275,38 @@ async function runGroup(dir, source, group) {
     }
     await appendFile(
       join(dir, 'index.jsonl'),
-      `${JSON.stringify({ source, key: req.key, url: req.url, status, bytes, file, capturedAt, meta: req.meta })}\n`,
+      `${JSON.stringify({ source, key: req.key, url: req.logUrl ?? req.url, status, bytes, file, capturedAt, meta: req.meta })}\n`,
     );
     await sleep(group.pause);
   }
   return { source, ok, total: group.requests.length };
+}
+
+/**
+ * The YouTube searches, then videos.list for every id they showed: 50 per call, one quota unit
+ * each. The key goes in the request only; the index keeps the URL without it.
+ */
+async function runYoutube(dir, group, key) {
+  const ids = new Set();
+  const onBody = (body) => {
+    for (const m of body.toString('utf8').matchAll(/"videoId":\s*"([\w-]{11})"/g)) ids.add(m[1]);
+  };
+  const search = await runGroup(dir, 'youtube', { ...group, onBody });
+  const list = [...ids];
+  const requests = [];
+  for (let i = 0; i < list.length; i += 50) {
+    const batch = list.slice(i, i + 50);
+    const logUrl = `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics,contentDetails&id=${batch.join(',')}`;
+    requests.push({
+      key: String(requests.length + 1),
+      ext: 'json',
+      url: `${logUrl}&key=${encodeURIComponent(key)}`,
+      logUrl,
+      headers: { 'user-agent': BROWSER },
+      meta: { videos: batch.length },
+    });
+  }
+  return [search, await runGroup(dir, 'youtube_api', { pause: 200, requests })];
 }
 
 async function runOnce() {
@@ -285,7 +316,14 @@ async function runOnce() {
   const dir = join(OUT, run);
   await mkdir(dir, { recursive: true });
   const groups = Object.entries(plan(seeds, now)).filter(([s]) => !only || only.includes(s));
-  const results = await Promise.all(groups.map(([s, g]) => runGroup(dir, s, g)));
+  const key = process.env.YOUTUBE_API_KEY;
+  const results = (
+    await Promise.all(
+      groups.map(([s, g]) =>
+        s === 'youtube' && key ? runYoutube(dir, g, key) : runGroup(dir, s, g),
+      ),
+    )
+  ).flat();
   const line = results.map((r) => `${r.source} ${r.ok}/${r.total}`).join(', ');
   console.log(`[${new Date().toISOString()}] run ${run}: ${line}`);
 }

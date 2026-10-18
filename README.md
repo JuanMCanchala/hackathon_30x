@@ -219,7 +219,7 @@ data/             semana congelada de la demo y respuestas grabadas del modelo
 ## Límites, dichos de frente
 
 - El crecimiento se mide en fuentes con historia pareja (Bluesky, noticias, Hacker News, GitHub); LinkedIn e Instagram aportan presencia y evidencia, no la curva.
-- La búsqueda de YouTube da fechas aproximadas («hace 2 días») y ninguna para los shorts; esas piezas no cuentan para el crecimiento, y Vigía abre cada video candidato para leer su fecha exacta o lo descarta.
+- La búsqueda de YouTube da fechas aproximadas («hace 2 días») y ninguna para los shorts. Con `YOUTUBE_API_KEY`, la captura y Vigía piden a la API oficial (videos.list, 1 unidad de cuota por cada 50 videos) la fecha exacta, el canal, las vistas, los likes y los comentarios, y los shorts dejan de descartarse por no tener canal; sin la llave, Vigía abre cada video candidato para leer su fecha o lo descarta. Aun con fecha exacta, YouTube no cuenta para el crecimiento: su búsqueda solo muestra los primeros resultados de esta semana y no se puede repetir para semanas pasadas, así que aporta presencia y evidencia, no la curva.
 - Sin JEV, Vigía decide «del tema» por palabras clave en el gancho: rápido y sin costo, pero a veces deja pasar una pieza que solo menciona la palabra. Con JEV ese error baja, aunque JEV también se equivoca: cada decisión muestra su razón y su probabilidad para revisarla.
 - Instagram y X limitan las consultas por hora; la captura reintenta en la siguiente vuelta.
 - Reddit y el TikTok Creative Center cerraron su acceso público en 2026. Sin sesión, Reddit responde 403 y el Creative Center ya no entrega sus tendencias (probado el 17 de octubre de 2026). Por eso no están entre las fuentes.

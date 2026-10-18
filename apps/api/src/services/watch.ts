@@ -27,7 +27,9 @@ import {
   type ScreenVerdict,
 } from '@radar/core';
 import {
+  YOUTUBE_VIDEOS_BATCH,
   dedupe,
+  fetchYoutubeVideos,
   httpFetch,
   itemKey,
   listRuns,
@@ -37,6 +39,7 @@ import {
   runSearch,
   searchRequests,
   sleep,
+  withYoutubeVideos,
   type Fetcher,
 } from '@radar/sources';
 import type { Config } from '../config';
@@ -266,7 +269,16 @@ async function collect(
     w.langs as WatchLang[],
     fetcher,
     pauseMs,
+    deps.config.YOUTUBE_API_KEY,
   );
+  if (completed.fromApi !== null)
+    sources.push({
+      source: 'youtube-api',
+      lang: null,
+      query: 'fecha, canal y métricas exactas de la API oficial (videos.list)',
+      status: 200,
+      found: completed.fromApi,
+    });
   if (completed.opened)
     sources.push({
       source: 'youtube-detalle',
@@ -356,6 +368,7 @@ const YOUTUBE_DETAILS = 40;
  * YouTube's search page leaves out the date and channel of shorts and rounds the rest («hace 2
  * días»). The videos that could pass (in the language, about the topic) are opened one by one,
  * most viewed first, to read their exact date, channel, likes, comments and subscribers. No tokens.
+ * With a YouTube API key, one videos.list call (1 quota unit) reads the 50 most viewed instead.
  */
 async function completeYoutube(
   raws: RawItem[],
@@ -363,7 +376,8 @@ async function completeYoutube(
   langs: WatchLang[],
   fetcher: Fetcher,
   pauseMs: number,
-): Promise<{ raws: RawItem[]; opened: number }> {
+  key?: string,
+): Promise<{ raws: RawItem[]; opened: number; fromApi: number | null }> {
   const worth = raws
     .filter((r) => r.platform === 'youtube' && (r.publishedApprox || !r.author.id))
     .filter((r) => {
@@ -375,7 +389,15 @@ async function completeYoutube(
       );
     })
     .sort((a, b) => (b.metrics.views ?? 0) - (a.metrics.views ?? 0))
-    .slice(0, YOUTUBE_DETAILS);
+    .slice(0, key ? YOUTUBE_VIDEOS_BATCH : YOUTUBE_DETAILS);
+  if (key) {
+    const videos = await fetchYoutubeVideos(
+      worth.map((r) => r.externalId),
+      key,
+      fetcher,
+    );
+    return { raws: withYoutubeVideos(raws, videos), opened: 0, fromApi: videos.size };
+  }
   const detailed = new Map<string, RawItem>();
   for (const r of worth) {
     const read = await readPublicPost(r.url, { fetcher, now: r.capturedAt }).catch(() => null);
@@ -389,7 +411,11 @@ async function completeYoutube(
       });
     if (pauseMs) await sleep(Math.min(pauseMs, 250));
   }
-  return { raws: raws.map((r) => detailed.get(itemKey(r)) ?? r), opened: worth.length };
+  return {
+    raws: raws.map((r) => detailed.get(itemKey(r)) ?? r),
+    opened: worth.length,
+    fromApi: null,
+  };
 }
 
 const mediaDir = (deps: Deps, id: string) =>

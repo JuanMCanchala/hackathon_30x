@@ -12,6 +12,7 @@ import { parseYoutubeRss } from './parsers/youtube-rss';
 import { readRun } from './raw';
 import type { CaptureRecord, Parser } from './types';
 import { compact } from './util';
+import { parseYoutubeVideos, withYoutubeVideos, type YoutubeVideo } from './youtube-api';
 
 /** Keyed by the capture group name used in `scripts/capture.mjs`. */
 export const parsers: Record<string, Parser> = {
@@ -77,9 +78,17 @@ export function dedupe(items: RawItem[]): RawItem[] {
   return [...byKey.values()];
 }
 
-/** Every piece of one capture run, without repeats. */
+/**
+ * Every piece of one capture run, without repeats. The run's `youtube_api` answers (videos.list,
+ * only when the capture had a key) give the YouTube pieces found by search their exact data.
+ */
 export async function parseRun(runDir: string): Promise<RawItem[]> {
   const items: RawItem[] = [];
-  for await (const { record, body } of readRun(runDir)) items.push(...parseRecord(body, record));
-  return dedupe(items);
+  const videos = new Map<string, YoutubeVideo>();
+  for await (const { record, body } of readRun(runDir)) {
+    if (record.source === 'youtube_api')
+      for (const v of parseYoutubeVideos(body)) videos.set(v.id, v);
+    else items.push(...parseRecord(body, record));
+  }
+  return withYoutubeVideos(dedupe(items), videos);
 }

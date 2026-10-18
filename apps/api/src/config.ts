@@ -34,6 +34,11 @@ const EnvSchema = z.object({
   APIFY_TOKEN: z.string().min(1).optional(),
   /** Optional: JEV (TypeSafe) judges topic and fit in the Vigía screen. Without it, keywords decide. */
   TYPESAFE_API_KEY: z.string().min(1).optional(),
+  /**
+   * Optional: exact YouTube dates and counts through the official videos.list (1 quota unit per
+   * 50 videos). Without it, Vigía opens each candidate's page and the capture keeps «hace 2 días».
+   */
+  YOUTUBE_API_KEY: z.string().min(1).optional(),
   /** Seeds the database from SNAPSHOT_DIR when it is empty. */
   DEMO_MODE: bool.default(true),
   /** Followed topics search on their own while the API runs. Default: on, off in the demo. */

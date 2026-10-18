@@ -30,3 +30,4 @@ export {
 } from './http';
 export { parseCount, parseRelativeTime, parseDuration, stripHtml } from './util';
 export * from './search';
+export * from './youtube-api';

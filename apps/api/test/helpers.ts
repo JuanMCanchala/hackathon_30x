@@ -38,6 +38,7 @@ export async function testContainer(options: { now?: string; llmDir?: string } =
     ...process.env,
     FIREWORKS_API_KEY: '',
     TYPESAFE_API_KEY: '',
+    YOUTUBE_API_KEY: '',
     LLM_MODE: 'replay',
     DEMO_MODE: 'false',
   });
