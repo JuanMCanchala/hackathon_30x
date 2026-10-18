@@ -5,7 +5,14 @@ import { describe, expect, it } from 'vitest';
 import type { z } from 'zod';
 import type { Fetcher } from '@radar/sources';
 import type { Llm, RecordedRequest } from '../src/llm/cached';
-import { adaptHit, createWatch, runWatch, watchDetail } from '../src/services/watch';
+import { JevUnavailableError, type JudgedPiece, type PieceJudge } from '../src/jev/client';
+import {
+  JEV_MAX_PIECES,
+  adaptHit,
+  createWatch,
+  runWatch,
+  watchDetail,
+} from '../src/services/watch';
 import { testContainer } from './helpers';
 
 const NOW = '2026-10-17T18:00:00Z';
@@ -124,5 +131,93 @@ describe('Vigía', () => {
       (await watchDetail(deps, watch.id)).hits.find((h) => h.piece.id === 'bluesky:viral')!
         .adaptation?.angle,
     ).toContain('pyme');
+  });
+});
+
+describe('Vigía with JEV', () => {
+  async function setup(jev: PieceJudge | null) {
+    const { deps } = await testContainer({ now: NOW });
+    deps.llm = llm;
+    deps.jev = jev;
+    const empty = mkdtempSync(join(tmpdir(), 'radar-watch-'));
+    deps.config = { ...deps.config, RAW_DIR: empty, DATA_DIR: empty };
+    return { deps, watch: await createWatch(deps, 'negocios') };
+  }
+
+  /** A judge that answers from a table and remembers what it was asked. */
+  const fakeJudge = (onTopic: Record<string, number>) => {
+    const asked: JudgedPiece[] = [];
+    const judge: PieceJudge = {
+      async judge(_topic, pieces) {
+        asked.push(...pieces);
+        const verdicts = new Map(
+          pieces.map((p) => [p.key, { onTopic: onTopic[p.key] ?? 0.9, fit: 7 }] as const),
+        );
+        return { verdicts, inputTokens: pieces.length * 470, ms: 5 };
+      },
+    };
+    return { judge, asked };
+  };
+
+  it('asks JEV only for pieces that passed language and date, and lets it decide the topic', async () => {
+    const { judge, asked } = fakeJudge({ 'bluesky:viral': 0.1, 'bluesky:off': 0.95 });
+    const { deps, watch } = await setup(judge);
+    const report = await runWatch(deps, watch.id, { fetcher, pauseMs: 0 });
+
+    // es1 (Spanish) and old (nine days) never reach JEV.
+    expect(asked.map((p) => p.key).sort()).toEqual(
+      [
+        'bluesky:off',
+        'bluesky:pt1',
+        'bluesky:slow1',
+        'bluesky:slow2',
+        'bluesky:slow3',
+        'bluesky:viral',
+      ].sort(),
+    );
+    expect(report.jev).toMatchObject({ judged: 6, inputTokens: 6 * 470 });
+    const hits = (await watchDetail(deps, watch.id)).hits;
+    const caught = hits.map((h) => h.piece.id);
+    expect(caught).toContain('bluesky:off');
+    expect(caught).not.toContain('bluesky:viral');
+    expect(hits.find((h) => h.piece.id === 'bluesky:off')!.reasons.join(' ')).toContain(
+      'JEV: es del tema',
+    );
+  });
+
+  it(`asks JEV about ${JEV_MAX_PIECES} pieces at most, the most engaged first`, async () => {
+    const many: Fetcher = async (url) => {
+      if (!url.includes('bsky.app') || url.includes('lang=pt'))
+        return { status: 404, url, body: '' };
+      const posts = Array.from({ length: JEV_MAX_PIECES + 30 }, (_, i) =>
+        bsky(`p${i}`, 'en', `Business idea number ${i} with AI`, hoursAgo(2), i + 1),
+      );
+      return { status: 200, url, body: JSON.stringify({ posts }) };
+    };
+    const { judge, asked } = fakeJudge({});
+    const { deps, watch } = await setup(judge);
+    await runWatch(deps, watch.id, { fetcher: many, pauseMs: 0 });
+    expect(asked).toHaveLength(JEV_MAX_PIECES);
+    expect(asked.map((p) => p.key)).not.toContain('bluesky:p0');
+  });
+
+  it('keeps running on keywords when JEV is unavailable', async () => {
+    const down: PieceJudge = {
+      async judge() {
+        throw new JevUnavailableError('JEV no respondió: 503');
+      },
+    };
+    const { deps, watch } = await setup(down);
+    const report = await runWatch(deps, watch.id, { fetcher, pauseMs: 0 });
+    expect(report.jev).toEqual({ skipped: 'JEV no respondió: 503' });
+    const caught = (await watchDetail(deps, watch.id)).hits.map((h) => h.piece.id);
+    expect(caught).toContain('bluesky:viral');
+    expect(caught).not.toContain('bluesky:off');
+  });
+
+  it('without a key the run never calls JEV', async () => {
+    const { deps, watch } = await setup(null);
+    const report = await runWatch(deps, watch.id, { fetcher, pauseMs: 0 });
+    expect(report.jev).toEqual({ skipped: 'sin llave' });
   });
 });

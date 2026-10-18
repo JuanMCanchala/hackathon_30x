@@ -25,6 +25,7 @@ import {
   type ScreenCandidate,
   type ScreenLang,
   type ScreenRule,
+  type ScreenVerdict,
 } from '@radar/core';
 import {
   dedupe,
@@ -40,6 +41,7 @@ import {
   type Fetcher,
 } from '@radar/sources';
 import { enrichments, items, llmUsage, watchHits, watchRuns, watches } from '../db/schema';
+import { JEV_USD_PER_MTOK, JevUnavailableError } from '../jev/client';
 import { AppError, newId, notFound } from '../lib/common';
 import { saveItems } from '../pipeline/ingest';
 import { AdaptationSchema, VOICE, type AdaptationContent } from './adapt';
@@ -116,7 +118,12 @@ export interface WatchReport {
   caught: number;
   costUsd: number;
   tokens: { input: number; output: number };
+  /** What JEV judged before the screen, or why it did not. Older runs have none. */
+  jev?: { judged: number; inputTokens: number; ms: number; costUsd: number } | { skipped: string };
 }
+
+/** The most engaged pieces that passed language and date are the ones JEV is asked about. */
+export const JEV_MAX_PIECES = 120;
 
 export interface Slide {
   n: number;
@@ -535,6 +542,11 @@ export async function runWatch(
       authorMedian: medianOf(r),
     }));
     const plan = w.plan as WatchPlan;
+    const { judged, jev } = await judgeWithJev(deps, w.term, candidates, byKey, {
+      now: now.getTime(),
+      langs: w.langs as WatchLang[],
+      windowHours: w.windowHours,
+    });
     const result = screen(candidates, {
       now: now.toISOString(),
       langs: w.langs as WatchLang[],
@@ -542,6 +554,7 @@ export async function runWatch(
       windowHours: w.windowHours,
       budget: w.budget,
       seen,
+      judged,
     });
 
     // Only what passed every rule reaches the model.
@@ -606,8 +619,9 @@ export async function runWatch(
         };
       }),
       caught: caught.length,
-      costUsd: Number(usage[0]?.cost ?? 0),
+      costUsd: Number(usage[0]?.cost ?? 0) + ('costUsd' in jev ? jev.costUsd : 0),
       tokens: { input: Number(usage[0]?.input ?? 0), output: Number(usage[0]?.output ?? 0) },
+      jev,
     };
     const finishedAt = nowIso(deps);
     await deps.db.update(watchRuns).set({ finishedAt, report }).where(eq(watchRuns.id, runId));
@@ -627,6 +641,57 @@ export async function runWatch(
   } finally {
     running.delete(id);
     deps.bus.publish({ type: 'watch.changed', at: nowIso(deps), data: { id } });
+  }
+}
+
+/**
+ * Asks JEV about the pieces that can still be caught (right language, known and recent date), the
+ * most engaged first, before the screen runs. Without JEV, or when it fails, the screen decides
+ * the topic by keywords as before, and the report says why.
+ */
+async function judgeWithJev(
+  deps: Deps,
+  term: string,
+  candidates: readonly ScreenCandidate[],
+  byKey: ReadonlyMap<string, RawItem>,
+  opts: { now: number; langs: readonly WatchLang[]; windowHours: number },
+): Promise<{
+  judged: Map<string, ScreenVerdict> | undefined;
+  jev: NonNullable<WatchReport['jev']>;
+}> {
+  if (!deps.jev) return { judged: undefined, jev: { skipped: 'sin llave' } };
+  const pieces = candidates
+    .filter(
+      (c) =>
+        c.lang !== null &&
+        (opts.langs as readonly string[]).includes(c.lang) &&
+        c.dateKnown !== false &&
+        opts.now - new Date(c.publishedAt).getTime() <= opts.windowHours * 3_600_000,
+    )
+    .sort((a, b) => b.engagement - a.engagement)
+    .slice(0, JEV_MAX_PIECES)
+    .map((c) => ({
+      key: c.key,
+      platform: c.platform,
+      lang: c.lang!,
+      text: c.text,
+      author: byKey.get(c.key)?.author.name ?? '',
+    }));
+  try {
+    const { verdicts, inputTokens, ms } = await deps.jev.judge(term, pieces);
+    return {
+      judged: verdicts,
+      jev: {
+        judged: verdicts.size,
+        inputTokens,
+        ms,
+        costUsd: (inputTokens * JEV_USD_PER_MTOK) / 1e6,
+      },
+    };
+  } catch (error) {
+    const reason = error instanceof JevUnavailableError ? error.message : 'JEV falló';
+    console.error('jev:', reason);
+    return { judged: undefined, jev: { skipped: reason } };
   }
 }
 
