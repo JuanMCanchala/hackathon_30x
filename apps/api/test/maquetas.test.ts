@@ -370,6 +370,12 @@ describe('the calendar, v2', () => {
       origin: { kind: 'vigia', watchId: 'wch_negocios', itemId: 'bluesky:viral', term: 'negocios' },
     });
 
+    // A LinkedIn post opens with the hook the team chose, title and text alike.
+    const linkedin = await plan({ ...piece, format: 'linkedin', hook: 1 });
+    expect(linkedin.status).toBe(200);
+    expect(linkedin.body.title).toBe(adaptation.hooks[1]);
+    expect(linkedin.body.body.startsWith(`${adaptation.hooks[1]}\n\n`)).toBe(true);
+
     // A maqueta drafted from the same piece carries where it was caught.
     const caught = { kind: 'vigia', ...piece, name: 'negocios' };
     const m = (
@@ -396,7 +402,7 @@ describe('the calendar, v2', () => {
     // Unfollowing the topic deletes its hits, not what the team planned.
     expect((await call('DELETE', '/api/v1/watches/wch_negocios')).status).toBe(200);
     const left = (await call<CalendarEntry[]>('GET', '/api/v1/calendar')).body;
-    expect(left.map((e) => e.topicName)).toEqual(['negocios', 'negocios']);
+    expect(left.map((e) => e.topicName)).toEqual(['negocios', 'negocios', 'negocios']);
   });
 
   it('keeps the pieces of a deleted maqueta on the calendar, with their text', async () => {

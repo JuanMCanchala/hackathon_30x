@@ -163,7 +163,7 @@ const MAQUETA_FORMAT_COPY: Record<string, string> = {
 };
 
 /** The text a format puts on the calendar: what the person will actually publish. */
-function bodyOf(a: AdaptationContent, format: string): { title: string; body: string } {
+function bodyOf(a: AdaptationContent, format: string, hook = 0): { title: string; body: string } {
   if (format === 'carousel')
     return {
       title: a.carousel[0]?.title ?? a.angle,
@@ -180,7 +180,9 @@ function bodyOf(a: AdaptationContent, format: string): { title: string; body: st
     };
   if (format === 'youtube')
     return { title: a.youtube.title, body: `Miniatura: ${a.youtube.thumbnail}` };
-  return { title: a.hooks[0] ?? a.angle, body: a.linkedin };
+  // The post opens with the hook the team chose, as it will be published.
+  const opening = a.hooks[hook] ?? a.hooks[0] ?? a.angle;
+  return { title: opening, body: `${opening}\n\n${a.linkedin}` };
 }
 
 /** Where a piece Vigía caught was found, kept on the calendar entry made from it. */
@@ -221,6 +223,8 @@ export interface ApproveInput {
   itemId?: string;
   /** linkedin | carousel | reel | youtube: needed with an adaptation or a Vigía piece. */
   format?: string;
+  /** For a LinkedIn post, which hook opens it (0 is the first). */
+  hook?: number;
   scheduledFor: string;
   scheduledTime?: string | null;
   approvedBy: string;
@@ -237,7 +241,12 @@ const formatOf = (format: string | undefined): string => {
   return format;
 };
 
-async function fromAdaptation(deps: Deps, id: string, format: string): Promise<Draft> {
+async function fromAdaptation(
+  deps: Deps,
+  id: string,
+  format: string,
+  hook?: number,
+): Promise<Draft> {
   const [row] = await deps.db.select().from(adaptations).where(eq(adaptations.id, id));
   if (!row) throw notFound('La adaptación');
   return {
@@ -245,7 +254,7 @@ async function fromAdaptation(deps: Deps, id: string, format: string): Promise<D
     topicId: row.topicId,
     maquetaId: null,
     format: FORMAT_COPY[format] ?? format,
-    ...bodyOf(row.payload as AdaptationContent, format),
+    ...bodyOf(row.payload as AdaptationContent, format, hook),
     origin: null,
   };
 }
@@ -285,6 +294,7 @@ async function fromVigia(
   watchId: string,
   itemId: string,
   format: string,
+  hook?: number,
 ): Promise<Draft> {
   const [row] = await deps.db
     .select({ adaptation: watchHits.adaptation, term: watches.term })
@@ -299,7 +309,7 @@ async function fromVigia(
     topicId: null,
     maquetaId: null,
     format: FORMAT_COPY[format] ?? format,
-    ...bodyOf(row.adaptation as AdaptationContent, format),
+    ...bodyOf(row.adaptation as AdaptationContent, format, hook),
     origin,
   };
 }
@@ -309,9 +319,9 @@ export async function approve(deps: Deps, input: ApproveInput): Promise<Calendar
   const draft = input.maquetaId
     ? await fromMaqueta(deps, input.maquetaId)
     : input.adaptationId
-      ? await fromAdaptation(deps, input.adaptationId, formatOf(input.format))
+      ? await fromAdaptation(deps, input.adaptationId, formatOf(input.format), input.hook)
       : input.watchId && input.itemId
-        ? await fromVigia(deps, input.watchId, input.itemId, formatOf(input.format))
+        ? await fromVigia(deps, input.watchId, input.itemId, formatOf(input.format), input.hook)
         : null;
   if (!draft)
     throw badRequest('Falta qué programar: una adaptación, una maqueta o una pieza de Vigía.');

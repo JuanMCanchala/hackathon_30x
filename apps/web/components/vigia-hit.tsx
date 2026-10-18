@@ -721,7 +721,7 @@ function PostsChooser({
           onOpenChange={(o) => {
             if (!o) setScheduling(null);
           }}
-          source={{ watchId, itemId: p.id, format: scheduling.format }}
+          source={{ watchId, itemId: p.id, format: scheduling.format, hook: scheduling.hook }}
           what={`${scheduling.name} · ${scheduling.detail} · ${term}`}
           onScheduled={(entry) =>
             markScheduled(scheduling.id, {

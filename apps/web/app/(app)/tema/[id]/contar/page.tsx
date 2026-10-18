@@ -260,7 +260,12 @@ export default function ContarPage() {
             <ScheduleDialog
               open={scheduling !== null}
               onOpenChange={(open) => !open && setScheduling(null)}
-              source={{ adaptationId: current.id, format }}
+              source={{
+                adaptationId: current.id,
+                format,
+                // The calendar keeps the hook the team picked above.
+                hook: format === 'linkedin' ? Math.min(hook, current.hooks.length - 1) : undefined,
+              }}
               what={`${SCHEDULE_LABEL[format]} · ${name}`}
               defaultDate={scheduling?.day}
             />

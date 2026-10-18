@@ -49,6 +49,8 @@ const ApproveBody = z.object({
   maquetaId: z.string().min(1).optional(),
   watchId: z.string().min(1).optional(),
   itemId: z.string().min(1).optional(),
+  /** For a LinkedIn post, which hook opens it (0 is the first). */
+  hook: z.number().int().min(0).max(5).optional(),
   scheduledFor: Day,
   scheduledTime: Hour.nullable().optional(),
   approvedBy: z.string().min(1).max(80).default('Equipo de medios 30X'),

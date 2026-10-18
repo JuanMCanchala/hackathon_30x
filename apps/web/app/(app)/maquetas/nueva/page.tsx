@@ -446,9 +446,11 @@ function Composer({
   const format = picked ?? source?.format ?? 'carrusel';
   const spec = FORMAT_SPEC[format];
 
+  // A LinkedIn post chosen in Vigía's deck says which hook it opened with (&gancho=2).
+  const hook = Math.max(0, Number(useSearchParams().get('gancho') ?? '1') - 1) || 0;
   const base = useMemo(
-    () => (content ? slidesFromAdaptation(content, format, topicName) : blankSlides(format)),
-    [content, format, topicName],
+    () => (content ? slidesFromAdaptation(content, format, topicName, hook) : blankSlides(format)),
+    [content, format, topicName, hook],
   );
 
   const options = useMemo<Option[]>(

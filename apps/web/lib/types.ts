@@ -239,9 +239,9 @@ export interface CalendarEntry {
 
 /** What POST /api/v1/calendar schedules: one of the three sources. */
 export type ScheduleSource =
-  | { adaptationId: string; format: PieceFormat }
+  | { adaptationId: string; format: PieceFormat; hook?: number }
   | { maquetaId: string }
-  | { watchId: string; itemId: string; format: PieceFormat };
+  | { watchId: string; itemId: string; format: PieceFormat; hook?: number };
 
 /** The formats an adaptation is written in (`Format` in components/adaptation-panel). */
 export type PieceFormat = 'linkedin' | 'carousel' | 'reel' | 'youtube';

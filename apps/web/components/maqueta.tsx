@@ -239,9 +239,18 @@ export function slidesFromAdaptation(
   a: AdaptationContent,
   format: MaquetaFormat,
   topicName: string,
+  /** Which of the hooks opens a single post (0 to 2). */
+  hook = 0,
 ): MaquetaSlide[] {
   if (format === 'post')
-    return [{ layout: 'portada', kicker: topicName, title: a.hooks[0] ?? a.angle, body: a.angle }];
+    return [
+      {
+        layout: 'portada',
+        kicker: topicName,
+        title: a.hooks[hook] ?? a.hooks[0] ?? a.angle,
+        body: a.angle,
+      },
+    ];
   if (format === 'portada')
     return [{ layout: 'portada', kicker: '', title: a.youtube.title, body: '' }];
   if (format === 'historia') {
