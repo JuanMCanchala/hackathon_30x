@@ -43,7 +43,7 @@ Todas las respuestas del modelo quedan grabadas: la demo, las pruebas y CI las r
 
 ## Cómo medimos que algo crece
 
-- **Creadores distintos, no piezas.** Cien posts de una misma cuenta no son una tendencia. Es la unidad del sistema de detección de tendencias de Snap (2026).
+- **Creadores distintos, no piezas.** Cien posts de una misma cuenta no son una tendencia. Es la unidad del sistema de detección de tendencias de Snapchat, que mide usuarios únicos que publican sobre un tema ([Zhao et al., Snap, 2026](https://arxiv.org/abs/2604.27131)).
 - **Ventanas de 7 días que terminan ahora,** no semanas de calendario: un lunes no parece una semana que cae.
 - **Lift** = (creadores de esta semana + 1) ÷ (promedio de las 4 semanas anteriores + 1). Hay señal con lift ≥ 1,8 y al menos 3 creadores.
 - **Solo con fuentes que se muestrean igual cada semana:** Bluesky, Google Noticias, Hacker News y los repositorios nuevos de GitHub, todos con el mismo tope de resultados por búsqueda y semana. LinkedIn, Instagram, YouTube, X y TikTok dicen dónde ya llegó cada tema y aportan la evidencia; sus feeds muestran solo lo reciente y inflarían la semana actual.
@@ -221,5 +221,12 @@ data/             semana congelada de la demo y respuestas grabadas del modelo
 - La búsqueda de YouTube da fechas aproximadas («hace 2 días») y ninguna para los shorts; esas piezas no cuentan para el crecimiento, y Vigía abre cada video candidato para leer su fecha exacta o lo descarta.
 - Sin JEV, Vigía decide «del tema» por palabras clave en el gancho: rápido y sin costo, pero a veces deja pasar una pieza que solo menciona la palabra. Con JEV ese error baja, aunque JEV también se equivoca: cada decisión muestra su razón y su probabilidad para revisarla.
 - Instagram y X limitan las consultas por hora; la captura reintenta en la siguiente vuelta.
+- Reddit y el TikTok Creative Center cerraron su acceso público en 2026. Sin sesión, Reddit responde 403 y el Creative Center ya no entrega sus tendencias (probado el 17 de octubre de 2026). Por eso no están entre las fuentes.
 - El modelo puede etiquetar mal una pieza; el radar trabaja con miles, y cada tema muestra su evidencia para revisarla.
 - Solo se guarda contenido público y el nombre público de su autor, nunca perfiles privados. Las piezas nuevas se guardan sin correos; la semana congelada de la demo es anterior a ese filtro, y los teléfonos no se filtran.
+
+## Qué sigue
+
+- **Bluesky Jetstream:** el firehose de Bluesky, en tiempo real y gratis, en vez de buscar cada 2 horas.
+- **API de Google Trends (alfa):** el interés de búsqueda por tema y país, como otra curva de crecimiento.
+- **BERTopic:** modelado de temas, para comparar con el agrupamiento por etiquetas.
