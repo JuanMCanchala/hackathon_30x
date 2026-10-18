@@ -1,14 +1,36 @@
-# OndAI
+<h1 align="center">OndAI</h1>
 
-**Qué temas de IA están despegando en redes, por qué funcionan y cómo los cuenta 30X.**
+<p align="center">
+  <img src="docs/images/ondai-radar.png" alt="El Radar de OndAI: el titular de la semana, los temas con señal, la ventana abierta en español y la onda con cada tema en su ciclo de vida" width="100%" />
+</p>
 
-Reto «Radar de contenido» de 30X, Hackathon 30X (octubre de 2026). Esta rama (`feat/radar`) es el proyecto completo; la rama `feat/mandato` guarda el proyecto anterior del equipo.
+<h3 align="center">Tu equipo, siempre un paso adelante.</h3>
+
+<p align="center">
+  OndAI es el <b>AI trend analyst</b> del equipo de medios de 30X: encuentra los temas de IA que despegan en redes, explica por qué funcionan con evidencia medida y los entrega listos para contar en la voz de 30X, antes de que lleguen al español.
+</p>
+
+<p align="center">
+  <a href="https://ondai.vercel.app"><b>Landing</b></a> ·
+  <a href="https://ondai.vercel.app/radar"><b>Demo en vivo</b></a> ·
+  <a href="https://api-production-d4093.up.railway.app/api/v1/health"><b>API</b></a> ·
+  <a href="output/ondai-pitch"><b>Video pitch</b></a> ·
+  <a href="docs/design-system.md"><b>Sistema de diseño</b></a>
+</p>
+
+<p align="center">
+  <b>18 de 18</b> olas de IA detectadas en el backtest · <b>10,5 días</b> de anticipación mediana · <b>USD 40–45</b> al mes · una persona aprueba cada pieza
+</p>
+
+---
+
+Reto «Radar de contenido» de 30X, Hackathon 30X (octubre de 2026). La rama `main` es el proyecto completo; `feat/mandato` guarda el proyecto anterior del equipo.
 
 ## La pregunta
 
 > ¿Cuáles son los 10 temas de IA que más están creciendo esta semana en LinkedIn, por qué y cómo lo adaptamos?
 
-Hoy el equipo de medios de 30X paga servicios de scraping que cuestan miles de dólares al año y solo traen datos: no dicen por qué algo funcionó, si es una tendencia que empieza o una que ya todos copiaron, ni si le sirve a su audiencia. Radar responde las tres cosas en la primera pantalla, por unos USD 40 a 45 al mes.
+Hoy el equipo de medios de 30X paga servicios de scraping que cuestan miles de dólares al año y solo traen datos: no dicen por qué algo funcionó, si es una tendencia que empieza o una que ya todos copiaron, ni si le sirve a su audiencia. OndAI responde las tres cosas en la primera pantalla, el Radar, por unos USD 40 a 45 al mes.
 
 ## Lo que hace
 
@@ -85,10 +107,10 @@ En la página de cada tema, «Ya funcionó en inglés y portugués» pone cada p
 
 ## Vigía: seguir un tema
 
-Escribes un tema y el radar lo convierte, una sola vez, en búsquedas y palabras clave en inglés y portugués. Desde ahí cada búsqueda es un embudo:
+Escribes un tema y el radar lo convierte, una sola vez, en búsquedas y palabras clave en inglés, portugués e hindi. Desde ahí cada búsqueda es un embudo:
 
 1. **Encontrar** (sin tokens): YouTube (lo de hoy o de esta semana), Bluesky, Hacker News y los perfiles de Instagram que sigue el radar, cuyos feeds públicos traen cada lámina de los carruseles. Los videos que podrían pasar se abren uno por uno para leer su fecha exacta, su canal y sus métricas.
-2. **Decidir con reglas** (sin tokens, `packages/core/src/screen.ts`), en orden y cada una con su razón escrita: que esté en inglés o portugués, que el tema aparezca en el gancho (no en un enlace ni en el nombre del autor), que sea de las últimas 72 horas, que sea viral (2× o más la mediana de su autor, o entre el 25 % más rápido de su red en esa búsqueda), que no la hayamos atrapado antes y que quepa en el presupuesto de 12 por búsqueda. Las reglas están detrás de una sola función: un motor de decisiones como JEV puede tomar su lugar.
+2. **Decidir con reglas** (sin tokens, `packages/core/src/screen.ts`), en orden y cada una con su razón escrita: que esté en inglés, portugués o hindi, que el tema aparezca en el gancho (no en un enlace ni en el nombre del autor), que sea de las últimas 72 horas, que sea viral (2× o más la mediana de su autor, o entre el 25 % más rápido de su red en esa búsqueda), que no la hayamos atrapado antes y que quepa en el presupuesto de 12 por búsqueda. Las reglas están detrás de una sola función: un motor de decisiones como JEV puede tomar su lugar.
 
    **Con JEV** (si hay `TYPESAFE_API_KEY`): antes de las reglas, JEV, el modelo de decisiones de TypeSafe, responde dos preguntas cerradas por cada pieza en el idioma y la ventana correctos (hasta 120, las de más interacción): si el tema es de verdad el centro de la pieza (no una mención de paso, un enlace o el nombre del autor) y qué tanto le sirve a la audiencia de 30X, de 1 a 10. Desde 0,6 de probabilidad es del tema, diga lo que diga la palabra clave, y el encaje entra al ranking y a las razones («JEV: es del tema (93 %). Encaje con 30X: 8/10»). Tres piezas reales tardaron 282 ms en total y unos 470 tokens cada una: USD 0,00002 por pieza. Si JEV no responde, la búsqueda sigue con palabras clave y el reporte lo dice.
 
@@ -209,16 +231,24 @@ La API va en Railway y la web en Vercel.
 
 - `API_URL` con la URL pública de Railway, definida **antes del build**: `next.config.ts` la lee para las reescrituras de `/api/*`.
 
+## Video pitch
+
+El pitch de 3 minutos para el jurado está en [`output/ondai-pitch`](output/ondai-pitch): un proyecto de [HyperFrames](https://hyperframes.heygen.com) con 16 escenas sobre la narración grabada. Todo lo que se ve del producto es la interfaz real: interacciones grabadas en la demo local con la semana congelada (Radar, Elegir, «Cómo lo contamos» y la aprobación al calendario) y capturas de solo lectura de la demo desplegada. Cada cifra sale de este README o de los datos de la demo. La música y los efectos son originales, sintetizados en local, y van con subtítulos en español (`ondai-pitch-final.srt`).
+
+El MP4 (1920 × 1080, 30 fps, 139 MB) no está en git porque supera el límite de 100 MB de GitHub; su [README](output/ondai-pitch/README.md) explica cómo volver a renderizarlo.
+
 ## Estructura
 
 ```text
-apps/api          Hono + PGlite: pipeline, radar, temas, adaptaciones, calendario y sensor
-apps/web          Next.js 16: radar, tema, vigía, calendario, referentes, sensor, evaluación
-apps/mcp          servidor MCP (stdio)
-apps/sensor       extensión de Chrome
-packages/core     lógica pura: crecimiento, etapas, outliers, patrones, temas, backtest
-packages/sources  captura, parsers, historia y lector de posts públicos
-data/             semana congelada de la demo y respuestas grabadas del modelo
+apps/api            Hono + PGlite: pipeline, radar, temas, adaptaciones, calendario y sensor
+apps/web            Next.js 16: landing, radar, tema, elegir, vigía, maquetas, calendario, referentes, sensor y evaluación
+apps/mcp            servidor MCP (stdio)
+apps/sensor         extensión de Chrome
+packages/core       lógica pura: crecimiento, etapas, outliers, patrones, temas, backtest
+packages/sources    captura, parsers, historia y lector de posts públicos
+data/               semana congelada de la demo y respuestas grabadas del modelo
+docs/               sistema de diseño, API, guion del pitch e imágenes
+output/ondai-pitch  el video pitch (HyperFrames)
 ```
 
 ## Límites, dichos de frente
