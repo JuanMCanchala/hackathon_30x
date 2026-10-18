@@ -117,6 +117,15 @@ export function publicLookup(
 
 const lookup = publicLookup();
 
+/** The next hop of a redirect. Throws a plain error on a Location that is not a URL. */
+export function redirectTarget(location: string, current: URL): string {
+  try {
+    return new URL(location, current).toString();
+  } catch {
+    throw new Error(`redirect to an invalid URL: ${location.slice(0, 200)}`);
+  }
+}
+
 function send(url: string, init: HttpRequest, hops: number): Promise<HttpResponse> {
   return new Promise((resolve, reject) => {
     // Every hop goes through here, redirects included, so each one is checked.
@@ -131,8 +140,15 @@ function send(url: string, init: HttpRequest, hops: number): Promise<HttpRespons
         const location = res.headers.location;
         if (status >= 300 && status < 400 && location && hops > 0) {
           res.resume();
+          // Inside this callback a throw would escape the promise and take the process down.
+          let next: string;
+          try {
+            next = redirectTarget(location, target);
+          } catch (error) {
+            reject(error);
+            return;
+          }
           // A redirect after a POST is followed as a GET, as browsers do.
-          const next = new URL(location, target).toString();
           resolve(send(next, { ...init, method: 'GET', body: undefined }, hops - 1));
           return;
         }

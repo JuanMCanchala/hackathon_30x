@@ -1,6 +1,6 @@
 import type { LookupAddress } from 'node:dns';
 import { describe, expect, it } from 'vitest';
-import { checkUrl, httpFetch, isPrivateAddress, publicLookup } from '../src/http';
+import { checkUrl, httpFetch, isPrivateAddress, publicLookup, redirectTarget } from '../src/http';
 
 describe('isPrivateAddress', () => {
   it.each([
@@ -80,5 +80,19 @@ describe('publicLookup', () => {
     ];
     expect(await run(pub, true)).toEqual(pub);
     expect(await run(pub, false)).toEqual(['93.184.216.34', 4]);
+  });
+});
+
+describe('redirectTarget', () => {
+  it('resolves a relative Location against the current hop', () => {
+    expect(redirectTarget('/next?a=1', new URL('https://bsky.app/profile/x'))).toBe(
+      'https://bsky.app/next?a=1',
+    );
+  });
+
+  it('rejects a malformed Location instead of throwing out of the response callback', () => {
+    expect(() => redirectTarget('https://[', new URL('https://bsky.app/'))).toThrow(
+      'redirect to an invalid URL',
+    );
   });
 });
