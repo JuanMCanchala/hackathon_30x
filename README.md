@@ -223,6 +223,8 @@ data/             semana congelada de la demo y respuestas grabadas del modelo
 - Sin JEV, Vigía decide «del tema» por palabras clave en el gancho: rápido y sin costo, pero a veces deja pasar una pieza que solo menciona la palabra. Con JEV ese error baja, aunque JEV también se equivoca: cada decisión muestra su razón y su probabilidad para revisarla.
 - Instagram y X limitan las consultas por hora; la captura reintenta en la siguiente vuelta.
 - Reddit y el TikTok Creative Center cerraron su acceso público en 2026. Sin sesión, Reddit responde 403 y el Creative Center ya no entrega sus tendencias (probado el 17 de octubre de 2026). Por eso no están entre las fuentes.
+- Desde una IP de nube todo se limita antes que desde una casa. En la prueba desde una IP de casa, Bluesky y YouTube respondieron bien, pero Instagram (`web_profile_info`) ya respondía 429 tras las capturas del día: en la nube será lo primero en cerrarse. Después de cada despliegue, corre una vez en el host `pnpm --filter @radar/sources exec tsx scripts/check-sources.ts`, que dice estado, milisegundos y veredicto de cada fuente.
+- GDELT (volumen de noticias por idioma) no sirve como segunda medida del retraso al español: pide una consulta cada 5 segundos, respondió 429 a la mayoría de los intentos y no trae volumen en español, ni siquiera para «inteligencia artificial».
 - El modelo puede etiquetar mal una pieza; el radar trabaja con miles, y cada tema muestra su evidencia para revisarla.
 - Solo se guarda contenido público y el nombre público de su autor, nunca perfiles privados. Las piezas se guardan sin correos, también las de la semana congelada al cargarla; los teléfonos no se filtran.
 
