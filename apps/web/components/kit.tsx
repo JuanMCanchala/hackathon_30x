@@ -123,10 +123,12 @@ export function Card({
   return (
     <section className={clsx('rounded-[14px] border border-rule bg-sheet p-5', className)}>
       {(title || action) && (
-        <div className="mb-4 flex items-center justify-between gap-3">
+        <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
           <div className="flex min-w-0 items-center gap-2.5">
             {icon && <IconTile tone={tone}>{icon}</IconTile>}
-            {title && <h2 className="truncate text-[1rem] font-[700] text-ink">{title}</h2>}
+            {title && (
+              <h2 className="min-w-0 text-[1rem] font-[700] break-words text-ink">{title}</h2>
+            )}
           </div>
           {action}
         </div>
@@ -156,7 +158,7 @@ export function Kpi({
 }) {
   const body = (
     <>
-      <div className="flex items-start justify-between gap-3">
+      <div className="flex items-start justify-between gap-3 @max-[8rem]:flex-col-reverse @max-[8rem]:gap-2">
         <span className="text-[0.88rem] text-ink-2">{label}</span>
         {icon && <IconTile tone={tone}>{icon}</IconTile>}
       </div>
@@ -175,7 +177,8 @@ export function Kpi({
       )}
     </>
   );
-  const cls = 'block rounded-[14px] border border-rule bg-sheet px-5 py-4';
+  // In a tile too narrow for the label beside the icon, the icon goes on top.
+  const cls = '@container block rounded-[14px] border border-rule bg-sheet px-5 py-4';
   return href ? (
     <Link href={href} className={clsx(cls, 'transition hover:border-rule-strong')}>
       {body}
@@ -199,7 +202,7 @@ export function Pill({
       type="button"
       aria-pressed={on}
       className={clsx(
-        'inline-flex h-9 items-center gap-1.5 rounded-[9px] border px-3 text-[0.88rem] whitespace-nowrap transition',
+        'inline-flex h-10 items-center gap-1.5 rounded-[9px] border px-3 text-[0.88rem] whitespace-nowrap transition lg:h-9',
         on
           ? 'border-ink bg-ink font-[600] text-sheet'
           : 'border-rule bg-sheet text-ink hover:border-rule-strong',

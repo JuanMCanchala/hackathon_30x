@@ -120,7 +120,7 @@ function ThemeSwitch() {
           title={label}
           onClick={() => chooseTheme(value)}
           className={clsx(
-            'rounded-full px-2.5 py-1 text-ink-3 transition hover:text-ink',
+            'relative rounded-full px-2.5 py-1 text-ink-3 transition after:absolute after:-inset-y-2 after:inset-x-0 hover:text-ink',
             theme === value && 'bg-sheet text-ink shadow-sheet',
           )}
         >
@@ -275,6 +275,7 @@ export function AppShell({ children }: { children: ReactNode }) {
         <button
           type="button"
           onClick={() => setAskOpen(true)}
+          aria-label="Busca un tema o pregúntale a OndAI"
           className="ml-auto flex h-10 min-w-0 items-center gap-2.5 rounded-[10px] border border-rule bg-sheet px-3 text-left text-[0.9rem] text-ink-2 transition hover:border-rule-strong sm:w-[420px] lg:ml-0"
         >
           <Search className="size-4 shrink-0" aria-hidden />
@@ -287,7 +288,7 @@ export function AppShell({ children }: { children: ReactNode }) {
         </button>
         <div className="ml-auto hidden items-center gap-3 lg:flex">
           {radar?.basis.updatedAt && (
-            <span className="flex items-center gap-2 text-[0.86rem] text-ink-2">
+            <span className="flex items-center gap-2 text-[0.86rem] whitespace-nowrap text-ink-2">
               <span className="size-2 rounded-full bg-st-emergente" aria-hidden />
               Actualizado {ago(radar.basis.updatedAt, now)}
             </span>
@@ -321,7 +322,7 @@ export function AppShell({ children }: { children: ReactNode }) {
             <div className="flex items-center justify-between px-1">
               <Logo className="text-ink" />
               <DialogPrimitive.Close
-                className="grid size-9 place-items-center rounded-full bg-sheet text-ink"
+                className="relative grid size-9 place-items-center rounded-full bg-sheet text-ink after:absolute after:-inset-0.5"
                 aria-label="Cerrar"
               >
                 <X className="size-4" aria-hidden />

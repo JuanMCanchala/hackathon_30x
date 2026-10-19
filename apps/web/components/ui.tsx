@@ -280,8 +280,9 @@ export function Dialog({
                 </DialogPrimitive.Description>
               )}
             </div>
+            {/* The circle stays small; the tap area around it is 40 px. */}
             <DialogPrimitive.Close
-              className="grid size-7 place-items-center rounded-full bg-fill text-ink-2 hover:text-ink"
+              className="relative grid size-7 shrink-0 place-items-center rounded-full bg-fill text-ink-2 after:absolute after:-inset-1.5 hover:text-ink"
               aria-label="Cerrar"
             >
               <X className="size-4" strokeWidth={2.5} />

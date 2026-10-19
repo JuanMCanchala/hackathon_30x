@@ -142,7 +142,7 @@ export function AskPanel({
                 Pregúntale a OndAI
               </DialogPrimitive.Title>
               <DialogPrimitive.Close
-                className="grid size-8 place-items-center rounded-full bg-white/10 hover:bg-white/20"
+                className="relative grid size-8 shrink-0 place-items-center rounded-full bg-white/10 after:absolute after:-inset-1 hover:bg-white/20"
                 aria-label="Cerrar"
               >
                 <X className="size-4" />
@@ -172,12 +172,12 @@ export function AskPanel({
             <div className="grid gap-5">
               {turns.map((t, i) => (
                 <div key={i} className="grid gap-2.5">
-                  <p className="ml-auto max-w-[85%] rounded-[18px] rounded-br-[6px] bg-marker px-4 py-2.5 text-[0.95rem] text-on-marker">
+                  <p className="ml-auto max-w-[85%] rounded-[18px] rounded-br-[6px] bg-marker px-4 py-2.5 text-[0.95rem] break-words text-on-marker">
                     {t.question}
                   </p>
                   {t.answer && (
                     <div className="pass-in max-w-[92%] rounded-[18px] rounded-bl-[6px] bg-sheet px-4 py-3 shadow-sheet">
-                      <p className="text-[0.96rem] leading-relaxed whitespace-pre-line text-ink">
+                      <p className="text-[0.96rem] leading-relaxed break-words whitespace-pre-line text-ink">
                         {t.answer.answer}
                       </p>
                       {t.answer.refs.length > 0 && (
@@ -260,7 +260,7 @@ export function AskPanel({
                 rows={1}
                 placeholder="Pregunta por un tema, una red o un formato"
                 aria-label="Tu pregunta"
-                className="max-h-32 min-h-10 flex-1 resize-none bg-transparent py-2 text-[0.95rem] text-ink outline-none placeholder:text-ink-3"
+                className="max-h-32 min-h-10 min-w-0 flex-1 resize-none bg-transparent py-2 text-[0.95rem] text-ink outline-none placeholder:text-ink-3 max-sm:field-sizing-content"
               />
               <button
                 type="submit"
