@@ -128,8 +128,9 @@ function TopicLinks({ topics }: { topics: { id: string; name: string }[] }) {
 function SubmissionRow({ s }: { s: Submission }) {
   const platform = platformOf(s);
   const read = s.status !== 'unreadable' && s.piece !== null;
+  // On phones the status goes under the text, so the link and its topics keep the width.
   return (
-    <li className="flex items-center gap-3 border-b border-rule py-3.5 last:border-b-0">
+    <li className="grid grid-cols-[auto_minmax(0,1fr)] items-center gap-x-3 gap-y-2 border-b border-rule py-3.5 last:border-b-0 sm:flex">
       <PlatformTile platform={platform} />
       <div className="min-w-0 flex-1">
         <a
@@ -159,7 +160,7 @@ function SubmissionRow({ s }: { s: Submission }) {
       </div>
       <span
         className={clsx(
-          'shrink-0 rounded-[6px] px-2 py-[3px] text-[0.74rem] font-[700] whitespace-nowrap',
+          'col-start-2 shrink-0 justify-self-start rounded-[6px] px-2 py-[3px] text-[0.74rem] font-[700] whitespace-nowrap',
           read ? 'bg-st-emergente-tint text-st-emergente' : 'bg-held-tint text-held',
         )}
       >
@@ -247,7 +248,7 @@ export default function SensorPage() {
         />
       </div>
 
-      <div className="grid grid-cols-[minmax(0,1fr)] items-start gap-5 lg:grid-cols-2">
+      <div className="grid grid-cols-[minmax(0,1fr)] items-start gap-5 xl:grid-cols-2">
         <Card icon={<Link2 />} tone="orange" title="Pega lo que viste funcionar">
           <form onSubmit={send} className="flex items-center gap-2.5">
             <label htmlFor="url" className="sr-only">

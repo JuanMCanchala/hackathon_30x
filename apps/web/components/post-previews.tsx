@@ -303,7 +303,7 @@ function LinkedInPost({
 // ------------------------------------------------------------------ Instagram
 
 const arrow =
-  'absolute top-1/2 grid size-7 -translate-y-1/2 place-items-center rounded-full bg-white/90 text-[#201515] shadow-md transition hover:bg-white';
+  'absolute top-1/2 grid size-7 -translate-y-1/2 place-items-center rounded-full bg-white/90 text-[#201515] shadow-md transition after:absolute after:-inset-1.5 hover:bg-white';
 
 function InstagramCarousel({
   a,

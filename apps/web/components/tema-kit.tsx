@@ -141,29 +141,32 @@ export function LangWeekChart({
         </span>
         <span>Creadores distintos por semana</span>
       </figcaption>
-      <table className="sr-only">
-        <caption>Creadores distintos por semana y por idioma</caption>
-        <thead>
-          <tr>
-            <th>Semana</th>
-            {LANGS.map((l) => (
-              <th key={l}>{LANG_COPY[l]}</th>
-            ))}
-            <th>Todos</th>
-          </tr>
-        </thead>
-        <tbody>
-          {Array.from({ length: n }, (_, i) => (
-            <tr key={i}>
-              <th>{weekly[i]?.week ?? `S${i + 1}`}</th>
+      {/* A table ignores sr-only's 1px width; the div clips it so it never widens a phone page. */}
+      <div className="sr-only">
+        <table>
+          <caption>Creadores distintos por semana y por idioma</caption>
+          <thead>
+            <tr>
+              <th>Semana</th>
               {LANGS.map((l) => (
-                <td key={l}>{languages[l].sparkline[i] ?? ''}</td>
+                <th key={l}>{LANG_COPY[l]}</th>
               ))}
-              <td>{total[i] ?? ''}</td>
+              <th>Todos</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {Array.from({ length: n }, (_, i) => (
+              <tr key={i}>
+                <th>{weekly[i]?.week ?? `S${i + 1}`}</th>
+                {LANGS.map((l) => (
+                  <td key={l}>{languages[l].sparkline[i] ?? ''}</td>
+                ))}
+                <td>{total[i] ?? ''}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </figure>
   );
 }
@@ -220,7 +223,7 @@ export function HistoryArea({
               aria-checked={u === s}
               onClick={() => setPick(i)}
               className={clsx(
-                'h-7 rounded-[7px] border px-2.5 text-[0.8rem] transition',
+                'h-10 rounded-[7px] border px-2.5 text-[0.8rem] transition lg:h-7',
                 u === s
                   ? 'border-ink bg-ink font-[600] text-sheet'
                   : 'border-rule bg-sheet text-ink-2 hover:border-rule-strong',

@@ -146,7 +146,7 @@ function Rejections({ report }: { report: WatchReport }) {
       </p>
       {stopped.length > 0 && (
         <details className="group">
-          <summary className="cursor-pointer text-[0.86rem] font-[650] text-brand">
+          <summary className="cursor-pointer text-[0.86rem] font-[650] text-brand max-lg:-my-2.5 max-lg:py-2.5">
             Ver ejemplos por regla
           </summary>
           <ul className="mt-3 grid gap-3">
@@ -176,22 +176,27 @@ export function LastSearch({ detail }: { detail: WatchDetail }) {
   const { watch, run } = detail;
   const report = run?.report ?? null;
   return (
-    <aside className="grid min-w-0 grid-cols-[minmax(0,1fr)] gap-5 rounded-[14px] border border-rule bg-sheet p-5 lg:sticky lg:top-20">
-      <h2 className="text-[1rem] font-[700] text-ink">La última búsqueda</h2>
+    <aside className="grid min-w-0 grid-cols-[minmax(0,1fr)] gap-5 rounded-[14px] border border-rule bg-sheet p-5 md:max-xl:grid-cols-2 md:max-xl:items-start md:max-xl:gap-x-8 xl:sticky xl:top-20">
+      <h2 className="text-[1rem] font-[700] text-ink md:max-xl:col-span-2">La última búsqueda</h2>
       {report ? (
         <>
           <Funnel report={report} windowHours={watch.windowHours} />
-          <Costs report={report} />
-          <Rejections report={report} />
+          {/* Stacked under the list on a tablet, the funnel and the reading sit side by side. */}
+          <div className="contents md:max-xl:grid md:max-xl:gap-5">
+            <Costs report={report} />
+            <Rejections report={report} />
+          </div>
         </>
       ) : run?.error ? (
-        <p className="text-[0.9rem] text-ink-2">La búsqueda falló: {run.error}</p>
+        <p className="text-[0.9rem] text-ink-2 md:max-xl:col-span-2">
+          La búsqueda falló: {run.error}
+        </p>
       ) : (
-        <p className="text-[0.9rem] text-ink-2">
+        <p className="text-[0.9rem] text-ink-2 md:max-xl:col-span-2">
           {watch.running ? 'La búsqueda está en curso.' : 'Todavía no hay una búsqueda.'}
         </p>
       )}
-      <div className="grid gap-1.5 border-t border-rule pt-4 text-[0.8rem] text-ink-3">
+      <div className="grid gap-1.5 border-t border-rule pt-4 text-[0.8rem] text-ink-3 md:max-xl:col-span-2">
         <p>Busca en inglés (desde Estados Unidos e India) y en portugués:</p>
         {watch.langs.map((l) => (
           <p key={l} className="flex flex-wrap items-baseline gap-x-1.5 gap-y-1">

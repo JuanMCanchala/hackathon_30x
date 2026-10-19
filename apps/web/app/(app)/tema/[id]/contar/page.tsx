@@ -352,7 +352,7 @@ export default function ContarPage() {
                       setHook(0);
                     }}
                     className={clsx(
-                      'h-7 min-w-7 rounded-[7px] border px-2 text-[0.78rem] font-[650] tabular-nums transition',
+                      'h-10 min-w-10 rounded-[7px] border px-2 text-[0.78rem] font-[650] tabular-nums transition lg:h-7 lg:min-w-7',
                       v.id === current.id
                         ? 'border-ink bg-ink text-sheet'
                         : 'border-rule text-ink-2 hover:border-rule-strong',
@@ -369,7 +369,7 @@ export default function ContarPage() {
           </p>
           <div className="grid gap-2">
             <p className="text-[0.86rem] font-[700] text-ink">Elige el gancho</p>
-            <div className="grid gap-2.5 md:grid-cols-3" role="radiogroup" aria-label="Gancho">
+            <div className="grid gap-2.5 xl:grid-cols-3" role="radiogroup" aria-label="Gancho">
               {current.hooks.map((h, i) => {
                 const on = h === chosenHook;
                 return (
@@ -409,7 +409,7 @@ export default function ContarPage() {
         </div>
       </section>
 
-      <div className="flex gap-2 overflow-x-auto" role="tablist" aria-label="Formato">
+      <div className="flex flex-wrap gap-2 overflow-x-auto" role="tablist" aria-label="Formato">
         {FORMATS.map((f) => (
           <Pill
             key={f.value}
@@ -423,7 +423,7 @@ export default function ContarPage() {
         ))}
       </div>
 
-      <div className="grid items-start gap-4 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
+      <div className="grid items-start gap-4 xl:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
         <Card
           title={`Vista previa · ${TAB_LABEL[format]}`}
           action={<CopyText text={copy} />}

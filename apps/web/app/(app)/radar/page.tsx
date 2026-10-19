@@ -166,7 +166,7 @@ function ViewToggle({
           aria-checked={value === o.value}
           onClick={() => onChange(o.value)}
           className={clsx(
-            'rounded-[8px] px-2.5 py-1 text-[0.78rem] whitespace-nowrap transition sm:px-3',
+            'rounded-[8px] px-2.5 py-2 text-[0.78rem] whitespace-nowrap transition sm:px-3 lg:py-1',
             value === o.value
               ? 'bg-sheet font-[700] text-ink shadow-[0_1px_2px_rgb(32_21_21/0.08)]'
               : 'font-[600] text-ink-2 hover:text-ink',
@@ -180,6 +180,9 @@ function ViewToggle({
   );
 }
 
+/** Below xl a row stacks into a small card, so its cells drop the table's padding and rules. */
+const td = clsx(table.td, 'max-xl:border-0 max-xl:p-0');
+
 /** One row of «Los temas que más crecen»: the whole row opens the topic. */
 function TopicRow({ topic, markUntouched }: { topic: RadarTopic; markUntouched: boolean }) {
   const router = useRouter();
@@ -187,11 +190,11 @@ function TopicRow({ topic, markUntouched }: { topic: RadarTopic; markUntouched: 
   const now = topic.timing === 'Entra ya';
   return (
     <tr
-      className="group cursor-pointer transition hover:bg-sheet-2"
+      className="group cursor-pointer transition hover:bg-sheet-2 max-xl:grid max-xl:grid-cols-[1.5rem_minmax(0,1fr)_auto] max-xl:items-center max-xl:gap-x-3 max-xl:gap-y-2 max-xl:border-b max-xl:border-rule max-xl:py-3.5"
       onClick={() => router.push(`/tema/${topic.id}`)}
     >
-      <td className={clsx(table.td, 'w-10 text-ink-2 tabular-nums')}>{topic.rank}</td>
-      <td className={clsx(table.td, 'min-w-[300px]')}>
+      <td className={clsx(td, 'text-ink-2 tabular-nums xl:w-10')}>{topic.rank}</td>
+      <td className={clsx(td, 'max-xl:col-span-2 xl:min-w-[240px] min-[1440px]:min-w-[300px]')}>
         <div className="flex items-center gap-3">
           <TopicTile topic={topic} />
           <div className="min-w-0">
@@ -218,7 +221,12 @@ function TopicRow({ topic, markUntouched }: { topic: RadarTopic; markUntouched: 
           </div>
         </div>
       </td>
-      <td className={table.td}>
+      <td
+        className={clsx(
+          td,
+          'max-xl:col-start-2 max-xl:row-start-2 max-xl:flex max-xl:flex-wrap max-xl:items-baseline max-xl:gap-x-2',
+        )}
+      >
         <p
           className={clsx(
             'font-[650] tabular-nums',
@@ -231,29 +239,42 @@ function TopicRow({ topic, markUntouched }: { topic: RadarTopic; markUntouched: 
           {fmtInt(topic.creators)} creadores
         </p>
       </td>
-      <td className={table.td}>
+      <td className={clsx(td, 'max-[1440px]:hidden')}>
         <Sparkline
           values={topic.sparkline}
           width={100}
           className={topic.growthPct >= 0 ? 'text-st-emergente' : 'text-held'}
         />
       </td>
-      <td className={clsx(table.td, 'whitespace-nowrap')}>{list(where)}</td>
-      <td className={table.td}>
+      <td className={clsx(td, 'max-xl:col-start-2 max-xl:row-start-4 xl:whitespace-nowrap')}>
+        {list(where)}
+      </td>
+      <td
+        className={clsx(
+          td,
+          'max-xl:col-span-2 max-xl:col-start-2 max-xl:row-start-3 max-xl:flex max-xl:flex-wrap max-xl:items-center max-xl:gap-x-2 max-xl:gap-y-1',
+        )}
+      >
         <StageChip stage={topic.stage} />
         <p
           className={clsx(
-            'mt-1 text-[0.86rem] font-[650] whitespace-nowrap',
+            'text-[0.86rem] font-[650] whitespace-nowrap xl:mt-1',
             now ? 'text-marker-strong' : 'text-ink',
           )}
         >
           {topic.timing}
         </p>
       </td>
-      <td className={clsx(table.td, 'text-[1.05rem] font-[700] whitespace-nowrap tabular-nums')}>
+      <td
+        className={clsx(
+          td,
+          'text-[1.05rem] font-[700] whitespace-nowrap tabular-nums max-xl:col-start-3 max-xl:row-start-2 max-xl:text-right',
+        )}
+      >
+        <span className="mr-1.5 text-[0.75rem] font-[600] text-ink-3 xl:hidden">Encaje</span>
         {topic.fit != null ? `${topic.fit}/10` : '—'}
       </td>
-      <td className={table.td}>
+      <td className={clsx(td, 'max-xl:col-start-3 max-xl:row-start-4')}>
         <LangBoxes languages={topic.languages} />
       </td>
     </tr>
@@ -340,7 +361,7 @@ function RadarPage() {
     <Page className="grid grid-cols-[minmax(0,1fr)] gap-5">
       {/* 1. head */}
       <header className="flex flex-wrap items-start justify-between gap-4 lg:flex-nowrap">
-        <div className="max-w-4xl min-w-0 flex-1">
+        <div className="max-w-4xl min-w-0 flex-1 max-md:basis-full">
           <nav aria-label="Ruta" className="flex flex-wrap items-center gap-1.5 text-[0.84rem]">
             <Link href="/radar" className="text-brand hover:underline">
               Radar
@@ -388,7 +409,7 @@ function RadarPage() {
 
       {/* 2. figures */}
       {data ? (
-        <div className="grid grid-cols-2 gap-3 lg:grid-cols-4 lg:gap-4">
+        <div className="grid grid-cols-2 gap-3 lg:gap-4 xl:grid-cols-4">
           <Kpi
             label="Temas con señal"
             value={fmtInt(data.topics.length)}
@@ -426,7 +447,7 @@ function RadarPage() {
           />
         </div>
       ) : (
-        <div className="grid grid-cols-2 gap-3 lg:grid-cols-4 lg:gap-4">
+        <div className="grid grid-cols-2 gap-3 lg:gap-4 xl:grid-cols-4">
           {[0, 1, 2, 3].map((i) => (
             <Skeleton key={i} className="h-[112px]" />
           ))}
@@ -483,7 +504,7 @@ function RadarPage() {
         ) : (
           <>
             <LanguageWaves topics={onWaves} numbered={numbered} />
-            <ol className="mt-4 grid gap-x-6 gap-y-1 sm:grid-cols-2 lg:grid-cols-3">
+            <ol className="mt-4 grid gap-x-6 gap-y-1 sm:grid-cols-2 xl:grid-cols-3">
               {onWaves.map((t, i) => (
                 <li key={t.id}>
                   <Link
@@ -518,7 +539,7 @@ function RadarPage() {
 
       {/* 5. windows and what is forming */}
       {data && (data.windowsOpen.length > 0 || data.forming.length > 0) && (
-        <div className="grid grid-cols-[minmax(0,1fr)] gap-5 lg:grid-cols-2">
+        <div className="grid grid-cols-[minmax(0,1fr)] gap-5 xl:grid-cols-2">
           <Card icon={<DoorOpen />} tone="orange" title="Ventana abierta en español">
             <p className="text-[0.95rem] text-ink-2">
               Ya despegaron en inglés o portugués y casi nadie lo cuenta en español.
@@ -627,20 +648,22 @@ function RadarPage() {
           )}
           {rows && rows.topics.length > 0 && (
             <div className={clsx(table.wrap, ranked.isLoading && 'opacity-60')}>
-              <table className={clsx(table.table, 'min-w-[1040px]')}>
-                <thead>
+              <table className={clsx(table.table, 'max-xl:block')}>
+                <thead className="max-xl:hidden">
                   <tr>
                     <th className={clsx(table.th, 'whitespace-nowrap')}>#</th>
                     <th className={clsx(table.th, 'whitespace-nowrap')}>Tema</th>
                     <th className={clsx(table.th, 'whitespace-nowrap')}>Crecimiento</th>
-                    <th className={clsx(table.th, 'whitespace-nowrap')}>Curva 8 sem.</th>
+                    <th className={clsx(table.th, 'whitespace-nowrap max-[1440px]:hidden')}>
+                      Curva 8 sem.
+                    </th>
                     <th className={clsx(table.th, 'whitespace-nowrap')}>Dónde se mueve</th>
                     <th className={clsx(table.th, 'whitespace-nowrap')}>Etapa · momento</th>
                     <th className={clsx(table.th, 'whitespace-nowrap')}>Encaje</th>
                     <th className={clsx(table.th, 'whitespace-nowrap')}>EN · PT · ES</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody className="max-xl:block">
                   {rows.topics.map((t) => (
                     <TopicRow
                       key={t.id}

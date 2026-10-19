@@ -353,10 +353,11 @@ interface Option {
   team: boolean;
 }
 
+// From lg to xl the choices share the row with «Así queda» and get fewer columns.
 const GRID: Record<MaquetaFormat, string> = {
-  carrusel: 'grid-cols-2 sm:grid-cols-3',
-  post: 'grid-cols-2 sm:grid-cols-3',
-  historia: 'grid-cols-2 sm:grid-cols-4',
+  carrusel: 'grid-cols-2 sm:grid-cols-3 lg:max-xl:grid-cols-2',
+  post: 'grid-cols-2 sm:grid-cols-3 lg:max-xl:grid-cols-2',
+  historia: 'grid-cols-2 sm:grid-cols-4 lg:max-xl:grid-cols-3',
   portada: 'grid-cols-1 sm:grid-cols-2',
 };
 
@@ -572,14 +573,14 @@ function Composer({
         }
       />
 
-      <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(300px,380px)]">
+      <div className="grid items-start gap-6 lg:grid-cols-[minmax(340px,1fr)_minmax(300px,380px)]">
         <div className="grid min-w-0 gap-7">
           <section className="grid gap-2.5">
             <MonoLabel>Formato</MonoLabel>
             <div
               role="radiogroup"
               aria-label="Formato"
-              className="grid grid-cols-2 gap-2 sm:grid-cols-4"
+              className="grid grid-cols-2 gap-2 sm:grid-cols-4 lg:max-xl:grid-cols-2"
             >
               {FORMATS_ORDER.map((f) => {
                 const on = f === format;

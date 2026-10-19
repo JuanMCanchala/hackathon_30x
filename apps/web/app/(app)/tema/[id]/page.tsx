@@ -73,7 +73,12 @@ function ago(iso: string): string {
 /** «Por qué crece»: the one-line reason, and the news that set it off. */
 function WhyCard({ topic, trigger }: { topic: RadarTopic; trigger: TopicDetail['trigger'] }) {
   return (
-    <Card icon={<Lightbulb />} tone="orange" title="Por qué crece" className="h-full">
+    <Card
+      icon={<Lightbulb />}
+      tone="orange"
+      title="Por qué crece"
+      className="h-full md:col-span-2 xl:col-span-1"
+    >
       {topic.why ? (
         <p className="text-[1.05rem] leading-[1.55] text-ink">{topic.why}</p>
       ) : (
@@ -197,6 +202,9 @@ function patternName(p: WhyPattern): string {
   return s.charAt(0).toUpperCase() + s.slice(1);
 }
 
+/** A cell's own border and padding, dropped while its row is stacked on narrow screens. */
+const STACKED = { md: 'max-md:border-0 max-md:p-0', xl: 'max-xl:border-0 max-xl:p-0' };
+
 /** «Qué tienen en común las piezas que despegaron»: patterns counted, not guessed. */
 function PatternsCard({ why }: { why: TopicDetail['why'] }) {
   return (
@@ -206,8 +214,9 @@ function PatternsCard({ why }: { why: TopicDetail['why'] }) {
       )}
       {why.patterns.length ? (
         <div className={table.wrap}>
-          <table className={clsx(table.table, 'min-w-[560px]')}>
-            <thead>
+          {/* Below md each row stacks: the pattern, then its counts with the headers inline. */}
+          <table className={clsx(table.table, 'max-md:block md:min-w-[560px]')}>
+            <thead className="max-md:hidden">
               <tr>
                 <th className={clsx(table.th, 'w-[40%]')}>Patrón</th>
                 <th className={table.th}>Piezas que despegaron</th>
@@ -215,20 +224,47 @@ function PatternsCard({ why }: { why: TopicDetail['why'] }) {
                 <th className={table.th}>Lift</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="max-md:block">
               {why.patterns.map((p) => (
-                <tr key={`${p.feature}-${p.value}`}>
-                  <td className={table.td} title={p.label}>
+                <tr
+                  key={`${p.feature}-${p.value}`}
+                  className="max-md:block max-md:border-b max-md:border-rule max-md:py-3"
+                >
+                  <td
+                    className={clsx(table.td, STACKED.md, 'max-md:mb-1 max-md:block')}
+                    title={p.label}
+                  >
                     {patternName(p)}
                   </td>
-                  <td className={clsx(table.td, 'tabular-nums')}>
-                    {p.outliers} de {p.outlierTotal}
+                  <td className={clsx(table.td, STACKED.md, 'tabular-nums max-md:inline')}>
+                    <span className="whitespace-nowrap">
+                      <span className="text-ink-3 md:hidden">Piezas que despegaron: </span>
+                      {p.outliers} de {p.outlierTotal}
+                    </span>
                   </td>
-                  <td className={clsx(table.td, 'tabular-nums')}>
-                    {p.rest} de {p.restTotal}
+                  <td
+                    className={clsx(
+                      table.td,
+                      STACKED.md,
+                      'tabular-nums max-md:inline max-md:before:content-["_·_"]',
+                    )}
+                  >
+                    <span className="whitespace-nowrap">
+                      <span className="text-ink-3 md:hidden">Resto: </span>
+                      {p.rest} de {p.restTotal}
+                    </span>
                   </td>
-                  <td className={clsx(table.td, 'font-[700] tabular-nums')}>
-                    ×{p.lift.toLocaleString('es-CO', { maximumFractionDigits: 1 })}
+                  <td
+                    className={clsx(
+                      table.td,
+                      STACKED.md,
+                      'font-[700] tabular-nums max-md:inline max-md:before:font-[400] max-md:before:content-["_·_"]',
+                    )}
+                  >
+                    <span className="whitespace-nowrap">
+                      <span className="font-[400] text-ink-3 md:hidden">Lift </span>×
+                      {p.lift.toLocaleString('es-CO', { maximumFractionDigits: 1 })}
+                    </span>
                   </td>
                 </tr>
               ))}
@@ -253,8 +289,9 @@ function InspirationCard({ pieces }: { pieces: TopicDetail['inspiration'] }) {
   return (
     <Card icon={<Check />} tone="sand" title="Ya funcionó en inglés y portugués">
       <div className={table.wrap}>
-        <table className={clsx(table.table, 'min-w-[880px]')}>
-          <thead>
+        {/* Below xl each row stacks: the original, then network, metrics and ratio, then the idea. */}
+        <table className={clsx(table.table, 'max-xl:block xl:min-w-[880px]')}>
+          <thead className="max-xl:hidden">
             <tr>
               <th className={clsx(table.th, 'w-[31%]')}>Pieza original</th>
               <th className={table.th}>Red · autor</th>
@@ -263,10 +300,15 @@ function InspirationCard({ pieces }: { pieces: TopicDetail['inspiration'] }) {
               <th className={clsx(table.th, 'w-[28%]')}>La idea en español</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="max-xl:block">
             {pieces.map((p) => (
-              <tr key={p.id} className="group">
-                <td className={table.td}>
+              <tr
+                key={p.id}
+                className="group max-xl:block max-xl:border-b max-xl:border-rule max-xl:py-3.5 max-xl:pl-12"
+              >
+                <td
+                  className={clsx(table.td, STACKED.xl, 'max-xl:-ml-12 max-xl:mb-1.5 max-xl:block')}
+                >
                   <a
                     href={p.url}
                     target="_blank"
@@ -294,20 +336,34 @@ function InspirationCard({ pieces }: { pieces: TopicDetail['inspiration'] }) {
                     </span>
                   </a>
                 </td>
-                <td className={clsx(table.td, 'leading-snug')}>
+                <td className={clsx(table.td, STACKED.xl, 'leading-snug max-xl:inline')}>
                   {PLATFORM_COPY[p.platform]} · {p.authorName}
                 </td>
-                <td className={clsx(table.td, 'leading-snug')}>{pieceMetrics(p) || '—'}</td>
                 <td
                   className={clsx(
                     table.td,
-                    'font-[700] tabular-nums',
+                    STACKED.xl,
+                    'leading-snug max-xl:before:content-["_·_"]',
+                    pieceMetrics(p) ? 'max-xl:inline' : 'max-xl:hidden',
+                  )}
+                >
+                  {pieceMetrics(p) || '—'}
+                </td>
+                <td
+                  className={clsx(
+                    table.td,
+                    STACKED.xl,
+                    'font-[700] tabular-nums max-xl:before:font-[400] max-xl:before:text-ink max-xl:before:content-["_·_"]',
                     p.outlier !== null && p.outlier >= 5 && 'text-marker-strong',
+                    p.outlier !== null ? 'max-xl:inline' : 'max-xl:hidden',
                   )}
                 >
                   {p.outlier !== null ? fmtRatio(p.outlier) : '—'}
+                  {p.outlier !== null && <span className="xl:hidden"> su mediana</span>}
                 </td>
-                <td className={clsx(table.td, 'leading-snug')}>
+                <td
+                  className={clsx(table.td, STACKED.xl, 'leading-snug max-xl:mt-1.5 max-xl:block')}
+                >
                   {p.es ? `«${p.es}»` : <span className="text-ink-3">Sin traducción todavía.</span>}
                 </td>
               </tr>
@@ -440,7 +496,7 @@ export default function TopicPage() {
         )}
       </header>
 
-      <div className="grid gap-4 lg:grid-cols-3 [&>*]:min-w-0">
+      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3 [&>*]:min-w-0">
         <WhyCard topic={t} trigger={data.trigger} />
         <FitCard fit={data.fit} />
         <LangCard topic={t} />

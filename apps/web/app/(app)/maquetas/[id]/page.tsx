@@ -204,7 +204,7 @@ function IconButton({
         onClick={onClick}
         disabled={disabled}
         className={clsx(
-          'grid size-9 place-items-center rounded-[9px] border border-rule bg-sheet transition hover:border-rule-strong disabled:cursor-not-allowed disabled:opacity-40 [&_svg]:size-4',
+          'grid size-10 place-items-center rounded-[9px] border border-rule bg-sheet transition hover:border-rule-strong disabled:cursor-not-allowed disabled:opacity-40 lg:size-9 [&_svg]:size-4',
           danger ? 'text-held hover:bg-held-tint' : 'text-ink',
         )}
       >
@@ -262,6 +262,7 @@ function DownloadButton({
         <DropdownMenu.Content
           align="end"
           sideOffset={6}
+          collisionPadding={12}
           className="z-50 w-[260px] rounded-[12px] border border-rule bg-sheet p-1 shadow-float"
         >
           <DropdownMenu.Item onSelect={() => onExport(index)} className={menuItem}>
@@ -324,8 +325,8 @@ export default function MaquetaEditorPage() {
           <Skeleton className="h-4 w-48 rounded-[6px]" />
           <Skeleton className="h-9 w-80 rounded-[8px]" />
         </div>
-        <div className="grid gap-4 lg:grid-cols-[84px_minmax(0,1fr)_288px] xl:grid-cols-[116px_minmax(0,1fr)_340px] xl:gap-5">
-          <div className="hidden content-start gap-2.5 lg:grid">
+        <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_288px] xl:grid-cols-[116px_minmax(0,1fr)_340px] xl:gap-5">
+          <div className="hidden content-start gap-2.5 xl:grid">
             {[0, 1, 2, 3].map((i) => (
               <Skeleton key={i} className="aspect-[4/5] rounded-[9px]" />
             ))}
@@ -841,10 +842,11 @@ function Editor({ initial }: { initial: Maqueta }) {
       </header>
 
       {/* ------------------------------------------------ workspace */}
-      <div className="mt-5 grid gap-4 lg:grid-cols-[84px_minmax(0,1fr)_288px] xl:grid-cols-[116px_minmax(0,1fr)_340px] xl:gap-5">
+      {/* Below xl the slides go in the strip under the canvas, so the canvas keeps its width. */}
+      <div className="mt-5 grid gap-4 lg:grid-cols-[minmax(0,1fr)_288px] xl:grid-cols-[116px_minmax(0,1fr)_340px] xl:gap-5">
         <nav
           aria-label="Láminas"
-          className="hidden lg:sticky lg:top-[72px] lg:flex lg:max-h-[calc(100dvh-92px)] lg:flex-col lg:gap-2 lg:self-start"
+          className="hidden xl:sticky xl:top-[72px] xl:flex xl:max-h-[calc(100dvh-92px)] xl:flex-col xl:gap-2 xl:self-start"
         >
           <ol ref={railRef} className="grid min-h-0 content-start gap-2 overflow-y-auto p-1">
             {doc.slides.map((s, i) => (
@@ -880,16 +882,16 @@ function Editor({ initial }: { initial: Maqueta }) {
             {spec.multi ? (
               <div className="flex items-center gap-1">
                 <IconButton label="Mover antes" onClick={() => move(-1)} disabled={index === 0}>
-                  <ArrowUp className="hidden lg:block" />
-                  <ArrowLeft className="lg:hidden" />
+                  <ArrowUp className="hidden xl:block" />
+                  <ArrowLeft className="xl:hidden" />
                 </IconButton>
                 <IconButton
                   label="Mover después"
                   onClick={() => move(1)}
                   disabled={index >= total - 1}
                 >
-                  <ArrowDown className="hidden lg:block" />
-                  <ArrowRight className="lg:hidden" />
+                  <ArrowDown className="hidden xl:block" />
+                  <ArrowRight className="xl:hidden" />
                 </IconButton>
                 <IconButton label="Duplicar lámina" onClick={duplicate} disabled={!canAdd}>
                   <CopyPlus />
@@ -937,7 +939,7 @@ function Editor({ initial }: { initial: Maqueta }) {
           <ol
             ref={stripRef}
             aria-label="Láminas"
-            className="-mx-4 flex gap-2 overflow-x-auto px-4 py-1.5 sm:-mx-9 sm:px-9 lg:hidden"
+            className="-mx-4 flex gap-2 overflow-x-auto px-4 py-1.5 sm:-mx-9 sm:px-9 lg:mx-0 lg:px-1 xl:hidden"
           >
             {doc.slides.map((s, i) => (
               <li
@@ -968,7 +970,7 @@ function Editor({ initial }: { initial: Maqueta }) {
               <div
                 role="radiogroup"
                 aria-label="Diseño de la lámina"
-                className="grid grid-cols-3 gap-2"
+                className="grid grid-cols-3 gap-2 sm:grid-cols-6 lg:grid-cols-3"
               >
                 {LAYOUTS_ORDER.map((l) => {
                   const on = slide.layout === l;
@@ -1044,7 +1046,11 @@ function Editor({ initial }: { initial: Maqueta }) {
           >
             <div>
               <GroupLabel>Estilos base</GroupLabel>
-              <div role="radiogroup" aria-label="Estilo base" className="grid grid-cols-3 gap-2">
+              <div
+                role="radiogroup"
+                aria-label="Estilo base"
+                className="grid grid-cols-3 gap-2 sm:grid-cols-6 lg:grid-cols-3"
+              >
                 {PRESETS.map((p) => {
                   const look = styleFrom(p.id, deferredStyle.brand);
                   const on = preset?.id === p.id;

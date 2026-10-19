@@ -91,7 +91,7 @@ function Origin({ entry, className }: { entry: CalendarEntry; className?: string
 
 /** Menu rows inherit the ink of the menu; «Quitar» sets its own red. */
 const item =
-  'flex w-full cursor-pointer items-center gap-2.5 rounded-[8px] px-2.5 py-2 text-[0.88rem] font-[550] outline-none select-none data-[disabled]:cursor-not-allowed data-[disabled]:opacity-45 data-[highlighted]:bg-fill [&_svg]:size-4 [&_svg]:shrink-0';
+  'flex w-full cursor-pointer items-center gap-2.5 rounded-[8px] px-2.5 py-2.5 text-[0.88rem] font-[550] outline-none select-none data-[disabled]:cursor-not-allowed data-[disabled]:opacity-45 data-[highlighted]:bg-fill lg:py-2 [&_svg]:size-4 [&_svg]:shrink-0';
 
 /** «⋯»: copy the text, open or build its maqueta, move it, take it off the calendar. */
 function Actions({
@@ -121,7 +121,7 @@ function Actions({
           type="button"
           aria-label={`Acciones de «${entry.title.slice(0, 60)}»`}
           className={clsx(
-            'grid size-7 shrink-0 place-items-center rounded-[8px] text-ink-2 transition hover:bg-fill hover:text-ink data-[state=open]:bg-fill data-[state=open]:text-ink',
+            'relative grid size-7 shrink-0 place-items-center rounded-[8px] text-ink-2 transition after:absolute after:-inset-1.5 hover:bg-fill hover:text-ink data-[state=open]:bg-fill data-[state=open]:text-ink',
             className,
           )}
         >
@@ -347,7 +347,7 @@ function DayColumn({
             type="button"
             onClick={() => onAdd(day)}
             aria-label={addLabel}
-            className="inline-flex h-8 shrink-0 items-center gap-1 rounded-[9px] border border-rule-strong bg-sheet px-2.5 text-[0.8rem] font-[650] text-ink transition hover:border-ink md:hidden"
+            className="relative inline-flex h-8 shrink-0 items-center gap-1 rounded-[9px] border border-rule-strong bg-sheet px-2.5 text-[0.8rem] font-[650] text-ink transition after:absolute after:-inset-1 hover:border-ink md:hidden"
           >
             <Plus className="size-3.5" strokeWidth={2.5} aria-hidden /> Agregar
           </button>
@@ -371,7 +371,7 @@ function DayColumn({
           type="button"
           onClick={() => onAdd(day)}
           aria-label={addLabel}
-          className="hidden h-8 w-full shrink-0 items-center justify-center gap-1 rounded-[9px] border border-dashed border-rule-strong text-[0.8rem] font-[650] text-ink-2 transition hover:border-ink hover:bg-sheet hover:text-ink md:flex"
+          className="relative hidden h-8 w-full shrink-0 items-center justify-center gap-1 rounded-[9px] border border-dashed border-rule-strong text-[0.8rem] font-[650] text-ink-2 transition after:absolute after:inset-x-0 after:-inset-y-1 hover:border-ink hover:bg-sheet hover:text-ink md:flex"
         >
           <Plus className="size-3.5" strokeWidth={2.5} aria-hidden /> Agregar
         </button>
@@ -479,7 +479,7 @@ export function WeekBoard({
               aria-label="Días anteriores"
               disabled={edges.start}
               onClick={() => scrollBy(-1)}
-              className="grid size-8 place-items-center text-ink-2 hover:text-ink disabled:opacity-35"
+              className="relative grid size-8 place-items-center text-ink-2 after:absolute after:inset-x-0 after:-inset-y-1 hover:text-ink disabled:opacity-35"
             >
               <ChevronLeft className="size-4" aria-hidden />
             </button>
@@ -488,7 +488,7 @@ export function WeekBoard({
               aria-label="Días siguientes"
               disabled={edges.end}
               onClick={() => scrollBy(1)}
-              className="grid size-8 place-items-center text-ink-2 hover:text-ink disabled:opacity-35"
+              className="relative grid size-8 place-items-center text-ink-2 after:absolute after:inset-x-0 after:-inset-y-1 hover:text-ink disabled:opacity-35"
             >
               <ChevronRight className="size-4" aria-hidden />
             </button>

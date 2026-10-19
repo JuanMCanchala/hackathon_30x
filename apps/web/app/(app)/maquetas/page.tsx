@@ -40,7 +40,7 @@ import type { Maqueta } from '@/lib/types';
 import { useProfile } from '@/lib/workspace';
 
 const outline =
-  'inline-flex h-9 items-center gap-1.5 rounded-[9px] border border-rule-strong bg-sheet px-3 text-[0.86rem] font-[650] whitespace-nowrap text-ink transition hover:border-ink disabled:cursor-not-allowed disabled:opacity-50';
+  'inline-flex h-10 items-center gap-1.5 rounded-[9px] border border-rule-strong bg-sheet px-3 text-[0.86rem] font-[650] whitespace-nowrap text-ink transition hover:border-ink disabled:cursor-not-allowed disabled:opacity-50 lg:h-9';
 
 const primaryLink =
   'inline-flex h-10 items-center gap-2 rounded-[10px] bg-marker px-4 text-[0.92rem] font-[650] text-on-marker transition hover:bg-marker-strong';
@@ -168,12 +168,13 @@ function MaquetaCard({
               <Repeat2 className="size-4" aria-hidden />
               Usar para otro post
             </button>
-            <span className="flex-1" />
+            {/* Below lg the spacer's extra gap would push the trash to its own line. */}
+            <span className="hidden flex-1 lg:block" />
             {m.removable ? (
               <button
                 type="button"
                 onClick={() => setConfirming(true)}
-                className="grid size-9 place-items-center rounded-[9px] text-held transition hover:bg-held-tint"
+                className="grid size-10 place-items-center rounded-[9px] text-held transition hover:bg-held-tint max-lg:ml-auto lg:size-9"
                 aria-label={`Borrar ${m.name}`}
                 title="Borrar"
               >
@@ -181,7 +182,7 @@ function MaquetaCard({
               </button>
             ) : (
               <span
-                className="inline-flex items-center gap-1 text-[0.76rem] text-ink-3"
+                className="inline-flex items-center gap-1 text-[0.76rem] text-ink-3 max-lg:ml-auto"
                 title="Es parte de la demo: puedes editarla y guardarla como copia."
               >
                 <Lock className="size-3.5" aria-hidden />

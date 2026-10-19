@@ -214,7 +214,7 @@ export default function ElegirPage() {
           <Empty title="No se pudo abrir la semana">{error.message}</Empty>
         </div>
       ) : !radar ? (
-        <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_400px]">
+        <div className="mt-6 grid gap-6 xl:grid-cols-[minmax(0,1fr)_400px]">
           <Skeleton className="h-[640px]" />
           <Skeleton className="h-[640px]" />
         </div>
@@ -225,7 +225,7 @@ export default function ElegirPage() {
           </Empty>
         </div>
       ) : (
-        <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_400px]">
+        <div className="mt-6 grid gap-6 xl:grid-cols-[minmax(0,1fr)_400px]">
           {/* ------------------------------------------------ deck */}
           <div className="min-w-0">
             {current ? (
@@ -234,13 +234,13 @@ export default function ElegirPage() {
                   {third && (
                     <BackCard
                       topic={third}
-                      className="translate-x-[28px] scale-[0.86] rotate-[9deg] opacity-90 sm:translate-x-[180px]"
+                      className="translate-x-[28px] scale-[0.86] rotate-[9deg] opacity-90 sm:translate-x-[100px] md:translate-x-[180px] xl:max-[1366px]:translate-x-[100px]"
                     />
                   )}
                   {next && (
                     <BackCard
                       topic={next}
-                      className="-translate-x-[28px] scale-[0.86] -rotate-[9deg] opacity-90 sm:-translate-x-[180px]"
+                      className="-translate-x-[28px] scale-[0.86] -rotate-[9deg] opacity-90 sm:-translate-x-[100px] md:-translate-x-[180px] xl:max-[1366px]:-translate-x-[100px]"
                     />
                   )}
                   <div className="relative">
@@ -436,7 +436,7 @@ export default function ElegirPage() {
                   <button
                     type="button"
                     onClick={() => setServedId(null)}
-                    className="-mt-1 -mr-1 grid size-8 shrink-0 place-items-center rounded-full text-ink-3 transition hover:bg-sheet hover:text-ink"
+                    className="-mt-2 -mr-2 grid size-10 shrink-0 place-items-center rounded-full text-ink-3 transition hover:bg-sheet hover:text-ink lg:-mt-1 lg:-mr-1 lg:size-8"
                     aria-label="Cerrar este aviso"
                   >
                     <X className="size-4" aria-hidden />
@@ -498,7 +498,7 @@ export default function ElegirPage() {
                       <button
                         type="button"
                         onClick={() => decide(t.id, null)}
-                        className="grid size-8 shrink-0 place-items-center rounded-full text-ink-3 transition hover:bg-fill hover:text-ink"
+                        className="grid size-10 shrink-0 place-items-center rounded-full text-ink-3 transition hover:bg-fill hover:text-ink lg:size-8"
                         aria-label={`Deshacer: ${t.name} vuelve a la pila`}
                         title="Deshacer"
                       >

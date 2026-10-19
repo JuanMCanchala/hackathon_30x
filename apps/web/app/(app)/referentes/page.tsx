@@ -127,67 +127,114 @@ export default function ReferencesPage() {
             {rows.length === 0 ? (
               <p className="text-ink-2">Todavía no hay piezas capturadas de estos perfiles.</p>
             ) : (
-              <div className={table.wrap}>
-                <table className={clsx(table.table, 'min-w-[760px]')}>
-                  <thead>
-                    <tr>
-                      <th className={table.th}>Pieza</th>
-                      <th className={table.th}>Cuenta</th>
-                      <th className={table.th}>Formato</th>
-                      <th className={table.th}>× su mediana</th>
-                      <th className={table.th}>Gancho / CTA</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {rows.map(({ piece, profile: p }) => {
-                      const kind = formatKind(piece.format);
-                      return (
-                        <tr key={piece.id}>
-                          <td className={clsx(table.td, 'max-w-[420px]')}>
-                            <a
-                              href={piece.url}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="flex items-center gap-3 hover:text-brand"
-                            >
-                              <FormatTile kind={kind} className="size-10" />
-                              <span className="line-clamp-2">{piece.hook || piece.text}</span>
-                            </a>
-                          </td>
-                          <td className={clsx(table.td, 'whitespace-nowrap')}>
-                            {handleOf(p.url)}
-                            <span className="block text-[0.76rem] text-ink-3">
-                              {PLATFORM_COPY[piece.platform] ?? piece.platform}
+              <>
+                <ul className="-my-3.5 text-[0.93rem] xl:hidden">
+                  {rows.map(({ piece, profile: p }) => {
+                    const kind = formatKind(piece.format);
+                    return (
+                      <li key={piece.id} className="border-b border-rule py-3.5 last:border-b-0">
+                        <a
+                          href={piece.url}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="flex items-start gap-3 text-ink hover:text-brand"
+                        >
+                          <FormatTile kind={kind} className="size-10" />
+                          <span className="grid min-w-0 gap-1.5">
+                            <span className="line-clamp-2">{piece.hook || piece.text}</span>
+                            <span className="text-[0.84rem] text-ink-2">
+                              {handleOf(p.url)} · {PLATFORM_COPY[piece.platform] ?? piece.platform}
                             </span>
-                          </td>
-                          <td className={table.td}>
-                            <FormatChip kind={kind} />
-                          </td>
-                          <td
-                            className={clsx(
-                              table.td,
-                              'font-[700] whitespace-nowrap tabular-nums',
-                              piece.ratio !== null && piece.ratio >= 3 && 'text-marker-strong',
-                            )}
-                            title="Interacción frente a la mediana del propio perfil"
-                          >
-                            {piece.ratio !== null ? ratioText(piece.ratio) : '—'}
-                          </td>
-                          <td className={clsx(table.td, 'text-ink-2')}>
-                            {piece.hookType && HOOK_TYPE[piece.hookType] ? (
-                              <span className="text-ink">{HOOK_TYPE[piece.hookType]}</span>
-                            ) : (
-                              <span className="line-clamp-1 max-w-[220px]">
-                                {piece.hook ?? '—'}
+                            <span className="text-[0.84rem] text-ink-2">
+                              <FormatChip kind={kind} className="mr-2" />
+                              {piece.ratio !== null && (
+                                <>
+                                  <span
+                                    className={clsx(
+                                      'font-[700] tabular-nums',
+                                      piece.ratio >= 3 ? 'text-marker-strong' : 'text-ink',
+                                    )}
+                                  >
+                                    {ratioText(piece.ratio)}
+                                  </span>{' '}
+                                  su mediana
+                                </>
+                              )}
+                              {piece.hookType && HOOK_TYPE[piece.hookType] && (
+                                <>
+                                  {' · '}
+                                  <span className="text-ink">{HOOK_TYPE[piece.hookType]}</span>
+                                </>
+                              )}
+                            </span>
+                          </span>
+                        </a>
+                      </li>
+                    );
+                  })}
+                </ul>
+                <div className={clsx(table.wrap, 'hidden xl:block')}>
+                  <table className={clsx(table.table, 'min-w-[760px]')}>
+                    <thead>
+                      <tr>
+                        <th className={table.th}>Pieza</th>
+                        <th className={table.th}>Cuenta</th>
+                        <th className={table.th}>Formato</th>
+                        <th className={table.th}>× su mediana</th>
+                        <th className={table.th}>Gancho / CTA</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {rows.map(({ piece, profile: p }) => {
+                        const kind = formatKind(piece.format);
+                        return (
+                          <tr key={piece.id}>
+                            <td className={clsx(table.td, 'max-w-[420px]')}>
+                              <a
+                                href={piece.url}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="flex items-center gap-3 hover:text-brand"
+                              >
+                                <FormatTile kind={kind} className="size-10" />
+                                <span className="line-clamp-2">{piece.hook || piece.text}</span>
+                              </a>
+                            </td>
+                            <td className={clsx(table.td, 'whitespace-nowrap')}>
+                              {handleOf(p.url)}
+                              <span className="block text-[0.76rem] text-ink-3">
+                                {PLATFORM_COPY[piece.platform] ?? piece.platform}
                               </span>
-                            )}
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              </div>
+                            </td>
+                            <td className={table.td}>
+                              <FormatChip kind={kind} />
+                            </td>
+                            <td
+                              className={clsx(
+                                table.td,
+                                'font-[700] whitespace-nowrap tabular-nums',
+                                piece.ratio !== null && piece.ratio >= 3 && 'text-marker-strong',
+                              )}
+                              title="Interacción frente a la mediana del propio perfil"
+                            >
+                              {piece.ratio !== null ? ratioText(piece.ratio) : '—'}
+                            </td>
+                            <td className={clsx(table.td, 'text-ink-2')}>
+                              {piece.hookType && HOOK_TYPE[piece.hookType] ? (
+                                <span className="text-ink">{HOOK_TYPE[piece.hookType]}</span>
+                              ) : (
+                                <span className="line-clamp-1 max-w-[220px]">
+                                  {piece.hook ?? '—'}
+                                </span>
+                              )}
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+              </>
             )}
           </Card>
 
@@ -244,7 +291,7 @@ export default function ReferencesPage() {
                         target="_blank"
                         rel="noreferrer"
                         aria-label={`Ver perfil de ${p.name} en ${PLATFORM_COPY[p.platform]}`}
-                        className="text-brand hover:text-brand-strong"
+                        className="relative text-brand after:absolute after:-inset-3 hover:text-brand-strong"
                       >
                         <ArrowUpRight className="size-4" aria-hidden />
                       </a>

@@ -132,7 +132,7 @@ export default function EmpresaPage() {
         }
       />
 
-      <div className="mt-6 grid items-start gap-5 lg:grid-cols-[minmax(0,1fr)_320px]">
+      <div className="mt-6 grid items-start gap-5 xl:grid-cols-[minmax(0,1fr)_320px]">
         <div className="grid min-w-0 gap-5">
           {/* ---------------------------------------- la empresa */}
           <Card icon={<Building2 />} tone="orange" title="La empresa">
@@ -178,7 +178,7 @@ export default function EmpresaPage() {
                   rows={3}
                   value={p.about}
                   onChange={(e) => set({ about: e.target.value })}
-                  className="w-full rounded-[10px] border border-rule bg-sheet px-3.5 py-2.5 text-[0.95rem] text-ink outline-none focus:border-brand focus:ring-4 focus:ring-brand/15"
+                  className="w-full rounded-[10px] border border-rule bg-sheet px-3.5 py-2.5 text-[0.95rem] text-ink outline-none focus:border-brand focus:ring-4 focus:ring-brand/15 max-sm:field-sizing-content"
                 />
               </div>
             </div>
@@ -233,14 +233,18 @@ export default function EmpresaPage() {
 
           {/* ---------------------------------------- referentes e idiomas */}
           <div className="grid items-start gap-5 md:grid-cols-2">
-            <Card icon={<Star />} tone="orange" title="Referentes a seguir">
+            <Card icon={<Star />} tone="orange" title="Referentes a seguir" className="@container">
               <ul className="divide-y divide-rule">
                 {p.references.map((r) => {
                   const on = followed(r.handle);
+                  // In a narrow card the status drops under the handle instead of cutting it.
                   return (
-                    <li key={r.handle} className="flex items-center gap-3 py-3 first:pt-0">
+                    <li
+                      key={r.handle}
+                      className="flex items-center gap-3 py-3 first:pt-0 @max-[17rem]:grid @max-[17rem]:grid-cols-[auto_minmax(0,1fr)_auto] @max-[17rem]:gap-y-1.5"
+                    >
                       <span
-                        className="grid size-9 shrink-0 place-items-center rounded-full bg-fill text-[0.85rem] font-[700] text-ink"
+                        className="grid size-9 shrink-0 place-items-center rounded-full bg-fill text-[0.85rem] font-[700] text-ink @max-[17rem]:row-span-2"
                         aria-hidden
                       >
                         {r.handle.replace(/^@/, '').charAt(0).toUpperCase()}
@@ -251,14 +255,14 @@ export default function EmpresaPage() {
                       </div>
                       {on ? (
                         <span
-                          className="shrink-0 rounded-[6px] bg-st-emergente-tint px-2 py-[3px] text-[0.72rem] font-[700] text-st-emergente"
+                          className="shrink-0 rounded-[6px] bg-st-emergente-tint px-2 py-[3px] text-[0.72rem] font-[700] text-st-emergente @max-[17rem]:col-start-2 @max-[17rem]:justify-self-start"
                           title="OndAI ya lee esta cuenta para el radar"
                         >
                           Siguiendo
                         </span>
                       ) : (
                         <span
-                          className="shrink-0 rounded-[6px] border border-rule px-2 py-[3px] text-[0.72rem] font-[700] text-ink-3"
+                          className="shrink-0 rounded-[6px] border border-rule px-2 py-[3px] text-[0.72rem] font-[700] text-ink-3 @max-[17rem]:col-start-2 @max-[17rem]:justify-self-start"
                           title="En esta demo OndAI solo lee las cuentas de 30X y Andrés Bilbao"
                         >
                           Pendiente
@@ -269,7 +273,7 @@ export default function EmpresaPage() {
                         onClick={() =>
                           set({ references: p.references.filter((x) => x.handle !== r.handle) })
                         }
-                        className="grid size-7 shrink-0 place-items-center rounded-full text-ink-3 transition hover:bg-fill hover:text-ink"
+                        className="relative grid size-7 shrink-0 place-items-center rounded-full text-ink-3 transition after:absolute after:-inset-1.5 hover:bg-fill hover:text-ink @max-[17rem]:col-start-3 @max-[17rem]:row-span-2 @max-[17rem]:row-start-1"
                         aria-label={`Quitar ${r.handle}`}
                       >
                         <X className="size-3.5" aria-hidden />
@@ -320,7 +324,7 @@ export default function EmpresaPage() {
         </div>
 
         {/* ---------------------------------------- side */}
-        <aside className="grid gap-5 lg:sticky lg:top-4">
+        <aside className="grid gap-5 xl:sticky xl:top-4">
           <section className="rounded-[14px] border border-marker/25 bg-gradient-to-bl from-marker/15 via-sheet to-sheet p-5">
             <div className="mb-4 flex items-center gap-2.5">
               <span
@@ -395,7 +399,7 @@ function AddAccount({ onAdd }: { onAdd: (ref: { handle: string; where: string })
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="mt-3 inline-flex h-8 items-center gap-1 rounded-[8px] border border-dashed border-rule-strong px-2.5 text-[0.88rem] text-ink-2 transition hover:border-ink-3 hover:text-ink"
+        className="mt-3 inline-flex h-8 items-center gap-1 rounded-[8px] border border-dashed border-rule-strong px-2.5 text-[0.88rem] text-ink-2 transition hover:border-ink-3 hover:text-ink max-lg:relative max-lg:after:absolute max-lg:after:inset-x-0 max-lg:after:-inset-y-1"
       >
         <Plus className="size-3.5" aria-hidden />
         Agregar cuenta

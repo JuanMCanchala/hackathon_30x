@@ -126,7 +126,7 @@ function WatchView({
             type="button"
             onClick={searchNow}
             disabled={watch.running}
-            className="inline-flex items-center gap-1 font-[650] text-brand hover:underline disabled:opacity-50"
+            className="inline-flex items-center gap-1 font-[650] text-brand hover:underline disabled:opacity-50 max-lg:-my-2.5 max-lg:py-2.5"
           >
             <RefreshCw
               className={watch.running ? 'size-3.5 animate-spin' : 'size-3.5'}
@@ -137,7 +137,7 @@ function WatchView({
           <button
             type="button"
             onClick={stop}
-            className="inline-flex items-center gap-1 font-[650] text-ink-2 hover:text-ink hover:underline"
+            className="inline-flex items-center gap-1 font-[650] text-ink-2 hover:text-ink hover:underline max-lg:-my-2.5 max-lg:py-2.5"
           >
             <X className="size-3.5" aria-hidden />
             Dejar de seguir
@@ -145,7 +145,7 @@ function WatchView({
         </span>
       </div>
 
-      <div className="grid grid-cols-[minmax(0,1fr)] items-start gap-5 lg:grid-cols-[minmax(0,1fr)_21.5rem]">
+      <div className="grid grid-cols-[minmax(0,1fr)] items-start gap-5 xl:grid-cols-[minmax(0,1fr)_21.5rem]">
         <section className="grid min-w-0 grid-cols-[minmax(0,1fr)] gap-4 rounded-[14px] border border-rule bg-sheet p-4 sm:p-5">
           <h2 className="text-[1rem] font-[700] text-ink">Atrapadas · las mejores primero</h2>
           {hits.length ? (
@@ -165,7 +165,7 @@ function WatchView({
                 <button
                   type="button"
                   onClick={() => setAll((a) => !a)}
-                  className="justify-self-start text-[0.88rem] font-[650] text-brand hover:underline"
+                  className="justify-self-start text-[0.88rem] font-[650] text-brand hover:underline max-lg:-my-2.5 max-lg:py-2.5"
                 >
                   {all ? 'Ver menos' : `Ver ${fmtInt(best.length - FIRST)} más`}
                 </button>

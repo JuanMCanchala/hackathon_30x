@@ -83,6 +83,8 @@ const weeks = (days: number) => {
   const w = Math.round(days / 7);
   return w === 1 ? 'una semana' : `${w} semanas`;
 };
+/** A table header repeated inside its cell where the table stacks, in the header's style. */
+const mobileLabel = 'mr-1.5 text-[0.75rem] font-[600] text-ink-3 md:hidden';
 
 /** A big KPI tile: the figure on top, what it means below. */
 function BigFigure({
@@ -237,8 +239,9 @@ export default function EvaluationPage() {
       {b && (
         <Card title="Onda por onda">
           <div className={table.wrap}>
-            <table className={clsx(table.table, 'min-w-[720px]')}>
-              <thead>
+            {/* Below md each wave stacks: name and lead on top, the other columns labelled below. */}
+            <table className={clsx(table.table, 'max-md:block xl:min-w-[720px]')}>
+              <thead className="max-md:hidden">
                 <tr>
                   <th className={table.th}>Onda</th>
                   <th className={table.th}>Primera señal</th>
@@ -247,20 +250,29 @@ export default function EvaluationPage() {
                   <th className={table.th}>Fuentes que coincidieron</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className="max-md:block">
                 {b.waves.map((w) => (
-                  <tr key={w.id}>
+                  <tr
+                    key={w.id}
+                    className="max-md:grid max-md:grid-cols-[minmax(0,1fr)_auto] max-md:items-baseline max-md:gap-x-3 max-md:gap-y-1 max-md:border-b max-md:border-rule max-md:py-3.5 max-md:first:pt-0 max-md:*:border-0 max-md:*:p-0"
+                  >
                     <td className={clsx(table.td, 'font-[700]')}>{w.name}</td>
-                    <td className={clsx(table.td, 'whitespace-nowrap text-ink-2')}>
+                    <td
+                      className={clsx(table.td, 'whitespace-nowrap text-ink-2 max-md:col-span-2')}
+                    >
+                      <span className={mobileLabel}>Primera señal</span>
                       {w.detected ? week(w.detectedWeek) : 'No la vio'}
                     </td>
-                    <td className={clsx(table.td, 'whitespace-nowrap text-ink-2')}>
+                    <td
+                      className={clsx(table.td, 'whitespace-nowrap text-ink-2 max-md:col-span-2')}
+                    >
+                      <span className={mobileLabel}>Pico</span>
                       {week(w.peakWeek)}
                     </td>
                     <td
                       className={clsx(
                         table.td,
-                        'whitespace-nowrap tabular-nums',
+                        'whitespace-nowrap tabular-nums max-md:col-start-2 max-md:row-start-1 max-md:text-right',
                         w.detected && (w.leadDays ?? 0) > 0
                           ? 'font-[700] text-marker-strong'
                           : 'text-ink-2',
@@ -272,7 +284,8 @@ export default function EvaluationPage() {
                           ? `${w.leadDays} días`
                           : 'En el pico'}
                     </td>
-                    <td className={table.td}>
+                    <td className={clsx(table.td, 'max-md:col-span-2')}>
+                      <span className={mobileLabel}>Fuentes que coincidieron</span>
                       {w.detectedBy && w.detectedBy.length > 0
                         ? w.detectedBy.map((x) => SOURCE_NAME[x] ?? x).join(' + ')
                         : '—'}
@@ -291,7 +304,7 @@ export default function EvaluationPage() {
         </Card>
       )}
 
-      <div className="grid gap-5 lg:grid-cols-2">
+      <div className="grid gap-5 xl:grid-cols-2">
         {data.languageLag?.topics > 0 && <LanguageLagCard lag={data.languageLag} />}
         <Card title="Con qué datos se midió la semana" className="min-w-0">
           <div className="grid grid-cols-2 gap-3">
@@ -354,7 +367,7 @@ export default function EvaluationPage() {
           fuentes que se muestrean igual cada semana; LinkedIn, Instagram, YouTube, X y TikTok dicen
           dónde ya llegó cada tema y dan la evidencia.
         </p>
-        <ul className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="mt-4 grid gap-2 sm:grid-cols-2 xl:grid-cols-4">
           {data.corpus.byPlatform.map((p) => (
             <li
               key={p.platform}

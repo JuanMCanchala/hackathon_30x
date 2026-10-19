@@ -97,7 +97,7 @@ export function Segmented<T extends string>({
               onClick={() => onChange(o.value)}
               style={o.style}
               className={clsx(
-                'inline-flex h-8 min-w-0 items-center justify-center gap-1.5 rounded-[8px] px-1.5 text-[0.82rem] whitespace-nowrap transition',
+                'inline-flex h-10 min-w-0 items-center justify-center gap-1.5 rounded-[8px] px-1.5 text-[0.82rem] whitespace-nowrap transition lg:h-8',
                 on
                   ? 'bg-sheet font-[650] text-ink shadow-[0_1px_2px_rgb(32_21_21/0.14)]'
                   : 'text-ink-2 hover:text-ink',

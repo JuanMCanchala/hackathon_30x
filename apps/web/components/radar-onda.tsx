@@ -151,7 +151,7 @@ export function RadarOnda({ topics }: { topics: RadarTopic[] }) {
   }, []);
 
   const selected = topics.find((t) => t.id === selectedId) ?? topics[0];
-  const narrow = width > 0 && width < 640;
+  const narrow = width > 0 && width < 720;
   const H = narrow ? 210 : 300;
   const top = narrow ? 30 : 46;
   const base = H - (narrow ? 22 : 34);
@@ -386,7 +386,7 @@ export function RadarOnda({ topics }: { topics: RadarTopic[] }) {
                 aria-pressed={t.id === selected.id}
                 onClick={() => setSelectedId(t.id)}
                 className={clsx(
-                  'rounded-[8px] border px-2.5 py-1 text-[0.8rem] transition',
+                  'rounded-[8px] border px-2.5 py-2 text-[0.8rem] transition',
                   t.id === selected.id
                     ? 'border-marker bg-marker/10 font-[650] text-ink'
                     : 'border-rule text-ink-2',

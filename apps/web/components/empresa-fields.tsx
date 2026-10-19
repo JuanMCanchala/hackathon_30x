@@ -79,7 +79,7 @@ export function AddInline({
       type="button"
       onClick={() => setOpen(true)}
       className={clsx(
-        'inline-flex h-8 items-center gap-1 rounded-[8px] border border-dashed border-rule-strong px-2.5 text-[0.88rem] text-ink-2 transition hover:border-ink-3 hover:text-ink',
+        'inline-flex h-8 items-center gap-1 rounded-[8px] border border-dashed border-rule-strong px-2.5 text-[0.88rem] text-ink-2 transition hover:border-ink-3 hover:text-ink max-lg:relative max-lg:after:absolute max-lg:after:inset-x-0 max-lg:after:-inset-y-1',
         className,
       )}
     >
@@ -112,7 +112,7 @@ export function ChipList({
           <button
             type="button"
             onClick={() => onChange(items.filter((i) => i !== item))}
-            className="grid size-5 place-items-center rounded-full text-ink-3 transition hover:bg-fill hover:text-ink"
+            className="relative grid size-5 place-items-center rounded-full text-ink-3 transition after:absolute after:-inset-2.5 hover:bg-fill hover:text-ink"
             aria-label={`Quitar ${item}`}
           >
             <X className="size-3" aria-hidden />

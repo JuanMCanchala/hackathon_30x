@@ -142,7 +142,8 @@ function useElapsed(on: boolean): number {
 
 // ------------------------------------------------------------------ thumbnails
 
-const tile = 'relative block aspect-square overflow-hidden rounded-[10px] bg-fill';
+// Portrait on a phone: the square is too short there for «Ideas clave del video».
+const tile = 'relative block aspect-[3/4] overflow-hidden rounded-[10px] bg-fill sm:aspect-square';
 const caption =
   'absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/45 to-transparent px-2.5 pt-6 pb-2 text-[0.74rem] leading-tight font-[700] text-white';
 
@@ -331,7 +332,7 @@ function AllText({ a }: { a: AdaptationContent }) {
         type="button"
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
-        className="inline-flex items-center gap-1.5 justify-self-start rounded-[8px] text-[0.9rem] font-[650] text-ink-2 hover:text-ink"
+        className="inline-flex items-center gap-1.5 justify-self-start rounded-[8px] text-[0.9rem] font-[650] text-ink-2 hover:text-ink max-lg:-my-2.5 max-lg:py-2.5"
       >
         <FileText className="size-4" aria-hidden />
         {open ? 'Ocultar el texto' : 'Ver todo el texto'}
@@ -352,7 +353,7 @@ function AllText({ a }: { a: AdaptationContent }) {
 // ------------------------------------------------------------------ the kept posts
 
 const smallBtn =
-  'inline-flex h-8 shrink-0 items-center gap-1.5 rounded-[9px] px-2 text-[0.8rem] font-[650] whitespace-nowrap transition';
+  'inline-flex h-10 shrink-0 items-center gap-1.5 rounded-[9px] px-2 text-[0.8rem] font-[650] whitespace-nowrap transition lg:h-8';
 const smallDark = clsx(smallBtn, 'bg-ink text-sheet hover:opacity-90');
 const smallOutline = clsx(smallBtn, 'border border-rule-strong bg-sheet text-ink hover:border-ink');
 
@@ -458,7 +459,7 @@ function Chosen({
                   <button
                     type="button"
                     onClick={() => onUndo(card)}
-                    className="-mt-1 -mr-1 grid size-8 shrink-0 place-items-center rounded-full text-ink-3 transition hover:bg-fill hover:text-ink"
+                    className="-mt-2 -mr-2 grid size-10 shrink-0 place-items-center rounded-full text-ink-3 transition hover:bg-fill hover:text-ink lg:-mt-1 lg:-mr-1 lg:size-8"
                     aria-label={`Deshacer: ${card.name}, ${card.detail}, vuelve a la pila`}
                     title="Deshacer"
                   >
@@ -545,7 +546,7 @@ function PieceSummary({
           href={p.url}
           target="_blank"
           rel="noreferrer"
-          className="ml-auto inline-flex shrink-0 items-center gap-0.5 font-[650] text-brand hover:underline"
+          className="ml-auto inline-flex shrink-0 items-center gap-0.5 font-[650] text-brand hover:underline max-lg:-my-3 max-lg:-mr-3 max-lg:p-3"
         >
           <span className="sr-only sm:not-sr-only">Original</span>
           <ArrowUpRight className="size-4" aria-hidden />
@@ -844,7 +845,7 @@ export function HitCard({
       <div className="flex flex-wrap items-start justify-between gap-x-5 gap-y-1">
         <h3
           lang={hit.lang}
-          className="line-clamp-3 min-w-0 flex-1 basis-[16rem] text-[1.06rem] leading-snug font-[700] text-ink"
+          className="line-clamp-3 min-w-0 flex-1 basis-[16rem] text-[1.06rem] leading-snug font-[700] break-words text-ink"
         >
           “{(p.title || p.text).trim()}”
         </h3>
